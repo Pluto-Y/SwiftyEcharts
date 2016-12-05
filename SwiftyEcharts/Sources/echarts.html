@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- import echarts.js -->
+    <script src="js/echarts.min.js"></script>
+    <script type="text/javascript">
+        var option;
+        var myChart;
+        var ecConfig;
+        
+        // Json string to object
+        function preTask(obj) {
+            var result;
+            if(typeof(obj) == 'object') {
+                if(obj instanceof Array) {
+                    result = new Array();
+                    for (var i = 0, len = obj.length; i < len ; i++) {
+                        result.push(preTask(obj[i]));
+                    }
+                    return result;
+                } else if(obj instanceof RegExp){
+                    return obj;
+                } else {
+                    result = new Object();
+                    for (var prop in obj) {
+                        result[prop] = preTask(obj[prop]);
+                    }
+                    return result;
+                }
+            } else if(typeof(obj) == 'string'){
+                try {
+                    if(typeof(eval(obj)) == 'function'){
+                        return eval(obj);
+                    } else if (typeof(eval(obj) == 'object') && (eval(obj) instanceof Array || eval(obj) instanceof CanvasGradient)) {
+                        return eval(obj);
+                    }
+                }catch(e) {
+                    return obj;
+                }
+                return obj;
+            } else {
+                return obj;
+            }
+        }
+    
+        // Resize the div
+        function resizeDiv(cssText) {
+            var divMain = document.getElementById("main");
+            divMain.style.cssText = cssText;
+        }
+    
+        // Initialized the echarts view
+        function initEchartView(initParams) {
+            if (initParams == null || initParams == 'undefined') {
+                myChart = echarts.init(document.getElementById('main'));
+            } else {
+                myChart = echarts.init(document.getElementById('main'), initParams);
+            }
+        }
+
+        // Load the echarts view for the option and initParams
+        function loadEcharts(echartJson, initParams){
+           //alert('init params : ' + JSON.stringify(echartJson));
+            initEchartView(initParams);
+            //alert('myChart:'+ myChart);
+            option = preTask(echartJson);
+            //alert('option:'+ option);
+            myChart.setOption(option);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="main" style="width: 600px;height:400px;background:blue;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

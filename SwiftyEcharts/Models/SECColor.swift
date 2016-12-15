@@ -21,6 +21,7 @@ public enum SECColor: CustomStringConvertible {
     case rgba(Int, Int, Int, Float)
     case rgb(Int, Int, Int)
     case hexColor(String)
+    case array([SECColor])
     case red, blue, green, transparent
     
     public var description: String {
@@ -39,6 +40,14 @@ public enum SECColor: CustomStringConvertible {
             return "green"
         case .transparent:
             return "transparent"
+        case let .array(colors):
+            var result = "["
+            for color in colors {
+                result += color.description + ","
+            }
+            result = result.substringFromIndex(result.endIndex.predecessor())
+            result += "]"
+            return result
         }
     }
 }

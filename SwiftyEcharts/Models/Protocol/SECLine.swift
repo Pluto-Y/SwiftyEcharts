@@ -40,3 +40,13 @@ public struct SECLineStyle: SECShadowable, SECColorful {
 public protocol SECLine {
     var lineStyle: SECLineStyle? { get set }
 }
+
+/// 分割线
+public struct SECSplitLine: SECDisplayable, SECLine {
+    /// 是否显示分隔线。
+    public var show: Bool = true
+    /// 分隔线的显示间隔
+    public var interval: UInt?
+    /// 分割线的样式
+    public var lineStyle: SECLineStyle?
+}

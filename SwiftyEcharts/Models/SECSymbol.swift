@@ -8,6 +8,7 @@
 
 // FIXME: 添加注释
 public enum SECSymbol: CustomStringConvertible {
+    case emptyCircle
     case circle
     case rect
     case roundRect
@@ -20,6 +21,8 @@ public enum SECSymbol: CustomStringConvertible {
     
     public var description: String {
         switch self {
+        case .emptyCircle:
+            return "emptyCircle"
         case .circle:
             return "circle"
         case .rect:
@@ -40,4 +43,11 @@ public enum SECSymbol: CustomStringConvertible {
             return path
         }
     }
+}
+
+public protocol SECSymbolized {
+    var symbol: SECSymbol? { get set }
+    var symbolSize: Float? { get set }
+    var symbolRotate: Float? { get set }
+    var symbolOffset: [Float]? { get set }
 }

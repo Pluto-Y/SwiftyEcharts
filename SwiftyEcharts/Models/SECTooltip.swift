@@ -31,7 +31,7 @@ public enum SECTrigger: String {
 }
 
 /// 提示框组件
-public struct SECTooltip: SECDisplayable, SECFormatted, CustomStringConvertible {
+public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, CustomStringConvertible {
     
     /// 提示框浮层的位置
     ///
@@ -101,7 +101,7 @@ public struct SECTooltip: SECDisplayable, SECFormatted, CustomStringConvertible 
         }
         
         /// 阴影提示器样式
-        public struct ShadowStyle: SECShadowable, SECColorful {
+        public struct ShadowStyle: SECShadowable, SECColorful, SECOpacitable {
             
             /// 填充的颜色
             public var color: SECColor? = SECColor.rgba(150, 150, 150, 0.3)
@@ -111,7 +111,11 @@ public struct SECTooltip: SECDisplayable, SECFormatted, CustomStringConvertible 
             public var shadowOffsetX: Float? = 0
             public var shadowOffsetY: Float? = 0
             
-            public var opacity: Float?
+            public var opacity: Float? {
+                didSet {
+                    validateOpacity()
+                }
+            }
         }
         
         /// 指示器类型
@@ -205,9 +209,9 @@ public struct SECTooltip: SECDisplayable, SECFormatted, CustomStringConvertible 
     /// 提示框浮层的背景颜色。
     public var backgroundColor = SECColor.rgba(50, 50, 50, 0.7)
     /// 提示框浮层的边框颜色
-    public var borderColor = SECColor.hexColor("#333")
+    public var borderColor: SECColor? = SECColor.hexColor("#333")
     /// 提示框浮层的边框宽。
-    public var borderWidth = 0.0
+    public var borderWidth: Float = 0.0
     /// 提示框浮层内边距
     public var padding = SECPadding.all(5)
     /// 提示框浮层的文本样式。

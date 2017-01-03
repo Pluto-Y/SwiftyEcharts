@@ -87,7 +87,7 @@ public enum SECPosition: CustomStringConvertible {
 
 /// 标题组件，包含主标题和副标题。
 /// 在 ECharts 2.x 中单个 ECharts 实例最多只能拥有一个标题组件。但是在 ECharts 3 中可以存在任意多个标题组件，这在需要标题进行排版，或者单个实例中的多个图表都需要标题时会比较有用。
-public struct SECTitle: SECDisplayable, SECTextful, CustomStringConvertible {
+public struct SECTitle: SECBorderable, SECDisplayable, SECTextful, CustomStringConvertible {
     /// 是否显示标题组件
     public var show = true
     /// 主标题文本，支持使用 \n 换。
@@ -132,9 +132,9 @@ public struct SECTitle: SECDisplayable, SECTextful, CustomStringConvertible {
     /// 标题背景色，默认透明。
     public var backgroundColor = SECColor.transparent
     /// 标题的边框颜色。支持的颜色格式同 backgroundColor。
-    public var borderColor = SECColor.hexColor("#ccc")
+    public var borderColor: SECColor? = SECColor.hexColor("#ccc")
     /// 标题的边框线宽。
-    public var borderWidth = 0.0
+    public var borderWidth: Float = 0.0
     /// 图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
     /// 注意：此配置项生效的前提是，设置了 show: true 以及值不为 tranparent 的背景色 backgroundColor。
     public var shadowBlur: Float = 0.0

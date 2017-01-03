@@ -19,7 +19,7 @@ public enum SECLineType: String {
 
 
 /// 线条样式
-public struct SECLineStyle: SECShadowable, SECColorful {
+public struct SECLineStyle: SECShadowable, SECColorful, SECOpacitable, CustomStringConvertible {
     /// 线的颜色。
     public var color: SECColor?
     /// 线宽。
@@ -27,13 +27,21 @@ public struct SECLineStyle: SECShadowable, SECColorful {
     /// 线的类型。
     public var type: SECLineType?
     /// 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
-    public var opacity: Float?
+    public var opacity: Float? {
+        didSet {
+            validateOpacity()
+        }
+    }
     
     // MARK: - SECShadowable
     public var shadowBlur: Float?
     public var shadowColor: SECColor?
     public var shadowOffsetX: Float?
     public var shadowOffsetY: Float?
+    
+    public var description: String {
+        return ""
+    }
     
 }
 
@@ -42,11 +50,15 @@ public protocol SECLine {
 }
 
 /// 分割线
-public struct SECSplitLine: SECDisplayable, SECLine {
+public struct SECSplitLine: SECDisplayable, SECLine, CustomStringConvertible {
     /// 是否显示分隔线。
     public var show: Bool = true
     /// 分隔线的显示间隔
     public var interval: UInt?
     /// 分割线的样式
     public var lineStyle: SECLineStyle?
+    
+    public var description: String {
+        return ""
+    }
 }

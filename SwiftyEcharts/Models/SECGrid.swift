@@ -8,7 +8,7 @@
 
 /// 直角坐标系内绘图网格，单个 grid 内最多可以放置上下两个 X 轴，左右两个 Y 轴。可以在网格上绘制折线图，柱状图，散点图（气泡图）。
 /// 在 ECharts 2.x 里单个 echarts 实例中最多只能存在一个 grid 组件，在 ECharts 3 中可以存在任意个 grid 组件。
-public struct SECGrid: SECDisplayable, SECShadowable, CustomStringConvertible {
+public struct SECGrid: SECBorderable, SECDisplayable, SECShadowable, CustomStringConvertible {
     /// 是否显示直角坐标系网格。
     public var show: Bool = false
     /// 所有图形的 zlevel 值。
@@ -37,10 +37,10 @@ public struct SECGrid: SECDisplayable, SECShadowable, CustomStringConvertible {
     public var background = SECColor.transparent
     /// 网格的边框颜色。支持的颜色格式同 backgroundColor。
     /// - Note: 注意：此配置项生效的前提是，设置了 show: true。
-    public var borderColor = SECColor.hexColor("#ccc")
+    public var borderColor: SECColor? = SECColor.hexColor("#ccc")
     /// 网格的边框线宽。
     /// - Note:  注意：此配置项生效的前提是，设置了 show: true。
-    public var borderWidth = 1.0
+    public var borderWidth: Float = 1.0
     
     /// 图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
     /// 注意：此配置项生效的前提是，设置了 show: true 以及值不为 tranparent 的背景色 backgroundColor。

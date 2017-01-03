@@ -45,8 +45,19 @@ extension SECLineSeries {
 }
 
 extension SECLineSeries {
-    public struct Data {
+    public struct Data: SECSymbolized {
+        public struct Label {
+            public var normalr: SECCommonLabelStyle?
+        }
         
+        public var name: String?
+        public var value: Float?
+        public var symbol: SECSymbol?
+        public var symbolSize: Float?
+        public var symbolRotate: Float?
+        public var symbolOffset: [Float]?
+        public var label: Label?
+        public var itemStyle: SECItemStyle?
     }
 }
 

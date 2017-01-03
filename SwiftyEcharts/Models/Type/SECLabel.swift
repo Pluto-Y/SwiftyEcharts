@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECLabelStyle: CustomStringConvertible, SECDisplayable, SECTextful {
+public protocol SECLabelStyle: SECDisplayable, SECTextful, CustomStringConvertible {
     
     var posistion: SECPosition? { get set }
 }

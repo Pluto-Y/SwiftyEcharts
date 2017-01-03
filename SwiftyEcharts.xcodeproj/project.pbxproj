@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4CFF7B5878B18560CCB66CBE /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF455018FD12B4A1C1A1050D /* Pods_SwiftyEchartsTest_iOS.framework */; };
+		54BA6E231E1B76B100CD7AA6 /* SECSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */; };
+		54BA6E251E1B798100CD7AA6 /* SECLineSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E241E1B798100CD7AA6 /* SECLineSeries.swift */; };
 		6F1325701D9312A90006F114 /* SwiftyEcharts.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F13256F1D9312A90006F114 /* SwiftyEcharts.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F1FDA8D1DF5D286004BC74E /* SECSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1FDA8C1DF5D286004BC74E /* SECSymbol.swift */; };
 		6F1FDA8F1DF5D6E9004BC74E /* SECGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1FDA8E1DF5D6E9004BC74E /* SECGrid.swift */; };
@@ -76,6 +78,8 @@
 /* Begin PBXFileReference section */
 		138809570EA8D0B6AB457147 /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		2E357625CAA9692CDE7F5561 /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSeries.swift; sourceTree = "<group>"; };
+		54BA6E241E1B798100CD7AA6 /* SECLineSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLineSeries.swift; sourceTree = "<group>"; };
 		6F13256C1D9312A90006F114 /* SwiftyEcharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyEcharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F13256F1D9312A90006F114 /* SwiftyEcharts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyEcharts.h; sourceTree = "<group>"; };
 		6F1325711D9312A90006F114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +141,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54BA6E211E1B76A700CD7AA6 /* Series */ = {
+			isa = PBXGroup;
+			children = (
+				54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */,
+				54BA6E241E1B798100CD7AA6 /* SECLineSeries.swift */,
+			);
+			path = Series;
+			sourceTree = "<group>";
+		};
 		6F1325621D9312A90006F114 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +225,7 @@
 		6FB48CA11DEE953000137D13 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				54BA6E211E1B76A700CD7AA6 /* Series */,
 				6FB48CC21DEF358C00137D13 /* Protocol */,
 				6FB48CA21DEE953000137D13 /* SECTitle.swift */,
 				6FB48CA41DEE95B700137D13 /* SECText.swift */,
@@ -469,6 +483,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54BA6E231E1B76B100CD7AA6 /* SECSeries.swift in Sources */,
+				54BA6E251E1B798100CD7AA6 /* SECLineSeries.swift in Sources */,
 				6FB48CBC1DEEFCE100137D13 /* SECTitle.swift in Sources */,
 				6FB48CBD1DEEFCE100137D13 /* SECText.swift in Sources */,
 				6FB48CBE1DEEFCE100137D13 /* SECColor.swift in Sources */,

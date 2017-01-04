@@ -48,13 +48,16 @@ class SECJsonableSpec: QuickSpec {
                 let optionalNone: String? = nil
                 let arr: [Any?] = [1, true, 3.4, "Hello", optionalValue, optionalNone]
                 
-                let arrJson = arr.toJson()
-                    .stringByReplacingOccurrencesOfString("\n", withString: "")
-                    .stringByReplacingOccurrencesOfString(" ", withString: "")
-                print("arr.toJson:\(arrJson)")
-                expect(arr.toJson()
-                    .stringByReplacingOccurrencesOfString("\n", withString: "")
-                    .stringByReplacingOccurrencesOfString(" ", withString: "")).to(equal("[1,true,3.4,\"Hello\",6.5,null]"))
+                expect(arr.toJson()).to(equal("[\n1,\ntrue,\n3.4,\n\"Hello\",\n6.5,\nnull\n]"))
+            }
+            
+            it("needs to check the dictionary") {
+                let optionalValue: Float? = 6.5
+                let optionalNone: String? = nil
+                let childrenNames: [String?] = ["San Zhang", "Wu Zhao", nil]
+                let dic: [String: Any?] = ["age": 5, "childrenNames": childrenNames, "moneyCount": optionalValue, "name": "Si Li", "wifeName": optionalNone, "height": 164.5]
+                
+                expect(dic.toJson()).to(equal("{\n\"age\":5,\n\"childrenNames\":[\n\"San Zhang\",\"Wu Zhao\",null\n],\n\"height\":164.5,\n\"moneyCount\":6.5,\n\"name\":\"Si Li\",\n\"wifeName\":null\n}"))
             }
         }
     }

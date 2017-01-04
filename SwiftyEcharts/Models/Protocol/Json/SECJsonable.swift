@@ -53,31 +53,42 @@ extension Optional: SECJsonable {
 
 extension Array: SECJsonable {
     public func toJson() -> String {
-        var jsonStr = "[ \n"
+        var jsonStr = "[\n"
         for item in self {
             if let i = item as? SECJsonable {
                 jsonStr += "\(i.toJson()),\n"
             } else {
                 jsonStr += "\(item),\n"
             }
-            
         }
         jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
         jsonStr += "\n]"
         return jsonStr
     }
 }
+
 extension Dictionary: SECJsonable {
     public func toJson() -> String {
-        var jsonStr = "{ \n"
-        for (key, value) in self {
+        var jsonStr = "{\n"
+        
+        let sortedKeys = Array(self.keys).sort { String($0) < String($1) }
+
+        for key in sortedKeys {
+            print("-------------\(key)")
+            let value = self[key]!
             if let v = value as? SECJsonable {
-                jsonStr += "\"\(key)\": \(v.toJson()),\n"
+                if v is Array {
+                    jsonStr += "\"\(key)\":\((v as! Array).toJson()),\n"
+                } else if let dic = v as? Dictionary {
+                    jsonStr += "\"\(key)\":\(dic.toJson()),\n"
+                } else {
+                    jsonStr += "\"\(key)\":\(v.toJson()),\n"
+                }
             } else {
-                jsonStr += "\"\(key)\": \(value),\n"
+                jsonStr += "\"\(key)\":\(value),\n"
             }
-            
         }
+        
         jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
         jsonStr += "\n}"
         return jsonStr

@@ -15,7 +15,7 @@ public extension SECJsonable {
         return self.description
     }
     
-    public func toJson() -> String {
+    internal func toJson() -> String {
         return self.jsonString
     }
 }
@@ -82,13 +82,7 @@ extension Dictionary: SECJsonable {
             let value = self[key]!
             jsonStr += "\"\(key)\":"
             if let v = value as? SECJsonable {
-                if let arr = v as? Array<Any> {
-                   jsonStr += "\(arr.toJson())"
-                } else if let dic = v as? Dictionary {
-                    jsonStr += "\(dic.toJson())"
-                } else {
-                    jsonStr += "\(v.toJson())"
-                }
+                jsonStr += "\(v.toJson())"
             } else {
                 jsonStr += "\(value)"
             }

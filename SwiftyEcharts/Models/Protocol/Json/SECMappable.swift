@@ -6,14 +6,15 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECMappable {
+public protocol SECMappable: SECJsonable {
     var mapDic: [String: SECJsonable] { get set }
     func mapping()
 }
 
 extension SECMappable {
-    public func mappingJson() -> String {
-        return mapDic.toJson()
+    public var jsonString: String {
+        mapping()
+        return mapDic.jsonString
     }
 }
 

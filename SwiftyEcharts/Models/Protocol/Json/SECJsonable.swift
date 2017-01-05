@@ -7,12 +7,16 @@
 //
 
 public protocol SECJsonable: CustomStringConvertible {
-    
+    var jsonString: String { get }
 }
 
 public extension SECJsonable {
-    public func toJson() -> String {
+    var jsonString: String {
         return self.description
+    }
+    
+    public func toJson() -> String {
+        return self.jsonString
     }
 }
 
@@ -52,14 +56,15 @@ extension Optional: SECJsonable {
 }
 
 extension Array: SECJsonable {
-    public func toJson() -> String {
+    public var jsonString: String {
         var jsonStr = "[\n"
         for item in self {
             if let i = item as? SECJsonable {
-                jsonStr += "\(i.toJson()),\n"
+                jsonStr += "\(i.toJson())"
             } else {
-                jsonStr += "\(item),\n"
+                jsonStr += "\(item)"
             }
+            jsonStr += ",\n"
         }
         jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
         jsonStr += "\n]"
@@ -68,25 +73,26 @@ extension Array: SECJsonable {
 }
 
 extension Dictionary: SECJsonable {
-    public func toJson() -> String {
+    public var jsonString: String {
         var jsonStr = "{\n"
         
         let sortedKeys = Array(self.keys).sort { String($0) < String($1) }
 
         for key in sortedKeys {
-            print("-------------\(key)")
             let value = self[key]!
+            jsonStr += "\"\(key)\":"
             if let v = value as? SECJsonable {
-                if v is Array {
-                    jsonStr += "\"\(key)\":\((v as! Array).toJson()),\n"
+                if let arr = v as? Array<Any> {
+                   jsonStr += "\(arr.toJson())"
                 } else if let dic = v as? Dictionary {
-                    jsonStr += "\"\(key)\":\(dic.toJson()),\n"
+                    jsonStr += "\(dic.toJson())"
                 } else {
-                    jsonStr += "\"\(key)\":\(v.toJson()),\n"
+                    jsonStr += "\(v.toJson())"
                 }
             } else {
-                jsonStr += "\"\(key)\":\(value),\n"
+                jsonStr += "\(value)"
             }
+            jsonStr += ",\n"
         }
         
         jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())

@@ -57,8 +57,9 @@ class SECJsonableSpec: QuickSpec {
                 let childrenNames: [String?] = ["San Zhang", "Wu Zhao", nil]
                 let dic: [String: Any?] = ["age": 5, "childrenNames": childrenNames, "moneyCount": optionalValue, "name": "Si Li", "wifeName": optionalNone, "height": 164.5]
                 
-                expect(dic.toJson()).to(equal("{\n\"age\":5,\n\"childrenNames\":[\n\"San Zhang\",\"Wu Zhao\",null\n],\n\"height\":164.5,\n\"moneyCount\":6.5,\n\"name\":\"Si Li\",\n\"wifeName\":null\n}"))
+                expect(dic.toJson()).to(equal("{\n\"age\":5,\n\"childrenNames\":\(childrenNames.toJson()),\n\"height\":164.5,\n\"moneyCount\":6.5,\n\"name\":\"Si Li\",\n\"wifeName\":null\n}"))
             }
+            
         }
     }
     

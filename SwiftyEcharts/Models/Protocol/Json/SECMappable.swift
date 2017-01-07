@@ -6,20 +6,29 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+private var mapDicKey: Void?
 public protocol SECMappable: SECJsonable {
-    var mapDic: [String: SECJsonable] { get set }
-    func mapping()
+    func mapping(inout map: [String: SECJsonable])
 }
 
 extension SECMappable {
+
     public var jsonString: String {
-        mapping()
+        var mapDic = [String: SECJsonable]()
+        print("Before:\(mapDic)")
+        mapping(&mapDic)
+        print("After:\(mapDic)")
         return mapDic.jsonString
     }
+    
 }
 
-public func > (value: Any?, inout dicValue: SECJsonable) {
+infix operator /> { associativity left precedence 160 }
+
+public func /> (value: Any?, dicValue: SECJsonable) -> Any?{
+    var dicValue = dicValue
     if let v = value where v is SECJsonable {
         dicValue = v as! SECJsonable
     }
+    return value
 }

@@ -24,11 +24,7 @@ class SECMappableSpec: QuickSpec {
         var stringVar: String = ""
         var stringOpt: String?
         
-        var description: String {
-            return ""
-        }
-        
-        func mapping(inout map: [String: SECJsonable]) {
+        func mapping(inout map: SECMap) {
             map["boolVar"] = boolVar
             map["boolOpt"] = boolOpt
             map["intVar"] = intVar
@@ -57,9 +53,15 @@ class SECMappableSpec: QuickSpec {
                 mappableStruct.floatOpt = nil
                 mappableStruct.stringVar = "Pluto"
                 mappableStruct.stringOpt = nil
+                SECMap.ignoreNil = true
                 expect(mappableStruct.jsonString).to(equal("{\n\"boolVar\":false,\n\"doubleOpt\":11.0,\n\"doubleVar\":10.0,\n\"floatVar\":3.14,\n\"intOpt\":12,\n\"intVar\":10,\n\"stringVar\":\"Pluto\"\n}"))
+                SECMap.ignoreNil = false
+                expect(mappableStruct.jsonString).to(equal("{\n\"boolOpt\":null,\n\"boolVar\":false,\n\"doubleOpt\":11.0,\n\"doubleVar\":10.0,\n\"floatOpt\":null,\n\"floatVar\":3.14,\n\"intOpt\":12,\n\"intVar\":10,\n\"stringOpt\":null,\n\"stringVar\":\"Pluto\"\n}"))
             }
         }
+        
+        //{"boolOpt":null,"boolVar":false,"doubleOpt":11.0,"doubleVar":10.0,"floatOpt":null,"floatVar":3.14,"intOpt":12,"intVar":10,"stringOpt":null,"stringVar":"Pluto"}
+        //{"boolOpt":null,"boolVar":false,"doubleOpt":11.0,"doubleVar":10.0,"floatOpt":null,"floatVar":3.14,"intOpt":12,"intVar":10,"stringOpt":null,"stringVar":"Pluto"}
     }
     
 }

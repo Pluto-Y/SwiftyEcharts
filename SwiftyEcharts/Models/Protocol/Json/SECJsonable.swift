@@ -6,13 +6,13 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECJsonable: CustomStringConvertible {
+public protocol SECJsonable{
     var jsonString: String { get }
 }
 
 public extension SECJsonable {
     var jsonString: String {
-        return self.description
+        return "\(self)"
     }
     
     internal func toJson() -> String {
@@ -35,13 +35,13 @@ extension Double: SECJsonable {}
 extension Float: SECJsonable {}
 
 extension String: SECJsonable {
-    public var description: String {
+    public var jsonString: String {
         return "\"\(self)\""
     }
 }
 
 extension Optional: SECJsonable {
-    public var description: String {
+    public var jsonString: String {
         switch self {
         case .None:
             return "null"

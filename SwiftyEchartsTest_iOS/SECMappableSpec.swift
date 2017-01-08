@@ -29,7 +29,7 @@ class SECMappableSpec: QuickSpec {
         }
         
         func mapping(inout map: [String: SECJsonable]) {
-            map["boolValue"] = boolVar
+            map["boolVar"] = boolVar
             map["boolOpt"] = boolOpt
             map["intVar"] = intVar
             map["intOpt"] = intOpt
@@ -57,7 +57,7 @@ class SECMappableSpec: QuickSpec {
                 mappableStruct.floatOpt = nil
                 mappableStruct.stringVar = "Pluto"
                 mappableStruct.stringOpt = nil
-                print("-----------------------\(mappableStruct.jsonString)")
+                expect(mappableStruct.jsonString).to(equal("{\n\"boolVar\":false,\n\"doubleOpt\":11.0,\n\"doubleVar\":10.0,\n\"floatVar\":3.14,\n\"intOpt\":12,\n\"intVar\":10,\n\"stringVar\":\"Pluto\"\n}"))
             }
         }
     }

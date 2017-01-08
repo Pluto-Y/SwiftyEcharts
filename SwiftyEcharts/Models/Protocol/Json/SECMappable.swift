@@ -15,9 +15,7 @@ extension SECMappable {
 
     public var jsonString: String {
         var mapDic = [String: SECJsonable]()
-        print("Before:\(mapDic)")
         mapping(&mapDic)
-        print("After:\(mapDic)")
         return mapDic.jsonString
     }
     

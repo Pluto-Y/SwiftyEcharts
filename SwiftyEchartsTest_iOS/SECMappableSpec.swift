@@ -13,24 +13,32 @@ import SwiftyEcharts
 class SECMappableSpec: QuickSpec {
     
     struct MappableStructTest: SECMappable {
-        var boolVar: Bool?
+        var boolVar: Bool = false
+        var boolOpt: Bool?
         var intVar: Int = 0
+        var intOpt: Int?
         var doubleVar: Double = 0.0
-        var floatVar: Float?
+        var doubleOpt: Double?
+        var floatVar = 0.0
+        var floatOpt: Float?
         var stringVar: String = ""
+        var stringOpt: String?
         
         var description: String {
             return ""
         }
         
         func mapping(inout map: [String: SECJsonable]) {
-            var map = map
-            boolVar  /> map["boolValue"]
-            intVar  /> map["intVar"]
-            doubleVar  /> map["doubleVar"]
-            floatVar  /> map["floatVar"]
-            stringVar  /> map["stringVar"]
-            print("After:\(map)")
+            map["boolValue"] = boolVar
+            map["boolOpt"] = boolOpt
+            map["intVar"] = intVar
+            map["intOpt"] = intOpt
+            map["doubleVar"] = doubleVar
+            map["doubleOpt"] = doubleOpt
+            map["floatVar"] = floatVar
+            map["floatOpt"] = floatOpt
+            map["stringVar"] = stringVar
+            map["stringOpt"] = stringOpt
         }
     }
     
@@ -40,10 +48,15 @@ class SECMappableSpec: QuickSpec {
             it("need to check the sub-struct of mappable") {
                 var mappableStruct = MappableStructTest()
                 mappableStruct.boolVar = false
+                mappableStruct.boolOpt = nil
                 mappableStruct.intVar = 10
+                mappableStruct.intOpt = 12
                 mappableStruct.doubleVar = 10.0
-                mappableStruct.floatVar = nil
+                mappableStruct.doubleOpt = 11.0
+                mappableStruct.floatVar = 3.14
+                mappableStruct.floatOpt = nil
                 mappableStruct.stringVar = "Pluto"
+                mappableStruct.stringOpt = nil
                 print("-----------------------\(mappableStruct.jsonString)")
             }
         }

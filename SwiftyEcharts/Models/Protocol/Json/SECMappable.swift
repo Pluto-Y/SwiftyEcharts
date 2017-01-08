@@ -22,13 +22,3 @@ extension SECMappable {
     }
     
 }
-
-infix operator /> { associativity left precedence 160 }
-
-public func /> (value: Any?, dicValue: SECJsonable) -> Any?{
-    var dicValue = dicValue
-    if let v = value where v is SECJsonable {
-        dicValue = v as! SECJsonable
-    }
-    return value
-}

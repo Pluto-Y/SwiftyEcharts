@@ -95,6 +95,8 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, CustomStr
                 return textStyle
             }()
             
+            
+            public init() { }
             public var description: String {
                 return ""
             }
@@ -116,6 +118,8 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, CustomStr
                     validateOpacity()
                 }
             }
+            
+            public init() { }
         }
         
         /// 指示器类型
@@ -175,6 +179,8 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, CustomStr
         /// axisPointer.type 为 'shadow' 时有效。
         public var shadowStyle = ShadowStyle()
         
+        public init() { }
+        
         
         public var description: String { // TODO: 添加description
             return ""
@@ -223,7 +229,7 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, CustomStr
     /// 坐标轴指示器配置项，在 trigger 为 'axis' 时有效。
     public var axisPointer: AxisPointer?
     
-    
+    public init() { }
     
     public var description: String { // TODO: 添加description
         return ""

@@ -6,8 +6,6 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-import Foundation
-
 public struct SECOption {
     public var title: SECTitle?
     public var tooltip: SECTooltip?
@@ -17,6 +15,7 @@ public struct SECOption {
     public var grid: SECGrid?
     public var series: [SECLineSeries]?
     
+    public init() { }
 }
 
 extension SECOption: SECMappable {

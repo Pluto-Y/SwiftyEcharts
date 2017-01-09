@@ -75,6 +75,9 @@ public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowa
             textStyle.color = .red
             return textStyle
         }()
+        
+        public init() { }
+        
         public var description: String { // FIXME: 填写内容
             return ""
         }
@@ -167,6 +170,8 @@ public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowa
     public var shadowOffsetX: Float? = 0.0
     /// 注意：此配置项生效的前提是，设置了 show: `true`。
     public var shadowOffsetY: Float? = 0.0
+    
+    public init() { }
     
     public var description: String {
         return ""

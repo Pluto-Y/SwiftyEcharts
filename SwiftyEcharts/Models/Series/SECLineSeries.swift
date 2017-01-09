@@ -35,12 +35,16 @@ extension SECLineSeries {
 extension SECLineSeries {
     public struct LineStyle {
         public var normal: SECCommonLineStyleContent?
+        
+        public init() { }
     }
 }
 
 extension SECLineSeries {
     public struct  AreaStyle {
         public var normal: SECCommonAreaStyleContent?
+        
+        public init() { }
     }
 }
 
@@ -58,6 +62,8 @@ extension SECLineSeries {
         public var symbolOffset: [Float]?
         public var label: Label?
         public var itemStyle: SECItemStyle?
+        
+        public init() { }
     }
 }
 
@@ -93,6 +99,8 @@ public struct SECLineSeries: SECSeries, SECSymbolized {
     public var smoothMonotone: String? // FIXME: 具体类型？
     public var sampling: Sampling?
     public var data: [Data]?
+    
+    public init() { }
     
 }
 

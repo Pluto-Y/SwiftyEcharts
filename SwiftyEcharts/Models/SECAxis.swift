@@ -39,6 +39,8 @@ public struct SECAxisLine: SECDisplayable, SECLine, CustomStringConvertible {
         return lineStyle
     }()
     
+    public init() { }
+    
     public var description: String { // FIXME: 填写description
         return ""
     }
@@ -67,6 +69,7 @@ public struct SECAxisTick: SECLine, SECDisplayable, CustomStringConvertible {
     /// 刻度横线的样式
     public var lineStyle: SECLineStyle?
     
+    public init() { }
     
     public var description: String { // FIXME: 填写description
         return ""
@@ -92,6 +95,8 @@ public struct SECAxisLabel: SECTextful, SECDisplayable, SECFormatted, CustomStri
     /// 刻度标签文字样式
     public var textStyle: SECTextStyle?
     
+    public init() { }
+    
     public var description: String { // FIXME: 填写description
         return ""
     }
@@ -100,15 +105,11 @@ public struct SECAxisLabel: SECTextful, SECDisplayable, SECFormatted, CustomStri
 /// 分割区域
 public struct SECSplitArea: SECDisplayable, CustomStringConvertible {
     
-    public var show: Bool
+    public var show: Bool = false
     public var interval: UInt?
-    public var areaStyle: SECAreaStyle? = {
-        var areaStyle = SECAreaStyle()
-        areaStyle.color = SECColor.array([SECColor.rgba(250, 250, 250, 0.3), SECColor.rgba(200, 200, 200, 0.3)])
-        areaStyle.shadowOffsetX = 0
-        areaStyle.shadowOffsetY = 0
-        return areaStyle
-    }()
+    public var areaStyle: SECAreaStyle?
+    
+    public init() { }
     
     public var description: String { // FIXME: 填写description
         return ""
@@ -148,7 +149,7 @@ public struct SECAxis: CustomStringConvertible {
     ///     }, '周二', '周三', '周四', '周五', '周六', '周日']
     public struct Data: CustomStringConvertible {
         /// 单个类目名称。
-        public var value: String
+        public var value: String?
         /// 类目标签的文字样式。
         public var textStyle: SECTextStyle?
         
@@ -156,6 +157,8 @@ public struct SECAxis: CustomStringConvertible {
             self.value = value
             self.textStyle = textStyle
         }
+        
+        public init() { }
         
         public var description: String { // FIXME: 填写description
             return ""
@@ -259,6 +262,7 @@ public struct SECAxis: CustomStringConvertible {
     /// z相比zlevel优先级更低，而且不会创建新的 Canvas。
     public var z = 0
     
+    public init() { }
     
     public var description: String { // FIXME: 添加description
         return ""

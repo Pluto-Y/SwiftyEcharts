@@ -13,7 +13,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let option = SECOption()
+        SECMap.ignoreNil = true
+        let title = SECTitle()
+        print(title.jsonString)
     }
 
     override func didReceiveMemoryWarning() {

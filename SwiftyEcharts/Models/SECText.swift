@@ -47,6 +47,7 @@ public struct SECTextStyle: SECColorful {
     /// 文字的字体大小
     public var fontSize: UInt?
     
+    public init() { }
 }
 
 extension SECTextStyle: SECMappable {

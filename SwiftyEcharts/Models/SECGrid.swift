@@ -55,6 +55,7 @@ public struct SECGrid: SECBorderable, SECDisplayable, SECShadowable, CustomStrin
     /// 注意：此配置项生效的前提是，设置了 show: true。
     public var shadowOffsetY: Float? = 0.0
 
+    public init() { }
     
     public var description: String { // FIXME: 添加description
         return ""

@@ -97,11 +97,9 @@ public struct SECTitle: SECBorderable, SECDisplayable, SECTextful {
     /// 指定窗口打开主标题超链接。
     public var target = SECTarget.tblank
     /// 主标题文字样式
-    public var textStyle: SECTextStyle? = { // TODO: 添加默认的文字样式
-        
-    }()
+    public var textStyle: SECTextStyle? = nil
     /// 标题文本水平对齐
-    public var textAlign: SECAlign?
+    public var textAlign: SECAlign? = nil
     /// 标题文本垂直对齐
     public var textBaseline: SECTextBaseline?
     /// 副标题文本，支持使用 \n 换行
@@ -111,7 +109,7 @@ public struct SECTitle: SECBorderable, SECDisplayable, SECTextful {
     /// 指定窗口打开副标题超链接
     public var subtarget = SECTarget.tblank
     /// 副标题文字样式
-    public var subtextStyle: SECTextStyle
+    public var subtextStyle: SECTextStyle?
     /// 标题内边距
     public var padding = SECPadding.all(5.0)
     /// 主副标题之间的间距
@@ -148,6 +146,7 @@ public struct SECTitle: SECBorderable, SECDisplayable, SECTextful {
     /// 注意：此配置项生效的前提是，设置了 show: true。
     public var shadowOffsetY = 0.0
     
+    public init() { }
 }
 
 extension SECTitle: SECMappable {

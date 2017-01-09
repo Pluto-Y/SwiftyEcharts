@@ -46,8 +46,13 @@ extension String: SECJsonable {
     }
 }
 
-extension Optional: SECJsonable {
+extension Optional: CustomStringConvertible {
+    
     public var jsonString: String {
+        return description
+    }
+    
+    public var description: String {
         switch self {
         case .None:
             return "null"
@@ -67,6 +72,8 @@ extension Array: SECJsonable {
         for item in self {
             if let i = item as? SECJsonable {
                 jsonStr += "\(i.toJson())"
+            } else if let d = item as? CustomStringConvertible {
+                jsonStr += "\(d.description)"
             } else {
                 jsonStr += "\(item)"
             }
@@ -89,6 +96,8 @@ extension Dictionary: SECJsonable {
             jsonStr += "\"\(key)\":"
             if let v = value as? SECJsonable {
                 jsonStr += "\(v.toJson())"
+            } else if let d = value as? CustomStringConvertible {
+                jsonStr += "\(d.description)"
             } else {
                 jsonStr += "\(value)"
             }
@@ -100,5 +109,6 @@ extension Dictionary: SECJsonable {
         return jsonStr
     }
 }
+
 
 

@@ -10,7 +10,7 @@
 ///
 /// - horizontal: 水平
 /// - vertical: 垂直
-public enum SECOrient: String {
+public enum SECOrient: String, SECJsonable {
     case horizontal = "horizontal", vertical = "vertical"
 }
 
@@ -18,7 +18,7 @@ public enum SECOrient: String {
 ///
 /// - selectable: 设置成是否可选择
 /// - mode: 设置成单选或者多选
-public enum SECSelectedMode: CustomStringConvertible {
+public enum SECSelectedMode: CustomStringConvertible, SECJsonable {
     
     /// 单选或多选模式
     ///
@@ -47,7 +47,7 @@ public enum SECSelectedMode: CustomStringConvertible {
 /// 图例组件。
 /// 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
 /// ECharts 3 中单个 echarts 实例中可以存在多个图例组件，会方便多个图例的布局。
-public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowable, CustomStringConvertible {
+public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowable {
     
     /// 图例的数据数组。数组项通常为一个字符串，每一项代表一个系列的 `name`（如果是饼图，也可以是饼图单个数据的 `name`）。图例组件会自动获取对应系列的颜色，图形标记（symbol）作为自己绘制的颜色和标记，特殊字符串 `''`（空字符串）或者 `'\n'`（换行字符串）用于图例的换行。
     ///
@@ -64,7 +64,7 @@ public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowa
     ///                 color: 'red'
     ///             }
     ///         }]
-    public struct Data: CustomStringConvertible {
+    public struct Data {
         /// 图例项的名称，应等于某系列的`name`值（如果是饼图，也可以是饼图单个数据的`name`）。
         public var name: String?
         /// 图例项的 icon。
@@ -77,10 +77,6 @@ public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowa
         }()
         
         public init() { }
-        
-        public var description: String { // FIXME: 填写内容
-            return ""
-        }
     }
     
     public var show: Bool = true
@@ -173,7 +169,46 @@ public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowa
     
     public init() { }
     
-    public var description: String {
-        return ""
+}
+
+extension SECLegend.Data: SECMappable {
+    public func mapping(map: SECMap) {
+        map["name"] = name
+        map["icon"] = icon
+        map["textStyle"] = textStyle
+    }
+}
+
+extension SECLegend: SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["zlevel"] = zlevel
+        map["z"] = z
+        map["left"] = left
+        map["top"] = top
+        map["right"] = right
+        map["bottom"] = bottom
+        map["width"] = width
+        map["height"] = height
+        map["orient"] = orient
+        map["align"] = align
+        map["padding"] = padding
+        map["sitemGaphow"] = itemGap
+        map["itemWidth"] = itemWidth
+        map["itemHeight"] = itemHeight
+        map["formatter"] = formatter
+        map["selectedMode"] = selectedMode
+        map["inactiveColor"] = inactiveColor
+        map["selected"] = selected
+        map["textStyle"] = textStyle
+        map["tooltip"] = tooltip
+        map["datas"] = datas
+        map["backgroundColor"] = backgroundColor
+        map["borderColor"] = borderColor
+        map["borderWidth"] = borderWidth
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
     }
 }

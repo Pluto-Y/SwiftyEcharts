@@ -59,15 +59,19 @@ public protocol SECLine {
 }
 
 /// 分割线
-public struct SECSplitLine: SECDisplayable, SECLine, CustomStringConvertible {
+public struct SECSplitLine: SECDisplayable, SECLine {
     /// 是否显示分隔线。
     public var show: Bool = true
     /// 分隔线的显示间隔
     public var interval: UInt?
     /// 分割线的样式
     public var lineStyle: SECLineStyle?
-    
-    public var description: String {
-        return ""
+}
+
+extension SECSplitLine : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["interval"] = interval
+        map["lineStyle"] = lineStyle
     }
 }

@@ -15,7 +15,7 @@
 ///
 ///         boundaryGap: ['20%', '20%']
 
-public enum SECBoundaryGap: CustomStringConvertible {
+public enum SECBoundaryGap: CustomStringConvertible, SECJsonable {
     case category(Bool)
     case notCategory(Float, Float)
     
@@ -25,7 +25,7 @@ public enum SECBoundaryGap: CustomStringConvertible {
 }
 
 /// 坐标轴轴线相关设置。
-public struct SECAxisLine: SECDisplayable, SECLine, CustomStringConvertible {
+public struct SECAxisLine: SECDisplayable, SECLine {
     public var show: Bool = true
     /// X 轴或者 Y 轴的轴线是否在另一个轴的 0 刻度上，只有在另一个轴为数值轴且包含 0 刻度时有效。
     public var onZero = true
@@ -40,14 +40,19 @@ public struct SECAxisLine: SECDisplayable, SECLine, CustomStringConvertible {
     }()
     
     public init() { }
-    
-    public var description: String { // FIXME: 填写description
-        return ""
-    }
+
 }
 
+
+extension SECAxisLine : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["onZero"] = onZero
+        map["lineStyle"] = lineStyle
+    }
+}
 /// 坐标轴刻度相关设置。
-public struct SECAxisTick: SECLine, SECDisplayable, CustomStringConvertible {
+public struct SECAxisTick : SECLine, SECDisplayable {
     /// 是否显示坐标轴刻度。
     public var show: Bool = true
     /// 类目轴中在 boundaryGap 为 true 的时候有效，可以保证刻度线和标签对齐。
@@ -70,14 +75,22 @@ public struct SECAxisTick: SECLine, SECDisplayable, CustomStringConvertible {
     public var lineStyle: SECLineStyle?
     
     public init() { }
-    
-    public var description: String { // FIXME: 填写description
-        return ""
+
+}
+
+extension SECAxisTick : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["alignWithLabel"] = alignWithLabel
+        map["interval"] = interval
+        map["inside"] = inside
+        map["length"] = length
+        map["lineStyle"] = lineStyle
     }
 }
 
 /// 坐标轴刻度标签的相关设置。
-public struct SECAxisLabel: SECTextful, SECDisplayable, SECFormatted, CustomStringConvertible {
+public struct SECAxisLabel : SECTextful, SECDisplayable, SECFormatted {
     
     /// 是否显示刻度标签。
     public var show: Bool = true
@@ -96,28 +109,40 @@ public struct SECAxisLabel: SECTextful, SECDisplayable, SECFormatted, CustomStri
     public var textStyle: SECTextStyle?
     
     public init() { }
-    
-    public var description: String { // FIXME: 填写description
-        return ""
+}
+
+extension SECAxisLabel : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["interval"] = interval
+        map["inside"] = inside
+        map["rotate"] = rotate
+        map["margin"] = margin
+        map["formatter"] = formatter
+        map["textStyle"] = textStyle
     }
 }
 
 /// 分割区域
-public struct SECSplitArea: SECDisplayable, CustomStringConvertible {
+public struct SECSplitArea : SECDisplayable {
     
     public var show: Bool = false
     public var interval: UInt?
     public var areaStyle: SECAreaStyle?
     
     public init() { }
-    
-    public var description: String { // FIXME: 填写description
-        return ""
+}
+
+extension SECSplitArea : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["interval"] = interval
+        map["areaStyle"] = areaStyle
     }
 }
 
 /// 坐标轴的定义
-public struct SECAxis: CustomStringConvertible {
+public struct SECAxis {
     
     /// 坐标轴类型。
     ///
@@ -125,7 +150,7 @@ public struct SECAxis: CustomStringConvertible {
     /// - category: 类目轴，适用于离散的类目数据，为该类型时必须通过 data 设置类目数据。
     /// - time: 时间轴，适用于连续的时序数据，与数值轴相比时间轴带有时间的格式化，在刻度计算上也有所不同，例如会根据跨度的范围来决定使用月，星期，日还是小时范围的刻度。
     /// - log: 对数轴。适用于对数数据。
-    public enum Type: String {
+    public enum Type: String, SECJsonable {
         case value = "value"
         case category = "category"
         case time = "time"
@@ -147,7 +172,7 @@ public struct SECAxis: CustomStringConvertible {
     ///             color: 'red'
     ///         }
     ///     }, '周二', '周三', '周四', '周五', '周六', '周日']
-    public struct Data: CustomStringConvertible {
+    public struct Data {
         /// 单个类目名称。
         public var value: String?
         /// 类目标签的文字样式。
@@ -159,10 +184,6 @@ public struct SECAxis: CustomStringConvertible {
         }
         
         public init() { }
-        
-        public var description: String { // FIXME: 填写description
-            return ""
-        }
         
     }
     
@@ -264,7 +285,44 @@ public struct SECAxis: CustomStringConvertible {
     
     public init() { }
     
-    public var description: String { // FIXME: 添加description
-        return ""
+}
+
+extension SECAxis.Data : SECMappable {
+    public func mapping(map: SECMap) {
+        map["value"] = value
+        map["textStyle"] = textStyle
+    }
+}
+
+extension SECAxis: SECMappable {
+    public func mapping(map: SECMap) {
+        map["gridIndex"] = gridIndex
+        map["position"] = position
+        map["offset"] = offset
+        map["type"] = type
+        map["name"] = name
+        map["nameLocation"] = nameLocation
+        map["nameTextStyle"] = nameTextStyle
+        map["nameGap"] = nameGap
+        map["nameRotate"] = nameRotate
+        map["inverse"] = inverse
+        map["boundaryGap"] = boundaryGap
+        map["min"] = min
+        map["max"] = max
+        map["scale"] = scale
+        map["spliteNumber"] = spliteNumber
+        map["minInterval"] = minInterval
+        map["interval"] = interval
+        map["logBase"] = logBase
+        map["silent"] = silent
+        map["triggerEvent"] = triggerEvent
+        map["axisLine"] = axisLine
+        map["axisTick"] = axisTick
+        map["axisLabel"] = axisLabel
+        map["splitLine"] = splitLine
+        map["splitArea"] = splitArea
+        map["datas"] = datas
+        map["zlevel"] = zlevel
+        map["z"] = z
     }
 }

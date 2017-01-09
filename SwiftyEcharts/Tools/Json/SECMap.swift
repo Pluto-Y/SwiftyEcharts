@@ -6,8 +6,6 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-import Foundation
-
 
 public final class SECMap {
     public static var ignoreNil: Bool = false

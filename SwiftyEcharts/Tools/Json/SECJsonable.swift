@@ -20,6 +20,12 @@ public extension SECJsonable {
     }
 }
 
+public extension SECJsonable where Self: CustomStringConvertible {
+    var jsonString: String {
+        return self.description
+    }
+}
+
 extension Bool: SECJsonable {}
 extension Int: SECJsonable {}
 extension Int8: SECJsonable {}

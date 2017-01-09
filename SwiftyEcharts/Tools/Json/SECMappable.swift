@@ -7,14 +7,14 @@
 //
 
 public protocol SECMappable: SECJsonable {
-    func mapping(inout map: SECMap)
+    func mapping(map: SECMap)
 }
 
 extension SECMappable {
 
     public var jsonString: String {
-        var map = SECMap()
-        mapping(&map)
+        let map = SECMap()
+        mapping(map)
         return map.jsonString
     }
     

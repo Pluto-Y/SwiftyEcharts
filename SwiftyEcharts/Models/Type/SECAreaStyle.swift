@@ -6,25 +6,33 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECAreaStyleContent: SECColorful, SECShadowable, SECOpacitable, CustomStringConvertible {
+public protocol SECAreaStyleContent : SECColorful, SECShadowable, SECOpacitable {
 
 }
 
-public struct SECCommonAreaStyleContent: SECAreaStyleContent {
+public struct SECCommonAreaStyleContent : SECAreaStyleContent {
     public var color: SECColor?
     public var shadowBlur: Float?
     public var shadowColor: SECColor?
     public var shadowOffsetX: Float?
     public var shadowOffsetY: Float?
     public var opacity: Float?
-    
-    public var description: String {
-        return ""
+}
+
+extension SECCommonAreaStyleContent : SECMappable {
+    public func mapping(map: SECMap) {
+        map["color"] = color
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
+        map["opacity"] = opacity
     }
 }
 
+
 /// 分隔区域的样式设置。
-public struct SECAreaStyle: SECAreaStyleContent {
+public struct SECAreaStyle : SECAreaStyleContent {
     /// 分隔区域颜色。分隔区域会按数组中颜色的顺序依次循环设置颜色。默认是一个深浅的间隔色。
     public var color: SECColor? = SECColor.array([SECColor.rgba(250, 250, 250, 0.3), SECColor.rgba(200, 200, 200, 0.3)])
     /// 阴影设置
@@ -38,8 +46,15 @@ public struct SECAreaStyle: SECAreaStyleContent {
             validateOpacity()
         }
     }
-    
-    public var description: String {
-         return ""
+}
+
+extension SECAreaStyle : SECMappable {
+    public func mapping(map: SECMap) {
+        map["color"] = color
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
+        map["opacity"] = opacity
     }
 }

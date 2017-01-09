@@ -7,7 +7,7 @@
 //
 
 /// 指定窗口打开主标题超链接。
-public enum SECTarget: CustomStringConvertible {
+public enum SECTarget: SECJsonable, CustomStringConvertible {
     
     ///  当前窗口打开
     case tself
@@ -29,7 +29,7 @@ public enum SECTarget: CustomStringConvertible {
 /// - all: 所有
 /// - verticalAndHorizontal: 垂直和水平方向
 /// - trbl: 上右下左
-public enum SECPadding: CustomStringConvertible {
+public enum SECPadding: SECJsonable, CustomStringConvertible {
     case all(Float)
     case verticalAndHorizontal(Float, Float)
     case trbl(Float, Float, Float, Float)
@@ -56,7 +56,7 @@ public enum SECPadding: CustomStringConvertible {
 /// - bottom: 垂直：底部
 /// - value: 绝对位置
 /// - percent: 相对位置
-public enum SECPosition: CustomStringConvertible {
+public enum SECPosition: SECJsonable, CustomStringConvertible {
     case auto, left, center, right, top, middle, bottom
     case value(Float)
     case percent(Float)
@@ -87,7 +87,7 @@ public enum SECPosition: CustomStringConvertible {
 
 /// 标题组件，包含主标题和副标题。
 /// 在 ECharts 2.x 中单个 ECharts 实例最多只能拥有一个标题组件。但是在 ECharts 3 中可以存在任意多个标题组件，这在需要标题进行排版，或者单个实例中的多个图表都需要标题时会比较有用。
-public struct SECTitle: SECBorderable, SECDisplayable, SECTextful, CustomStringConvertible {
+public struct SECTitle: SECBorderable, SECDisplayable, SECTextful {
     /// 是否显示标题组件
     public var show = true
     /// 主标题文本，支持使用 \n 换。
@@ -148,7 +148,36 @@ public struct SECTitle: SECBorderable, SECDisplayable, SECTextful, CustomStringC
     /// 注意：此配置项生效的前提是，设置了 show: true。
     public var shadowOffsetY = 0.0
     
-    public var description: String {
-        return ""
+}
+
+extension SECTitle: SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["text"] = text
+        map["link"] = link
+        map["target"] = target
+        map["textStyle"] = textStyle
+        map["textAlign"] = textAlign
+        map["textBaseline"] = textBaseline
+        map["subtext"] = subtext
+        map["sublink"] = sublink
+        map["subtarget"] = subtarget
+        map["subtextStyle"] = subtextStyle
+        map["padding"] = padding
+        map["itemGap"] = itemGap
+        map["zlevel"] = zlevel
+        map["z"] = z
+        map["left"] = left
+        map["top"] = top
+        map["right"] = right
+        map["bottom"] = bottom
+        map["backgroundColor"] = backgroundColor
+        map["borderColor"] = borderColor
+        map["borderWidth"] = borderWidth
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
+        
     }
 }

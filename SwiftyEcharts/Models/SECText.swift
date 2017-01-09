@@ -49,6 +49,16 @@ public struct SECTextStyle: SECColorful {
     
 }
 
+extension SECTextStyle: SECMappable {
+    public func mapping(map: SECMap) {
+        map["color"] = color
+        map["fontStyle"] = fontStyle
+        map["fontWeight"] = fontWeight
+        map["fontFamily"] = fontFamily
+        map["fontSize"] = fontSize
+    }
+}
+
 public protocol SECTextful {
     var textStyle: SECTextStyle? { get set }
 }

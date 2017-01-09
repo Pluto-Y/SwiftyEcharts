@@ -17,7 +17,7 @@ public protocol SECColorful {
 /// - rgba: 以RGBA形式创建的颜色
 /// - rgb: 以RGB形式创建的颜色
 /// - hexColor: 以16进制字符串创建的颜色
-public enum SECColor: CustomStringConvertible {
+public enum SECColor: SECJsonable, CustomStringConvertible {
     case rgba(Int, Int, Int, Float)
     case rgb(Int, Int, Int)
     case hexColor(String)

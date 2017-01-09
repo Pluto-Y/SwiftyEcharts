@@ -13,8 +13,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-//        _ = SECEchartsView()
+        let option = SECOption()
     }
 
     override func didReceiveMemoryWarning() {

@@ -12,7 +12,7 @@
 /// - item: 数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
 /// - axis: 坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。
 /// - Note: 在 ECharts 2.x 中只支持类目轴上使用 axis trigger，在 ECharts 3 中支持在直角坐标系和极坐标系上的所有类型的轴。并且可以通过 axisPointer.axis 指定坐标轴。
-public enum SECTrigger: String {
+public enum SECTrigger: String, SECJsonable {
     case item = "item"
     case axis = "axis"
     
@@ -22,7 +22,7 @@ public enum SECTrigger: String {
     /// - click: 鼠标点击时触发
     /// - none: 不触发，用户可以通过 action.tooltip.showTip 和 action.tooltip.hideTip 来手动触发和隐藏。
     /// - Note: 该属性为 ECharts 3.0 中新加。
-    public enum TriggerOn: String {
+    public enum TriggerOn: String, SECJsonable {
         case mousemove = "mousemove"
         case click = "click"
         case none = "none"
@@ -31,7 +31,7 @@ public enum SECTrigger: String {
 }
 
 /// 提示框组件
-public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, CustomStringConvertible {
+public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonable {
     
     /// 提示框浮层的位置
     ///
@@ -42,7 +42,7 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, CustomStr
     /// - left: 鼠标所在图形左侧，只在 trigger 为'item'的时候有效。
     /// - right: 鼠标所在图形右侧，只在 trigger 为'item'的时候有效。
     /// - bottom: 鼠标所在图形底侧，只在 trigger 为'item'的时候有效。
-    public enum Position: CustomStringConvertible {
+    public enum Position: CustomStringConvertible, SECJsonable {
         case intArr(Int, Int)
         case percentArr(Float, Float)
 //        case f() // TODO: 缺少一个Function的形式
@@ -69,10 +69,10 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, CustomStr
     }
     
     /// 坐标轴指示器配置项
-    public struct AxisPointer: SECLine, CustomStringConvertible {
+    public struct AxisPointer: SECLine {
         
         /// 十字准星指示器样式
-        public struct CrossStyle: SECShadowable, SECColorful, CustomStringConvertible {
+        public struct CrossStyle: SECShadowable, SECColorful{
             /// 线的颜色
             public var color: SECColor? = SECColor.hexColor("#555")
             /// 线宽
@@ -97,9 +97,6 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, CustomStr
             
             
             public init() { }
-            public var description: String {
-                return ""
-            }
         }
         
         /// 阴影提示器样式
@@ -127,7 +124,7 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, CustomStr
         /// - line: 直线指示器
         /// - cross: 十字准星指示器
         /// - shadow: 阴影指示器
-        public enum Type: String {
+        public enum Type: String, SECJsonable {
             case line = "line", cross = "cross", shadow = "shadow"
         }
         
@@ -180,11 +177,6 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, CustomStr
         public var shadowStyle = ShadowStyle()
         
         public init() { }
-        
-        
-        public var description: String { // TODO: 添加description
-            return ""
-        }
     }
     
     /// 是否显示提示框组件，包括提示框浮层和 axisPointer。
@@ -230,8 +222,70 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, CustomStr
     public var axisPointer: AxisPointer?
     
     public init() { }
-    
-    public var description: String { // TODO: 添加description
-        return ""
+}
+
+extension SECTooltip.AxisPointer.ShadowStyle: SECMappable {
+    public func mapping(map: SECMap) {
+        map["color"] = color
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
+        map["opacity"] = opacity
+    }
+}
+
+extension SECTooltip.AxisPointer.CrossStyle: SECMappable {
+    public func mapping(map: SECMap) {
+        map["color"] = color
+        map["width"] = width
+        map["type"] = type
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
+        map["textStyle"] = textStyle
+    }
+}
+
+extension SECTooltip.AxisPointer: SECMappable {
+    public func mapping(map: SECMap) {
+        map["type"] = type
+        map["axis"] = axis
+        map["animation"] = animation
+        map["animationThreshold"] = animationThreshold
+        map["animationDuration"] = animationDuration
+        map["animationEasing"] = animationEasing
+        map["animationDelay"] = animationDelay
+        map["animationDurationUpdate"] = animationDurationUpdate
+        map["animationEasingUpdate"] = animationEasingUpdate
+        map["animationDelayUpdate"] = animationDelayUpdate
+        map["lineStyle"] = lineStyle
+        map["crossStyle"] = crossStyle
+        map["shadowStyle"] = shadowStyle
+    }
+}
+
+extension SECTooltip: SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["showContent"] = showContent
+        map["trigger"] = trigger
+        map["triggerOn"] = triggerOn
+        map["alwaysShowContent"] = alwaysShowContent
+        map["showDelay"] = showDelay
+        map["hideDelay"] = hideDelay
+        map["position"] = position
+        map["confine"] = confine
+        map["transitionDuration"] = transitionDuration
+        map["formatter"] = formatter
+        map["backgroundColor"] = backgroundColor
+        map["borderColor"] = borderColor
+        map["borderWidth"] = borderWidth
+        map["padding"] = padding
+        map["textStyle"] = textStyle
+        map["extraCssText"] = extraCssText
+        map["axisPointer"] = axisPointer
+        
     }
 }

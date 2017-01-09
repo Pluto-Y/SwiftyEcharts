@@ -13,13 +13,13 @@ import Foundation
 /// - solid: 实线
 /// - dashed: 虚线
 /// - dotted: 点线
-public enum SECLineType: String {
+public enum SECLineType: String, SECJsonable {
     case solid = "solid", dashed = "dashed", dotted = "dotted"
 }
 
 
 /// 线条样式
-public struct SECLineStyle: SECShadowable, SECColorful, SECOpacitable, CustomStringConvertible {
+public struct SECLineStyle: SECShadowable, SECColorful, SECOpacitable, SECJsonable {
     /// 线的颜色。
     public var color: SECColor?
     /// 线宽。
@@ -39,10 +39,19 @@ public struct SECLineStyle: SECShadowable, SECColorful, SECOpacitable, CustomStr
     public var shadowOffsetX: Float?
     public var shadowOffsetY: Float?
     
-    public var description: String {
-        return ""
+}
+
+extension SECLineStyle : SECMappable {
+    public func mapping(map: SECMap) {
+        map["color"] = color
+        map["width"] = width
+        map["type"] = type
+        map["opacity"] = opacity
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
     }
-    
 }
 
 public protocol SECLine {

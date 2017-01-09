@@ -20,9 +20,13 @@
 ///     '{b0}: {c0}<br />{b1}: {c1}'
 /// ## function:回调函数
 
-public enum SECFormatter { // FIXME: 封装关于Formatter
+public enum SECFormatter: SECJsonable { // FIXME: 封装关于Formatter
     case string()
     case function()
+    
+    public var jsonString: String {
+        return ""
+    }
 }
 
 public protocol SECFormatted {

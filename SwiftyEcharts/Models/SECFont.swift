@@ -9,7 +9,7 @@
 import Foundation
 
 /// 文字字体的风格
-public enum SECFontStyle: String, CustomStringConvertible{
+public enum SECFontStyle: String, SECJsonable, CustomStringConvertible{
     case normal = "normal"
     case italic = "italic"
     case oblique = "oblique"
@@ -21,7 +21,7 @@ public enum SECFontStyle: String, CustomStringConvertible{
 
 
 /// 文字字体的粗细
-public enum SECFontWeight: CustomStringConvertible {
+public enum SECFontWeight: SECJsonable, CustomStringConvertible {
     case normal
     case bold
     case bolder

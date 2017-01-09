@@ -15,7 +15,7 @@ import UIKit
 /// - left: 左边
 /// - right: 右边
 /// - center: 中间
-public enum SECAlign: String {
+public enum SECAlign: String, SECJsonable {
     case left = "left"
     case right = "right"
     case center = "center"
@@ -28,7 +28,7 @@ public enum SECAlign: String {
 /// - top: 顶部
 /// - middle: 中间
 /// - bottom: 底部
-public enum SECTextBaseline: String {
+public enum SECTextBaseline: String, SECJsonable {
     case top = "top"
     case middle = "middle"
     case bottom = "bottom"

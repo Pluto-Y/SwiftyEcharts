@@ -16,7 +16,10 @@ public final class SECMap {
     
     public subscript(key: String) -> SECJsonable? {
         get {
-            return mapDic[key]
+            if let value = mapDic[key] {
+                return value
+            }
+            return nil
         }
         set {
             mapDic[key] = newValue

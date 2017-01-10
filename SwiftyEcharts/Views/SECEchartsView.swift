@@ -9,6 +9,8 @@
 import UIKit
 
 public class SECEchartsView: UIWebView, UIWebViewDelegate {
+    
+    public var option: SECOption?
 
     public convenience init() {
         self.init(frame: CGRect.zero)
@@ -38,18 +40,19 @@ public class SECEchartsView: UIWebView, UIWebViewDelegate {
         
         let urlPath = bundle.pathForResource("echarts", ofType: "html")
         guard let path = urlPath else {
-            print("ERROR: Can not find the echarts.html, please contact the developer")
+            printError("ERROR: Can not find the echarts.html, please contact the developer")
             return
         }
         
         guard let htmlStr = try? String(contentsOfFile: path) else {
             return
         }
-        print("Info: the content of the echcart.html: \(htmlStr)")
+        printInfo("Info: the content of the echcart.html: \(htmlStr)")
         
         self.loadHTMLString(htmlStr, baseURL: NSURL(fileURLWithPath: path))
         
         delegate = self
+        scalesPageToFit = true
     }
     
     private func callJsMethod(jsString: String) {

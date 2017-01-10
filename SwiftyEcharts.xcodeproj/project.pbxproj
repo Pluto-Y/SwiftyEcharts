@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4CFF7B5878B18560CCB66CBE /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF455018FD12B4A1C1A1050D /* Pods_SwiftyEchartsTest_iOS.framework */; };
+		5435CCBE1E24990B00D753B2 /* SECUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435CCBD1E24990B00D753B2 /* SECUtilities.swift */; };
 		54BA6E231E1B76B100CD7AA6 /* SECSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */; };
 		54BA6E251E1B798100CD7AA6 /* SECLineSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E241E1B798100CD7AA6 /* SECLineSeries.swift */; };
 		54FEBE8F1E23480D0021CB13 /* SECJsonable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE8C1E23480D0021CB13 /* SECJsonable.swift */; };
@@ -92,6 +93,7 @@
 /* Begin PBXFileReference section */
 		138809570EA8D0B6AB457147 /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		2E357625CAA9692CDE7F5561 /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		5435CCBD1E24990B00D753B2 /* SECUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECUtilities.swift; sourceTree = "<group>"; };
 		54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSeries.swift; sourceTree = "<group>"; };
 		54BA6E241E1B798100CD7AA6 /* SECLineSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLineSeries.swift; sourceTree = "<group>"; };
 		54FEBE8C1E23480D0021CB13 /* SECJsonable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECJsonable.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				54FEBE8B1E23480D0021CB13 /* Json */,
+				5435CCBD1E24990B00D753B2 /* SECUtilities.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				6F4ACB3C1E1BF47B00CE5FD5 /* SECLabel.swift in Sources */,
 				6FB48CBD1DEEFCE100137D13 /* SECText.swift in Sources */,
 				6FB48CBE1DEEFCE100137D13 /* SECColor.swift in Sources */,
+				5435CCBE1E24990B00D753B2 /* SECUtilities.swift in Sources */,
 				6F4ACB421E1C00CA00CE5FD5 /* SECLineStyle.swift in Sources */,
 				54FEBE8F1E23480D0021CB13 /* SECJsonable.swift in Sources */,
 				6F4ACB441E1C023900CE5FD5 /* SECAreaStyle.swift in Sources */,

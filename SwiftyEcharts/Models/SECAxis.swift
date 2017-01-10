@@ -15,17 +15,13 @@
 ///
 ///         boundaryGap: ['20%', '20%']
 
-public enum SECBoundaryGap: CustomStringConvertible, SECJsonable {
+public enum SECBoundaryGap : SECJsonable {
     case category(Bool)
     case notCategory(Float, Float)
-    
-    public var description: String { // FIXME: 添加description
-        return ""
-    }
 }
 
 /// 坐标轴轴线相关设置。
-public struct SECAxisLine: SECDisplayable, SECLine {
+public struct SECAxisLine : SECDisplayable, SECLine {
     public var show: Bool = true
     /// X 轴或者 Y 轴的轴线是否在另一个轴的 0 刻度上，只有在另一个轴为数值轴且包含 0 刻度时有效。
     public var onZero = true
@@ -155,6 +151,10 @@ public struct SECAxis {
         case category = "category"
         case time = "time"
         case log = "log"
+        
+        public var jsonString: String {
+            return "\"\(self.rawValue)\""
+        }
     }
     
     /// 类目数据，在类目轴（type: 'category'）中有效。

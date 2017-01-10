@@ -39,6 +39,8 @@ public struct SECLineStyle: SECShadowable, SECColorful, SECOpacitable, SECJsonab
     public var shadowOffsetX: Float?
     public var shadowOffsetY: Float?
     
+    public init() { }
+    
 }
 
 extension SECLineStyle : SECMappable {
@@ -66,6 +68,8 @@ public struct SECSplitLine: SECDisplayable, SECLine {
     public var interval: UInt?
     /// 分割线的样式
     public var lineStyle: SECLineStyle?
+    
+    public init() { }
 }
 
 extension SECSplitLine : SECMappable {

@@ -14,15 +14,60 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SECMap.ignoreNil = true
-        let title = SECTitle()
-        print(title.jsonString)
+        var option = SECOption()
+        
+        var title = SECTitle()
+        title.text = "对数轴示例"
+        title.left = .center
+        option.title = title
+        
+        var tooltip = SECTooltip()
+        tooltip.trigger = .item
+        tooltip.formatter = .string("{a} <br/>{b} : {c}")
+        option.tooltip = tooltip
+        
+        var legend = SECLegend()
+        legend.left = .left
+        legend.datas = ["2的指数", "3的指数"]
+        option.legend = legend
+        
+        var xAxis = SECAxis()
+        xAxis.type = .category
+        xAxis.name = "x"
+        xAxis.splitLine = SECSplitLine()
+        xAxis.splitLine?.show = false
+        xAxis.datas = ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
+        option.xAxis = xAxis
+        
+        var  grid = SECGrid()
+        grid.left = .percent(3)
+        grid.right = .percent(4)
+        grid.bottom = .percent(3)
+        grid.containLabel = true
+        option.grid = grid
+        
+        var yAxis = SECAxis()
+        yAxis.type = .log
+        yAxis.name = "y"
+        option.yAxis = yAxis
+        
+        var serie1 = SECLineSeries()
+        serie1.name = "3的指数"
+        serie1.data = [1, 3, 9, 27, 81, 247, 741, 2223, 6669]
+        var serie2 = SECLineSeries()
+        serie2.name = "2的指数"
+        serie2.data = [1, 2, 4, 8, 16, 32, 64, 128, 256]
+        var serie3 = SECLineSeries()
+        serie3.name = "1/2的指数"
+        serie2.data = [1, 1/2.0, 1/4.0, 1/8.0, 1/16.0, 1/32.0, 1/64.0, 1/128.0, 1/256.0]
+        let series: [SECSeries]? = [serie1, serie2, serie3]
+        option.series = series
+        
+        print(option.jsonString)
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
 
 }
 

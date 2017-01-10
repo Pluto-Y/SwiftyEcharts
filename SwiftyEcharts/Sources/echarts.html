@@ -49,6 +49,7 @@
         function resizeDiv(cssText) {
             var divMain = document.getElementById("main");
             divMain.style.cssText = cssText;
+            alert(divMain.style.cssText);
         }
     
         // Initialized the echarts view
@@ -72,8 +73,8 @@
     </script>
 </head>
 
-<body>
-    <div id="main" style="width: 600px;height:400px;background:blue;"></div>
+<body style='margin:0px'>
+    <div id="main" style="width: 600px;height:400px;"></div>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));

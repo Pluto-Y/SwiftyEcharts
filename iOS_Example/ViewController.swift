@@ -11,6 +11,8 @@ import SwiftyEcharts
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var echartsView: SECEchartsView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         SECMap.ignoreNil = true
@@ -63,8 +65,14 @@ class ViewController: UIViewController {
         let series: [SECSeries]? = [serie1, serie2, serie3]
         option.series = series
         
-        print(option.jsonString)
+//        print(option.jsonString)
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+//        echartsView.option = option;
+        echartsView.loadEcharts()
     }
 
     

@@ -12,6 +12,10 @@
 /// - vertical: 垂直
 public enum SECOrient: String, SECJsonable {
     case horizontal = "horizontal", vertical = "vertical"
+    
+    public var jsonString: String {
+        return "\"\(self.rawValue)\""
+    }
 }
 
 /// 选择的模式
@@ -38,7 +42,7 @@ public enum SECSelectedMode: CustomStringConvertible, SECJsonable {
         case .selectable(false):
             return "false"
         case let .mode(mode):
-            return mode.rawValue
+            return "\"\(mode.rawValue)\""
         }
     }
     
@@ -152,7 +156,7 @@ public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowa
     ///     }
     public var tooltip: SECTooltip?
     /// 图例的数据数组。
-    public var datas: [Data]?
+    public var datas: [Any]?
     public var backgroundColor = SECColor.transparent
     public var borderColor: SECColor? = SECColor.hexColor("#ccc")
     public var borderWidth: Float = 1

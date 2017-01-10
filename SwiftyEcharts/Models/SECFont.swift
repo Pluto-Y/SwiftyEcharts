@@ -15,7 +15,7 @@ public enum SECFontStyle: String, SECJsonable, CustomStringConvertible{
     case oblique = "oblique"
     
     public var description: String {
-        return self.rawValue
+        return "\"\(self.rawValue)\""
     }
 }
 
@@ -39,7 +39,7 @@ public enum SECFontWeight: SECJsonable, CustomStringConvertible {
         case .lighter:
             return "lighter"
         case let .weight(weight):
-            return "\(weight)"
+            return "\"\(weight)\""
         }
     }
 }

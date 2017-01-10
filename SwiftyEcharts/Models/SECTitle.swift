@@ -17,9 +17,9 @@ public enum SECTarget: SECJsonable, CustomStringConvertible {
     public var description: String {
         switch self {
         case .tself:
-            return "self"
+            return "\"self\""
         case .tblank:
-            return "blank"
+            return "\"blank\""
         }
     }
 }
@@ -64,23 +64,23 @@ public enum SECPosition: SECJsonable, CustomStringConvertible {
     public var description: String {
         switch self {
         case .auto:
-            return "auto"
+            return "\"auto\""
         case .left:
-            return "left"
+            return "\"left\""
         case .right:
-            return "right"
+            return "\"right\""
         case .center:
-            return "center"
+            return "\"center\""
         case .top:
-            return "top"
+            return "\"top\""
         case .bottom:
-            return "bottom"
+            return "\"bottom\""
         case .middle:
-            return "middle"
+            return "\"middle\""
         case let .value(val):
-            return "\(val)"
+            return "\"\(val)\""
         case let .percent(percent):
-            return "\(percent * 100)%"
+            return "\"\(percent * 100)%\""
         }
     }
 }

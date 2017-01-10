@@ -80,7 +80,7 @@ public enum SECPosition: SECJsonable, CustomStringConvertible {
         case let .value(val):
             return "\"\(val)\""
         case let .percent(percent):
-            return "\"\(percent * 100)%\""
+            return "\"\(percent)%\""
         }
     }
 }

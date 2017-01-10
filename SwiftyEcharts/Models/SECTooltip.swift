@@ -16,6 +16,10 @@ public enum SECTrigger: String, SECJsonable {
     case item = "item"
     case axis = "axis"
     
+    public var jsonString: String {
+        return "\"\(self.rawValue)\""
+    }
+    
     /// 提示框触发的条件
     ///
     /// - mousemove: 鼠标移动时触发

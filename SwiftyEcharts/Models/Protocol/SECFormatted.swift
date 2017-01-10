@@ -21,11 +21,16 @@
 /// ## function:回调函数
 
 public enum SECFormatter: SECJsonable { // FIXME: 封装关于Formatter
-    case string()
+    case string(String)
     case function()
     
     public var jsonString: String {
-        return ""
+        switch self {
+        case let .string(formatter):
+            return "\"\(formatter)\""
+        case .function():
+            return ""
+        }
     }
 }
 

@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECLineStyleContent: SECColorful, SECShadowable, SECOpacitable, CustomStringConvertible {
+public protocol SECLineStyleContent: SECColorful, SECShadowable, SECOpacitable {
     var width: Float? { get set }
     var type: SECLineType? { get set }
 }
@@ -21,7 +21,18 @@ public struct SECCommonLineStyleContent: SECLineStyleContent {
     public var shadowOffsetY: Float?
     public var opacity: Float?
     
-    public var description: String {
-        return ""
+    public init() { }
+}
+
+extension SECCommonLineStyleContent : SECMappable {
+    public func mapping(map: SECMap) {
+        map["color"] = color
+        map["width"] = width
+        map["type"] = type
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
+        map["opacity"] = opacity
     }
 }

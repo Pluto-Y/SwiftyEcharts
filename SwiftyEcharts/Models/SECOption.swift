@@ -13,7 +13,7 @@ public struct SECOption {
     public var xAxis: SECAxis?
     public var yAxis: SECAxis?
     public var grid: SECGrid?
-    public var series: [SECLineSeries]?
+    public var series: [SECSeries]?
     
     public init() { }
 }

@@ -11,9 +11,13 @@ extension SECLineSeries {
     ///
     /// - cartesian2d: 二维的直角坐标系（也称笛卡尔坐标系），通过 xAxisIndex, yAxisIndex指定相应的坐标轴组件
     /// - polar: 极坐标系，通过 polarIndex 指定相应的极坐标组件
-    public enum CoordinateSystem: String {
+    public enum CoordinateSystem: String, SECJsonable{
         case cartesian2d = "cartesian2d"
         case polar = "polar"
+        
+        public var jsonString: String {
+            return "\"\(self.rawValue)\""
+        }
     }
 }
 
@@ -24,11 +28,15 @@ extension SECLineSeries {
     /// - max: 取过滤点的最大值
     /// - min: 取过滤点的最小值
     /// - sum: 取过滤点的和
-    public enum Sampling: String {
+    public enum Sampling: String, SECJsonable {
         case average = "average"
         case max = "max"
         case min = "min"
         case sum = "sum"
+        
+        public var jsonString: String {
+            return "\"\(self.rawValue)\""
+        }
     }
 }
 
@@ -40,6 +48,12 @@ extension SECLineSeries {
     }
 }
 
+extension SECLineSeries.LineStyle : SECMappable {
+    public func mapping(map: SECMap) {
+        map["normal"] = normal
+    }
+}
+
 extension SECLineSeries {
     public struct  AreaStyle {
         public var normal: SECCommonAreaStyleContent?
@@ -48,12 +62,20 @@ extension SECLineSeries {
     }
 }
 
+extension SECLineSeries.AreaStyle : SECMappable {
+    public func mapping(map: SECMap) {
+        map["normal"] = normal
+    }
+}
+
 extension SECLineSeries {
     public struct Data: SECSymbolized {
         public struct Label {
-            public var normalr: SECCommonLabelStyle?
+            public var normal: SECCommonLabelStyle?
+            
+            public init() { }
         }
-        
+
         public var name: String?
         public var value: Float?
         public var symbol: SECSymbol?
@@ -67,12 +89,18 @@ extension SECLineSeries {
     }
 }
 
+extension SECLineSeries.Data.Label : SECMappable {
+    public func mapping(map: SECMap) {
+        map["normal"] = normal
+    }
+}
+
 /// 折线/面积图
 /// 折线图是用折线将各个数据点标志连接起来的图表，用于展现数据的变化趋势。可用于直角坐标系和极坐标系上。
 ///
 /// - Note: 设置 areaStyle 后可以绘制面积图。
 /// - Note: 配合分段型 visualMap 组件可以将折线/面积图通过不同颜色分区间。如下示例
-public struct SECLineSeries: SECSeries, SECSymbolized {
+public struct SECLineSeries : SECSymbolized {
     
     public var name: String?
     public var coordinateSystem = CoordinateSystem.cartesian2d
@@ -98,15 +126,45 @@ public struct SECLineSeries: SECSeries, SECSymbolized {
     public var smooth = false
     public var smoothMonotone: String? // FIXME: 具体类型？
     public var sampling: Sampling?
-    public var data: [Data]?
+    public var data: [Any]?
     
     public init() { }
     
 }
 
-extension SECSeries {
+extension SECLineSeries : SECSeries {
     public var type: String {
         return "line"
+    }
+}
+
+extension SECLineSeries : SECMappable {
+    public func mapping(map: SECMap) {
+        map["type"] = type
+        map["name"] = name
+        map["coordinateSystem"] = coordinateSystem
+        map["xAxisIndex"] = xAxisIndex
+        map["yAxisIndex"] = yAxisIndex
+        map["polarIndex"] = polarIndex
+        map["symbol"] = symbol
+        map["symbolRotate"] = symbolRotate
+        map["symbolOffset"] = symbolOffset
+        map["showSymbol"] = showSymbol
+        map["showAllSymbol"] = showAllSymbol
+        map["hoverAnimation"] = hoverAnimation
+        map["legendHoverLink"] = legendHoverLink
+        map["stack"] = stack
+        map["connectNulls"] = connectNulls
+        map["clipOverflow"] = clipOverflow
+        map["step"] = step
+        map["label"] = label
+        map["itemStyle"] = itemStyle
+        map["lineStyle"] = lineStyle
+        map["areaStyle"] = areaStyle
+        map["smooth"] = smooth
+        map["smoothMonotone"] = smoothMonotone
+        map["sampling"] = sampling
+        map["data"] = data
     }
 }
 

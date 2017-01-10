@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECEmphasisable: CustomStringConvertible {
+public protocol SECEmphasisable {
     associatedtype Style
     var normal: Style? { get  set }
     var emphasis: Style? { get set }

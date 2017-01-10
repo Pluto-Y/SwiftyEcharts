@@ -27,23 +27,23 @@ public enum SECColor: SECJsonable, CustomStringConvertible {
     public var description: String {
         switch self {
         case let .rgba(r, g, b, a):
-            return "rbga(\(r), \(g), \(b), \(a))"
+            return "\"rbga(\(r), \(g), \(b), \(a))\""
         case let .rgb(r, g, b):
-            return "rbga(\(r), \(g), \(b), 1.0)"
+            return "\"rbga(\(r), \(g), \(b), 1.0)\""
         case let .hexColor(hexColor):
             return hexColor
         case .red:
-            return "red"
+            return "\"red\""
         case .blue:
-            return "blue"
+            return "\"blue\""
         case .green:
-            return "green"
+            return "\"green\""
         case .transparent:
-            return "transparent"
+            return "\"transparent\""
         case let .array(colors):
             var result = "["
             for color in colors {
-                result += color.description + ","
+                result += "\"\(color.description)\"" + ","
             }
             result = result.substringFromIndex(result.endIndex.predecessor())
             result += "]"

@@ -5,10 +5,10 @@
 //  Created by Pluto Y on 25/11/2016.
 //  Copyright © 2016 com.pluto-y. All rights reserved.
 //
-
 import UIKit
+import WebKit
 
-public class SECEchartsView: UIWebView, UIWebViewDelegate {
+public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate {
     
     public var option: SECOption?
     
@@ -17,12 +17,12 @@ public class SECEchartsView: UIWebView, UIWebViewDelegate {
     private var bundlePath: String = ""
 
     public convenience init() {
-        self.init(frame: CGRect.zero)
+        self.init(frame: CGRect.zero, configuration: WKWebViewConfiguration())
         initViews()
     }
     
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
+    public override init(frame: CGRect, configuration: WKWebViewConfiguration) {
+        super.init(frame: frame, configuration: configuration)
         initViews()
     }
     
@@ -58,14 +58,14 @@ public class SECEchartsView: UIWebView, UIWebViewDelegate {
         htmlContents = htmlStr
         
         
-        delegate = self
-        scalesPageToFit = false
         scrollView.scrollEnabled = false
         scrollView.bounces = false
+        UIDelegate = self
+        navigationDelegate = self
     }
     
     private func callJsMethod(jsString: String) {
-        stringByEvaluatingJavaScriptFromString(jsString)
+        self.evaluateJavaScript(jsString, completionHandler: nil)
     }
     
     private func resizeDiv() {
@@ -77,7 +77,17 @@ public class SECEchartsView: UIWebView, UIWebViewDelegate {
     }
     
     // MARK: - UIWebViewDelegate
-    public func webViewDidFinishLoad(webView: UIWebView) {
+    public func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        guard let option = option else {
+            printWarning("The option is nil")
+            self .callJsMethod("initEchartView")
+            return;
+        }
         resizeDiv()
+        
+        let optionJson = option.jsonString
+        print(optionJson)
+        let js = "loadEcharts('\(optionJson)')"
+        callJsMethod(js)
     }
 }

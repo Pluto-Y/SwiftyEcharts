@@ -11,10 +11,14 @@ import SwiftyEcharts
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var echartsView: SECEchartsView!
+    var echartsView: SECEchartsView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        echartsView = SECEchartsView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300))
+        self.view.addSubview(echartsView!)
+        
         SECMap.ignoreNil = true
         var option = SECOption()
         
@@ -66,13 +70,12 @@ class ViewController: UIViewController {
         option.series = series
         
 //        print(option.jsonString)
-        
+        echartsView?.option = option;
+        echartsView?.loadEcharts()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-//        echartsView.option = option;
-        echartsView.loadEcharts()
     }
 
     

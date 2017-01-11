@@ -8,7 +8,7 @@
 
 
 public final class SECMap {
-    public static var ignoreNil: Bool = false
+    public static var ignoreNil: Bool = true
     public var mapDic: [String: SECJsonable?] = {
         let dic = [String: SECJsonable?]()
         return dic

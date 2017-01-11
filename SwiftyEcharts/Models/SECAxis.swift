@@ -24,16 +24,8 @@ public enum SECBoundaryGap : SECJsonable {
 public struct SECAxisLine : SECDisplayable, SECLine {
     public var show: Bool?
     /// X 轴或者 Y 轴的轴线是否在另一个轴的 0 刻度上，只有在另一个轴为数值轴且包含 0 刻度时有效。
-    public var onZero = true
-    public var lineStyle: SECLineStyle? = {
-        var lineStyle = SECLineStyle()
-        lineStyle.color = SECColor.hexColor("#333")
-        lineStyle.width = 1
-        lineStyle.type = .solid
-        lineStyle.shadowOffsetX = 0
-        lineStyle.shadowOffsetY = 0
-        return lineStyle
-    }()
+    public var onZero: Bool?
+    public var lineStyle: SECLineStyle?
     
     public init() { }
 
@@ -52,7 +44,7 @@ public struct SECAxisTick : SECLine, SECDisplayable {
     /// 是否显示坐标轴刻度。
     public var show: Bool?
     /// 类目轴中在 boundaryGap 为 true 的时候有效，可以保证刻度线和标签对齐。
-    public var alignWithLabel = false
+    public var alignWithLabel: Bool?
     /// 坐标轴刻度的显示间隔，在类目轴中有效。默认同 axisLabel.interval 一样。
     /// 默认会采用标签不重叠的策略间隔显示标签。
     /// 可以设置成 0 强制显示所有标签。
@@ -64,9 +56,9 @@ public struct SECAxisTick : SECLine, SECDisplayable {
     /// 第一个参数是类目的 index，第二个值是类目名称，如果跳过则返回 false。
     public var interval: Int?
     /// 坐标轴刻度是否朝内，默认朝外。
-    public var inside = false
+    public var inside: Bool?
     /// 坐标轴刻度的长度。
-    public var length = 5
+    public var length: Float?
     /// 刻度横线的样式
     public var lineStyle: SECLineStyle?
     
@@ -93,12 +85,12 @@ public struct SECAxisLabel : SECTextful, SECDisplayable, SECFormatted {
     /// 坐标轴刻度标签的显示间隔，在类目轴中有效。
     public var interval: UInt?
     /// 刻度标签是否朝内，默认朝外。
-    public var inside = false
+    public var inside: Bool?
     /// 刻度标签旋转的角度，在类目轴的类目标签显示不下的时候可以通过旋转防止标签之间重叠。
     /// 旋转的角度从 -90 度到 90 度。
-    public var rotate = 0.0
+    public var rotate: Float?
     /// 刻度标签与轴线之间的距离。
-    public var margin = 0
+    public var margin: Float?
     /// 刻度标签的内容格式器，支持字符串模板和回调函数两种形式。
     public var formatter: SECFormatter?
     /// 刻度标签文字样式
@@ -188,26 +180,26 @@ public struct SECAxis {
     }
     
     /// 坐标轴所在的 grid 的索引，默认位于第一个 grid。
-    public var gridIndex = 0
+    public var gridIndex: UInt?
     /// 坐标轴的位置。
     public var position: SECPosition?
     /// 坐标轴相对于默认位置的偏移，在相同的 position 上有多个 X 轴的时候有用。
-    public var offset = 0.0
+    public var offset: Float?
     /// 坐标轴类型。
-    public var type: Type? = Type.category
+    public var type: Type?
     /// 坐标轴名称显示位置。
     public var name: String?
     /// 坐标轴名称显示位置。
     /// 可选: 'start', 'middle', 'end'
-    public var nameLocation = "end" // FIXME: ??? 是否需要添加枚举
+    public var nameLocation: String? // FIXME: ??? 是否需要添加枚举
     /// 坐标轴名称的文字样式。
     public var nameTextStyle: SECTextStyle?
     /// 坐标轴名称与轴线之间的距离。
-    public var nameGap = 15.0
+    public var nameGap: Float?
     /// 坐标轴名字旋转，角度值。
     public var nameRotate: Float?
     /// 是否是反向坐标轴。ECharts 3 中新加。
-    public var inverse = false
+    public var inverse: Bool?
     /// 坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样。
     ///
     /// 类目轴中 boundaryGap 可以配置为 true 和 false。默认为 true，这时候刻度只是作为分隔线，标签和数据点都会在两个刻度之间的带(band)中间。
@@ -228,22 +220,22 @@ public struct SECAxis {
     /// 只在数值轴中（type: 'value'）有效。
     /// 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度。在双数值轴的散点图中比较有用。
     /// 在设置 min 和 max 之后该配置项无效。
-    public var scale = false
+    public var scale: Bool?
     /// 坐标轴的分割段数，需要注意的是这个分割段数只是个预估值，最后实际显示的段数会在这个基础上根据分割后坐标轴刻度显示的易读程度作调整。
     /// - Note: 在类目轴中无效。
-    public var spliteNumber = 5
+    public var spliteNumber: UInt?
     /// 自动计算的坐标轴最小间隔大小。
     /// 例如可以设置成1保证坐标轴分割刻度显示成整数。
     /// - Note: 只在数值轴中（type: 'value'）有效。
-    public var minInterval: UInt = 0
+    public var minInterval: UInt?
     /// 强制设置坐标轴分割间隔。
     /// 因为 splitNumber 是预估的值，实际根据策略计算出来的刻度可能无法达到想要的效果，这时候可以使用 interval 配合 min、max 强制设定刻度划分，一般不建议使用。
     /// 无法在类目轴中使用。在时间轴（type: 'time'）中需要传时间戳，在对数轴（type: 'log'）中需要传指数值。
     public var interval: Int?
     /// 对数轴的底数，只在对数轴中（type: 'log'）有效。
-    public var logBase: Float = 10.0
+    public var logBase: Float?
     /// 坐标轴是否是静态无法交互。
-    public var silent = false
+    public var silent: Bool?
     /// 坐标轴的标签是否响应和触发鼠标事件，默认不响应。
     /// 事件参数如下：
     ///
@@ -256,16 +248,13 @@ public struct SECAxis {
     ///         // 坐标轴名称, 点击坐标轴名称有效
     ///         name: ''
     ///     }
-    public var triggerEvent = false
+    public var triggerEvent: Bool?
     /// 坐标轴轴线相关设置。
-    public var axisLine: SECAxisLine? = SECAxisLine()
+    public var axisLine: SECAxisLine?
     /// 坐标轴刻度相关设置。
-    public var axisTick: SECAxisTick? = SECAxisTick()
+    public var axisTick: SECAxisTick?
     /// 坐标轴刻度标签的相关设置。
-    public var axisLabel: SECAxisLabel? = {
-        var axisLabel = SECAxisLabel()
-        return axisLabel
-    }()
+    public var axisLabel: SECAxisLabel?
     /// 坐标轴在 grid 区域中的分隔线。
     public var splitLine: SECSplitLine?
     /// 坐标轴在 grid 区域中的分隔区域，默认不显示。
@@ -275,10 +264,10 @@ public struct SECAxis {
     /// X 轴所有图形的 zlevel 值。
     /// zlevel用于 Canvas 分层，不同zlevel值的图形会放置在不同的 Canvas 中，Canvas 分层是一种常见的优化手段。我们可以把一些图形变化频繁（例如有动画）的组件设置成一个单独的zlevel。需要注意的是过多的 Canvas 会引起内存开销的增大，在手机端上需要谨慎使用以防崩溃。
     /// zlevel 大的 Canvas 会放在 zlevel 小的 Canvas 的上面。
-    public var zlevel = 0
+    public var zlevel: Float?
     /// X 轴组件的所有图形的z值。控制图形的前后顺序。z值小的图形会被z值大的图形覆盖。
     /// z相比zlevel优先级更低，而且不会创建新的 Canvas。
-    public var z = 0
+    public var z: Float?
     
     public init() { }
     

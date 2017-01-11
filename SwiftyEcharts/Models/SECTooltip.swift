@@ -62,15 +62,15 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
             case let .percentArr(xPer, yPer):
                 return "[\(xPer * 100)%, \(yPer * 100)%]"
             case .inside:
-                return "inside"
+                return "\"inside\""
             case .left:
-                return "left"
+                return "\"left\""
             case .right:
-                return "right"
+                return "\"right\""
             case .top:
-                return "top"
+                return "\"top\""
             case .bottom:
-                return "ibottomnside"
+                return "\"ibottomnside\""
             }
 
         }
@@ -82,27 +82,18 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
         /// 十字准星指示器样式
         public struct CrossStyle: SECShadowable, SECColorful{
             /// 线的颜色
-            public var color: SECColor? = SECColor.hexColor("#555")
+            public var color: SECColor?
             /// 线宽
-            public var width = 1.0
+            public var width: Float?
             /// 线的类型
-            public var type = SECLineType.dashed
+            public var type: SECLineType?
             
             public var shadowBlur: Float?
             public var shadowColor: SECColor?
-            public var shadowOffsetX: Float? = 0
-            public var shadowOffsetY: Float? = 0
+            public var shadowOffsetX: Float?
+            public var shadowOffsetY: Float?
             
-            public var textStyle: SECTextStyle? = {
-                var textStyle = SECTextStyle()
-                textStyle.color = SECColor.hexColor("#fff")
-                textStyle.fontStyle = .normal
-                textStyle.fontWeight = .normal
-                textStyle.fontFamily = "sans-serif"
-                textStyle.fontSize = 12
-                return textStyle
-            }()
-            
+            public var textStyle: SECTextStyle?
             
             public init() { }
         }
@@ -111,12 +102,12 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
         public struct ShadowStyle: SECShadowable, SECColorful, SECOpacitable {
             
             /// 填充的颜色
-            public var color: SECColor? = SECColor.rgba(150, 150, 150, 0.3)
+            public var color: SECColor?
             
             public var shadowBlur: Float?
             public var shadowColor: SECColor?
-            public var shadowOffsetX: Float? = 0
-            public var shadowOffsetY: Float? = 0
+            public var shadowOffsetX: Float?
+            public var shadowOffsetY: Float?
             
             public var opacity: Float? {
                 didSet {
@@ -138,17 +129,17 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
         
         
         /// 指示器类型
-        public var type = Type.line
+        public var type: Type?
         /// 指示器的坐标轴。可以是 'x', 'y', 'radius', 'angle'。默认取类目轴或者时间轴。
-        public var axis = "auto" // FIXME: ??? 是否需要添加枚举
+        public var axis: String? // FIXME: ??? 是否需要添加枚举
         /// 是否开启动画，默认开启。
-        public var animation = true
+        public var animation: Bool?
         /// 是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
-        public var animationThreshold = 200.0
+        public var animationThreshold: Float?
         /// 初始动画的时长。
-        public var animationDuration = 1000
+        public var animationDuration: UInt32?
         /// 初始动画的缓动效果。
-        public var animationEasing = "cubicOut" // FIXME: ??? 是否需要添加枚举
+        public var animationEasing: String?// FIXME: ??? 是否需要添加枚举
         /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
         /// 如下示例：
         ///
@@ -156,11 +147,11 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
         ///         // 越往后的数据延迟越大
         ///         return idx * 100;
         ///     }
-        public var animationDelay = 0.0
+        public var animationDelay: Float?
         /// 数据更新动画的时长。
-        public var animationDurationUpdate = 300
+        public var animationDurationUpdate: UInt32?
         /// 数据更新动画的缓动效果。
-        public var animationEasingUpdate = "cubicOut" // FIXME: ??? 是否需要添加枚举
+        public var animationEasingUpdate: String? // FIXME: ??? 是否需要添加枚举
         /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
         /// 如下示例：
         ///
@@ -168,21 +159,13 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
         ///             // 越往后的数据延迟越大
         ///             return idx * 100;
         ///         }
-        public var animationDelayUpdate = 0.0
+        public var animationDelayUpdate: Float?
         /// axisPointer.type 为 'line' 时有效。
-        public var lineStyle: SECLineStyle? = {
-            var lineStyle = SECLineStyle()
-            lineStyle.color = SECColor.hexColor("#555")
-            lineStyle.width = 1
-            lineStyle.type = .solid
-            lineStyle.shadowOffsetX = 0
-            lineStyle.shadowOffsetY = 0
-            return lineStyle
-        }()
+        public var lineStyle: SECLineStyle?
         /// axisPointer.type 为 'cross' 时有效。
-        public var crossStyle =  CrossStyle()
+        public var crossStyle: CrossStyle?
         /// axisPointer.type 为 'shadow' 时有效。
-        public var shadowStyle = ShadowStyle()
+        public var shadowStyle: ShadowStyle?
         
         public init() { }
     }
@@ -191,35 +174,35 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
     /// - SeeAlso: `SECAxisPointer`
     public var show: Bool?
     /// 是否显示提示框浮层，默认显示。只需tooltip触发事件或显示axisPointer而不需要显示内容时可配置该项为false。
-    public var showContent = true
+    public var showContent: Bool?
     /// 触发类型。
-    public var trigger = SECTrigger.item
+    public var trigger: SECTrigger?
     /// 提示框触发的条件
-    public var triggerOn = SECTrigger.TriggerOn.mousemove
+    public var triggerOn: SECTrigger.TriggerOn?
     /// 是否永远显示提示框内容，默认情况下在移出可触发提示框区域后 一定时间 后隐藏，设置为 true 可以保证一直显示提示框内容。
     /// - Note: 该属性为 ECharts 3.0 中新加。
-    public var alwaysShowContent = false
+    public var alwaysShowContent: Bool?
     /// 浮层显示的延迟，单位为 ms，默认没有延迟，也不建议设置。在 triggerOn 为 'mousemove' 时有效。
-    public var showDelay = 0.0
+    public var showDelay: Float?
     /// 浮层隐藏的延迟，单位为 ms，在 alwaysShowContent 为 true 的时候无效。
-    public var hideDelay = 100.0
+    public var hideDelay: Float?
     /// 提示框浮层的位置，默认不设置时位置会跟随鼠标的位置。
     public var position: SECTooltip.Position?
     /// 是否将 tooltip 框限制在图表的区域内。
     /// 当图表外层的 dom 被设置为 'overflow: hidden'，或者移动端窄屏，导致 tooltip 超出外界被截断时，此配置比较有用。
-    public var confine = false
+    public var confine: Bool?
     /// 提示框浮层的移动动画过渡时间，单位是 s，设置为 0 的时候会紧跟着鼠标移动。
-    public var transitionDuration = 0.4
+    public var transitionDuration: Float?
     /// 提示框浮层内容格式器
     public var formatter: SECFormatter?
     /// 提示框浮层的背景颜色。
-    public var backgroundColor = SECColor.rgba(50, 50, 50, 0.7)
+    public var backgroundColor: SECColor?
     /// 提示框浮层的边框颜色
-    public var borderColor: SECColor? = SECColor.hexColor("#333")
+    public var borderColor: SECColor?
     /// 提示框浮层的边框宽。
     public var borderWidth: Float?
     /// 提示框浮层内边距
-    public var padding = SECPadding.all(5)
+    public var padding: SECPadding?
     /// 提示框浮层的文本样式。
     public var textStyle: SECTextStyle?
     /// 额外附加到浮层的 css 样式。如下为浮层添加阴影的示例：

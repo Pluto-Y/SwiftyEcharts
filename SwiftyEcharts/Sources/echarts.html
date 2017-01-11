@@ -63,10 +63,10 @@
 
         // Load the echarts view for the option and initParams
         function loadEcharts(echartJson, initParams){
-           //alert('init params : ' + JSON.stringify(echartJson));
+            //alert('init params : ' + JSON.stringify(echartJson));
             initEchartView(initParams);
             //alert('myChart:'+ myChart);
-            option = preTask(echartJson);
+            option = JSON.parse(echartJson);
             //alert('option:'+ option);
             myChart.setOption(option);
         }

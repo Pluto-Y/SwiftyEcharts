@@ -58,6 +58,21 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate {
         htmlContents = htmlStr
         
         
+        let js = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
+        let userContentController = self.configuration.userContentController
+        let array = userContentController.userScripts
+        var fitWKUScript: WKUserScript?
+        for wkUScript in array {
+            if wkUScript.source == js {
+                fitWKUScript = wkUScript
+                break
+            }
+        }
+        if fitWKUScript == nil {
+            let newScript = WKUserScript(source: js, injectionTime: .AtDocumentEnd, forMainFrameOnly: false)
+            userContentController.addUserScript(newScript)
+        }
+        
         scrollView.scrollEnabled = false
         scrollView.bounces = false
         UIDelegate = self
@@ -86,8 +101,13 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate {
         resizeDiv()
         
         let optionJson = option.jsonString
-        print(optionJson)
         let js = "loadEcharts('\(optionJson)')"
-        callJsMethod(js)
+        print(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
+        callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
+    }
+    
+    public func webView(webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: () -> Void) {
+        print(message)
+        completionHandler()
     }
 }

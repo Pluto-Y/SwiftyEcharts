@@ -74,11 +74,7 @@ public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowa
         /// 图例项的 icon。
         public var icon: SECSymbol?
         /// 图例项的文本样式。
-        public var textStyle: SECTextStyle? = {
-            var textStyle = SECTextStyle()
-            textStyle.color = .red
-            return textStyle
-        }()
+        public var textStyle: SECTextStyle?
         
         public init() { }
     }
@@ -87,40 +83,40 @@ public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowa
     /// 所有图形的 zlevel 值。
     /// zlevel用于 Canvas 分层，不同zlevel值的图形会放置在不同的 Canvas 中，Canvas 分层是一种常见的优化手段。我们可以把一些图形变化频繁（例如有动画）的组件设置成一个单独的zlevel。需要注意的是过多的 Canvas 会引起内存开销的增大，在手机端上需要谨慎使用以防崩溃。
     /// zlevel 大的 Canvas 会放在 zlevel 小的 Canvas 的上面。
-    public var zlevel: Float = 0.0
+    public var zlevel: Float?
     /// 组件的所有图形的z值。控制图形的前后顺序。z值小的图形会被z值大的图形覆盖。
     /// z相比zlevel优先级更低，而且不会创建新的 Canvas。
-    public var z: Int = 0
+    public var z: Int?
     /// 图例组件离容器左侧的距离。
-    public var left = SECPosition.auto
+    public var left: SECPosition?
     /// 图例组件离容器上侧的距离。
-    public var top = SECPosition.auto
+    public var top: SECPosition?
     /// 图例组件离容器右侧的距离。
-    public var right = SECPosition.auto
+    public var right: SECPosition?
     /// 图例组件离容器下侧的距离。
-    public var bottom = SECPosition.auto
+    public var bottom: SECPosition?
     /// 图例组件的宽度。为空时，为自适应。
     public var width: Float?
     /// 图例组件的高度。为空时，为自适应。
     public var height: Float?
     /// 图例列表的布局朝向。
-    public var orient = SECOrient.horizontal
+    public var orient: SECOrient?
     /// 图例标记和文本的对齐。默认自动，根据组件的位置和 orient 决定，当组件的 left 值为 'right' 以及纵向布局（orient 为 'vertical'）的时候为右对齐，及为 'right'。
-    public var align = SECAlign.auto
+    public var align: SECAlign?
     /// 图例内边距，单位px，默认各方向内边距为5，接受数组分别设定上右下左边距。
-    public var padding = SECPadding.all(5)
+    public var padding: SECPadding?
     /// 图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
-    public var itemGap = 10.0
+    public var itemGap: Float?
     /// 图例标记的图形宽度。
-    public var itemWidth = 25.0
+    public var itemWidth: Float?
     /// 图例标记的图形搞度。
-    public var itemHeight = 14.0
+    public var itemHeight: Float?
     /// 用来格式化图例文本，支持字符串模板和回调函数两种形式。
     public var formatter: SECFormatter?
     /// 图例选择的模式，控制是否可以通过点击图例改变系列的显示状态。
-    public var selectedMode = SECSelectedMode.selectable(true)
+    public var selectedMode: SECSelectedMode?
     /// 图例关闭时的颜色。
-    public var inactiveColor = SECColor.hexColor("#ccc")
+    public var inactiveColor: SECColor?
     /// 图例选中状态表。
     ///
     /// 示例：
@@ -133,15 +129,7 @@ public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowa
     ///     }
     public var selected: [String: Bool]?
     /// 图例的公用文本样式。
-    public var textStyle: SECTextStyle = {
-        var textStyle = SECTextStyle()
-        textStyle.color = .hexColor("#333")
-        textStyle.fontStyle = .normal
-        textStyle.fontWeight = .normal
-        textStyle.fontFamily = "sans-serif"
-        textStyle.fontSize = 12
-        return textStyle
-    }()
+    public var textStyle: SECTextStyle?
     /// 图例的 tooltip 配置，配置项同 tooltip。默认不显示，可以在 legend 文字很多的时候对文字做裁剪并且开启 tooltip，
     ///
     /// 如下示例：
@@ -157,19 +145,19 @@ public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowa
     public var tooltip: SECTooltip?
     /// 图例的数据数组。
     public var datas: [Any]?
-    public var backgroundColor = SECColor.transparent
-    public var borderColor: SECColor? = SECColor.hexColor("#ccc")
+    public var backgroundColor: SECColor?
+    public var borderColor: SECColor?
     public var borderWidth: Float?
     
     /// 注意：此配置项生效的前提是，设置了 show: `true` 以及值不为 `tranparent` 的背景色 `backgroundColor。
-    public var shadowBlur: Float? = 1
+    public var shadowBlur: Float?
     /// 阴影颜色。支持的格式同color。
     /// 注意：此配置项生效的前提是，设置了 show: `true`。
     public var shadowColor: SECColor?
     /// 注意：此配置项生效的前提是，设置了 show: `true`。
-    public var shadowOffsetX: Float? = 0.0
+    public var shadowOffsetX: Float?
     /// 注意：此配置项生效的前提是，设置了 show: `true`。
-    public var shadowOffsetY: Float? = 0.0
+    public var shadowOffsetY: Float?
     
     public init() { }
     

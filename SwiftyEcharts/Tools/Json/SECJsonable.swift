@@ -10,6 +10,12 @@ public protocol SECJsonable{
     var jsonString: String { get }
 }
 
+public extension SECJsonable where Self: CustomStringConvertible {
+    var jsonString: String {
+        return "\"\(self.description)\""
+    }
+}
+
 public extension SECJsonable {
     var jsonString: String {
         return "\(self)"
@@ -20,25 +26,71 @@ public extension SECJsonable {
     }
 }
 
-public extension SECJsonable where Self: CustomStringConvertible {
-    var jsonString: String {
-        return "\"\(self.description)\""
+extension Bool: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
     }
 }
-
-extension Bool: SECJsonable {}
-extension Int: SECJsonable {}
-extension Int8: SECJsonable {}
-extension Int16: SECJsonable {}
-extension Int32: SECJsonable {}
-extension Int64: SECJsonable {}
-extension UInt: SECJsonable {}
-extension UInt8: SECJsonable {}
-extension UInt16: SECJsonable {}
-extension UInt32: SECJsonable {}
-extension UInt64: SECJsonable {}
-extension Double: SECJsonable {}
-extension Float: SECJsonable {}
+extension Int: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
+    }
+}
+extension Int8: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
+    }
+}
+extension Int16: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
+    }
+}
+extension Int32: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
+    }
+}
+extension Int64: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
+    }
+}
+extension UInt: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
+    }
+}
+extension UInt8: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
+    }
+}
+extension UInt16: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
+    }
+}
+extension UInt32: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
+    }
+}
+extension UInt64: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
+    }
+}
+extension Double: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
+    }
+}
+extension Float: SECJsonable {
+    public var jsonString: String {
+        return "\(self)"
+    }
+}
 
 extension String: SECJsonable {
     public var jsonString: String {

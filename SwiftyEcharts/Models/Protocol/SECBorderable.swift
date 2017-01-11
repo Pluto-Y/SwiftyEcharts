@@ -10,5 +10,5 @@ import Foundation
 
 public protocol SECBorderable {
     var borderColor: SECColor? { get set }
-    var borderWidth: Float  { get set }
+    var borderWidth: Float?  { get set }
 }

@@ -217,7 +217,7 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
     /// 提示框浮层的边框颜色
     public var borderColor: SECColor? = SECColor.hexColor("#333")
     /// 提示框浮层的边框宽。
-    public var borderWidth: Float = 0.0
+    public var borderWidth: Float?
     /// 提示框浮层内边距
     public var padding = SECPadding.all(5)
     /// 提示框浮层的文本样式。

@@ -40,7 +40,7 @@ public struct SECGrid : SECBorderable, SECDisplayable, SECShadowable {
     public var borderColor: SECColor? = SECColor.hexColor("#ccc")
     /// 网格的边框线宽。
     /// - Note:  注意：此配置项生效的前提是，设置了 show: true。
-    public var borderWidth: Float = 1.0
+    public var borderWidth: Float?
     
     /// 图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
     /// 注意：此配置项生效的前提是，设置了 show: true 以及值不为 tranparent 的背景色 backgroundColor。

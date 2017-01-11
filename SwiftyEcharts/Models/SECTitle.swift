@@ -91,60 +91,60 @@ public struct SECTitle: SECBorderable, SECDisplayable, SECTextful {
     /// 是否显示标题组件
     public var show = true
     /// 主标题文本，支持使用 \n 换。
-    public var text = ""
+    public var text: String?
     /// 主标题文本超链接
-    public var link = ""
+    public var link: String?
     /// 指定窗口打开主标题超链接。
-    public var target = SECTarget.tblank
+    public var target: SECTarget?
     /// 主标题文字样式
-    public var textStyle: SECTextStyle? = nil
+    public var textStyle: SECTextStyle?
     /// 标题文本水平对齐
-    public var textAlign: SECAlign? = nil
+    public var textAlign: SECAlign?
     /// 标题文本垂直对齐
     public var textBaseline: SECTextBaseline?
     /// 副标题文本，支持使用 \n 换行
-    public var subtext = ""
+    public var subtext: String?
     /// 副标题文本超链接
-    public var sublink = ""
+    public var sublink: String?
     /// 指定窗口打开副标题超链接
-    public var subtarget = SECTarget.tblank
+    public var subtarget: SECTarget?
     /// 副标题文字样式
     public var subtextStyle: SECTextStyle?
     /// 标题内边距
-    public var padding = SECPadding.all(5.0)
+    public var padding: SECPadding?
     /// 主副标题之间的间距
-    public var itemGap = 10.0
+    public var itemGap: Float?
     /// 所有图形的`zlevel`值
-    public var zlevel = 0.0
+    public var zlevel: Float?
     /// 组件的所有图形的z值。控制图形的前后顺序。z值小的图形会被z值大的图形覆盖。
     /// z相比zlevel优先级更低，而且不会创建新的 Canvas
-    public var z = 2.0
+    public var z: Float?
     /// grid 组件离容器左侧的距离。
-    public var left = SECPosition.auto
+    public var left: SECPosition?
     /// grid 组件离容器上侧的距离。
-    public var top = SECPosition.auto
+    public var top: SECPosition?
     /// grid 组件离容器右侧的距离。
-    public var right = SECPosition.auto
+    public var right: SECPosition?
     /// grid 组件离容器下侧的距离。
-    public var bottom = SECPosition.auto
+    public var bottom: SECPosition?
     /// 标题背景色，默认透明。
-    public var backgroundColor = SECColor.transparent
+    public var backgroundColor: SECColor?
     /// 标题的边框颜色。支持的颜色格式同 backgroundColor。
-    public var borderColor: SECColor? = SECColor.hexColor("#ccc")
+    public var borderColor: SECColor?
     /// 标题的边框线宽。
-    public var borderWidth: Float = 0.0
+    public var borderWidth: Float?
     /// 图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
     /// 注意：此配置项生效的前提是，设置了 show: true 以及值不为 tranparent 的背景色 backgroundColor。
-    public var shadowBlur: Float = 0.0
+    public var shadowBlur: Float?
     /// 阴影颜色
     /// 注意：此配置项生效的前提是，设置了 show: true。
     public var shadowColor: SECColor?
     /// 阴影水平方向上的偏移距离。
     /// 注意：此配置项生效的前提是，设置了 show: true。
-    public var shadowOffsetX = 0.0
+    public var shadowOffsetX: Float?
     /// 阴影水平方向上的偏移距离。
     /// 注意：此配置项生效的前提是，设置了 show: true。
-    public var shadowOffsetY = 0.0
+    public var shadowOffsetY: Float?
     
     public init() { }
 }

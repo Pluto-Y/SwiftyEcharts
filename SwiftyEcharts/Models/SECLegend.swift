@@ -159,7 +159,7 @@ public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowa
     public var datas: [Any]?
     public var backgroundColor = SECColor.transparent
     public var borderColor: SECColor? = SECColor.hexColor("#ccc")
-    public var borderWidth: Float = 1
+    public var borderWidth: Float?
     
     /// 注意：此配置项生效的前提是，设置了 show: `true` 以及值不为 `tranparent` 的背景色 `backgroundColor。
     public var shadowBlur: Float? = 1

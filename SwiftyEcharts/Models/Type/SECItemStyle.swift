@@ -14,7 +14,7 @@ public struct SECCommonItemStyleContent : SECItemStyleContent {
     
     public var color: SECColor?
     public var borderColor: SECColor?
-    public var borderWidth: Float = 0.0
+    public var borderWidth: Float?
     public var borderType: SECLineType? = SECLineType.solid
     public var shadowBlur: Float?
     public var shadowColor: SECColor?

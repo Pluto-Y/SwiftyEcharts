@@ -22,7 +22,7 @@ public extension SECJsonable {
 
 public extension SECJsonable where Self: CustomStringConvertible {
     var jsonString: String {
-        return self.description
+        return "\"\(self.description)\""
     }
 }
 

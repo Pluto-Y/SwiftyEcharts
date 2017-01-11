@@ -15,6 +15,10 @@ import Foundation
 /// - dotted: 点线
 public enum SECLineType: String, SECJsonable {
     case solid = "solid", dashed = "dashed", dotted = "dotted"
+    
+    public var jsonString: String {
+        return "\"\(self.rawValue)\""
+    }
 }
 
 

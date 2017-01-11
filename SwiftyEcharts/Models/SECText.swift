@@ -21,6 +21,10 @@ public enum SECAlign: String, SECJsonable {
     case center = "center"
     case auto = "auto"
     case none = ""
+    
+    public var jsonString: String {
+        return "\"\(self.rawValue)\""
+    }
 }
 
 /// 文本垂直对齐
@@ -32,6 +36,10 @@ public enum SECTextBaseline: String, SECJsonable {
     case top = "top"
     case middle = "middle"
     case bottom = "bottom"
+    
+    public var jsonString: String {
+        return "\"\(self.rawValue)\""
+    }
 }
 
 /// 文字样式

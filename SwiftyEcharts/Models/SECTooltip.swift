@@ -30,6 +30,10 @@ public enum SECTrigger: String, SECJsonable {
         case mousemove = "mousemove"
         case click = "click"
         case none = "none"
+        
+        public var jsonString: String {
+            return "\"\(self.rawValue)\""
+        }
     }
     
 }

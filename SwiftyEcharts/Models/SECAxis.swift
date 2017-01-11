@@ -201,10 +201,7 @@ public struct SECAxis {
     /// 可选: 'start', 'middle', 'end'
     public var nameLocation = "end" // FIXME: ??? 是否需要添加枚举
     /// 坐标轴名称的文字样式。
-    public var nameTextStyle: SECTextStyle? = {
-        var textStyle = SECTextStyle() // FIXME: 添加初始化逻辑
-        return textStyle
-    }()
+    public var nameTextStyle: SECTextStyle?
     /// 坐标轴名称与轴线之间的距离。
     public var nameGap = 15.0
     /// 坐标轴名字旋转，角度值。

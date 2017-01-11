@@ -12,7 +12,7 @@
 /// - vertical: 垂直
 public enum SECOrient: String, SECJsonable {
     case horizontal = "horizontal", vertical = "vertical"
-    
+
     public var jsonString: String {
         return "\"\(self.rawValue)\""
     }
@@ -42,7 +42,7 @@ public enum SECSelectedMode: CustomStringConvertible, SECJsonable {
         case .selectable(false):
             return "false"
         case let .mode(mode):
-            return "\"\(mode.rawValue)\""
+            return "\(mode.rawValue)"
         }
     }
     

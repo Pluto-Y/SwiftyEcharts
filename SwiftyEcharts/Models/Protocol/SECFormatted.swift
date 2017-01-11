@@ -22,14 +22,14 @@
 
 public enum SECFormatter: SECJsonable { // FIXME: 封装关于Formatter
     case string(String)
-    case function()
+    case function(String)
     
     public var jsonString: String {
         switch self {
         case let .string(formatter):
             return "\"\(formatter)\""
-        case .function():
-            return ""
+        case let .function(function):
+            return "\(function)"
         }
     }
 }

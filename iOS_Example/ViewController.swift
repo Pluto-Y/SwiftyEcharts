@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         
         var tooltip = SECTooltip()
         tooltip.trigger = .item
-        tooltip.formatter = .string("{a} <br/>{b} : {c}")
+        tooltip.formatter = .function("function (params) { return params[2].name + '<br />' + params[2].value; }")
         option.tooltip = tooltip
         
         var legend = SECLegend()

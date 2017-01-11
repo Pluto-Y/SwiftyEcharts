@@ -13,7 +13,7 @@ public protocol SECLabelStyle : SECDisplayable, SECTextful{
 
 public struct SECCommonLabelStyle : SECLabelStyle {
     
-    public var show: Bool = false
+    public var show: Bool?
     public var posistion: SECPosition?
     public var textStyle: SECTextStyle?
     
@@ -48,7 +48,7 @@ extension SECLabel : SECMappable {
 
 public struct SECFormattedLabelStyle : SECLabelStyle, SECFormatted {
     
-    public var show: Bool = false
+    public var show: Bool?
     public var posistion: SECPosition?
     public var formatter: SECFormatter?
     public var textStyle: SECTextStyle?

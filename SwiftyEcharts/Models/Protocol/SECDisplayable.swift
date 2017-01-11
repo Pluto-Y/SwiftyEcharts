@@ -7,5 +7,5 @@
 //
 
 public protocol SECDisplayable {
-    var show: Bool { get set }
+    var show: Bool? { get set }
 }

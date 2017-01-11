@@ -22,7 +22,7 @@ public enum SECBoundaryGap : SECJsonable {
 
 /// 坐标轴轴线相关设置。
 public struct SECAxisLine : SECDisplayable, SECLine {
-    public var show: Bool = true
+    public var show: Bool?
     /// X 轴或者 Y 轴的轴线是否在另一个轴的 0 刻度上，只有在另一个轴为数值轴且包含 0 刻度时有效。
     public var onZero = true
     public var lineStyle: SECLineStyle? = {
@@ -50,7 +50,7 @@ extension SECAxisLine : SECMappable {
 /// 坐标轴刻度相关设置。
 public struct SECAxisTick : SECLine, SECDisplayable {
     /// 是否显示坐标轴刻度。
-    public var show: Bool = true
+    public var show: Bool?
     /// 类目轴中在 boundaryGap 为 true 的时候有效，可以保证刻度线和标签对齐。
     public var alignWithLabel = false
     /// 坐标轴刻度的显示间隔，在类目轴中有效。默认同 axisLabel.interval 一样。
@@ -89,7 +89,7 @@ extension SECAxisTick : SECMappable {
 public struct SECAxisLabel : SECTextful, SECDisplayable, SECFormatted {
     
     /// 是否显示刻度标签。
-    public var show: Bool = true
+    public var show: Bool?
     /// 坐标轴刻度标签的显示间隔，在类目轴中有效。
     public var interval: UInt?
     /// 刻度标签是否朝内，默认朝外。
@@ -122,7 +122,7 @@ extension SECAxisLabel : SECMappable {
 /// 分割区域
 public struct SECSplitArea : SECDisplayable {
     
-    public var show: Bool = false
+    public var show: Bool?
     public var interval: UInt?
     public var areaStyle: SECAreaStyle?
     

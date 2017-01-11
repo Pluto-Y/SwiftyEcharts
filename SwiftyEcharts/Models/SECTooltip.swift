@@ -189,7 +189,7 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
     
     /// 是否显示提示框组件，包括提示框浮层和 axisPointer。
     /// - SeeAlso: `SECAxisPointer`
-    public var show = true
+    public var show: Bool?
     /// 是否显示提示框浮层，默认显示。只需tooltip触发事件或显示axisPointer而不需要显示内容时可配置该项为false。
     public var showContent = true
     /// 触发类型。

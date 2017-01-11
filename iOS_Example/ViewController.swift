@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         xAxis.name = "x"
         xAxis.splitLine = SECSplitLine()
         xAxis.splitLine?.show = false
-        xAxis.datas = ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
+        xAxis.data = ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
         option.xAxis = xAxis
         
         var  grid = SECGrid()
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         serie2.data = [1, 2, 4, 8, 16, 32, 64, 128, 256]
         var serie3 = SECLineSeries()
         serie3.name = "1/2的指数"
-        serie2.data = [1, 1/2.0, 1/4.0, 1/8.0, 1/16.0, 1/32.0, 1/64.0, 1/128.0, 1/256.0]
+        serie3.data = [1, 1/2.0, 1/4.0, 1/8.0, 1/16.0, 1/32.0, 1/64.0, 1/128.0, 1/256.0]
         let series: [SECSeries]? = [serie1, serie2, serie3]
         option.series = series
         

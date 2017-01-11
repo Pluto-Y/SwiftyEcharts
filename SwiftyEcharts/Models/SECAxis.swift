@@ -260,7 +260,7 @@ public struct SECAxis {
     /// 坐标轴在 grid 区域中的分隔区域，默认不显示。
     public var splitArea: SECSplitArea?
     /// 类目数据，在类目轴（type: 'category'）中有效。
-    public var datas: [Any]?
+    public var data: [Any]?
     /// X 轴所有图形的 zlevel 值。
     /// zlevel用于 Canvas 分层，不同zlevel值的图形会放置在不同的 Canvas 中，Canvas 分层是一种常见的优化手段。我们可以把一些图形变化频繁（例如有动画）的组件设置成一个单独的zlevel。需要注意的是过多的 Canvas 会引起内存开销的增大，在手机端上需要谨慎使用以防崩溃。
     /// zlevel 大的 Canvas 会放在 zlevel 小的 Canvas 的上面。
@@ -307,7 +307,7 @@ extension SECAxis: SECMappable {
         map["axisLabel"] = axisLabel
         map["splitLine"] = splitLine
         map["splitArea"] = splitArea
-        map["datas"] = datas
+        map["data"] = data
         map["zlevel"] = zlevel
         map["z"] = z
     }

@@ -17,5 +17,10 @@ func printInfo(object: Any) {
 
 // 自定义错误输出的方法，保证不管是Debug还是Release版本都会输出信息
 func printError(object: Any) {
-    Swift.print(object)
+    Swift.print("Error: \(object)")
+}
+
+// 自定义警告输出的方法，保证不管是Debug还是Release版本都会输出信息
+func printWarning(object: Any) {
+    Swift.print("Warning: \(object)")
 }

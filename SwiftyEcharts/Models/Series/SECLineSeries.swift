@@ -103,27 +103,27 @@ extension SECLineSeries.Data.Label : SECMappable {
 public struct SECLineSeries : SECSymbolized {
     
     public var name: String?
-    public var coordinateSystem = CoordinateSystem.cartesian2d
-    public var xAxisIndex = 0
-    public var yAxisIndex = 0
-    public var polarIndex = 0
-    public var symbol: SECSymbol? = SECSymbol.emptyCircle
-    public var symbolSize: Float? = 4
+    public var coordinateSystem: CoordinateSystem?
+    public var xAxisIndex: UInt?
+    public var yAxisIndex: UInt?
+    public var polarIndex: UInt?
+    public var symbol: SECSymbol?
+    public var symbolSize: Float?
     public var symbolRotate: Float?
-    public var symbolOffset: [Float]? = [0, 0]
-    public var showSymbol = true
-    public var showAllSymbol = false
-    public var hoverAnimation = true
-    public var legendHoverLink = true
+    public var symbolOffset: [Float]?
+    public var showSymbol: Bool?
+    public var showAllSymbol: Bool?
+    public var hoverAnimation: Bool?
+    public var legendHoverLink: Bool?
     public var stack: String?
-    public var connectNulls = false
-    public var clipOverflow = true
+    public var connectNulls: Bool?
+    public var clipOverflow: Bool?
     public var step: String? // FIXME: 类型？
     public var label: SECLabel?
     public var itemStyle: SECItemStyle?
     public var lineStyle: LineStyle?
     public var areaStyle: AreaStyle?
-    public var smooth = false
+    public var smooth: Bool?
     public var smoothMonotone: String? // FIXME: 具体类型？
     public var sampling: Sampling?
     public var data: [Any]?

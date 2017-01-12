@@ -93,6 +93,7 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate {
     
     // MARK: - UIWebViewDelegate
     public func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        
         guard let option = option else {
             printWarning("The option is nil")
             self .callJsMethod("initEchartView")
@@ -101,9 +102,18 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate {
         resizeDiv()
         
         let optionJson = option.jsonString
+        
+        // 定义Js与Clousure之间的匹配关系
+        // 必须要在option.jsonString调用过一次之后
+        // 并且需要在调用loadEcharts之前，这样才能建立关系
+        for (name, clourse) in SECJsMap.allMap() {
+            print("name:\(name), clousure:\(clourse)")
+        }
+        
         let js = "loadEcharts('\(optionJson)')"
         print(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
         callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
+        
     }
     
     public func webView(webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: () -> Void) {

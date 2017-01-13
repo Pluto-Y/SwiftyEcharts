@@ -110,6 +110,7 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate {
             print("name:\(name), clousure:\(clourse)")
         }
         
+        
         let js = "loadEcharts('\(optionJson)')"
         print(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
         callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))

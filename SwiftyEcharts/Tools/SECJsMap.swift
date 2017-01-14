@@ -7,30 +7,24 @@
 //
 
 internal struct SECJsMap {
-    private static var jsMap: [String: Any] = [String: Any]()
+    private static var jsMap: [String] = [String]()
     
-    static func add(clourse: Any, for method: String) {
-        SECJsMap.jsMap[method] = clourse
+    static func add(function: String) -> Bool {
+        jsMap.append(function)
+        return true
     }
     
-    static func removeClourse(by method: String) {
-        SECJsMap.jsMap.removeValueForKey(method)
+    static func remove(function: String) {
+        if let index = jsMap.indexOf(function) {
+            jsMap.removeAtIndex(index)
+        }
     }
     
-    static func allMethods() -> [String] {
-        return Array(SECJsMap.jsMap.keys)
+    static func allFunctions() -> [String] {
+        return jsMap
     }
     
-    static func clourse(from method: String) -> Any? {
-        return SECJsMap.jsMap[method]
+    static func contain(function: String) -> Bool {
+        return jsMap.contains(function)
     }
-    
-    static func clearAllMap() {
-        SECJsMap.jsMap.removeAll()
-    }
-    
-    static func allMap() -> [String: Any] {
-        return SECJsMap.jsMap
-    }
-    
 }

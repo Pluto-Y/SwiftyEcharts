@@ -22,15 +22,21 @@
 
 public enum SECFormatter: SECJsonable { // FIXME: 封装关于Formatter
     case string(String)
-    case function(String, Any)
+    case function(String)
     
     public var jsonString: String {
         switch self {
         case let .string(formatter):
             return "\"\(formatter)\""
-        case let .function(name, clousure):
-            SECJsMap.add(clousure, for: name)
-            return "\(name)"
+        case let .function(f):
+//            SECJsMap.add(clousure, for: name)
+            SECJsMap.add(f)
+            if let endIndex = f.rangeOfString("(")?.startIndex, let starIndex = f.rangeOfString("function")?.endIndex {
+                let functionName = f.substringToIndex(endIndex).substringFromIndex(starIndex).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                return "\"\(functionName)\""
+            }
+            //
+            return "null"
         }
     }
 }

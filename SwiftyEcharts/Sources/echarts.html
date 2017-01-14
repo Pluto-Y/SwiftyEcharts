@@ -44,7 +44,7 @@
                 return obj;
             }
         }
-    
+
         // Resize the div
         function resizeDiv(cssText) {
             var divMain = document.getElementById("main");
@@ -62,12 +62,14 @@
         }
 
         // Load the echarts view for the option and initParams
-        function loadEcharts(echartJson, initParams){
+        function loadEcharts(echartJson, initParams) {
             //alert('init params : ' + JSON.stringify(echartJson));
             initEchartView(initParams);
             //alert('myChart:'+ myChart);
             option = JSON.parse(echartJson);
-            //alert('option:'+ option);
+            //alert('before evalForFunction option:'+ option);
+            option = preTask(option);
+            //alert('after evalForFunction option:'+ JSON.stringify(option));
             myChart.setOption(option);
         }
     </script>

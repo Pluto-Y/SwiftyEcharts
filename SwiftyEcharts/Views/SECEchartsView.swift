@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate {
+public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
     
     public var option: SECOption?
     
@@ -73,10 +73,13 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate {
             userContentController.addUserScript(newScript)
         }
         
+        userContentController.addScriptMessageHandler(self, name: "wkechartview")
+        
         scrollView.scrollEnabled = false
         scrollView.bounces = false
         UIDelegate = self
         navigationDelegate = self
+        
     }
     
     private func callJsMethod(jsString: String) {
@@ -91,7 +94,8 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate {
         callJsMethod(jsString)
     }
     
-    // MARK: - UIWebViewDelegate
+    // MARK: - Delegate
+    // MARK: UIWebViewDelegate
     public func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         
         guard let option = option else {
@@ -106,13 +110,14 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate {
         // 定义Js与Clousure之间的匹配关系
         // 必须要在option.jsonString调用过一次之后
         // 并且需要在调用loadEcharts之前，这样才能建立关系
-        for (name, clourse) in SECJsMap.allMap() {
-            print("name:\(name), clousure:\(clourse)")
+        for function in SECJsMap.allFunctions() {
+            self.callJsMethod(function)
+//            self.callJsMethod("function \(name)(params){ alert(\(name));eval('window.webkit.messageHandlers.\(name).postMessage(' + params + ')'); }")
         }
         
         
         let js = "loadEcharts('\(optionJson)')"
-        print(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
+        print(js)//.stringByReplacingOccurrencesOfString("\n", withString: "\\n")
         callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
         
     }
@@ -120,5 +125,10 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate {
     public func webView(webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: () -> Void) {
         print(message)
         completionHandler()
+    }
+    
+    // MARK: WKScriptMessageHandler
+    public func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
+        print("name:\(message.name), body:\(message.body)")
     }
 }

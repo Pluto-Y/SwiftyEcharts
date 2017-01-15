@@ -227,6 +227,17 @@ extension SECToolbox.Feature {
     /// 数据区域缩放。目前只支持直角坐标系的缩放。
     public struct DataZoom : SECDisplayable {
         
+        /// 指定哪些 Axis 被控制
+        ///
+        /// - bool: 如果设置为 false 则不控制任何x轴
+        /// - int: 如果设置成 3 则控制 axisIndex 为 3 的x轴
+        /// - array: 如果设置为 [0, 3] 则控制 axisIndex 为 0 和 3 的x轴。
+        public enum AxisIndexSelector {
+            case bool(Bool)
+            case int(UInt)
+            case array([UInt])
+        }
+        
         /// 缩放和还原的标题文本。
         public struct Title {
             /// 缩放标题
@@ -252,9 +263,9 @@ extension SECToolbox.Feature {
         /// 数据区域缩放 icon 样式设置。
         public var iconStyle: SECToolbox.IconStyle?
         /// 指定哪些 xAxis 被控制。如果缺省则控制所有的x轴。如果设置为 false 则不控制任何x轴。如果设置成 3 则控制 axisIndex 为 3 的x轴。如果设置为 [0, 3] 则控制 axisIndex 为 0 和 3 的x轴。
-        public var xAxisIndex: UInt?
+        public var xAxisIndex: AxisIndexSelector?
         /// 指定哪些 yAxis 被控制。如果缺省则控制所有的y轴。如果设置为 false 则不控制任何y轴。如果设置成 3 则控制 axisIndex 为 3 的y轴。如果设置为 [0, 3] 则控制 axisIndex 为 0 和 3 的y轴。
-        public var yAxisIndex: UInt?
+        public var yAxisIndex: AxisIndexSelector?
     }
 }
 

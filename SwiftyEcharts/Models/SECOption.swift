@@ -10,8 +10,8 @@ public struct SECOption {
     public var title: SECTitle?
     public var tooltip: SECTooltip?
     public var legend: SECLegend?
-    public var xAxis: SECAxis?
-    public var yAxis: SECAxis?
+    public var xAxis: [SECAxis]?
+    public var yAxis: [SECAxis]?
     public var grid: SECGrid?
     public var series: [SECSeries]?
     
@@ -21,7 +21,7 @@ public struct SECOption {
 extension SECOption : SECEnumable {
     
     public enum Enums {
-        case title(SECTitle), tooltip(SECTooltip), legend(SECLegend), xAxis(SECAxis), yAxis(SECAxis), grid(SECGrid), series([SECSeries])
+        case title(SECTitle), tooltip(SECTooltip), legend(SECLegend), xAxis([SECAxis]), yAxis([SECAxis]), grid(SECGrid), series([SECSeries])
     }
     
     public typealias ContentEnum = Enums

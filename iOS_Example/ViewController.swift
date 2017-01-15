@@ -33,24 +33,28 @@ class ViewController: UIViewController {
                 .left(.left),
                 .datas(["2的指数", "3的指数"])
                 ])),
-            .xAxis(SECAxis([
-                .type(.category),
-                .name("x"),
-                .splitArea(SECSplitArea([
-                    .show(false)
-                    ])),
-                .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
-                ])),
+            .xAxis([
+                SECAxis([
+                    .type(.category),
+                    .name("x"),
+                    .splitArea(SECSplitArea([
+                        .show(false)
+                        ])),
+                    .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
+                    ])
+                ]),
             .grid(SECGrid([
                 .left(.percent(3)),
                 .right(.percent(4)),
                 .bottom(.percent(3)),
                 .containLabel(true)
                 ])),
-            .yAxis(SECAxis([
-                .type(.log),
-                .name("y")
-                ])),
+            .yAxis([
+                SECAxis([
+                    .type(.log),
+                    .name("y")
+                    ])
+                ]),
             .series([
                 SECLineSeries([
                     .name("3的指数"),

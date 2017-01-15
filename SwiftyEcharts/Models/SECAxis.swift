@@ -31,6 +31,26 @@ public struct SECAxisLine : SECDisplayable, SECLine {
 
 }
 
+extension SECAxisLine : SECEnumable {
+    public enum Enums {
+        case show(Bool), onZero(Bool), lineStyle(SECLineStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .onZero(onZero):
+                self.onZero = onZero
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            }
+        }
+    }
+}
 
 extension SECAxisLine : SECMappable {
     public func mapping(map: SECMap) {
@@ -66,6 +86,33 @@ public struct SECAxisTick : SECLine, SECDisplayable {
 
 }
 
+extension SECAxisTick : SECEnumable {
+    public enum Enums {
+        case show(Bool), alignWithLabel(Bool), interval(Int), inside(Bool), length(Float), lineStyle(SECLineStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .alignWithLabel(alignWithLabel):
+                self.alignWithLabel = alignWithLabel
+            case let .interval(interval):
+                self.interval = interval
+            case let .inside(inside):
+                self.inside = inside
+            case let .length(length):
+                self.length = length
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            }
+        }
+    }
+}
+
 extension SECAxisTick : SECMappable {
     public func mapping(map: SECMap) {
         map["show"] = show
@@ -99,6 +146,35 @@ public struct SECAxisLabel : SECTextful, SECDisplayable, SECFormatted {
     public init() { }
 }
 
+extension SECAxisLabel : SECEnumable {
+    public enum Enums {
+        case show(Bool), interval(UInt), inside(Bool), rotate(Float), margin(Float), formatter(SECFormatter), textStyle(SECTextStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .interval(interval):
+                self.interval = interval
+            case let .inside(inside):
+                self.inside = inside
+            case let .rotate(rotate):
+                self.rotate = rotate
+            case let .margin(margin):
+                self.margin = margin
+            case let .formatter(formatter):
+                self.formatter = formatter
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            }
+        }
+    }
+}
+
 extension SECAxisLabel : SECMappable {
     public func mapping(map: SECMap) {
         map["show"] = show
@@ -119,6 +195,27 @@ public struct SECSplitArea : SECDisplayable {
     public var areaStyle: SECAreaStyle?
     
     public init() { }
+}
+
+extension SECSplitArea : SECEnumable {
+    public enum Enums {
+        case show(Bool), interval(UInt), areaStyle(SECAreaStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .interval(interval):
+                self.interval = interval
+            case let .areaStyle(areaStyle):
+                self.areaStyle = areaStyle
+            }
+        }
+    }
 }
 
 extension SECSplitArea : SECMappable {
@@ -273,10 +370,100 @@ public struct SECAxis {
     
 }
 
+extension SECAxis.Data : SECEnumable {
+    public enum Enums {
+        case value(String), textStyle(SECTextStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .value(value):
+                self.value = value
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            }
+        }
+    }
+}
+
 extension SECAxis.Data : SECMappable {
     public func mapping(map: SECMap) {
         map["value"] = value
         map["textStyle"] = textStyle
+    }
+}
+
+extension SECAxis : SECEnumable {
+    public enum Enums {
+        case gridIndex(UInt), position(SECPosition), offset(Float), type(Type), name(String), nameLocation(String), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any]), zlevel(Float), z(Float)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .gridIndex(gridIndex):
+                self.gridIndex = gridIndex
+            case let .position(position):
+                self.position = position
+            case let .offset(offset):
+                self.offset = offset
+            case let .type(type):
+                self.type = type
+            case let .name(name):
+                self.name = name
+            case let .nameLocation(nameLocaltion):
+                self.nameLocation = nameLocaltion
+            case let .nameTextStyle(nameTextStyle):
+                self.nameTextStyle = nameTextStyle
+            case let .nameGap(nameGap):
+                self.nameGap = nameGap
+            case let .nameRotate(nameRotate):
+                self.nameRotate = nameRotate
+            case let .inverse(inverse):
+                self.inverse = inverse
+            case let .boundaryGap(boundaryGap):
+                self.boundaryGap = boundaryGap
+            case let .min(min):
+                self.min = min
+            case let .max(max):
+                self.max = max
+            case let .scale(scale):
+                self.scale = scale
+            case let .spliteNumber(spliteNumber):
+                self.spliteNumber = spliteNumber
+            case let .minInterval(minInterval):
+                self.minInterval = minInterval
+            case let .interval(interval):
+                self.interval = interval
+            case let .logBase(logBase):
+                self.logBase = logBase
+            case let .silent(silent):
+                self.silent = silent
+            case let .triggerEvent(triggerEvent):
+                self.triggerEvent = triggerEvent
+            case let .axisLine(axisLine):
+                self.axisLine = axisLine
+            case let .axisTick(axisTick):
+                self.axisTick = axisTick
+            case let .axisLabel(axisLabel):
+                self.axisLabel = axisLabel
+            case let .splitLine(splitLine):
+                self.splitLine = splitLine
+            case let .splitArea(splitArea):
+                self.splitArea = splitArea
+            case let .data(data):
+                self.data = data
+            case let .zlevel(zlevel):
+                self.zlevel = zlevel
+            case let .z(z):
+                self.z = z
+            }
+        }
     }
 }
 

@@ -18,7 +18,37 @@ public struct SECOption {
     public init() { }
 }
 
-extension SECOption: SECMappable {
+extension SECOption : SECEnumable {
+    
+    public enum Enums {
+        case title(SECTitle), tooltip(SECTooltip), legend(SECLegend), xAxis(SECAxis), yAxis(SECAxis), grid(SECGrid), series([SECSeries])
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .title(title):
+                self.title = title
+            case let .tootltip(tooltip):
+                self.tooltip = tooltip
+            case let .legend(legend):
+                self.legend = legend
+            case let .xAxis(xAxis):
+                self.xAxis = xAxis
+            case let .yAxis(yAxis):
+                self.yAxis = yAxis
+            case let .grid(grid):
+                self.grid = grid
+            case let .series(series):
+                self.series = series
+            }
+        }
+    }
+}
+
+extension SECOption : SECMappable {
     public func mapping(map: SECMap) {
         map["title"] = title
         map["tooltip"] = tooltip

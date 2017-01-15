@@ -51,7 +51,6 @@ public struct SECToolbox : SECDisplayable {
         public var magicType: MagicType?
         /// 选框组件的控制按钮。
         ///
-        /// - Note: 暂不支持
         public var brush: Brush?
 
     }
@@ -111,6 +110,38 @@ public struct SECToolbox : SECDisplayable {
     public var height: Float?
 }
 
+extension SECToolbox.Feature : SECMappable {
+    public func mapping(map: SECMap) {
+        map["saveAsImage"] = saveAsImage
+        map["restore"] = restore
+        map["dataView"] = dataView
+        map["dataZoom"] = dataZoom
+        map["magicType"] = magicType
+        map["brush"] = brush
+    }
+}
+
+extension SECToolbox : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["orient"] = orient
+        map["itemSize"] = itemSize
+        map["itemGap"] = itemGap
+        map["showTitle"] = showTitle
+        map["feature"] = feature
+        map["iconStyle"] = iconStyle
+        map["zlevel"] = zlevel
+        map["z"] = z
+        map["left"] = left
+        map["top"] = top
+        map["right"] = right
+        map["bottom"] = bottom
+        map["width"] = width
+        map["height"] = height
+    }
+}
+
+// MARK: - SECToolbox.IconStyle
 extension SECToolbox {
     public struct IconStyleContent : SECOpacitable {
         public var color: SECColor?
@@ -127,7 +158,7 @@ extension SECToolbox {
             }
         }
         /// 文本位置，'left' / 'right' / 'top' / 'bottom'。
-        public var textPosistion: SECPosition?
+        public var textPosition: SECPosition?
         /// 文本对齐方式，'left' / 'right'。
         public var textAlign: SECAlign?
         
@@ -144,6 +175,86 @@ extension SECToolbox {
     }
 }
 
+extension SECToolbox.IconStyleContent : SECEnumable {
+    public enum Enums {
+        case color(SECColor), borderColor(SECColor), borderWidth(Float), borderType(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), textPosition(SECPosition), textAlign(SECAlign)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .color(color):
+                self.color = color
+            case let .borderColor(color):
+                self.borderColor = color
+            case let .borderWidth(width):
+                self.borderWidth = width
+            case let .borderType(borderType):
+                self.borderType = borderType
+            case let .shadowBlur(blur):
+                self.shadowBlur = blur
+            case let .shadowColor(color):
+                self.shadowColor = color
+            case let .shadowOffsetX(x):
+                self.shadowOffsetX = x
+            case let .shadowOffsetY(y):
+                self.shadowOffsetY = y
+            case let .opacity(opacity):
+                self.opacity = opacity
+            case let .textPosition(textPosition):
+                self.textPosition = textPosition
+            case let .textAlign(textAlign):
+                self.textAlign = textAlign
+            }
+        }
+    }
+}
+
+extension SECToolbox.IconStyleContent : SECMappable {
+    public func mapping(map: SECMap) {
+        map["color"] = color
+        map["borderColor"] = borderColor
+        map["borderWidth"] = borderWidth
+        map["borderType"] = borderType
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
+        map["opacity"] = opacity
+        map["textPosition"] = textPosition
+        map["textAlign"] = textAlign
+    }
+}
+
+extension SECToolbox.IconStyle : SECEnumable {
+    public enum Enums {
+        case normal(Style), emphasis(Style)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .normal(normal):
+                self.normal = normal
+            case let .emphasis(emphasis):
+                self.emphasis = emphasis
+            }
+        }
+    }
+}
+
+extension SECToolbox.IconStyle : SECMappable {
+    public func mapping(map: SECMap) {
+        map["normal"] = normal
+        map["emphasis"] = emphasis
+    }
+}
+
+// MARK: - SECToolbox.Feature.SaveAsImage
 extension SECToolbox.Feature {
     /// 保存为图片。
     public struct SaveAsImage : SECDisplayable {
@@ -177,6 +288,21 @@ extension SECToolbox.Feature {
     }
 }
 
+extension SECToolbox.Feature.SaveAsImage : SECMappable {
+    public func mapping(map: SECMap) {
+        map["type"] = type
+        map["name"] = name
+        map["backgroundColor"] = backgroundColor
+        map["excludeComponents"] = excludeComponents
+        map["show"] = show
+        map["title"] = title
+        map["icon"] = icon
+        map["iconStyle"] = iconStyle
+        map["pixelRatio"] = pixelRatio
+    }
+}
+
+// MARK: - SECToolbox.Feature.Restore
 extension SECToolbox.Feature {
     /// 配置项还原。
     public struct Restore : SECDisplayable {
@@ -191,6 +317,16 @@ extension SECToolbox.Feature {
     }
 }
 
+extension SECToolbox.Feature.Restore : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["title"] = title
+        map["icon"] = icon
+        map["iconStyle"] = iconStyle
+    }
+}
+
+// MARK: - SECToolbox.Feature.DataView
 extension SECToolbox.Feature {
     /// 数据视图工具，可以展现当前图表所用的数据，编辑后可以动态更新。
     public struct DataView : SECDisplayable {
@@ -223,6 +359,26 @@ extension SECToolbox.Feature {
     }
 }
 
+extension SECToolbox.Feature.DataView : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["title"] = title
+        map["icon"] = icon
+        map["iconStyle"] = iconStyle
+        map["readOnly"] = readOnly
+//        map["optionToContent"] = optionToContent
+//        map["contentToOption"] = contentToOption
+        map["lang"] = lang
+        map["backgroundColor"] = backgroundColor
+        map["textareaColor"] = textareaColor
+        map["textareaBorderColor"] = textareaBorderColor
+        map["textColor"] = textColor
+        map["buttonColor"] = buttonColor
+        map["buttonTextColor"] = buttonTextColor
+    }
+}
+
+// MARK: - SECToolbox.Feature.DataZoom
 extension SECToolbox.Feature {
     /// 数据区域缩放。目前只支持直角坐标系的缩放。
     public struct DataZoom : SECDisplayable {
@@ -232,10 +388,31 @@ extension SECToolbox.Feature {
         /// - bool: 如果设置为 false 则不控制任何x轴
         /// - int: 如果设置成 3 则控制 axisIndex 为 3 的x轴
         /// - array: 如果设置为 [0, 3] 则控制 axisIndex 为 0 和 3 的x轴。
-        public enum AxisIndexSelector {
+        public enum AxisIndexSelector : SECJsonable {
             case bool(Bool)
             case int(UInt)
             case array([UInt])
+            
+            public var jsonString: String {
+                switch self {
+                case let .bool(b):
+                    if b {
+                        return "\"all\""
+                    } else {
+                        return "\"none\""
+                    }
+                case let .int(i):
+                    return "\(i)"
+                case let .array(arr):
+                    var result = "["
+                    for i in arr {
+                        result = "\(i),"
+                    }
+                    result = result.substringToIndex(result.endIndex.predecessor())
+                    result += "]"
+                    return result
+                }
+            }
         }
         
         /// 缩放和还原的标题文本。
@@ -269,6 +446,33 @@ extension SECToolbox.Feature {
     }
 }
 
+extension SECToolbox.Feature.DataZoom.Title : SECMappable {
+    public func mapping(map: SECMap) {
+        map["zoom"] = zoom
+        map["back"] = back
+    }
+}
+
+extension SECToolbox.Feature.DataZoom.Icon : SECMappable {
+    public func mapping(map: SECMap) {
+        map["zoom"] = zoom
+        map["back"] = back
+    }
+}
+
+extension SECToolbox.Feature.DataZoom : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["title"] = title
+        map["icon"] = icon
+        map["iconStyle"] = iconStyle
+        map["xAxisIndex"] = xAxisIndex
+        map["yAxisIndex"] = yAxisIndex
+    }
+}
+
+
+// MARK: - SECToolbox.Feature.MagicType
 extension SECToolbox.Feature {
     /// 动态类型切换 示例：
     ///
@@ -325,6 +529,37 @@ extension SECToolbox.Feature {
     }
 }
 
+extension SECToolbox.Feature.MagicType.Title : SECMappable {
+    public func mapping(map: SECMap) {
+        map["line"] = line
+        map["bar"] = bar
+        map["stack"] = stack
+        map["tiled"] = tiled
+    }
+}
+
+extension SECToolbox.Feature.MagicType.Icon : SECMappable {
+    public func mapping(map: SECMap) {
+        map["line"] = line
+        map["bar"] = bar
+        map["stack"] = stack
+        map["tiled"] = tiled
+    }
+}
+
+
+extension SECToolbox.Feature.MagicType : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["type"] = type
+        map["title"] = title
+        map["icon"] = icon
+//        map["option"] = option
+//        map["seriesIndex"] = seriesIndex
+    }
+}
+
+// MARK: - SECToolbox.Feature.Brush
 extension SECToolbox.Feature {
     /// 选框组件的控制按钮。
     ///
@@ -356,6 +591,7 @@ extension SECToolbox.Feature {
             public var rect: String?
             public var polygon: String?
             public var lineX: String?
+            public var lineY: String?
             public var keep: String?
             public var clear: String?
         }
@@ -365,6 +601,7 @@ extension SECToolbox.Feature {
             public var rect: String?
             public var polygon: String?
             public var lineX: String?
+            public var lineY: String?
             public var keep: String?
             public var clear: String?
         }
@@ -375,4 +612,32 @@ extension SECToolbox.Feature {
     }
 }
 
+extension SECToolbox.Feature.Brush.Icon : SECMappable {
+    public func mapping(map: SECMap) {
+        map["rect"] = rect
+        map["polygon"] = polygon
+        map["lineX"] = lineX
+        map["lineY"] = lineY
+        map["keep"] = keep
+        map["clear"] = clear
+    }
+}
 
+extension SECToolbox.Feature.Brush.Title : SECMappable {
+    public func mapping(map: SECMap) {
+        map["rect"] = rect
+        map["polygon"] = polygon
+        map["lineX"] = lineX
+        map["lineY"] = lineY
+        map["keep"] = keep
+        map["clear"] = clear
+    }
+}
+
+extension SECToolbox.Feature.Brush : SECMappable {
+    public func mapping(map: SECMap) {
+        map["type"] = type
+        map["icon"] = icon
+        map["title"] = title
+    }
+}

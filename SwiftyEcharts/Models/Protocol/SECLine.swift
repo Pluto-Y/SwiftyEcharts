@@ -47,6 +47,37 @@ public struct SECLineStyle: SECShadowable, SECColorful, SECOpacitable, SECJsonab
     
 }
 
+extension SECLineStyle : SECEnumable {
+    public enum Enums {
+        case color(SECColor), width(Float), type(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .color(color):
+                self.color = color
+            case let .width(width):
+                self.width = width
+            case let .type(type):
+                self.type = type
+            case let .opacity(opacity):
+                self.opacity = opacity
+            case let .shadowBlur(blur):
+                self.shadowBlur = blur
+            case let .shadowColor(color):
+                self.shadowColor = color
+            case let .shadowOffsetX(x):
+                self.shadowOffsetX = x
+            case let .shadowOffsetY(y):
+                self.shadowOffsetY = y
+            }
+        }
+    }
+}
+
 extension SECLineStyle : SECMappable {
     public func mapping(map: SECMap) {
         map["color"] = color
@@ -74,6 +105,27 @@ public struct SECSplitLine: SECDisplayable, SECLine {
     public var lineStyle: SECLineStyle?
     
     public init() { }
+}
+
+extension SECSplitLine : SECEnumable {
+    public enum Enums {
+        case show(Bool), interval(UInt), lineStyle(SECLineStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .interval(interval):
+                self.interval = interval
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            }
+        }
+    }
 }
 
 extension SECSplitLine : SECMappable {

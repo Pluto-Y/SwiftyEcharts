@@ -7,7 +7,7 @@
 //
 
 /// 指定窗口打开主标题超链接。
-public enum SECTarget: SECJsonable, CustomStringConvertible {
+public enum SECTarget : SECJsonable, CustomStringConvertible {
     
     ///  当前窗口打开
     case tself
@@ -29,7 +29,7 @@ public enum SECTarget: SECJsonable, CustomStringConvertible {
 /// - all: 所有
 /// - verticalAndHorizontal: 垂直和水平方向
 /// - trbl: 上右下左
-public enum SECPadding: SECJsonable, CustomStringConvertible {
+public enum SECPadding : SECJsonable, CustomStringConvertible {
     case all(Float)
     case verticalAndHorizontal(Float, Float)
     case trbl(Float, Float, Float, Float)
@@ -56,7 +56,7 @@ public enum SECPadding: SECJsonable, CustomStringConvertible {
 /// - bottom: 垂直：底部
 /// - value: 绝对位置
 /// - percent: 相对位置
-public enum SECPosition: SECJsonable, CustomStringConvertible {
+public enum SECPosition : SECJsonable, CustomStringConvertible {
     case auto, left, center, right, top, middle, bottom
     case value(Float)
     case percent(Float)
@@ -149,7 +149,73 @@ public struct SECTitle: SECBorderable, SECDisplayable, SECTextful {
     public init() { }
 }
 
-extension SECTitle: SECMappable {
+extension SECTitle : SECEnumable {
+    public enum Enums {
+        case show(Bool), text(String), link(String), target(SECTarget), textStyle(SECTextStyle), textAlign(SECAlign), textBaseline(SECTextBaseline), subtext(String), sublink(String), subtarget(SECTarget), subtextStyle(SECTextStyle), padding(SECPadding), itemGap(Float), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .text(text):
+                self.text = text
+            case let .link(link):
+                self.link = link
+            case let .target(target):
+                self.target = target
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            case let .textAlign(align):
+                self.textAlign = align
+            case let .textBaseline(baseline):
+                self.textBaseline = baseline
+            case let .subtext(text):
+                self.subtext = text
+            case let .sublink(sublink):
+                self.sublink = sublink
+            case let .subtarget(target):
+                self.subtarget = target
+            case let .subtextStyle(textStyle):
+                self.subtextStyle = textStyle
+            case let .padding(padding):
+                self.padding = padding
+            case let .itemGap(itemGap):
+                self.itemGap = itemGap
+            case let .zlevel(zlevel):
+                self.zlevel = zlevel
+            case let .z(z):
+                self.z = z
+            case let .left(left):
+                self.left = left
+            case let .top(top):
+                self.top = top
+            case let .right(right):
+                self.right = right
+            case let .bottom(bottom):
+                self.bottom = bottom
+            case let .backgroundColor(backgroundColor):
+                self.backgroundColor = backgroundColor
+            case let .borderColor(color):
+                self.borderColor = color
+            case let .borderWidth(width):
+                self.borderWidth = width
+            case let .shadowBlur(blur):
+                self.shadowBlur = blur
+            case let .shadowColor(color):
+                self.shadowColor = color
+            case let .shadowOffsetX(x):
+                self.shadowOffsetX = x
+            case let .shadowOffsetY(y):
+                self.shadowOffsetY = y
+            }
+        }
+    }
+}
+extension SECTitle : SECMappable {
     public func mapping(map: SECMap) {
         map["show"] = show
         map["text"] = text

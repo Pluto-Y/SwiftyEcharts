@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CFF7B5878B18560CCB66CBE /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF455018FD12B4A1C1A1050D /* Pods_SwiftyEchartsTest_iOS.framework */; };
+		2377A359C591BD0C20703777 /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */; };
 		5435CCBE1E24990B00D753B2 /* SECUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435CCBD1E24990B00D753B2 /* SECUtilities.swift */; };
 		54BA6E231E1B76B100CD7AA6 /* SECSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */; };
 		54BA6E251E1B798100CD7AA6 /* SECLineSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E241E1B798100CD7AA6 /* SECLineSeries.swift */; };
@@ -93,8 +93,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		138809570EA8D0B6AB457147 /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		2E357625CAA9692CDE7F5561 /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		0E050E4779F8D6A158AB3CCF /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		1BF7A0380778E442CCDE890E /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		5435CCBD1E24990B00D753B2 /* SECUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECUtilities.swift; sourceTree = "<group>"; };
 		54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSeries.swift; sourceTree = "<group>"; };
 		54BA6E241E1B798100CD7AA6 /* SECLineSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLineSeries.swift; sourceTree = "<group>"; };
@@ -102,6 +102,7 @@
 		54FEBE8D1E23480D0021CB13 /* SECMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMap.swift; sourceTree = "<group>"; };
 		54FEBE8E1E23480D0021CB13 /* SECMappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMappable.swift; sourceTree = "<group>"; };
 		54FEBE921E2354B60021CB13 /* SECOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECOption.swift; sourceTree = "<group>"; };
+		696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyEchartsTest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F13256C1D9312A90006F114 /* SwiftyEcharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyEcharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F13256F1D9312A90006F114 /* SwiftyEcharts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyEcharts.h; sourceTree = "<group>"; };
 		6F1325711D9312A90006F114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,7 +144,6 @@
 		6FB48CC31DEF358C00137D13 /* SECDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECDisplayable.swift; sourceTree = "<group>"; };
 		6FB48CC51DEF35AF00137D13 /* SECTooltip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECTooltip.swift; sourceTree = "<group>"; };
 		6FB48CC71DEF3BB100137D13 /* SECFormatted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECFormatted.swift; sourceTree = "<group>"; };
-		BF455018FD12B4A1C1A1050D /* Pods_SwiftyEchartsTest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyEchartsTest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FB48CB31DEE9FF400137D13 /* SwiftyEcharts.framework in Frameworks */,
-				4CFF7B5878B18560CCB66CBE /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */,
+				2377A359C591BD0C20703777 /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,8 +210,8 @@
 				6F9B70DE1DE808E600406B55 /* iOS_Example */,
 				6FB48CAF1DEE9FF300137D13 /* SwiftyEchartsTest_iOS */,
 				6F13256D1D9312A90006F114 /* Products */,
-				7EC21F372679D04F0A887675 /* Pods */,
-				B7A06DD3A8CF5ED1B822980A /* Frameworks */,
+				B66151FAADC10CC08D3456D0 /* Pods */,
+				A87694136D03A0BD2519656E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -334,21 +334,21 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		7EC21F372679D04F0A887675 /* Pods */ = {
+		A87694136D03A0BD2519656E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				138809570EA8D0B6AB457147 /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */,
-				2E357625CAA9692CDE7F5561 /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		B7A06DD3A8CF5ED1B822980A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BF455018FD12B4A1C1A1050D /* Pods_SwiftyEchartsTest_iOS.framework */,
+				696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B66151FAADC10CC08D3456D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E050E4779F8D6A158AB3CCF /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */,
+				1BF7A0380778E442CCDE890E /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,12 +412,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FB48CB61DEE9FF400137D13 /* Build configuration list for PBXNativeTarget "SwiftyEchartsTest_iOS" */;
 			buildPhases = (
-				C5C555BBEE4089F15252C88E /* [CP] Check Pods Manifest.lock */,
+				1963F87E9502C70C1B946682 /* [CP] Check Pods Manifest.lock */,
 				6FB48CAA1DEE9FF300137D13 /* Sources */,
 				6FB48CAB1DEE9FF300137D13 /* Frameworks */,
 				6FB48CAC1DEE9FF300137D13 /* Resources */,
-				5EB5248FE0347F9B09EA2937 /* [CP] Embed Pods Frameworks */,
-				80D68535ABB6658473DD88FA /* [CP] Copy Pods Resources */,
+				2C4000DA3602FEE2576776DE /* [CP] Embed Pods Frameworks */,
+				FAD67B08EEEED81A95C983CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -505,7 +505,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5EB5248FE0347F9B09EA2937 /* [CP] Embed Pods Frameworks */ = {
+		1963F87E9502C70C1B946682 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2C4000DA3602FEE2576776DE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -520,7 +535,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		80D68535ABB6658473DD88FA /* [CP] Copy Pods Resources */ = {
+		FAD67B08EEEED81A95C983CA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -533,21 +548,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C5C555BBEE4089F15252C88E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -818,7 +818,7 @@
 		};
 		6FB48CB71DEE9FF400137D13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 138809570EA8D0B6AB457147 /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */;
+			baseConfigurationReference = 0E050E4779F8D6A158AB3CCF /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -835,7 +835,7 @@
 		};
 		6FB48CB81DEE9FF400137D13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E357625CAA9692CDE7F5561 /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */;
+			baseConfigurationReference = 1BF7A0380778E442CCDE890E /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;

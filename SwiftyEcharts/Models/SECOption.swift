@@ -8,11 +8,11 @@
 
 public struct SECOption {
     public var title: SECTitle?
-    public var tooltip: SECTooltip?
     public var legend: SECLegend?
+    public var grid: SECGrid?
     public var xAxis: [SECAxis]?
     public var yAxis: [SECAxis]?
-    public var grid: SECGrid?
+    public var tooltip: SECTooltip?
     public var series: [SECSeries]?
     
     public init() { }
@@ -21,7 +21,7 @@ public struct SECOption {
 extension SECOption : SECEnumable {
     
     public enum Enums {
-        case title(SECTitle), tooltip(SECTooltip), legend(SECLegend), xAxis([SECAxis]), yAxis([SECAxis]), grid(SECGrid), series([SECSeries])
+        case title(SECTitle), legend(SECLegend), grid(SECGrid), xAxis([SECAxis]), yAxis([SECAxis]), tooltip(SECTooltip), series([SECSeries])
     }
     
     public typealias ContentEnum = Enums
@@ -31,16 +31,16 @@ extension SECOption : SECEnumable {
             switch ele {
             case let .title(title):
                 self.title = title
-            case let .tooltip(tooltip):
-                self.tooltip = tooltip
             case let .legend(legend):
                 self.legend = legend
+            case let .grid(grid):
+                self.grid = grid
             case let .xAxis(xAxis):
                 self.xAxis = xAxis
             case let .yAxis(yAxis):
                 self.yAxis = yAxis
-            case let .grid(grid):
-                self.grid = grid
+            case let .tooltip(tooltip):
+                self.tooltip = tooltip
             case let .series(series):
                 self.series = series
             }
@@ -51,11 +51,11 @@ extension SECOption : SECEnumable {
 extension SECOption : SECMappable {
     public func mapping(map: SECMap) {
         map["title"] = title
-        map["tooltip"] = tooltip
         map["legend"] = legend
+        map["grid"] = grid
         map["xAxis"] = xAxis
         map["yAxis"] = yAxis
-        map["grid"] = grid
+        map["tooltip"] = tooltip
         map["series"] = series
     }
 }

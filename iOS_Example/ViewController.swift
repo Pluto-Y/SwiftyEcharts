@@ -20,56 +20,53 @@ class ViewController: UIViewController {
         self.view.addSubview(echartsView!)
         
         SECMap.ignoreNil = true
-        var option = SECOption()
+        let option = SECOption([
+            .title(SECTitle([
+                .text("对数轴示例"),
+                .left(.center)
+                ])),
+            .tooltip(SECTooltip([
+                .trigger(.item),
+                .formatter(.string("{a} <br/>{b} : {c}"))
+                ])),
+            .legend(SECLegend([
+                .left(.left),
+                .datas(["2的指数", "3的指数"])
+                ])),
+            .xAxis(SECAxis([
+                .type(.category),
+                .name("x"),
+                .splitArea(SECSplitArea([
+                    .show(false)
+                    ])),
+                .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
+                ])),
+            .grid(SECGrid([
+                .left(.percent(3)),
+                .right(.percent(4)),
+                .bottom(.percent(3)),
+                .containLabel(true)
+                ])),
+            .yAxis(SECAxis([
+                .type(.log),
+                .name("y")
+                ])),
+            .series([
+                SECLineSeries([
+                    .name("3的指数"),
+                    .data([1, 3, 9, 27, 81, 247, 741, 2223, 6669])
+                    ]),
+                SECLineSeries([
+                    .name("2的指数"),
+                    .data([1, 2, 4, 8, 16, 32, 64, 128, 256])
+                    ]),
+                SECLineSeries([
+                    .name("1/2的指数"),
+                    .data([1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625])
+                    ])
+                ])
+            ])
         
-        var title = SECTitle()
-        title.text = "对数轴示例"
-        title.left = .center
-        option.title = title
-        
-        var tooltip = SECTooltip()
-        tooltip.trigger = .item
-        tooltip.formatter = .string("{a} <br/>{b} : {c}")
-        option.tooltip = tooltip
-        
-        var legend = SECLegend()
-        legend.left = .left
-        legend.datas = ["2的指数", "3的指数"]
-        option.legend = legend
-        
-        var xAxis = SECAxis()
-        xAxis.type = .category
-        xAxis.name = "x"
-        xAxis.splitLine = SECSplitLine()
-        xAxis.splitLine?.show = false
-        xAxis.data = ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
-        option.xAxis = xAxis
-        
-        var  grid = SECGrid()
-        grid.left = .percent(3)
-        grid.right = .percent(4)
-        grid.bottom = .percent(3)
-        grid.containLabel = true
-        option.grid = grid
-        
-        var yAxis = SECAxis()
-        yAxis.type = .log
-        yAxis.name = "y"
-        option.yAxis = yAxis
-        
-        var serie1 = SECLineSeries()
-        serie1.name = "3的指数"
-        serie1.data = [1, 3, 9, 27, 81, 247, 741, 2223, 6669]
-        var serie2 = SECLineSeries()
-        serie2.name = "2的指数"
-        serie2.data = [1, 2, 4, 8, 16, 32, 64, 128, 256]
-        var serie3 = SECLineSeries()
-        serie3.name = "1/2的指数"
-        serie3.data = [1, 1/2.0, 1/4.0, 1/8.0, 1/16.0, 1/32.0, 1/64.0, 1/128.0, 1/256.0]
-        let series: [SECSeries]? = [serie1, serie2, serie3]
-        option.series = series
-        
-//        print(option.jsonString)
         echartsView?.option = option;
         echartsView?.loadEcharts()
     }

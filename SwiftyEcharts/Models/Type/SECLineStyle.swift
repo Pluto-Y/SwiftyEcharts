@@ -24,6 +24,37 @@ public struct SECCommonLineStyleContent: SECLineStyleContent {
     public init() { }
 }
 
+extension SECCommonLineStyleContent : SECEnumable {
+    public enum Enums {
+        case color(SECColor), width(Float), type(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .color(color):
+                self.color = color
+            case let .width(width):
+                self.width = width
+            case let .type(type):
+                self.type = type
+            case let .shadowBlur(blur):
+                self.shadowBlur = blur
+            case let .shadowColor(color):
+                self.shadowColor = color
+            case let .shadowOffsetX(x):
+                self.shadowOffsetX = x
+            case let .shadowOffsetY(y):
+                self.shadowOffsetY = y
+            case let .opacity(opacity):
+                self.opacity = opacity
+            }
+        }
+    }
+}
+
 extension SECCommonLineStyleContent : SECMappable {
     public func mapping(map: SECMap) {
         map["color"] = color

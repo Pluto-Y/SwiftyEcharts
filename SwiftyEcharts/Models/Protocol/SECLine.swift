@@ -6,8 +6,6 @@
 //  Copyright © 2016 com.pluto-y. All rights reserved.
 //
 
-import Foundation
-
 /// 线的类型
 ///
 /// - solid: 实线

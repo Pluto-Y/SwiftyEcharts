@@ -18,9 +18,8 @@
 /// 更多其它图表模板变量的含义可以见相应的图表的 label.normal.formatter 配置项。
 ///
 ///     '{b0}: {c0}<br />{b1}: {c1}'
-/// ## function:回调函数
-
-public enum SECFormatter: SECJsonable { // FIXME: 封装关于Formatter
+/// ## function:回调函数 支持js函数，只需通过字符串来指定声明函数即可
+public enum SECFormatter: SECJsonable {
     case string(String)
     case function(String)
     

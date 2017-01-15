@@ -58,6 +58,54 @@ public struct SECGrid : SECBorderable, SECDisplayable, SECShadowable {
     public init() { }
 }
 
+extension SECGrid : SECEnumable {
+    public enum Enums {
+        case show(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), containLabel(Bool), background(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+    }
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .zlevel(zlevel):
+                self.zlevel = zlevel
+            case let .z(z):
+                self.z = z
+            case let .left(left):
+                self.left = left
+            case let .top(top):
+                self.top = top
+            case let .right(right):
+                self.right = right
+            case let .bottom(bottom):
+                self.bottom = bottom
+            case let .width(width):
+                self.width = width
+            case let .height(height):
+                self.height = height
+            case let .containLabel(containLabel):
+                self.containLabel = containLabel
+            case let .background(background):
+                self.background = background
+            case let .borderColor(color):
+                self.borderColor = color
+            case let .borderWidth(width):
+                self.borderWidth = width
+            case let .shadowBlur(blur):
+                self.shadowBlur = blur
+            case let .shadowColor(color):
+                self.shadowColor = color
+            case let .shadowOffsetX(x):
+                self.shadowOffsetX = x
+            case let .shadowOffsetY(y):
+                self.shadowOffsetY = y
+            }
+        }
+    }
+}
+
 extension SECGrid : SECMappable {
     public func mapping(map: SECMap) {
         map["show"] = show

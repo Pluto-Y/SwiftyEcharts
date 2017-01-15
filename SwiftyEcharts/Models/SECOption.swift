@@ -31,7 +31,7 @@ extension SECOption : SECEnumable {
             switch ele {
             case let .title(title):
                 self.title = title
-            case let .tootltip(tooltip):
+            case let .tooltip(tooltip):
                 self.tooltip = tooltip
             case let .legend(legend):
                 self.legend = legend

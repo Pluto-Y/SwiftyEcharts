@@ -12,7 +12,7 @@
 /// - item: 数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
 /// - axis: 坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。
 /// - Note: 在 ECharts 2.x 中只支持类目轴上使用 axis trigger，在 ECharts 3 中支持在直角坐标系和极坐标系上的所有类型的轴。并且可以通过 axisPointer.axis 指定坐标轴。
-public enum SECTrigger: String, SECJsonable {
+public enum SECTrigger : String, SECJsonable {
     case item = "item"
     case axis = "axis"
     
@@ -26,7 +26,7 @@ public enum SECTrigger: String, SECJsonable {
     /// - click: 鼠标点击时触发
     /// - none: 不触发，用户可以通过 action.tooltip.showTip 和 action.tooltip.hideTip 来手动触发和隐藏。
     /// - Note: 该属性为 ECharts 3.0 中新加。
-    public enum TriggerOn: String, SECJsonable {
+    public enum TriggerOn : String, SECJsonable {
         case mousemove = "mousemove"
         case click = "click"
         case none = "none"
@@ -39,7 +39,7 @@ public enum SECTrigger: String, SECJsonable {
 }
 
 /// 提示框组件
-public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonable {
+public struct SECTooltip : SECBorderable, SECDisplayable, SECFormatted, SECJsonable {
     
     /// 提示框浮层的位置
     ///
@@ -77,10 +77,10 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
     }
     
     /// 坐标轴指示器配置项
-    public struct AxisPointer: SECLine {
+    public struct AxisPointer : SECLine {
         
         /// 十字准星指示器样式
-        public struct CrossStyle: SECShadowable, SECColorful{
+        public struct CrossStyle : SECShadowable, SECColorful{
             /// 线的颜色
             public var color: SECColor?
             /// 线宽
@@ -99,7 +99,7 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
         }
         
         /// 阴影提示器样式
-        public struct ShadowStyle: SECShadowable, SECColorful, SECOpacitable {
+        public struct ShadowStyle : SECShadowable, SECColorful, SECOpacitable {
             
             /// 填充的颜色
             public var color: SECColor?
@@ -123,7 +123,7 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
         /// - line: 直线指示器
         /// - cross: 十字准星指示器
         /// - shadow: 阴影指示器
-        public enum Type: String, SECJsonable {
+        public enum Type : String, SECJsonable {
             case line = "line", cross = "cross", shadow = "shadow"
         }
         
@@ -215,7 +215,34 @@ public struct SECTooltip: SECBorderable, SECDisplayable, SECFormatted, SECJsonab
     public init() { }
 }
 
-extension SECTooltip.AxisPointer.ShadowStyle: SECMappable {
+extension SECTooltip.AxisPointer.ShadowStyle : SECEnumable {
+    public enum Enums {
+        case color(SECColor), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .color(color):
+                self.color = color
+            case let .shadowBlur(blur):
+                self.shadowBlur = blur
+            case let .shadowColor(color):
+                self.shadowColor = color
+            case let .shadowOffsetX(x):
+                self.shadowOffsetX = x
+            case let .shadowOffsetY(y):
+                self.shadowOffsetY = y
+            case let .opacity(opacity):
+                self.opacity = opacity
+            }
+        }
+    }
+}
+
+extension SECTooltip.AxisPointer.ShadowStyle : SECMappable {
     public func mapping(map: SECMap) {
         map["color"] = color
         map["shadowBlur"] = shadowBlur
@@ -226,7 +253,38 @@ extension SECTooltip.AxisPointer.ShadowStyle: SECMappable {
     }
 }
 
-extension SECTooltip.AxisPointer.CrossStyle: SECMappable {
+extension SECTooltip.AxisPointer.CrossStyle : SECEnumable {
+    public enum Enums {
+        case color(SECColor), width(Float), type(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), textStyle(SECTextStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .color(color):
+                self.color = color
+            case let .width(width):
+                self.width = width
+            case let .type(type):
+                self.type = type
+            case let .shadowBlur(blur):
+                self.shadowBlur = blur
+            case let .shadowColor(color):
+                self.shadowColor = color
+            case let .shadowOffsetX(x):
+                self.shadowOffsetX = x
+            case let .shadowOffsetY(y):
+                self.shadowOffsetY = y
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            }
+        }
+    }
+}
+
+extension SECTooltip.AxisPointer.CrossStyle : SECMappable {
     public func mapping(map: SECMap) {
         map["color"] = color
         map["width"] = width
@@ -239,7 +297,48 @@ extension SECTooltip.AxisPointer.CrossStyle: SECMappable {
     }
 }
 
-extension SECTooltip.AxisPointer: SECMappable {
+extension SECTooltip.AxisPointer : SECEnumable {
+    public enum Enums {
+        case type(Type), axis(String), animation(Bool), animationThreshold(Float), animationDuration(UInt32), animationEasing(String), animationDelay(Float), animationDurationUpdate(UInt32), animationEasingUpdate(String), animationDelayUpdate(Float), lineStyle(SECLineStyle), crossStyle(CrossStyle), shadowStyle(ShadowStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .type(type):
+                self.type = type
+            case let .axis(axis):
+                self.axis = axis
+            case let .animation(animation):
+                self.animation = animation
+            case let .animationThreshold(animationThreshold):
+                self.animationThreshold = animationThreshold
+            case let .animationDuration(animationDuration):
+                self.animationDuration = animationDuration
+            case let .animationEasing(animationEasing):
+                self.animationEasing = animationEasing
+            case let .animationDelay(animationDelay):
+                self.animationDelay = animationDelay
+            case let .animationDurationUpdate(animationDurationUpdate):
+                self.animationDurationUpdate = animationDurationUpdate
+            case let .animationEasingUpdate(animationEasingUpdate):
+                self.animationEasingUpdate = animationEasingUpdate
+            case let .animationDelayUpdate(animationDelayUpdate):
+                self.animationDelayUpdate = animationDelayUpdate
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            case let .crossStyle(crossStyle):
+                self.crossStyle = crossStyle
+            case let .shadowStyle(shadowStyle):
+                self.shadowStyle = shadowStyle
+            }
+        }
+    }
+}
+
+extension SECTooltip.AxisPointer : SECMappable {
     public func mapping(map: SECMap) {
         map["type"] = type
         map["axis"] = axis
@@ -257,7 +356,57 @@ extension SECTooltip.AxisPointer: SECMappable {
     }
 }
 
-extension SECTooltip: SECMappable {
+extension SECTooltip : SECEnumable {
+    public enum Enums {
+        case show(Bool), showContent(Bool), trigger(SECTrigger), triggerOn(SECTrigger.TriggerOn), alwaysShowContent(Bool), showDelay(Float), hideDelay(Float), position(SECTooltip.Position), confine(Bool), transitionDuration(Float), formatter(SECFormatter), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), padding(SECPadding), textStyle(SECTextStyle), extraCssText(String), axisPointer(AxisPointer)
+    }
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .showContent(showContent):
+                self.showContent = showContent
+            case let .trigger(trigger):
+                self.trigger = trigger
+            case let .triggerOn(triggerOn):
+                self.triggerOn = triggerOn
+            case let .alwaysShowContent(alwaysShowContent):
+                self.alwaysShowContent = alwaysShowContent
+            case let .showDelay(showDelay):
+                self.showDelay = showDelay
+            case let .hideDelay(hideDelay):
+                self.hideDelay = hideDelay
+            case let .position(position):
+                self.position = position
+            case let .confine(confine):
+                self.confine = confine
+            case let .transitionDuration(transitionDuration):
+                self.transitionDuration = transitionDuration
+            case let .formatter(formatter):
+                self.formatter = formatter
+            case let .backgroundColor(backgroundColor):
+                self.backgroundColor = backgroundColor
+            case let .borderColor(borderColor):
+                self.borderColor = borderColor
+            case let .borderWidth(borderWidth):
+                self.borderWidth = borderWidth
+            case let .padding(padding):
+                self.padding = padding
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            case let .extraCssText(extraCssText):
+                self.extraCssText = extraCssText
+            case let .axisPointer(axisPointer):
+                self.axisPointer = axisPointer
+            }
+        }
+    }
+}
+
+extension SECTooltip : SECMappable {
     public func mapping(map: SECMap) {
         map["show"] = show
         map["showContent"] = showContent

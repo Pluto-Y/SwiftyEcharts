@@ -48,6 +48,23 @@ extension SECLineSeries {
     }
 }
 
+extension SECLineSeries.LineStyle : SECEnumable {
+    public enum Enums {
+        case normal(SECCommonLineStyleContent)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .normal(normal):
+                self.normal = normal
+            }
+        }
+    }
+}
+
 extension SECLineSeries.LineStyle : SECMappable {
     public func mapping(map: SECMap) {
         map["normal"] = normal
@@ -59,6 +76,23 @@ extension SECLineSeries {
         public var normal: SECCommonAreaStyleContent?
         
         public init() { }
+    }
+}
+
+extension SECLineSeries.AreaStyle : SECEnumable {
+    public enum Enums {
+        case normal(SECCommonAreaStyleContent)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .normal(normal):
+                self.normal = normal
+            }
+        }
     }
 }
 
@@ -89,9 +123,70 @@ extension SECLineSeries {
     }
 }
 
+extension SECLineSeries.Data.Label : SECEnumable {
+    public enum Enums {
+        case normal(SECCommonLabelStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .normal(normal):
+                self.normal = normal
+            }
+        }
+    }
+}
+
 extension SECLineSeries.Data.Label : SECMappable {
     public func mapping(map: SECMap) {
         map["normal"] = normal
+    }
+}
+
+extension SECLineSeries.Data : SECEnumable {
+    public enum Enums {
+        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), label(Label), itemStyle(SECItemStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .value(value):
+                self.value = value
+            case let .symbol(symbol):
+                self.symbol = symbol
+            case let .symbolSize(symbolSize):
+                self.symbolSize = symbolSize
+            case let .symbolRotate(symbolRotate):
+                self.symbolRotate = symbolRotate
+            case let .symbolOffset(symbolOffset):
+                self.symbolOffset = symbolOffset
+            case let .label(label):
+                self.label = label
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            }
+        }
+    }
+}
+
+extension SECLineSeries.Data : SECMappable {
+    public func mapping(map: SECMap) {
+        map["name"] = name
+        map["value"] = value
+        map["symbol"] = symbol
+        map["symbolSize"] = symbolSize
+        map["symbolRotate"] = symbolRotate
+        map["symbolOffset"] = symbolOffset
+        map["label"] = label
+        map["itemStyle"] = itemStyle
     }
 }
 
@@ -133,8 +228,73 @@ public struct SECLineSeries : SECSymbolized {
 }
 
 extension SECLineSeries : SECSeries {
-    public var type: String {
-        return "line"
+    public var type: SECSerieType {
+        return .line
+    }
+}
+
+extension SECLineSeries : SECEnumable {
+    public enum Enums {
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(String), label(SECLabel), itemStyle(SECItemStyle), lineStyle(LineStyle), areaStyle(AreaStyle), smooth(Bool), smoothMonotone(String), sampling(Sampling), data([Any])
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .coordinateSystem(coordinateSystem):
+                self.coordinateSystem = coordinateSystem
+            case let .xAxisIndex(xAxisIndex):
+                self.xAxisIndex = xAxisIndex
+            case let .yAxisIndex(yAxisIndex):
+                self.yAxisIndex = yAxisIndex
+            case let .polarIndex(polarIndex):
+                self.polarIndex = polarIndex
+            case let .symbol(symbol):
+                self.symbol = symbol
+            case let .symbolSize(symbolSize):
+                self.symbolSize = symbolSize
+            case let .symbolRotate(symbolRotate):
+                self.symbolRotate = symbolRotate
+            case let .symbolOffset(symbolOffset):
+                self.symbolOffset = symbolOffset
+            case let .showSymbol(showSymbol):
+                self.showSymbol = showSymbol
+            case let .showAllSymbol(showAllSymbol):
+                self.showAllSymbol = showAllSymbol
+            case let .hoverAnimation(hoverAnimation):
+                self.hoverAnimation = hoverAnimation
+            case let .legendHoverLink(legendHoverLink):
+                self.legendHoverLink = legendHoverLink
+            case let .stack(stack):
+                self.stack = stack
+            case let .connectNulls(connectNulls):
+                self.connectNulls = connectNulls
+            case let .clipOverflow(clipOverflow):
+                self.clipOverflow = clipOverflow
+            case let .step(step):
+                self.step = step
+            case let .label(label):
+                self.label = label
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            case let .areaStyle(areaStyle):
+                self.areaStyle = areaStyle
+            case let .smooth(smooth):
+                self.smooth = smooth
+            case let .smoothMonotone(smoothMonotone):
+                self.smoothMonotone = smoothMonotone
+            case let .sampling(sampling):
+                self.sampling = sampling
+            case let .data(data):
+                self.data = data
+            }
+        }
     }
 }
 

@@ -7,7 +7,7 @@
 //
 
 
-public enum SECSerieType: String {
+public enum SECSerieType: String, SECJsonable {
     case line = "line"
     case bar = "bar"
     case pie = "pie"
@@ -25,16 +25,14 @@ public enum SECSerieType: String {
     case sankey = "sankey"
     case funnel = "funnel"
     case gauge = "gauge"
+    
+    public var jsonString: String {
+        return "\"\(self.rawValue)\""
+    }
 }
 
-public protocol SECSeries: CustomStringConvertible {
+public protocol SECSeries {
     
     /// 系列列表。每个系列通过 type 决定自己的图表类型
-    var type: String { get }
-}
-
-extension SECSeries {
-    public var description: String {
-        return ""
-    }
+    var type: SECSerieType { get }
 }

@@ -168,7 +168,7 @@ extension SECLegend.Data : SECEnumable {
         case name(String), icon(SECSymbol), textStyle(SECTextStyle)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -197,7 +197,7 @@ extension SECLegend : SECEnumable {
         case show(Bool), zlevel(Float), z(Int), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), datas([Any]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {

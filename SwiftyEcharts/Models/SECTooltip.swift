@@ -220,7 +220,7 @@ extension SECTooltip.AxisPointer.ShadowStyle : SECEnumable {
         case color(SECColor), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -258,7 +258,7 @@ extension SECTooltip.AxisPointer.CrossStyle : SECEnumable {
         case color(SECColor), width(Float), type(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), textStyle(SECTextStyle)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -302,7 +302,7 @@ extension SECTooltip.AxisPointer : SECEnumable {
         case type(Type), axis(String), animation(Bool), animationThreshold(Float), animationDuration(UInt32), animationEasing(String), animationDelay(Float), animationDurationUpdate(UInt32), animationEasingUpdate(String), animationDelayUpdate(Float), lineStyle(SECLineStyle), crossStyle(CrossStyle), shadowStyle(ShadowStyle)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -360,7 +360,7 @@ extension SECTooltip : SECEnumable {
     public enum Enums {
         case show(Bool), showContent(Bool), trigger(SECTrigger), triggerOn(SECTrigger.TriggerOn), alwaysShowContent(Bool), showDelay(Float), hideDelay(Float), position(SECTooltip.Position), confine(Bool), transitionDuration(Float), formatter(SECFormatter), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), padding(SECPadding), textStyle(SECTextStyle), extraCssText(String), axisPointer(AxisPointer)
     }
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {

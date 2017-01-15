@@ -154,7 +154,7 @@ extension SECTitle : SECEnumable {
         case show(Bool), text(String), link(String), target(SECTarget), textStyle(SECTextStyle), textAlign(SECAlign), textBaseline(SECTextBaseline), subtext(String), sublink(String), subtarget(SECTarget), subtextStyle(SECTextStyle), padding(SECPadding), itemGap(Float), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {

@@ -36,7 +36,7 @@ extension SECAxisLine : SECEnumable {
         case show(Bool), onZero(Bool), lineStyle(SECLineStyle)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -91,7 +91,7 @@ extension SECAxisTick : SECEnumable {
         case show(Bool), alignWithLabel(Bool), interval(Int), inside(Bool), length(Float), lineStyle(SECLineStyle)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -151,7 +151,7 @@ extension SECAxisLabel : SECEnumable {
         case show(Bool), interval(UInt), inside(Bool), rotate(Float), margin(Float), formatter(SECFormatter), textStyle(SECTextStyle)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -202,7 +202,7 @@ extension SECSplitArea : SECEnumable {
         case show(Bool), interval(UInt), areaStyle(SECAreaStyle)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -375,7 +375,7 @@ extension SECAxis.Data : SECEnumable {
         case value(String), textStyle(SECTextStyle)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -401,7 +401,7 @@ extension SECAxis : SECEnumable {
         case gridIndex(UInt), position(SECPosition), offset(Float), type(Type), name(String), nameLocation(String), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any]), zlevel(Float), z(Float)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {

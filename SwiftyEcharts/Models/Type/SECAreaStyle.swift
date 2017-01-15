@@ -24,7 +24,7 @@ extension SECCommonAreaStyleContent : SECEnumable {
         case color(SECColor), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -80,7 +80,7 @@ extension SECAreaStyle : SECEnumable {
         case color(SECColor), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {

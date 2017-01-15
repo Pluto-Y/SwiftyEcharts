@@ -7,6 +7,6 @@
 //
 
 public protocol SECEnumable {
-    associatedtype SECContentEnum
-    init(_ elements: [Self.SECContentEnum])
+    associatedtype ContentEnum
+    init(_ elements: [Self.ContentEnum])
 }

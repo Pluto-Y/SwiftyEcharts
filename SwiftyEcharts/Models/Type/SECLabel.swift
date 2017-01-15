@@ -26,7 +26,7 @@ extension SECCommonLabelStyle : SECEnumable {
         case show(Bool), position(SECPosition), textStyle(SECTextStyle)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -65,7 +65,7 @@ extension SECLabel : SECEnumable {
         case normal(Style), emphasis(Style)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -102,7 +102,7 @@ extension SECFormattedLabelStyle : SECEnumable {
         case show(Bool), position(SECPosition), formatter(SECFormatter), textStyle(SECTextStyle)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {
@@ -144,7 +144,7 @@ extension SECFormattedLabel : SECEnumable {
         case normal(Style), emphasis(Style)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {

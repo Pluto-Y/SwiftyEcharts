@@ -24,7 +24,7 @@ extension SECOption : SECEnumable {
         case title(SECTitle), tooltip(SECTooltip), legend(SECLegend), xAxis(SECAxis), yAxis(SECAxis), grid(SECGrid), series([SECSeries])
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {

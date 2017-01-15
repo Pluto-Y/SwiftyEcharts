@@ -61,7 +61,7 @@ extension SECTextStyle : SECEnumable {
         case color(SECColor), fontStyle(SECFontStyle), fontWeight(SECFontWeight), fontFamily(String), fontSize(UInt)
     }
     
-    public typealias SECContentEnum = Enums
+    public typealias ContentEnum = Enums
     
     public init(_ elements: [Enums]) {
         for ele in elements {

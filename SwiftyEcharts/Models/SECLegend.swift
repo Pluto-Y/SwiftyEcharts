@@ -10,7 +10,7 @@
 ///
 /// - horizontal: 水平
 /// - vertical: 垂直
-public enum SECOrient: String, SECJsonable {
+public enum SECOrient : String, SECJsonable {
     case horizontal = "horizontal", vertical = "vertical"
 
     public var jsonString: String {
@@ -22,7 +22,7 @@ public enum SECOrient: String, SECJsonable {
 ///
 /// - selectable: 设置成是否可选择
 /// - mode: 设置成单选或者多选
-public enum SECSelectedMode: CustomStringConvertible, SECJsonable {
+public enum SECSelectedMode : CustomStringConvertible, SECJsonable {
     
     /// 单选或多选模式
     ///
@@ -51,7 +51,7 @@ public enum SECSelectedMode: CustomStringConvertible, SECJsonable {
 /// 图例组件。
 /// 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
 /// ECharts 3 中单个 echarts 实例中可以存在多个图例组件，会方便多个图例的布局。
-public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowable {
+public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadowable {
     
     /// 图例的数据数组。数组项通常为一个字符串，每一项代表一个系列的 `name`（如果是饼图，也可以是饼图单个数据的 `name`）。图例组件会自动获取对应系列的颜色，图形标记（symbol）作为自己绘制的颜色和标记，特殊字符串 `''`（空字符串）或者 `'\n'`（换行字符串）用于图例的换行。
     ///
@@ -163,7 +163,28 @@ public struct SECLegend: SECBorderable, SECDisplayable, SECFormatted, SECShadowa
     
 }
 
-extension SECLegend.Data: SECMappable {
+extension SECLegend.Data : SECEnumable {
+    public enum Enums {
+        case name(String), icon(SECSymbol), textStyle(SECTextStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .icon(icon):
+                self.icon = icon
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            }
+        }
+    }
+}
+
+extension SECLegend.Data : SECMappable {
     public func mapping(map: SECMap) {
         map["name"] = name
         map["icon"] = icon
@@ -171,7 +192,80 @@ extension SECLegend.Data: SECMappable {
     }
 }
 
-extension SECLegend: SECMappable {
+extension SECLegend : SECEnumable {
+    public enum Enums {
+        case show(Bool), zlevel(Float), z(Int), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), datas([Any]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .zlevel(zlevel):
+                self.zlevel = zlevel
+            case let .z(z):
+                self.z = z
+            case let .left(left):
+                self.left = left
+            case let .top(top):
+                self.top = top
+            case let .right(right):
+                self.right = right
+            case let .bottom(bottom):
+                self.bottom = bottom
+            case let .width(width):
+                self.width = width
+            case let .height(height):
+                self.height = height
+            case let .orient(orient):
+                self.orient = orient
+            case let .align(align):
+                self.align = align
+            case let .padding(padding):
+                self.padding = padding
+            case let .itemGap(itemGap):
+                self.itemGap = itemGap
+            case let .itemWidth(itemWidth):
+                self.itemWidth = itemWidth
+            case let .itemHeight(itemHeight):
+                self.itemHeight = itemHeight
+            case let .formatter(formatter):
+                self.formatter = formatter
+            case let .selectedMode(selectedMode):
+                self.selectedMode = selectedMode
+            case let .inactiveColor(inactiveColor):
+                self.inactiveColor = inactiveColor
+            case let .selected(selected):
+                self.selected = selected
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            case let .tooltip(tooltip):
+                self.tooltip = tooltip
+            case let .datas(datas):
+                self.datas = datas
+            case let .backgroundColor(backgroundColor):
+                self.backgroundColor = backgroundColor
+            case let .borderColor(color):
+                self.borderColor = color
+            case let .borderWidth(width):
+                self.borderWidth = width
+            case let .shadowBlur(blur):
+                self.shadowBlur = blur
+            case let .shadowColor(color):
+                self.shadowColor = color
+            case let .shadowOffsetX(x):
+                self.shadowOffsetX = x
+            case let .shadowOffsetY(y):
+                self.shadowOffsetY = y
+            }
+        }
+    }
+}
+
+extension SECLegend : SECMappable {
     public func mapping(map: SECMap) {
         map["show"] = show
         map["zlevel"] = zlevel

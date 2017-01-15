@@ -1,4 +1,4 @@
-
+// 
 //  ViewController.swift
 //  iOS_Example
 //
@@ -29,8 +29,7 @@ class ViewController: UIViewController {
         
         var tooltip = SECTooltip()
         tooltip.trigger = .item
-        //.string("{a} <br/>{b} : {c}")
-        tooltip.formatter = .function("function test(params, ticket, callback) {return '[' + params.value + ']'; }")
+        tooltip.formatter = .string("{a} <br/>{b} : {c}")
         option.tooltip = tooltip
         
         var legend = SECLegend()

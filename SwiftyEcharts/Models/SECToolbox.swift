@@ -225,4 +225,143 @@ extension SECToolbox.Feature {
 
 extension SECToolbox.Feature {
     /// 数据区域缩放。目前只支持直角坐标系的缩放。
+    public struct DataZoom : SECDisplayable {
         
+        /// 缩放和还原的标题文本。
+        public struct Title {
+            /// 缩放标题
+            public var zoom: String?
+            /// 还原标题
+            public var back: String?
+        }
+        
+        /// 缩放和还原的 icon path。
+        public struct Icon {
+            /// 缩放Icon 的 path 字符串，ECharts 3 中支持使用自定义的 svg path 作为 icon，格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
+            public var zoom: String?
+            /// 还原Icon 的 path 字符串，ECharts 3 中支持使用自定义的 svg path 作为 icon，格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
+            public var back: String?
+        }
+        
+        /// 是否显示该工具。
+        public var show: Bool?
+        /// 缩放和还原的标题文本。
+        public var title: Title?
+        /// 缩放和还原的 icon path。
+        public var icon: Icon?
+        /// 数据区域缩放 icon 样式设置。
+        public var iconStyle: SECToolbox.IconStyle?
+        /// 指定哪些 xAxis 被控制。如果缺省则控制所有的x轴。如果设置为 false 则不控制任何x轴。如果设置成 3 则控制 axisIndex 为 3 的x轴。如果设置为 [0, 3] 则控制 axisIndex 为 0 和 3 的x轴。
+        public var xAxisIndex: UInt?
+        /// 指定哪些 yAxis 被控制。如果缺省则控制所有的y轴。如果设置为 false 则不控制任何y轴。如果设置成 3 则控制 axisIndex 为 3 的y轴。如果设置为 [0, 3] 则控制 axisIndex 为 0 和 3 的y轴。
+        public var yAxisIndex: UInt?
+    }
+}
+
+extension SECToolbox.Feature {
+    /// 动态类型切换 示例：
+    ///
+    ///     feature: {
+    ///         magicType: {
+    ///             type: ['line', 'bar', 'stack', 'tiled']
+    ///         }
+    ///     }
+    public struct MagicType : SECDisplayable {
+        
+        /// 动态类型切换可启用的动态类型
+        ///
+        /// - line: 折线图
+        /// - bar: 柱状图
+        /// - stack: 堆叠模式
+        /// - tiled: 平铺模式
+        public enum Type : String, SECJsonable {
+            case line = "line"
+            case bar = "bar"
+            case stack = "stack"
+            case tiled = "tiled"
+            
+            public var jsonString: String {
+                return "\"\(self.rawValue)\""
+            }
+        }
+        
+        /// 各个类型的标题文本，可以分别配置。
+        public struct Title {
+            public var line: String?
+            public var bar: String?
+            public var stack: String?
+            public var tiled: String?
+        }
+        
+        /// 各个类型的 icon path，可以分别配置。
+        public struct Icon {
+            public var line: String?
+            public var bar: String?
+            public var stack: String?
+            public var tiled: String?
+        }
+        
+        /// 是否显示该工具。
+        public var show: Bool?
+        /// 启用的动态类型，包括'line'（切换为折线图）, 'bar'（切换为柱状图）, 'stack'（切换为堆叠模式）, 'tiled'（切换为平铺模式）。
+        public var type: [Type]?
+        /// 各个类型的标题文本，可以分别配置。
+        public var title: Title?
+        /// 各个类型的 icon path，可以分别配置。
+        public var icon: Icon?
+//        public var option? // 暂不支持
+//        public seriesIndex: // 暂不支持
+    }
+}
+
+extension SECToolbox.Feature {
+    /// 选框组件的控制按钮。
+    ///
+    /// 也可以不在这里指定，而是在 brush.toolbox 中指定。
+    public struct Brush {
+        /// 选框组件的控制按钮类型
+        ///
+        /// - rect: 开启矩形选框选择功能。
+        /// - polygon: 开启任意形状选框选择功能。
+        /// - lineX: 开启横向选择功能。
+        /// - lineY: 开启纵向选择功能。
+        /// - keep: 切换『单选』和『多选』模式。后者可支持同时画多个选框。前者支持单击清除所有选框。
+        /// - clear: 清空所有选框。
+        public enum Type: String, SECJsonable {
+            case rect = "rect"
+            case polygon = "polygon"
+            case lineX = "lineX"
+            case lineY = "lineY"
+            case keep = "keep"
+            case clear = "clear"
+            
+            public var jsonString: String {
+                 return "\"\(self.rawValue)\""
+            }
+        }
+        
+        /// 每个按钮的 icon path。
+        public struct Icon {
+            public var rect: String?
+            public var polygon: String?
+            public var lineX: String?
+            public var keep: String?
+            public var clear: String?
+        }
+        
+        /// 标题文本。
+        public struct Title {
+            public var rect: String?
+            public var polygon: String?
+            public var lineX: String?
+            public var keep: String?
+            public var clear: String?
+        }
+        
+        public var type: [Type]?
+        public var icon: Icon?
+        public var title: Title?
+    }
+}
+
+

@@ -8,23 +8,44 @@
 
 public protocol SECLabelStyle : SECDisplayable, SECTextful{
     
-    var posistion: SECPosition? { get set }
+    var position: SECPosition? { get set }
 }
 
 public struct SECCommonLabelStyle : SECLabelStyle {
     
     public var show: Bool?
-    public var posistion: SECPosition?
+    public var position: SECPosition?
     public var textStyle: SECTextStyle?
     
     public init() { }
     
 }
 
+extension SECCommonLabelStyle : SECEnumable {
+    public enum Enums {
+        case show(Bool), position(SECPosition), textStyle(SECTextStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .position(position):
+                self.position = position
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            }
+        }
+    }
+}
+
 extension SECCommonLabelStyle : SECMappable {
     public func mapping(map: SECMap) {
         map["show"] = show
-        map["posistion"] = posistion
+        map["position"] = position
         map["textStyle"] = textStyle
     }
 }
@@ -39,6 +60,25 @@ public struct SECLabel : SECEmphasisable {
     public init() { }
 }
 
+extension SECLabel : SECEnumable {
+    public enum Enums {
+        case normal(Style), emphasis(Style)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .normal(normal):
+                self.normal = normal
+            case let .emphasis(emphasis):
+                self.emphasis = emphasis
+            }
+        }
+    }
+}
+
 extension SECLabel : SECMappable {
     public func mapping(map: SECMap) {
         map["normal"] = normal
@@ -49,7 +89,7 @@ extension SECLabel : SECMappable {
 public struct SECFormattedLabelStyle : SECLabelStyle, SECFormatted {
     
     public var show: Bool?
-    public var posistion: SECPosition?
+    public var position: SECPosition?
     public var formatter: SECFormatter?
     public var textStyle: SECTextStyle?
     
@@ -57,10 +97,33 @@ public struct SECFormattedLabelStyle : SECLabelStyle, SECFormatted {
     
 }
 
+extension SECFormattedLabelStyle : SECEnumable {
+    public enum Enums {
+        case show(Bool), position(SECPosition), formatter(SECFormatter), textStyle(SECTextStyle)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .position(position):
+                self.position = position
+            case let .formatter(formatter):
+                self.formatter = formatter
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            }
+        }
+    }
+}
+
 extension SECFormattedLabelStyle : SECMappable {
     public func mapping(map: SECMap) {
         map["show"] = show
-        map["posistion"] = posistion
+        map["position"] = position
         map["formatter"] = formatter
         map["textStyle"] = textStyle
     }
@@ -74,6 +137,25 @@ public struct SECFormattedLabel : SECEmphasisable {
     
     public init() {}
     
+}
+
+extension SECFormattedLabel : SECEnumable {
+    public enum Enums {
+        case normal(Style), emphasis(Style)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .normal(normal):
+                self.normal = normal
+            case let .emphasis(emphasis):
+                self.emphasis = emphasis
+            }
+        }
+    }
 }
 
 extension SECFormattedLabel : SECMappable {

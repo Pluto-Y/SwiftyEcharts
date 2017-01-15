@@ -6,10 +6,6 @@
 //  Copyright © 2016 com.pluto-y. All rights reserved.
 //
 
-import UIKit
-
-
-
 /// 水平对齐
 ///
 /// - left: 左边
@@ -56,6 +52,33 @@ public struct SECTextStyle: SECColorful {
     public var fontSize: UInt?
     
     public init() { }
+    
+    
+}
+extension SECTextStyle : SECEnumable {
+    
+    public enum Enums {
+        case color(SECColor), fontStyle(SECFontStyle), fontWeight(SECFontWeight), fontFamily(String), fontSize(UInt)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .color(color):
+                self.color = color;
+            case let .fontStyle(fontStyle):
+                self.fontStyle = fontStyle
+            case let .fontWeight(fontWeight):
+                self.fontWeight = fontWeight
+            case let .fontFamily(fontFamily):
+                self.fontFamily = fontFamily
+            case let .fontSize(fontSize):
+                self.fontSize = fontSize
+            }
+        }
+    }
 }
 
 extension SECTextStyle: SECMappable {

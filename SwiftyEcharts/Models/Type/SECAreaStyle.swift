@@ -19,6 +19,33 @@ public struct SECCommonAreaStyleContent : SECAreaStyleContent {
     public var opacity: Float?
 }
 
+extension SECCommonAreaStyleContent : SECEnumable {
+    public enum Enums {
+        case color(SECColor), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .color(color):
+                self.color = color
+            case let .shadowBlur(blur):
+                self.shadowBlur = blur
+            case let .shadowColor(color):
+                self.shadowColor = color
+            case let .shadowOffsetX(x):
+                self.shadowOffsetX = x
+            case let .shadowOffsetY(y):
+                self.shadowOffsetY = y
+            case let .opacity(opacity):
+                self.opacity = opacity
+            }
+        }
+    }
+}
+
 extension SECCommonAreaStyleContent : SECMappable {
     public func mapping(map: SECMap) {
         map["color"] = color
@@ -44,6 +71,33 @@ public struct SECAreaStyle : SECAreaStyleContent {
     public var opacity: Float? {
         didSet {
             validateOpacity()
+        }
+    }
+}
+
+extension SECAreaStyle : SECEnumable {
+    public enum Enums {
+        case color(SECColor), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .color(color):
+                self.color = color
+            case let .shadowBlur(blur):
+                self.shadowBlur = blur
+            case let .shadowColor(color):
+                self.shadowColor = color
+            case let .shadowOffsetX(x):
+                self.shadowOffsetX = x
+            case let .shadowOffsetY(y):
+                self.shadowOffsetY = y
+            case let .opacity(opacity):
+                self.opacity = opacity
+            }
         }
     }
 }

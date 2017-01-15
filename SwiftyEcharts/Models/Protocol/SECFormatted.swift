@@ -29,13 +29,11 @@ public enum SECFormatter: SECJsonable { // FIXME: 封装关于Formatter
         case let .string(formatter):
             return "\"\(formatter)\""
         case let .function(f):
-//            SECJsMap.add(clousure, for: name)
             SECJsMap.add(f)
             if let endIndex = f.rangeOfString("(")?.startIndex, let starIndex = f.rangeOfString("function")?.endIndex {
                 let functionName = f.substringToIndex(endIndex).substringFromIndex(starIndex).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 return "\"\(functionName)\""
             }
-            //
             return "null"
         }
     }

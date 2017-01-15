@@ -29,6 +29,39 @@ public struct SECCommonItemStyleContent : SECItemStyleContent {
     public init() { }
 }
 
+extension SECCommonItemStyleContent : SECEnumable {
+    public enum Enums {
+        case color(SECColor), borderColor(SECColor), borderWidth(Float), borderType(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .color(color):
+                self.color = color
+            case let .borderColor(color):
+                self.borderColor = color
+            case let .borderWidth(width):
+                self.borderWidth = width
+            case let .borderType(borderType):
+                self.borderType = borderType
+            case let .shadowBlur(blur):
+                self.shadowBlur = blur
+            case let .shadowColor(color):
+                self.shadowColor = color
+            case let .shadowOffsetX(x):
+                self.shadowOffsetX = x
+            case let .shadowOffsetY(y):
+                self.shadowOffsetY = y
+            case let .opacity(opacity):
+                self.opacity = opacity
+            }
+        }
+    }
+}
+
 extension SECCommonItemStyleContent : SECMappable {
     public func mapping(map: SECMap) {
         map["color"] = color
@@ -50,6 +83,25 @@ public struct SECItemStyle : SECEmphasisable {
     public var emphasis: Style?
     
     public init() { }
+}
+
+extension SECItemStyle : SECEnumable {
+    public enum Enums {
+        case normal(Style), emphasis(Style)
+    }
+    
+    public typealias SECContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .normal(normal):
+                self.normal = normal
+            case let .emphasis(emphasis):
+                self.emphasis = emphasis
+            }
+        }
+    }
 }
 
 extension SECItemStyle : SECMappable {

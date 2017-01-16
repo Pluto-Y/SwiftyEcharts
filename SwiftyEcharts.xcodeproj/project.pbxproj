@@ -8,6 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		2377A359C591BD0C20703777 /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */; };
+		5427F07D1E2C8F4000CE20E5 /* SECLineOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F07C1E2C8F4000CE20E5 /* SECLineOptions.swift */; };
+		5427F07F1E2C94FF00CE20E5 /* SECScatterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F07E1E2C94FF00CE20E5 /* SECScatterOptions.swift */; };
+		5427F0811E2C953700CE20E5 /* SECBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0801E2C953700CE20E5 /* SECBarOptions.swift */; };
+		5427F0831E2C95CF00CE20E5 /* SECMapOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0821E2C95CF00CE20E5 /* SECMapOptions.swift */; };
+		5427F0851E2C95D900CE20E5 /* SECPieOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0841E2C95D900CE20E5 /* SECPieOptions.swift */; };
+		5427F0891E2C96D700CE20E5 /* SECRadarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0881E2C96D700CE20E5 /* SECRadarOptions.swift */; };
+		5427F08B1E2C96F900CE20E5 /* SECCandlestickOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F08A1E2C96F900CE20E5 /* SECCandlestickOptions.swift */; };
+		5427F08D1E2C971900CE20E5 /* SECBoxplotOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F08C1E2C971900CE20E5 /* SECBoxplotOptions.swift */; };
+		5427F08F1E2C97BB00CE20E5 /* SECHeatmapOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F08E1E2C97BB00CE20E5 /* SECHeatmapOptions.swift */; };
+		5427F0911E2C97C600CE20E5 /* SECGraphOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0901E2C97C600CE20E5 /* SECGraphOptions.swift */; };
+		5427F0931E2C97D100CE20E5 /* SECTreemapOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0921E2C97D100CE20E5 /* SECTreemapOptions.swift */; };
+		5427F0951E2C980700CE20E5 /* SECParalledOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0941E2C980700CE20E5 /* SECParalledOptions.swift */; };
+		5427F0971E2C981500CE20E5 /* SECSankeyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0961E2C981500CE20E5 /* SECSankeyOptions.swift */; };
+		5427F0991E2C981F00CE20E5 /* SECFunnelOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0981E2C981F00CE20E5 /* SECFunnelOptions.swift */; };
+		5427F09B1E2C982900CE20E5 /* SECGaugeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09A1E2C982900CE20E5 /* SECGaugeOptions.swift */; };
+		5427F09D1E2C983A00CE20E5 /* SECPictoriaBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09C1E2C983A00CE20E5 /* SECPictoriaBarOptions.swift */; };
+		5427F09F1E2C984500CE20E5 /* SECThemeRiverOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09E1E2C984500CE20E5 /* SECThemeRiverOptions.swift */; };
 		5435CCBE1E24990B00D753B2 /* SECUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435CCBD1E24990B00D753B2 /* SECUtilities.swift */; };
 		54BA6E231E1B76B100CD7AA6 /* SECSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */; };
 		54BA6E251E1B798100CD7AA6 /* SECLineSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E241E1B798100CD7AA6 /* SECLineSeries.swift */; };
@@ -96,6 +113,23 @@
 /* Begin PBXFileReference section */
 		0E050E4779F8D6A158AB3CCF /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		1BF7A0380778E442CCDE890E /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		5427F07C1E2C8F4000CE20E5 /* SECLineOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLineOptions.swift; sourceTree = "<group>"; };
+		5427F07E1E2C94FF00CE20E5 /* SECScatterOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECScatterOptions.swift; sourceTree = "<group>"; };
+		5427F0801E2C953700CE20E5 /* SECBarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECBarOptions.swift; sourceTree = "<group>"; };
+		5427F0821E2C95CF00CE20E5 /* SECMapOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMapOptions.swift; sourceTree = "<group>"; };
+		5427F0841E2C95D900CE20E5 /* SECPieOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPieOptions.swift; sourceTree = "<group>"; };
+		5427F0881E2C96D700CE20E5 /* SECRadarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECRadarOptions.swift; sourceTree = "<group>"; };
+		5427F08A1E2C96F900CE20E5 /* SECCandlestickOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECCandlestickOptions.swift; sourceTree = "<group>"; };
+		5427F08C1E2C971900CE20E5 /* SECBoxplotOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECBoxplotOptions.swift; sourceTree = "<group>"; };
+		5427F08E1E2C97BB00CE20E5 /* SECHeatmapOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECHeatmapOptions.swift; sourceTree = "<group>"; };
+		5427F0901E2C97C600CE20E5 /* SECGraphOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECGraphOptions.swift; sourceTree = "<group>"; };
+		5427F0921E2C97D100CE20E5 /* SECTreemapOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECTreemapOptions.swift; sourceTree = "<group>"; };
+		5427F0941E2C980700CE20E5 /* SECParalledOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECParalledOptions.swift; sourceTree = "<group>"; };
+		5427F0961E2C981500CE20E5 /* SECSankeyOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSankeyOptions.swift; sourceTree = "<group>"; };
+		5427F0981E2C981F00CE20E5 /* SECFunnelOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECFunnelOptions.swift; sourceTree = "<group>"; };
+		5427F09A1E2C982900CE20E5 /* SECGaugeOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECGaugeOptions.swift; sourceTree = "<group>"; };
+		5427F09C1E2C983A00CE20E5 /* SECPictoriaBarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPictoriaBarOptions.swift; sourceTree = "<group>"; };
+		5427F09E1E2C984500CE20E5 /* SECThemeRiverOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECThemeRiverOptions.swift; sourceTree = "<group>"; };
 		5435CCBD1E24990B00D753B2 /* SECUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECUtilities.swift; sourceTree = "<group>"; };
 		54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSeries.swift; sourceTree = "<group>"; };
 		54BA6E241E1B798100CD7AA6 /* SECLineSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLineSeries.swift; sourceTree = "<group>"; };
@@ -176,6 +210,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5427F07B1E2C8F3100CE20E5 /* DemoOptions */ = {
+			isa = PBXGroup;
+			children = (
+				5427F07C1E2C8F4000CE20E5 /* SECLineOptions.swift */,
+				5427F07E1E2C94FF00CE20E5 /* SECScatterOptions.swift */,
+				5427F0801E2C953700CE20E5 /* SECBarOptions.swift */,
+				5427F0821E2C95CF00CE20E5 /* SECMapOptions.swift */,
+				5427F0841E2C95D900CE20E5 /* SECPieOptions.swift */,
+				5427F0881E2C96D700CE20E5 /* SECRadarOptions.swift */,
+				5427F08A1E2C96F900CE20E5 /* SECCandlestickOptions.swift */,
+				5427F08C1E2C971900CE20E5 /* SECBoxplotOptions.swift */,
+				5427F08E1E2C97BB00CE20E5 /* SECHeatmapOptions.swift */,
+				5427F0901E2C97C600CE20E5 /* SECGraphOptions.swift */,
+				5427F0921E2C97D100CE20E5 /* SECTreemapOptions.swift */,
+				5427F0941E2C980700CE20E5 /* SECParalledOptions.swift */,
+				5427F0961E2C981500CE20E5 /* SECSankeyOptions.swift */,
+				5427F0981E2C981F00CE20E5 /* SECFunnelOptions.swift */,
+				5427F09A1E2C982900CE20E5 /* SECGaugeOptions.swift */,
+				5427F09C1E2C983A00CE20E5 /* SECPictoriaBarOptions.swift */,
+				5427F09E1E2C984500CE20E5 /* SECThemeRiverOptions.swift */,
+			);
+			path = DemoOptions;
+			sourceTree = "<group>";
+		};
 		54BA6E211E1B76A700CD7AA6 /* Series */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +266,7 @@
 		6F1325621D9312A90006F114 = {
 			isa = PBXGroup;
 			children = (
+				5427F07B1E2C8F3100CE20E5 /* DemoOptions */,
 				6F13256E1D9312A90006F114 /* SwiftyEcharts */,
 				6F9B70DE1DE808E600406B55 /* iOS_Example */,
 				6FB48CAF1DEE9FF300137D13 /* SwiftyEchartsTest_iOS */,
@@ -599,8 +658,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5427F0991E2C981F00CE20E5 /* SECFunnelOptions.swift in Sources */,
+				5427F07D1E2C8F4000CE20E5 /* SECLineOptions.swift in Sources */,
+				5427F0891E2C96D700CE20E5 /* SECRadarOptions.swift in Sources */,
+				5427F0851E2C95D900CE20E5 /* SECPieOptions.swift in Sources */,
+				5427F0811E2C953700CE20E5 /* SECBarOptions.swift in Sources */,
+				5427F09B1E2C982900CE20E5 /* SECGaugeOptions.swift in Sources */,
 				6F9B70E21DE808E600406B55 /* ViewController.swift in Sources */,
+				5427F0911E2C97C600CE20E5 /* SECGraphOptions.swift in Sources */,
+				5427F0971E2C981500CE20E5 /* SECSankeyOptions.swift in Sources */,
+				5427F08F1E2C97BB00CE20E5 /* SECHeatmapOptions.swift in Sources */,
 				6F9B70E01DE808E600406B55 /* AppDelegate.swift in Sources */,
+				5427F08B1E2C96F900CE20E5 /* SECCandlestickOptions.swift in Sources */,
+				5427F0951E2C980700CE20E5 /* SECParalledOptions.swift in Sources */,
+				5427F09F1E2C984500CE20E5 /* SECThemeRiverOptions.swift in Sources */,
+				5427F09D1E2C983A00CE20E5 /* SECPictoriaBarOptions.swift in Sources */,
+				5427F08D1E2C971900CE20E5 /* SECBoxplotOptions.swift in Sources */,
+				5427F07F1E2C94FF00CE20E5 /* SECScatterOptions.swift in Sources */,
+				5427F0931E2C97D100CE20E5 /* SECTreemapOptions.swift in Sources */,
+				5427F0831E2C95CF00CE20E5 /* SECMapOptions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

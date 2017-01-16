@@ -195,7 +195,30 @@ extension SECLineSerie.Data : SECMappable {
 ///
 /// - Note: 设置 areaStyle 后可以绘制面积图。
 /// - Note: 配合分段型 visualMap 组件可以将折线/面积图通过不同颜色分区间。如下示例
-public struct SECLineSerie : SECSymbolized {
+public struct SECLineSerie : SECSymbolized, SECAnimatable {
+    
+    /// 阶梯线图类型。
+    ///
+    /// 具体差别可以参考: http://echarts.baidu.com/gallery/editor.html?c=line-step
+    public enum Step : String, SECJsonable {
+        case start = "start"
+        case middle = "middle"
+        case end = "end"
+        
+        public var jsonString: String {
+            return "\"\(self.rawValue)\""
+        }
+    }
+    
+    /// 折线平滑后是否在一个维度上保持单调性，可以设置成'x', 'y'来指明是在 x 轴或者 y 轴上保持单调性。
+    public enum SmoothMonotone : String, SECJsonable{
+        case x = "x"
+        case y = "y"
+        
+        public var jsonString: String {
+            return "\"\(self.rawValue)\""
+        }
+    }
     
     public var name: String?
     public var coordinateSystem: CoordinateSystem?
@@ -213,15 +236,57 @@ public struct SECLineSerie : SECSymbolized {
     public var stack: String?
     public var connectNulls: Bool?
     public var clipOverflow: Bool?
-    public var step: String? // FIXME: 类型？
+    public var step: Step?
     public var label: SECLabel?
     public var itemStyle: SECItemStyle?
     public var lineStyle: LineStyle?
     public var areaStyle: AreaStyle?
     public var smooth: Bool?
-    public var smoothMonotone: String? // FIXME: 具体类型？
+    public var smoothMonotone: SmoothMonotone?
     public var sampling: Sampling?
     public var data: [Any]?
+    public var markPoint: SECMarkPoint?
+    public var markLine: SECMarkLine?
+    
+    /// 是否开启动画。
+    public var animation: Bool?
+    /// 是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
+    public var animationThreshold: Float?
+    /// 初始动画的时长，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果：
+    ///
+    ///     animationDuration: function (idx) {
+    ///         // 越往后的数据延迟越大
+    ///         return idx * 100;
+    ///     }
+    public var animationDuration: SECTime?
+    /// 初始动画的缓动效果。不同的缓动效果可以参考
+    public var animationEasing: SECAnimation?
+    /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
+    ///
+    /// 如下示例：
+    ///
+    ///     animationDuration: function (idx) {
+    ///         // 越往后的数据延迟越大
+    ///         return idx * 100;
+    ///     }
+    public var animationDelay: SECTime?
+    /// 数据更新动画的时长。
+    /// 支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
+    ///     animationDurationUpdate: function (idx) {
+    ///         // 越往后的数据延迟越大
+    ///         return idx * 100;
+    ///     }
+    public var animationDurationUpdate: SECTime?
+    /// 数据更新动画的缓动效果。
+    public var animationEasingUpdate: SECAnimation?
+    /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
+    /// 如下示例：
+    ///
+    ///     animationDelayUpdate: function (idx) {
+    ///         // 越往后的数据延迟越大
+    ///         return idx * 100;
+    ///     }
+    public var animationDelayUpdate: SECTime?
     
     public init() { }
     
@@ -235,7 +300,7 @@ extension SECLineSerie : SECSeries {
 
 extension SECLineSerie : SECEnumable {
     public enum Enums {
-        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(String), label(SECLabel), itemStyle(SECItemStyle), lineStyle(LineStyle), areaStyle(AreaStyle), smooth(Bool), smoothMonotone(String), sampling(Sampling), data([Any])
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(SECLabel), itemStyle(SECItemStyle), lineStyle(LineStyle), areaStyle(AreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([Any]), markPoint(SECMarkPoint), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -293,6 +358,24 @@ extension SECLineSerie : SECEnumable {
                 self.sampling = sampling
             case let .data(data):
                 self.data = data
+            case let .markPoint(markPoint):
+                self.markPoint = markPoint
+            case let .animation(animation):
+                self.animation = animation
+            case let .animationThreshold(animationThreshold):
+                self.animationThreshold = animationThreshold
+            case let .animationDuration(animationDuration):
+                self.animationDuration = animationDuration
+            case let .animationEasing(animationEasing):
+                self.animationEasing = animationEasing
+            case let .animationDelay(animationDelay):
+                self.animationDelay = animationDelay
+            case let .animationDurationUpdate(animationDurationUpdate):
+                self.animationDurationUpdate = animationDurationUpdate
+            case let .animationEasingUpdate(animationEasingUpdate):
+                self.animationEasingUpdate = animationEasingUpdate
+            case let .animationDelayUpdate(animationDelayUpdate):
+                self.animationDelayUpdate = animationDelayUpdate
             }
         }
     }
@@ -325,6 +408,15 @@ extension SECLineSerie : SECMappable {
         map["smoothMonotone"] = smoothMonotone
         map["sampling"] = sampling
         map["data"] = data
+        map["markPoint"] = markPoint
+        map["animation"] = animation
+        map["animationThreshold"] = animationThreshold
+        map["animationDuration"] = animationDuration
+        map["animationEasing"] = animationEasing
+        map["animationDelay"] = animationDelay
+        map["animationDurationUpdate"] = animationDurationUpdate
+        map["animationEasingUpdate"] = animationEasingUpdate
+        map["animationDelayUpdate"] = animationDelayUpdate
     }
 }
 

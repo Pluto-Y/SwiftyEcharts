@@ -65,6 +65,8 @@ public struct SECMarkPoint : SECSymbolized, SECAnimatable {
     ///     }
     public var animationDelayUpdate: SECTime?
     
+    public init() { }
+    
 }
 
 extension SECMarkPoint : SECEnumable {

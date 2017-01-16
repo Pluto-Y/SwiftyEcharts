@@ -28,9 +28,9 @@ public enum SECFormatter: SECJsonable {
         case let .string(formatter):
             return "\"\(formatter)\""
         case let .function(f):
-            SECJsMap.add(f)
             if let endIndex = f.rangeOfString("(")?.startIndex, let starIndex = f.rangeOfString("function")?.endIndex {
                 let functionName = f.substringToIndex(endIndex).substringFromIndex(starIndex).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                SECJsMap.add(f)
                 return "\"\(functionName)\""
             }
             return "null"

@@ -248,6 +248,9 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable {
     public var markPoint: SECMarkPoint?
     public var markLine: SECMarkLine?
     public var markArea: SECMarkArea?
+    public var zlevel: Float?
+    public var z: Float?
+    public var silent: Bool?
     
     /// 是否开启动画。
     public var animation: Bool?
@@ -301,7 +304,7 @@ extension SECLineSerie : SECSeries {
 
 extension SECLineSerie : SECEnumable {
     public enum Enums {
-        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(SECLabel), itemStyle(SECItemStyle), lineStyle(LineStyle), areaStyle(AreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([Any]), markPoint(SECMarkPoint), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(SECLabel), itemStyle(SECItemStyle), lineStyle(LineStyle), areaStyle(AreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([Any]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), markPoint(SECMarkPoint), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -361,6 +364,18 @@ extension SECLineSerie : SECEnumable {
                 self.data = data
             case let .markPoint(markPoint):
                 self.markPoint = markPoint
+            case let .markPoint(markPoint):
+                self.markPoint = markPoint
+            case let .markLine(markLine):
+                self.markLine = markLine
+            case let .markArea(markArea):
+                self.markArea = markArea
+            case let .zlevel(zlevel):
+                self.zlevel = zlevel
+            case let .z(z):
+                self.z = z
+            case let .silent(silent):
+                self.silent = silent
             case let .animation(animation):
                 self.animation = animation
             case let .animationThreshold(animationThreshold):
@@ -409,6 +424,12 @@ extension SECLineSerie : SECMappable {
         map["smoothMonotone"] = smoothMonotone
         map["sampling"] = sampling
         map["data"] = data
+        map["markPoint"] = markPoint
+        map["markLine"] = markLine
+        map["markArea"] = markArea
+        map["zlevel"] = zlevel
+        map["z"] = z
+        map["silent"] = silent
         map["markPoint"] = markPoint
         map["animation"] = animation
         map["animationThreshold"] = animationThreshold

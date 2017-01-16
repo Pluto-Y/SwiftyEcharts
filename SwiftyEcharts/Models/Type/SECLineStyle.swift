@@ -20,13 +20,14 @@ public struct SECCommonLineStyleContent: SECLineStyleContent {
     public var shadowOffsetX: Float?
     public var shadowOffsetY: Float?
     public var opacity: Float?
+    public var curveness: Float?
     
     public init() { }
 }
 
 extension SECCommonLineStyleContent : SECEnumable {
     public enum Enums {
-        case color(SECColor), width(Float), type(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
+        case color(SECColor), width(Float), type(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), curveness(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -50,6 +51,8 @@ extension SECCommonLineStyleContent : SECEnumable {
                 self.shadowOffsetY = y
             case let .opacity(opacity):
                 self.opacity = opacity
+            case let .curveness(curveness):
+                self.curveness = curveness
             }
         }
     }
@@ -65,5 +68,41 @@ extension SECCommonLineStyleContent : SECMappable {
         map["shadowOffsetX"] = shadowOffsetX
         map["shadowOffsetY"] = shadowOffsetY
         map["opacity"] = opacity
+        map["curveness"] = curveness
+    }
+}
+
+public struct SECCommonLineStyle : SECEmphasisable {
+    public typealias Style = SECCommonItemStyleContent
+    
+    public var normal: Style?
+    public var emphasis: Style?
+    
+    public init() { }
+}
+
+extension SECCommonLineStyle : SECEnumable {
+    public enum Enums {
+        case normal(Style), emphasis(Style)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .normal(normal):
+                self.normal = normal
+            case let .emphasis(emphasis):
+                self.emphasis = emphasis
+            }
+        }
+    }
+}
+
+extension SECCommonLineStyle : SECMappable {
+    public func mapping(map: SECMap) {
+        map["normal"] = normal
+        map["emphasis"] = emphasis
     }
 }

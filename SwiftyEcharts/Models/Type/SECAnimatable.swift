@@ -36,6 +36,48 @@ public enum SECTime: SECJsonable {
     }
 }
 
+/// 默认支持的动画执行类型
+/// 具体详情可以查看一下地址进行对比
+/// http://echarts.baidu.com/gallery/editor.html?c=line-easing
+public enum SECAnimation: String, SECJsonable {
+    case linear = "linear"
+    case quadraticIn = "quadraticIn"
+    case quadraticOut = "quadraticOut"
+    case quadraticInOut = "quadraticInOut"
+    case cubicIn = "cubicIn"
+    case cubicOut = "cubicOut"
+    case cubicInOut = "cubicInOut"
+    case quarticIn = "quarticIn"
+    case quarticOut = "quarticOut"
+    case quarticInOut = "quarticInOut"
+    case quinticIn = "quinticIn"
+    case quinticOut = "quinticOut"
+    case quinticInOut =  "quinticInOut"
+    case sinusoidalIn = "sinusoidalIn"
+    case sinusoidalOut = "sinusoidalOut"
+    case sinusoidalInOut = "sinusoidalInOut"
+    case exponentialIn = "exponentialIn"
+    case exponentialOut = "exponentialOut"
+    case exponentialInOut = "exponentialInOut"
+    case circularIn = "circularIn"
+    case circularOut = "circularOut"
+    case circularInOut = "circularInOut"
+    case elasticIn = "elasticIn"
+    case elasticOut = "elasticOut"
+    case elasticInOut = "elasticInOut"
+    case backIn = "backIn"
+    case backOut = "backOut"
+    case backInOut = "backInOut"
+    case bounceIn = "bounceIn"
+    case bounceOut = "bounceOut"
+    case bounceInOut = "bounceInOut"
+    
+    public var jsonString: String {
+        return "\"\(self.rawValue)\""
+    }
+}
+
+/// 动画的接口，针对那些需要动画的组件而封装的接口
 public protocol SECAnimatable {
     
     /// 是否开启动画。
@@ -48,14 +90,33 @@ public protocol SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    var animationDuration: Float? { get set }
-//    var animationEasing: // FIXME: 具体如何实现？
-    var animationDelay: Float? { get set }
-    var animationDurationUpdate: Float? { get set }
-//    var animationEasingUpdate: Float// FIXME: 具体如何实现？
-    var animationDelayUpdate: Float? { get set }
-}
-
-extension SECAnimatable {
-    
+    var animationDuration: SECTime? { get set }
+    /// 初始动画的缓动效果。不同的缓动效果可以参考
+    var animationEasing: SECAnimation? { get set }
+    /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
+    /// 
+    /// 如下示例：
+    ///
+    ///     animationDuration: function (idx) {
+    ///         // 越往后的数据延迟越大
+    ///         return idx * 100;
+    ///     }
+    var animationDelay: SECTime? { get set }
+    /// 数据更新动画的时长。
+    /// 支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
+    ///     animationDurationUpdate: function (idx) {
+    ///         // 越往后的数据延迟越大
+    ///         return idx * 100;
+    ///     }
+    var animationDurationUpdate: SECTime? { get set }
+    /// 数据更新动画的缓动效果。
+    var animationEasingUpdate: SECAnimation? { get set }
+    /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
+    /// 如下示例：
+    ///
+    ///     animationDelayUpdate: function (idx) {
+    ///         // 越往后的数据延迟越大
+    ///         return idx * 100;
+    ///     }
+    var animationDelayUpdate: SECTime? { get set }
 }

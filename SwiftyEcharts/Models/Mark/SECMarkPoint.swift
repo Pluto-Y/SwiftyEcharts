@@ -140,52 +140,10 @@ extension SECMarkPoint : SECMappable {
 extension SECMarkPoint {
     public struct LabelContent : SECDisplayable, SECFormatted, SECTextful {
         
-        /// 标签的位置的可选类型
-        public enum Position : SECJsonable {
-            case xy(Float, Float)
-            case xyPercent(Float, Float)
-            case top, left, right, bottom, inside, insideLeft, insideTop, insideRight, insideBottom, insideTopLeft, insideBottomLeft, insideTopRight, insideBottomRight
-            
-            public var jsonString: String {
-                switch self {
-                case let .xy(x, y):
-                    return "[\(x), \(y)]"
-                case let .xyPercent(x, y):
-                    return "['\(x)%', '\(y)%']"
-                case .top:
-                    return "\"top\""
-                case .left:
-                    return "\"left\""
-                case .right:
-                    return "\"right\""
-                case .bottom:
-                    return "\"bottom\""
-                case .inside:
-                    return "\"inside\""
-                case .insideLeft:
-                    return "\"insideLeft\""
-                case .insideRight:
-                    return "\"insideRight\""
-                case .insideTop:
-                    return "\"insideTop\""
-                case .insideBottom:
-                    return "\"insideBottom\""
-                case .insideTopLeft:
-                    return "\"insideTopLeft\""
-                case .insideBottomLeft:
-                    return "\"insideBottomLeft\""
-                case .insideTopRight:
-                    return "\"insideTopRight\""
-                case .insideBottomRight:
-                    return "\"insideBottomRight\""
-                }
-            }
-        }
-        
         /// 是否显示标签。
         public var show: Bool?
         /// 标签的位置。
-        public var position: Position?
+        public var position: SECMarkPosition?
         /// 是否对文字进行偏移。默认不偏移。例如：[30, 40] 表示文字在横向上偏移 30，纵向上偏移 40。
         public var offset: [Float]?
         /// 标签内容格式器，支持字符串模板和回调函数两种形式
@@ -203,7 +161,7 @@ extension SECMarkPoint {
 
 extension SECMarkPoint.LabelContent : SECEnumable {
     public enum Enums {
-        case show(Bool), position(Position), offset([Float]), formatter(SECFormatter), textStyle(SECTextStyle)
+        case show(Bool), position(SECMarkPosition), offset([Float]), formatter(SECFormatter), textStyle(SECTextStyle)
     }
     
     public typealias ContentEnum = Enums

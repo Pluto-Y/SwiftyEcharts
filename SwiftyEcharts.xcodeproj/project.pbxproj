@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2377A359C591BD0C20703777 /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */; };
+		540DE5F91E2CF05C002F25E3 /* SECMarkPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DE5F81E2CF05C002F25E3 /* SECMarkPosition.swift */; };
+		540DE5FD1E2CF087002F25E3 /* SECMarkArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DE5FA1E2CF087002F25E3 /* SECMarkArea.swift */; };
+		540DE5FE1E2CF087002F25E3 /* SECMarkLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DE5FB1E2CF087002F25E3 /* SECMarkLine.swift */; };
+		540DE5FF1E2CF087002F25E3 /* SECMarkPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DE5FC1E2CF087002F25E3 /* SECMarkPoint.swift */; };
 		5427F07D1E2C8F4000CE20E5 /* SECLineOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F07C1E2C8F4000CE20E5 /* SECLineOptions.swift */; };
 		5427F07F1E2C94FF00CE20E5 /* SECScatterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F07E1E2C94FF00CE20E5 /* SECScatterOptions.swift */; };
 		5427F0811E2C953700CE20E5 /* SECBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0801E2C953700CE20E5 /* SECBarOptions.swift */; };
@@ -25,8 +29,7 @@
 		5427F09B1E2C982900CE20E5 /* SECGaugeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09A1E2C982900CE20E5 /* SECGaugeOptions.swift */; };
 		5427F09D1E2C983A00CE20E5 /* SECPictoriaBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09C1E2C983A00CE20E5 /* SECPictoriaBarOptions.swift */; };
 		5427F09F1E2C984500CE20E5 /* SECThemeRiverOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09E1E2C984500CE20E5 /* SECThemeRiverOptions.swift */; };
-		5427F0A11E2CB1CB00CE20E5 /* SECMarkPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0A01E2CB1CB00CE20E5 /* SECMarkPoint.swift */; };
-		5427F0A31E2CC68800CE20E5 /* SECMarkLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0A21E2CC68800CE20E5 /* SECMarkLine.swift */; };
+		5427F0AB1E2CEB8800CE20E5 /* SECMarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0AA1E2CEB8800CE20E5 /* SECMarkData.swift */; };
 		5435CCBE1E24990B00D753B2 /* SECUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435CCBD1E24990B00D753B2 /* SECUtilities.swift */; };
 		54BA6E231E1B76B100CD7AA6 /* SECSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */; };
 		54BA6E251E1B798100CD7AA6 /* SECLineSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E241E1B798100CD7AA6 /* SECLineSerie.swift */; };
@@ -115,6 +118,10 @@
 /* Begin PBXFileReference section */
 		0E050E4779F8D6A158AB3CCF /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		1BF7A0380778E442CCDE890E /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		540DE5F81E2CF05C002F25E3 /* SECMarkPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkPosition.swift; sourceTree = "<group>"; };
+		540DE5FA1E2CF087002F25E3 /* SECMarkArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkArea.swift; sourceTree = "<group>"; };
+		540DE5FB1E2CF087002F25E3 /* SECMarkLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkLine.swift; sourceTree = "<group>"; };
+		540DE5FC1E2CF087002F25E3 /* SECMarkPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkPoint.swift; sourceTree = "<group>"; };
 		5427F07C1E2C8F4000CE20E5 /* SECLineOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLineOptions.swift; sourceTree = "<group>"; };
 		5427F07E1E2C94FF00CE20E5 /* SECScatterOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECScatterOptions.swift; sourceTree = "<group>"; };
 		5427F0801E2C953700CE20E5 /* SECBarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECBarOptions.swift; sourceTree = "<group>"; };
@@ -132,8 +139,7 @@
 		5427F09A1E2C982900CE20E5 /* SECGaugeOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECGaugeOptions.swift; sourceTree = "<group>"; };
 		5427F09C1E2C983A00CE20E5 /* SECPictoriaBarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPictoriaBarOptions.swift; sourceTree = "<group>"; };
 		5427F09E1E2C984500CE20E5 /* SECThemeRiverOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECThemeRiverOptions.swift; sourceTree = "<group>"; };
-		5427F0A01E2CB1CB00CE20E5 /* SECMarkPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkPoint.swift; sourceTree = "<group>"; };
-		5427F0A21E2CC68800CE20E5 /* SECMarkLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkLine.swift; sourceTree = "<group>"; };
+		5427F0AA1E2CEB8800CE20E5 /* SECMarkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkData.swift; sourceTree = "<group>"; };
 		5435CCBD1E24990B00D753B2 /* SECUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECUtilities.swift; sourceTree = "<group>"; };
 		54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSeries.swift; sourceTree = "<group>"; };
 		54BA6E241E1B798100CD7AA6 /* SECLineSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLineSerie.swift; sourceTree = "<group>"; };
@@ -236,6 +242,18 @@
 				5427F09E1E2C984500CE20E5 /* SECThemeRiverOptions.swift */,
 			);
 			path = DemoOptions;
+			sourceTree = "<group>";
+		};
+		5427F0A91E2CEB7F00CE20E5 /* Mark */ = {
+			isa = PBXGroup;
+			children = (
+				540DE5FA1E2CF087002F25E3 /* SECMarkArea.swift */,
+				540DE5FB1E2CF087002F25E3 /* SECMarkLine.swift */,
+				540DE5FC1E2CF087002F25E3 /* SECMarkPoint.swift */,
+				540DE5F81E2CF05C002F25E3 /* SECMarkPosition.swift */,
+				5427F0AA1E2CEB8800CE20E5 /* SECMarkData.swift */,
+			);
+			path = Mark;
 			sourceTree = "<group>";
 		};
 		54BA6E211E1B76A700CD7AA6 /* Series */ = {
@@ -356,6 +374,7 @@
 		6FB48CA11DEE953000137D13 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5427F0A91E2CEB7F00CE20E5 /* Mark */,
 				6F4ACB3A1E1BF47300CE5FD5 /* Type */,
 				54BA6E211E1B76A700CD7AA6 /* Series */,
 				6FB48CC21DEF358C00137D13 /* Protocol */,
@@ -370,8 +389,6 @@
 				6F1FDA901DF5D96E004BC74E /* SECAxis.swift */,
 				54FEBE921E2354B60021CB13 /* SECOption.swift */,
 				6FA24F731E2BE0F900E25002 /* SECToolbox.swift */,
-				5427F0A01E2CB1CB00CE20E5 /* SECMarkPoint.swift */,
-				5427F0A21E2CC68800CE20E5 /* SECMarkLine.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -625,13 +642,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				540DE5FD1E2CF087002F25E3 /* SECMarkArea.swift in Sources */,
 				6F1ED0731E23DC0A00A1E154 /* SECOption.swift in Sources */,
 				6F4ACB461E1C078100CE5FD5 /* SECAnimatable.swift in Sources */,
 				54BA6E231E1B76B100CD7AA6 /* SECSeries.swift in Sources */,
+				540DE5FF1E2CF087002F25E3 /* SECMarkPoint.swift in Sources */,
 				54BA6E251E1B798100CD7AA6 /* SECLineSerie.swift in Sources */,
 				6F4ACB3E1E1BF68F00CE5FD5 /* SECItemStyle.swift in Sources */,
 				6F4ACB391E1BDB2600CE5FD5 /* SECBorderable.swift in Sources */,
-				5427F0A31E2CC68800CE20E5 /* SECMarkLine.swift in Sources */,
 				6FB48CBC1DEEFCE100137D13 /* SECTitle.swift in Sources */,
 				6F4ACB401E1BFA2500CE5FD5 /* SECOpacitable.swift in Sources */,
 				6F4ACB3C1E1BF47B00CE5FD5 /* SECLabel.swift in Sources */,
@@ -642,22 +660,24 @@
 				6FA24F741E2BE0F900E25002 /* SECToolbox.swift in Sources */,
 				6FA24F701E27D54200E25002 /* SECJsMap.swift in Sources */,
 				54FEBE8F1E23480D0021CB13 /* SECJsonable.swift in Sources */,
-				5427F0A11E2CB1CB00CE20E5 /* SECMarkPoint.swift in Sources */,
 				6F4ACB441E1C023900CE5FD5 /* SECAreaStyle.swift in Sources */,
 				6FB48CA91DEE96BD00137D13 /* SECFont.swift in Sources */,
 				6F91EB7B1DF08026003EEEC0 /* SECLine.swift in Sources */,
 				6FB48CC61DEF35AF00137D13 /* SECTooltip.swift in Sources */,
 				6FA24F721E2B7A0100E25002 /* SECEnumable.swift in Sources */,
+				540DE5FE1E2CF087002F25E3 /* SECMarkLine.swift in Sources */,
 				6FB48CC41DEF358C00137D13 /* SECDisplayable.swift in Sources */,
 				6F1FDA8D1DF5D286004BC74E /* SECSymbol.swift in Sources */,
 				6FB48CC81DEF3BB100137D13 /* SECFormatted.swift in Sources */,
 				6F9B70D81DE8070E00406B55 /* SECEchartsView.swift in Sources */,
 				6F4ACB361E1BD36100CE5FD5 /* SECEmphasisable.swift in Sources */,
+				540DE5F91E2CF05C002F25E3 /* SECMarkPosition.swift in Sources */,
 				6F1FDA8F1DF5D6E9004BC74E /* SECGrid.swift in Sources */,
 				6F91EB7D1DF081A2003EEEC0 /* SECShadowable.swift in Sources */,
 				6F1FDA911DF5D96E004BC74E /* SECAxis.swift in Sources */,
 				54FEBE901E23480D0021CB13 /* SECMap.swift in Sources */,
 				6F91EB7F1DF142E3003EEEC0 /* SECLegend.swift in Sources */,
+				5427F0AB1E2CEB8800CE20E5 /* SECMarkData.swift in Sources */,
 				54FEBE911E23480D0021CB13 /* SECMappable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

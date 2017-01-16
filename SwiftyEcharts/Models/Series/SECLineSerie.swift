@@ -247,6 +247,7 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable {
     public var data: [Any]?
     public var markPoint: SECMarkPoint?
     public var markLine: SECMarkLine?
+    public var markArea: SECMarkArea?
     
     /// 是否开启动画。
     public var animation: Bool?

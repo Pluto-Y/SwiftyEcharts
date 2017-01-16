@@ -1,12 +1,12 @@
 //
-//  SECLineSeries.swift
+//  SECLineSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 03/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-extension SECLineSeries {
+extension SECLineSerie {
     /// 坐标系枚举
     ///
     /// - cartesian2d: 二维的直角坐标系（也称笛卡尔坐标系），通过 xAxisIndex, yAxisIndex指定相应的坐标轴组件
@@ -21,7 +21,7 @@ extension SECLineSeries {
     }
 }
 
-extension SECLineSeries {
+extension SECLineSerie {
     /// 折线图在数据量远大于像素点时候的降采样策略，开启后可以有效的优化图表的绘制效率，默认关闭，也就是全部绘制不过滤数据点。
     ///
     /// - average: 取过滤点的平均值
@@ -40,7 +40,7 @@ extension SECLineSeries {
     }
 }
 
-extension SECLineSeries {
+extension SECLineSerie {
     public struct LineStyle {
         public var normal: SECCommonLineStyleContent?
         
@@ -48,7 +48,7 @@ extension SECLineSeries {
     }
 }
 
-extension SECLineSeries.LineStyle : SECEnumable {
+extension SECLineSerie.LineStyle : SECEnumable {
     public enum Enums {
         case normal(SECCommonLineStyleContent)
     }
@@ -65,13 +65,13 @@ extension SECLineSeries.LineStyle : SECEnumable {
     }
 }
 
-extension SECLineSeries.LineStyle : SECMappable {
+extension SECLineSerie.LineStyle : SECMappable {
     public func mapping(map: SECMap) {
         map["normal"] = normal
     }
 }
 
-extension SECLineSeries {
+extension SECLineSerie {
     public struct  AreaStyle {
         public var normal: SECCommonAreaStyleContent?
         
@@ -79,7 +79,7 @@ extension SECLineSeries {
     }
 }
 
-extension SECLineSeries.AreaStyle : SECEnumable {
+extension SECLineSerie.AreaStyle : SECEnumable {
     public enum Enums {
         case normal(SECCommonAreaStyleContent)
     }
@@ -96,13 +96,13 @@ extension SECLineSeries.AreaStyle : SECEnumable {
     }
 }
 
-extension SECLineSeries.AreaStyle : SECMappable {
+extension SECLineSerie.AreaStyle : SECMappable {
     public func mapping(map: SECMap) {
         map["normal"] = normal
     }
 }
 
-extension SECLineSeries {
+extension SECLineSerie {
     public struct Data: SECSymbolized {
         public struct Label {
             public var normal: SECCommonLabelStyle?
@@ -123,7 +123,7 @@ extension SECLineSeries {
     }
 }
 
-extension SECLineSeries.Data.Label : SECEnumable {
+extension SECLineSerie.Data.Label : SECEnumable {
     public enum Enums {
         case normal(SECCommonLabelStyle)
     }
@@ -140,13 +140,13 @@ extension SECLineSeries.Data.Label : SECEnumable {
     }
 }
 
-extension SECLineSeries.Data.Label : SECMappable {
+extension SECLineSerie.Data.Label : SECMappable {
     public func mapping(map: SECMap) {
         map["normal"] = normal
     }
 }
 
-extension SECLineSeries.Data : SECEnumable {
+extension SECLineSerie.Data : SECEnumable {
     public enum Enums {
         case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), label(Label), itemStyle(SECItemStyle)
     }
@@ -177,7 +177,7 @@ extension SECLineSeries.Data : SECEnumable {
     }
 }
 
-extension SECLineSeries.Data : SECMappable {
+extension SECLineSerie.Data : SECMappable {
     public func mapping(map: SECMap) {
         map["name"] = name
         map["value"] = value
@@ -195,7 +195,7 @@ extension SECLineSeries.Data : SECMappable {
 ///
 /// - Note: 设置 areaStyle 后可以绘制面积图。
 /// - Note: 配合分段型 visualMap 组件可以将折线/面积图通过不同颜色分区间。如下示例
-public struct SECLineSeries : SECSymbolized {
+public struct SECLineSerie : SECSymbolized {
     
     public var name: String?
     public var coordinateSystem: CoordinateSystem?
@@ -227,13 +227,13 @@ public struct SECLineSeries : SECSymbolized {
     
 }
 
-extension SECLineSeries : SECSeries {
+extension SECLineSerie : SECSeries {
     public var type: SECSerieType {
         return .line
     }
 }
 
-extension SECLineSeries : SECEnumable {
+extension SECLineSerie : SECEnumable {
     public enum Enums {
         case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(String), label(SECLabel), itemStyle(SECItemStyle), lineStyle(LineStyle), areaStyle(AreaStyle), smooth(Bool), smoothMonotone(String), sampling(Sampling), data([Any])
     }
@@ -298,7 +298,7 @@ extension SECLineSeries : SECEnumable {
     }
 }
 
-extension SECLineSeries : SECMappable {
+extension SECLineSerie : SECMappable {
     public func mapping(map: SECMap) {
         map["type"] = type
         map["name"] = name

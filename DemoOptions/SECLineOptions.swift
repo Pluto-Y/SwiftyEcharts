@@ -49,15 +49,15 @@ public struct SECLineOptions {
                     ])
                 ]),
             .series([
-                SECLineSeries([
+                SECLineSerie([
                     .name("3的指数"),
                     .data([1, 3, 9, 27, 81, 247, 741, 2223, 6669])
                     ]),
-                SECLineSeries([
+                SECLineSerie([
                     .name("2的指数"),
                     .data([1, 2, 4, 8, 16, 32, 64, 128, 256])
                     ]),
-                SECLineSeries([
+                SECLineSerie([
                     .name("1/2的指数"),
                     .data([1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625])
                     ])

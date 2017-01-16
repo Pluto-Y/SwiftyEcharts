@@ -110,6 +110,33 @@ public struct SECToolbox : SECDisplayable {
     public var height: Float?
 }
 
+extension SECToolbox.Feature : SECEnumable {
+    public enum Enums {
+        case saveAsImage(SaveAsImage), restore(Restore), dataView(DataView), dataZoom(DataZoom), magicType(MagicType), brush(Brush)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .saveAsImage(saveAsImage):
+                self.saveAsImage = saveAsImage
+            case let .restore(restore):
+                self.restore = restore
+            case let .dataView(dataView):
+                self.dataView = dataView
+            case let .dataZoom(dataZoom):
+                self.dataZoom = dataZoom
+            case let .magicType(magicType):
+                self.magicType = magicType
+            case let .brush(brush):
+                self.brush = brush
+            }
+        }
+    }
+}
+
 extension SECToolbox.Feature : SECMappable {
     public func mapping(map: SECMap) {
         map["saveAsImage"] = saveAsImage
@@ -118,6 +145,51 @@ extension SECToolbox.Feature : SECMappable {
         map["dataZoom"] = dataZoom
         map["magicType"] = magicType
         map["brush"] = brush
+    }
+}
+
+extension SECToolbox : SECEnumable {
+    public enum Enums {
+        case show(Bool), orient(SECOrient), itemSize(Float), itemGap(Float), showTitle(Bool), feature(Feature), iconStyle(IconStyle), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .orient(orient):
+                self.orient = orient
+            case let .itemSize(itemSize):
+                self.itemSize = itemSize
+            case let .itemGap(itemGap):
+                self.itemGap = itemGap
+            case let .showTitle(showTitle):
+                self.showTitle = showTitle
+            case let .feature(feature):
+                self.feature = feature
+            case let .iconStyle(iconStyle):
+                self.iconStyle = iconStyle
+            case let .zlevel(zlevel):
+                self.zlevel = zlevel
+            case let .z(z):
+                self.z = z
+            case let .left(left):
+                self.left = left
+            case let .top(top):
+                self.top = top
+            case let .right(right):
+                self.right = right
+            case let .bottom(bottom):
+                self.bottom = bottom
+            case let .width(width):
+                self.width = width
+            case let .height(height):
+                self.height = height
+            }
+        }
     }
 }
 
@@ -288,6 +360,39 @@ extension SECToolbox.Feature {
     }
 }
 
+extension SECToolbox.Feature.SaveAsImage : SECEnumable {
+    public enum Enums {
+        case type(Type), name(String), backgroundColor(SECColor), excludeComponents([String]), show(Bool), title(String), icon(String), iconStyle(SECToolbox.IconStyle), pixelRatio(Float)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .type(type):
+                self.type = type
+            case let .name(name):
+                self.name = name
+            case let .backgroundColor(backgroundColor):
+                self.backgroundColor = backgroundColor
+            case let .excludeComponents(excludeComponents):
+                self.excludeComponents = excludeComponents
+            case let .show(show):
+                self.show = show
+            case let .title(title):
+                self.title = title
+            case let .icon(icon):
+                self.icon = icon
+            case let .iconStyle(iconStyle):
+                self.iconStyle = iconStyle
+            case let .pixelRatio(pixelRatio):
+                self.pixelRatio = pixelRatio
+            }
+        }
+    }
+}
+
 extension SECToolbox.Feature.SaveAsImage : SECMappable {
     public func mapping(map: SECMap) {
         map["type"] = type
@@ -314,6 +419,29 @@ extension SECToolbox.Feature {
         public var icon: String? // FIXME: 暂时还不理解
         /// icon 样式设置。
         public var iconStyle: SECToolbox.IconStyle?
+    }
+}
+
+extension SECToolbox.Feature.Restore : SECEnumable {
+    public enum Enums {
+        case show(Bool), title(String), icon(String), iconStyle(SECToolbox.IconStyle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .title(title):
+                self.title = title
+            case let .icon(icon):
+                self.icon = icon
+            case let .iconStyle(iconStyle):
+                self.iconStyle = iconStyle
+            }
+        }
     }
 }
 
@@ -356,6 +484,45 @@ extension SECToolbox.Feature {
         public var buttonColor: SECColor?
         /// 按钮文本颜色。
         public var buttonTextColor: SECColor?
+    }
+}
+
+extension SECToolbox.Feature.DataView : SECEnumable {
+    public enum Enums {
+        case show(Bool), title(String), icon(String), iconStyle(SECToolbox.IconStyle), readOnly(Bool), lang([String]), backgroundColor(SECColor), textareaColor(SECColor), textareaBorderColor(SECColor), textColor(SECColor), buttonColor(SECColor), buttonTextColor(SECColor)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .title(title):
+                self.title = title
+            case let .icon(icon):
+                self.icon = icon
+            case let .iconStyle(iconStyle):
+                self.iconStyle = iconStyle
+            case let .readOnly(readOnly):
+                self.readOnly = readOnly
+            case let .lang(lang):
+                self.lang = lang
+            case let .backgroundColor(backgroundColor):
+                self.backgroundColor = backgroundColor
+            case let .textareaColor(textareaColor):
+                self.textareaColor = textareaColor
+            case let .textareaBorderColor(textareaBorderColor):
+                self.textareaBorderColor = textareaBorderColor
+            case let .textColor(textColor):
+                self.textColor = textColor
+            case let .buttonColor(buttonColor):
+                self.buttonColor = buttonColor
+            case let .buttonTextColor(buttonTextColor):
+                self.buttonTextColor = buttonTextColor
+            }
+        }
     }
 }
 
@@ -446,6 +613,25 @@ extension SECToolbox.Feature {
     }
 }
 
+extension SECToolbox.Feature.DataZoom.Title : SECEnumable {
+    public enum Enums {
+        case zoom(String), back(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .zoom(zoom):
+                self.zoom = zoom
+            case let .back(back):
+                self.back = back
+            }
+        }
+    }
+}
+
 extension SECToolbox.Feature.DataZoom.Title : SECMappable {
     public func mapping(map: SECMap) {
         map["zoom"] = zoom
@@ -453,10 +639,56 @@ extension SECToolbox.Feature.DataZoom.Title : SECMappable {
     }
 }
 
+extension SECToolbox.Feature.DataZoom.Icon : SECEnumable {
+    public enum Enums {
+        case zoom(String), back(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .zoom(zoom):
+                self.zoom = zoom
+            case let .back(back):
+                self.back = back
+            }
+        }
+    }
+}
+
 extension SECToolbox.Feature.DataZoom.Icon : SECMappable {
     public func mapping(map: SECMap) {
         map["zoom"] = zoom
         map["back"] = back
+    }
+}
+
+extension SECToolbox.Feature.DataZoom : SECEnumable {
+    public enum Enums {
+        case show(Bool), title(Title), icon(Icon), iconStyle(SECToolbox.IconStyle), xAxisIndex(AxisIndexSelector), yAxisIndex(AxisIndexSelector)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .title(title):
+                self.title = title
+            case let .icon(icon):
+                self.icon = icon
+            case let .iconStyle(iconStyle):
+                self.iconStyle = iconStyle
+            case let .xAxisIndex(xAxisIndex):
+                self.xAxisIndex = xAxisIndex
+            case let .yAxisIndex(yAxisIndex):
+                self.yAxisIndex = yAxisIndex
+            }
+        }
     }
 }
 
@@ -529,12 +761,58 @@ extension SECToolbox.Feature {
     }
 }
 
+extension SECToolbox.Feature.MagicType.Title : SECEnumable {
+    public enum Enums {
+        case line(String), bar(String), stack(String), tiled(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .line(line):
+                self.line = line
+            case let .bar(bar):
+                self.bar = bar
+            case let .stack(stack):
+                self.stack = stack
+            case let .tiled(tiled):
+                self.tiled = tiled
+            }
+        }
+    }
+}
+
 extension SECToolbox.Feature.MagicType.Title : SECMappable {
     public func mapping(map: SECMap) {
         map["line"] = line
         map["bar"] = bar
         map["stack"] = stack
         map["tiled"] = tiled
+    }
+}
+
+extension SECToolbox.Feature.MagicType.Icon : SECEnumable {
+    public enum Enums {
+        case line(String), bar(String), stack(String), tiled(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .line(line):
+                self.line = line
+            case let .bar(bar):
+                self.bar = bar
+            case let .stack(stack):
+                self.stack = stack
+            case let .tiled(tiled):
+                self.tiled = tiled
+            }
+        }
     }
 }
 
@@ -547,6 +825,28 @@ extension SECToolbox.Feature.MagicType.Icon : SECMappable {
     }
 }
 
+extension SECToolbox.Feature.MagicType : SECEnumable {
+    public enum Enums {
+        case show(Bool), type([Type]), title(Title), icon(Icon)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .type(type):
+                self.type = type
+            case let .title(title):
+                self.title = title
+            case let .icon(icon):
+                self.icon = icon
+            }
+        }
+    }
+}
 
 extension SECToolbox.Feature.MagicType : SECMappable {
     public func mapping(map: SECMap) {
@@ -612,6 +912,33 @@ extension SECToolbox.Feature {
     }
 }
 
+extension SECToolbox.Feature.Brush.Icon : SECEnumable {
+    public enum Enums {
+        case rect(String), polygon(String), lineX(String), lineY(String), keep(String), clear(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .rect(rect):
+                self.rect = rect
+            case let .polygon(polygon):
+                self.polygon = polygon
+            case let .lineX(lineX):
+                self.lineX = lineX
+            case let .lineY(lineY):
+                self.lineY = lineY
+            case let .keep(keep):
+                self.keep = keep
+            case let .clear(clear):
+                self.clear = clear
+            }
+        }
+    }
+}
+
 extension SECToolbox.Feature.Brush.Icon : SECMappable {
     public func mapping(map: SECMap) {
         map["rect"] = rect
@@ -623,6 +950,33 @@ extension SECToolbox.Feature.Brush.Icon : SECMappable {
     }
 }
 
+extension SECToolbox.Feature.Brush.Title : SECEnumable {
+    public enum Enums {
+        case rect(String), polygon(String), lineX(String), lineY(String), keep(String), clear(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .rect(rect):
+                self.rect = rect
+            case let .polygon(polygon):
+                self.polygon = polygon
+            case let .lineX(lineX):
+                self.lineX = lineX
+            case let .lineY(lineY):
+                self.lineY = lineY
+            case let .keep(keep):
+                self.keep = keep
+            case let .clear(clear):
+                self.clear = clear
+            }
+        }
+    }
+}
+
 extension SECToolbox.Feature.Brush.Title : SECMappable {
     public func mapping(map: SECMap) {
         map["rect"] = rect
@@ -631,6 +985,27 @@ extension SECToolbox.Feature.Brush.Title : SECMappable {
         map["lineY"] = lineY
         map["keep"] = keep
         map["clear"] = clear
+    }
+}
+
+extension SECToolbox.Feature.Brush : SECEnumable {
+    public enum Enums {
+        case type([Type]), icon(Icon), title(Title)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .type(type):
+                self.type = type
+            case let .icon(icon):
+                self.icon = icon
+            case let .title(title):
+                self.title = title
+            }
+        }
     }
 }
 

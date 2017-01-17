@@ -168,9 +168,9 @@ public struct SECInsideDataZoom : SECDataZoom {
     /// 如地址的例子：
     public var filterMode: SECFilterMode?
     /// 数据窗口范围的起始百分比。范围是：0 ~ 100。表示 0% ~ 100%。
-    public var start: UInt8?
+    public var start: Float?
     /// 数据窗口范围的结束百分比。范围是：0 ~ 100。
-    public var end: UInt8?
+    public var end: Float?
     /// 数据窗口范围的起始数值。如果设置了 dataZoom-inside.start 则 startValue 失效。
     /// dataZoom-inside.startValue 和 dataZoom-inside.endValue 共同用 绝对数值 的形式定义了数据窗口范围。
     /// 注意，如果轴的类型为 category，则 startValue 既可以设置为 axis.data 数组的 index，也可以设置为数组值本身。 但是如果设置为数组值本身，会在内部自动转化为数组的 index。
@@ -192,7 +192,7 @@ public struct SECInsideDataZoom : SECDataZoom {
 
 extension SECInsideDataZoom : SECEnumable {
     public enum Enums {
-        case disabled(Bool), xAxisIndex(UInt8), yAxisIndex(UInt8), radiusAxisIndex(UInt8), angleAxisIndex(UInt8), filterMode(FilterMode), start(UInt8), end(UInt8), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), throttle(Float)
+        case disabled(Bool), xAxisIndex(UInt8), yAxisIndex(UInt8), radiusAxisIndex(UInt8), angleAxisIndex(UInt8), filterMode(SECFilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), throttle(Float)
     }
     
     public typealias ContentEnum = Enums

@@ -31,6 +31,8 @@
 		5427F09F1E2C984500CE20E5 /* SECThemeRiverOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09E1E2C984500CE20E5 /* SECThemeRiverOptions.swift */; };
 		5427F0AB1E2CEB8800CE20E5 /* SECMarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0AA1E2CEB8800CE20E5 /* SECMarkData.swift */; };
 		5435CCBE1E24990B00D753B2 /* SECUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435CCBD1E24990B00D753B2 /* SECUtilities.swift */; };
+		5447FD941E2DE8BB001D88F3 /* SECDataZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447FD931E2DE8BB001D88F3 /* SECDataZoom.swift */; };
+		5447FD961E2DEA93001D88F3 /* SECInsideDataZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447FD951E2DEA93001D88F3 /* SECInsideDataZoom.swift */; };
 		54BA6E231E1B76B100CD7AA6 /* SECSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */; };
 		54BA6E251E1B798100CD7AA6 /* SECLineSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E241E1B798100CD7AA6 /* SECLineSerie.swift */; };
 		54FEBE8F1E23480D0021CB13 /* SECJsonable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE8C1E23480D0021CB13 /* SECJsonable.swift */; };
@@ -141,6 +143,8 @@
 		5427F09E1E2C984500CE20E5 /* SECThemeRiverOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECThemeRiverOptions.swift; sourceTree = "<group>"; };
 		5427F0AA1E2CEB8800CE20E5 /* SECMarkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkData.swift; sourceTree = "<group>"; };
 		5435CCBD1E24990B00D753B2 /* SECUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECUtilities.swift; sourceTree = "<group>"; };
+		5447FD931E2DE8BB001D88F3 /* SECDataZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECDataZoom.swift; sourceTree = "<group>"; };
+		5447FD951E2DEA93001D88F3 /* SECInsideDataZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECInsideDataZoom.swift; sourceTree = "<group>"; };
 		54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSeries.swift; sourceTree = "<group>"; };
 		54BA6E241E1B798100CD7AA6 /* SECLineSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLineSerie.swift; sourceTree = "<group>"; };
 		54FEBE8C1E23480D0021CB13 /* SECJsonable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECJsonable.swift; sourceTree = "<group>"; };
@@ -254,6 +258,15 @@
 				5427F0AA1E2CEB8800CE20E5 /* SECMarkData.swift */,
 			);
 			path = Mark;
+			sourceTree = "<group>";
+		};
+		5447FD921E2DE8B0001D88F3 /* DataZoom */ = {
+			isa = PBXGroup;
+			children = (
+				5447FD931E2DE8BB001D88F3 /* SECDataZoom.swift */,
+				5447FD951E2DEA93001D88F3 /* SECInsideDataZoom.swift */,
+			);
+			path = DataZoom;
 			sourceTree = "<group>";
 		};
 		54BA6E211E1B76A700CD7AA6 /* Series */ = {
@@ -374,6 +387,7 @@
 		6FB48CA11DEE953000137D13 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5447FD921E2DE8B0001D88F3 /* DataZoom */,
 				5427F0A91E2CEB7F00CE20E5 /* Mark */,
 				6F4ACB3A1E1BF47300CE5FD5 /* Type */,
 				54BA6E211E1B76A700CD7AA6 /* Series */,
@@ -665,9 +679,11 @@
 				6F91EB7B1DF08026003EEEC0 /* SECLine.swift in Sources */,
 				6FB48CC61DEF35AF00137D13 /* SECTooltip.swift in Sources */,
 				6FA24F721E2B7A0100E25002 /* SECEnumable.swift in Sources */,
+				5447FD961E2DEA93001D88F3 /* SECInsideDataZoom.swift in Sources */,
 				540DE5FE1E2CF087002F25E3 /* SECMarkLine.swift in Sources */,
 				6FB48CC41DEF358C00137D13 /* SECDisplayable.swift in Sources */,
 				6F1FDA8D1DF5D286004BC74E /* SECSymbol.swift in Sources */,
+				5447FD941E2DE8BB001D88F3 /* SECDataZoom.swift in Sources */,
 				6FB48CC81DEF3BB100137D13 /* SECFormatted.swift in Sources */,
 				6F9B70D81DE8070E00406B55 /* SECEchartsView.swift in Sources */,
 				6F4ACB361E1BD36100CE5FD5 /* SECEmphasisable.swift in Sources */,

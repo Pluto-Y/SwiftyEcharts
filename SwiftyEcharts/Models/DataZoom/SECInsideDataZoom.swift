@@ -8,14 +8,7 @@
 
 public struct SECInsideDataZoom : SECDataZoom {
     
-    public enum FilterMode : String, SECJsonable{
-        case filter = "filter"
-        case empty = "empty"
-        
-        public var jsonString: String {
-            return "\"\(self.rawValue)\""
-        }
-    }
+    
     
     /// 类型
     public var type: String {
@@ -173,7 +166,7 @@ public struct SECInsideDataZoom : SECDataZoom {
     ///
     /// 这时，series.data 中对应于 X 轴的值仍然全部保留不受影响，为 12、90、3、1。那么用户对 dataZoomY 的拖拽操作不会影响到 X 轴的范围。这样的效果，对于离群点（outlier）过滤功能，比较清晰。
     /// 如地址的例子：
-    public var filterMode: FilterMode?
+    public var filterMode: SECFilterMode?
     /// 数据窗口范围的起始百分比。范围是：0 ~ 100。表示 0% ~ 100%。
     public var start: UInt8?
     /// 数据窗口范围的结束百分比。范围是：0 ~ 100。

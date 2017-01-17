@@ -10,3 +10,12 @@ public protocol SECDataZoom {
     var xAxisIndex: UInt8? { get set }
     var yAxisIndex: UInt8? { get set }
 }
+
+public enum SECFilterMode : String, SECJsonable{
+    case filter = "filter"
+    case empty = "empty"
+    
+    public var jsonString: String {
+        return "\"\(self.rawValue)\""
+    }
+}

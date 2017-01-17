@@ -12,6 +12,7 @@ public struct SECOption : SECAnimatable {
     public var grid: SECGrid?
     public var xAxis: [SECAxis]?
     public var yAxis: [SECAxis]?
+    public var dataZoom: [SECDataZoom]?
     public var tooltip: SECTooltip?
     public var series: [SECSeries]?
     
@@ -61,7 +62,7 @@ public struct SECOption : SECAnimatable {
 extension SECOption : SECEnumable {
     
     public enum Enums {
-        case title(SECTitle), legend(SECLegend), grid(SECGrid), xAxis([SECAxis]), yAxis([SECAxis]), tooltip(SECTooltip), series([SECSeries]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case title(SECTitle), legend(SECLegend), grid(SECGrid), xAxis([SECAxis]), yAxis([SECAxis]), dataZoom([SECDataZoom]), tooltip(SECTooltip), series([SECSeries]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -79,6 +80,8 @@ extension SECOption : SECEnumable {
                 self.xAxis = xAxis
             case let .yAxis(yAxis):
                 self.yAxis = yAxis
+            case let .dataZoom(dataZoom):
+                self.dataZoom = dataZoom
             case let .tooltip(tooltip):
                 self.tooltip = tooltip
             case let .series(series):
@@ -111,6 +114,7 @@ extension SECOption : SECMappable {
         map["grid"] = grid
         map["xAxis"] = xAxis
         map["yAxis"] = yAxis
+        map["dataZomm"] = dataZoom
         map["tooltip"] = tooltip
         map["series"] = series
         map["animation"] = animation

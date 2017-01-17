@@ -33,13 +33,13 @@ public enum SECColor: SECJsonable, CustomStringConvertible {
         case let .hexColor(hexColor):
             return "\(hexColor)"
         case .red:
-            return "red"
+            return "\"red\""
         case .blue:
-            return "blue"
+            return "\"blue\""
         case .green:
-            return "green"
+            return "\"green\""
         case .transparent:
-            return "transparent"
+            return "\"transparent\""
         case let .array(colors):
             var result = "["
             for color in colors {

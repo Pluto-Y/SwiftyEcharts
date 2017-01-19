@@ -344,7 +344,6 @@ extension SECTimeline.LineStyle : SECEnumable {
                 self.shadowOffsetY = y
             case let .opacity(opacity):
                 self.opacity = opacity
-                   
             }
         }
     }
@@ -361,5 +360,55 @@ extension SECTimeline.LineStyle : SECMappable {
         map["shadowOffsetX"] = shadowOffsetX
         map["shadowOffsetY"] = shadowOffsetY
         map["opacity"] = opacity
+    }
+}
+
+extension SECTimeline.CheckpointStyle : SECEnumable {
+    public enum Enums {
+        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), color(SECColor), borderColor(SECColor), borderWidth(Float), animation(Bool), animationDuration(Float), animationEasing(SECAnimation)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .symbol(symbol):
+                self.symbol = symbol
+            case let .symbolSize(symbolSize):
+                self.symbolSize = symbolSize
+            case let .symbolRotate(symbolRotate):
+                self.symbolRotate = symbolRotate
+            case let .symbolOffset(symbolOffset):
+                self.symbolOffset = symbolOffset
+            case let .color(color):
+                self.color = color
+            case let .borderColor(color):
+                self.borderColor = color
+            case let .borderWidth(width):
+                self.borderWidth = width
+            case let .animation(animation):
+                self.animation = animation
+            case let .animationDuration(animationDuration):
+                self.animationDuration = animationDuration
+            case let .animationEasing(animationEasing):
+                self.animationEasing = animationEasing
+            }
+        }
+    }
+}
+
+extension SECTimeline.CheckpointStyle : SECMappable {
+    public func mapping(map: SECMap) {
+        map["symbol"] = symbol
+        map["symbolSize"] = symbolSize
+        map["symbolRotate"] = symbolRotate
+        map["symbolOffset"] = symbolOffset
+        map["color"] = color
+        map["borderColor"] = borderColor
+        map["borderWidth"] = borderWidth
+        map["animation"] = animation
+        map["animationDuration"] = animationDuration
+        map["animationEasing"] = animationEasing
     }
 }

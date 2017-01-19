@@ -200,7 +200,7 @@ public struct SECTimeline : SECDisplayable, SECSymbolized {
         public var position: SECPosition?
         /// 『播放按钮』的『可播放状态』的图形。
         /// 在 ECharts 3 里可以通过 'path://' 将图标设置为任意的矢量路径。这种方式相比于使用图片的方式，不用担心因为缩放而产生锯齿或模糊，而且可以设置为任意颜色。路径图形会自适应调整为合适（如果是 symbol 的话就是 symbolSize）的大小。路径的格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
-        public var palyIcon: String?
+        public var playIcon: String?
         /// 『播放按钮』的『可停止状态』的图形。
         /// 在 ECharts 3 里可以通过 'path://' 将图标设置为任意的矢量路径。这种方式相比于使用图片的方式，不用担心因为缩放而产生锯齿或模糊，而且可以设置为任意颜色。路径图形会自适应调整为合适（如果是 symbol 的话就是 symbolSize）的大小。路径的格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
         public var stopIcon: String?
@@ -410,5 +410,96 @@ extension SECTimeline.CheckpointStyle : SECMappable {
         map["animation"] = animation
         map["animationDuration"] = animationDuration
         map["animationEasing"] = animationEasing
+    }
+}
+
+extension SECTimeline.ControlStyle.CStyle : SECEnumable {
+    public enum Enums {
+        case color(SECColor), borderWidth(Float), borderColor(SECColor)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .color(color):
+                self.color = color
+             case let .borderWidth(borderWidth):
+                self.borderWidth = borderWidth
+            case let .borderColor(borderColor):
+                self.borderColor = borderColor
+                   
+            }
+        }
+    }
+}
+
+extension SECTimeline.ControlStyle.CStyle : SECMappable {
+    public func mapping(map: SECMap) {
+        map["color"] = color
+        map["borderWidth"] = borderWidth
+        map["borderColor"] = borderColor
+        
+    }
+}
+
+extension SECTimeline.ControlStyle : SECEnumable {
+    public enum Enums {
+        case show(Bool), showPlayBtn(Bool), showPrevBtn(Bool), showNextBtn(Bool), itemSize(Float), itemGap(Float), position(SECPosition), playIcon(String), stopIcon(String), prevIcon(String), nextIcon(String), normal(CStyle), emphasis(CStyle)
+    }
+    
+    public typealias ContentsEnums = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .showPlayBtn(showPlayBtn):
+                self.showPlayBtn = showPlayBtn
+            case let .showPrevBtn(showPrevBtn):
+                self.showPrevBtn = showPrevBtn
+            case let .showNextBtn(showNextBtn):
+                self.showNextBtn = showNextBtn
+            case let .itemSize(itemSize):
+                self.itemSize = itemSize
+            case let .itemGap(itemGap):
+                self.itemGap = itemGap
+            case let .position(position):
+                self.position = position
+            case let .playIcon(playIcon):
+                self.playIcon = playIcon
+            case let .stopIcon(stopIcon):
+                self.stopIcon = stopIcon
+            case let .prevIcon(prevIcon):
+                self.prevIcon = prevIcon
+            case let .nextIcon(nextIcon):
+                self.nextIcon = nextIcon
+            case let .normal(normal):
+                self.normal = normal
+            case let .emphasis(emphasis):
+                self.emphasis = emphasis
+            }
+        }
+    }
+}
+
+extension SECTimeline.ControlStyle : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["showPlayBtn"] = showPlayBtn
+        map["showPrevBtn"] = showPrevBtn
+        map["showNextBtn"] = showNextBtn
+        map["itemSize"] = itemSize
+        map["itemGap"] = itemGap
+        map["position"] = position
+        map["playIcon"] = playIcon
+        map["stopIcon"] = stopIcon
+        map["prevIcon"] = prevIcon
+        map["nextIcon"] = nextIcon
+        map["normal"] = normal
+        map["emphasis"] = emphasis
+        
     }
 }

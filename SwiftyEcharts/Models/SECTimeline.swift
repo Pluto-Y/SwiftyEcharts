@@ -315,3 +315,51 @@ public struct SECTimeline : SECDisplayable, SECSymbolized {
     public var data: [Any]?
     
 }
+
+extension SECTimeline.LineStyle : SECEnumable {
+    public enum Enums {
+        case show(Bool), color(SECColor), width(Float), type(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+             case let .color(color):
+                self.color = color
+            case let .width(width):
+                self.width = width
+            case let .type(type):
+                self.type = type
+            case let .shadowBlur(blur):
+                self.shadowBlur = blur
+            case let .shadowColor(color):
+                self.shadowColor = color
+            case let .shadowOffsetX(x):
+                self.shadowOffsetX = x
+            case let .shadowOffsetY(y):
+                self.shadowOffsetY = y
+            case let .opacity(opacity):
+                self.opacity = opacity
+                   
+            }
+        }
+    }
+}
+
+extension SECTimeline.LineStyle : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["color"] = color
+        map["width"] = width
+        map["type"] = type
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
+        map["opacity"] = opacity
+    }
+}

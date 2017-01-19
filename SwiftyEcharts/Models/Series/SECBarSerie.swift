@@ -392,3 +392,49 @@ extension SECBarSerie.ItemStyle : SECMappable {
         map["emphasis"] = emphasis
     }
 }
+
+extension SECBarSerie {
+    public struct Data {
+        /// 数据项名称。
+        public var name: String?
+        /// 单个数据项的数值。
+        public var value: Float?
+        /// 单个柱条文本的样式设置。
+        public var label: SECFormattedLabel?
+        /// 图形样式。
+        public var itemStyle: ItemStyle?
+    }
+}
+
+extension SECBarSerie.Data : SECEnumable {
+    public enum Enums {
+        case name(String), value(Float), label(SECFormattedLabel), itemStyle(SECBarSerie.ItemStyle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .value(value):
+                self.value = value
+            case let .label(label):
+                self.label = label
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            }
+        }
+    }
+}
+
+extension SECBarSerie.Data : SECMappable {
+    public func mapping(map: SECMap) {
+        map["name"] = name
+        map["value"] = value
+        map["label"] = label
+        map["itemStyle"] = itemStyle
+    }
+}
+

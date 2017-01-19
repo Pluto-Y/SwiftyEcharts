@@ -91,6 +91,7 @@ public struct SECFormattedLabelStyle : SECLabelStyle, SECFormatted {
     public var show: Bool?
     public var position: SECPosition?
     public var formatter: SECFormatter?
+    public var offset: [Float]?
     public var textStyle: SECTextStyle?
     
     public init() { }
@@ -99,7 +100,7 @@ public struct SECFormattedLabelStyle : SECLabelStyle, SECFormatted {
 
 extension SECFormattedLabelStyle : SECEnumable {
     public enum Enums {
-        case show(Bool), position(SECPosition), formatter(SECFormatter), textStyle(SECTextStyle)
+        case show(Bool), position(SECPosition), formatter(SECFormatter), offset([Float]), textStyle(SECTextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -113,6 +114,8 @@ extension SECFormattedLabelStyle : SECEnumable {
                 self.position = position
             case let .formatter(formatter):
                 self.formatter = formatter
+            case let .offset(offset):
+                self.offset = offset
             case let .textStyle(textStyle):
                 self.textStyle = textStyle
             }
@@ -125,6 +128,7 @@ extension SECFormattedLabelStyle : SECMappable {
         map["show"] = show
         map["position"] = position
         map["formatter"] = formatter
+        map["offset"] = offset
         map["textStyle"] = textStyle
     }
 }

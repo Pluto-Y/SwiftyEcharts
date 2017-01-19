@@ -103,53 +103,129 @@ public struct SECTimeline : SECDisplayable, SECSymbolized {
     }
     
     public struct LineStyle : SECDisplayable, SECShadowable, SECColorful, SECOpacitable {
+        /// 是否显示轴线。可以设置为 false 不显示轴线，则可以做出不同的样式效果。
         public var show: Bool?
+        /// timeline 线的颜色。
+        /// 颜色可以使用 RGB 表示，比如 'rgb(128, 128, 128)'，如果想要加上 alpha 通道表示不透明度，可以使用 RGBA，比如 'rgba(128, 128, 128, 0.5)'，也可以使用十六进制格式，比如 '#ccc'。除了纯色之外颜色也支持渐变色和纹理填充
+        ///
+        ///     // 线性渐变，前四个参数分别是 x0, y0, x2, y2, 范围从 0 - 1，相当于在图形包围盒中的百分比，如果最后一个参数传 `true`，则该四个值是绝对的像素位置
+        ///     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+        ///         offset: 0, color: 'red' // 0% 处的颜色
+        ///     }, {
+        ///         offset: 1, color: 'blue' // 100% 处的颜色
+        ///     }], false)
+        ///     // 径向渐变，前三个参数分别是圆心 x, y 和半径，取值同线性渐变
+        ///     color: new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [...], false)
+        ///     // 纹理填充
+        ///     color: new echarts.graphic.Pattern(
+        ///         imageDom, // 支持为 HTMLImageElement, HTMLCanvasElement，不支持路径字符串
+        ///         'repeat' // 是否平铺, 可以是 repeat-x, repeat-y, no-repeat
+        ///     )
         public var color: SECColor?
+        /// timeline 线宽。
         public var width: Float?
+        /// timeline 线的类型。
         public var type: SECLineType?
+        /// 图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果。
+        /// 示例：
+        ///
+        ///     {
+        ///         shadowColor: 'rgba(0, 0, 0, 0.5)',
+        ///         shadowBlur: 10
+        ///     }
         public var shadowBlur: Float?
+        /// 阴影颜色。支持的格式同color。
         public var shadowColor: SECColor?
+        /// 阴影水平方向上的偏移距离。
         public var shadowOffsetX: Float?
+        /// 阴影垂直方向上的偏移距离。
         public var shadowOffsetY: Float?
+        /// 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
         public var opacity: Float?
     }
     
     public struct CheckpointStyle : SECSymbolized, SECColorful, SECBorderable {
-       public var symbol: SECSymbol?
+       /// timeline.checkpointStyle 标记的图形。
+        public var symbol: SECSymbol?
+        /// timeline.checkpointStyle 标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
         public var symbolSize: Float?
+        /// timeline.checkpointStyle 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
         public var symbolRotate: Float?
+        /// timeline.checkpointStyle 标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
+        /// 例如 [0, '50%'] 就是把自己向上移动了一半的位置，在 symbol 图形是气泡的时候可以让图形下端的箭头对准数据点。
         public var symbolOffset: [Float]?
+        /// timeline组件中『当前项』（checkpoint）的颜色。
         public var color: SECColor?
+        /// timeline组件中『当前项』（checkpoint）的边框宽度。
         public var borderWidth: Float?
+        /// timeline组件中『当前项』（checkpoint）的边框颜色。
         public var borderColor: SECColor?
+        /// timeline组件中『当前项』（checkpoint）在 timeline 播放切换中的移动，是否有动画。
         public var animation: Bool?
+        /// timeline组件中『当前项』（checkpoint）的动画时长。
         public var animationDuration: Float?
+        /// timeline组件中『当前项』（checkpoint）的动画的缓动效果。
         public var animationEasing: SECAnimation?
     }
     
     public struct ControlStyle : SECDisplayable, SECEmphasisable {
         
+        /// 控制按钮的的样式。
         public struct CStyle : SECColorful, SECBorderable {
+            /// 按钮颜色。
             public var color: SECColor?
+            /// 按钮边框颜色。
             public var borderWidth: Float?
+            /// 按钮边框线宽。
             public var borderColor: SECColor?
         }
         
         public typealias Style = CStyle
         
+        /// 是否显示『控制按钮』。设置为 false 则全不显示。
         public var show: Bool?
+        /// 是否显示『播放按钮』。
         public var showPlayBtn: Bool?
+        /// 是否显示『后退按钮』。
         public var showPrevBtn: Bool?
+        /// 是否显示『前进按钮』。
         public var showNextBtn: Bool?
+        /// 『控制按钮』的尺寸，单位为像素（px）。
         public var itemSize: Float?
+        /// 『控制按钮』的间隔，单位为像素（px）。
         public var itemGap: Float?
+        /// 『控制按钮』的位置。
+        /// 当 timeline.orient 为 'horizontal'时，'left'、'right'有效。
+        /// 当 timeline.orient 为 'vertical'时，'top'、'bottom'有效。
         public var position: SECPosition?
+        /// 『播放按钮』的『可播放状态』的图形。
+        /// 在 ECharts 3 里可以通过 'path://' 将图标设置为任意的矢量路径。这种方式相比于使用图片的方式，不用担心因为缩放而产生锯齿或模糊，而且可以设置为任意颜色。路径图形会自适应调整为合适（如果是 symbol 的话就是 symbolSize）的大小。路径的格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
         public var palyIcon: String?
+        /// 『播放按钮』的『可停止状态』的图形。
+        /// 在 ECharts 3 里可以通过 'path://' 将图标设置为任意的矢量路径。这种方式相比于使用图片的方式，不用担心因为缩放而产生锯齿或模糊，而且可以设置为任意颜色。路径图形会自适应调整为合适（如果是 symbol 的话就是 symbolSize）的大小。路径的格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
         public var stopIcon: String?
+        ///『后退按钮』的图形
+        /// 在 ECharts 3 里可以通过 'path://' 将图标设置为任意的矢量路径。这种方式相比于使用图片的方式，不用担心因为缩放而产生锯齿或模糊，而且可以设置为任意颜色。路径图形会自适应调整为合适（如果是 symbol 的话就是 symbolSize）的大小。路径的格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
         public var prevIcon: String?
+        /// 『前进按钮』的图形
+        /// 在 ECharts 3 里可以通过 'path://' 将图标设置为任意的矢量路径。这种方式相比于使用图片的方式，不用担心因为缩放而产生锯齿或模糊，而且可以设置为任意颜色。路径图形会自适应调整为合适（如果是 symbol 的话就是 symbolSize）的大小。路径的格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
         public var nextIcon: String?
+        /// 控制按钮的『正常状态』的样式。
         public var normal: CStyle?
+        /// 控制按钮的『高亮状态』的样式（hover时）。
         public var emphasis: CStyle?
+    }
+    
+    /// 可能的数据对象
+    public struct Data {
+        /// 值
+        public var value: String?
+        /// tooltip, 主要用来修改里面的 `formatter`
+        public var tooltip: SECTooltip?
+        /// 标记图形
+        public var symbol: SECSymbol?
+        /// 标记图形大小
+        public var symbolSize: Float?
     }
     
     /// 是否显示 timeline 组件。如果设置为false，不会显示，但是功能还存在。

@@ -219,7 +219,7 @@ public struct SECTimeline : SECDisplayable, SECSymbolized {
     /// 可能的数据对象
     public struct Data {
         /// 值
-        public var value: String?
+        public var value: SECJsonable?
         /// tooltip, 主要用来修改里面的 `formatter`
         public var tooltip: SECTooltip?
         /// 标记图形
@@ -501,5 +501,37 @@ extension SECTimeline.ControlStyle : SECMappable {
         map["normal"] = normal
         map["emphasis"] = emphasis
         
+    }
+}
+
+extension SECTimeline.Data : SECEnumable {
+    public enum Enums {
+        case value(SECJsonable), tooltip(SECTooltip), symbol(SECSymbol), symbolSize(Float)
+    }
+    
+    public typealias ContentEnums = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .value(value):
+                self.value = value
+            case let .tooltip(tooltip):
+                self.tooltip = tooltip
+            case let .symbol(symbol):
+                self.symbol = symbol
+            case let .symbolSize(symbolSize):
+                self.symbolSize = symbolSize
+            }
+        }
+    }
+}
+
+extension SECTimeline.Data : SECMappable {
+    public func mapping(map: SECMap) {
+        map["value"] = value
+        map["tooltip"] = tooltip
+        map["symbol"] = symbol
+        map["symbolSize"] = symbolSize
     }
 }

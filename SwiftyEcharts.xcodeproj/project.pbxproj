@@ -36,6 +36,7 @@
 		5447FDA71E2E2AD6001D88F3 /* SECSliderDataZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447FDA61E2E2AD6001D88F3 /* SECSliderDataZoom.swift */; };
 		5469CBF31E31B8700063D1C3 /* SECPieSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469CBF21E31B8700063D1C3 /* SECPieSerie.swift */; };
 		5469CBF71E320B210063D1C3 /* SECContinuousVisualMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469CBF61E320B210063D1C3 /* SECContinuousVisualMap.swift */; };
+		5469CBF91E3215FD0063D1C3 /* SECPiecewiseVisualMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469CBF81E3215FD0063D1C3 /* SECPiecewiseVisualMap.swift */; };
 		54BA6E231E1B76B100CD7AA6 /* SECSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */; };
 		54BA6E251E1B798100CD7AA6 /* SECLineSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E241E1B798100CD7AA6 /* SECLineSerie.swift */; };
 		54FEBE8F1E23480D0021CB13 /* SECJsonable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE8C1E23480D0021CB13 /* SECJsonable.swift */; };
@@ -154,6 +155,7 @@
 		5447FDA61E2E2AD6001D88F3 /* SECSliderDataZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSliderDataZoom.swift; sourceTree = "<group>"; };
 		5469CBF21E31B8700063D1C3 /* SECPieSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPieSerie.swift; sourceTree = "<group>"; };
 		5469CBF61E320B210063D1C3 /* SECContinuousVisualMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECContinuousVisualMap.swift; sourceTree = "<group>"; };
+		5469CBF81E3215FD0063D1C3 /* SECPiecewiseVisualMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPiecewiseVisualMap.swift; sourceTree = "<group>"; };
 		54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSeries.swift; sourceTree = "<group>"; };
 		54BA6E241E1B798100CD7AA6 /* SECLineSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLineSerie.swift; sourceTree = "<group>"; };
 		54FEBE8C1E23480D0021CB13 /* SECJsonable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECJsonable.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				5469CBF61E320B210063D1C3 /* SECContinuousVisualMap.swift */,
+				5469CBF81E3215FD0063D1C3 /* SECPiecewiseVisualMap.swift */,
 			);
 			path = VisualMap;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				6FB48CA91DEE96BD00137D13 /* SECFont.swift in Sources */,
 				6F91EB7B1DF08026003EEEC0 /* SECLine.swift in Sources */,
 				6FB48CC61DEF35AF00137D13 /* SECTooltip.swift in Sources */,
+				5469CBF91E3215FD0063D1C3 /* SECPiecewiseVisualMap.swift in Sources */,
 				6FA24F721E2B7A0100E25002 /* SECEnumable.swift in Sources */,
 				5447FDA71E2E2AD6001D88F3 /* SECSliderDataZoom.swift in Sources */,
 				5447FD961E2DEA93001D88F3 /* SECInsideDataZoom.swift in Sources */,

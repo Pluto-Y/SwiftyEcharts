@@ -35,6 +35,7 @@
 		5447FD961E2DEA93001D88F3 /* SECInsideDataZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447FD951E2DEA93001D88F3 /* SECInsideDataZoom.swift */; };
 		5447FDA71E2E2AD6001D88F3 /* SECSliderDataZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447FDA61E2E2AD6001D88F3 /* SECSliderDataZoom.swift */; };
 		5469CBF31E31B8700063D1C3 /* SECPieSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469CBF21E31B8700063D1C3 /* SECPieSerie.swift */; };
+		5469CBF71E320B210063D1C3 /* SECContinuousVisualMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5469CBF61E320B210063D1C3 /* SECContinuousVisualMap.swift */; };
 		54BA6E231E1B76B100CD7AA6 /* SECSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */; };
 		54BA6E251E1B798100CD7AA6 /* SECLineSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E241E1B798100CD7AA6 /* SECLineSerie.swift */; };
 		54FEBE8F1E23480D0021CB13 /* SECJsonable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE8C1E23480D0021CB13 /* SECJsonable.swift */; };
@@ -152,6 +153,7 @@
 		5447FD951E2DEA93001D88F3 /* SECInsideDataZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECInsideDataZoom.swift; sourceTree = "<group>"; };
 		5447FDA61E2E2AD6001D88F3 /* SECSliderDataZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSliderDataZoom.swift; sourceTree = "<group>"; };
 		5469CBF21E31B8700063D1C3 /* SECPieSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPieSerie.swift; sourceTree = "<group>"; };
+		5469CBF61E320B210063D1C3 /* SECContinuousVisualMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECContinuousVisualMap.swift; sourceTree = "<group>"; };
 		54BA6E221E1B76B100CD7AA6 /* SECSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSeries.swift; sourceTree = "<group>"; };
 		54BA6E241E1B798100CD7AA6 /* SECLineSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLineSerie.swift; sourceTree = "<group>"; };
 		54FEBE8C1E23480D0021CB13 /* SECJsonable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECJsonable.swift; sourceTree = "<group>"; };
@@ -280,6 +282,14 @@
 			path = DataZoom;
 			sourceTree = "<group>";
 		};
+		5469CBF51E320A560063D1C3 /* VisualMap */ = {
+			isa = PBXGroup;
+			children = (
+				5469CBF61E320B210063D1C3 /* SECContinuousVisualMap.swift */,
+			);
+			path = VisualMap;
+			sourceTree = "<group>";
+		};
 		54BA6E211E1B76A700CD7AA6 /* Series */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +411,7 @@
 		6FB48CA11DEE953000137D13 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5469CBF51E320A560063D1C3 /* VisualMap */,
 				5447FD921E2DE8B0001D88F3 /* DataZoom */,
 				5427F0A91E2CEB7F00CE20E5 /* Mark */,
 				6F4ACB3A1E1BF47300CE5FD5 /* Type */,
@@ -708,6 +719,7 @@
 				6F4ACB361E1BD36100CE5FD5 /* SECEmphasisable.swift in Sources */,
 				540DE5F91E2CF05C002F25E3 /* SECMarkPosition.swift in Sources */,
 				6F1FDA8F1DF5D6E9004BC74E /* SECGrid.swift in Sources */,
+				5469CBF71E320B210063D1C3 /* SECContinuousVisualMap.swift in Sources */,
 				5469CBF31E31B8700063D1C3 /* SECPieSerie.swift in Sources */,
 				6F91EB7D1DF081A2003EEEC0 /* SECShadowable.swift in Sources */,
 				6F1FDA911DF5D96E004BC74E /* SECAxis.swift in Sources */,

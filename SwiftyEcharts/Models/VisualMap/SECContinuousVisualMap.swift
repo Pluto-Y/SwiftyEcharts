@@ -6,12 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECContinuousVisualMap : SECDisplayable, SECBorderable, SECColorful, SECTextful, SECFormatted {
-    
-    public struct Controller {
-        public var inRange: [String: SECJsonable]?
-        public var outRange: [String: SECJsonable]?
-    }
+public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderable, SECColorful, SECTextful, SECFormatted {
     
     public var type: String {
         return "continuous"
@@ -34,7 +29,7 @@ public struct SECContinuousVisualMap : SECDisplayable, SECBorderable, SECColorfu
     public var hoverLink: Bool?
     public var inRange: [String: SECJsonable]?
     public var outRange: [String: SECJsonable]?
-    public var controller: Controller?
+    public var controller: SECVMController?
     public var zlevel: Float?
     public var z: Float?
     public var left: SECPosition?
@@ -51,35 +46,9 @@ public struct SECContinuousVisualMap : SECDisplayable, SECBorderable, SECColorfu
     public var formatter: SECFormatter?
 }
 
-extension SECContinuousVisualMap.Controller : SECEnumable {
-    public enum Enums {
-        case inRange([String: SECJsonable]), outRange([String: SECJsonable])
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: [Enums]) {
-        for ele in elements {
-            switch ele {
-            case let .inRange(inRange):
-                self.inRange = inRange
-            case let .outRange(outRange):
-                self.outRange = outRange
-            }
-        }
-    }
-}
-
-extension SECContinuousVisualMap.Controller : SECMappable {
-    public func mapping(map: SECMap) {
-        map["inRange"] = inRange
-        map["outRange"] = outRange
-    }
-}
-
 extension SECContinuousVisualMap : SECEnumable {
     public enum Enums {
-        case min(Float), max(Float), range([Float]), calculable(Bool), realtime(Bool), inverse(Bool), precision(Float), itemWidth(Float), itemHeight(Float), align(SECAlign), text([String]), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: SECJsonable]), outRange([String: SECJsonable]), controller(Controller), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), color(SECColor), textStyle(SECTextStyle), formatter(SECFormatter)
+        case min(Float), max(Float), range([Float]), calculable(Bool), realtime(Bool), inverse(Bool), precision(Float), itemWidth(Float), itemHeight(Float), align(SECAlign), text([String]), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: SECJsonable]), outRange([String: SECJsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), color(SECColor), textStyle(SECTextStyle), formatter(SECFormatter)
     }
     
     public typealias ContentEnum = Enums

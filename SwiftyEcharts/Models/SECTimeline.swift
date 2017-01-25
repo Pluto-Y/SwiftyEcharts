@@ -7,7 +7,7 @@
 //
 
 /// timeline 组件，提供了在多个 ECharts option 间进行切换、播放等操作的功能。
-/// 具体示例地址： 
+/// 具体示例地址：
 /// timeline 和其他组件有些不同，它需要操作『多个option』。 假设，我们把 ECharts 的传统的 option 称为原子option，那么使用 timeline 时，传入 ECharts 的 option 就成为了一个集合多个原子option的复合option。如下示例：
 /// 如下，baseOption 是一个 『原子option』，options 数组中的每一项也是一个 『原子option』。
 /// 每个『原子option』中就是本文档中描述的各种配置项。
@@ -76,13 +76,13 @@
 ///     );
 ///
 /// 在上例中，timeline.data 中的每一项，对应于 options 数组中的每个 option。
-/// 
+///
 /// 使用注意与最佳实践：
 /// 公有的配置项，推荐配置在 baseOption 中。timeline 播放切换时，会把 options 数组中的对应的 option，与 baseOption 进行 merge 形成最终的 option。
 /// options 数组中，如果某一数组项中配置了某个属性，那么其他数组项中也必须配置某个属性，而不能缺省。否则这个属性的执行效果会遗留。
 /// 复合 option 中的 options 不支持 merge。
 /// 也就是说，当第二（或三、四、五 ...）次 chart.setOption(rawOption) 时，如果 rawOption 是复合 option（即包含 options 列表），那么新的 rawOption.options 列表不会和老的 options 列表进行 merge，而是简单替代。当然，rawOption.baseOption 仍然会正常和老的 option 进行merge。
-/// 
+///
 /// 与 ECharts 2 的兼容性：
 /// ECharts 3 中不再支持 timeline.notMerge 参数，也就是不支持 notMerge 模式。如果遇到这种场景需要使用，可在外部进行option管理，并用 setOption(option, true) 这样的notMerge方式设置。
 /// ECharts 3 和 ECharts 2 相比，timeline 属性的定义位置有所不同，移到了 baseOption 中，统一作为一个普通的组件看待。但是，仍然兼容 ECharts2 的 timeline 定义位置，只是不再推荐这样写。
@@ -145,7 +145,7 @@ public struct SECTimeline : SECDisplayable, SECSymbolized {
     }
     
     public struct CheckpointStyle : SECSymbolized, SECColorful, SECBorderable {
-       /// timeline.checkpointStyle 标记的图形。
+        /// timeline.checkpointStyle 标记的图形。
         public var symbol: SECSymbol?
         /// timeline.checkpointStyle 标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
         public var symbolSize: Float?
@@ -239,7 +239,7 @@ public struct SECTimeline : SECDisplayable, SECSymbolized {
     /// 表示当前选中项是哪项。比如，currentIndex 为 0 时，表示当前选中项为 timeline.data[0]（即使用 options[0]）。
     public var current: UInt?
     /// 表示是否自动播放。
-    public var autoPlay: Bool??
+    public var autoPlay: Bool?
     /// 表示是否反向播放。
     public var rewind: Bool?
     /// 表示是否循环播放。
@@ -304,7 +304,7 @@ public struct SECTimeline : SECDisplayable, SECSymbolized {
     /// 线条样式
     public var lineStyle: LineStyle?
     /// 轴的文本标签。有 normal 和 emphasis 两个状态，normal 是文本正常的样式，emphasis 是文本高亮的样式，比如鼠标悬浮或者图例联动高亮的时候会使用 emphasis 作为文本的样式。
-//    public var label: // FIXME?
+    //    public var label: // FIXME?
     /// timeline 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: SECItemStyle?
     /// 『当前项』（checkpoint）的图形样式。
@@ -328,7 +328,7 @@ extension SECTimeline.LineStyle : SECEnumable {
             switch ele {
             case let .show(show):
                 self.show = show
-             case let .color(color):
+            case let .color(color):
                 self.color = color
             case let .width(width):
                 self.width = width
@@ -425,11 +425,11 @@ extension SECTimeline.ControlStyle.CStyle : SECEnumable {
             switch ele {
             case let .color(color):
                 self.color = color
-             case let .borderWidth(borderWidth):
+            case let .borderWidth(borderWidth):
                 self.borderWidth = borderWidth
             case let .borderColor(borderColor):
                 self.borderColor = borderColor
-                   
+                
             }
         }
     }
@@ -533,5 +533,108 @@ extension SECTimeline.Data : SECMappable {
         map["tooltip"] = tooltip
         map["symbol"] = symbol
         map["symbolSize"] = symbolSize
+    }
+}
+
+extension SECTimeline : SECEnumable {
+    public enum Enums {
+        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), padding(SECPadding), orient(SECOrient), inverse(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), lineStyle(LineStyle), itemStyle(SECItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([SECJsonable])
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: [Enums]) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .axisType(axisType):
+                self.axisType = axisType
+            case let .current(current):
+                self.current = current
+            case let .autoPlay(autoPlay):
+                self.autoPlay = autoPlay
+            case let .rewind(rewind):
+                self.rewind = rewind
+            case let .loop(loop):
+                self.loop = loop
+            case let .playInterval(playInterval):
+                self.playInterval = playInterval
+            case let .realtime(realtime):
+                self.realtime = realtime
+            case let .controlPosition(controlPosition):
+                self.controlPosition = controlPosition
+            case let .zlevel(zlevel):
+                self.zlevel = zlevel
+            case let .z(z):
+                self.z = z
+            case let .left(left):
+                self.left = left
+            case let .top(top):
+                self.top = top
+            case let .right(right):
+                self.right = right
+            case let .bottom(bottom):
+                self.bottom = bottom
+            case let .padding(padding):
+                self.padding = padding
+            case let .orient(orient):
+                self.orient = orient
+            case let .inverse(inverse):
+                self.inverse = inverse
+            case let .symbol(symbol):
+                self.symbol = symbol
+            case let .symbolSize(symbolSize):
+                self.symbolSize = symbolSize
+            case let .symbolRotate(symbolRotate):
+                self.symbolRotate = symbolRotate
+            case let .symbolOffset(symbolOffset):
+                self.symbolOffset = symbolOffset
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            case let .checkpointStyle(checkpointStyle):
+                self.checkpointStyle = checkpointStyle
+            case let .controlStyle(controlStyle):
+                self.controlStyle = controlStyle
+            case let .data(data):
+                self.data = data
+            }
+        }
+    }
+}
+
+extension SECTimeline : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["type"] = type
+        map["axisType"] = axisType
+        map["current"] = current
+        map["autoPlay"] = autoPlay
+        map["rewind"] = rewind
+        map["loop"] = loop
+        map["playInterval"] = playInterval
+        map["realtime"] = realtime
+        map["controlPosition"] = controlPosition
+        map["zlevel"] = zlevel
+        map["z"] = z
+        map["left"] = left
+        map["top"] = top
+        map["right"] = right
+        map["bottom"] = bottom
+        map["padding"] = padding
+        map["orient"] = orient
+        map["inverse"] = inverse
+        map["symbol"] = symbol
+        map["symbolSize"] = symbolSize
+        map["symbolRotate"] = symbolRotate
+        map["symbolOffset"] = symbolOffset
+        map["lineStyle"] = lineStyle
+        map["itemStyle"] = itemStyle
+        map["checkpointStyle"] = checkpointStyle
+        map["controlStyle"] = controlStyle
+        map["data"] = data
+        
     }
 }

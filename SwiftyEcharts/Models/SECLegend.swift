@@ -144,7 +144,7 @@ public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadow
     ///     }
     public var tooltip: SECTooltip?
     /// 图例的数据数组。
-    public var datas: [Any]?
+    public var datas: [SECJsonable]?
     public var backgroundColor: SECColor?
     public var borderColor: SECColor?
     public var borderWidth: Float?
@@ -194,7 +194,7 @@ extension SECLegend.Data : SECMappable {
 
 extension SECLegend : SECEnumable {
     public enum Enums {
-        case show(Bool), zlevel(Float), z(Int), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), datas([Any]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), zlevel(Float), z(Int), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), datas([SECJsonable]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
     public typealias ContentEnum = Enums

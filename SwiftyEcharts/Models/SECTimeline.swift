@@ -312,7 +312,7 @@ public struct SECTimeline : SECDisplayable, SECSymbolized {
     /// 『控制按钮』的样式。『控制按钮』包括：『播放按钮』、『前进按钮』、『后退按钮』。
     public var controlStyle: ControlStyle?
     /// 数据
-    public var data: [Any]?
+    public var data: [SECJsonable]?
     
 }
 

@@ -24,7 +24,7 @@ public struct SECMarkPoint : SECSymbolized, SECAnimatable {
     /// 标注的样式。
     public var itemStyle: SECItemStyle?
     /// 标注的数据数组
-    public var data: [Any]?
+    public var data: [SECJsonable]?
     /// 是否开启动画。
     public var animation: Bool?
     /// 是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
@@ -71,7 +71,7 @@ public struct SECMarkPoint : SECSymbolized, SECAnimatable {
 
 extension SECMarkPoint : SECEnumable {
     public enum Enums {
-        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), silent(Bool), label(Label), itemStyle(SECItemStyle),  data([Any]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), silent(Bool), label(Label), itemStyle(SECItemStyle),  data([SECJsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums

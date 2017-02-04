@@ -168,7 +168,5 @@ extension SECContinuousVisualMap : SECMappable {
         map["type"] = type
         map["type"] = type
         map["type"] = type
-        
-        
     }
 }

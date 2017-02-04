@@ -37,6 +37,11 @@ playground.xcworkspace
 # Packages/
 .build/
 
+# SVN
+#
+# Ignore `.svn` file for all the directory
+.svn
+
 # CocoaPods
 #
 # We recommend against adding the Pods directory to your .gitignore. However

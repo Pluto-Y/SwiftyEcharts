@@ -11,6 +11,8 @@ public struct SECRadar {
         public var show: Bool?
         public var formatter: SECFormatter?
         public var textStyle: SECTextStyle?
+        
+        public init() {}
     }
 
     /// 雷达图绘制类型
@@ -30,6 +32,8 @@ public struct SECRadar {
         public var name: String?
         public var max: Float?
         public var min: Float?
+        
+        public init() {}
     }
     
     public var zlevel: Float?
@@ -50,6 +54,7 @@ public struct SECRadar {
     public var splitArea: SECSplitArea?
     public var indicator: [Indicator]?
     
+    public init() {}
 }
 
 

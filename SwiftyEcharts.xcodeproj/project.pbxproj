@@ -102,6 +102,7 @@
 		6FC40CF21E48C06F00F6E62F /* SECSplitArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC40CF11E48C06F00F6E62F /* SECSplitArea.swift */; };
 		6FC40CF41E48C0C500F6E62F /* SECSplitLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC40CF31E48C0C500F6E62F /* SECSplitLine.swift */; };
 		6FC40CF61E48C13200F6E62F /* SECAngleAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC40CF51E48C13200F6E62F /* SECAngleAxis.swift */; };
+		6FC40CF81E48D38F00F6E62F /* SECRadar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC40CF71E48D38F00F6E62F /* SECRadar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -230,6 +231,7 @@
 		6FC40CF11E48C06F00F6E62F /* SECSplitArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSplitArea.swift; sourceTree = "<group>"; };
 		6FC40CF31E48C0C500F6E62F /* SECSplitLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSplitLine.swift; sourceTree = "<group>"; };
 		6FC40CF51E48C13200F6E62F /* SECAngleAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECAngleAxis.swift; sourceTree = "<group>"; };
+		6FC40CF71E48D38F00F6E62F /* SECRadar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECRadar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -457,6 +459,7 @@
 				6FA24F731E2BE0F900E25002 /* SECToolbox.swift */,
 				6FB400431E3104B70086BF5B /* SECTimeline.swift */,
 				6FB400471E38FE2E0086BF5B /* SECPolar.swift */,
+				6FC40CF71E48D38F00F6E62F /* SECRadar.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -756,6 +759,7 @@
 				54FEBE8F1E23480D0021CB13 /* SECJsonable.swift in Sources */,
 				6F4ACB441E1C023900CE5FD5 /* SECAreaStyle.swift in Sources */,
 				6FB48CA91DEE96BD00137D13 /* SECFont.swift in Sources */,
+				6FC40CF81E48D38F00F6E62F /* SECRadar.swift in Sources */,
 				6F91EB7B1DF08026003EEEC0 /* SECLine.swift in Sources */,
 				6FB48CC61DEF35AF00137D13 /* SECTooltip.swift in Sources */,
 				6FB4004A1E3900A40086BF5B /* SECScatterSerie.swift in Sources */,

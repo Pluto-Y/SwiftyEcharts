@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "12942D37B1059E33B4DAFF1D5E8285BC92E5B14B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "f1a3fdbb-014d-4a08-901a-2106448ef8ba++1485" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "12942D37B1059E33B4DAFF1D5E8285BC92E5B14B" : 9223372036854775807,
+    "f1a3fdbb-014d-4a08-901a-2106448ef8ba++1485" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B3BAC4B7-4C57-4BFF-8276-65C363D0C6D4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "12942D37B1059E33B4DAFF1D5E8285BC92E5B14B" : "SwiftyEcharts\/",
+    "f1a3fdbb-014d-4a08-901a-2106448ef8ba++1485" : "SwiftyEcharts\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SwiftyEcharts",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SwiftyEcharts.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Pluto-Y\/SwiftyEcharts.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "12942D37B1059E33B4DAFF1D5E8285BC92E5B14B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/106.185.33.23:8080\/project\/github",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "f1a3fdbb-014d-4a08-901a-2106448ef8ba++1485"
+    }
+  ]
+}

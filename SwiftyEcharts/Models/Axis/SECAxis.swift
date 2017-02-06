@@ -14,7 +14,6 @@
 /// 示例:
 ///
 ///         boundaryGap: ['20%', '20%']
-
 public enum SECBoundaryGap : SECJsonable {
     case category(Bool)
     case notCategory(Float, Float)
@@ -228,24 +227,7 @@ extension SECSplitArea : SECMappable {
 
 /// 坐标轴的定义
 public struct SECAxis {
-    
-    /// 坐标轴类型。
-    ///
-    /// - value: 数值轴，适用于连续数据。
-    /// - category: 类目轴，适用于离散的类目数据，为该类型时必须通过 data 设置类目数据。
-    /// - time: 时间轴，适用于连续的时序数据，与数值轴相比时间轴带有时间的格式化，在刻度计算上也有所不同，例如会根据跨度的范围来决定使用月，星期，日还是小时范围的刻度。
-    /// - log: 对数轴。适用于对数数据。
-    public enum Type: String, SECJsonable {
-        case value = "value"
-        case category = "category"
-        case time = "time"
-        case log = "log"
-        
-        public var jsonString: String {
-            return "\"\(self.rawValue)\""
-        }
-    }
-    
+
     /// 类目数据，在类目轴（type: 'category'）中有效。
     /// 
     /// 示例：
@@ -283,7 +265,7 @@ public struct SECAxis {
     /// 坐标轴相对于默认位置的偏移，在相同的 position 上有多个 X 轴的时候有用。
     public var offset: Float?
     /// 坐标轴类型。
-    public var type: Type?
+    public var type: SECAxisType?
     /// 坐标轴名称显示位置。
     public var name: String?
     /// 坐标轴名称显示位置。
@@ -398,7 +380,7 @@ extension SECAxis.Data : SECMappable {
 
 extension SECAxis : SECEnumable {
     public enum Enums {
-        case gridIndex(UInt), position(SECPosition), offset(Float), type(Type), name(String), nameLocation(String), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([SECJsonable]), zlevel(Float), z(Float)
+        case gridIndex(UInt), position(SECPosition), offset(Float), type(SECAxisType), name(String), nameLocation(String), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([SECJsonable]), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums

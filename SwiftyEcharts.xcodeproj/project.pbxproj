@@ -98,6 +98,7 @@
 		6FC40CEA1E48BDCF00F6E62F /* SECAxisType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC40CE91E48BDCF00F6E62F /* SECAxisType.swift */; };
 		6FC40CEC1E48BF7400F6E62F /* SECAxisLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC40CEB1E48BF7400F6E62F /* SECAxisLine.swift */; };
 		6FC40CEE1E48BFCB00F6E62F /* SECAxisTick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC40CED1E48BFCB00F6E62F /* SECAxisTick.swift */; };
+		6FC40CF01E48C01500F6E62F /* SECAxisLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC40CEF1E48C01500F6E62F /* SECAxisLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,6 +223,7 @@
 		6FC40CE91E48BDCF00F6E62F /* SECAxisType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECAxisType.swift; sourceTree = "<group>"; };
 		6FC40CEB1E48BF7400F6E62F /* SECAxisLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECAxisLine.swift; sourceTree = "<group>"; };
 		6FC40CED1E48BFCB00F6E62F /* SECAxisTick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECAxisTick.swift; sourceTree = "<group>"; };
+		6FC40CEF1E48C01500F6E62F /* SECAxisLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECAxisLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -487,6 +489,7 @@
 				6FC40CE91E48BDCF00F6E62F /* SECAxisType.swift */,
 				6FC40CEB1E48BF7400F6E62F /* SECAxisLine.swift */,
 				6FC40CED1E48BFCB00F6E62F /* SECAxisTick.swift */,
+				6FC40CEF1E48C01500F6E62F /* SECAxisLabel.swift */,
 			);
 			path = Axis;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				5447FDA71E2E2AD6001D88F3 /* SECSliderDataZoom.swift in Sources */,
 				5447FD961E2DEA93001D88F3 /* SECInsideDataZoom.swift in Sources */,
 				540DE5FE1E2CF087002F25E3 /* SECMarkLine.swift in Sources */,
+				6FC40CF01E48C01500F6E62F /* SECAxisLabel.swift in Sources */,
 				6FB48CC41DEF358C00137D13 /* SECDisplayable.swift in Sources */,
 				6F1FDA8D1DF5D286004BC74E /* SECSymbol.swift in Sources */,
 				6FB400421E2FC1DD0086BF5B /* SECCoordinateSystem.swift in Sources */,

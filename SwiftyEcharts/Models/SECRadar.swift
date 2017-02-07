@@ -85,6 +85,8 @@ public struct SECRadar : SECZable {
     /// 雷达图绘制类型，支持 'polygon' 和 'circle'。
     public var shape: Shape?
     /// 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度。在双数值轴的散点图中比较有用。
+    public var scale: Bool?
+    /// 坐标轴是否是静态无法交互。
     public var silent: Bool?
     /// 坐标轴的标签是否响应和触发鼠标事件，默认不响应。
     ///
@@ -186,7 +188,7 @@ extension SECRadar.Indicator : SECMappable {
 
 extension SECRadar : SECEnumable {
     public enum Enums {
-        case zlevel(Float), z(Float), center([Float]), radius(Float), startAngle(Float), name(Name), nameGap(Float), splitNumber(Int), shape(Shape), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), indicator([Indicator])
+        case zlevel(Float), z(Float), center([Float]), radius(Float), startAngle(Float), name(Name), nameGap(Float), splitNumber(Int), shape(Shape), scale(Bool), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), indicator([Indicator])
     }
     
     public typealias ContentEnum = Enums
@@ -212,6 +214,8 @@ extension SECRadar : SECEnumable {
                 self.splitNumber = splitNumber
             case let .shape(shape):
                 self.shape = shape
+            case let .scale(scale):
+                self.scale = scale
             case let .silent(silent):
                 self.silent = silent
             case let .triggerEvent(triggerEvent):
@@ -244,6 +248,7 @@ extension SECRadar : SECMappable {
         map["nameGap"] = nameGap
         map["splitNumber"] = splitNumber
         map["shape"] = shape
+        map["scale"] = scale
         map["silent"] = silent
         map["triggerEvent"] = triggerEvent
         map["axisLine"] = axisLine

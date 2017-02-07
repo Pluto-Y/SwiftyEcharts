@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECRadar {
+public struct SECRadar : SECZable {
     public struct Name : SECDisplayable, SECFormatted, SECTextful {
         public var show: Bool?
         public var formatter: SECFormatter?

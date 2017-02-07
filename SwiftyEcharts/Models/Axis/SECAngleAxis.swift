@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECAngleAxis {
+public struct SECAngleAxis : SECZable {
     public struct Data {
         public var value: String?
         public var textStyle: SECTextStyle?

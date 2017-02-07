@@ -180,7 +180,7 @@ extension SECLineSerie.Data : SECMappable {
 ///
 /// - Note: 设置 areaStyle 后可以绘制面积图。
 /// - Note: 配合分段型 visualMap 组件可以将折线/面积图通过不同颜色分区间。如下示例
-public struct SECLineSerie : SECSymbolized, SECAnimatable {
+public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
     
     /// 阶梯线图类型。
     ///

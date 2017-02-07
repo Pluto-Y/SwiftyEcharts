@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECRadiusAxis {
+public struct SECRadiusAxis : SECZable {
     public var polarIndex: UInt8?
     public var type: SECAxisType?
     public var name: String?

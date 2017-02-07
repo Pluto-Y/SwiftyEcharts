@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECPiecewiseVisualMap : SECVisualMap, SECDisplayable, SECBorderable, SECColorful, SECTextful, SECFormatted {
+public struct SECPiecewiseVisualMap : SECVisualMap, SECDisplayable, SECBorderable, SECColorful, SECTextful, SECFormatted, SECZable {
     /// 类型为分段型。
     public var type: String {
         return "piecewise"

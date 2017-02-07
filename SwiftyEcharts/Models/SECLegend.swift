@@ -51,7 +51,7 @@ public enum SECSelectedMode : CustomStringConvertible, SECJsonable {
 /// 图例组件。
 /// 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
 /// ECharts 3 中单个 echarts 实例中可以存在多个图例组件，会方便多个图例的布局。
-public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadowable {
+public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadowable, SECZable {
     
     /// 图例的数据数组。数组项通常为一个字符串，每一项代表一个系列的 `name`（如果是饼图，也可以是饼图单个数据的 `name`）。图例组件会自动获取对应系列的颜色，图形标记（symbol）作为自己绘制的颜色和标记，特殊字符串 `''`（空字符串）或者 `'\n'`（换行字符串）用于图例的换行。
     ///
@@ -86,7 +86,7 @@ public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadow
     public var zlevel: Float?
     /// 组件的所有图形的z值。控制图形的前后顺序。z值小的图形会被z值大的图形覆盖。
     /// z相比zlevel优先级更低，而且不会创建新的 Canvas。
-    public var z: Int?
+    public var z: Float?
     /// 图例组件离容器左侧的距离。
     public var left: SECPosition?
     /// 图例组件离容器上侧的距离。
@@ -194,7 +194,7 @@ extension SECLegend.Data : SECMappable {
 
 extension SECLegend : SECEnumable {
     public enum Enums {
-        case show(Bool), zlevel(Float), z(Int), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), datas([SECJsonable]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), datas([SECJsonable]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
     public typealias ContentEnum = Enums

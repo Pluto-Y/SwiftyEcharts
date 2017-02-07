@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECPieSerie : SECSeries, SECAnimatable {
+public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     
     public struct LabelLineContent : SECDisplayable {
         /// 是否显示视觉引导线。

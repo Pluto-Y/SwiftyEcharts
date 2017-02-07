@@ -20,7 +20,7 @@ public enum SECBoundaryGap : SECJsonable {
 }
 
 /// 坐标轴的定义
-public struct SECAxis {
+public struct SECAxis : SECZable {
 
     /// 类目数据，在类目轴（type: 'category'）中有效。
     /// 

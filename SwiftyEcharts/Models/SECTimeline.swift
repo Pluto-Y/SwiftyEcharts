@@ -86,7 +86,7 @@
 /// 与 ECharts 2 的兼容性：
 /// ECharts 3 中不再支持 timeline.notMerge 参数，也就是不支持 notMerge 模式。如果遇到这种场景需要使用，可在外部进行option管理，并用 setOption(option, true) 这样的notMerge方式设置。
 /// ECharts 3 和 ECharts 2 相比，timeline 属性的定义位置有所不同，移到了 baseOption 中，统一作为一个普通的组件看待。但是，仍然兼容 ECharts2 的 timeline 定义位置，只是不再推荐这样写。
-public struct SECTimeline : SECDisplayable, SECSymbolized {
+public struct SECTimeline : SECDisplayable, SECSymbolized, SECZable {
     /// 轴的类型。可选值为
     ///
     /// - value: 数值轴，适用于连续数据。

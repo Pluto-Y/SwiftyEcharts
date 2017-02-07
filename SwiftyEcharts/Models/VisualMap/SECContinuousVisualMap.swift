@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderable, SECColorful, SECTextful, SECFormatted {
+public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderable, SECColorful, SECTextful, SECFormatted, SECZable {
     
     public var type: String {
         return "continuous"

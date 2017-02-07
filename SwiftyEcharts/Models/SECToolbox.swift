@@ -7,7 +7,7 @@
 //
 
 /// 工具栏。内置有导出图片，数据视图，动态类型切换，数据区域缩放，重置五个工具。
-public struct SECToolbox : SECDisplayable {
+public struct SECToolbox : SECDisplayable, SECZable {
     
     /// 各工具配置项。
     /// 除了各个内置的工具按钮外，还可以自定义工具按钮。

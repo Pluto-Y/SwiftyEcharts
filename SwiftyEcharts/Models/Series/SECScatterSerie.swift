@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable {
+public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZable {
     public var type: SECSerieType {
         return .scatter
     }

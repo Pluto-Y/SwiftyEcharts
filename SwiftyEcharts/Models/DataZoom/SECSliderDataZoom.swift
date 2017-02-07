@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECSliderDataZoom : SECDataZoom, SECDisplayable {
+public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     
     public struct DataBackground {
         public var lineStyle: SECCommonLineStyle?

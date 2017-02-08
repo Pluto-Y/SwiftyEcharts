@@ -6,6 +6,14 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 内置型数据区域缩放组件（dataZoomInside）
+///
+/// 所谓『内置』，即内置在坐标系中。
+///
+/// - 平移：在坐标系中滑动拖拽进行数据区域平移。
+/// - 缩放：
+///    - PC端：鼠标在坐标系范围内滚轮滚动（MAC触控板类同）
+///    - 移动端：在移动端触屏上，支持两指滑动缩放。
 public struct SECInsideDataZoom : SECDataZoom {
     
     /// 类型

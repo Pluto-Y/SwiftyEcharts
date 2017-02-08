@@ -6,22 +6,58 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 滑动条型数据区域缩放组件（dataZoomSlider）
 public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     
+    /// 数据阴影的样式。
     public struct DataBackground {
+        /// 阴影的线条样式
         public var lineStyle: SECCommonLineStyle?
+        /// 阴影的填充样式
         public var areaStyle: SECAreaStyle?
     }
     
+    /// 手柄的样式配置，见 示例: http://echarts.baidu.com/gallery/editor.html?c=area-simple
     public struct HandleStyle : SECColorful, SECBorderable, SECShadowable, SECOpacitable {
+        /// 图形的颜色。
+        /// > 颜色可以使用 RGB 表示，比如 'rgb(128, 128, 128)'，如果想要加上 alpha 通道表示不透明度，可以使用 RGBA，比如 'rgba(128, 128, 128, 0.5)'，也可以使用十六进制格式，比如 '#ccc'。除了纯色之外颜色也支持渐变色和纹理填充
+        ///
+        ///     // 线性渐变，前四个参数分别是 x0, y0, x2, y2, 范围从 0 - 1，相当于在图形包围盒中的百分比，如果最后一个参数传 `true`，则该四个值是绝对的像素位置
+        ///     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+        ///         offset: 0, color: 'red' // 0% 处的颜色
+        ///     }, {
+        ///         offset: 1, color: 'blue' // 100% 处的颜色
+        ///     }], false)
+        ///     // 径向渐变，前三个参数分别是圆心 x, y 和半径，取值同线性渐变
+        ///     color: new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [...], false)
+        ///     // 纹理填充
+        ///     color: new echarts.graphic.Pattern(
+        ///         imageDom, // 支持为 HTMLImageElement, HTMLCanvasElement，不支持路径字符串
+        ///         'repeat' // 是否平铺, 可以是 repeat-x, repeat-y, no-repeat
+        ///     )
         public var color: SECColor?
+        /// 图形的描边颜色。支持的格式同 color。
         public var borderColor: SECColor?
+        /// 描边线宽。为 0 时无描边。
         public var borderWidth: Float?
+        /// 柱条的描边类型，默认为实线，支持 'solid', 'dashed', 'dotted'。
         public var borderType: SECLineType?
+        /// 图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果。
+        ///
+        /// 示例：
+        ///
+        ///     {
+        ///         shadowColor: 'rgba(0, 0, 0, 0.5)',
+        ///         shadowBlur: 10
+        ///     }
         public var shadowBlur: Float?
+        /// 阴影颜色。支持的格式同color。
         public var shadowColor: SECColor?
+        /// 阴影水平方向上的偏移距离。
         public var shadowOffsetX: Float?
+        /// 阴影垂直方向上的偏移距离。
         public var shadowOffsetY: Float?
+        /// 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
         public var opacity: Float?
     }
     

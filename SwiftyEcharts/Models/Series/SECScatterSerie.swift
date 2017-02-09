@@ -327,3 +327,47 @@ extension SECScatterSerie : SECMappable {
         map["animationDelayUpdate"] = animationDelayUpdate
     }
 }
+
+extension SECScatterSerie.Data : SECEnumable {
+	public enum Enums {
+		case name(String), value(String), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), label(SECLabel), itemStyle(SECItemStyle)
+	}
+
+	public typealias ContentEnum = Enums
+
+	public init(_ elements: [Enums]) {
+		for ele in elements {
+			switch ele {
+				case let .name(name):
+					self.name = name
+				case let .value(value):
+					self.value = value
+				case let .symbol(symbol):
+					self.symbol = symbol
+				case let .symbolSize(symbolSize):
+					self.symbolSize = symbolSize
+				case let .symbolRotate(symbolRotate):
+					self.symbolRotate = symbolRotate
+				case let .symbolOffset(symbolOffset):
+					self.symbolOffset = symbolOffset
+				case let .label(label):
+					self.label = label
+				case let .itemStyle(itemStyle):
+					self.itemStyle = itemStyle
+			}
+		}
+	}
+}
+
+extension SECScatterSerie.Data : SECMappable {
+	public func mapping(map: SECMap) {
+		map["name"] = name
+		map["value"] = value
+		map["symbol"] = symbol
+		map["symbolSize"] = symbolSize
+		map["symbolRotate"] = symbolRotate
+		map["symbolOffset"] = symbolOffset
+		map["label"] = label
+		map["itemStyle"] = itemStyle
+	}
+}

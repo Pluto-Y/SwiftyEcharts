@@ -76,3 +76,145 @@ public struct SECEffectScatterSerie : SECSeries, SECSymbolized, SECZable {
     public var animationDelayUpdate: SECTime?
     
 }
+
+extension SECEffectScatterSerie : SECEnumable {
+	public enum Enums {
+		case name(String), legendHoverLink(Bool), effectType(String), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), label(SECLabel), itemStyle(SECItemStyle), data([Any]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+	}
+
+	public typealias ContentEnum = Enums
+
+	public init(_ elements: [Enums]) {
+		for ele in elements {
+			switch ele {
+				case let .name(name):
+					self.name = name
+				case let .legendHoverLink(legendHoverLink):
+					self.legendHoverLink = legendHoverLink
+				case let .effectType(effectType):
+					self.effectType = effectType
+				case let .showEffectOn(showEffectOn):
+					self.showEffectOn = showEffectOn
+				case let .rippleEffect(rippleEffect):
+					self.rippleEffect = rippleEffect
+				case let .coordinateSystem(coordinateSystem):
+					self.coordinateSystem = coordinateSystem
+				case let .xAxisIndex(xAxisIndex):
+					self.xAxisIndex = xAxisIndex
+				case let .yAxisIndex(yAxisIndex):
+					self.yAxisIndex = yAxisIndex
+				case let .polarIndex(polarIndex):
+					self.polarIndex = polarIndex
+				case let .geoIndex(geoIndex):
+					self.geoIndex = geoIndex
+				case let .symbol(symbol):
+					self.symbol = symbol
+				case let .symbolSize(symbolSize):
+					self.symbolSize = symbolSize
+				case let .symbolRotate(symbolRotate):
+					self.symbolRotate = symbolRotate
+				case let .symbolOffset(symbolOffset):
+					self.symbolOffset = symbolOffset
+				case let .label(label):
+					self.label = label
+				case let .itemStyle(itemStyle):
+					self.itemStyle = itemStyle
+				case let .data(data):
+					self.data = data
+				case let .markPoint(markPoint):
+					self.markPoint = markPoint
+				case let .markLine(markLine):
+					self.markLine = markLine
+				case let .markArea(markArea):
+					self.markArea = markArea
+				case let .zlevel(zlevel):
+					self.zlevel = zlevel
+				case let .z(z):
+					self.z = z
+				case let .silent(silent):
+					self.silent = silent
+				case let .animation(animation):
+					self.animation = animation
+				case let .animationThreshold(animationThreshold):
+					self.animationThreshold = animationThreshold
+				case let .animationDuration(animationDuration):
+					self.animationDuration = animationDuration
+				case let .animationEasing(animationEasing):
+					self.animationEasing = animationEasing
+				case let .animationDelay(animationDelay):
+					self.animationDelay = animationDelay
+				case let .animationDurationUpdate(animationDurationUpdate):
+					self.animationDurationUpdate = animationDurationUpdate
+				case let .animationEasingUpdate(animationEasingUpdate):
+					self.animationEasingUpdate = animationEasingUpdate
+				case let .animationDelayUpdate(animationDelayUpdate):
+					self.animationDelayUpdate = animationDelayUpdate
+			}
+		}
+	}
+}
+
+extension SECEffectScatterSerie : SECMappable {
+	public func mapping(map: SECMap) {
+		map["name"] = name
+		map["legendHoverLink"] = legendHoverLink
+		map["effectType"] = effectType
+		map["showEffectOn"] = showEffectOn
+		map["rippleEffect"] = rippleEffect
+		map["coordinateSystem"] = coordinateSystem
+		map["xAxisIndex"] = xAxisIndex
+		map["yAxisIndex"] = yAxisIndex
+		map["polarIndex"] = polarIndex
+		map["geoIndex"] = geoIndex
+		map["symbol"] = symbol
+		map["symbolSize"] = symbolSize
+		map["symbolRotate"] = symbolRotate
+		map["symbolOffset"] = symbolOffset
+		map["label"] = label
+		map["itemStyle"] = itemStyle
+		map["data"] = data
+		map["markPoint"] = markPoint
+		map["markLine"] = markLine
+		map["markArea"] = markArea
+		map["zlevel"] = zlevel
+		map["z"] = z
+		map["silent"] = silent
+		map["animation"] = animation
+		map["animationThreshold"] = animationThreshold
+		map["animationDuration"] = animationDuration
+		map["animationEasing"] = animationEasing
+		map["animationDelay"] = animationDelay
+		map["animationDurationUpdate"] = animationDurationUpdate
+		map["animationEasingUpdate"] = animationEasingUpdate
+		map["animationDelayUpdate"] = animationDelayUpdate
+	}
+}
+
+extension SECEffectScatterSerie.RippleEffect : SECEnumable {
+	public enum Enums {
+		case period(Float), scale(Float), brushType(BrushType)
+	}
+
+	public typealias ContentEnum = Enums
+
+	public init(_ elements: [Enums]) {
+		for ele in elements {
+			switch ele {
+				case let .period(period):
+					self.period = period
+				case let .scale(scale):
+					self.scale = scale
+				case let .brushType(brushType):
+					self.brushType = brushType
+			}
+		}
+	}
+}
+
+extension SECEffectScatterSerie.RippleEffect : SECMappable {
+	public func mapping(map: SECMap) {
+		map["period"] = period
+		map["scale"] = scale
+		map["brushType"] = brushType
+	}
+}

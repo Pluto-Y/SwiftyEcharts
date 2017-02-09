@@ -7,31 +7,153 @@
 //
 
 public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZable {
+    /// 类型
     public var type: SECSerieType {
         return .scatter
     }
+    /// 系列名称，用于tooltip的显示，legend 的图例筛选，在 setOption 更新数据和配置项时用于指定对应的系列。
     public var name: String?
+    /// 该系列使用的坐标系，可选：
+    /// - cartesian2d: 使用二维的直角坐标系（也称笛卡尔坐标系），通过 xAxisIndex, yAxisIndex指定相应的坐标轴组件。
+    /// - polar: 使用极坐标系，通过 polarIndex 指定相应的极坐标组件
+    /// - geo: 使用地理坐标系，通过 geoIndex 指定相应的地理坐标系组件
     public var coordinateSystem: SECCoordinateSystem?
+    /// 使用的 x 轴的 index，在单个图表实例中存在多个 x 轴的时候有用。
     public var xAxisIndex: UInt8?
+    /// 使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用。
     public var yAxisIndex: UInt8?
+    /// 使用的极坐标系的 index，在单个图表实例中存在多个极坐标系的时候有用。
     public var polarIndex: UInt8?
+    /// 使用的地理坐标系的 index，在单个图表实例中存在多个地理坐标系的时候有用。
     public var geoIndex: UInt8?
+    /// 是否开启鼠标 hover 的提示动画效果。
     public var hoverAnimation: Bool?
+    /// 是否启用图例 hover 时的联动高亮。
     public var legendHoverLink: Bool?
+    /// 标记的图形。
     public var symbol: SECSymbol?
-    public var symbolSize: Float?
+    /// 标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
+    /// 如果需要每个数据的图形大小不一样，可以设置为如下格式的回调函数：
+    /// (value: Array|number, params: Object) => number|Array
+    /// 其中第一个参数 value 为 data 中的数据值。第二个参数params 是其它的数据项参数。
+    public var symbolSize: Float? // FIXME: 暂不支持方法
+    /// 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
     public var symbolRotate: Float?
-    public var symbolOffset: [Float]?
+    /// 标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
+    /// 例如 [0, '50%'] 就是把自己向上移动了一半的位置，在 symbol 图形是气泡的时候可以让图形下端的箭头对准数据点。
+    public var symbolOffset: [Float]? // FIXME: 暂不支持百分比
+    /// 是否开启大规模散点图的优化，在数据图形特别多的时候（>=5k）可以开启。
+    /// 开启后配合 largeThreshold 在数据量大于指定阈值的时候对绘制进行优化。
+    /// 缺点：优化后不能自定义设置单个数据项的样式。
     public var large: Bool?
+    /// 开启绘制优化的阈值。
     public var largeThreshold: Float?
+    /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: SECFormattedLabel?
+    /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: SECItemStyle?
+    /// 系列中的数据内容数组。数组项通常为具体的数据项。
+    ///
+    /// 通常来说，数据用一个二维数组表示。如下，每一列被称为一个『维度』。
+    ///
+    ///     series: [{
+    ///         data: [
+    ///             // 维度X   维度Y   其他维度 ...
+    ///             [  3.4,    4.5,   15,   43],
+    ///             [  4.2,    2.3,   20,   91],
+    ///             [  10.8,   9.5,   30,   18],
+    ///             [  7.2,    8.8,   18,   57]
+    ///         ]
+    ///     }]
+    ///
+    /// - 在 直角坐标系 (grid) 中『维度X』和『维度Y』会默认对应于 xAxis 和 yAxis。
+    /// - 在 极坐标系 (polar) 中『维度X』和『维度Y』会默认对应于 radiusAxis 和 angleAxis。
+    /// - 后面的其他维度是可选的，可以在别处被使用，例如：
+    ///     - 在 visualMap 中可以将一个或多个维度映射到颜色，大小等多个图形属性上。
+    ///     - 在 series.symbolSize 中可以使用回调函数，基于某个维度得到 symbolSize 值。
+    ///     - 使用 tooltip.formatter 或 series.label.normal.formatter 可以把其他维度的值展示出来。
+    ///
+    /// 特别地，当只有一个轴为类目轴（axis.type 为 'category'）的时候，数据可以简化用一个一维数组表示。例如：
+    ///
+    ///     xAxis: {
+    ///         data: ['a', 'b', 'm', 'n']
+    ///     },
+    ///     series: [{
+    ///         // 与 xAxis.data 一一对应。
+    ///         data: [23,  44,  55,  19]
+    ///         // 它其实是下面这种形式的简化：
+    ///         // data: [[0, 23], [1, 44], [2, 55], [3, 19]]
+    ///     }]
+    /// 
+    /// 『值』与 轴类型 的关系：
+    ///
+    /// - 当某维度对应于数值轴（axis.type 为 'value' 或者 'log'）的时候：其值可以为 number（例如 12）。（也可以容忍 string 形式的 number，例如 '12'）
+    /// - 当某维度对应于类目轴（axis.type 为 'category'）的时候：其值须为类目的『序数』（从 0 开始）或者类目的『字符串值』。例如：
+    ///     xAxis: {
+    ///         type: 'category',
+    ///         data: ['星期一', '星期二', '星期三', '星期四']
+    ///     },
+    ///     yAxis: {
+    ///         type: 'category',
+    ///         data: ['a', 'b', 'm', 'n', 'p', 'q']
+    ///     },
+    ///     series: [{
+    ///         data: [
+    ///             // xAxis    yAxis
+    ///             [  0,        0,    2  ], // 意思是此点位于 xAxis: '星期一', yAxis: 'a'。
+    ///             [  '星期四',  2,    1  ], // 意思是此点位于 xAxis: '星期四', yAxis: 'm'。
+    ///             [  2,       'p',   2  ], // 意思是此点位于 xAxis: '星期三', yAxis: 'p'。
+    ///             [  3,        3,    5  ]
+    ///         ]
+    ///     }]
+    ///
+    /// 双类目轴的示例可以参考 Github Punchcard 示例。
+    ///
+    /// - 当某维度对应于时间轴（type 为 'time'）的时候：值可以为一个时间戳（如 1484141700832），或者一个 Date 实例，或者字符串形式的值（如 '2012-12-12'，'2012/12/12'）。
+    /// 
+    /// 当需要对个别数据进行个性化定义时：
+    ///
+    /// 数组项可用对象，其中的 value 像表示具体的数值，如：
+    ///     [
+    ///         12,
+    ///         34,
+    ///         {
+    ///             value : 56,
+    ///             //自定义标签样式，仅对该数据项有效
+    ///             label: {},
+    ///             //自定义特殊 itemStyle，仅对该数据项有效
+    ///             itemStyle:{}
+    ///         },
+    ///         10
+    ///     ]
+    ///     // 或
+    ///     [
+    ///         [12, 33],
+    ///         [34, 313],
+    ///         {
+    ///             value: [56, 44],
+    ///             label: {},
+    ///             itemStyle:{}
+    ///         },
+    ///         [10, 33]
+    ///     ]
+    /// 
+    /// 空值：
+    ///
+    /// 当某数据不存在时（ps：不存在不代表值为 0），可以用 '-'。
+    ///
+    /// 例如，无数据在折线图中可表现为该点是断开的，在其它图中可表示为图形不存在。
     public var data: [SECJsonable]?
+    /// 图表标注。
     public var markPoint: SECMarkPoint?
+    /// 图表标线。
     public var markLine: SECMarkLine?
+    /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
     public var markArea: SECMarkArea?
+    /// MARK: SECZable
     public var zlevel: Float?
     public var z: Float?
+    /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     /// 是否开启动画。
     public var animation: Bool?

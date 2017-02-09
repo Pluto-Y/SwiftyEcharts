@@ -93,3 +93,98 @@ public struct SECBrush {
     public var throttleDelay: Float?
     public var inBrush: String?  // FIXME: 还需研究
     public var outOfBrush: String? // FIXME: 还需研究
+}
+
+extension SECBrush.Style : SECEnumable {
+	public enum Enums {
+		case borderWidth(Float), color(SECColor), borderColor(SECColor), width(Float)
+	}
+
+	public typealias ContentEnum = Enums
+
+	public init(_ elements: [Enums]) {
+		for ele in elements {
+			switch ele {
+				case let .borderWidth(borderWidth):
+					self.borderWidth = borderWidth
+				case let .color(color):
+					self.color = color
+				case let .borderColor(borderColor):
+					self.borderColor = borderColor
+				case let .width(width):
+					self.width = width
+			}
+		}
+	}
+}
+
+extension SECBrush.Style : SECMappable {
+	public func mapping(map: SECMap) {
+		map["borderWidth"] = borderWidth
+		map["color"] = color
+		map["borderColor"] = borderColor
+		map["width"] = width
+	}
+}
+
+extension SECBrush : SECEnumable {
+	public enum Enums {
+		case toolbox(SECToolbox), brushLink(Indexes), seriesIndex(Indexes), geoIndex(Indexes), xAxisIndex(Indexes), yAxisIndex(Indexes), brushType(Type), brushMode(Mode), transformable(Bool), brushStyle(Style), throttleType(ThrottleType), throttleDelay(Float), inBrush(String), outOfBrush(String)
+	}
+
+	public typealias ContentEnum = Enums
+
+	public init(_ elements: [Enums]) {
+		for ele in elements {
+			switch ele {
+				case let .toolbox(toolbox):
+					self.toolbox = toolbox
+				case let .brushLink(brushLink):
+					self.brushLink = brushLink
+				case let .seriesIndex(seriesIndex):
+					self.seriesIndex = seriesIndex
+				case let .geoIndex(geoIndex):
+					self.geoIndex = geoIndex
+				case let .xAxisIndex(xAxisIndex):
+					self.xAxisIndex = xAxisIndex
+				case let .yAxisIndex(yAxisIndex):
+					self.yAxisIndex = yAxisIndex
+				case let .brushType(brushType):
+					self.brushType = brushType
+				case let .brushMode(brushMode):
+					self.brushMode = brushMode
+				case let .transformable(transformable):
+					self.transformable = transformable
+				case let .brushStyle(brushStyle):
+					self.brushStyle = brushStyle
+				case let .throttleType(throttleType):
+					self.throttleType = throttleType
+				case let .throttleDelay(throttleDelay):
+					self.throttleDelay = throttleDelay
+				case let .inBrush(inBrush):
+					self.inBrush = inBrush
+				case let .outOfBrush(outOfBrush):
+					self.outOfBrush = outOfBrush
+			}
+		}
+	}
+}
+
+extension SECBrush : SECMappable {
+	public func mapping(map: SECMap) {
+		map["toolbox"] = toolbox
+		map["brushLink"] = brushLink
+		map["seriesIndex"] = seriesIndex
+		map["geoIndex"] = geoIndex
+		map["xAxisIndex"] = xAxisIndex
+		map["yAxisIndex"] = yAxisIndex
+		map["brushType"] = brushType
+		map["brushMode"] = brushMode
+		map["transformable"] = transformable
+		map["brushStyle"] = brushStyle
+		map["throttleType"] = throttleType
+		map["throttleDelay"] = throttleDelay
+		map["inBrush"] = inBrush
+		map["outOfBrush"] = outOfBrush
+	}
+}

@@ -7,6 +7,24 @@
 //
 
 public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZable {
+    
+    /// 数据项目
+    public struct Data : SECSymbolized {
+        /// 数据项名称。
+        public var name: String?
+        /// 数据项值。
+        public var value: String?
+        // MARK: SECSymbolized
+        public var symbol: SECSymbol?
+        public var symbolSize: Float?
+        public var symbolRotate: Float?
+        public var symbolOffset: [Float]?
+        /// 数据项文字样式
+        public var label: SECLabel?
+        /// 单个数据点（气泡）的样式设置。
+        public var itemStyle: SECItemStyle?
+    }
+    
     /// 类型
     public var type: SECSerieType {
         return .scatter

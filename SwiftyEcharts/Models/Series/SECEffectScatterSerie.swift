@@ -88,7 +88,7 @@ extension SECEffectScatterSerie : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -201,7 +201,7 @@ extension SECEffectScatterSerie.RippleEffect : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .period(period):

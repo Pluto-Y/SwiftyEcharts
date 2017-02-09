@@ -100,7 +100,7 @@ extension SECMarkData.DataContent : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .type(type):
@@ -159,7 +159,7 @@ extension SECMarkData : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .begin(begin):

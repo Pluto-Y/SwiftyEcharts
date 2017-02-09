@@ -163,7 +163,7 @@ extension SECPieSerie.LabelLineContent : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -198,7 +198,7 @@ extension SECPieSerie.LabelLine : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .normal(normal):
@@ -224,7 +224,7 @@ extension SECPieSerie : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .name(name):

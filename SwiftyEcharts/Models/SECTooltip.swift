@@ -222,7 +222,7 @@ extension SECTooltip.AxisPointer.ShadowStyle : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -260,7 +260,7 @@ extension SECTooltip.AxisPointer.CrossStyle : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -304,7 +304,7 @@ extension SECTooltip.AxisPointer : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .type(type):
@@ -362,7 +362,7 @@ extension SECTooltip : SECEnumable {
     }
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .show(show):

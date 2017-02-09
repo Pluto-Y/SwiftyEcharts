@@ -117,7 +117,7 @@ extension SECToolbox.Feature : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .saveAsImage(saveAsImage):
@@ -155,7 +155,7 @@ extension SECToolbox : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -254,7 +254,7 @@ extension SECToolbox.IconStyleContent : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -307,7 +307,7 @@ extension SECToolbox.IconStyle : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .normal(normal):
@@ -367,7 +367,7 @@ extension SECToolbox.Feature.SaveAsImage : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .type(type):
@@ -429,7 +429,7 @@ extension SECToolbox.Feature.Restore : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -494,7 +494,7 @@ extension SECToolbox.Feature.DataView : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -620,7 +620,7 @@ extension SECToolbox.Feature.DataZoom.Title : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .zoom(zoom):
@@ -646,7 +646,7 @@ extension SECToolbox.Feature.DataZoom.Icon : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .zoom(zoom):
@@ -672,7 +672,7 @@ extension SECToolbox.Feature.DataZoom : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -768,7 +768,7 @@ extension SECToolbox.Feature.MagicType.Title : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .line(line):
@@ -800,7 +800,7 @@ extension SECToolbox.Feature.MagicType.Icon : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .line(line):
@@ -832,7 +832,7 @@ extension SECToolbox.Feature.MagicType : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -919,7 +919,7 @@ extension SECToolbox.Feature.Brush.Icon : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .rect(rect):
@@ -957,7 +957,7 @@ extension SECToolbox.Feature.Brush.Title : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .rect(rect):
@@ -995,7 +995,7 @@ extension SECToolbox.Feature.Brush : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .type(type):

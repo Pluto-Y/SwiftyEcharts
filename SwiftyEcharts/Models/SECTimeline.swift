@@ -323,7 +323,7 @@ extension SECTimeline.LineStyle : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -370,7 +370,7 @@ extension SECTimeline.CheckpointStyle : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .symbol(symbol):
@@ -420,7 +420,7 @@ extension SECTimeline.ControlStyle.CStyle : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -451,7 +451,7 @@ extension SECTimeline.ControlStyle : SECEnumable {
     
     public typealias ContentsEnums = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -511,7 +511,7 @@ extension SECTimeline.Data : SECEnumable {
     
     public typealias ContentEnums = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .value(value):
@@ -543,7 +543,7 @@ extension SECTimeline : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .show(show):

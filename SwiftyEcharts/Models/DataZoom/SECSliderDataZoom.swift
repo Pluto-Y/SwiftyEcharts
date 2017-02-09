@@ -288,7 +288,7 @@ extension SECSliderDataZoom.DataBackground : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .lineStyle(lineStyle):
@@ -314,7 +314,7 @@ extension SECSliderDataZoom.HandleStyle : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -361,7 +361,7 @@ extension SECSliderDataZoom : SECEnumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: [Enums]) {
+    public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
             case let .show(show):

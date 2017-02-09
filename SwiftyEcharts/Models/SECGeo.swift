@@ -47,7 +47,7 @@ extension SECGeo : SECEnumable {
 
 	public typealias ContentEnum = Enums
 
-	public init(_ elements: [Enums]) {
+	public init(_ elements: Enums...) {
 		for ele in elements {
 			switch ele {
 				case let .show(show):
@@ -130,7 +130,7 @@ extension SECGeo.ScaleLimit : SECEnumable {
 
 	public typealias ContentEnum = Enums
 
-	public init(_ elements: [Enums]) {
+	public init(_ elements: Enums...) {
 		for ele in elements {
 			switch ele {
 				case let .min(min):
@@ -156,7 +156,7 @@ extension SECGeo.Region : SECEnumable {
 
 	public typealias ContentEnum = Enums
 
-	public init(_ elements: [Enums]) {
+	public init(_ elements: Enums...) {
 		for ele in elements {
 			switch ele {
 				case let .name(name):

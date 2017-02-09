@@ -205,36 +205,172 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
         }
     }
     
+    /// 系列名称，用于tooltip的显示，legend 的图例筛选，在 setOption 更新数据和配置项时用于指定对应的系列。
     public var name: String?
+    /// 该系列使用的坐标系
     public var coordinateSystem: SECCoordinateSystem?
+    /// 使用的 x 轴的 index，在单个图表实例中存在多个 x 轴的时候有用。
     public var xAxisIndex: UInt?
+    /// 使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用。
     public var yAxisIndex: UInt?
+    /// 使用的极坐标系的 index，在单个图表实例中存在多个极坐标系的时候有用。
     public var polarIndex: UInt?
+    // MARK: SECSymbolized
     public var symbol: SECSymbol?
     public var symbolSize: Float?
     public var symbolRotate: Float?
     public var symbolOffset: [Float]?
     public var showSymbol: Bool?
+    /// 标志图形默认只有主轴显示（随主轴标签间隔隐藏策略），如需全部显示可把 showAllSymbol 设为 true。
     public var showAllSymbol: Bool?
+    /// 是否开启 hover 在拐点标志上的提示动画效果。
     public var hoverAnimation: Bool?
+    /// 是否启用图例 hover 时的联动高亮。
     public var legendHoverLink: Bool?
+    /// 数据堆叠，同个类目轴上系列配置相同的stack值后，后一个系列的值会在前一个系列的值上相加。
+    ///
+    /// 下面示例可以通过右上角 toolbox 中的堆叠切换看效果：
+    ///
+    /// http://echarts.baidu.com/gallery/editor.html?c=doc-example/line-stack-tiled
     public var stack: String?
+    /// 是否连接空数据。
     public var connectNulls: Bool?
+    /// 是否对超出部分裁剪，默认裁剪。
     public var clipOverflow: Bool?
+    /// 是否是阶梯线图。可以设置为 true 显示成阶梯线图，也支持设置成 'start', 'middle', 'end' 分别配置在当前点，当前点与下个点的中间点，下个点拐弯。
+    ///
+    /// 不同的配置效果如下：
+    ///
+    /// http://echarts.baidu.com/gallery/editor.html?c=line-step
     public var step: Step?
+    /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: SECLabel?
+    /// 折线拐点标志的样式。
     public var itemStyle: SECItemStyle?
+    /// 线条样式。
+    ///
+    /// 注： 修改 lineStyle 中的颜色不会影响图例颜色，如果需要图例颜色和折线图颜色一致，需修改 itemStyle.normal.color，线条颜色默认也会取改颜色。
     public var lineStyle: LineStyle?
+    /// 区域填充样式。
     public var areaStyle: AreaStyle?
+    /// 是否平滑曲线显示。
     public var smooth: Bool?
+    /// 折线平滑后是否在一个维度上保持单调性，可以设置成'x', 'y'来指明是在 x 轴或者 y 轴上保持单调性。
+    ///
+    /// 通常在双数值轴上使用。
     public var smoothMonotone: SmoothMonotone?
+    /// 折线图在数据量远大于像素点时候的降采样策略，开启后可以有效的优化图表的绘制效率，默认关闭，也就是全部绘制不过滤数据点。
     public var sampling: Sampling?
+    /// 系列中的数据内容数组。数组项通常为具体的数据项。
+    ///
+    /// 通常来说，数据用一个二维数组表示。如下，每一列被称为一个『维度』。
+    ///
+    ///     series: [{
+    ///         data: [
+    ///             // 维度X   维度Y   其他维度 ...
+    ///             [  3.4,    4.5,   15,   43],
+    ///             [  4.2,    2.3,   20,   91],
+    ///             [  10.8,   9.5,   30,   18],
+    ///             [  7.2,    8.8,   18,   57]
+    ///         ]
+    ///     }]
+    /// - 在 直角坐标系 (grid) 中『维度X』和『维度Y』会默认对应于 xAxis 和 yAxis。
+    /// - 在 极坐标系 (polar) 中『维度X』和『维度Y』会默认对应于 radiusAxis 和 angleAxis。
+    /// - 后面的其他维度是可选的，可以在别处被使用，例如：
+    ///     - 在 visualMap 中可以将一个或多个维度映射到颜色，大小等多个图形属性上。
+    ///     - 在 series.symbolSize 中可以使用回调函数，基于某个维度得到 symbolSize 值。
+    ///     - 使用 tooltip.formatter 或 series.label.normal.formatter 可以把其他维度的值展示出来。
+    ///
+    /// 特别地，当只有一个轴为类目轴（axis.type 为 'category'）的时候，数据可以简化用一个一维数组表示。例如：
+    ///
+    /// xAxis: {
+    /// data: ['a', 'b', 'm', 'n']
+    /// },
+    /// series: [{
+    /// // 与 xAxis.data 一一对应。
+    /// data: [23,  44,  55,  19]
+    /// // 它其实是下面这种形式的简化：
+    /// // data: [[0, 23], [1, 44], [2, 55], [3, 19]]
+    /// }]
+    /// 
+    /// 『值』与 轴类型 的关系：
+    ///
+    /// 当某维度对应于数值轴（axis.type 为 'value' 或者 'log'）的时候：
+    ///
+    /// 其值可以为 number（例如 12）。（也可以容忍 string 形式的 number，例如 '12'）
+    ///
+    /// 当某维度对应于类目轴（axis.type 为 'category'）的时候：
+    ///
+    /// 其值须为类目的『序数』（从 0 开始）或者类目的『字符串值』。例如：
+    ///
+    ///     xAxis: {
+    ///         type: 'category',
+    ///         data: ['星期一', '星期二', '星期三', '星期四']
+    ///     },
+    ///     yAxis: {
+    ///         type: 'category',
+    ///         data: ['a', 'b', 'm', 'n', 'p', 'q']
+    ///     },
+    ///     series: [{
+    ///         data: [
+    ///             // xAxis    yAxis
+    ///             [  0,        0,    2  ], // 意思是此点位于 xAxis: '星期一', yAxis: 'a'。
+    ///             [  '星期四',  2,    1  ], // 意思是此点位于 xAxis: '星期四', yAxis: 'm'。
+    ///             [  2,       'p',   2  ], // 意思是此点位于 xAxis: '星期三', yAxis: 'p'。
+    ///             [  3,        3,    5  ]
+    ///         ]
+    ///     }]
+    ///
+    /// 双类目轴的示例可以参考 Github Punchcard 示例。
+    ///
+    /// 当某维度对应于时间轴（type 为 'time'）的时候：
+    ///
+    /// 值可以为一个时间戳（如 1484141700832），或者一个 Date 实例，或者字符串形式的值（如 '2012-12-12'，'2012/12/12'）。
+    /// 
+    /// 当需要对个别数据进行个性化定义时：
+    ///
+    /// 数组项可用对象，其中的 value 像表示具体的数值，如：
+    ///
+    ///     [
+    ///         12,
+    ///         34,
+    ///         {
+    ///             value : 56,
+    ///             //自定义标签样式，仅对该数据项有效
+    ///             label: {},
+    ///             //自定义特殊 itemStyle，仅对该数据项有效
+    ///             itemStyle:{}
+    ///         },
+    ///         10
+    ///     ]
+    ///     // 或
+    ///     [
+    ///         [12, 33],
+    ///         [34, 313],
+    ///         {
+    ///             value: [56, 44],
+    ///             label: {},
+    ///             itemStyle:{}
+    ///         },
+    ///         [10, 33]
+    ///     ]
+    /// 
+    /// 空值：
+    ///
+    /// 当某数据不存在时（ps：不存在不代表值为 0），可以用 '-' 或者 null 或者 undefined 或者 NaN 表示。
+    ///
+    /// 例如，无数据在折线图中可表现为该点是断开的，在其它图中可表示为图形不存在。
     public var data: [SECJsonable]?
+    /// 图表标注。
     public var markPoint: SECMarkPoint?
+    /// 图表标线。
     public var markLine: SECMarkLine?
+    /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
     public var markArea: SECMarkArea?
+    /// MARK: SECZable
     public var zlevel: Float?
     public var z: Float?
+    /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     
     /// 是否开启动画。

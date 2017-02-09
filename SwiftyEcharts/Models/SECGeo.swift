@@ -9,3 +9,9 @@
 public struct SECGeo {
     // TODO: 添加实现代码
 }
+
+extension SECGeo : SECMappable {
+    public func mapping(map: SECMap) {
+        // TODO: 添加实现代码
+    }
+}

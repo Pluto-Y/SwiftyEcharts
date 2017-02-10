@@ -26,7 +26,7 @@ public struct SECOption : SECTextful, SECAnimatable {
     public var parallelAxis: [SECParallelAxis]?
     public var singleAxis: [SECSingleAxis]?
     public var timeline: SECTimeline?
-    public var graphic: SECGraphic?
+    public var graphic: [SECGraphic]?
     public var series: [SECSeries]?
     public var color: [SECColor]?
     public var backgroundColor: SECColor?
@@ -77,7 +77,7 @@ public struct SECOption : SECTextful, SECAnimatable {
 
 extension SECOption : SECEnumable {
 	public enum Enums {
-		case title(SECTitle), legend(SECLegend), grid(SECGrid), xAxis([SECAxis]), yAxis([SECAxis]), polar(SECPolar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(SECRadar), dataZoom([SECDataZoom]), visualMap(SECVisualMap), tooltip(SECTooltip), toolbox(SECToolbox), brush(SECBrush), geo(SECGeo), parallel(SECParallel), parallelAxis([SECParallelAxis]), singleAxis([SECSingleAxis]), timeline(SECTimeline), graphic(SECGraphic), series([SECSeries]), color([SECColor]), backgroundColor(SECColor), textStyle(SECTextStyle), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+		case title(SECTitle), legend(SECLegend), grid(SECGrid), xAxis([SECAxis]), yAxis([SECAxis]), polar(SECPolar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(SECRadar), dataZoom([SECDataZoom]), visualMap(SECVisualMap), tooltip(SECTooltip), toolbox(SECToolbox), brush(SECBrush), geo(SECGeo), parallel(SECParallel), parallelAxis([SECParallelAxis]), singleAxis([SECSingleAxis]), timeline(SECTimeline), graphic([SECGraphic]), series([SECSeries]), color([SECColor]), backgroundColor(SECColor), textStyle(SECTextStyle), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
 	}
 
 	public typealias ContentEnum = Enums

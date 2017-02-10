@@ -30,3 +30,9 @@ public struct SECGroupGraphic : SECGraphic {
     public var children: [SECGraphic]?
     
 }
+
+extension SECGroupGraphic : SECMappable {
+    public func mapping(map: SECMap) {
+        // TODO: 添加实现代码
+    }
+}

@@ -98,7 +98,126 @@ extension SECParallel : SECEnumable {
 }
 
 extension SECParallel : SECMappable {
-    public func mapping(map: SECMap) {
-        // TODO: 添加实现代码
-    }
+	public func mapping(map: SECMap) {
+		map["zlevel"] = zlevel
+		map["z"] = z
+		map["left"] = left
+		map["top"] = top
+		map["right"] = right
+		map["bottom"] = bottom
+		map["width"] = width
+		map["height"] = height
+		map["layout"] = layout
+		map["axisExpandable"] = axisExpandable
+		map["axisExpandCenter"] = axisExpandCenter
+		map["axisExpandCount"] = axisExpandCount
+		map["axisExpandWidth"] = axisExpandWidth
+		map["parallelAxisDefault"] = parallelAxisDefault
+	}
+}
+
+extension SECParallel.ParallelAxisDefault : SECEnumable {
+	public enum Enums {
+		case type(SECAxisType), name(String), nameLocation(SECPosition), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(String), max(String), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel)
+	}
+
+	public typealias ContentEnum = Enums
+
+	public init(_ elements: Enums...) {
+		for ele in elements {
+			switch ele {
+				case let .type(type):
+					self.type = type
+				case let .name(name):
+					self.name = name
+				case let .nameLocation(nameLocation):
+					self.nameLocation = nameLocation
+				case let .nameTextStyle(nameTextStyle):
+					self.nameTextStyle = nameTextStyle
+				case let .nameGap(nameGap):
+					self.nameGap = nameGap
+				case let .nameRotate(nameRotate):
+					self.nameRotate = nameRotate
+				case let .inverse(inverse):
+					self.inverse = inverse
+				case let .boundaryGap(boundaryGap):
+					self.boundaryGap = boundaryGap
+				case let .min(min):
+					self.min = min
+				case let .max(max):
+					self.max = max
+				case let .scale(scale):
+					self.scale = scale
+				case let .splitNumber(splitNumber):
+					self.splitNumber = splitNumber
+				case let .minInterval(minInterval):
+					self.minInterval = minInterval
+				case let .interval(interval):
+					self.interval = interval
+				case let .logBase(logBase):
+					self.logBase = logBase
+				case let .silent(silent):
+					self.silent = silent
+				case let .triggerEvent(triggerEvent):
+					self.triggerEvent = triggerEvent
+				case let .axisLine(axisLine):
+					self.axisLine = axisLine
+				case let .axisTick(axisTick):
+					self.axisTick = axisTick
+				case let .axisLabel(axisLabel):
+					self.axisLabel = axisLabel
+			}
+		}
+	}
+}
+
+extension SECParallel.ParallelAxisDefault : SECMappable {
+	public func mapping(map: SECMap) {
+		map["type"] = type
+		map["name"] = name
+		map["nameLocation"] = nameLocation
+		map["nameTextStyle"] = nameTextStyle
+		map["nameGap"] = nameGap
+		map["nameRotate"] = nameRotate
+		map["inverse"] = inverse
+		map["boundaryGap"] = boundaryGap
+		map["min"] = min
+		map["max"] = max
+		map["scale"] = scale
+		map["splitNumber"] = splitNumber
+		map["minInterval"] = minInterval
+		map["interval"] = interval
+		map["logBase"] = logBase
+		map["silent"] = silent
+		map["triggerEvent"] = triggerEvent
+		map["axisLine"] = axisLine
+		map["axisTick"] = axisTick
+		map["axisLabel"] = axisLabel
+	}
+}
+
+extension SECParallel.ParallelAxisDefault.Data : SECEnumable {
+	public enum Enums {
+		case value(String), textStyle(SECTextStyle)
+	}
+
+	public typealias ContentEnum = Enums
+
+	public init(_ elements: Enums...) {
+		for ele in elements {
+			switch ele {
+				case let .value(value):
+					self.value = value
+				case let .textStyle(textStyle):
+					self.textStyle = textStyle
+			}
+		}
+	}
+}
+
+extension SECParallel.ParallelAxisDefault.Data : SECMappable {
+	public func mapping(map: SECMap) {
+		map["value"] = value
+		map["textStyle"] = textStyle
+	}
 }

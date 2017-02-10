@@ -40,5 +40,5 @@ public protocol SECGraphic : SECZable, SECMappable {
     var invisible: Bool? { get set }
     var draggable: Bool? { get set }
     var progressiv: Bool? { get set }
-    
+    // TODO: 添加14个方法， 暂时还没添加
 }

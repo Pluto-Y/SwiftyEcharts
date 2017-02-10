@@ -40,6 +40,64 @@ public struct SECGeo : SECDisplayable, SECZable {
     public var silent: Bool?
 }
 
+extension SECGeo.ScaleLimit : SECEnumable {
+    public enum Enums {
+        case min(Float), max(Float)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .min(min):
+                self.min = min
+            case let .max(max):
+                self.max = max
+            }
+        }
+    }
+}
+
+extension SECGeo.ScaleLimit : SECMappable {
+    public func mapping(map: SECMap) {
+        map["min"] = min
+        map["max"] = max
+    }
+}
+
+extension SECGeo.Region : SECEnumable {
+    public enum Enums {
+        case name(String), selected(Bool), itemStyle(SECItemStyle), label(SECLabel)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .selected(selected):
+                self.selected = selected
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            case let .label(label):
+                self.label = label
+            }
+        }
+    }
+}
+
+extension SECGeo.Region : SECMappable {
+    public func mapping(map: SECMap) {
+        map["name"] = name
+        map["selected"] = selected
+        map["itemStyle"] = itemStyle
+        map["label"] = label
+    }
+}
+
 extension SECGeo : SECEnumable {
 	public enum Enums {
 		case show(Bool), map(String), roam(Bool), center([Float]), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap(String), selectedMode(SECSelectedMode), label(SECLabel), itemStyle(SECItemStyle), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), layoutCenter(String), layoutSize(String), regions([Region]), silent(Bool)
@@ -120,63 +178,5 @@ extension SECGeo : SECMappable {
 		map["layoutSize"] = layoutSize
 		map["regions"] = regions
 		map["silent"] = silent
-	}
-}
-
-extension SECGeo.ScaleLimit : SECEnumable {
-	public enum Enums {
-		case min(Float), max(Float)
-	}
-
-	public typealias ContentEnum = Enums
-
-	public init(_ elements: Enums...) {
-		for ele in elements {
-			switch ele {
-				case let .min(min):
-					self.min = min
-				case let .max(max):
-					self.max = max
-			}
-		}
-	}
-}
-
-extension SECGeo.ScaleLimit : SECMappable {
-	public func mapping(map: SECMap) {
-		map["min"] = min
-		map["max"] = max
-	}
-}
-
-extension SECGeo.Region : SECEnumable {
-	public enum Enums {
-		case name(String), selected(Bool), itemStyle(SECItemStyle), label(SECLabel)
-	}
-
-	public typealias ContentEnum = Enums
-
-	public init(_ elements: Enums...) {
-		for ele in elements {
-			switch ele {
-				case let .name(name):
-					self.name = name
-				case let .selected(selected):
-					self.selected = selected
-				case let .itemStyle(itemStyle):
-					self.itemStyle = itemStyle
-				case let .label(label):
-					self.label = label
-			}
-		}
-	}
-}
-
-extension SECGeo.Region : SECMappable {
-	public func mapping(map: SECMap) {
-		map["name"] = name
-		map["selected"] = selected
-		map["itemStyle"] = itemStyle
-		map["label"] = label
 	}
 }

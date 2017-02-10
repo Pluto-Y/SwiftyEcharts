@@ -214,6 +214,50 @@ public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZabl
     public var animationDelayUpdate: SECTime?
 }
 
+extension SECScatterSerie.Data : SECEnumable {
+    public enum Enums {
+        case name(String), value(String), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), label(SECLabel), itemStyle(SECItemStyle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .value(value):
+                self.value = value
+            case let .symbol(symbol):
+                self.symbol = symbol
+            case let .symbolSize(symbolSize):
+                self.symbolSize = symbolSize
+            case let .symbolRotate(symbolRotate):
+                self.symbolRotate = symbolRotate
+            case let .symbolOffset(symbolOffset):
+                self.symbolOffset = symbolOffset
+            case let .label(label):
+                self.label = label
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            }
+        }
+    }
+}
+
+extension SECScatterSerie.Data : SECMappable {
+    public func mapping(map: SECMap) {
+        map["name"] = name
+        map["value"] = value
+        map["symbol"] = symbol
+        map["symbolSize"] = symbolSize
+        map["symbolRotate"] = symbolRotate
+        map["symbolOffset"] = symbolOffset
+        map["label"] = label
+        map["itemStyle"] = itemStyle
+    }
+}
+
 extension SECScatterSerie : SECEnumable {
     public enum Enums {
         case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), hoverAnimation(Bool), legendHoverLink(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), large(Bool), largeThreshold(Float), label(SECFormattedLabel), itemStyle(SECItemStyle), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
@@ -326,48 +370,4 @@ extension SECScatterSerie : SECMappable {
         map["animationEasingUpdate"] = animationEasingUpdate
         map["animationDelayUpdate"] = animationDelayUpdate
     }
-}
-
-extension SECScatterSerie.Data : SECEnumable {
-	public enum Enums {
-		case name(String), value(String), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), label(SECLabel), itemStyle(SECItemStyle)
-	}
-
-	public typealias ContentEnum = Enums
-
-	public init(_ elements: Enums...) {
-		for ele in elements {
-			switch ele {
-				case let .name(name):
-					self.name = name
-				case let .value(value):
-					self.value = value
-				case let .symbol(symbol):
-					self.symbol = symbol
-				case let .symbolSize(symbolSize):
-					self.symbolSize = symbolSize
-				case let .symbolRotate(symbolRotate):
-					self.symbolRotate = symbolRotate
-				case let .symbolOffset(symbolOffset):
-					self.symbolOffset = symbolOffset
-				case let .label(label):
-					self.label = label
-				case let .itemStyle(itemStyle):
-					self.itemStyle = itemStyle
-			}
-		}
-	}
-}
-
-extension SECScatterSerie.Data : SECMappable {
-	public func mapping(map: SECMap) {
-		map["name"] = name
-		map["value"] = value
-		map["symbol"] = symbol
-		map["symbolSize"] = symbolSize
-		map["symbolRotate"] = symbolRotate
-		map["symbolOffset"] = symbolOffset
-		map["label"] = label
-		map["itemStyle"] = itemStyle
-	}
 }

@@ -81,9 +81,38 @@ public struct SECEffectScatterSerie : SECSeries, SECSymbolized, SECZable {
     public init() {}
 }
 
+extension SECEffectScatterSerie.RippleEffect : SECEnumable {
+    public enum Enums {
+        case period(Float), scale(Float), brushType(BrushType)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .period(period):
+                self.period = period
+            case let .scale(scale):
+                self.scale = scale
+            case let .brushType(brushType):
+                self.brushType = brushType
+            }
+        }
+    }
+}
+
+extension SECEffectScatterSerie.RippleEffect : SECMappable {
+    public func mapping(map: SECMap) {
+        map["period"] = period
+        map["scale"] = scale
+        map["brushType"] = brushType
+    }
+}
+
 extension SECEffectScatterSerie : SECEnumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), effectType(String), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), label(SECFormattedLabel), itemStyle(SECItemStyle), data([Any]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), legendHoverLink(Bool), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), label(SECFormattedLabel), itemStyle(SECItemStyle), data([Any]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -95,8 +124,6 @@ extension SECEffectScatterSerie : SECEnumable {
                 self.name = name
             case let .legendHoverLink(legendHoverLink):
                 self.legendHoverLink = legendHoverLink
-            case let .effectType(effectType):
-                self.effectType = effectType
             case let .showEffectOn(showEffectOn):
                 self.showEffectOn = showEffectOn
             case let .rippleEffect(rippleEffect):
@@ -160,6 +187,7 @@ extension SECEffectScatterSerie : SECEnumable {
 
 extension SECEffectScatterSerie : SECMappable {
     public func mapping(map: SECMap) {
+        map["type"] = type
         map["name"] = name
         map["legendHoverLink"] = legendHoverLink
         map["effectType"] = effectType
@@ -191,34 +219,5 @@ extension SECEffectScatterSerie : SECMappable {
         map["animationDurationUpdate"] = animationDurationUpdate
         map["animationEasingUpdate"] = animationEasingUpdate
         map["animationDelayUpdate"] = animationDelayUpdate
-    }
-}
-
-extension SECEffectScatterSerie.RippleEffect : SECEnumable {
-    public enum Enums {
-        case period(Float), scale(Float), brushType(BrushType)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .period(period):
-                self.period = period
-            case let .scale(scale):
-                self.scale = scale
-            case let .brushType(brushType):
-                self.brushType = brushType
-            }
-        }
-    }
-}
-
-extension SECEffectScatterSerie.RippleEffect : SECMappable {
-    public func mapping(map: SECMap) {
-        map["period"] = period
-        map["scale"] = scale
-        map["brushType"] = brushType
     }
 }

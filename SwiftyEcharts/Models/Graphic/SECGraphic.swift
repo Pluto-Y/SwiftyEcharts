@@ -36,6 +36,7 @@ public protocol SECGraphic : SECZable, SECMappable {
     var bottom: SECPosition? { get set }
     var bounding: SECGraphicBounding? { get set }
     var silent: Bool? { get set }
+    var cursor: String? { get set }
     var invisible: Bool? { get set }
     var draggable: Bool? { get set }
     var progressiv: Bool? { get set }

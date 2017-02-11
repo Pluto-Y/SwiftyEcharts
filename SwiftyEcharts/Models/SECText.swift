@@ -28,7 +28,7 @@ public enum SECAlign: String, SECJsonable {
 /// - top: 顶部
 /// - middle: 中间
 /// - bottom: 底部
-public enum SECTextBaseline: String, SECJsonable {
+public enum SECVerticalAlign: String, SECJsonable {
     case top = "top"
     case middle = "middle"
     case bottom = "bottom"

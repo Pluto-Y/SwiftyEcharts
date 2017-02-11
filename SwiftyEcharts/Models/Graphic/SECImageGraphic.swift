@@ -8,7 +8,7 @@
 
 public struct SECImageGraphic : SECGraphic {
     
-    public struct Style : SECShadowable {
+    public struct Style : SECGraphicStyle {
         public var image: String?
         public var x: Float?
         public var y: Float?

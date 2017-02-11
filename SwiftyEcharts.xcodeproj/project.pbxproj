@@ -114,6 +114,7 @@
 		6FD249C41E4E142100FBB2F7 /* SECGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249C31E4E142100FBB2F7 /* SECGraphic.swift */; };
 		6FD249CA1E4E186D00FBB2F7 /* SECGroupGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249C91E4E186D00FBB2F7 /* SECGroupGraphic.swift */; };
 		6FD249CC1E4F308300FBB2F7 /* SECImageGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249CB1E4F308300FBB2F7 /* SECImageGraphic.swift */; };
+		6FD249CE1E4F3E7E00FBB2F7 /* SECGraphicStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249CD1E4F3E7E00FBB2F7 /* SECGraphicStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +255,7 @@
 		6FD249C31E4E142100FBB2F7 /* SECGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECGraphic.swift; sourceTree = "<group>"; };
 		6FD249C91E4E186D00FBB2F7 /* SECGroupGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECGroupGraphic.swift; sourceTree = "<group>"; };
 		6FD249CB1E4F308300FBB2F7 /* SECImageGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECImageGraphic.swift; sourceTree = "<group>"; };
+		6FD249CD1E4F3E7E00FBB2F7 /* SECGraphicStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECGraphicStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -543,6 +545,7 @@
 				6FD249C11E4E121F00FBB2F7 /* SECGraphicType.swift */,
 				6FD249C91E4E186D00FBB2F7 /* SECGroupGraphic.swift */,
 				6FD249CB1E4F308300FBB2F7 /* SECImageGraphic.swift */,
+				6FD249CD1E4F3E7E00FBB2F7 /* SECGraphicStyle.swift */,
 			);
 			path = Graphic;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 			files = (
 				540DE5FD1E2CF087002F25E3 /* SECMarkArea.swift in Sources */,
 				6F1ED0731E23DC0A00A1E154 /* SECOption.swift in Sources */,
+				6FD249CE1E4F3E7E00FBB2F7 /* SECGraphicStyle.swift in Sources */,
 				6FB400481E38FE2E0086BF5B /* SECPolar.swift in Sources */,
 				6F4ACB461E1C078100CE5FD5 /* SECAnimatable.swift in Sources */,
 				541C725A1E4BF9C300B194A3 /* SECBrush.swift in Sources */,

@@ -12,3 +12,12 @@ public protocol SECGraphicStyle : SECShadowable {
     var lineWidth: Float? { get set }
 }
 
+public struct SECCommonGraphicStyle : SECGraphicStyle {
+    public var fill: SECColor?
+    public var stroke: SECColor?
+    public var lineWidth: Float?
+    public var shadowBlur: Float?
+    public var shadowOffsetX: Float?
+    public var shadowOffsetY: Float?
+    public var shadowColor: SECColor?
+}

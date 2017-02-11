@@ -82,6 +82,7 @@ extension SECGroupGraphic : SECEnumable {
 
 extension SECGroupGraphic : SECMappable {
     public func mapping(map: SECMap) {
+        map["type"] = type
         map["id"] = id
         map["action"] = action
         map["left"] = left

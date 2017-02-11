@@ -40,6 +40,35 @@ public struct SECCircleGraphic : SECGraphic {
     public init() {}
 }
 
+extension SECCircleGraphic.Shape : SECEnumable {
+    public enum Enums {
+        case cx(Float), cy(Float), r(Float)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .cx(cx):
+                self.cx = cx
+            case let .cy(cy):
+                self.cy = cy
+            case let .r(r):
+                self.r = r
+            }
+        }
+    }
+}
+
+extension SECCircleGraphic.Shape : SECMappable {
+    public func mapping(map: SECMap) {
+        map["cx"] = cx
+        map["cy"] = cy
+        map["r"] = r
+    }
+}
+
 extension SECCircleGraphic : SECEnumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
@@ -105,34 +134,5 @@ extension SECCircleGraphic : SECMappable {
         map["progressiv"] = progressiv
         map["shape"] = shape
         map["style"] = style
-    }
-}
-
-extension SECCircleGraphic.Shape : SECEnumable {
-    public enum Enums {
-        case cx(Float), cy(Float), r(Float)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .cx(cx):
-                self.cx = cx
-            case let .cy(cy):
-                self.cy = cy
-            case let .r(r):
-                self.r = r
-            }
-        }
-    }
-}
-
-extension SECCircleGraphic.Shape : SECMappable {
-    public func mapping(map: SECMap) {
-        map["cx"] = cx
-        map["cy"] = cy
-        map["r"] = r
     }
 }

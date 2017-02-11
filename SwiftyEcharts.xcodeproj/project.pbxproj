@@ -118,6 +118,7 @@
 		6FD249D01E4F41E600FBB2F7 /* SECTextGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249CF1E4F41E600FBB2F7 /* SECTextGraphic.swift */; };
 		6FD249D21E4F52E400FBB2F7 /* SECRectGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249D11E4F52E400FBB2F7 /* SECRectGraphic.swift */; };
 		6FD249D41E4F625B00FBB2F7 /* SECCircleGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249D31E4F625B00FBB2F7 /* SECCircleGraphic.swift */; };
+		6FD249D61E4F665900FBB2F7 /* SECRingGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249D51E4F665900FBB2F7 /* SECRingGraphic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,6 +263,7 @@
 		6FD249CF1E4F41E600FBB2F7 /* SECTextGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECTextGraphic.swift; sourceTree = "<group>"; };
 		6FD249D11E4F52E400FBB2F7 /* SECRectGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECRectGraphic.swift; sourceTree = "<group>"; };
 		6FD249D31E4F625B00FBB2F7 /* SECCircleGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECCircleGraphic.swift; sourceTree = "<group>"; };
+		6FD249D51E4F665900FBB2F7 /* SECRingGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECRingGraphic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -555,6 +557,7 @@
 				6FD249CF1E4F41E600FBB2F7 /* SECTextGraphic.swift */,
 				6FD249D11E4F52E400FBB2F7 /* SECRectGraphic.swift */,
 				6FD249D31E4F625B00FBB2F7 /* SECCircleGraphic.swift */,
+				6FD249D51E4F665900FBB2F7 /* SECRingGraphic.swift */,
 			);
 			path = Graphic;
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 				5435CCBE1E24990B00D753B2 /* SECUtilities.swift in Sources */,
 				6F4ACB421E1C00CA00CE5FD5 /* SECLineStyle.swift in Sources */,
 				6FC40CF41E48C0C500F6E62F /* SECSplitLine.swift in Sources */,
+				6FD249D61E4F665900FBB2F7 /* SECRingGraphic.swift in Sources */,
 				6FA24F741E2BE0F900E25002 /* SECToolbox.swift in Sources */,
 				541C725C1E4C529000B194A3 /* SECEffectScatterSerie.swift in Sources */,
 				6FC40CEA1E48BDCF00F6E62F /* SECAxisType.swift in Sources */,

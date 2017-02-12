@@ -6,6 +6,8 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+typealias SECPolylineGraphic = SECPolygonGraphic
+
 public struct SECPolygonGraphic : SECGraphic {
     
     public struct Shape {

@@ -1,3 +1,4 @@
+@@ -1,155 +0,0 @@
 //
 //  SECArcGraphic.swift
 //  SwiftyEcharts
@@ -153,3 +154,4 @@ extension SECArcGraphic : SECMappable {
         map["style"] = style
     }
 }
+

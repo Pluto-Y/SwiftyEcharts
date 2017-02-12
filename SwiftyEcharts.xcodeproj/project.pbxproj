@@ -123,6 +123,7 @@
 		6FD249DC1E50AEA200FBB2F7 /* SECPolygonGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249DB1E50AEA200FBB2F7 /* SECPolygonGraphic.swift */; };
 		6FD249E21E50B69A00FBB2F7 /* SECArcGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249E11E50B69A00FBB2F7 /* SECArcGraphic.swift */; };
 		6FD249E41E50B6E000FBB2F7 /* SECPolylineGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249E31E50B6E000FBB2F7 /* SECPolylineGraphic.swift */; };
+		6FD249E61E50B74400FBB2F7 /* SECLineGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249E51E50B74400FBB2F7 /* SECLineGraphic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -272,6 +273,7 @@
 		6FD249DB1E50AEA200FBB2F7 /* SECPolygonGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPolygonGraphic.swift; sourceTree = "<group>"; };
 		6FD249E11E50B69A00FBB2F7 /* SECArcGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECArcGraphic.swift; sourceTree = "<group>"; };
 		6FD249E31E50B6E000FBB2F7 /* SECPolylineGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPolylineGraphic.swift; sourceTree = "<group>"; };
+		6FD249E51E50B74400FBB2F7 /* SECLineGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLineGraphic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -570,6 +572,7 @@
 				6FD249DB1E50AEA200FBB2F7 /* SECPolygonGraphic.swift */,
 				6FD249E11E50B69A00FBB2F7 /* SECArcGraphic.swift */,
 				6FD249E31E50B6E000FBB2F7 /* SECPolylineGraphic.swift */,
+				6FD249E51E50B74400FBB2F7 /* SECLineGraphic.swift */,
 			);
 			path = Graphic;
 			sourceTree = "<group>";
@@ -849,6 +852,7 @@
 				6FA24F721E2B7A0100E25002 /* SECEnumable.swift in Sources */,
 				5447FDA71E2E2AD6001D88F3 /* SECSliderDataZoom.swift in Sources */,
 				5447FD961E2DEA93001D88F3 /* SECInsideDataZoom.swift in Sources */,
+				6FD249E61E50B74400FBB2F7 /* SECLineGraphic.swift in Sources */,
 				540DE5FE1E2CF087002F25E3 /* SECMarkLine.swift in Sources */,
 				6FC40CF01E48C01500F6E62F /* SECAxisLabel.swift in Sources */,
 				6FB48CC41DEF358C00137D13 /* SECDisplayable.swift in Sources */,

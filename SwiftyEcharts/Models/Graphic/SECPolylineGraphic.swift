@@ -1,27 +1,38 @@
 //
-//  SECArcGraphic.swift
+//  SECPolylineGraphic.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 12/02/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECArcGraphic : SECGraphic {
+public struct SECPolylineGraphic : SECGraphic {
     
     public struct Shape {
-        public var cx: Float?
-        public var cy: Float?
-        public var r: Float?
-        public var r0: Float?
-        public var startAngle: Float?
-        public var endAngle: Float?
-        public var clockwise: Float?
+        
+        public enum Smooth : SECJsonable {
+            case val(Float)
+            case spline
+            
+            public var jsonString: String {
+                switch self {
+                case let .val(val):
+                    return "\(val)"
+                case .spline:
+                    return "\"spline\""
+                }
+            }
+        }
+        
+        public var point: [[Float]]?
+        public var smooth: Smooth?
+        public var smoothConstraint: Bool?
         
         public init() {}
     }
     
     public var type: SECGraphicType {
-        return .arc
+        return .polygon
     }
     
     public var id: String?
@@ -44,9 +55,9 @@ public struct SECArcGraphic : SECGraphic {
     public init() {}
 }
 
-extension SECArcGraphic.Shape : SECEnumable {
+extension SECPolylineGraphic.Shape : SECEnumable {
     public enum Enums {
-        case cx(Float), cy(Float), r(Float), r0(Float), startAngle(Float), endAngle(Float), clockwise(Float)
+        case point([[Float]]), smooth(Smooth), smoothConstraint(Bool)
     }
     
     public typealias ContentEnum = Enums
@@ -54,38 +65,26 @@ extension SECArcGraphic.Shape : SECEnumable {
     public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
-            case let .cx(cx):
-                self.cx = cx
-            case let .cy(cy):
-                self.cy = cy
-            case let .r(r):
-                self.r = r
-            case let .r0(r0):
-                self.r0 = r0
-            case let .startAngle(startAngle):
-                self.startAngle = startAngle
-            case let .endAngle(endAngle):
-                self.endAngle = endAngle
-            case let .clockwise(clockwise):
-                self.clockwise = clockwise
+            case let .point(point):
+                self.point = point
+            case let .smooth(smooth):
+                self.smooth = smooth
+            case let .smoothConstraint(smoothConstraint):
+                self.smoothConstraint = smoothConstraint
             }
         }
     }
 }
 
-extension SECArcGraphic.Shape : SECMappable {
+extension SECPolylineGraphic.Shape : SECMappable {
     public func mapping(map: SECMap) {
-        map["cx"] = cx
-        map["cy"] = cy
-        map["r"] = r
-        map["r0"] = r0
-        map["startAngle"] = startAngle
-        map["endAngle"] = endAngle
-        map["clockwise"] = clockwise
+        map["point"] = point
+        map["smooth"] = smooth
+        map["smoothConstraint"] = smoothConstraint
     }
 }
 
-extension SECArcGraphic : SECEnumable {
+extension SECPolylineGraphic : SECEnumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
     }
@@ -132,7 +131,7 @@ extension SECArcGraphic : SECEnumable {
     }
 }
 
-extension SECArcGraphic : SECMappable {
+extension SECPolylineGraphic : SECMappable {
     public func mapping(map: SECMap) {
         map["type"] = type
         map["id"] = id

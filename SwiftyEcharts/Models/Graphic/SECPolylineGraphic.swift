@@ -40,7 +40,7 @@ public struct SECPolylineGraphic : SECGraphic {
         public init() {}
     }
     
-    /// <#Description#>
+    /// MARK: SECGraphic
     public var type: SECGraphicType {
         return .polygon
     }

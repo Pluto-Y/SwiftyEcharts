@@ -6,15 +6,35 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 文本类型的 `Graphic`
 public struct SECTextGraphic : SECGraphic {
     
+    /// 文本样式
     public struct Style : SECGraphicStyle {
+        /// 文本块文字。可以使用 \n 来换行。
         public var text: String?
+        /// 图形元素的左上角在父节点坐标系（以父节点左上角为原点）中的横坐标值。
         public var x: Float?
+        /// 图形元素的左上角在父节点坐标系（以父节点左上角为原点）中的纵坐标值。
         public var y: Float?
+        /// 字体大小、字体类型、粗细、字体样式。格式参见 css font。
+        /// 例如：
+        /// // size | family
+        /// font: '2em "STHeiti", sans-serif'
+        /// 
+        /// // style | weight | size | family
+        /// font: 'italic bolder 16px cursive'
+        /// 
+        /// // weight | size | family
+        /// font: 'bolder 2em "Microsoft YaHei", sans-serif'
         public var font: String?
+        /// 水平对齐方式，取值：'left', 'center', 'right'。
+        /// 如果为 'left'，表示文本最左端在 x 值上。如果为 'right'，表示文本最右端在 x 值上。
         public var textAlign: SECAlign?
+        /// 垂直对齐方式，取值：'top', 'middle', 'bottom'。
         public var textVertical: SECVerticalAlign?
+        
+        /// MARK: SECGraphicStyle
         public var fill: SECColor?
         public var stroke: SECColor?
         public var lineWidth: Float?
@@ -26,10 +46,10 @@ public struct SECTextGraphic : SECGraphic {
         public init() {}
     }
     
+    /// MARK: SECGraphic
     public var type: SECGraphicType {
         return .text
     }
-    
     public var id: String?
     public var action: SECGraphicAction?
     public var left: SECPosition?
@@ -44,6 +64,7 @@ public struct SECTextGraphic : SECGraphic {
     public var cursor: String?
     public var draggable: Bool?
     public var progressiv: Bool?
+    /// 文本样式
     public var style: Style?
     
     public init() {}

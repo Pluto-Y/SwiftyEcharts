@@ -6,10 +6,16 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 多边形类型的 `Graphic`
 public struct SECPolygonGraphic : SECGraphic {
     
+    /// 多边形的位置和大小定义
     public struct Shape {
         
+        /// 是否平滑曲线
+        ///
+        /// - val: 如果为 val：表示贝塞尔 (bezier) 差值平滑，smooth 指定了平滑等级，范围 [0, 1]。
+        /// - spline: 如果为 'spline'：表示 Catmull-Rom spline 差值平滑。
         public enum Smooth : SECJsonable {
             case val(Float)
             case spline
@@ -24,17 +30,20 @@ public struct SECPolygonGraphic : SECGraphic {
             }
         }
         
+        /// 点列表，用于定义形状，如 [[22, 44], [44, 55], [11, 44], ...]
         public var point: [[Float]]?
+        /// 是否平滑曲线
         public var smooth: Smooth?
+        /// 是否将平滑曲线约束在包围盒中。smooth 为 number（bezier）时生效。
         public var smoothConstraint: Bool?
         
         public init() {}
     }
     
+    /// MARK: SECGraphic
     public var type: SECGraphicType {
         return .polygon
     }
-    
     public var id: String?
     public var action: SECGraphicAction?
     public var left: SECPosition?
@@ -49,7 +58,10 @@ public struct SECPolygonGraphic : SECGraphic {
     public var cursor: String?
     public var draggable: Bool?
     public var progressiv: Bool?
+    
+    /// 多边形的位置和大小定义
     public var shape: Shape?
+    /// 多边形的样式
     public var style: SECCommonGraphicStyle?
     
     public init() {}

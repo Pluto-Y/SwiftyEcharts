@@ -6,6 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 矩形类型的 `Graphic`
 public struct SECRectGraphic : SECGraphic {
     
     public struct Shape {
@@ -17,10 +18,10 @@ public struct SECRectGraphic : SECGraphic {
         public init() {}
     }
     
+    /// MARK: SECGraphic
     public var type: SECGraphicType {
         return .rect
     }
-    
     public var id: String?
     public var action: SECGraphicAction?
     public var left: SECPosition?
@@ -35,7 +36,10 @@ public struct SECRectGraphic : SECGraphic {
     public var cursor: String?
     public var draggable: Bool?
     public var progressiv: Bool?
+    
+    /// 矩形的配置
     public var shape: Shape?
+    /// 矩形样式配置
     public var style: SECCommonGraphicStyle?
     
     public init() {}

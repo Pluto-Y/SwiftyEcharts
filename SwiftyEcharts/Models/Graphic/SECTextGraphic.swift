@@ -64,6 +64,7 @@ public struct SECTextGraphic : SECGraphic {
     public var cursor: String?
     public var draggable: Bool?
     public var progressiv: Bool?
+    
     /// 文本样式
     public var style: Style?
     

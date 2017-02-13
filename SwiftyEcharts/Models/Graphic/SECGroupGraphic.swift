@@ -6,7 +6,10 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// group 是唯一的可以有子节点的容器。group 可以用来整体定位一组图形元素。
 public struct SECGroupGraphic : SECGraphic {
+    
+    /// MARK: SECGraphic
     public var type: SECGraphicType {
         return .group
     }
@@ -25,8 +28,20 @@ public struct SECGroupGraphic : SECGraphic {
     public var cursor: String?
     public var draggable: Bool?
     public var progressiv: Bool?
+    
+    /// 用于描述此 group 的宽。
+    ///
+    /// 这个宽只用于给子节点定位。
+    ///
+    /// 即便当宽度为零的时候，子节点也可以使用 left: 'center' 相对于父节点水平居中。
     public var width: Float?
+    /// 用于描述此 group 的高。
+    ///
+    /// 这个高只用于给子节点定位。
+    ///
+    /// 即便当高度为零的时候，子节点也可以使用 top: 'middle' 相对于父节点垂直居中。
     public var height: Float?
+    /// 子节点列表，其中项都是一个图形元素定义。
     public var children: [SECGraphic]?
     
 }

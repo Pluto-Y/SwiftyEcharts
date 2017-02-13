@@ -6,14 +6,22 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 图片类型的 `Graphic`
 public struct SECImageGraphic : SECGraphic {
     
+    /// 图片样式
     public struct Style : SECGraphicStyle {
+        /// 图片的内容，可以是图片的 URL，也可以是 dataURI.
         public var image: String?
+        /// 图形元素的左上角在父节点坐标系（以父节点左上角为原点）中的横坐标值。
         public var x: Float?
+        /// 图形元素的左上角在父节点坐标系（以父节点左上角为原点）中的纵坐标值。
         public var y: Float?
+        /// 图形元素的宽度。
         public var width: Float?
+        /// 图形元素的高度。
         public var height: Float?
+        /// MARK: SEGraphicStyle
         public var fill: SECColor?
         public var stroke: SECColor?
         public var lineWidth: Float?
@@ -25,10 +33,10 @@ public struct SECImageGraphic : SECGraphic {
         public init() {}
     }
     
+    /// MARK: SECGraphic
     public var type: SECGraphicType {
         return .image
     }
-    
     public var id: String?
     public var action: SECGraphicAction?
     public var left: SECPosition?
@@ -43,6 +51,7 @@ public struct SECImageGraphic : SECGraphic {
     public var cursor: String?
     public var draggable: Bool?
     public var progressiv: Bool?
+    /// 样式
     public var style: Style?
     
     public init() {}

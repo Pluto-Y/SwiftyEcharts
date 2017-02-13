@@ -6,22 +6,29 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 直线类型的 `Graphic`
 public struct SECLineGraphic : SECGraphic {
     
+    /// 直线的位置
     public struct Shape {
+        /// 开始点的 x 值。
         public var x1: Float?
+        /// 开始点的 y 值。
         public var y1: Float?
+        /// 结束点的 x 值。
         public var x2: Float?
+        /// 结束点的 y 值。
         public var y2: Float?
+        /// 线画到百分之多少就不画了。值的范围：[0, 1]。
         public var percent: Float?
         
         public init() {}
     }
     
+    /// MARK: SECGraphic
     public var type: SECGraphicType {
         return .line
     }
-    
     public var id: String?
     public var action: SECGraphicAction?
     public var left: SECPosition?
@@ -36,10 +43,48 @@ public struct SECLineGraphic : SECGraphic {
     public var cursor: String?
     public var draggable: Bool?
     public var progressiv: Bool?
+    
+    /// 直线的位置
     public var shape: Shape?
+    /// 直线的样式
     public var style: SECCommonGraphicStyle?
     
     public init() {}
+}
+
+extension SECLineGraphic.Shape : SECEnumable {
+    public enum Enums {
+        case x1(Float), y1(Float), x2(Float), y2(Float), percent(Float)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .x1(x1):
+                self.x1 = x1
+            case let .y1(y1):
+                self.y1 = y1
+            case let .x2(x2):
+                self.x2 = x2
+            case let .y2(y2):
+                self.y2 = y2
+            case let .percent(percent):
+                self.percent = percent
+            }
+        }
+    }
+}
+
+extension SECLineGraphic.Shape : SECMappable {
+    public func mapping(map: SECMap) {
+        map["x1"] = x1
+        map["y1"] = y1
+        map["x2"] = x2
+        map["y2"] = y2
+        map["percent"] = percent
+    }
 }
 
 extension SECLineGraphic : SECEnumable {
@@ -108,40 +153,5 @@ extension SECLineGraphic : SECMappable {
         map["progressiv"] = progressiv
         map["shape"] = shape
         map["style"] = style
-    }
-}
-
-extension SECLineGraphic.Shape : SECEnumable {
-    public enum Enums {
-        case x1(Float), y1(Float), x2(Float), y2(Float), percent(Float)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .x1(x1):
-                self.x1 = x1
-            case let .y1(y1):
-                self.y1 = y1
-            case let .x2(x2):
-                self.x2 = x2
-            case let .y2(y2):
-                self.y2 = y2
-            case let .percent(percent):
-                self.percent = percent
-            }
-        }
-    }
-}
-
-extension SECLineGraphic.Shape : SECMappable {
-    public func mapping(map: SECMap) {
-        map["x1"] = x1
-        map["y1"] = y1
-        map["x2"] = x2
-        map["y2"] = y2
-        map["percent"] = percent
     }
 }

@@ -6,13 +6,19 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 通用 `Graphic` 的样式接口
 public protocol SECGraphicStyle : SECShadowable {
+    /// 填充色。
     var fill: SECColor? { get set }
+    /// 笔画颜色。
     var stroke: SECColor? { get set }
+    /// 笔画宽度。
     var lineWidth: Float? { get set }
 }
 
+/// 通用的 `Graphic` 的样式实现
 public struct SECCommonGraphicStyle : SECGraphicStyle {
+    /// MARK: SECGraphicStyle
     public var fill: SECColor?
     public var stroke: SECColor?
     public var lineWidth: Float?

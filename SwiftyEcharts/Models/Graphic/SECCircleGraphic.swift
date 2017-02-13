@@ -6,20 +6,25 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 圆类型的 `Graphic`
 public struct SECCircleGraphic : SECGraphic {
     
+    /// 圆形的位置和大小
     public struct Shape {
+        /// 图形元素的中心在父节点坐标系（以父节点左上角为原点）中的横坐标值。
         public var cx: Float?
+        /// 图形元素的中心在父节点坐标系（以父节点左上角为原点）中的纵坐标值。
         public var cy: Float?
+        /// 外半径。
         public var r: Float?
         
         public init() {}
     }
     
+    /// MARK: SECGraphic
     public var type: SECGraphicType {
         return .circle
     }
-    
     public var id: String?
     public var action: SECGraphicAction?
     public var left: SECPosition?
@@ -34,7 +39,9 @@ public struct SECCircleGraphic : SECGraphic {
     public var cursor: String?
     public var draggable: Bool?
     public var progressiv: Bool?
+    /// 圆形的位置和大小
     public var shape: Shape?
+    /// 圆形的样式
     public var style: SECCommonGraphicStyle?
     
     public init() {}
@@ -118,6 +125,7 @@ extension SECCircleGraphic : SECEnumable {
 
 extension SECCircleGraphic : SECMappable {
     public func mapping(map: SECMap) {
+        map["type"] = type
         map["id"] = id
         map["action"] = action
         map["left"] = left

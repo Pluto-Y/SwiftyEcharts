@@ -6,8 +6,10 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 圆弧类型的 `Graphic`
 public struct SECArcGraphic : SECGraphic {
     
+    /// 圆弧的大小和位置
     public struct Shape {
         public var cx: Float?
         public var cy: Float?
@@ -20,10 +22,10 @@ public struct SECArcGraphic : SECGraphic {
         public init() {}
     }
     
+    /// MARK: SECGraphic
     public var type: SECGraphicType {
         return .arc
     }
-    
     public var id: String?
     public var action: SECGraphicAction?
     public var left: SECPosition?
@@ -38,7 +40,10 @@ public struct SECArcGraphic : SECGraphic {
     public var cursor: String?
     public var draggable: Bool?
     public var progressiv: Bool?
+    
+    /// 圆弧的大小和位置
     public var shape: Shape?
+    /// 圆弧的样式
     public var style: SECCommonGraphicStyle?
     
     public init() {}

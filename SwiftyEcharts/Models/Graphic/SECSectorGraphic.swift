@@ -6,8 +6,10 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 扇形类型的 `Graphic`
 public struct SECSectorGraphic : SECGraphic {
     
+    /// 扇形的大小和位置
     public struct Shape {
         public var cx: Float?
         public var cy: Float?
@@ -20,10 +22,10 @@ public struct SECSectorGraphic : SECGraphic {
         public init() {}
     }
     
+    /// MARK: SECGraphic
     public var type: SECGraphicType {
         return .sector
     }
-    
     public var id: String?
     public var action: SECGraphicAction?
     public var left: SECPosition?
@@ -38,7 +40,10 @@ public struct SECSectorGraphic : SECGraphic {
     public var cursor: String?
     public var draggable: Bool?
     public var progressiv: Bool?
+    
+    /// 扇形的大小和位置
     public var shape: Shape?
+    /// 扇形的样式
     public var style: SECCommonGraphicStyle?
     
     public init() {}

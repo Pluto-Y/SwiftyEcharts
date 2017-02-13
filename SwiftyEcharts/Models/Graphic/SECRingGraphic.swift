@@ -6,8 +6,10 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 圆环类型的 `Graphic`
 public struct SECRingGraphic : SECGraphic {
     
+    /// 圆环的位置和大小
     public struct Shape {
         public var cx: Float?
         public var cy: Float?
@@ -17,10 +19,10 @@ public struct SECRingGraphic : SECGraphic {
         public init() {}
     }
     
+    /// MARK: SECGraphic
     public var type: SECGraphicType {
         return .ring
     }
-    
     public var id: String?
     public var action: SECGraphicAction?
     public var left: SECPosition?
@@ -35,7 +37,10 @@ public struct SECRingGraphic : SECGraphic {
     public var cursor: String?
     public var draggable: Bool?
     public var progressiv: Bool?
+    
+    /// 圆环的位置和大小
     public var shape: Shape?
+    /// 圆环样式
     public var style: SECCommonGraphicStyle?
     
     public init() {}

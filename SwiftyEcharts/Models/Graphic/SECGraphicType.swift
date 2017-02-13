@@ -6,20 +6,20 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-/// <#Description#>
+/// 原生图形元素组件的类型
 ///
-/// - group: <#group description#>
-/// - image: <#image description#>
-/// - text: <#text description#>
-/// - rect: <#rect description#>
-/// - circle: <#circle description#>
-/// - ring: <#ring description#>
-/// - sector: <#sector description#>
-/// - arc: <#arc description#>
-/// - polygon: <#polygon description#>
-/// - polyline: <#polyline description#>
-/// - line: <#line description#>
-/// - bezierCurve: <#bezierCurve description#>
+/// - group: group 是唯一的可以有子节点的容器。group 可以用来整体定位一组图形元素。
+/// - image: 图片
+/// - text: 文本块
+/// - rect: 矩形
+/// - circle: 圆
+/// - ring: 圆环
+/// - sector: 扇形
+/// - arc: 圆弧
+/// - polygon: 多边形
+/// - polyline: 折线
+/// - line: 直线
+/// - bezierCurve: 二次或三次贝塞尔曲线
 public enum SECGraphicType : String, SECJsonable {
     case group = "group"
     case image = "image"

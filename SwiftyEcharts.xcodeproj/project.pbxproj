@@ -128,6 +128,7 @@
 		6FD249E41E50B6E000FBB2F7 /* SECPolylineGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249E31E50B6E000FBB2F7 /* SECPolylineGraphic.swift */; };
 		6FD249E61E50B74400FBB2F7 /* SECLineGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249E51E50B74400FBB2F7 /* SECLineGraphic.swift */; };
 		6FD249E81E50B8DC00FBB2F7 /* SECBezierCurveGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249E71E50B8DC00FBB2F7 /* SECBezierCurveGraphic.swift */; };
+		6FD249EC1E5337EC00FBB2F7 /* SECBoxplotSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249EB1E5337EC00FBB2F7 /* SECBoxplotSerie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,6 +283,7 @@
 		6FD249E31E50B6E000FBB2F7 /* SECPolylineGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPolylineGraphic.swift; sourceTree = "<group>"; };
 		6FD249E51E50B74400FBB2F7 /* SECLineGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLineGraphic.swift; sourceTree = "<group>"; };
 		6FD249E71E50B8DC00FBB2F7 /* SECBezierCurveGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECBezierCurveGraphic.swift; sourceTree = "<group>"; };
+		6FD249EB1E5337EC00FBB2F7 /* SECBoxplotSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECBoxplotSerie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +382,7 @@
 				541C725B1E4C529000B194A3 /* SECEffectScatterSerie.swift */,
 				541C725E1E5168D300B194A3 /* SECRadarSerie.swift */,
 				541C72601E516D3900B194A3 /* SECTreemapSerie.swift */,
+				6FD249EB1E5337EC00FBB2F7 /* SECBoxplotSerie.swift */,
 			);
 			path = Series;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				6FA24F701E27D54200E25002 /* SECJsMap.swift in Sources */,
 				54FEBE8F1E23480D0021CB13 /* SECJsonable.swift in Sources */,
 				6F4ACB441E1C023900CE5FD5 /* SECAreaStyle.swift in Sources */,
+				6FD249EC1E5337EC00FBB2F7 /* SECBoxplotSerie.swift in Sources */,
 				6FB48CA91DEE96BD00137D13 /* SECFont.swift in Sources */,
 				6FC40CF81E48D38F00F6E62F /* SECRadar.swift in Sources */,
 				6F91EB7B1DF08026003EEEC0 /* SECLine.swift in Sources */,

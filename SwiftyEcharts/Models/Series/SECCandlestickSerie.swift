@@ -43,6 +43,35 @@ public struct SECCandlestickSerie : SECSeries, SECZable {
     public var animationDelay: Float?
 }
 
+extension SECCandlestickSerie.Data : SECEnumable {
+    public enum Enums {
+        case name(String), value([SECJsonable]), itemStyle(SECItemStyle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .value(value):
+                self.value = value
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            }
+        }
+    }
+}
+
+extension SECCandlestickSerie.Data : SECMappable {
+    public func mapping(map: SECMap) {
+        map["name"] = name
+        map["value"] = value
+        map["itemStyle"] = itemStyle
+    }
+}
+
 extension SECCandlestickSerie : SECEnumable {
     public enum Enums {
         case coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), barWidth(Float), barMinWidth(Float), barMaxWidth(Float), itemStyle(SECItemStyle), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(SECAnimation), animationDelay(Float)
@@ -124,34 +153,5 @@ extension SECCandlestickSerie : SECMappable {
         map["animationDuration"] = animationDuration
         map["animationEasing"] = animationEasing
         map["animationDelay"] = animationDelay
-    }
-}
-
-extension SECCandlestickSerie.Data : SECEnumable {
-    public enum Enums {
-        case name(String), value([SECJsonable]), itemStyle(SECItemStyle)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .name(name):
-                self.name = name
-            case let .value(value):
-                self.value = value
-            case let .itemStyle(itemStyle):
-                self.itemStyle = itemStyle
-            }
-        }
-    }
-}
-
-extension SECCandlestickSerie.Data : SECMappable {
-    public func mapping(map: SECMap) {
-        map["name"] = name
-        map["value"] = value
-        map["itemStyle"] = itemStyle
     }
 }

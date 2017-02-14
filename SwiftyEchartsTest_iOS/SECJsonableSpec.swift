@@ -60,6 +60,11 @@ class SECJsonableSpec: QuickSpec {
                 expect(dic.jsonString).to(equal("{\n\"age\":5,\n\"childrenNames\":\(childrenNames.jsonString),\n\"height\":164.5,\n\"moneyCount\":6.5,\n\"name\":\"Si Li\",\n\"wifeName\":null\n}"))
             }
             
+            it("need to check the dictionary when it does no have any key") {
+                let dic: [String: Any?] = [:]
+                expect(dic.jsonString).to(equal("{\n\n}"))
+            }
+            
         }
     }
     

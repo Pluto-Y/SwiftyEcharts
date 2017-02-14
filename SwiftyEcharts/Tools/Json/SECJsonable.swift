@@ -141,22 +141,26 @@ extension Dictionary: SECJsonable {
     public var jsonString: String {
         var jsonStr = "{\n"
         
-        let sortedKeys = Array(self.keys).sort { String($0) < String($1) }
-
-        for key in sortedKeys {
-            let value = self[key]!
-            jsonStr += "\"\(key)\":"
-            if let v = value as? SECJsonable {
-                jsonStr += "\(v.toJson())"
-            } else if let d = value as? CustomStringConvertible {
-                jsonStr += "\(d.description)"
-            } else {
-                jsonStr += "\(value)"
+        if self.keys.count > 0 {
+            let sortedKeys = Array(self.keys).sort { String($0) < String($1) }
+            
+            for key in sortedKeys {
+                let value = self[key]!
+                jsonStr += "\"\(key)\":"
+                if let v = value as? SECJsonable {
+                    jsonStr += "\(v.toJson())"
+                } else if let d = value as? CustomStringConvertible {
+                    jsonStr += "\(d.description)"
+                } else {
+                    jsonStr += "\(value)"
+                }
+                jsonStr += ",\n"
             }
-            jsonStr += ",\n"
+            
+            // 移除最后一个','与'\n'符号
+            jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
         }
         
-        jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
         jsonStr += "\n}"
         return jsonStr
     }

@@ -130,6 +130,7 @@
 		6FD249E81E50B8DC00FBB2F7 /* SECBezierCurveGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249E71E50B8DC00FBB2F7 /* SECBezierCurveGraphic.swift */; };
 		6FD249EC1E5337EC00FBB2F7 /* SECBoxplotSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249EB1E5337EC00FBB2F7 /* SECBoxplotSerie.swift */; };
 		6FD249EE1E533DCD00FBB2F7 /* SECCandlestickSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249ED1E533DCD00FBB2F7 /* SECCandlestickSerie.swift */; };
+		6FD249F01E53493C00FBB2F7 /* SECHeatmapSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249EF1E53493C00FBB2F7 /* SECHeatmapSerie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,6 +287,7 @@
 		6FD249E71E50B8DC00FBB2F7 /* SECBezierCurveGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECBezierCurveGraphic.swift; sourceTree = "<group>"; };
 		6FD249EB1E5337EC00FBB2F7 /* SECBoxplotSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECBoxplotSerie.swift; sourceTree = "<group>"; };
 		6FD249ED1E533DCD00FBB2F7 /* SECCandlestickSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECCandlestickSerie.swift; sourceTree = "<group>"; };
+		6FD249EF1E53493C00FBB2F7 /* SECHeatmapSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECHeatmapSerie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +388,7 @@
 				541C72601E516D3900B194A3 /* SECTreemapSerie.swift */,
 				6FD249EB1E5337EC00FBB2F7 /* SECBoxplotSerie.swift */,
 				6FD249ED1E533DCD00FBB2F7 /* SECCandlestickSerie.swift */,
+				6FD249EF1E53493C00FBB2F7 /* SECHeatmapSerie.swift */,
 			);
 			path = Series;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 				6FC40CEC1E48BF7400F6E62F /* SECAxisLine.swift in Sources */,
 				6F91EB7F1DF142E3003EEEC0 /* SECLegend.swift in Sources */,
 				5427F0AB1E2CEB8800CE20E5 /* SECMarkData.swift in Sources */,
+				6FD249F01E53493C00FBB2F7 /* SECHeatmapSerie.swift in Sources */,
 				54FEBE911E23480D0021CB13 /* SECMappable.swift in Sources */,
 				6FD249D41E4F625B00FBB2F7 /* SECCircleGraphic.swift in Sources */,
 			);

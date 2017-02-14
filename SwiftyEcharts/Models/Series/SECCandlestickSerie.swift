@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECCandlestickSerie : SECSeries {
+public struct SECCandlestickSerie : SECSeries, SECZable {
     
     public struct Data {
         public var name: String?

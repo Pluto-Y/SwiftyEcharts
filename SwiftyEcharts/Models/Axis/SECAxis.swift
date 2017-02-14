@@ -17,6 +17,15 @@
 public enum SECBoundaryGap : SECJsonable {
     case category(Bool)
     case notCategory(Float, Float)
+    
+    public var jsonString: String {
+        switch self {
+        case let .category(enable):
+            return "\(enable)"
+        case let .notCategory(val1, val2):
+            return "['\(val1)%', '\(val2)%']"
+        }
+    }
 }
 
 /// 坐标轴的定义

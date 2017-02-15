@@ -13,6 +13,8 @@
 		540898AA1E53F71E00A89BB0 /* SECLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898A91E53F71E00A89BB0 /* SECLength.swift */; };
 		540898AC1E5408B500A89BB0 /* SECPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898AB1E5408B500A89BB0 /* SECPosition.swift */; };
 		540898AE1E54294700A89BB0 /* SECBoundaryGap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898AD1E54294700A89BB0 /* SECBoundaryGap.swift */; };
+		540898B01E54637100A89BB0 /* SECJsMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898AF1E54637100A89BB0 /* SECJsMap.swift */; };
+		540898B21E54637600A89BB0 /* SECColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898B11E54637600A89BB0 /* SECColor.swift */; };
 		540DE5F91E2CF05C002F25E3 /* SECMarkPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DE5F81E2CF05C002F25E3 /* SECMarkPosition.swift */; };
 		540DE5FD1E2CF087002F25E3 /* SECMarkArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DE5FA1E2CF087002F25E3 /* SECMarkArea.swift */; };
 		540DE5FE1E2CF087002F25E3 /* SECMarkLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DE5FB1E2CF087002F25E3 /* SECMarkLine.swift */; };
@@ -80,7 +82,6 @@
 		6F9B70E71DE808E600406B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9B70E61DE808E600406B55 /* Assets.xcassets */; };
 		6F9B70EA1DE808E600406B55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F9B70E81DE808E600406B55 /* LaunchScreen.storyboard */; };
 		6F9B70EF1DE809E700406B55 /* SECEchartsView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F9B70D71DE8070E00406B55 /* SECEchartsView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		6FA24F701E27D54200E25002 /* SECJsMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA24F6F1E27D54200E25002 /* SECJsMap.swift */; };
 		6FA24F721E2B7A0100E25002 /* SECEnumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA24F711E2B7A0100E25002 /* SECEnumable.swift */; };
 		6FA24F741E2BE0F900E25002 /* SECToolbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA24F731E2BE0F900E25002 /* SECToolbox.swift */; };
 		6FB400401E2FC05E0086BF5B /* SECBarSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB4003F1E2FC05E0086BF5B /* SECBarSerie.swift */; };
@@ -93,14 +94,12 @@
 		6FB48C981DED4A4F00137D13 /* SwiftyEcharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F13256C1D9312A90006F114 /* SwiftyEcharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FB48CA31DEE953000137D13 /* SECTitle.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB48CA21DEE953000137D13 /* SECTitle.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FB48CA51DEE95B700137D13 /* SECText.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB48CA41DEE95B700137D13 /* SECText.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		6FB48CA71DEE962800137D13 /* SECColor.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB48CA61DEE962800137D13 /* SECColor.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FB48CA91DEE96BD00137D13 /* SECFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB48CA81DEE96BD00137D13 /* SECFont.swift */; };
 		6FB48CB31DEE9FF400137D13 /* SwiftyEcharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F13256C1D9312A90006F114 /* SwiftyEcharts.framework */; };
 		6FB48CBA1DEEA30000137D13 /* SECFontSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB48CB91DEEA30000137D13 /* SECFontSpec.swift */; };
 		6FB48CBB1DEEFC6100137D13 /* SECFont.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB48CA81DEE96BD00137D13 /* SECFont.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FB48CBC1DEEFCE100137D13 /* SECTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB48CA21DEE953000137D13 /* SECTitle.swift */; };
 		6FB48CBD1DEEFCE100137D13 /* SECText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB48CA41DEE95B700137D13 /* SECText.swift */; };
-		6FB48CBE1DEEFCE100137D13 /* SECColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB48CA61DEE962800137D13 /* SECColor.swift */; };
 		6FB48CC41DEF358C00137D13 /* SECDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB48CC31DEF358C00137D13 /* SECDisplayable.swift */; };
 		6FB48CC61DEF35AF00137D13 /* SECTooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB48CC51DEF35AF00137D13 /* SECTooltip.swift */; };
 		6FB48CC81DEF3BB100137D13 /* SECFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB48CC71DEF3BB100137D13 /* SECFormatted.swift */; };
@@ -177,6 +176,8 @@
 		540898A91E53F71E00A89BB0 /* SECLength.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLength.swift; sourceTree = "<group>"; };
 		540898AB1E5408B500A89BB0 /* SECPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPosition.swift; sourceTree = "<group>"; };
 		540898AD1E54294700A89BB0 /* SECBoundaryGap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECBoundaryGap.swift; sourceTree = "<group>"; };
+		540898AF1E54637100A89BB0 /* SECJsMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECJsMap.swift; sourceTree = "<group>"; };
+		540898B11E54637600A89BB0 /* SECColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECColor.swift; sourceTree = "<group>"; };
 		540DE5F81E2CF05C002F25E3 /* SECMarkPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkPosition.swift; sourceTree = "<group>"; };
 		540DE5FA1E2CF087002F25E3 /* SECMarkArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkArea.swift; sourceTree = "<group>"; };
 		540DE5FB1E2CF087002F25E3 /* SECMarkLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkLine.swift; sourceTree = "<group>"; };
@@ -247,7 +248,6 @@
 		6F9B70E61DE808E600406B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F9B70E91DE808E600406B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F9B70EB1DE808E600406B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6FA24F6F1E27D54200E25002 /* SECJsMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECJsMap.swift; sourceTree = "<group>"; };
 		6FA24F711E2B7A0100E25002 /* SECEnumable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECEnumable.swift; sourceTree = "<group>"; };
 		6FA24F731E2BE0F900E25002 /* SECToolbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECToolbox.swift; sourceTree = "<group>"; };
 		6FB4003F1E2FC05E0086BF5B /* SECBarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECBarSerie.swift; sourceTree = "<group>"; };
@@ -258,7 +258,6 @@
 		6FB400491E3900A40086BF5B /* SECScatterSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECScatterSerie.swift; sourceTree = "<group>"; };
 		6FB48CA21DEE953000137D13 /* SECTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECTitle.swift; sourceTree = "<group>"; };
 		6FB48CA41DEE95B700137D13 /* SECText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECText.swift; sourceTree = "<group>"; };
-		6FB48CA61DEE962800137D13 /* SECColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECColor.swift; sourceTree = "<group>"; };
 		6FB48CA81DEE96BD00137D13 /* SECFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECFont.swift; sourceTree = "<group>"; };
 		6FB48CAE1DEE9FF300137D13 /* SwiftyEchartsTest_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyEchartsTest_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB48CB21DEE9FF400137D13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -331,6 +330,7 @@
 		540898A61E53F6E000A89BB0 /* Type */ = {
 			isa = PBXGroup;
 			children = (
+				540898B11E54637600A89BB0 /* SECColor.swift */,
 				540898A71E53F6F300A89BB0 /* SECPercent.swift */,
 				540898A91E53F71E00A89BB0 /* SECLength.swift */,
 			);
@@ -418,7 +418,6 @@
 				540898A61E53F6E000A89BB0 /* Type */,
 				54FEBE8B1E23480D0021CB13 /* Json */,
 				5435CCBD1E24990B00D753B2 /* SECUtilities.swift */,
-				6FA24F6F1E27D54200E25002 /* SECJsMap.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -426,6 +425,7 @@
 		54FEBE8B1E23480D0021CB13 /* Json */ = {
 			isa = PBXGroup;
 			children = (
+				540898AF1E54637100A89BB0 /* SECJsMap.swift */,
 				54FEBE8C1E23480D0021CB13 /* SECJsonable.swift */,
 				54FEBE8D1E23480D0021CB13 /* SECMap.swift */,
 				54FEBE8E1E23480D0021CB13 /* SECMappable.swift */,
@@ -534,7 +534,6 @@
 				6FB48CC21DEF358C00137D13 /* Protocol */,
 				6FB48CA21DEE953000137D13 /* SECTitle.swift */,
 				6FB48CA41DEE95B700137D13 /* SECText.swift */,
-				6FB48CA61DEE962800137D13 /* SECColor.swift */,
 				6FB48CA81DEE96BD00137D13 /* SECFont.swift */,
 				6FB48CC51DEF35AF00137D13 /* SECTooltip.swift */,
 				6F91EB7E1DF142E3003EEEC0 /* SECLegend.swift */,
@@ -647,7 +646,6 @@
 			files = (
 				54FEBE931E2354B60021CB13 /* SECOption.swift in Headers */,
 				6F9B70EF1DE809E700406B55 /* SECEchartsView.swift in Headers */,
-				6FB48CA71DEE962800137D13 /* SECColor.swift in Headers */,
 				6FB48CA51DEE95B700137D13 /* SECText.swift in Headers */,
 				6FB48CA31DEE953000137D13 /* SECTitle.swift in Headers */,
 				6FB48CBB1DEEFC6100137D13 /* SECFont.swift in Headers */,
@@ -872,7 +870,6 @@
 				6FB400441E3104B70086BF5B /* SECTimeline.swift in Sources */,
 				6FB48CBD1DEEFCE100137D13 /* SECText.swift in Sources */,
 				6FD249CC1E4F308300FBB2F7 /* SECImageGraphic.swift in Sources */,
-				6FB48CBE1DEEFCE100137D13 /* SECColor.swift in Sources */,
 				5435CCBE1E24990B00D753B2 /* SECUtilities.swift in Sources */,
 				6FD249D81E50A8DD00FBB2F7 /* SECSectorGraphic.swift in Sources */,
 				6F4ACB421E1C00CA00CE5FD5 /* SECLineStyle.swift in Sources */,
@@ -885,7 +882,6 @@
 				6FC40CFA1E4CB1DF00F6E62F /* SECGeo.swift in Sources */,
 				6FD249E21E50B69A00FBB2F7 /* SECArcGraphic.swift in Sources */,
 				6FB400461E3657E00086BF5B /* SECVisualMap.swift in Sources */,
-				6FA24F701E27D54200E25002 /* SECJsMap.swift in Sources */,
 				54FEBE8F1E23480D0021CB13 /* SECJsonable.swift in Sources */,
 				6F4ACB441E1C023900CE5FD5 /* SECAreaStyle.swift in Sources */,
 				540898AC1E5408B500A89BB0 /* SECPosition.swift in Sources */,
@@ -901,6 +897,7 @@
 				5447FDA71E2E2AD6001D88F3 /* SECSliderDataZoom.swift in Sources */,
 				5447FD961E2DEA93001D88F3 /* SECInsideDataZoom.swift in Sources */,
 				6FD249E61E50B74400FBB2F7 /* SECLineGraphic.swift in Sources */,
+				540898B21E54637600A89BB0 /* SECColor.swift in Sources */,
 				6FD249E81E50B8DC00FBB2F7 /* SECBezierCurveGraphic.swift in Sources */,
 				540DE5FE1E2CF087002F25E3 /* SECMarkLine.swift in Sources */,
 				6FC40CF01E48C01500F6E62F /* SECAxisLabel.swift in Sources */,
@@ -925,6 +922,7 @@
 				540898A81E53F6F300A89BB0 /* SECPercent.swift in Sources */,
 				5469CBF31E31B8700063D1C3 /* SECPieSerie.swift in Sources */,
 				6F91EB7D1DF081A2003EEEC0 /* SECShadowable.swift in Sources */,
+				540898B01E54637100A89BB0 /* SECJsMap.swift in Sources */,
 				6FD249CA1E4E186D00FBB2F7 /* SECGroupGraphic.swift in Sources */,
 				54FEBE901E23480D0021CB13 /* SECMap.swift in Sources */,
 				6FC40CEC1E48BF7400F6E62F /* SECAxisLine.swift in Sources */,

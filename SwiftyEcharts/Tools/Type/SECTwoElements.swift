@@ -34,3 +34,8 @@ extension SECTwoElements : SECJsonable {
         return "null"
     }
 }
+
+/// 用于指定坐标点, eg: [x, y]
+public typealias SECPoint = SECTwoElements
+/// 用于指定范围, eg: [min, max]
+public typealias SECRange = SECTwoElements

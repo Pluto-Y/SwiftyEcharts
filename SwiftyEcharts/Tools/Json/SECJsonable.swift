@@ -121,17 +121,23 @@ extension Optional: CustomStringConvertible {
 extension Array: SECJsonable {
     public var jsonString: String {
         var jsonStr = "[\n"
-        for item in self {
-            if let i = item as? SECJsonable {
-                jsonStr += "\(i.toJson())"
-            } else if let d = item as? CustomStringConvertible {
-                jsonStr += "\(d.description)"
-            } else {
-                jsonStr += "\(item)"
+        
+        if self.count > 0 {
+            for item in self {
+                if let i = item as? SECJsonable {
+                    jsonStr += "\(i.toJson())"
+                } else if let d = item as? CustomStringConvertible {
+                    jsonStr += "\(d.description)"
+                } else {
+                    jsonStr += "\(item)"
+                }
+                jsonStr += ",\n"
             }
-            jsonStr += ",\n"
+            
+            // 移除最后一个','与'\n'符号
+            jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
         }
-        jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
+        
         jsonStr += "\n]"
         return jsonStr
     }

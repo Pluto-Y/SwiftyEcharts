@@ -26,79 +26,79 @@ public extension SECJsonable {
     }
 }
 
-extension Bool: SECJsonable {
+extension Bool : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int: SECJsonable {
+extension Int : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int8: SECJsonable {
+extension Int8 : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int16: SECJsonable {
+extension Int16 : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int32: SECJsonable {
+extension Int32 : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int64: SECJsonable {
+extension Int64 : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt: SECJsonable {
+extension UInt : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt8: SECJsonable {
+extension UInt8 : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt16: SECJsonable {
+extension UInt16 : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt32: SECJsonable {
+extension UInt32 : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt64: SECJsonable {
+extension UInt64 : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Double: SECJsonable {
+extension Double : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Float: SECJsonable {
+extension Float : SECJsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
 
-extension String: SECJsonable {
+extension String : SECJsonable {
     public var jsonString: String {
         return "\"\(self)\""
     }
 }
 
-extension Optional: CustomStringConvertible {
+extension Optional : CustomStringConvertible {
     
     public var jsonString: String {
         return description
@@ -118,7 +118,7 @@ extension Optional: CustomStringConvertible {
     }
 }
 
-extension Array: SECJsonable {
+extension Array : SECJsonable {
     public var jsonString: String {
         var jsonStr = "[\n"
         
@@ -143,7 +143,7 @@ extension Array: SECJsonable {
     }
 }
 
-extension Dictionary: SECJsonable {
+extension Dictionary : SECJsonable {
     public var jsonString: String {
         var jsonStr = "{\n"
         
@@ -171,6 +171,3 @@ extension Dictionary: SECJsonable {
         return jsonStr
     }
 }
-
-
-

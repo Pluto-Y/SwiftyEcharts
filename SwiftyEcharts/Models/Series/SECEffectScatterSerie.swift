@@ -79,7 +79,7 @@ public struct SECEffectScatterSerie : SECSeries, SECSymbolized, SECZable {
     public var symbol: SECSymbol?
     public var symbolSize: Float?
     public var symbolRotate: Float?
-    public var symbolOffset: [Float]?
+    public var symbolOffset: [SECLength]?
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: SECFormattedLabel?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
@@ -234,7 +234,7 @@ extension SECEffectScatterSerie.RippleEffect : SECMappable {
 
 extension SECEffectScatterSerie : SECEnumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([Float]), label(SECFormattedLabel), itemStyle(SECItemStyle), data([Any]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), legendHoverLink(Bool), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), label(SECFormattedLabel), itemStyle(SECItemStyle), data([Any]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums

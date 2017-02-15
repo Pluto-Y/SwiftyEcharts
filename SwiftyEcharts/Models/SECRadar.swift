@@ -69,8 +69,8 @@ public struct SECRadar : SECZable {
     ///     // 设置成绝对的像素值
     ///     center: [400, 300]
     ///     // 设置成相对的百分比
-    ///     center: ['50%', '50%']
-    public var center: [Float]? //FIXME: 暂不支持百分比形式
+    ///     center: [50%, 50%]
+    public var center: SECPoint?
     /// 坐标系的半径，数组的第一项是内半径，第二项是外半径。
     /// 支持设置成百分比，相对于容器高宽中较小的一项的一半。
     public var radius: SECLength?
@@ -188,7 +188,7 @@ extension SECRadar.Indicator : SECMappable {
 
 extension SECRadar : SECEnumable {
     public enum Enums {
-        case zlevel(Float), z(Float), center([Float]), radius(SECLength), startAngle(Float), name(Name), nameGap(Float), splitNumber(Int), shape(Shape), scale(Bool), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), indicator([Indicator])
+        case zlevel(Float), z(Float), center(SECPoint), radius(SECLength), startAngle(Float), name(Name), nameGap(Float), splitNumber(Int), shape(Shape), scale(Bool), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), indicator([Indicator])
     }
     
     public typealias ContentEnum = Enums

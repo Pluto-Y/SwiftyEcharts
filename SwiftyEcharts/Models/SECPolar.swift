@@ -24,8 +24,8 @@ public struct SECPolar : SECZable {
     ///     // 设置成绝对的像素值
     ///     center: [400, 300]
     ///     // 设置成相对的百分比
-    ///     center: ['50%', '50%']
-    public var center: [Float]? //FIXME: 暂不支持百分比形式
+    ///     center: [50%, 50%]
+    public var center: SECPoint?
     /// 极坐标系的半径，数组的第一项是内半径，第二项是外半径。
     /// 支持设置成百分比，相对于容器高宽中较小的一项的一半。
     public var radius: [Float]?
@@ -33,7 +33,7 @@ public struct SECPolar : SECZable {
 
 extension SECPolar : SECEnumable {
     public enum Enums {
-        case zlevel(Float), z(Float), center([Float]), radius([Float])
+        case zlevel(Float), z(Float), center(SECPoint), radius([Float])
     }
     
     public typealias ContentEnum = Enums

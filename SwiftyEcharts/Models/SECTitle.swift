@@ -45,46 +45,6 @@ public enum SECPadding : SECJsonable, CustomStringConvertible {
     }
 }
 
-/// 位置
-///
-/// - auto: 自动
-/// - left: 水平：左
-/// - center: 水平：中间
-/// - right: 水平：右
-/// - top: 垂直：顶部
-/// - middle: 垂直：中间
-/// - bottom: 垂直：底部
-/// - value: 绝对位置
-/// - percent: 相对位置
-public enum SECPosition : SECJsonable, CustomStringConvertible {
-    case auto, left, center, right, top, middle, bottom
-    case value(Float)
-    case percent(Float)
-    
-    public var description: String {
-        switch self {
-        case .auto:
-            return "auto"
-        case .left:
-            return "left"
-        case .right:
-            return "right"
-        case .center:
-            return "center"
-        case .top:
-            return "top"
-        case .bottom:
-            return "bottom"
-        case .middle:
-            return "middle"
-        case let .value(val):
-            return "\(val)"
-        case let .percent(percent):
-            return "\(percent)%"
-        }
-    }
-}
-
 /// 标题组件，包含主标题和副标题。
 /// 在 ECharts 2.x 中单个 ECharts 实例最多只能拥有一个标题组件。但是在 ECharts 3 中可以存在任意多个标题组件，这在需要标题进行排版，或者单个实例中的多个图表都需要标题时会比较有用。
 public struct SECTitle: SECBorderable, SECDisplayable, SECTextful, SECZable {

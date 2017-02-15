@@ -28,9 +28,9 @@ public struct SECLineOptions {
                     ))
                 )),
             .grid(SECGrid(
-                .left(.percent(3)),
-                .right(.percent(4)),
-                .bottom(.percent(3)),
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
                 .containLabel(true)
                 )),
             .xAxis([
@@ -123,9 +123,9 @@ public struct SECLineOptions {
                     )
                 ]),
             .grid(SECGrid(
-                .left(.percent(3)),
-                .right(.percent(4)),
-                .bottom(.percent(3)),
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
                 .containLabel(true)
                 )),
             .yAxis([

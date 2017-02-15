@@ -96,6 +96,69 @@ public struct SECLineOptions {
         )
     }
     
+    /// Try Dragging these Points
+    /// 地址: http://echarts.baidu.com/demo.html#line-draggable
+    static func lineDraggableOption() -> SECOption {
+        // 未完成对应的拖拽代码
+        let symbolSize: Float = 20
+        let data: [SECJsonable] =  [[15, 0], [-50, 10], [-56.5, 20], [-46.5, 30], [-22.1, 40]]
+        return SECOption(
+            .title(SECTitle(
+                .text("Try Dragging these Points")
+                )),
+            .tooltip(SECTooltip(
+                .triggerOn(.none),
+                .formatter(.function("function (params) { return 'X: ' + params.data[0].toFixed(2) + '<br>Y: ' + params.data[1].toFixed(2);}"))
+                )),
+            .grid(SECGrid()),
+            .xAxis([
+                SECAxis(
+                    .min(-100),
+                    .max(80),
+                    .type(.value),
+                    .axisLine(SECAxisLine(
+                        .onZero(false)
+                        ))
+                )
+                ]),
+            .yAxis([
+                SECAxis(
+                    .min(-30),
+                    .max(60),
+                    .type(.value),
+                    .axisLine(SECAxisLine(
+                        .onZero(false)
+                        ))
+                )
+                ]),
+            .dataZoom([
+                SECSliderDataZoom(
+                    .xAxisIndex(0),
+                    .filterMode(.empty)
+                ),
+                SECSliderDataZoom(
+                    .yAxisIndex(0),
+                    .filterMode(.empty)
+                ),
+                SECInsideDataZoom(
+                    .xAxisIndex(0),
+                    .filterMode(.empty)
+                ),
+                SECInsideDataZoom(
+                    .yAxisIndex(0),
+                    .filterMode(.empty)
+                ),
+                ]),
+            .series([
+                SECLineSerie(
+                    .smooth(false),
+                    .symbolSize(symbolSize),
+                    .data(data)
+                )
+                ])
+        )
+    }
+    
     /// 指数折线图
     /// 地址: http://echarts.baidu.com/gallery/editor.html?c=line-log
     static func logAxisOption() -> SECOption {

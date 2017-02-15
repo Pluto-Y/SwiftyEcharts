@@ -28,6 +28,12 @@ class SECTwoElementsSpec : QuickSpec {
                 let percentJson = String(format: precisionFomatStr, percentValue)
                 
                 expect(twoElements.jsonString).to(equal("[\(floatValue), \(percentJson)]"))
+                
+                let toMuchElements: SECTwoElements = [3, 4, 5, 6%]
+                expect(toMuchElements.jsonString).to(equal("null"))
+                
+                // 如果不是 SECLength 的话，就会产生编译错误
+//                let errorType: SECTwoElements = ["hello", 4]
             }
             
         }

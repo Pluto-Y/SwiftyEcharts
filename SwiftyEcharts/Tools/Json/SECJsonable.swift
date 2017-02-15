@@ -154,7 +154,7 @@ extension Dictionary : SECJsonable {
                 let value = self[key]!
                 jsonStr += "\"\(key)\":"
                 if let v = value as? SECJsonable {
-                    jsonStr += "\(v.toJson())"
+                    jsonStr += "\(v.jsonString)"
                 } else if let d = value as? CustomStringConvertible {
                     jsonStr += "\(d.description)"
                 } else {

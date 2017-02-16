@@ -1016,3 +1016,11 @@ extension SECToolbox.Feature.Brush : SECMappable {
         map["title"] = title
     }
 }
+
+public typealias SECTFeature = SECToolbox.Feature
+public typealias SECTFDataZoom = SECToolbox.Feature.DataZoom
+public typealias SECTFDataView = SECToolbox.Feature.DataView
+public typealias SECTFMagicType = SECToolbox.Feature.MagicType
+public typealias SECTFRestore = SECToolbox.Feature.Restore
+public typealias SECTFSaveAsImage = SECToolbox.Feature.SaveAsImage
+public typealias SECTFBrush = SECToolbox.Feature.Brush

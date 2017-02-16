@@ -144,7 +144,7 @@ public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadow
     ///     }
     public var tooltip: SECTooltip?
     /// 图例的数据数组。
-    public var datas: [SECJsonable]?
+    public var data: [SECJsonable]?
     public var backgroundColor: SECColor?
     public var borderColor: SECColor?
     public var borderWidth: Float?
@@ -194,7 +194,7 @@ extension SECLegend.Data : SECMappable {
 
 extension SECLegend : SECEnumable {
     public enum Enums {
-        case show(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), datas([SECJsonable]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), data([SECJsonable]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -244,8 +244,8 @@ extension SECLegend : SECEnumable {
                 self.textStyle = textStyle
             case let .tooltip(tooltip):
                 self.tooltip = tooltip
-            case let .datas(datas):
-                self.datas = datas
+            case let .data(data):
+                self.data = data
             case let .backgroundColor(backgroundColor):
                 self.backgroundColor = backgroundColor
             case let .borderColor(color):
@@ -288,7 +288,7 @@ extension SECLegend : SECMappable {
         map["selected"] = selected
         map["textStyle"] = textStyle
         map["tooltip"] = tooltip
-        map["datas"] = datas
+        map["data"] = data
         map["backgroundColor"] = backgroundColor
         map["borderColor"] = borderColor
         map["borderWidth"] = borderWidth

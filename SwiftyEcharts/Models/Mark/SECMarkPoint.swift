@@ -8,6 +8,22 @@
 
 public struct SECMarkPoint : SECSymbolized, SECAnimatable {
     
+    public struct Data : SECSymbolized {
+        public var name: String?
+        public var valueIndex: UInt8?
+        public var valueDim: String?
+        public var coord: [SECJsonable]?
+        public var x: Float?
+        public var y: Float?
+        public var value: Float?
+        public var symbol: SECSymbol?
+        public var symbolSize: Float?
+        public var symbolRotate: Float?
+        public var symbolOffset: [SECLength]?
+        public var itemStyle: SECItemStyle?
+        public var label: SECLabel?
+    }
+    
     /// 标记的图形。
     public var symbol: SECSymbol?
     /// 标记的大小
@@ -217,5 +233,64 @@ extension SECMarkPoint.Label : SECMappable {
     public func mapping(map: SECMap) {
         map["normal"] = normal
         map["emphasis"] = emphasis
+    }
+}
+
+extension SECMarkPoint.Data : SECEnumable {
+    public enum Enums {
+        case name(String), valueIndex(UInt8), valueDim(String), coord([SECJsonable]), x(Float), y(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), itemStyle(SECItemStyle), label(SECLabel)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .valueIndex(valueIndex):
+                self.valueIndex = valueIndex
+            case let .valueDim(valueDim):
+                self.valueDim = valueDim
+            case let .coord(coord):
+                self.coord = coord
+            case let .x(x):
+                self.x = x
+            case let .y(y):
+                self.y = y
+            case let .value(value):
+                self.value = value
+            case let .symbol(symbol):
+                self.symbol = symbol
+            case let .symbolSize(symbolSize):
+                self.symbolSize = symbolSize
+            case let .symbolRotate(symbolRotate):
+                self.symbolRotate = symbolRotate
+            case let .symbolOffset(symbolOffset):
+                self.symbolOffset = symbolOffset
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            case let .label(label):
+                self.label = label
+            }
+        }
+    }
+}
+
+extension SECMarkPoint.Data : SECMappable {
+    public func mapping(map: SECMap) {
+        map["name"] = name
+        map["valueIndex"] = valueIndex
+        map["valueDim"] = valueDim
+        map["coord"] = coord
+        map["x"] = x
+        map["y"] = y
+        map["value"] = value
+        map["symbol"] = symbol
+        map["symbolSize"] = symbolSize
+        map["symbolRotate"] = symbolRotate
+        map["symbolOffset"] = symbolOffset
+        map["itemStyle"] = itemStyle
+        map["label"] = label
     }
 }

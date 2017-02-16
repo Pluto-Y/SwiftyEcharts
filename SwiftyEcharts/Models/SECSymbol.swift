@@ -16,6 +16,7 @@ public enum SECSymbol: CustomStringConvertible, SECJsonable {
     case diamond
     case pin
     case arrow
+    case none
     case image(String)
     case path(String)
     
@@ -37,6 +38,8 @@ public enum SECSymbol: CustomStringConvertible, SECJsonable {
             return "pin"
         case .arrow:
             return "arrow"
+        case .none:
+            return "none"
         case let .image(url):
             return url
         case let .path(path):

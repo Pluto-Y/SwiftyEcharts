@@ -96,6 +96,121 @@ public struct SECLineOptions {
         )
     }
     
+    /// 未来一周气温变化
+    /// 地址: http://echarts.baidu.com/demo.html#line-marker
+    static func lineMarkerOption() -> SECOption {
+        return SECOption(
+            .title(SECTitle(
+                .text("未来一周气温变化"),
+                .subtext("纯属虚构")
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis)
+                )),
+            .legend(SECLegend(
+                .data(["最高气温","低气温"])
+                )),
+            .toolbox(SECToolbox(
+                .show(true),
+                .feature(SECToolbox.Feature(
+                    .dataZoom(SECTFDataZoom(
+                        .yAxisIndex(.bool(false))
+                        )),
+                    .dataView(SECTFDataView(
+                        .readOnly(false)
+                        )),
+                    .magicType(SECTFMagicType(
+                        .type([.line, .bar])
+                        )),
+                    .restore(SECTFRestore(
+                        )),
+                    .saveAsImage(SECTFSaveAsImage(
+                        ))
+                    ))
+                )),
+            .xAxis([
+                SECAxis(
+                    .type(.category),
+                    .boundaryGap(.category(false)),
+                    .data(["周一","周二","周三","周四","周五","周六","周日"])
+                )
+                ]),
+            .yAxis([
+                SECAxis(
+                    .type(.value),
+                    .axisLabel(SECAxisLabel(
+                        .formatter(.string("{value} °C"))
+                        ))
+                )
+                ]),
+            .series([
+                SECLineSerie(
+                    .name("最高气温"),
+                    .data([11, 11, 15, 13, 12, 13, 10]),
+                    .markPoint(SECMarkPoint(
+                        ))
+                ),
+                SECLineSerie(
+                ),
+                ])
+        )
+    }
+    
+    /// 指数折线图
+    /// 地址: http://echarts.baidu.com/gallery/editor.html?c=line-log
+    static func logAxisOption() -> SECOption {
+        return SECOption(
+            .title(SECTitle(
+                .text("对数轴示例"),
+                .left(.center)
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.item),
+                .formatter(.string("{a} <br/>{b} : {c}"))
+                )),
+            .legend(SECLegend(
+                .left(.left),
+                .data(["2的指数", "3的指数"])
+                )),
+            .xAxis([
+                SECAxis(
+                    .type(.category),
+                    .name("x"),
+                    .splitArea(SECSplitArea(
+                        .show(false)
+                        )),
+                    .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
+                    )
+                ]),
+            .grid(SECGrid(
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
+                .containLabel(true)
+                )),
+            .yAxis([
+                SECAxis(
+                    .type(.log),
+                    .name("y")
+                    )
+                ]),
+            .series([
+                SECLineSerie(
+                    .name("3的指数"),
+                    .data([1, 3, 9, 27, 81, 247, 741, 2223, 6669])
+                    ),
+                SECLineSerie(
+                    .name("2的指数"),
+                    .data([1, 2, 4, 8, 16, 32, 64, 128, 256])
+                    ),
+                SECLineSerie(
+                    .name("1/2的指数"),
+                    .data([1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625])
+                    )
+                ])
+            )
+    }
+    
     /// Try Dragging these Points
     /// 地址: http://echarts.baidu.com/demo.html#line-draggable
     static func lineDraggableOption() -> SECOption {
@@ -157,60 +272,5 @@ public struct SECLineOptions {
                 )
                 ])
         )
-    }
-    
-    /// 指数折线图
-    /// 地址: http://echarts.baidu.com/gallery/editor.html?c=line-log
-    static func logAxisOption() -> SECOption {
-        return SECOption(
-            .title(SECTitle(
-                .text("对数轴示例"),
-                .left(.center)
-                )),
-            .tooltip(SECTooltip(
-                .trigger(.item),
-                .formatter(.string("{a} <br/>{b} : {c}"))
-                )),
-            .legend(SECLegend(
-                .left(.left),
-                .datas(["2的指数", "3的指数"])
-                )),
-            .xAxis([
-                SECAxis(
-                    .type(.category),
-                    .name("x"),
-                    .splitArea(SECSplitArea(
-                        .show(false)
-                        )),
-                    .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
-                    )
-                ]),
-            .grid(SECGrid(
-                .left(.value(3%)),
-                .right(.value(4%)),
-                .bottom(.value(3%)),
-                .containLabel(true)
-                )),
-            .yAxis([
-                SECAxis(
-                    .type(.log),
-                    .name("y")
-                    )
-                ]),
-            .series([
-                SECLineSerie(
-                    .name("3的指数"),
-                    .data([1, 3, 9, 27, 81, 247, 741, 2223, 6669])
-                    ),
-                SECLineSerie(
-                    .name("2的指数"),
-                    .data([1, 2, 4, 8, 16, 32, 64, 128, 256])
-                    ),
-                SECLineSerie(
-                    .name("1/2的指数"),
-                    .data([1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625])
-                    )
-                ])
-            )
     }
 }

@@ -9,7 +9,17 @@
 public struct SECMarkPoint : SECSymbolized, SECAnimatable {
     
     public struct Data : SECSymbolized {
+        public enum Type : String, SECJsonable {
+            case min = "min"
+            case max = "max"
+            case average = "average"
+            
+            public var jsonString: String {
+                return "\"\(self.rawValue)\""
+            }
+        }
         public var name: String?
+        public var type: Type?
         public var valueIndex: UInt8?
         public var valueDim: String?
         public var coord: [SECJsonable]?
@@ -238,7 +248,7 @@ extension SECMarkPoint.Label : SECMappable {
 
 extension SECMarkPoint.Data : SECEnumable {
     public enum Enums {
-        case name(String), valueIndex(UInt8), valueDim(String), coord([SECJsonable]), x(Float), y(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), itemStyle(SECItemStyle), label(SECLabel)
+        case name(String), type(Type), valueIndex(UInt8), valueDim(String), coord([SECJsonable]), x(Float), y(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), itemStyle(SECItemStyle), label(SECLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -248,6 +258,8 @@ extension SECMarkPoint.Data : SECEnumable {
             switch ele {
             case let .name(name):
                 self.name = name
+            case let .type(type):
+                self.type = type
             case let .valueIndex(valueIndex):
                 self.valueIndex = valueIndex
             case let .valueDim(valueDim):
@@ -280,6 +292,7 @@ extension SECMarkPoint.Data : SECEnumable {
 extension SECMarkPoint.Data : SECMappable {
     public func mapping(map: SECMap) {
         map["name"] = name
+        map["type"] = type
         map["valueIndex"] = valueIndex
         map["valueDim"] = valueDim
         map["coord"] = coord

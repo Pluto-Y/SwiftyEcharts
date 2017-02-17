@@ -331,4 +331,72 @@ public struct SECLineOptions {
                 ])
         )
     }
+    
+    /// 折线图堆叠
+    /// 地址:http://echarts.baidu.com/demo.html#line-stack
+    static func lineStackOption() -> SECOption {
+        return SECOption(
+            .title(SECTitle(
+                .text("折线图堆叠")
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis)
+                )),
+            .legend(SECLegend(
+                .data(["邮件营销","联盟广告","视频广告","直接访问","搜索引擎"])
+                )),
+            .grid(SECGrid(
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
+                .containLabel(true)
+                )),
+            .toolbox(SECToolbox(
+                .feature(SECToolbox.Feature(
+                    .saveAsImage(SECToolbox.Feature.SaveAsImage(
+                        
+                        ))
+                    ))
+                )),
+            .xAxis([
+                SECAxis(
+                    .type(.category),
+                    .boundaryGap(.category(false)),
+                    .data(["周一","周二","周三","周四","周五","周六","周日"])
+                )
+                ]),
+            .yAxis([
+                SECAxis(
+                    .type(.value)
+                )
+                ]),
+            .series([
+                SECLineSerie(
+                    .name("邮件营销"),
+                    .stack("总量"),
+                    .data([120, 132, 101, 134, 90, 230, 210])
+                ),
+                SECLineSerie(
+                    .name("联盟广告"),
+                    .stack("总量"),
+                    .data([220, 182, 191, 234, 290, 330, 310])
+                ),
+                SECLineSerie(
+                    .name("视频广告"),
+                    .stack("总量"),
+                    .data([150, 232, 201, 154, 190, 330, 410])
+                ),
+                SECLineSerie(
+                    .name("直接访问"),
+                    .stack("总量"),
+                    .data([320, 332, 301, 334, 390, 330, 320])
+                ),
+                SECLineSerie(
+                    .name("搜索引擎"),
+                    .stack("总量"),
+                    .data([820, 932, 901, 934, 1290, 1330, 1320])
+                )
+                ])
+        )
+    }
 }

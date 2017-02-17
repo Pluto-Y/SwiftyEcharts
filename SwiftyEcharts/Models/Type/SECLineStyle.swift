@@ -14,7 +14,7 @@ public protocol SECLineStyleContent: SECColorful, SECShadowable, SECOpacitable {
 public struct SECCommonLineStyleContent: SECLineStyleContent {
     public var color: SECColor?
     public var width: Float?
-    public var type: SECLineType? = SECLineType.solid
+    public var type: SECLineType?
     public var shadowBlur: Float?
     public var shadowColor: SECColor?
     public var shadowOffsetX: Float?
@@ -73,7 +73,7 @@ extension SECCommonLineStyleContent : SECMappable {
 }
 
 public struct SECCommonLineStyle : SECEmphasisable {
-    public typealias Style = SECCommonItemStyleContent
+    public typealias Style = SECCommonLineStyleContent
     
     public var normal: Style?
     public var emphasis: Style?

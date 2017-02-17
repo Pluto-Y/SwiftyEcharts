@@ -332,6 +332,47 @@ public struct SECLineOptions {
         )
     }
     
+    /// 极坐标双数值轴
+    /// 地址:http://echarts.baidu.com/demo.html#line-polar
+    static func linePolarOption() -> SECOption {
+        var data: [SECJsonable] = []
+        for i in 0...100 {
+            let theta: Double = Double(i) / 100.0 * 360
+            let r: Double = 5 * sin(theta / 180 * M_PI) + 5
+            data.append([r, theta])
+            
+        }
+        return SECOption(
+            .title(SECTitle(
+                .text("极坐标双数值轴")
+                )),
+            .legend(SECLegend(
+                .data(["line"])
+                )),
+            .polar(SECPolar(
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis),
+                .axisPointer(SECTooltip.AxisPointer(
+                    .type(.cross)
+                    ))
+                )),
+            .angleAxis([SECAngleAxis(
+                .type(.value),
+                .startAngle(0)
+                )]),
+            .radiusAxis([SECRadiusAxis(
+                )]),
+            .series([
+                SECLineSerie(
+                    .coordinateSystem(.polar),
+                    .name("line"),
+                    .data(data)
+                )
+                ])
+        )
+    }
+    
     /// 折线图堆叠
     /// 地址:http://echarts.baidu.com/demo.html#line-stack
     static func lineStackOption() -> SECOption {

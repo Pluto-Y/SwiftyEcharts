@@ -10,7 +10,7 @@ import SwiftyEcharts
 
 public struct SECLineOptions {
     
-    /// 堆叠区域图
+    // MARK: 堆叠区域图
     /// 地址:http://echarts.baidu.com/demo.html#area-stack
     static func areaStackOption() -> SECOption {
         return SECOption(
@@ -96,7 +96,7 @@ public struct SECLineOptions {
         )
     }
     
-    /// 未来一周气温变化
+    // MARK: 未来一周气温变化
     /// 地址: http://echarts.baidu.com/demo.html#line-marker
     static func lineMarkerOption() -> SECOption {
         return SECOption(
@@ -214,7 +214,7 @@ public struct SECLineOptions {
         )
     }
     
-    /// 指数折线图
+    // MARK: 指数折线图
     /// 地址: http://echarts.baidu.com/gallery/editor.html?c=line-log
     static func logAxisOption() -> SECOption {
         return SECOption(
@@ -269,7 +269,7 @@ public struct SECLineOptions {
         )
     }
     
-    /// Try Dragging these Points
+    // MARK: Try Dragging these Points
     /// 地址: http://echarts.baidu.com/demo.html#line-draggable
     static func lineDraggableOption() -> SECOption {
         // 未完成对应的拖拽代码
@@ -332,7 +332,7 @@ public struct SECLineOptions {
         )
     }
     
-    /// 极坐标双数值轴
+    // MARK: 极坐标双数值轴
     /// 地址:http://echarts.baidu.com/demo.html#line-polar
     static func linePolarOption() -> SECOption {
         var data: [SECJsonable] = []
@@ -373,7 +373,7 @@ public struct SECLineOptions {
         )
     }
     
-    /// 折线图堆叠
+    // MARK: 折线图堆叠
     /// 地址:http://echarts.baidu.com/demo.html#line-stack
     static func lineStackOption() -> SECOption {
         return SECOption(
@@ -441,6 +441,8 @@ public struct SECLineOptions {
         )
     }
     
+    // MARK: Line Step
+    /// 地址:http://echarts.baidu.com/demo.html#line-step
     static func lineStepOption() -> SECOption {
         return SECOption(
             .title(SECTitle(
@@ -489,7 +491,7 @@ public struct SECLineOptions {
     }
     
     
-    /// 高度(km)与气温(°C)变化关系
+    // MARK: 高度(km)与气温(°C)变化关系
     /// 地址:http://echarts.baidu.com/demo.html#line-y-category
     static func lineYCategory() -> SECOption {
         return SECOption(

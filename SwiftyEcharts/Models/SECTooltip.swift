@@ -125,6 +125,10 @@ public struct SECTooltip : SECBorderable, SECDisplayable, SECFormatted, SECJsona
         /// - shadow: 阴影指示器
         public enum Type : String, SECJsonable {
             case line = "line", cross = "cross", shadow = "shadow"
+            
+            public var jsonString: String {
+                return "\"\(self.rawValue)\""
+            }
         }
         
         

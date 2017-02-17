@@ -399,4 +399,51 @@ public struct SECLineOptions {
                 ])
         )
     }
+    
+    static func lineStepOption() -> SECOption {
+        return SECOption(
+            .title(SECTitle(
+                .text("Step Line")
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis)
+                )),
+            .grid(SECGrid(
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
+                .containLabel(true)
+                )),
+            .toolbox(SECToolbox(
+                .feature(SECTFeature(
+                    .saveAsImage(SECTFSaveAsImage(
+                        ))
+                    ))
+                )),
+            .xAxis([SECAxis(
+                .type(.category),
+                .data(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
+                )]),
+            .yAxis([SECAxis(
+                .type(.value)
+                )]),
+            .series([
+                SECLineSerie(
+                    .name("Step Start"),
+                    .step(.start),
+                    .data([120, 132, 101, 134, 90, 230, 210])
+                ),
+                SECLineSerie(
+                    .name("Step Middle"),
+                    .step(.middle),
+                    .data([220, 282, 201, 234, 290, 430, 410])
+                ),
+                SECLineSerie(
+                    .name("Step End"),
+                    .step(.end),
+                    .data([450, 432, 401, 454, 590, 530, 510])
+                )
+                ])
+        )
+    }
 }

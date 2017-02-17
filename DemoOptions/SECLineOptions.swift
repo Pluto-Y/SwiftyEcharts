@@ -487,4 +487,56 @@ public struct SECLineOptions {
                 ])
         )
     }
+    
+    
+    /// 高度(km)与气温(°C)变化关系
+    /// 地址:http://echarts.baidu.com/demo.html#line-y-category
+    static func lineYCategory() -> SECOption {
+        return SECOption(
+            .legend(SECLegend(
+                .data(["高度(km)与气温(°C)变化关系"])
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis),
+                .formatter(.string("Temperature : <br/>{b}km : {c}°C"))
+                )),
+            .grid(SECGrid(
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
+                .containLabel(true)
+                )),
+            .xAxis([SECAxis(
+                .type(.value),
+                .axisLabel(SECAxisLabel(
+                    .formatter(.string("{value} °C"))
+                    ))
+                )]),
+            .yAxis([SECAxis(
+                .type(.category),
+                .axisLine(SECAxisLine(
+                    .onZero(false)
+                    )),
+                .axisLabel(SECAxisLabel(
+                    .formatter(.string("{value} km"))
+                    )),
+                .data(["0", "10", "20", "30", "40", "50", "60", "70", "80"])
+                )]),
+            .series([
+                SECLineSerie(
+                    .name("高度(km)与气温(°C)变化关系"),
+                    .smooth(true),
+                    .lineStyle(SECCommonLineStyle(
+                        .normal(SECCommonLineStyleContent(
+                            .width(3),
+                            .shadowColor(.rgba(0, 0, 0, 0.4)),
+                            .shadowBlur(10.0),
+                            .shadowOffsetY(10.0)
+                            ))
+                        )),
+                    .data([15, -50, -56.5, -46.5, -22.1, -2.5, -27.7, -55.7, -76.5])
+                )
+                ])
+        )
+    }
 }

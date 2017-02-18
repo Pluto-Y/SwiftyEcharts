@@ -100,7 +100,7 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKSc
         
         guard let option = option else {
             printWarning("The option is nil")
-            self .callJsMethod("initEchartView")
+            self.callJsMethod("initEchartView")
             return;
         }
         resizeDiv()
@@ -116,8 +116,8 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKSc
         }
         
         
-        let js = "loadEcharts('\(optionJson)')"
-        print(js)//.stringByReplacingOccurrencesOfString("\n", withString: "\\n")
+        let js = "loadEcharts('\(optionJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))')"
+        print(js)
         callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
         
     }

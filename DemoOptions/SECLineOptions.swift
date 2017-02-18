@@ -10,6 +10,139 @@ import SwiftyEcharts
 
 public struct SECLineOptions {
     
+    // MARK: 雨量流量关系图
+    /// 地址:http://echarts.baidu.com/demo.html#area-rainfall
+    static func areaRainfallOption() -> SECOption {
+        print(NSBundle.mainBundle().pathForResource("AreaRainfallDatas", ofType: "plist"))
+        
+        guard let plistUrl = NSBundle.mainBundle().pathForResource("AreaRainfallDatas", ofType: "plist") else {
+            print("Can't find the file")
+            return SECOption()
+        }
+        
+        guard let plistDatas = NSDictionary(contentsOfFile: plistUrl) else {
+            return SECOption()
+        }
+        
+        
+        let xAxisDatas = (plistDatas["XAxisDatas"] as! [String]).map({ (ele) -> SECJsonable in
+            return ele
+        })
+        let seriesDatas1 = (plistDatas["SeriesData1"] as! [Float]).map { (ele) -> SECJsonable in
+            return ele
+        }
+        let seriesDatas2 = (plistDatas["SeriesData2"] as! [Float]).map { (ele) -> SECJsonable in
+            return ele
+        }
+        let areaData1: [SECJsonable] = [[["xAxis": "2009/9/12/\\n7:00"], ["xAxis": "2009/9/22\\n:7:00"]]] 
+        let areaData2: [SECJsonable] = [[["xAxis": "2009/9/10/\\n7:00"], ["xAxis": "2009/9/20\\n:7:00"]]]
+        return SECOption(
+            .title(SECTitle(
+                .text("雨量流量关系图"),
+                .subtext("数据来自西安兰特水电测控技术有限公司"),
+                .textAlign(.center)
+                )),
+            .grid(SECGrid(
+                .bottom(.value(80))
+                )),
+            .toolbox(SECToolbox(
+                .feature(SECTFeature(
+                    .dataZoom(SECTFDataZoom(
+                        .yAxisIndex(.bool(false))
+                        )),
+                    .restore(SECTFRestore()),
+                    .saveAsImage(SECTFSaveAsImage())
+                    ))
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis),
+                .axisPointer(SECTooltip.AxisPointer(
+                    .animation(false)
+                    ))
+                )),
+            .legend(SECLegend(
+                .data(["流量", "降雨量"]),
+                .left(.left)
+                )),
+            .dataZoom([
+                SECSliderDataZoom(
+                    .show(true),
+                    .realtime(true),
+                    .start(65),
+                    .end(85)
+                ),
+                SECInsideDataZoom(
+                    .start(65),
+                    .end(85)
+                )
+                ]),
+            .xAxis([
+                SECAxis(
+                    .type(.category),
+                    .boundaryGap(.category(false)),
+                    .axisLine(SECAxisLine(
+                        .onZero(false)
+                        )),
+                    .data(xAxisDatas)
+                )
+                ]),
+            .yAxis([
+                SECAxis(
+                    .name("流量(m^3/s)"),
+                    .type(.value),
+                    .max(500)
+                ),
+                SECAxis(
+                    .name("降雨量(mm)"),
+                    .nameLocation("start"),
+                    .max(5),
+                    .type(.value),
+                    .inverse(true)
+                    
+                )
+                ]),
+            .series([
+                SECLineSerie(
+                    .name("流量"),
+                    .animation(false),
+                    .areaStyle(SECLineSerie.AreaStyle(
+                        .normal(SECCommonAreaStyleContent(
+                            ))
+                        )),
+                    .lineStyle(SECCommonLineStyle(
+                        .normal(SECCommonLineStyleContent(
+                            .width(1)
+                            ))
+                        )),
+                    .markArea(SECMarkArea(
+                        .silent(true),
+                        .data(areaData1)
+                        )),
+                    .data(seriesDatas1)
+                ),
+                SECLineSerie(
+                    .name("降雨量"),
+                    .yAxisIndex(1),
+                    .animation(false),
+                    .areaStyle(SECLineSerie.AreaStyle(
+                        .normal(SECCommonAreaStyleContent(
+                            ))
+                        )),
+                    .lineStyle(SECCommonLineStyle(
+                        .normal(SECCommonLineStyleContent(
+                            .width(1)
+                            ))
+                        )),
+                    .markArea(SECMarkArea(
+                        .silent(true),
+                        .data(areaData2)
+                        )),
+                    .data(seriesDatas2)
+                )
+                ])
+        )
+    }
+    
     // MARK: 堆叠区域图
     /// 地址:http://echarts.baidu.com/demo.html#area-stack
     static func areaStackOption() -> SECOption {

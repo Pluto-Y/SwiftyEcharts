@@ -59,6 +59,7 @@
 		6F1ED0731E23DC0A00A1E154 /* SECOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE921E2354B60021CB13 /* SECOption.swift */; };
 		6F1FDA8D1DF5D286004BC74E /* SECSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1FDA8C1DF5D286004BC74E /* SECSymbol.swift */; };
 		6F1FDA8F1DF5D6E9004BC74E /* SECGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1FDA8E1DF5D6E9004BC74E /* SECGrid.swift */; };
+		6F3FA5771E58919E00A84E1D /* AreaRainfallDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */; };
 		6F4ACB361E1BD36100CE5FD5 /* SECEmphasisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4ACB351E1BD36100CE5FD5 /* SECEmphasisable.swift */; };
 		6F4ACB391E1BDB2600CE5FD5 /* SECBorderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4ACB381E1BDB2600CE5FD5 /* SECBorderable.swift */; };
 		6F4ACB3C1E1BF47B00CE5FD5 /* SECLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4ACB3B1E1BF47B00CE5FD5 /* SECLabel.swift */; };
@@ -138,6 +139,7 @@
 		6FEC7D1B1E549487003A88D7 /* SECTwoElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1A1E549487003A88D7 /* SECTwoElements.swift */; };
 		6FEC7D1D1E54996B003A88D7 /* SECTwoElementsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1C1E54996B003A88D7 /* SECTwoElementsSpec.swift */; };
 		6FEC7D1F1E55EEE0003A88D7 /* SECMarkDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1E1E55EEE0003A88D7 /* SECMarkDataType.swift */; };
+		6FEC7D231E58152F003A88D7 /* AreaRainfallDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -303,6 +305,7 @@
 		6FEC7D1A1E549487003A88D7 /* SECTwoElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECTwoElements.swift; sourceTree = "<group>"; };
 		6FEC7D1C1E54996B003A88D7 /* SECTwoElementsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECTwoElementsSpec.swift; sourceTree = "<group>"; };
 		6FEC7D1E1E55EEE0003A88D7 /* SECMarkDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkDataType.swift; sourceTree = "<group>"; };
+		6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AreaRainfallDatas.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +367,7 @@
 				5427F09A1E2C982900CE20E5 /* SECGaugeOptions.swift */,
 				5427F09C1E2C983A00CE20E5 /* SECPictoriaBarOptions.swift */,
 				5427F09E1E2C984500CE20E5 /* SECThemeRiverOptions.swift */,
+				6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */,
 			);
 			path = DemoOptions;
 			sourceTree = "<group>";
@@ -775,6 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F9B70D51DE806B000406B55 /* echarts.html in Resources */,
+				6FEC7D231E58152F003A88D7 /* AreaRainfallDatas.plist in Resources */,
 				6F9B70D61DE806B000406B55 /* js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,6 +788,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F3FA5771E58919E00A84E1D /* AreaRainfallDatas.plist in Resources */,
 				6F9B70EA1DE808E600406B55 /* LaunchScreen.storyboard in Resources */,
 				6F9B70E71DE808E600406B55 /* Assets.xcassets in Resources */,
 				6F9B70E51DE808E600406B55 /* Main.storyboard in Resources */,

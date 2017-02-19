@@ -126,6 +126,8 @@ extension Array : SECJsonable {
             for item in self {
                 if let i = item as? SECJsonable {
                     jsonStr += "\(i.toJson())"
+                } else if let s = item as? String { // 处理字符串常量的情况
+                    jsonStr += "\(s.jsonString)"
                 } else if let d = item as? CustomStringConvertible {
                     jsonStr += "\(d.description)"
                 } else {
@@ -155,6 +157,8 @@ extension Dictionary : SECJsonable {
                 jsonStr += "\"\(key)\":"
                 if let v = value as? SECJsonable {
                     jsonStr += "\(v.jsonString)"
+                } else if let s = value as? String { // 处理字符串常量的情况
+                    jsonStr += "\(s.jsonString)"
                 } else if let d = value as? CustomStringConvertible {
                     jsonStr += "\(d.description)"
                 } else {

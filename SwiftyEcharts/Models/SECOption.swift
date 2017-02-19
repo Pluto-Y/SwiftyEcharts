@@ -9,7 +9,7 @@
 public struct SECOption : SECTextful, SECAnimatable {
     public var title: SECTitle?
     public var legend: SECLegend?
-    public var grid: SECGrid?
+    public var grid: [SECGrid]?
     public var xAxis: [SECAxis]?
     public var yAxis: [SECAxis]?
     public var polar: SECPolar?
@@ -77,7 +77,7 @@ public struct SECOption : SECTextful, SECAnimatable {
 
 extension SECOption : SECEnumable {
 	public enum Enums {
-		case title(SECTitle), legend(SECLegend), grid(SECGrid), xAxis([SECAxis]), yAxis([SECAxis]), polar(SECPolar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(SECRadar), dataZoom([SECDataZoom]), visualMap(SECVisualMap), tooltip(SECTooltip), toolbox(SECToolbox), brush(SECBrush), geo(SECGeo), parallel(SECParallel), parallelAxis([SECParallelAxis]), singleAxis([SECSingleAxis]), timeline(SECTimeline), graphic([SECGraphic]), series([SECSeries]), color([SECColor]), backgroundColor(SECColor), textStyle(SECTextStyle), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+		case title(SECTitle), legend(SECLegend), grid([SECGrid]), xAxis([SECAxis]), yAxis([SECAxis]), polar(SECPolar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(SECRadar), dataZoom([SECDataZoom]), visualMap(SECVisualMap), tooltip(SECTooltip), toolbox(SECToolbox), brush(SECBrush), geo(SECGeo), parallel(SECParallel), parallelAxis([SECParallelAxis]), singleAxis([SECSingleAxis]), timeline(SECTimeline), graphic([SECGraphic]), series([SECSeries]), color([SECColor]), backgroundColor(SECColor), textStyle(SECTextStyle), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
 	}
 
 	public typealias ContentEnum = Enums

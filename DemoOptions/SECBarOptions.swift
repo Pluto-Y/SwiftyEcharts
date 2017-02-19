@@ -75,4 +75,62 @@ public struct SECBarOptions {
         )
     }
     
+    // MARK: 正负条形图
+    /// 地址:http://echarts.baidu.com/demo.html#bar-negative
+    static func barNegativeOption() -> SECOption {
+        return SECOption(
+            .tooltip(SECTooltip(
+                .trigger(.axis),
+                .axisPointer(SECTooltip.AxisPointer(
+                    .type(.shadow)
+                    ))
+                )),
+            .legend(SECLegend(
+                .data(["利润", "支出", "收入"])
+                )),
+            .xAxis(SECAxis(
+                .type(.value)
+                )),
+            .yAxis(SECAxis(
+                .type(.category),
+                .axisTick(SECAxisTick(
+                    .show(false)
+                    )),
+                .data(["周一","周二","周三","周四","周五","周六","周日"])
+                )),
+            .series([
+                SECBarSerie(
+                    .name("利润"),
+                    .label(SECBarSerie.Label(
+                        .normal(SECBarSerie.LabelContent(
+                            .show(true),
+                            .position(.inside)
+                            ))
+                        )),
+                    .data([200, 170, 240, 244, 200, 220, 210])
+                ),
+                SECBarSerie(
+                    .name("收入"),
+                    .stack("总量"),
+                    .label(SECBarSerie.Label(
+                        .normal(SECBarSerie.LabelContent(
+                            .show(true)
+                            ))
+                        )),
+                    .data([320, 302, 341, 374, 390, 450, 420])
+                ),
+                SECBarSerie(
+                    .name("支出"),
+                    .stack("总量"),
+                    .label(SECBarSerie.Label(
+                        .normal(SECBarSerie.LabelContent(
+                            .show(true),
+                            .position(.left)
+                            ))
+                        )),
+                    .data([-120, -132, -101, -134, -190, -230, -210])
+                )
+                ])
+        )
+    }
 }

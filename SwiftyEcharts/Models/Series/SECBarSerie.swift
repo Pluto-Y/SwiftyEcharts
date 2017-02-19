@@ -179,6 +179,27 @@ extension SECBarSerie : SECEnumable {
 
 extension SECBarSerie : SECMappable {
     public func mapping(map: SECMap) {
+        map["type"] = type
+        map["name"] = name
+        map["legendHoverLine"] = legendHoverLine
+        map["coordinateSystem"] = coordinateSystem
+        map["xAxisIndex"] = xAxisIndex
+        map["yAxisIndex"] = yAxisIndex
+        map["label"] = label
+        map["itemStyle"] = itemStyle
+        map["stack"] = stack
+        map["barWidth"] = barWidth
+        map["barMaxWidth"] = barMaxWidth
+        map["barMinHeight"] = barMinHeight
+        map["barGap"] = barGap
+        map["barCategoryGap"] = barCategoryGap
+        map["data"] = data
+        map["markPoint"] = markPoint
+        map["markLine"] = markLine
+        map["markArea"] = markArea
+        map["zlevel"] = zlevel
+        map["z"] = z
+        map["silent"] = silent
         map["animation"] = animation
         map["animationThreshold"] = animationThreshold
         map["animationDuration"] = animationDuration

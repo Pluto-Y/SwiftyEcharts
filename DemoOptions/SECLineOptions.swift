@@ -104,8 +104,8 @@ public struct SECLineOptions {
                         .normal(SECCommonAreaStyleContent(
                             ))
                         )),
-                    .lineStyle(SECCommonLineStyle(
-                        .normal(SECCommonLineStyleContent(
+                    .lineStyle(SECEmphasisLineStyle(
+                        .normal(SECLineStyle(
                             .width(1)
                             ))
                         )),
@@ -123,8 +123,8 @@ public struct SECLineOptions {
                         .normal(SECCommonAreaStyleContent(
                             ))
                         )),
-                    .lineStyle(SECCommonLineStyle(
-                        .normal(SECCommonLineStyleContent(
+                    .lineStyle(SECEmphasisLineStyle(
+                        .normal(SECLineStyle(
                             .width(1)
                             ))
                         )),
@@ -888,8 +888,8 @@ public struct SECLineOptions {
                 SECLineSerie(
                     .name("高度(km)与气温(°C)变化关系"),
                     .smooth(true),
-                    .lineStyle(SECCommonLineStyle(
-                        .normal(SECCommonLineStyleContent(
+                    .lineStyle(SECEmphasisLineStyle(
+                        .normal(SECLineStyle(
                             .width(3),
                             .shadowColor(.rgba(0, 0, 0, 0.4)),
                             .shadowBlur(10.0),

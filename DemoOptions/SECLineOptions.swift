@@ -39,9 +39,9 @@ public struct SECLineOptions {
                 .subtext("数据来自西安兰特水电测控技术有限公司"),
                 .textAlign(.center)
                 )),
-            .grid([SECGrid(
+            .grid(SECGrid(
                 .bottom(.value(80))
-                )]),
+                )),
             .toolbox(SECToolbox(
                 .feature(SECTFeature(
                     .dataZoom(SECTFDataZoom(
@@ -157,12 +157,12 @@ public struct SECLineOptions {
                         ))
                     ))
                 )),
-            .grid([SECGrid(
+            .grid(SECGrid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
-                )]),
+                )),
             .xAxis([
                 SECAxis(
                     .type(.category),
@@ -286,7 +286,7 @@ public struct SECLineOptions {
                     .xAxisIndex([0, 1])
                 )
                 ]),
-            .grid([
+            .grids([
                 SECGrid(
                     .left(.value(50)),
                     .right(.value(50)),
@@ -495,12 +495,12 @@ public struct SECLineOptions {
                     .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
                 )
                 ]),
-            .grid([SECGrid(
+            .grid(SECGrid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
-                )]),
+                )),
             .yAxis([
                 SECAxis(
                     .type(.log),
@@ -538,7 +538,7 @@ public struct SECLineOptions {
                 .triggerOn(.none),
                 .formatter(.function("function (params) { return 'X: ' + params.data[0].toFixed(2) + '<br>Y: ' + params.data[1].toFixed(2);}"))
                 )),
-            .grid([SECGrid()]),
+            .grid(SECGrid()),
             .xAxis([
                 SECAxis(
                     .min(-100),
@@ -772,12 +772,12 @@ public struct SECLineOptions {
             .legend(SECLegend(
                 .data(["邮件营销","联盟广告","视频广告","直接访问","搜索引擎"])
                 )),
-            .grid([SECGrid(
+            .grid(SECGrid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
-                )]),
+                )),
             .toolbox(SECToolbox(
                 .feature(SECToolbox.Feature(
                     .saveAsImage(SECToolbox.Feature.SaveAsImage(
@@ -837,12 +837,12 @@ public struct SECLineOptions {
             .tooltip(SECTooltip(
                 .trigger(.axis)
                 )),
-            .grid([SECGrid(
+            .grid(SECGrid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
-                )]),
+                )),
             .toolbox(SECToolbox(
                 .feature(SECTFeature(
                     .saveAsImage(SECTFSaveAsImage(
@@ -888,12 +888,12 @@ public struct SECLineOptions {
                 .trigger(.axis),
                 .formatter(.string("Temperature : <br/>{b}km : {c}°C"))
                 )),
-            .grid([SECGrid(
+            .grid(SECGrid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
-                )]),
+                )),
             .xAxis([SECAxis(
                 .type(.value),
                 .axisLabel(SECAxisLabel(

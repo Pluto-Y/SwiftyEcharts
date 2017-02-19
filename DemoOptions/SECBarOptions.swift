@@ -50,18 +50,14 @@ public struct SECBarOptions {
                     ))
                 )),
             .tooltip(SECTooltip()),
-            .xAxis([
-                SECAxis(
+            .xAxis(SECAxis(
                     .data(xAxisData),
                     .silent(false),
                     .splitLine(SECSplitLine(
                         .show(false)
                         ))
-                )
-                ]),
-            .yAxis([
-                SECAxis()
-                ]),
+                )),
+            .yAxis(SECAxis()),
             .series([
                 SECBarSerie(
                     .name("bar"),

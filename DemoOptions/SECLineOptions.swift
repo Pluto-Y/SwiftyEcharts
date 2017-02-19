@@ -73,17 +73,15 @@ public struct SECLineOptions {
                     .end(85)
                 )
                 ]),
-            .xAxis([
-                SECAxis(
+            .xAxis(SECAxis(
                     .type(.category),
                     .boundaryGap(.category(false)),
                     .axisLine(SECAxisLine(
                         .onZero(false)
                         )),
                     .data(xAxisDatas)
-                )
-                ]),
-            .yAxis([
+                )),
+            .yAxises([
                 SECAxis(
                     .name("流量(m^3/s)"),
                     .type(.value),
@@ -163,18 +161,14 @@ public struct SECLineOptions {
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .xAxis([
-                SECAxis(
+            .xAxis(SECAxis(
                     .type(.category),
                     .boundaryGap(.category(false)),
                     .data(["周一","周二","周三","周四","周五","周六","周日"])
-                )
-                ]),
-            .yAxis([
-                SECAxis(
+                )),
+            .yAxis(SECAxis(
                     .type(.value)
-                )
-                ]),
+                )),
             .series([
                 SECLineSerie(
                     .name("邮件营销"),
@@ -299,7 +293,7 @@ public struct SECLineOptions {
                     .height(20%)
                 )
                 ]),
-            .xAxis([
+            .xAxises([
                 SECAxis(
                     .type(.category),
                     .boundaryGap(.category(false)),
@@ -319,7 +313,7 @@ public struct SECLineOptions {
                     .position(.top)
                 )
                 ]),
-            .yAxis([
+            .yAxises([
                 SECAxis(
                     .name("流量(m^3/s)"),
                     .type(.value),
@@ -383,21 +377,17 @@ public struct SECLineOptions {
                         ))
                     ))
                 )),
-            .xAxis([
-                SECAxis(
+            .xAxis(SECAxis(
                     .type(.category),
                     .boundaryGap(.category(false)),
                     .data(["周一","周二","周三","周四","周五","周六","周日"])
-                )
-                ]),
-            .yAxis([
-                SECAxis(
+                )),
+            .yAxis(SECAxis(
                     .type(.value),
                     .axisLabel(SECAxisLabel(
                         .formatter(.string("{value} °C"))
                         ))
-                )
-                ]),
+                )),
             .series([
                 SECLineSerie(
                     .name("最高气温"),
@@ -485,28 +475,24 @@ public struct SECLineOptions {
                 .left(.left),
                 .data(["2的指数", "3的指数"])
                 )),
-            .xAxis([
-                SECAxis(
+            .xAxis(SECAxis(
                     .type(.category),
                     .name("x"),
                     .splitArea(SECSplitArea(
                         .show(false)
                         )),
                     .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
-                )
-                ]),
+                )),
             .grid(SECGrid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .yAxis([
-                SECAxis(
+            .yAxis(SECAxis(
                     .type(.log),
                     .name("y")
-                )
-                ]),
+                )),
             .series([
                 SECLineSerie(
                     .name("3的指数"),
@@ -539,26 +525,22 @@ public struct SECLineOptions {
                 .formatter(.function("function (params) { return 'X: ' + params.data[0].toFixed(2) + '<br>Y: ' + params.data[1].toFixed(2);}"))
                 )),
             .grid(SECGrid()),
-            .xAxis([
-                SECAxis(
+            .xAxis(SECAxis(
                     .min(-100),
                     .max(80),
                     .type(.value),
                     .axisLine(SECAxisLine(
                         .onZero(false)
                         ))
-                )
-                ]),
-            .yAxis([
-                SECAxis(
+                )),
+            .yAxis(SECAxis(
                     .min(-30),
                     .max(60),
                     .type(.value),
                     .axisLine(SECAxisLine(
                         .onZero(false)
                         ))
-                )
-                ]),
+                )),
             .dataZoom([
                 SECSliderDataZoom(
                     .xAxisIndex([0]),
@@ -689,21 +671,17 @@ public struct SECLineOptions {
                     .saveAsImage(SECTFSaveAsImage())
                     ))
                 )),
-            .xAxis([
-                SECAxis(
+            .xAxis(SECAxis(
                     .type(.category),
                     .boundaryGap(.category(false)),
                     .data(["00:00", "01:15", "02:30", "03:45", "05:00", "06:15", "07:30", "08:45", "10:00", "11:15", "12:30", "13:45", "15:00", "16:15", "17:30", "18:45", "20:00", "21:15", "22:30", "23:45"])
-                )
-                ]),
-            .yAxis([
-                SECAxis(
+                )),
+            .yAxis(SECAxis(
                     .type(.value),
                     .axisLabel(SECAxisLabel(
                         .formatter(.string("{value} W"))
                         ))
-                )
-                ]),
+                )),
             .visualMap(SECPiecewiseVisualMap(
                 .show(false),
                 .dimension(0),
@@ -785,18 +763,14 @@ public struct SECLineOptions {
                         ))
                     ))
                 )),
-            .xAxis([
-                SECAxis(
+            .xAxis(SECAxis(
                     .type(.category),
                     .boundaryGap(.category(false)),
                     .data(["周一","周二","周三","周四","周五","周六","周日"])
-                )
-                ]),
-            .yAxis([
-                SECAxis(
+                )),
+            .yAxis(SECAxis(
                     .type(.value)
-                )
-                ]),
+                )),
             .series([
                 SECLineSerie(
                     .name("邮件营销"),
@@ -849,13 +823,13 @@ public struct SECLineOptions {
                         ))
                     ))
                 )),
-            .xAxis([SECAxis(
+            .xAxis(SECAxis(
                 .type(.category),
                 .data(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
-                )]),
-            .yAxis([SECAxis(
+                )),
+            .yAxis(SECAxis(
                 .type(.value)
-                )]),
+                )),
             .series([
                 SECLineSerie(
                     .name("Step Start"),
@@ -894,13 +868,13 @@ public struct SECLineOptions {
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .xAxis([SECAxis(
+            .xAxis(SECAxis(
                 .type(.value),
                 .axisLabel(SECAxisLabel(
                     .formatter(.string("{value} °C"))
                     ))
-                )]),
-            .yAxis([SECAxis(
+                )),
+            .yAxis(SECAxis(
                 .type(.category),
                 .axisLine(SECAxisLine(
                     .onZero(false)
@@ -909,7 +883,7 @@ public struct SECLineOptions {
                     .formatter(.string("{value} km"))
                     )),
                 .data(["0", "10", "20", "30", "40", "50", "60", "70", "80"])
-                )]),
+                )),
             .series([
                 SECLineSerie(
                     .name("高度(km)与气温(°C)变化关系"),

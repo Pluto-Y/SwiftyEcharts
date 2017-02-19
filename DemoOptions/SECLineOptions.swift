@@ -272,12 +272,12 @@ public struct SECLineOptions {
                     .realtime(true),
                     .start(30),
                     .end(70),
-                    .xAxisIndex([0, 1])
+                    .xAxisIndexes([0, 1])
                 ),
                 SECInsideDataZoom(
                     .start(30),
                     .end(70),
-                    .xAxisIndex([0, 1])
+                    .xAxisIndexes([0, 1])
                 )
                 ]),
             .grids([
@@ -543,19 +543,19 @@ public struct SECLineOptions {
                 )),
             .dataZoom([
                 SECSliderDataZoom(
-                    .xAxisIndex([0]),
+                    .xAxisIndex(0),
                     .filterMode(.empty)
                 ),
                 SECSliderDataZoom(
-                    .yAxisIndex([0]),
+                    .yAxisIndex(0),
                     .filterMode(.empty)
                 ),
                 SECInsideDataZoom(
-                    .xAxisIndex([0]),
+                    .xAxisIndex(0),
                     .filterMode(.empty)
                 ),
                 SECInsideDataZoom(
-                    .yAxisIndex([0]),
+                    .yAxisIndex(0),
                     .filterMode(.empty)
                 ),
                 ]),

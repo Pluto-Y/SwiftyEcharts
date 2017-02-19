@@ -129,7 +129,7 @@ extension SECRingGraphic : SECMappable {
     public func mapping(map: SECMap) {
         map["type"] = type
         map["id"] = id
-        map["action"] = action
+        map["$action"] = action
         map["left"] = left
         map["right"] = right
         map["top"] = top

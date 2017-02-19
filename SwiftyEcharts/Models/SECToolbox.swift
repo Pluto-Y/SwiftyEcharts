@@ -110,109 +110,6 @@ public struct SECToolbox : SECDisplayable, SECZable {
     public var height: Float?
 }
 
-extension SECToolbox.Feature : SECEnumable {
-    public enum Enums {
-        case saveAsImage(SaveAsImage), restore(Restore), dataView(DataView), dataZoom(DataZoom), magicType(MagicType), brush(Brush)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .saveAsImage(saveAsImage):
-                self.saveAsImage = saveAsImage
-            case let .restore(restore):
-                self.restore = restore
-            case let .dataView(dataView):
-                self.dataView = dataView
-            case let .dataZoom(dataZoom):
-                self.dataZoom = dataZoom
-            case let .magicType(magicType):
-                self.magicType = magicType
-            case let .brush(brush):
-                self.brush = brush
-            }
-        }
-    }
-}
-
-extension SECToolbox.Feature : SECMappable {
-    public func mapping(map: SECMap) {
-        map["saveAsImage"] = saveAsImage
-        map["restore"] = restore
-        map["dataView"] = dataView
-        map["dataZoom"] = dataZoom
-        map["magicType"] = magicType
-        map["brush"] = brush
-    }
-}
-
-extension SECToolbox : SECEnumable {
-    public enum Enums {
-        case show(Bool), orient(SECOrient), itemSize(Float), itemGap(Float), showTitle(Bool), feature(Feature), iconStyle(IconStyle), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .show(show):
-                self.show = show
-            case let .orient(orient):
-                self.orient = orient
-            case let .itemSize(itemSize):
-                self.itemSize = itemSize
-            case let .itemGap(itemGap):
-                self.itemGap = itemGap
-            case let .showTitle(showTitle):
-                self.showTitle = showTitle
-            case let .feature(feature):
-                self.feature = feature
-            case let .iconStyle(iconStyle):
-                self.iconStyle = iconStyle
-            case let .zlevel(zlevel):
-                self.zlevel = zlevel
-            case let .z(z):
-                self.z = z
-            case let .left(left):
-                self.left = left
-            case let .top(top):
-                self.top = top
-            case let .right(right):
-                self.right = right
-            case let .bottom(bottom):
-                self.bottom = bottom
-            case let .width(width):
-                self.width = width
-            case let .height(height):
-                self.height = height
-            }
-        }
-    }
-}
-
-extension SECToolbox : SECMappable {
-    public func mapping(map: SECMap) {
-        map["show"] = show
-        map["orient"] = orient
-        map["itemSize"] = itemSize
-        map["itemGap"] = itemGap
-        map["showTitle"] = showTitle
-        map["feature"] = feature
-        map["iconStyle"] = iconStyle
-        map["zlevel"] = zlevel
-        map["z"] = z
-        map["left"] = left
-        map["top"] = top
-        map["right"] = right
-        map["bottom"] = bottom
-        map["width"] = width
-        map["height"] = height
-    }
-}
-
 // MARK: - SECToolbox.IconStyle
 extension SECToolbox {
     public struct IconStyleContent : SECOpacitable {
@@ -1024,3 +921,108 @@ public typealias SECTFMagicType = SECToolbox.Feature.MagicType
 public typealias SECTFRestore = SECToolbox.Feature.Restore
 public typealias SECTFSaveAsImage = SECToolbox.Feature.SaveAsImage
 public typealias SECTFBrush = SECToolbox.Feature.Brush
+
+
+extension SECToolbox.Feature : SECEnumable {
+    public enum Enums {
+        case saveAsImage(SECTFSaveAsImage), restore(SECTFRestore), dataView(SECTFDataView), dataZoom(SECTFDataZoom), magicType(SECTFMagicType), brush(SECTFBrush)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .saveAsImage(saveAsImage):
+                self.saveAsImage = saveAsImage
+            case let .restore(restore):
+                self.restore = restore
+            case let .dataView(dataView):
+                self.dataView = dataView
+            case let .dataZoom(dataZoom):
+                self.dataZoom = dataZoom
+            case let .magicType(magicType):
+                self.magicType = magicType
+            case let .brush(brush):
+                self.brush = brush
+            }
+        }
+    }
+}
+
+extension SECToolbox.Feature : SECMappable {
+    public func mapping(map: SECMap) {
+        map["saveAsImage"] = saveAsImage
+        map["restore"] = restore
+        map["dataView"] = dataView
+        map["dataZoom"] = dataZoom
+        map["magicType"] = magicType
+        map["brush"] = brush
+    }
+}
+
+
+extension SECToolbox : SECEnumable {
+    public enum Enums {
+        case show(Bool), orient(SECOrient), itemSize(Float), itemGap(Float), showTitle(Bool), feature(SECTFeature), iconStyle(IconStyle), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .orient(orient):
+                self.orient = orient
+            case let .itemSize(itemSize):
+                self.itemSize = itemSize
+            case let .itemGap(itemGap):
+                self.itemGap = itemGap
+            case let .showTitle(showTitle):
+                self.showTitle = showTitle
+            case let .feature(feature):
+                self.feature = feature
+            case let .iconStyle(iconStyle):
+                self.iconStyle = iconStyle
+            case let .zlevel(zlevel):
+                self.zlevel = zlevel
+            case let .z(z):
+                self.z = z
+            case let .left(left):
+                self.left = left
+            case let .top(top):
+                self.top = top
+            case let .right(right):
+                self.right = right
+            case let .bottom(bottom):
+                self.bottom = bottom
+            case let .width(width):
+                self.width = width
+            case let .height(height):
+                self.height = height
+            }
+        }
+    }
+}
+
+extension SECToolbox : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["orient"] = orient
+        map["itemSize"] = itemSize
+        map["itemGap"] = itemGap
+        map["showTitle"] = showTitle
+        map["feature"] = feature
+        map["iconStyle"] = iconStyle
+        map["zlevel"] = zlevel
+        map["z"] = z
+        map["left"] = left
+        map["top"] = top
+        map["right"] = right
+        map["bottom"] = bottom
+        map["width"] = width
+        map["height"] = height
+    }
+}

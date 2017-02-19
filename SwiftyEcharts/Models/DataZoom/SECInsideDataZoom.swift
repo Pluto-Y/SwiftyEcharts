@@ -43,7 +43,7 @@ public struct SECInsideDataZoom : SECDataZoom {
     ///                 }
     ////            ]
     ///         }
-    public var xAxisIndex: UInt8?
+    public var xAxisIndex: [UInt8]?
     /// 设置 dataZoom-inside 组件控制的 x轴（即yAxis，是直角坐标系中的概念，参见 grid）。
     /// 不指定时，当 dataZoom-inside.orient 为 'vertical'时，默认控制和 dataZoom 平行的第一个 yAxis。但是不建议使用默认值，建议显式指定。
     /// 如果是 number 表示控制一个轴，如果是 Array 表示控制多个轴。
@@ -65,7 +65,7 @@ public struct SECInsideDataZoom : SECDataZoom {
     ///                 }
     ////            ]
     ///         }
-    public var yAxisIndex: UInt8?
+    public var yAxisIndex: [UInt8]?
     /// 设置 dataZoom-inside 组件控制的 radius 轴（即radiusAxis，是直角坐标系中的概念，参见 polar）。
     /// 如果是 number 表示控制一个轴，如果是 Array 表示控制多个轴。
     /// 例如有如下 ECharts option：
@@ -200,7 +200,7 @@ public struct SECInsideDataZoom : SECDataZoom {
 
 extension SECInsideDataZoom : SECEnumable {
     public enum Enums {
-        case disabled(Bool), xAxisIndex(UInt8), yAxisIndex(UInt8), radiusAxisIndex(UInt8), angleAxisIndex(UInt8), filterMode(SECFilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), throttle(Float)
+        case disabled(Bool), xAxisIndex([UInt8]), yAxisIndex([UInt8]), radiusAxisIndex(UInt8), angleAxisIndex(UInt8), filterMode(SECFilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), throttle(Float)
     }
     
     public typealias ContentEnum = Enums

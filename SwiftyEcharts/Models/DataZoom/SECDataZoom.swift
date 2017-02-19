@@ -8,8 +8,8 @@
 
 /// DataZoom 控件的接口，如果是 DataZoom控件需要实现这个接口
 public protocol SECDataZoom {
-    var xAxisIndex: UInt8? { get set }
-    var yAxisIndex: UInt8? { get set }
+    var xAxisIndex: [UInt8]? { get set }
+    var yAxisIndex: [UInt8]? { get set }
 }
 
 /// dataZoom 的运行原理是通过 数据过滤 来达到 数据窗口缩放 的效果。数据过滤模式的设置不同，效果也不同。

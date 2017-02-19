@@ -77,7 +77,7 @@ public struct SECMarkData {
         /// - Note: 该属性只在 SECMarkArea 无效
         public var symbolOffset: [SECLength]?
         /// 该数据项线的样式，起点和终点项的 lineStyle会合并到一起。
-        public var lineStyle: SECCommonLineStyle?
+        public var lineStyle: SECEmphasisLineStyle?
         /// 该数据项标签的样式，起点和终点项的 label会合并到一起。
         public var label: SECLabel?
         
@@ -95,7 +95,7 @@ public struct SECMarkData {
 
 extension SECMarkData.DataContent : SECEnumable {
     public enum Enums {
-        case type(Type), valueIndex(UInt), valueDim(String), coord(SECJsonable), x(Float), y(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), lineStyle(SECCommonLineStyle), label(SECLabel)
+        case type(Type), valueIndex(UInt), valueDim(String), coord(SECJsonable), x(Float), y(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), lineStyle(SECEmphasisLineStyle), label(SECLabel)
     }
     
     public typealias ContentEnum = Enums

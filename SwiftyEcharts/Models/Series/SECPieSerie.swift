@@ -18,7 +18,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
         /// 是否平滑视觉引导线，默认不平滑，可以设置成 true 平滑显示，也可以设置为 0 到 1 的值，表示平滑程度。
         public var smooth: Bool?
         /// 视觉引导线样式
-        public var lineStyle: SECCommonLineStyle?
+        public var lineStyle: SECEmphasisLineStyle?
         
         public init() { }
     }
@@ -158,7 +158,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
 
 extension SECPieSerie.LabelLineContent : SECEnumable {
     public enum Enums {
-        case show(Bool), length(Float), length2(Float), smooth(Bool), lineStyle(SECCommonLineStyle)
+        case show(Bool), length(Float), length2(Float), smooth(Bool), lineStyle(SECEmphasisLineStyle)
     }
     
     public typealias ContentEnum = Enums

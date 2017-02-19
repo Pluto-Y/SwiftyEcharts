@@ -67,7 +67,7 @@ public struct SECMarkLine : SECAnimatable {
         /// - Note: 该属性只在 SECMarkArea 无效
         public var symbolOffset: [SECLength]?
         /// 该数据项线的样式，起点和终点项的 lineStyle会合并到一起。
-        public var lineStyle: SECCommonLineStyle?
+        public var lineStyle: SECEmphasisLineStyle?
         /// 该数据项标签的样式，起点和终点项的 label会合并到一起。
         public var label: SECFormattedLabel?
         
@@ -87,7 +87,7 @@ public struct SECMarkLine : SECAnimatable {
     /// 标线的文本。
     public var label: SECLabel?
     /// 标线的样式
-    public var lineStyle: SECCommonLineStyle?
+    public var lineStyle: SECEmphasisLineStyle?
     /// 标线的数据数组。每个数组项可以是一个两个值的数组，分别表示线的起点和终点，每一项是一个对象，有下面几种方式指定起点或终点的位置。
     /// - 1.通过 x, y 属性指定相对容器的屏幕坐标，单位像素，支持百分比。
     /// - 2.用 coord 属性指定数据在相应坐标系上的坐标位置，单个维度支持设置 'min', 'max', 'average'。
@@ -190,7 +190,7 @@ public struct SECMarkLine : SECAnimatable {
 
 extension SECMarkLine.Data : SECEnumable {
     public enum Enums {
-        case name(String), type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(SECJsonable), x(SECLength), y(SECLength), xAxis(String), yAxis(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), lineStyle(SECCommonLineStyle), label(SECFormattedLabel)
+        case name(String), type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(SECJsonable), x(SECLength), y(SECLength), xAxis(String), yAxis(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), lineStyle(SECEmphasisLineStyle), label(SECFormattedLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -258,7 +258,7 @@ extension SECMarkLine.Data : SECMappable {
 
 extension SECMarkLine : SECEnumable {
     public enum Enums {
-        case silent(Bool), symbol(SECSymbol), symbolSize(Float), precision(Float), label(SECLabel), lineStyle(SECCommonLineStyle), data([SECJsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case silent(Bool), symbol(SECSymbol), symbolSize(Float), precision(Float), label(SECLabel), lineStyle(SECEmphasisLineStyle), data([SECJsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums

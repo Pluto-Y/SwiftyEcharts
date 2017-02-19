@@ -12,7 +12,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     /// 数据阴影的样式。
     public struct DataBackground {
         /// 阴影的线条样式
-        public var lineStyle: SECCommonLineStyle?
+        public var lineStyle: SECEmphasisLineStyle?
         /// 阴影的填充样式
         public var areaStyle: SECAreaStyle?
     }
@@ -283,7 +283,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
 
 extension SECSliderDataZoom.DataBackground : SECEnumable {
     public enum Enums {
-        case lineStyle(SECCommonLineStyle), areaStyle(SECAreaStyle)
+        case lineStyle(SECEmphasisLineStyle), areaStyle(SECAreaStyle)
     }
     
     public typealias ContentEnum = Enums

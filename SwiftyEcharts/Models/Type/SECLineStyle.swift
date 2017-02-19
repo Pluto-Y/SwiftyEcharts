@@ -11,21 +11,36 @@ public protocol SECLineStyleContent: SECColorful, SECShadowable, SECOpacitable {
     var type: SECLineType? { get set }
 }
 
-public struct SECCommonLineStyleContent: SECLineStyleContent {
+
+/// 线条样式
+public struct SECLineStyle: SECShadowable, SECColorful, SECOpacitable, SECJsonable {
+    /// 线的颜色。
     public var color: SECColor?
+    /// 线宽。
     public var width: Float?
+    /// 线的类型。
     public var type: SECLineType?
+    /// 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
+    public var opacity: Float? {
+        didSet {
+            validateOpacity()
+        }
+    }
+    
+    // MARK: - SECShadowable
     public var shadowBlur: Float?
     public var shadowColor: SECColor?
     public var shadowOffsetX: Float?
     public var shadowOffsetY: Float?
-    public var opacity: Float?
+    
     public var curveness: Float?
     
     public init() { }
+    
 }
 
-extension SECCommonLineStyleContent : SECEnumable {
+
+extension SECLineStyle : SECEnumable {
     public enum Enums {
         case color(SECColor), width(Float), type(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), curveness(Float)
     }
@@ -58,7 +73,7 @@ extension SECCommonLineStyleContent : SECEnumable {
     }
 }
 
-extension SECCommonLineStyleContent : SECMappable {
+extension SECLineStyle : SECMappable {
     public func mapping(map: SECMap) {
         map["color"] = color
         map["width"] = width
@@ -72,8 +87,8 @@ extension SECCommonLineStyleContent : SECMappable {
     }
 }
 
-public struct SECCommonLineStyle : SECEmphasisable {
-    public typealias Style = SECCommonLineStyleContent
+public struct SECEmphasisLineStyle : SECEmphasisable {
+    public typealias Style = SECLineStyle
     
     public var normal: Style?
     public var emphasis: Style?
@@ -81,7 +96,7 @@ public struct SECCommonLineStyle : SECEmphasisable {
     public init() { }
 }
 
-extension SECCommonLineStyle : SECEnumable {
+extension SECEmphasisLineStyle : SECEnumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -100,7 +115,7 @@ extension SECCommonLineStyle : SECEnumable {
     }
 }
 
-extension SECCommonLineStyle : SECMappable {
+extension SECEmphasisLineStyle : SECMappable {
     public func mapping(map: SECMap) {
         map["normal"] = normal
         map["emphasis"] = emphasis

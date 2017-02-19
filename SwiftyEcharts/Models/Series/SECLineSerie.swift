@@ -219,7 +219,7 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
     /// 线条样式。
     ///
     /// 注： 修改 lineStyle 中的颜色不会影响图例颜色，如果需要图例颜色和折线图颜色一致，需修改 itemStyle.normal.color，线条颜色默认也会取改颜色。
-    public var lineStyle: SECCommonLineStyle?
+    public var lineStyle: SECEmphasisLineStyle?
     /// 区域填充样式。
     public var areaStyle: AreaStyle?
     /// 是否平滑曲线显示。
@@ -394,7 +394,7 @@ extension SECLineSerie : SECSeries {
 
 extension SECLineSerie : SECEnumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(SECLabel), itemStyle(SECItemStyle), lineStyle(SECCommonLineStyle), areaStyle(AreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(SECLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(AreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums

@@ -27,9 +27,9 @@ public struct SECGrid : SECBorderable, SECDisplayable, SECShadowable, SECZable {
     /// grid 组件离容器下侧的距离。
     public var bottom: SECPosition?
     /// grid 组件的宽度。默认自适应。
-    public var width: Float?
+    public var width: SECLength?
     /// grid 组件的高度。默认自适应。
-    public var height: Float?
+    public var height: SECLength?
     /// grid 区域是否包含坐标轴的刻度标签，在无法确定坐标轴标签的宽度，容器又比较小无法预留较多空间的时候，可以设为 true 防止标签溢出容器。
     public var containLabel: Bool?
     /// 网格背景色，默认透明。
@@ -60,7 +60,7 @@ public struct SECGrid : SECBorderable, SECDisplayable, SECShadowable, SECZable {
 
 extension SECGrid : SECEnumable {
     public enum Enums {
-        case show(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), containLabel(Bool), background(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(SECLength), height(SECLength), containLabel(Bool), background(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     public typealias ContentEnum = Enums
     

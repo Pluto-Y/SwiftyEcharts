@@ -117,7 +117,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     ///                 }
     ////            ]
     ///         }
-    public var xAxisIndex: [UInt8]?
+    public var xAxisIndex: SECOneOrMore<UInt8>?
     /// 设置 dataZoom-inside 组件控制的 x轴（即yAxis，是直角坐标系中的概念，参见 grid）。
     /// 不指定时，当 dataZoom-inside.orient 为 'vertical'时，默认控制和 dataZoom 平行的第一个 yAxis。但是不建议使用默认值，建议显式指定。
     /// 如果是 number 表示控制一个轴，如果是 Array 表示控制多个轴。
@@ -139,7 +139,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     ///                 }
     ////            ]
     ///         }
-    public var yAxisIndex: [UInt8]?
+    public var yAxisIndex: SECOneOrMore<UInt8>?
     /// 设置 dataZoom-inside 组件控制的 radius 轴（即radiusAxis，是直角坐标系中的概念，参见 polar）。
     /// 如果是 number 表示控制一个轴，如果是 Array 表示控制多个轴。
     /// 例如有如下 ECharts option：
@@ -160,7 +160,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     ///                 }
     ///             ]
     ///         }
-    public var radiusAxisIndex: UInt8?
+    public var radiusAxisIndex: SECOneOrMore<UInt8>?
     /// 设置 dataZoom-inside 组件控制的 angle 轴（即angleAxis，是直角坐标系中的概念，参见 polar）。
     /// 如果是 number 表示控制一个轴，如果是 Array 表示控制多个轴。
     /// 例如有如下 ECharts option：
@@ -181,7 +181,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     ///                 }
     ///             ]
     ///         }
-    public var angleAxisIndex: UInt8?
+    public var angleAxisIndex: SECOneOrMore<UInt8>?
     /// dataZoom 的运行原理是通过 数据过滤 来达到 数据窗口缩放 的效果。数据过滤模式的设置不同，效果也不同。
     /// 可选值为：
     /// - 'filter'：当前数据窗口外的数据，被 过滤掉。即会影响其他轴的数据范围。
@@ -356,7 +356,7 @@ extension SECSliderDataZoom.HandleStyle : SECMappable {
 
 extension SECSliderDataZoom : SECEnumable {
     public enum Enums {
-        case show(Bool), backgroundColor(SECColor), dataBackground(DataBackground), fillerColor(SECColor), borderColor(SECColor), handleIcon(String), handleSize(Float), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(SECFormatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(SECTextStyle), xAxisIndex([UInt8]), yAxisIndex([UInt8]), radiusAxisIndex(UInt8), angleAxisIndex(UInt8), filterMode(SECFilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition)
+        case show(Bool), backgroundColor(SECColor), dataBackground(DataBackground), fillerColor(SECColor), borderColor(SECColor), handleIcon(String), handleSize(Float), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(SECFormatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(SECTextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(SECFilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition)
     }
     
     public typealias ContentEnum = Enums
@@ -393,13 +393,21 @@ extension SECSliderDataZoom : SECEnumable {
             case let .textStyle(textStyle):
                 self.textStyle = textStyle
             case let .xAxisIndex(xAxisIndex):
-                self.xAxisIndex = xAxisIndex
+                self.xAxisIndex = SECOneOrMore(one: xAxisIndex)
+            case let .xAxisIndexes(xAxisIndexes):
+                self.xAxisIndex = SECOneOrMore(more: xAxisIndexes)
             case let .yAxisIndex(yAxisIndex):
-                self.yAxisIndex = yAxisIndex
+                self.yAxisIndex = SECOneOrMore(one: yAxisIndex)
+            case let .yAxisIndexes(yAxisIndexes):
+                self.yAxisIndex = SECOneOrMore(more: yAxisIndexes)
             case let .radiusAxisIndex(radiusAxisIndex):
-                self.radiusAxisIndex = radiusAxisIndex
+                self.radiusAxisIndex = SECOneOrMore(one: radiusAxisIndex)
+            case let .radiusAxisIndexes(radiusAxisIndexes):
+                self.radiusAxisIndex = SECOneOrMore(more: radiusAxisIndexes)
             case let .angleAxisIndex(angleAxisIndex):
-                self.angleAxisIndex = angleAxisIndex
+                self.angleAxisIndex = SECOneOrMore(one: angleAxisIndex)
+            case let .angleAxisIndexes(angleAxisIndexes):
+                self.angleAxisIndex = SECOneOrMore(more: angleAxisIndexes)
             case let .filterMode(filterMode):
                 self.filterMode = filterMode
             case let .start(start):

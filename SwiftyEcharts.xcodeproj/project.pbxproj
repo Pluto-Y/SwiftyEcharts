@@ -86,6 +86,7 @@
 		6FA24F721E2B7A0100E25002 /* SECEnumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA24F711E2B7A0100E25002 /* SECEnumable.swift */; };
 		6FA24F741E2BE0F900E25002 /* SECToolbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA24F731E2BE0F900E25002 /* SECToolbox.swift */; };
 		6FA9DB241E59EA2000CE5277 /* SECOneOrMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9DB231E59EA2000CE5277 /* SECOneOrMore.swift */; };
+		6FA9DB261E59FA6A00CE5277 /* SECOneOrMoreSepc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9DB251E59FA6A00CE5277 /* SECOneOrMoreSepc.swift */; };
 		6FB400401E2FC05E0086BF5B /* SECBarSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB4003F1E2FC05E0086BF5B /* SECBarSerie.swift */; };
 		6FB400421E2FC1DD0086BF5B /* SECCoordinateSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB400411E2FC1DD0086BF5B /* SECCoordinateSystem.swift */; };
 		6FB400441E3104B70086BF5B /* SECTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB400431E3104B70086BF5B /* SECTimeline.swift */; };
@@ -257,6 +258,7 @@
 		6FA24F711E2B7A0100E25002 /* SECEnumable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECEnumable.swift; sourceTree = "<group>"; };
 		6FA24F731E2BE0F900E25002 /* SECToolbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECToolbox.swift; sourceTree = "<group>"; };
 		6FA9DB231E59EA2000CE5277 /* SECOneOrMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECOneOrMore.swift; sourceTree = "<group>"; };
+		6FA9DB251E59FA6A00CE5277 /* SECOneOrMoreSepc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECOneOrMoreSepc.swift; sourceTree = "<group>"; };
 		6FB4003F1E2FC05E0086BF5B /* SECBarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECBarSerie.swift; sourceTree = "<group>"; };
 		6FB400411E2FC1DD0086BF5B /* SECCoordinateSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECCoordinateSystem.swift; sourceTree = "<group>"; };
 		6FB400431E3104B70086BF5B /* SECTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECTimeline.swift; sourceTree = "<group>"; };
@@ -576,6 +578,7 @@
 				5408989C1E52EB6500A89BB0 /* SECLinSerieSpec.swift */,
 				6FEC7D181E5376F9003A88D7 /* SECPercentSpec.swift */,
 				6FEC7D1C1E54996B003A88D7 /* SECTwoElementsSpec.swift */,
+				6FA9DB251E59FA6A00CE5277 /* SECOneOrMoreSepc.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -989,6 +992,7 @@
 				6F4ACB481E1D258B00CE5FD5 /* SECJsonableSpec.swift in Sources */,
 				5408989D1E52EB6500A89BB0 /* SECLinSerieSpec.swift in Sources */,
 				6FEC7D191E5376F9003A88D7 /* SECPercentSpec.swift in Sources */,
+				6FA9DB261E59FA6A00CE5277 /* SECOneOrMoreSepc.swift in Sources */,
 				6FB48CBA1DEEA30000137D13 /* SECFontSpec.swift in Sources */,
 				6F4ACB511E21352600CE5FD5 /* SECMappableSpec.swift in Sources */,
 			);

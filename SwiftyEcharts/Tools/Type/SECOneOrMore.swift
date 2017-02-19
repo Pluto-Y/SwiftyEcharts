@@ -9,11 +9,11 @@
 public struct SECOneOrMore<T> {
     private var one: T? = nil
     private var more: [T]? = nil
-    internal init(one: T) {
+    public init(one: T) {
         self.one = one
     }
     
-    internal init(more: [T]) {
+    public init(more: [T]) {
         self.more = more
     }
 }

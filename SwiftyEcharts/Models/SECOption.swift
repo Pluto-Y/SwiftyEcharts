@@ -10,8 +10,8 @@ public struct SECOption : SECTextful, SECAnimatable {
     public var title: SECTitle?
     public var legend: SECLegend?
     public var grid: SECOneOrMore<SECGrid>?
-    public var xAxis: [SECAxis]?
-    public var yAxis: [SECAxis]?
+    public var xAxis: SECOneOrMore<SECAxis>?
+    public var yAxis: SECOneOrMore<SECAxis>?
     public var polar: SECPolar?
     public var radiusAxis: [SECRadiusAxis]?
     public var angleAxis: [SECAngleAxis]?
@@ -77,7 +77,7 @@ public struct SECOption : SECTextful, SECAnimatable {
 
 extension SECOption : SECEnumable {
     public enum Enums {
-        case title(SECTitle), legend(SECLegend), grid(SECGrid), grids([SECGrid]), xAxis([SECAxis]), yAxis([SECAxis]), polar(SECPolar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(SECRadar), dataZoom([SECDataZoom]), visualMap(SECVisualMap), tooltip(SECTooltip), toolbox(SECToolbox), brush(SECBrush), geo(SECGeo), parallel(SECParallel), parallelAxis([SECParallelAxis]), singleAxis([SECSingleAxis]), timeline(SECTimeline), graphic([SECGraphic]), series([SECSeries]), color([SECColor]), backgroundColor(SECColor), textStyle(SECTextStyle), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case title(SECTitle), legend(SECLegend), grid(SECGrid), grids([SECGrid]), xAxis(SECAxis), xAxises([SECAxis]), yAxis(SECAxis), yAxises([SECAxis]), polar(SECPolar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(SECRadar), dataZoom([SECDataZoom]), visualMap(SECVisualMap), tooltip(SECTooltip), toolbox(SECToolbox), brush(SECBrush), geo(SECGeo), parallel(SECParallel), parallelAxis([SECParallelAxis]), singleAxis([SECSingleAxis]), timeline(SECTimeline), graphic([SECGraphic]), series([SECSeries]), color([SECColor]), backgroundColor(SECColor), textStyle(SECTextStyle), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -94,9 +94,13 @@ extension SECOption : SECEnumable {
             case let .grids(grids):
                 self.grid = SECOneOrMore(more: grids)
             case let .xAxis(xAxis):
-                self.xAxis = xAxis
+                self.xAxis = SECOneOrMore(one: xAxis)
+            case let .xAxises(xAxises):
+                self.xAxis = SECOneOrMore(more: xAxises)
             case let .yAxis(yAxis):
-                self.yAxis = yAxis
+                self.yAxis = SECOneOrMore(one: yAxis)
+            case let .yAxises(yAxises):
+                self.yAxis = SECOneOrMore(more: yAxises)
             case let .polar(polar):
                 self.polar = polar
             case let .radiusAxis(radiusAxis):

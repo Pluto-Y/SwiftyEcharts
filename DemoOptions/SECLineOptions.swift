@@ -13,10 +13,7 @@ public struct SECLineOptions {
     // MARK: 雨量流量关系图
     /// 地址:http://echarts.baidu.com/demo.html#area-rainfall
     static func areaRainfallOption() -> SECOption {
-        print(NSBundle.mainBundle().pathForResource("AreaRainfallDatas", ofType: "plist"))
-        
         guard let plistUrl = NSBundle.mainBundle().pathForResource("AreaRainfallDatas", ofType: "plist") else {
-            print("Can't find the file")
             return SECOption()
         }
         
@@ -34,17 +31,17 @@ public struct SECLineOptions {
         let seriesDatas2 = (plistDatas["SeriesData2"] as! [Float]).map { (ele) -> SECJsonable in
             return ele
         }
-        let areaData1: [SECJsonable] = [[["xAxis": "2009/9/12/\\n7:00"], ["xAxis": "2009/9/22\\n:7:00"]]] 
-        let areaData2: [SECJsonable] = [[["xAxis": "2009/9/10/\\n7:00"], ["xAxis": "2009/9/20\\n:7:00"]]]
+        let areaData1: [SECJsonable] = [[["xAxis": "2009/9/12/\\n7:00"], ["xAxis": "2009/9/22\\n7:00"]]]
+        let areaData2: [SECJsonable] = [[["xAxis": "2009/9/10/\\n7:00"], ["xAxis": "2009/9/20\\n7:00"]]]
         return SECOption(
             .title(SECTitle(
                 .text("雨量流量关系图"),
                 .subtext("数据来自西安兰特水电测控技术有限公司"),
                 .textAlign(.center)
                 )),
-            .grid(SECGrid(
+            .grid([SECGrid(
                 .bottom(.value(80))
-                )),
+                )]),
             .toolbox(SECToolbox(
                 .feature(SECTFeature(
                     .dataZoom(SECTFDataZoom(
@@ -160,12 +157,12 @@ public struct SECLineOptions {
                         ))
                     ))
                 )),
-            .grid(SECGrid(
+            .grid([SECGrid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
-                )),
+                )]),
             .xAxis([
                 SECAxis(
                     .type(.category),
@@ -224,6 +221,131 @@ public struct SECLineOptions {
                         .normal(SECCommonAreaStyleContent())
                         )),
                     .data([820, 932, 901, 934, 1290, 1330, 1320])
+                )
+                ])
+        )
+    }
+    
+    // MARK: 雨量流量关系图2
+    /// 地址:http://echarts.baidu.com/demo.html#grid-multiple
+    static func gridMultipleOption() -> SECOption {
+        guard let plistUrl = NSBundle.mainBundle().pathForResource("AreaRainfallDatas", ofType: "plist") else {
+            return SECOption()
+        }
+        
+        guard let plistDatas = NSDictionary(contentsOfFile: plistUrl) else {
+            return SECOption()
+        }
+        
+        
+        let xAxisDatas = (plistDatas["XAxisDatas"] as! [String]).map({ (ele) -> SECJsonable in
+            return ele.stringByReplacingOccurrencesOfString("2009/", withString: "").stringByReplacingOccurrencesOfString("\\n", withString: " ")
+        })
+        let seriesDatas1 = (plistDatas["SeriesData1"] as! [Float]).map { (ele) -> SECJsonable in
+            return ele
+        }
+        let seriesDatas2 = (plistDatas["SeriesData2"] as! [Float]).map { (ele) -> SECJsonable in
+            return ele
+        }
+        return SECOption(
+            .title(SECTitle(
+                .text("雨量流量关系图"),
+                .subtext("数据来自西安兰特水电测控技术有限公司"),
+                .textAlign(.center)
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis),
+                .axisPointer(SECTooltip.AxisPointer(
+                    .animation(false)
+                    ))
+                )),
+            .legend(SECLegend(
+                .data(["流量", "降雨量"]),
+                .left(.left)
+                )),
+            .toolbox(SECToolbox(
+                .feature(SECTFeature(
+                    .dataZoom(SECTFDataZoom(
+                        .yAxisIndex(.bool(false))
+                        )),
+                    .restore(SECTFRestore()),
+                    .saveAsImage(SECTFSaveAsImage())
+                    ))
+                )),
+            .dataZoom([
+                SECSliderDataZoom(
+                    .show(true),
+                    .realtime(true),
+                    .start(30),
+                    .end(70),
+                    .xAxisIndex([0, 1])
+                ),
+                SECInsideDataZoom(
+                    .start(30),
+                    .end(70),
+                    .xAxisIndex([0, 1])
+                )
+                ]),
+            .grid([
+                SECGrid(
+                    .left(.value(50)),
+                    .right(.value(50)),
+                    .height(25%)
+                ),
+                SECGrid(
+                    .left(.value(50)),
+                    .right(.value(50)),
+                    .top(.value(58%)),
+                    .height(20%)
+                )
+                ]),
+            .xAxis([
+                SECAxis(
+                    .type(.category),
+                    .boundaryGap(.category(false)),
+                    .axisLine(SECAxisLine(
+                        .onZero(true)
+                        )),
+                    .data(xAxisDatas)
+                ),
+                SECAxis(
+                    .gridIndex(1),
+                    .type(.category),
+                    .boundaryGap(.category(false)),
+                    .axisLine(SECAxisLine(
+                        .onZero(true)
+                        )),
+                    .data(xAxisDatas),
+                    .position(.top)
+                )
+                ]),
+            .yAxis([
+                SECAxis(
+                    .name("流量(m^3/s)"),
+                    .type(.value),
+                    .max(500)
+                ),
+                SECAxis(
+                    .gridIndex(1),
+                    .name("降雨量(mm)"),
+                    .type(.value),
+                    .inverse(true)
+                )
+                ]),
+            .series([
+                SECLineSerie(
+                    .name("流量"),
+                    .symbolSize(8),
+                    .hoverAnimation(false),
+                    .data(seriesDatas1)
+                ),
+                SECLineSerie(
+                    .name("降雨量"),
+                    .xAxisIndex(1),
+                    .yAxisIndex(1),
+                    .symbolSize(8),
+                    .hoverAnimation(false),
+                    .data(seriesDatas2)
                 )
                 ])
         )
@@ -373,12 +495,12 @@ public struct SECLineOptions {
                     .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
                 )
                 ]),
-            .grid(SECGrid(
+            .grid([SECGrid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
-                )),
+                )]),
             .yAxis([
                 SECAxis(
                     .type(.log),
@@ -416,7 +538,7 @@ public struct SECLineOptions {
                 .triggerOn(.none),
                 .formatter(.function("function (params) { return 'X: ' + params.data[0].toFixed(2) + '<br>Y: ' + params.data[1].toFixed(2);}"))
                 )),
-            .grid(SECGrid()),
+            .grid([SECGrid()]),
             .xAxis([
                 SECAxis(
                     .min(-100),
@@ -439,19 +561,19 @@ public struct SECLineOptions {
                 ]),
             .dataZoom([
                 SECSliderDataZoom(
-                    .xAxisIndex(0),
+                    .xAxisIndex([0]),
                     .filterMode(.empty)
                 ),
                 SECSliderDataZoom(
-                    .yAxisIndex(0),
+                    .yAxisIndex([0]),
                     .filterMode(.empty)
                 ),
                 SECInsideDataZoom(
-                    .xAxisIndex(0),
+                    .xAxisIndex([0]),
                     .filterMode(.empty)
                 ),
                 SECInsideDataZoom(
-                    .yAxisIndex(0),
+                    .yAxisIndex([0]),
                     .filterMode(.empty)
                 ),
                 ]),
@@ -563,12 +685,12 @@ public struct SECLineOptions {
             .legend(SECLegend(
                 .data(["邮件营销","联盟广告","视频广告","直接访问","搜索引擎"])
                 )),
-            .grid(SECGrid(
+            .grid([SECGrid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
-                )),
+                )]),
             .toolbox(SECToolbox(
                 .feature(SECToolbox.Feature(
                     .saveAsImage(SECToolbox.Feature.SaveAsImage(
@@ -628,12 +750,12 @@ public struct SECLineOptions {
             .tooltip(SECTooltip(
                 .trigger(.axis)
                 )),
-            .grid(SECGrid(
+            .grid([SECGrid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
-                )),
+                )]),
             .toolbox(SECToolbox(
                 .feature(SECTFeature(
                     .saveAsImage(SECTFSaveAsImage(
@@ -679,12 +801,12 @@ public struct SECLineOptions {
                 .trigger(.axis),
                 .formatter(.string("Temperature : <br/>{b}km : {c}°C"))
                 )),
-            .grid(SECGrid(
+            .grid([SECGrid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
-                )),
+                )]),
             .xAxis([SECAxis(
                 .type(.value),
                 .axisLabel(SECAxisLabel(

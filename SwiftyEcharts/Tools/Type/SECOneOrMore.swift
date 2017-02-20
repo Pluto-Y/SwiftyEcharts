@@ -28,3 +28,15 @@ extension SECOneOrMore : SECJsonable {
         return "\"null\""
     }
 }
+
+prefix operator | {}
+
+public prefix func |<T>(value: T) -> SECOneOrMore<T> {
+    return SECOneOrMore(one: value)
+}
+
+prefix operator || {}
+
+public prefix func ||<T>(values: [T]) -> SECOneOrMore<T> {
+    return SECOneOrMore(more: values)
+}

@@ -221,7 +221,97 @@ public struct SECBarOptions {
                         ])
                 )
                 ])
-            
+        )
+    }
+    
+    // MARK: 堆叠柱状图
+    /// 地址: http://echarts.baidu.com/demo.html#bar-stack
+    static func barStackOption() -> SECOption {
+        return SECOption(
+            .tooltip(SECTooltip(
+                .trigger(.axis),
+                .axisPointer(SECTooltip.AxisPointer(
+                    .type(.shadow)
+                    ))
+                )),
+            .legend(SECLegend(
+                .data(["直接访问","邮件营销","联盟广告","视频广告","搜索引擎","百度","谷歌","必应","其他"])
+                )),
+            .grid(SECGrid(
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
+                .containLabel(true)
+                )),
+            .xAxis(SECAxis(
+                .type(.category),
+                .data(["周一","周二","周三","周四","周五","周六","周日"])
+                )),
+            .yAxis(SECAxis(
+                .type(.value)
+                )),
+            .series([
+                SECBarSerie(
+                    .name("直接访问"),
+                    .data([320, 332, 301, 334, 390, 330, 320])
+                ),
+                SECBarSerie(
+                    .name("邮件营销"),
+                    .stack("广告"),
+                    .data([120, 132, 101, 134, 90, 230, 210])
+                ),
+                SECBarSerie(
+                    .name("联盟广告"),
+                    .stack("广告"),
+                    .data([220, 182, 191, 234, 290, 330, 310])
+                ),
+                SECBarSerie(
+                    .name("视频广告"),
+                    .stack("广告"),
+                    .data([150, 232, 201, 154, 190, 330, 410])
+                ),
+                SECBarSerie(
+                    .name("搜索引擎"),
+                    .data([820, 932, 901, 934, 1290, 1330, 1320]),
+                    .markLine(SECMarkLine(
+                        .lineStyle(SECEmphasisLineStyle(
+                            .normal(SECLineStyle(
+                                .type(.dashed)
+                                ))
+                            )),
+                        .data([
+                            // 如果有两个点组成一条线，要将两个点放在一个数组中
+                            [SECMarkLineData(
+                                .type(.min)
+                            ),
+                            SECMarkLineData(
+                                .type(.max)
+                            )]
+                            ])
+                        ))
+                ),
+                SECBarSerie(
+                    .name("百度"),
+                    .barWidth(5),
+                    .stack("搜索引擎"),
+                    .data([620, 732, 701, 734, 1090, 1130, 1120])
+                ),
+                SECBarSerie(
+                    .name("谷歌"),
+                    .stack("搜索引擎"),
+                    .data([120, 132, 101, 134, 290, 230, 220])
+                ),
+                SECBarSerie(
+                    .name("必应"),
+                    .stack("搜索引擎"),
+                    .data([60, 72, 71, 74, 190, 130, 110])
+                ),
+                SECBarSerie(
+                    .name("其他"),
+                    .stack("搜索引擎"),
+                    .data([62, 82, 91, 84, 109, 110, 120])
+                )
+                ])
         )
     }
 }

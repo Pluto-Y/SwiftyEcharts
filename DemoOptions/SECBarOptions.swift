@@ -351,4 +351,67 @@ public struct SECBarOptions {
                 ])
         )
     }
+    
+    // MARK: 深圳月最低生活费组成（单位:元）
+    /// 地址: http://echarts.baidu.com/demo.html#bar-waterfall
+    static func barWaterfallOption() -> SECOption {
+        return SECOption(
+            .title(SECTitle(
+                .text("深圳月最低生活费组成（单位:元）"),
+                .subtext("From ExcelHome"),
+                .sublink("http://e.weibo.com/1341556070/AjQH99che")
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis),
+                .axisPointer(SECTooltip.AxisPointer(
+                    .type(.shadow)
+                    )),
+                .formatter(.function("function tooltipFomatter(params) { var tar = params[1]; return tar.name + '<br>/' + tar.seriesName + ' : ' + tar.value;}"))
+                )),
+            .grid(SECGrid(
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
+                .containLabel(true)
+                )),
+            .xAxis(SECAxis(
+                .type(.category),
+                .splitLine(SECSplitLine(
+                    .show(false)
+                    )),
+                .data(["总费用","房租","水电费","交通费","伙食费","日用品数"])
+                )),
+            .yAxis(SECAxis(
+                .type(.value)
+                )),
+            .series([
+                SECBarSerie(
+                    .name("辅助"),
+                    .stack("总量"),
+                    .itemStyle(SECBarSerie.ItemStyle(
+                        .normal(SECBarSerie.ItemStyleContent( // FIXME: 修改类型
+//                            .color(.rgba(0, 0, 0, 0))
+//                            .color(.rbga(0, 0, 0, 0))
+                            )),
+                        .emphasis(SECBarSerie.ItemStyleContent(
+//                            .borderColor(.rbga(0, 0, 0, 0)),
+//                            .color(.rbga(0, 0, 0, 0))
+                            ))
+                        )),
+                    .data([0, 1700, 1400, 1200, 300, 0])
+                ),
+                SECBarSerie(
+                    .name("生活费"),
+                    .stack("总量"),
+                    .label(SECBarSerie.Label(
+                        .normal(SECBarSerie.LabelContent(
+                            .show(true),
+                            .position(.inside)
+                            ))
+                        )),
+                    .data([2900, 1200, 300, 200, 900, 300])
+                )
+                ])
+        )
+    }
 }

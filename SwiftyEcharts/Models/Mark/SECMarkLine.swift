@@ -188,7 +188,9 @@ public struct SECMarkLine : SECAnimatable {
     public init() { }
 }
 
-extension SECMarkLine.Data : SECEnumable {
+public typealias SECMarkLineData = SECMarkLine.Data
+
+extension SECMarkLineData : SECEnumable {
     public enum Enums {
         case name(String), type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(SECJsonable), x(SECLength), y(SECLength), xAxis(String), yAxis(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), lineStyle(SECEmphasisLineStyle), label(SECFormattedLabel)
     }
@@ -235,7 +237,7 @@ extension SECMarkLine.Data : SECEnumable {
     }
 }
 
-extension SECMarkLine.Data : SECMappable {
+extension SECMarkLineData : SECMappable {
     public func mapping(map: SECMap) {
         map["name"] = name
         map["type"] = type

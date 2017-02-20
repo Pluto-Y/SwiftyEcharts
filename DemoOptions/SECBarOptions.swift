@@ -133,4 +133,95 @@ public struct SECBarOptions {
                 ])
         )
     }
+    
+    // MARK: 交错正负轴标签
+    /// 地址: http://echarts.baidu.com/demo.html#bar-negative2
+    static func barNegative2Option() -> SECOption {
+        let labelRight = SECFormattedLabel(
+            .normal(SECFormattedLabelStyle(
+                .position(.right)
+                ))
+        )
+        return SECOption(
+            .title(SECTitle(
+                .text("交错正负轴标签"),
+                .subtext("From ExcelHome"),
+                .sublink("http://e.weibo.com/1341556070/AjwF2AgQm")
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis),
+                .axisPointer(SECTooltip.AxisPointer(
+                    .type(.shadow)
+                    ))
+                )),
+            .grid(SECGrid(
+                .top(.value(80)),
+                .bottom(.value(30))
+                )),
+            .xAxis(SECAxis(
+                .type(.value),
+                .position(.top),
+                .splitLine(SECSplitLine(
+                    .lineStyle(SECLineStyle(
+                        .type(.dashed)
+                        ))
+                    ))
+                )),
+            .yAxis(SECAxis(
+                .type(.category),
+                .axisLine(SECAxisLine(
+                    .show(false)
+                    )),
+                .axisLabel(SECAxisLabel(
+                    .show(false)
+                    )),
+                .axisTick(SECAxisTick(
+                    .show(false)
+                    )),
+                .splitLine(SECSplitLine(
+                    .show(false)
+                    )),
+                .data(["ten", "nine", "eight", "seven", "six", "five", "four", "three", "two", "one"])
+                )),
+            .series([
+                SECBarSerie(
+                    .name("生活费"),
+                    .stack("总量"),
+                    .label(SECBarSerie.Label(
+                        .normal(SECBarSerie.LabelContent(
+                            .show(true),
+                            .formatter(.string("{b}"))
+                            ))
+                        )),
+                    .data([
+                        SECBarSerie.Data(
+                            .value(-0.07),
+                            .label(labelRight)
+                        ),
+                        SECBarSerie.Data(
+                            .value(-0.09),
+                            .label(labelRight)
+                        ),
+                        0.2, 0.44,
+                        SECBarSerie.Data(
+                            .value(-0.23),
+                            .label(labelRight)
+                        ),
+                        0.08,
+                        SECBarSerie.Data(
+                            .value(-0.17),
+                            .label(labelRight)
+                        ),
+                        0.47,
+                        SECBarSerie.Data(
+                            .value(-0.36),
+                            .label(labelRight)
+                        ),
+                        0.18
+                        ])
+                )
+                ])
+            
+        )
+    }
 }

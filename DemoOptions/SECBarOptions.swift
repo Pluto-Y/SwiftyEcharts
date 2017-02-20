@@ -314,4 +314,41 @@ public struct SECBarOptions {
                 ])
         )
     }
+    
+    // MARK: 坐标轴刻度与标签对齐
+    /// 地址:http://echarts.baidu.com/demo.html#bar-tick-align
+    static func barTickAlignOption() -> SECOption {
+        return SECOption(
+            .color([.hexColor("#3398DB")]),
+            .tooltip(SECTooltip(
+                .trigger(.axis),
+                .axisPointer(SECTooltip.AxisPointer(
+                    .type(.shadow)
+                    ))
+                )),
+            .grid(SECGrid(
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
+                .containLabel(true)
+                )),
+            .xAxis(SECAxis(
+                .type(.category),
+                .data(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]),
+                .axisTick(SECAxisTick(
+                    .alignWithLabel(true)
+                    ))
+                )),
+            .yAxis(SECAxis(
+                .type(.value)
+                )),
+            .series([
+                SECBarSerie(
+                    .name("直接访问"),
+                    .barWidth(60%),
+                    .data([10, 52, 200, 334, 390, 330, 220])
+                )
+                ])
+        )
+    }
 }

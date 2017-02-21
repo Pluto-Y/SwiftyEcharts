@@ -581,4 +581,48 @@ public struct SECBarOptions {
                 ])
         )
     }
+    
+    // MARK: 世界人口总量 - 条形图
+    /// 地址:http://echarts.baidu.com/demo.html#bar-y-category
+    static func barYCategory() -> SECOption {
+        return SECOption(
+            .title(SECTitle(
+                .text("世界人口总量"),
+                .subtext("数据来自网络")
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis),
+                .axisPointer(SECTooltip.AxisPointer(
+                    .type(.shadow)
+                    ))
+                )),
+            .legend(SECLegend(
+                .data(["2011年", "2012年"])
+                )),
+            .grid(SECGrid(
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
+                .containLabel(true)
+                )),
+            .xAxis(SECAxis(
+                .type(.value),
+                .boundaryGap(.notCategory(0, 0.01))
+                )),
+            .yAxis(SECAxis(
+                .type(.category),
+                .data(["巴西","印尼","美国","印度","中国","世界人口(万)"])
+                )),
+            .series([
+                SECBarSerie(
+                    .name("2011年"),
+                    .data([18203, 23489, 29034, 104970, 131744, 630230])
+                ),
+                SECBarSerie(
+                    .name("2012年"),
+                    .data([19325, 23438, 31000, 121594, 134141, 681807])
+                )
+                ])
+        )
+    }
 }

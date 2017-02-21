@@ -97,6 +97,8 @@ public struct SECMarkPoint : SECSymbolized, SECAnimatable {
     
 }
 
+public typealias SECMarkPointData = SECMarkPoint.Data
+
 extension SECMarkPoint : SECEnumable {
     public enum Enums {
         case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), silent(Bool), label(Label), itemStyle(SECItemStyle),  data([SECJsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
@@ -248,7 +250,7 @@ extension SECMarkPoint.Label : SECMappable {
     }
 }
 
-extension SECMarkPoint.Data : SECEnumable {
+extension SECMarkPointData : SECEnumable {
     public enum Enums {
         case name(String), type(Type), valueIndex(UInt8), valueDim(String), coord([SECJsonable]), x(SECLength), y(SECLength), xAxis(Float), yAxis(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), itemStyle(SECItemStyle), label(SECLabel)
     }
@@ -295,7 +297,7 @@ extension SECMarkPoint.Data : SECEnumable {
     }
 }
 
-extension SECMarkPoint.Data : SECMappable {
+extension SECMarkPointData : SECMappable {
     public func mapping(map: SECMap) {
         map["name"] = name
         map["type"] = type

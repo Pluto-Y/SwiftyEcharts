@@ -394,11 +394,11 @@ public struct SECLineOptions {
                     .data([11, 11, 15, 13, 12, 13, 10]),
                     .markPoint(SECMarkPoint(
                         .data([
-                            SECMarkPoint.Data(
+                            SECMarkPointData(
                                 .type(.max),
                                 .name("最大值")
                             ),
-                            SECMarkPoint.Data(
+                            SECMarkPointData(
                                 .type(.min),
                                 .name("最小值")
                             )
@@ -418,7 +418,7 @@ public struct SECLineOptions {
                     .data([1, -2, 2, 5, 3, 2, 0]),
                     .markPoint(SECMarkPoint(
                         .data([
-                            SECMarkPoint.Data(
+                            SECMarkPointData(
                                 .name("周最低"),
                                 .value(-2),
                                 .xAxis(1),

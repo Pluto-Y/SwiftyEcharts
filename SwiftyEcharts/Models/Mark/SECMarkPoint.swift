@@ -48,7 +48,7 @@ public struct SECMarkPoint : SECSymbolized, SECAnimatable {
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     /// 标注的文本。
-    public var label: Label?
+    public var label: SECFormattedLabel?
     /// 标注的样式。
     public var itemStyle: SECItemStyle?
     /// 标注的数据数组
@@ -101,7 +101,7 @@ public typealias SECMarkPointData = SECMarkPoint.Data
 
 extension SECMarkPoint : SECEnumable {
     public enum Enums {
-        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), silent(Bool), label(Label), itemStyle(SECItemStyle),  data([SECJsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), silent(Bool), label(SECFormattedLabel), itemStyle(SECItemStyle),  data([SECJsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -167,88 +167,6 @@ extension SECMarkPoint : SECMappable {
     }
 }
 
-extension SECMarkPoint {
-    public struct LabelContent : SECDisplayable, SECFormatted, SECTextful {
-        
-        /// 是否显示标签。
-        public var show: Bool?
-        /// 标签的位置。
-        public var position: SECMarkPosition?
-        /// 是否对文字进行偏移。默认不偏移。例如：[30, 40] 表示文字在横向上偏移 30，纵向上偏移 40。
-        public var offset: [Float]?
-        /// 标签内容格式器，支持字符串模板和回调函数两种形式
-        public var formatter: SECFormatter?
-        /// 标签的字体样式。
-        public var textStyle: SECTextStyle?
-    }
-    
-    public struct Label : SECEmphasisable {
-        public typealias Style = LabelContent
-        public var normal: Style?
-        public var emphasis: Style?
-    }
-}
-
-extension SECMarkPoint.LabelContent : SECEnumable {
-    public enum Enums {
-        case show(Bool), position(SECMarkPosition), offset([Float]), formatter(SECFormatter), textStyle(SECTextStyle)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .show(show):
-                self.show = show
-            case let .position(position):
-                self.position = position
-            case let .offset(offset):
-                self.offset = offset
-            case let .formatter(formatter):
-                self.formatter = formatter
-            case let .textStyle(textStyle):
-                self.textStyle = textStyle
-            }
-        }
-    }
-}
-
-extension SECMarkPoint.LabelContent : SECMappable {
-    public func mapping(map: SECMap) {
-        map["show"] = show
-        map["position"] = position
-        map["offset"] = offset
-        map["formatter"] = formatter
-        map["textStyle"] = textStyle
-    }
-}
-
-extension SECMarkPoint.Label : SECEnumable {
-    public enum Enums {
-        case normal(Style), emphasis(Style)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .normal(normal):
-                self.normal = normal
-            case let .emphasis(emphasis):
-                self.emphasis = emphasis
-            }
-        }
-    }
-}
-
-extension SECMarkPoint.Label : SECMappable {
-    public func mapping(map: SECMap) {
-        map["normal"] = normal
-        map["emphasis"] = emphasis
-    }
-}
 
 extension SECMarkPointData : SECEnumable {
     public enum Enums {

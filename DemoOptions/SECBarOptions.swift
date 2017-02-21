@@ -625,4 +625,101 @@ public struct SECBarOptions {
                 ])
         )
     }
+    
+    // MARK: 某地区蒸发量和降水量
+    /// 地址: http://echarts.baidu.com/demo.html#bar1
+    static func bar1Option() -> SECOption {
+        return SECOption(
+            .title(SECTitle(
+                .text("某地区蒸发量和降水量"),
+                .subtext("纯属虚构")
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis)
+                )),
+            .legend(SECLegend(
+                .data(["蒸发量","降水量"])
+                )),
+            .toolbox(SECToolbox(
+                .show(true),
+                .feature(SECTFeature(
+                    .dataView(SECTFDataView(
+                        .show(true),
+                        .readOnly(false)
+                        )),
+                    .magicType(SECTFMagicType(
+                        .show(true),
+                        .type([.line, .bar])
+                        )),
+                    .restore(SECTFRestore(
+                        .show(true)
+                        )),
+                    .saveAsImage(SECTFSaveAsImage(
+                        .show(true)
+                        ))
+                    ))
+                )),
+            .xAxis(SECAxis(
+                .type(.category),
+                .data(["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"])
+                )),
+            .yAxis(SECAxis(
+                .type(.value)
+                )),
+            .series([
+                SECBarSerie(
+                    .name("蒸发量"),
+                    .data([2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]),
+                    .markPoint(SECMarkPoint(
+                        .data([
+                            SECMarkPointData(
+                                .type(.max),
+                                .name("最大值")
+                            ),
+                            SECMarkPointData(
+                                .type(.min),
+                                .name("最小值")
+                            )
+                            ])
+                        )),
+                    .markLine(SECMarkLine(
+                        .data([
+                            SECMarkLineData(
+                                .type(.average),
+                                .name("平均值")
+                            )
+                        ])
+                        ))
+                ),
+                SECBarSerie(
+                    .name("降水量"),
+                    .data([2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]),
+                    .markPoint(SECMarkPoint(
+                        .data([
+                            SECMarkPointData(
+                                .name("年最高"),
+                                .value(182.2),
+                                .xAxis(7),
+                                .yAxis(183)
+                            ),
+                            SECMarkPointData(
+                                .name("年最低"),
+                                .value(2.3),
+                                .xAxis(11),
+                                .yAxis(3)
+                            )
+                            ])
+                        )),
+                    .markLine(SECMarkLine(
+                        .data([
+                            SECMarkLineData(
+                                .type(.average),
+                                .name("平均值")
+                            )
+                        ])
+                        ))
+                )
+                ])
+        )
+    }
 }

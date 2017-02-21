@@ -388,14 +388,14 @@ public struct SECBarOptions {
                 SECBarSerie(
                     .name("辅助"),
                     .stack("总量"),
-                    .itemStyle(SECBarSerie.ItemStyle(
-                        .normal(SECBarSerie.ItemStyleContent( // FIXME: 修改类型
-//                            .color(.rgba(0, 0, 0, 0))
-//                            .color(.rbga(0, 0, 0, 0))
+                    .itemStyle(SECItemStyle(
+                        .normal(SECCommonItemStyleContent(
+                            .borderColor(.rgba(0, 0, 0, 0)),
+                            .color(.rgba(0, 0, 0, 0))
                             )),
-                        .emphasis(SECBarSerie.ItemStyleContent(
-//                            .borderColor(.rbga(0, 0, 0, 0)),
-//                            .color(.rbga(0, 0, 0, 0))
+                        .emphasis(SECCommonItemStyleContent(
+                            .borderColor(.rgba(0, 0, 0, 0)),
+                            .color(.rgba(0, 0, 0, 0))
                             ))
                         )),
                     .data([0, 1700, 1400, 1200, 300, 0])

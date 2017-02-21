@@ -11,7 +11,6 @@ import SwiftyEcharts
 public struct SECBarOptions {
     
     // MARK: 柱状图动画延迟
-    // FIXME: (未成功)
     /// 地址: http://echarts.baidu.com/demo.html#bar-animation-delay
     static func barAnimationDelayOption() -> SECOption {
         func calculateData(index: Float, function: (Double) -> Double) -> Float {
@@ -493,7 +492,6 @@ public struct SECBarOptions {
                     .data(["-", "-", "-", 108, 154, "-", "-", "-", 119, 361, 203])
                 )
                 ])
-            
         )
     }
 }

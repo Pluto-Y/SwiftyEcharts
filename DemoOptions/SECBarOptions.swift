@@ -414,4 +414,86 @@ public struct SECBarOptions {
                 ])
         )
     }
+    
+    // MARK: 阶梯瀑布图
+    /// 地址：http://echarts.baidu.com/demo.html#bar-waterfall2
+    static func barWaterfall2Option() -> SECOption {
+        var list: [SECJsonable] = []
+        for i in 1...11 {
+            list.append("11月\(i)日")
+        }
+        return SECOption(
+            .title(SECTitle(
+                .text("阶梯瀑布图"),
+                .subtext("From ExcelHome"),
+                .sublink("http://e.weibo.com/1341556070/Aj1J2x5a5")
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis),
+                .axisPointer(SECTooltip.AxisPointer(
+                    .type(.shadow)
+                    )),
+                .formatter(.function("function tooltipAxisPointer(params){ var tar; if(params[1].value != '-') { tar = params[1]; } else { tar = param[0]; } return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value}"))
+                )),
+            .legend(SECLegend(
+                .data(["支出","收入"])
+                )),
+            .grid(SECGrid(
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
+                .containLabel(true)
+                )),
+            .xAxis(SECAxis(
+                .type(.category),
+                .splitLine(SECSplitLine(
+                    .show(false)
+                    )),
+                .data(list)
+                )),
+            .yAxis(SECAxis(
+                .type(.value)
+                )),
+            .series([
+                SECBarSerie(
+                    .name("辅助"),
+                    .stack("总量"),
+                    .itemStyle(SECItemStyle(
+                        .normal(SECCommonItemStyleContent(
+                            .borderColor(.rgba(0, 0, 0, 0)),
+                            .color(.rgba(0, 0, 0, 0))
+                            )),
+                        .emphasis(SECCommonItemStyleContent(
+                            .borderColor(.rgba(0, 0, 0, 0)),
+                            .color(.rgba(0, 0, 0, 0))
+                            ))
+                        )),
+                    .data([0, 900, 1245, 1530, 1376, 1376, 1511, 1689, 1856, 1495, 1292])
+                ),
+                SECBarSerie(
+                    .name("收入"),
+                    .stack("总量"),
+                    .label(SECBarSerie.Label(
+                        .normal(SECBarSerie.LabelContent(
+                            .show(true),
+                            .position(.top)
+                            ))
+                        )),
+                    .data([900, 345, 393, "-", "-", 135, 178, 286, "-", "-", "-"])
+                ),
+                SECBarSerie(
+                    .name("支出"),
+                    .stack("总量"),
+                    .label(SECBarSerie.Label(
+                        .normal(SECBarSerie.LabelContent(
+                            .show(true),
+                            .position(.bottom)
+                            ))
+                        )),
+                    .data(["-", "-", "-", 108, 154, "-", "-", "-", 119, 361, 203])
+                )
+                ])
+            
+        )
+    }
 }

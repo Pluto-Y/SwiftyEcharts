@@ -28,7 +28,7 @@ public struct SECBarSerie : SECSeries, SECAnimatable, SECZable {
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: Label?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-    public var itemStyle: ItemStyle?
+    public var itemStyle: SECItemStyle?
     /// 数据堆叠，同个类目轴上系列配置相同的stack值可以堆叠放置。
     public var stack: String?
     /// 柱条的宽度，不设时自适应。支持设置成相对于类目宽度的百分比。
@@ -108,7 +108,7 @@ public struct SECBarSerie : SECSeries, SECAnimatable, SECZable {
 
 extension SECBarSerie : SECEnumable {
     public enum Enums {
-        case name(String), legendHoverLine(Bool), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(ItemStyle), stack(String), barWidth(SECLength), barMaxWidth(SECLength), barMinHeight(Float), barGap(String), barCategoryGap(String), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), legendHoverLine(Bool), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(SECItemStyle), stack(String), barWidth(SECLength), barMaxWidth(SECLength), barMinHeight(Float), barGap(String), barCategoryGap(String), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -297,124 +297,6 @@ extension SECBarSerie.Label : SECMappable {
 }
 
 extension SECBarSerie {
-    public struct ItemStyleContent: SECColorful, SECBorderable, SECShadowable, SECOpacitable {
-        /// 柱条的颜色。 默认从全局调色盘 option.color 获取颜色
-        public var color: SECColor?
-        /// 柱条的描边颜色。
-        public var borderColor: SECColor?
-        /// 柱条的描边宽度，默认不描边。
-        public var borderWidth: Float?
-        /// 柱条的描边类型，默认为实线，支持 'dashed', 'dotted'。
-        public var borderType: SECLineType?
-        /// 柱形边框圆角半径，单位px，支持传入数组分别指定柱形4个圆角半径。 如:
-        ///
-        ///     barBorderRadius: 5, // 统一设置四个角的圆角大小
-        ///     barBorderRadius: [5, 5, 0, 0] //（顺时针左上，右上，右下，左下）
-        public var barBorderRadius: Float?
-        /// 图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果。
-        /// 示例：
-        ///
-        ///     {
-        ///         shadowColor: 'rgba(0, 0, 0, 0.5)',
-        ///         shadowBlur: 10
-        ///     }
-        public var shadowBlur: Float?
-        /// 阴影颜色。支持的格式同color。
-        public var shadowColor: SECColor?
-        /// 阴影水平方向上的偏移距离。
-        public var shadowOffsetX: Float?
-        /// 阴影垂直方向上的偏移距离。
-        public var shadowOffsetY: Float?
-        /// 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
-        public var opacity: Float?
-    }
-    
-    public struct ItemStyle : SECEmphasisable {
-        public typealias Style = ItemStyleContent
-        
-        public var normal: Style?
-        public var emphasis: Style?
-    }
-}
-
-extension SECBarSerie.ItemStyleContent : SECEnumable {
-    public enum Enums {
-        case color(SECColor), borderColor(SECColor), borderWidth(Float), borderType(SECLineType), barBorderRadius(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .color(color):
-                self.color = color
-            case let .borderColor(color):
-                self.borderColor = color
-            case let .borderWidth(width):
-                self.borderWidth = width
-            case let .borderType(borderType):
-                self.borderType = borderType
-           case let .barBorderRadius(barBorderRadius):
-                self.barBorderRadius = barBorderRadius
-            case let .shadowBlur(blur):
-                self.shadowBlur = blur
-            case let .shadowColor(color):
-                self.shadowColor = color
-            case let .shadowOffsetX(x):
-                self.shadowOffsetX = x
-            case let .shadowOffsetY(y):
-                self.shadowOffsetY = y
-            case let .opacity(opacity):
-                self.opacity = opacity
-            }
-        }
-    }
-}
-
-extension SECBarSerie.ItemStyleContent : SECMappable {
-    public func mapping(map: SECMap) {
-        map["color"] = color
-        map["borderColor"] = borderColor
-        map["borderWidth"] = borderWidth
-        map["borderType"] = borderType
-        map["barBorderRadius"] = barBorderRadius
-        map["shadowBlur"] = shadowBlur
-        map["shadowColor"] = shadowColor
-        map["shadowOffsetX"] = shadowOffsetX
-        map["shadowOffsetY"] = shadowOffsetY
-        map["opacity"] = opacity
-        
-    }
-}
-
-extension SECBarSerie.ItemStyle : SECEnumable {
-    public enum Enums {
-        case normal(Style), emphasis(Style)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .normal(normal):
-                self.normal = normal
-            case let .emphasis(emphasis):
-                self.emphasis = emphasis
-            }
-        }
-    }
-}
-
-extension SECBarSerie.ItemStyle : SECMappable {
-    public func mapping(map: SECMap) {
-        map["normal"] = normal
-        map["emphasis"] = emphasis
-    }
-}
-
-extension SECBarSerie {
     public struct Data {
         /// 数据项名称。
         public var name: String?
@@ -423,13 +305,13 @@ extension SECBarSerie {
         /// 单个柱条文本的样式设置。
         public var label: SECFormattedLabel?
         /// 图形样式。
-        public var itemStyle: ItemStyle?
+        public var itemStyle: SECItemStyle?
     }
 }
 
 extension SECBarSerie.Data : SECEnumable {
     public enum Enums {
-        case name(String), value(Float), label(SECFormattedLabel), itemStyle(SECBarSerie.ItemStyle)
+        case name(String), value(Float), label(SECFormattedLabel), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums

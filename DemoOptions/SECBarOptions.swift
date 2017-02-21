@@ -494,4 +494,91 @@ public struct SECBarOptions {
                 ])
         )
     }
+    
+    // MARK: 堆叠条形图
+    /// 地址: http://echarts.baidu.com/demo.html#bar-y-category-stack
+    static func barYCategoryStackOption() -> SECOption {
+        return SECOption(
+            .tooltip(SECTooltip(
+                .trigger(.axis),
+                .axisPointer(SECTooltip.AxisPointer(
+                    .type(.shadow)
+                    ))
+                )),
+            .legend(SECLegend(
+                .data(["邮件营销","联盟广告","视频广告","直接访问","搜索引擎"])
+                )),
+            .grid(SECGrid(
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
+                .containLabel(true)
+                )),
+            .xAxis(SECAxis(
+                .type(.value)
+                )),
+            .yAxis(SECAxis(
+                .type(.category),
+                .data(["周一","周二","周三","周四","周五","周六","周日"])
+                )),
+            .series([
+                SECBarSerie(
+                    .name("直接访问"),
+                    .stack("总量"),
+                    .label(SECBarSerie.Label(
+                        .normal(SECBarSerie.LabelContent(
+                            .show(true),
+                            .position(.insideRight)
+                            ))
+                        )),
+                    .data([320, 332, 301, 334, 390, 330, 320])
+                ),
+                SECBarSerie(
+                    .name("邮件营销"),
+                    .stack("总量"),
+                    .label(SECBarSerie.Label(
+                        .normal(SECBarSerie.LabelContent(
+                            .show(true),
+                            .position(.insideRight)
+                            ))
+                        )),
+                    .data([120, 132, 101, 134, 90, 230, 210])
+                ),
+                SECBarSerie(
+                    .name("联盟广告"),
+                    .stack("总量"),
+                    .label(SECBarSerie.Label(
+                        .normal(SECBarSerie.LabelContent(
+                            .show(true),
+                            .position(.insideRight)
+                            ))
+                        )),
+                    .data([220, 182, 191, 234, 290, 330, 310])
+                ),
+                SECBarSerie(
+                    .name("视频广告"),
+                    .stack("总量"),
+                    .label(SECBarSerie.Label(
+                        .normal(SECBarSerie.LabelContent(
+                            .show(true),
+                            .position(.insideRight)
+                            ))
+                        )),
+                    .data([150, 232, 201, 154, 190, 330, 410])
+                ),
+                
+                SECBarSerie(
+                    .name("搜索引擎"),
+                    .stack("总量"),
+                    .label(SECBarSerie.Label(
+                        .normal(SECBarSerie.LabelContent(
+                            .show(true),
+                            .position(.insideRight)
+                            ))
+                        )),
+                    .data([820, 932, 901, 934, 1290, 1330, 1320])
+                )
+                ])
+        )
+    }
 }

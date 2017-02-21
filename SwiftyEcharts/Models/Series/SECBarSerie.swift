@@ -216,7 +216,7 @@ extension SECBarSerie {
         /// 是否显示标签。
         public var show: Bool?
         /// 标签的位置。
-        public var position: SECPosition?
+        public var position: SECMarkPosition?
         /// 是否对文字进行偏移。默认不偏移。例如：[30, 40] 表示文字在横向上偏移 30，纵向上偏移 40。
         public var offset: [Float]?
         /// 标签内容格式器，支持字符串模板和回调函数两种形式，字符串模板与回调函数返回的字符串均支持用 \n 换行。
@@ -236,7 +236,7 @@ extension SECBarSerie {
 
 extension SECBarSerie.LabelContent : SECEnumable {
     public enum Enums {
-        case show(Bool), position(SECPosition), offset([Float]), formatter(SECFormatter), textStyle(SECTextStyle)
+        case show(Bool), position(SECMarkPosition), offset([Float]), formatter(SECFormatter), textStyle(SECTextStyle)
     }
     
     public typealias ContentEnum = Enums

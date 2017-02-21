@@ -27,9 +27,9 @@ public enum SECColor: SECJsonable, CustomStringConvertible {
     public var description: String {
         switch self {
         case let .rgba(r, g, b, a):
-            return "rbga(\(r), \(g), \(b), \(a))"
+            return "rgba(\(r), \(g), \(b), \(a))"
         case let .rgb(r, g, b):
-            return "rbga(\(r), \(g), \(b), 1.0)"
+            return "rgba(\(r), \(g), \(b), 1.0)"
         case let .hexColor(hexColor):
             return "\(hexColor)"
         case .red:

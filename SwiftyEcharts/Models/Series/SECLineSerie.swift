@@ -69,7 +69,7 @@ extension SECLineSerie {
         public var symbol: SECSymbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
-        public var symbolOffset: [SECLength]?
+        public var symbolOffset: SECPoint?
         public var label: Label?
         public var itemStyle: SECItemStyle?
         
@@ -102,7 +102,7 @@ extension SECLineSerie.Data.Label : SECMappable {
 
 extension SECLineSerie.Data : SECEnumable {
     public enum Enums {
-        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), label(Label), itemStyle(SECItemStyle)
+        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(Label), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -188,7 +188,7 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
     public var symbol: SECSymbol?
     public var symbolSize: Float?
     public var symbolRotate: Float?
-    public var symbolOffset: [SECLength]?
+    public var symbolOffset: SECPoint?
     public var showSymbol: Bool?
     /// 标志图形默认只有主轴显示（随主轴标签间隔隐藏策略），如需全部显示可把 showAllSymbol 设为 true。
     public var showAllSymbol: Bool?
@@ -394,7 +394,7 @@ extension SECLineSerie : SECSeries {
 
 extension SECLineSerie : SECEnumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(SECLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(AreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(SECLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(AreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums

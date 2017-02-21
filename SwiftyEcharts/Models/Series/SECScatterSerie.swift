@@ -18,7 +18,7 @@ public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZabl
         public var symbol: SECSymbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
-        public var symbolOffset: [SECLength]?
+        public var symbolOffset: SECPoint?
         /// 数据项文字样式
         public var label: SECLabel?
         /// 单个数据点（气泡）的样式设置。
@@ -59,7 +59,7 @@ public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZabl
     public var symbolRotate: Float?
     /// 标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
     /// 例如 [0, '50%'] 就是把自己向上移动了一半的位置，在 symbol 图形是气泡的时候可以让图形下端的箭头对准数据点。
-    public var symbolOffset: [SECLength]?
+    public var symbolOffset: SECPoint?
     /// 是否开启大规模散点图的优化，在数据图形特别多的时候（>=5k）可以开启。
     /// 开启后配合 largeThreshold 在数据量大于指定阈值的时候对绘制进行优化。
     /// 缺点：优化后不能自定义设置单个数据项的样式。
@@ -216,7 +216,7 @@ public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZabl
 
 extension SECScatterSerie.Data : SECEnumable {
     public enum Enums {
-        case name(String), value(String), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), label(SECLabel), itemStyle(SECItemStyle)
+        case name(String), value(String), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECLabel), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -260,7 +260,7 @@ extension SECScatterSerie.Data : SECMappable {
 
 extension SECScatterSerie : SECEnumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), hoverAnimation(Bool), legendHoverLink(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), large(Bool), largeThreshold(Float), label(SECFormattedLabel), itemStyle(SECItemStyle), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), hoverAnimation(Bool), legendHoverLink(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), large(Bool), largeThreshold(Float), label(SECFormattedLabel), itemStyle(SECItemStyle), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums

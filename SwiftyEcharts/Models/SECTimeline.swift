@@ -153,7 +153,7 @@ public struct SECTimeline : SECDisplayable, SECSymbolized, SECZable {
         public var symbolRotate: Float?
         /// timeline.checkpointStyle 标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
         /// 例如 [0, '50%'] 就是把自己向上移动了一半的位置，在 symbol 图形是气泡的时候可以让图形下端的箭头对准数据点。
-        public var symbolOffset: [SECLength]?
+        public var symbolOffset: SECPoint?
         /// timeline组件中『当前项』（checkpoint）的颜色。
         public var color: SECColor?
         /// timeline组件中『当前项』（checkpoint）的边框宽度。
@@ -300,7 +300,7 @@ public struct SECTimeline : SECDisplayable, SECSymbolized, SECZable {
     public var symbolRotate: Float?
     /// timeline标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
     /// 例如 [0, '50%'] 就是把自己向上移动了一半的位置，在 symbol 图形是气泡的时候可以让图形下端的箭头对准数据点。
-    public var symbolOffset: [SECLength]?
+    public var symbolOffset: SECPoint?
     /// 线条样式
     public var lineStyle: LineStyle?
     /// 轴的文本标签。有 normal 和 emphasis 两个状态，normal 是文本正常的样式，emphasis 是文本高亮的样式，比如鼠标悬浮或者图例联动高亮的时候会使用 emphasis 作为文本的样式。
@@ -365,7 +365,7 @@ extension SECTimeline.LineStyle : SECMappable {
 
 extension SECTimeline.CheckpointStyle : SECEnumable {
     public enum Enums {
-        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), color(SECColor), borderColor(SECColor), borderWidth(Float), animation(Bool), animationDuration(Float), animationEasing(SECAnimation)
+        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), color(SECColor), borderColor(SECColor), borderWidth(Float), animation(Bool), animationDuration(Float), animationEasing(SECAnimation)
     }
     
     public typealias ContentEnum = Enums
@@ -538,7 +538,7 @@ extension SECTimeline.Data : SECMappable {
 
 extension SECTimeline : SECEnumable {
     public enum Enums {
-        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), padding(SECPadding), orient(SECOrient), inverse(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), lineStyle(LineStyle), itemStyle(SECItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([SECJsonable])
+        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), padding(SECPadding), orient(SECOrient), inverse(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), lineStyle(LineStyle), itemStyle(SECItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([SECJsonable])
     }
     
     public typealias ContentEnum = Enums

@@ -52,5 +52,5 @@ public protocol SECSymbolized {
     var symbol: SECSymbol? { get set }
     var symbolSize: Float? { get set }
     var symbolRotate: Float? { get set }
-    var symbolOffset: [SECLength]? { get set }
+    var symbolOffset: SECPoint? { get set }
 }

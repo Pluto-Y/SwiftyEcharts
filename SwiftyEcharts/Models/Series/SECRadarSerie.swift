@@ -14,7 +14,7 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
         public var symbol: SECSymbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
-        public var symbolOffset: [SECLength]?
+        public var symbolOffset: SECPoint?
         public var label: SECFormattedLabel?
         public var itemStyle: SECItemStyle?
         public var lineStyle: SECLineStyle?
@@ -32,7 +32,7 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
     public var symbol: SECSymbol?
     public var symbolSize: Float?
     public var symbolRotate: Float?
-    public var symbolOffset: [SECLength]?
+    public var symbolOffset: SECPoint?
     public var label: SECFormattedLabel?
     public var itemStyle: SECItemStyle?
     public var lineStyle: SECLineStyle?
@@ -55,7 +55,7 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
 
 extension SECRadarSerie.Data : SECEnumable {
     public enum Enums {
-        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECLineStyle), areStyle(SECAreaStyle)
+        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECLineStyle), areStyle(SECAreaStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -105,7 +105,7 @@ extension SECRadarSerie.Data : SECMappable {
 
 extension SECRadarSerie : SECEnumable {
 	public enum Enums {
-		case name(String), radarIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECLineStyle), areStyle(SECAreaStyle), data([Any]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+		case name(String), radarIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECLineStyle), areStyle(SECAreaStyle), data([Any]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
 	}
 
 	public typealias ContentEnum = Enums

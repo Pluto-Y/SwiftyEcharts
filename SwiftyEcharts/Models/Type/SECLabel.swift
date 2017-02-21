@@ -91,7 +91,7 @@ public struct SECFormattedLabelStyle : SECLabelStyle, SECFormatted {
     public var show: Bool?
     public var position: SECPosition?
     public var formatter: SECFormatter?
-    public var offset: [Float]?
+    public var offset: SECPoint?
     public var textStyle: SECTextStyle?
     
     public init() { }
@@ -100,7 +100,7 @@ public struct SECFormattedLabelStyle : SECLabelStyle, SECFormatted {
 
 extension SECFormattedLabelStyle : SECEnumable {
     public enum Enums {
-        case show(Bool), position(SECPosition), formatter(SECFormatter), offset([Float]), textStyle(SECTextStyle)
+        case show(Bool), position(SECPosition), formatter(SECFormatter), offset(SECPoint), textStyle(SECTextStyle)
     }
     
     public typealias ContentEnum = Enums

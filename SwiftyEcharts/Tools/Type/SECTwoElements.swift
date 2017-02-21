@@ -6,6 +6,11 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 用来保存只有两个元素的类型，
+///
+/// 例如一个点, [x, y]
+///
+/// 例如一个访问， [min, max]
 public struct SECTwoElements {
     
     private var first: SECLength?

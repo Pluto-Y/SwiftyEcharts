@@ -15,7 +15,7 @@ public struct SECCommonItemStyleContent : SECItemStyleContent {
     public var color: SECColor?
     public var borderColor: SECColor?
     public var borderWidth: Float?
-    public var borderType: SECLineType? = SECLineType.solid
+    public var borderType: SECLineType?
     public var shadowBlur: Float?
     public var shadowColor: SECColor?
     public var shadowOffsetX: Float?
@@ -25,13 +25,15 @@ public struct SECCommonItemStyleContent : SECItemStyleContent {
             validateOpacity()
         }
     }
+    /// 目前只针对 `SECBarSerie`
+    public var barBorderRadius: Float?
     
     public init() { }
 }
 
 extension SECCommonItemStyleContent : SECEnumable {
     public enum Enums {
-        case color(SECColor), borderColor(SECColor), borderWidth(Float), borderType(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
+        case color(SECColor), borderColor(SECColor), borderWidth(Float), borderType(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), barBorderRadius(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -57,6 +59,8 @@ extension SECCommonItemStyleContent : SECEnumable {
                 self.shadowOffsetY = y
             case let .opacity(opacity):
                 self.opacity = opacity
+            case let .barBorderRadius(barBorderRadius):
+                self.barBorderRadius = barBorderRadius
             }
         }
     }
@@ -73,6 +77,7 @@ extension SECCommonItemStyleContent : SECMappable {
         map["shadowOffsetX"] = shadowOffsetX
         map["shadowOffsetY"] = shadowOffsetY
         map["opacity"] = opacity
+        map["barBorderRadius"] = barBorderRadius
     }
 }
 

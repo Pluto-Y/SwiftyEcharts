@@ -58,51 +58,23 @@ extension SECLineSerie.AreaStyle : SECMappable {
 
 extension SECLineSerie {
     public struct Data: SECSymbolized {
-        public struct Label {
-            public var normal: SECCommonLabelStyle?
-            
-            public init() { }
-        }
-
+        
         public var name: String?
         public var value: Float?
         public var symbol: SECSymbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
         public var symbolOffset: SECPoint?
-        public var label: Label?
+        public var label: SECLabel? // 官方文档显示只有 normal 的模式？
         public var itemStyle: SECItemStyle?
         
         public init() { }
     }
 }
 
-extension SECLineSerie.Data.Label : SECEnumable {
-    public enum Enums {
-        case normal(SECCommonLabelStyle)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .normal(normal):
-                self.normal = normal
-            }
-        }
-    }
-}
-
-extension SECLineSerie.Data.Label : SECMappable {
-    public func mapping(map: SECMap) {
-        map["normal"] = normal
-    }
-}
-
 extension SECLineSerie.Data : SECEnumable {
     public enum Enums {
-        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(Label), itemStyle(SECItemStyle)
+        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECLabel), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums

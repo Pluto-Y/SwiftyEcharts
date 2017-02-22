@@ -9,17 +9,8 @@
 public struct SECMarkPoint : SECSymbolized, SECAnimatable {
     
     public struct Data : SECSymbolized {
-        public enum Type : String, SECJsonable {
-            case min = "min"
-            case max = "max"
-            case average = "average"
-            
-            public var jsonString: String {
-                return "\"\(self.rawValue)\""
-            }
-        }
         public var name: String?
-        public var type: Type?
+        public var type: SECMarkDataType?
         public var valueIndex: UInt8?
         public var valueDim: String?
         public var coord: [SECJsonable]?
@@ -170,7 +161,7 @@ extension SECMarkPoint : SECMappable {
 
 extension SECMarkPointData : SECEnumable {
     public enum Enums {
-        case name(String), type(Type), valueIndex(UInt8), valueDim(String), coord([SECJsonable]), x(SECLength), y(SECLength), xAxis(Float), yAxis(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), itemStyle(SECItemStyle), label(SECLabel)
+        case name(String), type(SECMarkDataType), valueIndex(UInt8), valueDim(String), coord([SECJsonable]), x(SECLength), y(SECLength), xAxis(Float), yAxis(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), itemStyle(SECItemStyle), label(SECLabel)
     }
     
     public typealias ContentEnum = Enums

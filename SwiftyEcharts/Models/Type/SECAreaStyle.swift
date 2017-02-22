@@ -10,54 +10,6 @@ public protocol SECAreaStyleContent : SECColorful, SECShadowable, SECOpacitable 
 
 }
 
-public struct SECCommonAreaStyleContent : SECAreaStyleContent {
-    public var color: SECColor?
-    public var shadowBlur: Float?
-    public var shadowColor: SECColor?
-    public var shadowOffsetX: Float?
-    public var shadowOffsetY: Float?
-    public var opacity: Float?
-}
-
-extension SECCommonAreaStyleContent : SECEnumable {
-    public enum Enums {
-        case color(SECColor), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .color(color):
-                self.color = color
-            case let .shadowBlur(blur):
-                self.shadowBlur = blur
-            case let .shadowColor(color):
-                self.shadowColor = color
-            case let .shadowOffsetX(x):
-                self.shadowOffsetX = x
-            case let .shadowOffsetY(y):
-                self.shadowOffsetY = y
-            case let .opacity(opacity):
-                self.opacity = opacity
-            }
-        }
-    }
-}
-
-extension SECCommonAreaStyleContent : SECMappable {
-    public func mapping(map: SECMap) {
-        map["color"] = color
-        map["shadowBlur"] = shadowBlur
-        map["shadowColor"] = shadowColor
-        map["shadowOffsetX"] = shadowOffsetX
-        map["shadowOffsetY"] = shadowOffsetY
-        map["opacity"] = opacity
-    }
-}
-
-
 /// 分隔区域的样式设置。
 public struct SECAreaStyle : SECAreaStyleContent {
     /// 分隔区域颜色。分隔区域会按数组中颜色的顺序依次循环设置颜色。默认是一个深浅的间隔色。
@@ -74,6 +26,8 @@ public struct SECAreaStyle : SECAreaStyleContent {
         }
     }
 }
+
+public typealias SECCommonAreaStyleContent = SECAreaStyle
 
 extension SECAreaStyle : SECEnumable {
     public enum Enums {

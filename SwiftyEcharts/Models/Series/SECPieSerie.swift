@@ -96,11 +96,11 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     ///     center: [400, 300]
     ///     // 设置成相对的百分比
     ///     center: ['50%', '50%']
-    public var center: [Float]? // 暂不支持百分比形式
+    public var center: SECPoint?
     /// 饼图的半径，数组的第一项是内半径，第二项是外半径。
     /// 支持设置成百分比，相对于容器高宽中较小的一项的一半。
     /// 可以将内半径设大显示成圆环图（Donut chart）。
-    public var radius: [Float]? // 暂不支持百分比形式
+    public var radius: SECRange?
     /// 系列中的数据内容数组。数组项可以为单个数值，如：
     public var data: [SECJsonable]?
     /// 图表标注。
@@ -219,7 +219,7 @@ extension SECPieSerie.LabelLine : SECMappable {
 
 extension SECPieSerie : SECEnumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SECSelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(Bool), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(SECFormattedLabel), labelLine(LabelLine), itemStyle(SECItemStyle), zlevel(Float), z(Float), center([Float]), radius([Float]), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SECSelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(Bool), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(SECFormattedLabel), labelLine(LabelLine), itemStyle(SECItemStyle), zlevel(Float), z(Float), center(SECPoint), radius(SECLength), radiusRange(SECRange), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -262,7 +262,9 @@ extension SECPieSerie : SECEnumable {
             case let .center(center):
                 self.center = center
             case let .radius(radius):
-                self.radius = radius
+                self.radius = [0, radius]
+            case let .radiusRange(radiusRange):
+                self.radius = radiusRange
             case let .data(data):
                 self.data = data
             case let .markPoint(markPoint):

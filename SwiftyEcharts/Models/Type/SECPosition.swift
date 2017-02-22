@@ -48,3 +48,13 @@ public enum SECPosition : SECJsonable {
         }
     }
 }
+
+public enum SECLocation : String, SECJsonable {
+    case start = "start"
+    case middle = "middle"
+    case end = "end"
+    
+    public var jsonString: String {
+        return "\"\(self.rawValue)\""
+    }
+}

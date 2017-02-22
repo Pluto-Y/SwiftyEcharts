@@ -154,15 +154,7 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
     /// 阶梯线图类型。
     ///
     /// 具体差别可以参考: http://echarts.baidu.com/gallery/editor.html?c=line-step
-    public enum Step : String, SECJsonable {
-        case start = "start"
-        case middle = "middle"
-        case end = "end"
-        
-        public var jsonString: String {
-            return "\"\(self.rawValue)\""
-        }
-    }
+    public typealias Step = SECLocation
     
     /// 折线平滑后是否在一个维度上保持单调性，可以设置成'x', 'y'来指明是在 x 轴或者 y 轴上保持单调性。
     public enum SmoothMonotone : String, SECJsonable{

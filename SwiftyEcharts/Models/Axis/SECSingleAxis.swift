@@ -15,20 +15,7 @@ public struct SECSingleAxis : SECZable {
         public init() {}
     }
     
-    /// <#Description#>
-    ///
-    /// - start: <#start description#>
-    /// - middle: <#middle description#>
-    /// - end: <#end description#>
-    public enum NameLocation : String, SECJsonable {
-        case start = "start"
-        case middle = "middle"
-        case end = "end"
-        
-        public var jsonString: String {
-            return "\"\(self.rawValue)\""
-        }
-    }
+    public typealias NameLocation = SECLocation
     
     public var zlevel: Float?
     public var z: Float? 

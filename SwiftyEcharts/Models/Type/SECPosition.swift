@@ -18,7 +18,7 @@
 /// - value: 绝对位置
 /// - percent: 相对位置
 public enum SECPosition : SECJsonable {
-    case auto, left, center, right, top, middle, bottom,start,end,inside
+    case auto, left, center, right, top, middle, bottom, start, end, inside, inner
     case value(SECLength)
     
     public var jsonString: String {
@@ -43,6 +43,8 @@ public enum SECPosition : SECJsonable {
             return "\"end\""
         case .inside:
             return "\"inside\""
+        case .inner:
+            return "\"inner\""
         case let .value(val):
             return val.jsonString
         }

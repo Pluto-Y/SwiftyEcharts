@@ -40,11 +40,11 @@ public struct SECPieOptions {
                     .radius(55%),
                     .center([50%, 50%]),
                     .data([
-                        [ "value":235, "name":"视频广告" ],
-                        [ "value":274, "name":"联盟广告" ],
-                        [ "value":310, "name":"邮件营销" ],
-                        [ "value":335, "name":"直接访问" ],
-                        [ "value":400, "name":"搜索引擎" ]
+                        ["value":235, "name":"视频广告"],
+                        ["value":274, "name":"联盟广告"],
+                        ["value":310, "name":"邮件营销"],
+                        ["value":335, "name":"直接访问"],
+                        ["value":400, "name":"搜索引擎"]
                         ]),
                     .roseType(true), // FIXME: 需要调整
                     .label(SECFormattedLabel(
@@ -121,6 +121,58 @@ public struct SECPieOptions {
                         ["value":234,"name":"联盟广告"],
                         ["value":135,"name":"视频广告"],
                         ["value":1548,"name":"搜索引擎"]
+                        ])
+                )
+                ])
+        )
+    }
+    
+    // MARK: 嵌套环形图
+    /// 地址: http://echarts.baidu.com/demo.html#pie-nest
+    static func pieNestOption() -> SECOption {
+        return SECOption(
+            .tooltip(SECTooltip(
+                .trigger(.item),
+                .formatter(.string("{a} <br/>{b}: {c} ({d}%)"))
+                )),
+            .legend(SECLegend(
+                .orient(.vertical),
+                .left(.auto),
+                .data(["直达","营销广告","搜索引擎","邮件营销","联盟广告","视频广告","百度","谷歌","必应","其他"])
+                )),
+            .series([
+                SECPieSerie(
+                    .name("访问来源"),
+                    .selectedMode(.mode(.single)),
+                    .radiusRange([0, 30%]),
+                    .label(SECFormattedLabel(
+                        .normal(SECFormattedLabelStyle(
+                            .position(.inner)
+                            ))
+                        )),
+                    .labelLine(SECPieSerie.LabelLine(
+                        .normal(SECPieSerie.LabelLineContent(
+                            .show(false)
+                            ))
+                        )),
+                    .data([
+                        ["value":335, "name":"直达", "selected":true],
+                        ["value":679, "name":"营销广告"],
+                        ["value":1548, "name":"搜索引擎"]
+                        ])
+                ),
+                SECPieSerie(
+                    .name("访问来源"),
+                    .radiusRange([40%, 55%]),
+                    .data([
+                        ["value":335, "name":"直达"],
+                        ["value":310, "name":"邮件营销"],
+                        ["value":234, "name":"联盟广告"],
+                        ["value":135, "name":"视频广告"],
+                        ["value":1048, "name":"百度"],
+                        ["value":251, "name":"谷歌"],
+                        ["value":147, "name":"必应"],
+                        ["value":102, "name":"其他"]
                         ])
                 )
                 ])

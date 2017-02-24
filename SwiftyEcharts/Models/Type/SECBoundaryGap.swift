@@ -16,14 +16,14 @@
 ///         boundaryGap: ['20%', '20%']
 public enum SECBoundaryGap : SECJsonable {
     case category(Bool)
-    case notCategory(SECLength, SECLength)
+    case notCategory(SECTwoElements)
     
     public var jsonString: String {
         switch self {
         case let .category(enable):
             return "\(enable)"
-        case let .notCategory(val1, val2):
-            return "[\(val1.jsonString), \(val2.jsonString)]"
+        case let .notCategory(twoElements):
+            return "[\(twoElements.jsonString)]"
         }
     }
 }

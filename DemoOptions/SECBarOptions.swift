@@ -607,7 +607,7 @@ public struct SECBarOptions {
                 )),
             .xAxis(SECAxis(
                 .type(.value),
-                .boundaryGap(.notCategory(0, 0.01))
+                .boundaryGap(.notCategory([0, 0.01]))
                 )),
             .yAxis(SECAxis(
                 .type(.category),

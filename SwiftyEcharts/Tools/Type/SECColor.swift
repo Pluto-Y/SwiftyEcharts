@@ -17,21 +17,34 @@ public protocol SECColorful {
 /// - rgba: 以RGBA形式创建的颜色
 /// - rgb: 以RGB形式创建的颜色
 /// - hexColor: 以16进制字符串创建的颜色
-public enum SECColor: SECJsonable, CustomStringConvertible {
+public enum SECColor: SECJsonable {
+    
+    public enum ImageRepeat : String, SECJsonable {
+        case repeatAll = "repeat"
+        case repeatX = "repeat-x"
+        case repeatY = "repeat-y"
+        case noRepeat = "no-repeat"
+        
+        public var jsonString: String {
+            return "\"\(self.rawValue)\""
+        }
+    }
+    
     case rgba(Int, Int, Int, Float)
     case rgb(Int, Int, Int)
     case hexColor(String)
     case array([SECColor])
     case red, blue, green, transparent
+    case image(String, ImageRepeat)
     
-    public var description: String {
+    public var jsonString: String {
         switch self {
         case let .rgba(r, g, b, a):
-            return "rgba(\(r), \(g), \(b), \(a))"
+            return "\"rgba(\(r), \(g), \(b), \(a))\""
         case let .rgb(r, g, b):
-            return "rgba(\(r), \(g), \(b), 1.0)"
+            return "\"rgba(\(r), \(g), \(b), 1.0)\""
         case let .hexColor(hexColor):
-            return "\(hexColor)"
+            return "\"\(hexColor)\""
         case .red:
             return "\"red\""
         case .blue:
@@ -43,11 +56,16 @@ public enum SECColor: SECJsonable, CustomStringConvertible {
         case let .array(colors):
             var result = "["
             for color in colors {
-                result += "\(color.description)" + ","
+                result += "\(color.jsonString)" + ","
             }
             result = result.substringFromIndex(result.endIndex.predecessor())
             result += "]"
             return result
+        case let .image(base64Str, r):
+            let count = SECJsMap.allFunctions().count
+            let paramName = "tmp\(count)"
+            SECJsMap.add("var \(paramName) = new Image(); \(paramName).src = '\(base64Str)';")
+            return "{\"image\": \"\(paramName)\", \"repeat\": \(r.jsonString)}"
         }
     }
 }

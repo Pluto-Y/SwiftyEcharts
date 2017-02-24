@@ -193,26 +193,26 @@ public struct SECBarOptions {
                             ))
                         )),
                     .data([
-                        SECBarSerie.Data(
+                        SECBarSerieData(
                             .value(-0.07),
                             .label(labelRight)
                         ),
-                        SECBarSerie.Data(
+                        SECBarSerieData(
                             .value(-0.09),
                             .label(labelRight)
                         ),
                         0.2, 0.44,
-                        SECBarSerie.Data(
+                        SECBarSerieData(
                             .value(-0.23),
                             .label(labelRight)
                         ),
                         0.08,
-                        SECBarSerie.Data(
+                        SECBarSerieData(
                             .value(-0.17),
                             .label(labelRight)
                         ),
                         0.47,
-                        SECBarSerie.Data(
+                        SECBarSerieData(
                             .value(-0.36),
                             .label(labelRight)
                         ),

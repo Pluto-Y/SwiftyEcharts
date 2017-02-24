@@ -309,7 +309,9 @@ extension SECBarSerie {
     }
 }
 
-extension SECBarSerie.Data : SECEnumable {
+public typealias SECBarSerieData = SECBarSerie.Data
+
+extension SECBarSerieData : SECEnumable {
     public enum Enums {
         case name(String), value(Float), label(SECFormattedLabel), itemStyle(SECItemStyle)
     }
@@ -332,7 +334,7 @@ extension SECBarSerie.Data : SECEnumable {
     }
 }
 
-extension SECBarSerie.Data : SECMappable {
+extension SECBarSerieData : SECMappable {
     public func mapping(map: SECMap) {
         map["name"] = name
         map["value"] = value

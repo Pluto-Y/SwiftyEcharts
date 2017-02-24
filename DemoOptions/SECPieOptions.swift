@@ -260,12 +260,12 @@ public struct SECPieOptions {
             .series([
                 SECPieSerie(
                     .name("半径模式"),
-                    .radiusRange([20, 110]),
+                    .radiusRange([10, 55]),
                     .center([25%, 50%]),
                     .roseType(.enable),
                     .label(SECFormattedLabel(
                         .normal(SECFormattedLabelStyle(
-                            .show(true)
+                            .show(false)
                             )),
                         .emphasis(SECFormattedLabelStyle(
                             .show(true)
@@ -273,7 +273,7 @@ public struct SECPieOptions {
                         )),
                     .labelLine(SECPieSerie.LabelLine(
                         .normal(SECPieSerie.LabelLineContent(
-                            .show(true)
+                            .show(false)
                             )),
                         .emphasis(SECPieSerie.LabelLineContent(
                             .show(true)
@@ -292,7 +292,7 @@ public struct SECPieOptions {
                 ),
                 SECPieSerie(
                     .name("面积模式"),
-                    .radiusRange([30, 110]),
+                    .radiusRange([15, 55]),
                     .center([75%, 50%]),
                     .roseType(.radius),
                     .data([

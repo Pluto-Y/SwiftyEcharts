@@ -78,7 +78,7 @@
 		6F91EB7F1DF142E3003EEEC0 /* SECLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7E1DF142E3003EEEC0 /* SECLegend.swift */; };
 		6F9B70D81DE8070E00406B55 /* SECEchartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B70D71DE8070E00406B55 /* SECEchartsView.swift */; };
 		6F9B70E01DE808E600406B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B70DF1DE808E600406B55 /* AppDelegate.swift */; };
-		6F9B70E21DE808E600406B55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B70E11DE808E600406B55 /* ViewController.swift */; };
+		6F9B70E21DE808E600406B55 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B70E11DE808E600406B55 /* MenuController.swift */; };
 		6F9B70E51DE808E600406B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F9B70E31DE808E600406B55 /* Main.storyboard */; };
 		6F9B70E71DE808E600406B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9B70E61DE808E600406B55 /* Assets.xcassets */; };
 		6F9B70EA1DE808E600406B55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F9B70E81DE808E600406B55 /* LaunchScreen.storyboard */; };
@@ -250,7 +250,7 @@
 		6F9B70D71DE8070E00406B55 /* SECEchartsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECEchartsView.swift; sourceTree = "<group>"; };
 		6F9B70DD1DE808E600406B55 /* iOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9B70DF1DE808E600406B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6F9B70E11DE808E600406B55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6F9B70E11DE808E600406B55 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		6F9B70E41DE808E600406B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6F9B70E61DE808E600406B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F9B70E91DE808E600406B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -459,6 +459,13 @@
 			path = Json;
 			sourceTree = "<group>";
 		};
+		6F0E461A1E609ECB008DA184 /* DemoControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DemoControllers;
+			sourceTree = "<group>";
+		};
 		6F1325621D9312A90006F114 = {
 			isa = PBXGroup;
 			children = (
@@ -528,8 +535,9 @@
 		6F9B70DE1DE808E600406B55 /* iOS_Example */ = {
 			isa = PBXGroup;
 			children = (
+				6F0E461A1E609ECB008DA184 /* DemoControllers */,
 				6F9B70DF1DE808E600406B55 /* AppDelegate.swift */,
-				6F9B70E11DE808E600406B55 /* ViewController.swift */,
+				6F9B70E11DE808E600406B55 /* MenuController.swift */,
 				6F9B70E31DE808E600406B55 /* Main.storyboard */,
 				6F9B70E61DE808E600406B55 /* Assets.xcassets */,
 				6F9B70E81DE808E600406B55 /* LaunchScreen.storyboard */,
@@ -968,7 +976,7 @@
 				5427F0851E2C95D900CE20E5 /* SECPieOptions.swift in Sources */,
 				5427F0811E2C953700CE20E5 /* SECBarOptions.swift in Sources */,
 				5427F09B1E2C982900CE20E5 /* SECGaugeOptions.swift in Sources */,
-				6F9B70E21DE808E600406B55 /* ViewController.swift in Sources */,
+				6F9B70E21DE808E600406B55 /* MenuController.swift in Sources */,
 				5427F0911E2C97C600CE20E5 /* SECGraphOptions.swift in Sources */,
 				5427F0971E2C981500CE20E5 /* SECSankeyOptions.swift in Sources */,
 				5427F08F1E2C97BB00CE20E5 /* SECHeatmapOptions.swift in Sources */,

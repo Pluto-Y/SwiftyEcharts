@@ -138,6 +138,14 @@ public struct SECLineOptions {
         )
     }
     
+    // MARK: 大数据量面积图
+    /// 地址: http://echarts.baidu.com/demo.html#area-simple
+    static func areaSimpleOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
     // MARK: 堆叠区域图
     /// 地址:http://echarts.baidu.com/demo.html#area-stack
     static func areaStackOption() -> SECOption {
@@ -217,6 +225,22 @@ public struct SECLineOptions {
                     .data([820, 932, 901, 934, 1290, 1330, 1320])
                 )
                 ])
+        )
+    }
+    
+    // MARK: Confidence Band
+    /// 地址: http://echarts.baidu.com/demo.html#confidence-band
+    static func confidenceBandOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
+    // MARK: 动态数据 + 时间坐标轴
+    /// 地址: http://echarts.baidu.com/demo.html#dynamic-data2
+    static func dynamicData2Option() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
         )
     }
     
@@ -345,6 +369,132 @@ public struct SECLineOptions {
         )
     }
     
+    // MARK: Beijing AQI
+    /// 地址: http://echarts.baidu.com/demo.html#line-aqi
+    static func lineApiOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
+    // MARK: Try Dragging these Points
+    /// 地址: http://echarts.baidu.com/demo.html#line-draggable
+    static func lineDraggableOption() -> SECOption {
+        // 未完成对应的拖拽代码
+        let symbolSize: Float = 20
+        let data: [SECJsonable] =  [[15, 0], [-50, 10], [-56.5, 20], [-46.5, 30], [-22.1, 40]]
+        return SECOption(
+            .title(SECTitle(
+                .text("Try Dragging these Points")
+                )),
+            .tooltip(SECTooltip(
+                .triggerOn(.none),
+                .formatter(.function("function tooltipFormatter(params) { return 'X: ' + params.data[0].toFixed(2) + '<br>Y: ' + params.data[1].toFixed(2);}"))
+                )),
+            .grid(SECGrid()),
+            .xAxis(SECAxis(
+                .min(-100),
+                .max(80),
+                .type(.value),
+                .axisLine(SECAxisLine(
+                    .onZero(false)
+                    ))
+                )),
+            .yAxis(SECAxis(
+                .min(-30),
+                .max(60),
+                .type(.value),
+                .axisLine(SECAxisLine(
+                    .onZero(false)
+                    ))
+                )),
+            .dataZoom([
+                SECSliderDataZoom(
+                    .xAxisIndex(0),
+                    .filterMode(.empty)
+                ),
+                SECSliderDataZoom(
+                    .yAxisIndex(0),
+                    .filterMode(.empty)
+                ),
+                SECInsideDataZoom(
+                    .xAxisIndex(0),
+                    .filterMode(.empty)
+                ),
+                SECInsideDataZoom(
+                    .yAxisIndex(0),
+                    .filterMode(.empty)
+                ),
+                ]),
+            .series([
+                SECLineSerie(
+                    .smooth(false),
+                    .symbolSize(symbolSize),
+                    .data(data)
+                )
+                ])
+        )
+    }
+    
+    // MARK: Different Easing Functions
+    /// 地址: http://echarts.baidu.com/demo.html#line-easing
+    static func lineEasingOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
+    // MARK: 指数折线图
+    /// 地址: http://echarts.baidu.com/gallery/editor.html?c=line-log
+    static func logAxisOption() -> SECOption {
+        return SECOption(
+            .title(SECTitle(
+                .text("对数轴示例"),
+                .left(.center)
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.item),
+                .formatter(.string("{a} <br/>{b} : {c}"))
+                )),
+            .legend(SECLegend(
+                .left(.left),
+                .data(["2的指数", "3的指数"])
+                )),
+            .xAxis(SECAxis(
+                    .type(.category),
+                    .name("x"),
+                    .splitArea(SECSplitArea(
+                        .show(false)
+                        )),
+                    .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
+                )),
+            .grid(SECGrid(
+                .left(.value(3%)),
+                .right(.value(4%)),
+                .bottom(.value(3%)),
+                .containLabel(true)
+                )),
+            .yAxis(SECAxis(
+                    .type(.log),
+                    .name("y")
+                )),
+            .series([
+                SECLineSerie(
+                    .name("3的指数"),
+                    .data([1, 3, 9, 27, 81, 247, 741, 2223, 6669])
+                ),
+                SECLineSerie(
+                    .name("2的指数"),
+                    .data([1, 2, 4, 8, 16, 32, 64, 128, 256])
+                ),
+                SECLineSerie(
+                    .name("1/2的指数"),
+                    .data([1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625])
+                )
+                ])
+        )
+    }
+    
     // MARK: 未来一周气温变化
     /// 地址: http://echarts.baidu.com/demo.html#line-marker
     static func lineMarkerOption() -> SECOption {
@@ -378,15 +528,15 @@ public struct SECLineOptions {
                     ))
                 )),
             .xAxis(SECAxis(
-                    .type(.category),
-                    .boundaryGap(.category(false)),
-                    .data(["周一","周二","周三","周四","周五","周六","周日"])
+                .type(.category),
+                .boundaryGap(.category(false)),
+                .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
             .yAxis(SECAxis(
-                    .type(.value),
-                    .axisLabel(SECAxisLabel(
-                        .formatter(.string("{value} °C"))
-                        ))
+                .type(.value),
+                .axisLabel(SECAxisLabel(
+                    .formatter(.string("{value} °C"))
+                    ))
                 )),
             .series([
                 SECLineSerie(
@@ -459,113 +609,11 @@ public struct SECLineOptions {
         )
     }
     
-    // MARK: 指数折线图
-    /// 地址: http://echarts.baidu.com/gallery/editor.html?c=line-log
-    static func logAxisOption() -> SECOption {
+    // MARK: Click to Add Points
+    /// 地址: http://echarts.baidu.com/demo.html#line-pen
+    static func linePenOption() -> SECOption {
+        // TODO: 添加实现
         return SECOption(
-            .title(SECTitle(
-                .text("对数轴示例"),
-                .left(.center)
-                )),
-            .tooltip(SECTooltip(
-                .trigger(.item),
-                .formatter(.string("{a} <br/>{b} : {c}"))
-                )),
-            .legend(SECLegend(
-                .left(.left),
-                .data(["2的指数", "3的指数"])
-                )),
-            .xAxis(SECAxis(
-                    .type(.category),
-                    .name("x"),
-                    .splitArea(SECSplitArea(
-                        .show(false)
-                        )),
-                    .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
-                )),
-            .grid(SECGrid(
-                .left(.value(3%)),
-                .right(.value(4%)),
-                .bottom(.value(3%)),
-                .containLabel(true)
-                )),
-            .yAxis(SECAxis(
-                    .type(.log),
-                    .name("y")
-                )),
-            .series([
-                SECLineSerie(
-                    .name("3的指数"),
-                    .data([1, 3, 9, 27, 81, 247, 741, 2223, 6669])
-                ),
-                SECLineSerie(
-                    .name("2的指数"),
-                    .data([1, 2, 4, 8, 16, 32, 64, 128, 256])
-                ),
-                SECLineSerie(
-                    .name("1/2的指数"),
-                    .data([1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625])
-                )
-                ])
-        )
-    }
-    
-    // MARK: Try Dragging these Points
-    /// 地址: http://echarts.baidu.com/demo.html#line-draggable
-    static func lineDraggableOption() -> SECOption {
-        // 未完成对应的拖拽代码
-        let symbolSize: Float = 20
-        let data: [SECJsonable] =  [[15, 0], [-50, 10], [-56.5, 20], [-46.5, 30], [-22.1, 40]]
-        return SECOption(
-            .title(SECTitle(
-                .text("Try Dragging these Points")
-                )),
-            .tooltip(SECTooltip(
-                .triggerOn(.none),
-                .formatter(.function("function tooltipFormatter(params) { return 'X: ' + params.data[0].toFixed(2) + '<br>Y: ' + params.data[1].toFixed(2);}"))
-                )),
-            .grid(SECGrid()),
-            .xAxis(SECAxis(
-                    .min(-100),
-                    .max(80),
-                    .type(.value),
-                    .axisLine(SECAxisLine(
-                        .onZero(false)
-                        ))
-                )),
-            .yAxis(SECAxis(
-                    .min(-30),
-                    .max(60),
-                    .type(.value),
-                    .axisLine(SECAxisLine(
-                        .onZero(false)
-                        ))
-                )),
-            .dataZoom([
-                SECSliderDataZoom(
-                    .xAxisIndex(0),
-                    .filterMode(.empty)
-                ),
-                SECSliderDataZoom(
-                    .yAxisIndex(0),
-                    .filterMode(.empty)
-                ),
-                SECInsideDataZoom(
-                    .xAxisIndex(0),
-                    .filterMode(.empty)
-                ),
-                SECInsideDataZoom(
-                    .yAxisIndex(0),
-                    .filterMode(.empty)
-                ),
-                ]),
-            .series([
-                SECLineSerie(
-                    .smooth(false),
-                    .symbolSize(symbolSize),
-                    .data(data)
-                )
-                ])
         )
     }
     

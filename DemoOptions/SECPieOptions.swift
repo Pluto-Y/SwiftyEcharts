@@ -220,6 +220,93 @@ public struct SECPieOptions {
                 ])
         )
     }
+    
+    // MARK: 南丁格尔玫瑰图
+    /// 地址: http://echarts.baidu.com/demo.html#pie-roseType
+    static func pieRoseTypeOption() -> SECOption {
+        return SECOption(
+            .title(SECTitle(
+                .text("南丁格尔玫瑰图"),
+                .sublink("纯属虚构"),
+                .left(.center)
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.item),
+                .formatter(.string("{a} <br/>{b} : {c} ({d}%)"))
+                )),
+            .legend(SECLegend(
+                .left(.center),
+                .top(.bottom),
+                .data(["rose1","rose2","rose3","rose4","rose5","rose6","rose7","rose8"])
+                )),
+            .toolbox(SECToolbox(
+                .show(true),
+                .feature(SECToolbox.Feature(
+                    .dataView(SECTFDataView(
+                        .show(true),
+                        .readOnly(false)
+                        )),
+                    .magicType(SECTFMagicType(
+                        .show(true)
+                        )),
+                    .restore(SECTFRestore(
+                        .show(true)
+                        )),
+                    .saveAsImage(SECTFSaveAsImage(
+                        .show(true)
+                        ))
+                    ))
+                )),
+            .series([
+                SECPieSerie(
+                    .name("半径模式"),
+                    .radiusRange([20, 110]),
+                    .center([25%, 50%]),
+                    .roseType(.enable),
+                    .label(SECFormattedLabel(
+                        .normal(SECFormattedLabelStyle(
+                            .show(true)
+                            )),
+                        .emphasis(SECFormattedLabelStyle(
+                            .show(true)
+                            ))
+                        )),
+                    .labelLine(SECPieSerie.LabelLine(
+                        .normal(SECPieSerie.LabelLineContent(
+                            .show(true)
+                            )),
+                        .emphasis(SECPieSerie.LabelLineContent(
+                            .show(true)
+                            ))
+                        )),
+                    .data([
+                        ["value":10, "name":"rose1"],
+                        ["value":5, "name":"rose2"],
+                        ["value":15, "name":"rose3"],
+                        ["value":25, "name":"rose4"],
+                        ["value":20, "name":"rose5"],
+                        ["value":35, "name":"rose6"],
+                        ["value":30, "name":"rose7"],
+                        ["value":40, "name":"rose8"]
+                        ])
+                ),
+                SECPieSerie(
+                    .name("面积模式"),
+                    .radiusRange([30, 110]),
+                    .center([75%, 50%]),
+                    .roseType(.radius),
+                    .data([
+                        ["value":10, "name":"rose1"],
+                        ["value":5, "name":"rose2"],
+                        ["value":15, "name":"rose3"],
+                        ["value":25, "name":"rose4"],
+                        ["value":20, "name":"rose5"],
+                        ["value":35, "name":"rose6"],
+                        ["value":30, "name":"rose7"],
+                        ["value":40, "name":"rose8"]
+                        ])
+                )
+                ])
         )
     }
 }

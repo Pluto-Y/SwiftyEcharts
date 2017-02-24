@@ -100,7 +100,7 @@ public struct SECLineOptions {
                 SECLineSerie(
                     .name("流量"),
                     .animation(false),
-                    .areaStyle(SECLineSerie.AreaStyle(
+                    .areaStyle(SECEmphasisAreaStyle(
                         .normal(SECCommonAreaStyleContent(
                             ))
                         )),
@@ -119,7 +119,7 @@ public struct SECLineOptions {
                     .name("降雨量"),
                     .yAxisIndex(1),
                     .animation(false),
-                    .areaStyle(SECLineSerie.AreaStyle(
+                    .areaStyle(SECEmphasisAreaStyle(
                         .normal(SECCommonAreaStyleContent(
                             ))
                         )),
@@ -181,7 +181,7 @@ public struct SECLineOptions {
                 SECLineSerie(
                     .name("邮件营销"),
                     .stack("总量"),
-                    .areaStyle(SECLineSerie.AreaStyle(
+                    .areaStyle(SECEmphasisAreaStyle(
                         .normal(SECCommonAreaStyleContent())
                         )),
                     .data([120, 132, 101, 134, 90, 230, 210])
@@ -189,7 +189,7 @@ public struct SECLineOptions {
                 SECLineSerie(
                     .name("联盟广告"),
                     .stack("总量"),
-                    .areaStyle(SECLineSerie.AreaStyle(
+                    .areaStyle(SECEmphasisAreaStyle(
                         .normal(SECCommonAreaStyleContent())
                         )),
                     .data([220, 182, 191, 234, 290, 330, 310])
@@ -197,7 +197,7 @@ public struct SECLineOptions {
                 SECLineSerie(
                     .name("视频广告"),
                     .stack("总量"),
-                    .areaStyle(SECLineSerie.AreaStyle(
+                    .areaStyle(SECEmphasisAreaStyle(
                         .normal(SECCommonAreaStyleContent())
                         )),
                     .data([150, 232, 201, 154, 190, 330, 410])
@@ -205,7 +205,7 @@ public struct SECLineOptions {
                 SECLineSerie(
                     .name("直接访问"),
                     .stack("总量"),
-                    .areaStyle(SECLineSerie.AreaStyle(
+                    .areaStyle(SECEmphasisAreaStyle(
                         .normal(SECCommonAreaStyleContent())
                         )),
                     .data([320, 332, 301, 334, 390, 330, 320])
@@ -219,7 +219,7 @@ public struct SECLineOptions {
                             .position(.top)
                             ))
                         )),
-                    .areaStyle(SECLineSerie.AreaStyle(
+                    .areaStyle(SECEmphasisAreaStyle(
                         .normal(SECCommonAreaStyleContent())
                         )),
                     .data([820, 932, 901, 934, 1290, 1330, 1320])

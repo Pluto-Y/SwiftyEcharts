@@ -16,7 +16,7 @@ class SECLineSerieSpec : QuickSpec {
         describe("For SECLineSerie.AreaStyle") {
             
             it("needs to check the SECJsonable for areaStyle") {
-                let areaStyle = SECLineSerie.AreaStyle(
+                let areaStyle = SECEmphasisAreaStyle(
                     .normal(SECCommonAreaStyleContent())
                 )
                 

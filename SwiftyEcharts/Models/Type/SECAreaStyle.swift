@@ -66,3 +66,36 @@ extension SECAreaStyle : SECMappable {
         map["opacity"] = opacity
     }
 }
+
+public struct SECEmphasisAreaStyle : SECEmphasisable {
+    public typealias Style = SECCommonAreaStyleContent
+    
+    public var normal: Style?
+    public var emphasis: Style?
+}
+
+extension SECEmphasisAreaStyle : SECEnumable {
+    public enum Enums {
+        case normal(Style), emphasis(Style)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .normal(normal):
+                self.normal = normal
+            case let .emphasis(emphasis):
+                self.emphasis = emphasis
+            }
+        }
+    }
+}
+
+extension SECEmphasisAreaStyle : SECMappable {
+    public func mapping(map: SECMap) {
+        map["normal"] = normal
+        map["emphasis"] = emphasis
+    }
+}

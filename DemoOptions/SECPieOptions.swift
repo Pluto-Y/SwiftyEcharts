@@ -46,7 +46,7 @@ public struct SECPieOptions {
                         ["value":335, "name":"直接访问"],
                         ["value":400, "name":"搜索引擎"]
                         ]),
-                    .roseType(true), // FIXME: 需要调整
+                    .roseType(.enable),
                     .label(SECFormattedLabel(
                         .normal(SECFormattedLabelStyle(
                             .textStyle(SECTextStyle(
@@ -218,6 +218,8 @@ public struct SECPieOptions {
                         ))
                 )
                 ])
+        )
+    }
         )
     }
 }

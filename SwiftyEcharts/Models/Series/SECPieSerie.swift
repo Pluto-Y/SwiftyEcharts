@@ -8,6 +8,28 @@
 
 public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     
+    /// 是否展示成南丁格尔图，通过半径区分数据大小
+    ///
+    /// - enable: 显示为南丁格尔图
+    /// - dispable: 显示为普通饼图
+    /// - radius: 面积展现数据的百分比，半径展现数据的大小
+    /// - area: 所有扇区面积相同，仅通过半径展现数据大小
+    public enum RoseType : String, SECJsonable {
+        case enable = "true"
+        case dispable = "false"
+        case radius = "radius"
+        case area = "area"
+        
+        public var jsonString: String {
+            switch self {
+            case .enable, .dispable:
+                return "\(self.rawValue)"
+            default:
+                return "\"\(self.rawValue)\""
+            }
+        }
+    }
+    
     public struct LabelLineContent : SECDisplayable {
         /// 是否显示视觉引导线。
         public var show: Bool?
@@ -66,10 +88,8 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     public var startAngle: Float?
     /// 最小的扇区角度（0 ~ 360），用于防止某个值过小导致扇区太小影响交互。
     public var minAngle: Float?
-    /// 是否展示成南丁格尔图，通过半径区分数据大小。可选择两种模式：
-    /// - Note: 'radius' 面积展现数据的百分比，半径展现数据的大小。
-    /// - Note: 'area' 所有扇区面积相同，仅通过半径展现数据大小。
-    public var roseType: Bool?
+    /// 是否展示成南丁格尔图，通过半径区分数据大小。
+    public var roseType: RoseType?
     /// 是否启用防止标签重叠策略，默认开启，在标签拥挤重叠的情况下会挪动各个标签的位置，防止标签间的重叠。
     /// 如果不需要开启该策略，例如圆环图这个例子中需要强制所有标签放在中心位置，可以将该值设为 false。
     public var avoidLabelOverlap: Bool?
@@ -219,7 +239,7 @@ extension SECPieSerie.LabelLine : SECMappable {
 
 extension SECPieSerie : SECEnumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SECSelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(Bool), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(SECFormattedLabel), labelLine(LabelLine), itemStyle(SECItemStyle), zlevel(Float), z(Float), center(SECPoint), radius(SECLength), radiusRange(SECRange), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SECSelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(RoseType), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(SECFormattedLabel), labelLine(LabelLine), itemStyle(SECItemStyle), zlevel(Float), z(Float), center(SECPoint), radius(SECLength), radiusRange(SECRange), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums

@@ -600,7 +600,7 @@ public struct SECBarOptions {
     
     // MARK: 世界人口总量 - 条形图
     /// 地址:http://echarts.baidu.com/demo.html#bar-y-category
-    static func barYCategory() -> SECOption {
+    static func barYCategoryOption() -> SECOption {
         return SECOption(
             .title(SECTitle(
                 .text("世界人口总量"),

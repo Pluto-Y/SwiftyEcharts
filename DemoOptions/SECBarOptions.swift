@@ -74,6 +74,22 @@ public struct SECBarOptions {
         )
     }
     
+    // MARK: 柱状图框选
+    /// 地址: http://echarts.baidu.com/demo.html#bar-brush
+    static func barBrushOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
+    // MARK: 特性示例：渐变色 阴影 点击缩放
+    /// 地址: http://echarts.baidu.com/demo.html#bar-gradient
+    static func barGradientOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
     // MARK: 正负条形图
     /// 地址:http://echarts.baidu.com/demo.html#bar-negative
     static func barNegativeOption() -> SECOption {
@@ -726,6 +742,7 @@ public struct SECBarOptions {
     // MARK: 动态数据
     /// 地址: http://echarts.baidu.com/demo.html#dynamic-data
     static func dynamicDataOption() -> SECOption {
+        // TODO: 添加实现
         return SECOption(
             
         )
@@ -800,6 +817,22 @@ public struct SECBarOptions {
                     .data([2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2])
                 )
                 ])
+        )
+    }
+    
+    // MARK: 全国宏观经济
+    /// 地址: http://echarts.baidu.com/demo.html#mix-timeline-finance
+    static func mixTimelineFinanceOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
+    // MARK: Budge
+    /// 地址: http://echarts.baidu.com/demo.html#mix-zoom-on-value
+    static func mixZoomOnValueOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
         )
     }
     
@@ -903,6 +936,14 @@ public struct SECBarOptions {
                     .data([2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2])
                 )
                 ])
+        )
+    }
+    
+    // MARK: 水印 - ECharts 下载统计
+    /// 地址: http://echarts.baidu.com/demo.html#watermark
+    static func watermarkOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
         )
     }
 }

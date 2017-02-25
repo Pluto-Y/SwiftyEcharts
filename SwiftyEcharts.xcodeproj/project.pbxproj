@@ -58,6 +58,7 @@
 		54FEBE911E23480D0021CB13 /* SECMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE8E1E23480D0021CB13 /* SECMappable.swift */; };
 		54FEBE931E2354B60021CB13 /* SECOption.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54FEBE921E2354B60021CB13 /* SECOption.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F0E461F1E614A37008DA184 /* LinesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E461D1E614A37008DA184 /* LinesController.swift */; };
+		6F0E46261E61B204008DA184 /* BaseDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E46251E61B204008DA184 /* BaseDemoController.swift */; };
 		6F1325701D9312A90006F114 /* SwiftyEcharts.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F13256F1D9312A90006F114 /* SwiftyEcharts.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F1ED0731E23DC0A00A1E154 /* SECOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE921E2354B60021CB13 /* SECOption.swift */; };
 		6F1FDA8D1DF5D286004BC74E /* SECSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1FDA8C1DF5D286004BC74E /* SECSymbol.swift */; };
@@ -230,6 +231,7 @@
 		54FEBE921E2354B60021CB13 /* SECOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECOption.swift; sourceTree = "<group>"; };
 		696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyEchartsTest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0E461D1E614A37008DA184 /* LinesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesController.swift; sourceTree = "<group>"; };
+		6F0E46251E61B204008DA184 /* BaseDemoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDemoController.swift; sourceTree = "<group>"; };
 		6F13256C1D9312A90006F114 /* SwiftyEcharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyEcharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F13256F1D9312A90006F114 /* SwiftyEcharts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyEcharts.h; sourceTree = "<group>"; };
 		6F1325711D9312A90006F114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				6F0E461D1E614A37008DA184 /* LinesController.swift */,
+				6F0E46251E61B204008DA184 /* BaseDemoController.swift */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -993,6 +996,7 @@
 				5427F07F1E2C94FF00CE20E5 /* SECScatterOptions.swift in Sources */,
 				5427F0931E2C97D100CE20E5 /* SECTreemapOptions.swift in Sources */,
 				5427F0831E2C95CF00CE20E5 /* SECMapOptions.swift in Sources */,
+				6F0E46261E61B204008DA184 /* BaseDemoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

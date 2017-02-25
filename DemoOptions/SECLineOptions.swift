@@ -446,7 +446,7 @@ public struct SECLineOptions {
     
     // MARK: 指数折线图
     /// 地址: http://echarts.baidu.com/gallery/editor.html?c=line-log
-    static func logAxisOption() -> SECOption {
+    static func lineLogOption() -> SECOption {
         return SECOption(
             .title(SECTitle(
                 .text("对数轴示例"),

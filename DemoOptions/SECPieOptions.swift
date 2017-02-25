@@ -179,6 +179,14 @@ public struct SECPieOptions {
         )
     }
     
+    // MARK: 饼图纹理
+    /// 地址: http://echarts.baidu.com/demo.html#pie-pattern
+    static func piePatternOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
     // MARK: 某站点用户访问来源
     /// 地址: http://echarts.baidu.com/demo.html#pie-simple
     static func pieSimpleOption() -> SECOption {

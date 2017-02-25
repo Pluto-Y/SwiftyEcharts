@@ -10,4 +10,27 @@ import SwiftyEcharts
 
 public struct SECGaugeOptions {
     
+    // MARK: Gauge Car Dark
+    /// 地址: http://echarts.baidu.com/demo.html#gauge-car-dark
+    static func gaugeCarDarkOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
+    // MARK: Gauge Car
+    /// 地址: http://echarts.baidu.com/demo.html#gauge-car
+    static func gaugeCarOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
+    // MARK: Gauge
+    /// 地址: http://echarts.baidu.com/demo.html#gauge
+    static func gaugeOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
 }

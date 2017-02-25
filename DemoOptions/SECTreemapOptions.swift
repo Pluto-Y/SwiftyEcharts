@@ -10,4 +10,35 @@ import SwiftyEcharts
 
 public struct SECTreemapOptions {
     
+    // MARK: Disk Usage
+    /// 地址: http://echarts.baidu.com/demo.html#treemap-disk
+    static func treemapDiskOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
+    // MARK: ECharts 配置项查询分布
+    /// 地址: http://echarts.baidu.com/demo.html#treemap-drill-down
+    static func reemapDrillDownOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
+    // MARK: How $3.7 Trillion is Spent
+    /// 地址: http://echarts.baidu.com/demo.html#treemap-obama
+    static func treemapObamaOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
+    
+    // MARK: Parallel Aqi
+    /// 地址: http://echarts.baidu.com/demo.html#treemap-visual
+    static func treemapVisualOption() -> SECOption {
+        // TODO: 添加实现
+        return SECOption(
+        )
+    }
 }

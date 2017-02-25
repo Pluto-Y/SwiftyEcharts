@@ -15,14 +15,6 @@ class MenuController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        echartsView = SECEchartsView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300))
-//        self.view.addSubview(echartsView!)
-//        
-//        SECMap.ignoreNil = true
-//        
-//        echartsView?.option = SECLineOptions.logAxisOption()
-//        echartsView?.loadEcharts()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -31,6 +23,12 @@ class MenuController : UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("选择了\(indexPath.row + 1)行")
+        switch indexPath.row {
+        case 0: // 折线图的Demo
+            self.navigationController?.pushViewController(LinesController(), animated: true)
+        default:
+            print("敬请期待...")
+        }
     }
     
 

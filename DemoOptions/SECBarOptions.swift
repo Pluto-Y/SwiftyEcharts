@@ -331,7 +331,7 @@ public struct SECBarOptions {
     }
     
     // MARK: 坐标轴刻度与标签对齐
-    /// 地址:http://echarts.baidu.com/demo.html#bar-tick-align
+    /// 地址: http://echarts.baidu.com/demo.html#bar-tick-align
     static func barTickAlignOption() -> SECOption {
         return SECOption(
             .color([.hexColor("#3398DB")]),

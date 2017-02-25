@@ -26,6 +26,8 @@ class MenuController : UITableViewController {
         switch indexPath.row {
         case 0: // 折线图的Demo
             self.navigationController?.pushViewController(LinesController(), animated: true)
+        case 1: // 柱状图的Demo
+            self.navigationController?.pushViewController(BarsController(), animated: true)
         default:
             print("敬请期待...")
         }

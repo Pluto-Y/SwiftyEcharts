@@ -20,6 +20,7 @@ class BaseDemoController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     var menus: [String] = []
+    var optionClosures: [() -> SECOption] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +46,15 @@ class BaseDemoController: UIViewController, UITableViewDelegate, UITableViewData
         SECMap.ignoreNil = true
 
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        option = optionClosures[0]()
+    }
 
     // MARK: - UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 18
+        return menus.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -56,6 +62,11 @@ class BaseDemoController: UIViewController, UITableViewDelegate, UITableViewData
         cell.textLabel?.text = menus[indexPath.row]
         cell.selectionStyle = .None
         return cell
+    }
+    
+    // MARK: - UITableViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        option = optionClosures[indexPath.row]()
     }
     
 }

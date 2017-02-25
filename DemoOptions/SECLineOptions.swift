@@ -901,7 +901,7 @@ public struct SECLineOptions {
     
     // MARK: 高度(km)与气温(°C)变化关系
     /// 地址:http://echarts.baidu.com/demo.html#line-y-category
-    static func lineYCategory() -> SECOption {
+    static func lineYCategoryOption() -> SECOption {
         return SECOption(
             .legend(SECLegend(
                 .data(["高度(km)与气温(°C)变化关系"])

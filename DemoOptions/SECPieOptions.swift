@@ -143,7 +143,7 @@ public struct SECPieOptions {
             .series([
                 SECPieSerie(
                     .name("访问来源"),
-                    .selectedMode(.mode(.single)),
+                    .selectedMode(.single),
                     .radiusRange([0, 30%]),
                     .label(SECFormattedLabel(
                         .normal(SECFormattedLabelStyle(
@@ -204,7 +204,7 @@ public struct SECPieOptions {
             .series([
                 SECPieSerie(
                     .name("pie"),
-                    .selectedMode(.mode(.single)),
+                    .selectedMode(.single),
                     .selectedOffset(30),
                     .clockwise(true),
                     .label(SECFormattedLabel(

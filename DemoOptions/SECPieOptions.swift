@@ -242,7 +242,7 @@ public struct SECPieOptions {
             .title(SECTitle(
                 .text("某站点用户访问来源"),
                 .sublink("纯属虚构"),
-                .left(.center)
+                .x(.center)
                 )),
             .tooltip(SECTooltip(
                 .trigger(.item),
@@ -284,7 +284,7 @@ public struct SECPieOptions {
             .title(SECTitle(
                 .text("南丁格尔玫瑰图"),
                 .sublink("纯属虚构"),
-                .left(.center)
+                .x(.center)
                 )),
             .tooltip(SECTooltip(
                 .trigger(.item),

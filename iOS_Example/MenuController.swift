@@ -28,7 +28,7 @@ class MenuController : UITableViewController {
         case 1: // 柱状图的Demo
             self.navigationController?.pushViewController(BarsController(), animated: true)
         case 2: // 饼图的Demo
-            self.navigationController?.pushViewController(LinesController(), animated: true)
+            self.navigationController?.pushViewController(PiesController(), animated: true)
         default:
             print("敬请期待...")
         }

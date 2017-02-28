@@ -161,7 +161,7 @@ extension SECRadar.Name : SECMappable {
 
 extension SECIndicator : SECEnumable {
     public enum Enums {
-        case name(String), max(Float), min(Float)
+        case text(String), name(String), max(Float), min(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -169,6 +169,8 @@ extension SECIndicator : SECEnumable {
     public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
+            case let .text(name):
+                self.name = name
             case let .name(name):
                 self.name = name
             case let .max(max):

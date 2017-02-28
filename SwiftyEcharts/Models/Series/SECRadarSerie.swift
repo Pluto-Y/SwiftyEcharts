@@ -10,7 +10,7 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
     
     public struct Data : SECSymbolized {
         public var name: String?
-        public var value: Float?
+        public var value: SECJsonable?
         public var symbol: SECSymbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
@@ -55,7 +55,7 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
 
 extension SECRadarSerie.Data : SECEnumable {
     public enum Enums {
-        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle)
+        case name(String), value(SECJsonable), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle)
     }
     
     public typealias ContentEnum = Enums

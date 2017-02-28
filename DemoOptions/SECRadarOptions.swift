@@ -246,7 +246,7 @@ public struct SECRadarOptions {
     static func radarCustomOption() -> SECOption {
         return SECOption(
             .title(SECTitle(
-                .text("'自定义雷达图'")
+                .text("自定义雷达图")
                 )),
             .legend(SECLegend(
                 .data(["图一","图二", "张三", "李四"])
@@ -261,7 +261,7 @@ public struct SECRadarOptions {
                         SECIndicator(.text("指标五"))
                         ]),
                     .center([25%, 50%]),
-                    .radius(120),
+                    .radius(50),  // 根据需要调整了大小
                     .startAngle(90),
                     .splitNumber(4),
                     .shape(.circle),
@@ -295,11 +295,11 @@ public struct SECRadarOptions {
                         SECIndicator(.text("数学"), .max(150)),
                         SECIndicator(.text("英语"), .max(150)),
                         SECIndicator(.text("物理"), .max(120)),
-                        SECIndicator(.text("化学"), .max(102)),
+                        SECIndicator(.text("化学"), .max(108)),
                         SECIndicator(.text("生物"), .max(72))
                         ]),
                     .center([75%, 50%]),
-                    .radius(120)
+                    .radius(50)   // 根据需要调整了大小
                 )
                 ]),
             .series([
@@ -342,8 +342,8 @@ public struct SECRadarOptions {
                             .name("张三"),
                             .label(SECFormattedLabel(
                                 .normal(SECFormattedLabelStyle(
-                                    .show(true)//,
-//                                    .formatter(.function("function labelFormatter(params){ return params.value; }"))
+                                    .show(true),
+                                    .formatter(.function("function labelFormatter(params){ return params.value; }"))
                                     ))
                                 ))
                         ),

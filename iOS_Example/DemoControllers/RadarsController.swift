@@ -13,7 +13,7 @@ class RadarsController: BaseDemoController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.menus = ["AQI - 雷达图", "自定义雷达图(暂缺)", "多雷达图(暂缺)", "基础雷达图", "浏览器占比变化(暂缺)"]
+        self.menus = ["AQI - 雷达图", "自定义雷达图", "多雷达图(暂缺)", "基础雷达图", "浏览器占比变化(暂缺)"]
         
         self.optionClosures = [SECRadarOptions.radarAqiOption, SECRadarOptions.radarCustomOption, SECRadarOptions.radarMultipleOption, SECRadarOptions.radarOption, SECRadarOptions.radar2Option]
         

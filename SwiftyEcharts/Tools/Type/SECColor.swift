@@ -58,7 +58,7 @@ public enum SECColor: SECJsonable {
             for color in colors {
                 result += "\(color.jsonString)" + ","
             }
-            result = result.substringFromIndex(result.endIndex.predecessor())
+            result = result.substringToIndex(result.endIndex.predecessor())
             result += "]"
             return result
         case let .image(base64Str, r):

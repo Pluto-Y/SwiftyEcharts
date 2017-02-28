@@ -18,7 +18,7 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
         public var label: SECFormattedLabel?
         public var itemStyle: SECItemStyle?
         public var lineStyle: SECEmphasisLineStyle?
-        public var areStyle: SECEmphasisAreaStyle?
+        public var areaStyle: SECEmphasisAreaStyle?
         
         public init() {}
     }
@@ -36,7 +36,7 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
     public var label: SECFormattedLabel?
     public var itemStyle: SECItemStyle?
     public var lineStyle: SECEmphasisLineStyle?
-    public var areStyle: SECEmphasisAreaStyle?
+    public var areaStyle: SECEmphasisAreaStyle?
     public var data: [Any]?
     public var zlevel: Float?
     public var z: Float?
@@ -55,7 +55,7 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
 
 extension SECRadarSerie.Data : SECEnumable {
     public enum Enums {
-        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areStyle(SECEmphasisAreaStyle)
+        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -81,8 +81,8 @@ extension SECRadarSerie.Data : SECEnumable {
                 self.itemStyle = itemStyle
             case let .lineStyle(lineStyle):
                 self.lineStyle = lineStyle
-            case let .areStyle(areStyle):
-                self.areStyle = areStyle
+            case let .areaStyle(areaStyle):
+                self.areaStyle = areaStyle
             }
         }
     }
@@ -99,13 +99,13 @@ extension SECRadarSerie.Data : SECMappable {
         map["label"] = label
         map["itemStyle"] = itemStyle
         map["lineStyle"] = lineStyle
-        map["areStyle"] = areStyle
+        map["areaStyle"] = areaStyle
     }
 }
 
 extension SECRadarSerie : SECEnumable {
 	public enum Enums {
-		case name(String), radarIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areStyle(SECEmphasisAreaStyle), data([Any]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+		case name(String), radarIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle), data([Any]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
 	}
 
 	public typealias ContentEnum = Enums
@@ -131,8 +131,8 @@ extension SECRadarSerie : SECEnumable {
 					self.itemStyle = itemStyle
 				case let .lineStyle(lineStyle):
 					self.lineStyle = lineStyle
-				case let .areStyle(areStyle):
-					self.areStyle = areStyle
+				case let .areaStyle(areaStyle):
+					self.areaStyle = areaStyle
 				case let .data(data):
 					self.data = data
 				case let .zlevel(zlevel):
@@ -174,7 +174,7 @@ extension SECRadarSerie : SECMappable {
 		map["label"] = label
 		map["itemStyle"] = itemStyle
 		map["lineStyle"] = lineStyle
-		map["areStyle"] = areStyle
+		map["areaStyle"] = areaStyle
 		map["data"] = data
 		map["zlevel"] = zlevel
 		map["z"] = z

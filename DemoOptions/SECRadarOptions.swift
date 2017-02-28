@@ -135,7 +135,7 @@ public struct SECRadarOptions {
                             .color(.hexColor("#F9713C"))
                             ))
                         )),
-                    .areStyle(SECEmphasisAreaStyle(
+                    .areaStyle(SECEmphasisAreaStyle(
                         .normal(SECCommonAreaStyleContent(
                             .opacity(0.1)
                             ))
@@ -183,7 +183,7 @@ public struct SECRadarOptions {
                             .color(.hexColor("#B3E4A1"))
                             ))
                         )),
-                    .areStyle(SECEmphasisAreaStyle(
+                    .areaStyle(SECEmphasisAreaStyle(
                         .normal(SECCommonAreaStyleContent(
                             .opacity(0.05)
                             ))
@@ -231,7 +231,7 @@ public struct SECRadarOptions {
                             .color(.rgb(238, 197, 102))
                             ))
                         )),
-                    .areStyle(SECEmphasisAreaStyle(
+                    .areaStyle(SECEmphasisAreaStyle(
                         .normal(SECCommonAreaStyleContent(
                             .opacity(0.05)
                             ))

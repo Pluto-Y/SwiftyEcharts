@@ -89,7 +89,7 @@ public struct SECPieOptions {
                 )),
             .legend(SECLegend(
                 .orient(.vertical),
-                .left(.auto),
+                .x(.left),
                 .data(["直接访问","邮件营销","联盟广告","视频广告","搜索引擎"])
                 )),
             .series([
@@ -137,7 +137,7 @@ public struct SECPieOptions {
                 )),
             .legend(SECLegend(
                 .orient(.vertical),
-                .left(.auto),
+                .x(.left),
                 .data(["直达","营销广告","搜索引擎","邮件营销","联盟广告","视频广告","百度","谷歌","必应","其他"])
                 )),
             .series([
@@ -212,16 +212,16 @@ public struct SECPieOptions {
                             .textStyle(SECTextStyle(
                                 .fontSize(12),
                                 .color(.hexColor("#235894"))
-                                ))
                             ))
-                        )),
+                        ))
+                    )),
                     .labelLine(SECPieSerie.LabelLine(
                         .normal(SECPieSerie.LabelLineContent(
                             .lineStyle(SECLineStyle(
                                 .color(.hexColor("#235894"))
-                                ))
                             ))
-                        )),
+                        ))
+                    )),
                     .data([
                         ["value":335, "name":"直接访问"],
                         ["value":310, "name":"邮件营销"],
@@ -291,8 +291,8 @@ public struct SECPieOptions {
                 .formatter(.string("{a} <br/>{b} : {c} ({d}%)"))
                 )),
             .legend(SECLegend(
-                .left(.center),
-                .top(.bottom),
+                .x(.center),
+                .y(.bottom),
                 .data(["rose1","rose2","rose3","rose4","rose5","rose6","rose7","rose8"])
                 )),
             .toolbox(SECToolbox(

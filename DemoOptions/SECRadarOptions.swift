@@ -244,8 +244,123 @@ public struct SECRadarOptions {
     // MARK: 自定义雷达图
     /// 地址: http://echarts.baidu.com/demo.html#radar-custom
     static func radarCustomOption() -> SECOption {
-        // TODO: 添加实现
         return SECOption(
+            .title(SECTitle(
+                .text("'自定义雷达图'")
+                )),
+            .legend(SECLegend(
+                .data(["图一","图二", "张三", "李四"])
+                )),
+            .radars([
+                SECRadar(
+                    .indicator([
+                        SECIndicator(.text("指标一")),
+                        SECIndicator(.text("指标二")),
+                        SECIndicator(.text("指标三")),
+                        SECIndicator(.text("指标四")),
+                        SECIndicator(.text("指标五"))
+                        ]),
+                    .center([25%, 50%]),
+                    .radius(120),
+                    .startAngle(90),
+                    .splitNumber(4),
+                    .shape(.circle),
+                    .name(SECRadar.Name(
+                        .formatter(.string("【{value}】")),
+                        .textStyle(SECTextStyle(
+                            .color(.hexColor("#72ACD1"))
+                            ))
+                        )),
+                    .splitArea(SECSplitArea(
+                        .areaStyle(SECAreaStyle(
+                            .color(.array([.rgba(114, 172, 209, 0.2), .rgba(114, 172, 209, 0.4), .rgba(114, 172, 209, 0.6), .rgba(114, 172, 209, 0.8), .rgba(114, 172, 209, 1)])),
+                            .shadowColor(.rgba(0, 0, 0, 0.3)),
+                            .shadowBlur(10)
+                            ))
+                        )),
+                    .axisLine(SECAxisLine(
+                        .lineStyle(SECLineStyle(
+                            .color(.rgba(255, 255, 255, 0.5))
+                            ))
+                        )),
+                    .splitLine(SECSplitLine(
+                        .lineStyle(SECLineStyle(
+                            .color(.rgba(255, 255, 255, 0.5))
+                            ))
+                        ))
+                ),
+                SECRadar(
+                    .indicator([
+                        SECIndicator(.text("语文"), .max(150)),
+                        SECIndicator(.text("数学"), .max(150)),
+                        SECIndicator(.text("英语"), .max(150)),
+                        SECIndicator(.text("物理"), .max(120)),
+                        SECIndicator(.text("化学"), .max(102)),
+                        SECIndicator(.text("生物"), .max(72))
+                        ]),
+                    .center([75%, 50%]),
+                    .radius(120)
+                )
+                ]),
+            .series([
+                SECRadarSerie(
+                    .name("雷达图"),
+                    .lineStyle(SECEmphasisLineStyle( // 这里进行了修改
+                        .emphasis(SECLineStyle(
+                            .width(4)
+                            ))
+                        )),
+                    .data([
+                        SECRadarSerie.Data(
+                            .value([100, 8, 0.40, -80, 2000]),
+                            .name("图一"),
+                            .symbol(.rect),
+                            .symbolSize(5),
+                            .lineStyle(SECEmphasisLineStyle(
+                                .normal(SECLineStyle(
+                                    .type(.dashed)
+                                    ))
+                                ))
+                        ),
+                        SECRadarSerie.Data(
+                            .value([60, 5, 0.30, -100, 1500]),
+                            .name("图二"),
+                            .areaStyle(SECEmphasisAreaStyle(
+                                .normal(SECCommonAreaStyleContent(
+                                    .color(.rgba(255, 255, 255, 0.5))
+                                    ))
+                                ))
+                        )
+                        ])
+                ),
+                SECRadarSerie(
+                    .name("成绩单"),
+                    .radarIndex(1),
+                    .data([
+                        SECRadarSerie.Data(
+                            .value([120, 118, 130, 100, 99, 70]),
+                            .name("张三"),
+                            .label(SECFormattedLabel(
+                                .normal(SECFormattedLabelStyle(
+                                    .show(true)//,
+//                                    .formatter(.function("function labelFormatter(params){ return params.value; }"))
+                                    ))
+                                ))
+                        ),
+                        SECRadarSerie.Data(
+                            .value([90, 113, 140, 30, 70, 60]),
+                            .name("李四"),
+                            .areaStyle(SECEmphasisAreaStyle(
+                                .normal(SECCommonAreaStyleContent(
+                                    .opacity(0.9),
+                                    .color(.red) // FIXME: 新类型？
+                                    ))
+                                ))
+                        )
+                        ])
+                )
+                ])
+            
         )
     }
     

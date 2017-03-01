@@ -367,8 +367,85 @@ public struct SECRadarOptions {
     // MARK: 多雷达图
     /// 地址: http://echarts.baidu.com/demo.html#radar-multiple
     static func radarMultipleOption() -> SECOption {
-        // TODO: 添加实现
+        var indicator: [SECIndicator] = []
+        for i in 1...12 {
+            indicator.append(SECIndicator(.text("\(i)月"), .max(100)))
+        }
         return SECOption(
+            .title(SECTitle(
+                .text("多雷达图")
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis)
+                )),
+            .legend(SECLegend(
+                .x(.center),
+                .data(["某软件","某主食手机","某水果手机","降水量","蒸发量"])
+                )),
+            .radars([
+                SECRadar(
+                    .indicator([
+                        SECIndicator(.text("品牌"), .max(100)),
+                        SECIndicator(.text("内容"), .max(100)),
+                        SECIndicator(.text("可用性"), .max(100)),
+                        SECIndicator(.text("功能"), .max(100))
+                        ]),
+                    .center([25%, 40%]),
+                    .radius(40)
+                ),
+                SECRadar(
+                    .indicator([
+                        SECIndicator(.text("外观"), .max(100)),
+                        SECIndicator(.text("拍照"), .max(100)),
+                        SECIndicator(.text("系统"), .max(100)),
+                        SECIndicator(.text("性能"), .max(100)),
+                        SECIndicator(.text("屏幕"), .max(100))
+                        ]),
+                    .center([50%, 60%]),
+                    .radius(40)
+                ),
+                SECRadar(
+                    .indicator(indicator),
+                    .center([75%, 40%]),
+                    .radius(40)
+                )
+                ]),
+            .series([
+                SECRadarSerie(// FIXME: 去掉两个属性
+                    .data([
+                        SECRadarSerie.Data(
+                            .value([60,73,85,40]),
+                            .name("某软件")
+                        )
+                        ])
+                ),
+                SECRadarSerie(
+                    .radarIndex(1),
+                    .data([
+                        SECRadarSerie.Data(
+                            .value([85, 90, 90, 95, 95]),
+                            .name("某主食手机")
+                        ),
+                        SECRadarSerie.Data(
+                            .value([95, 80, 95, 90, 93]),
+                            .name("某水果手机")
+                        )
+                        ])
+                ),
+                SECRadarSerie(// FIXME: 去掉一个属性
+                    .radarIndex(2),
+                    .data([
+                        SECRadarSerie.Data(
+                            .name("降雨量"),
+                            .value([2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 75.6, 82.2, 48.7, 18.8, 6.0, 2.3])
+                        ),
+                        SECRadarSerie.Data(
+                            .name("蒸发量"),
+                            .value([2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 35.6, 62.2, 32.6, 20.0, 6.4, 3.3])
+                        )
+                        ])
+                )
+                ])
         )
     }
     

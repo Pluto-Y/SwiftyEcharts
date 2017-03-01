@@ -53,7 +53,9 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
     public init() {}
 }
 
-extension SECRadarSerie.Data : SECEnumable {
+public typealias SECRadarSerieData = SECRadarSerie.Data
+
+extension SECRadarSerieData : SECEnumable {
     public enum Enums {
         case name(String), value(SECJsonable), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle)
     }
@@ -88,7 +90,7 @@ extension SECRadarSerie.Data : SECEnumable {
     }
 }
 
-extension SECRadarSerie.Data : SECMappable {
+extension SECRadarSerieData : SECMappable {
     public func mapping(map: SECMap) {
         map["name"] = name
         map["value"] = value

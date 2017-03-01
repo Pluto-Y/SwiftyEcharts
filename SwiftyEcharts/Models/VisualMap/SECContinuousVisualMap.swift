@@ -291,7 +291,7 @@ extension SECContinuousVisualMap : SECMappable {
         map["inRange"] = inRange
         map["outRange"] = outRange
         map["controller"] = controller
-        map["zlevel"] = type
+        map["zlevel"] = zlevel
         map["z"] = z
         map["left"] = left
         map["top"] = top

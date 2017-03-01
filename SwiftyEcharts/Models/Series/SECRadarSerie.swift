@@ -6,37 +6,75 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 雷达图
+///
+/// 雷达图主要用于表现多变量的数据，例如球员的各个属性分析。依赖 radar 组件。
+///
+/// 下面是 AQI 数据用雷达图表现的示例。
+///
+/// 地址：http://echarts.baidu.com/gallery/editor.html?c=radar-aqi
 public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable {
     
     public struct Data : SECSymbolized {
+        /// 数据项名称
         public var name: String?
+        /// 单个数据项的数值。
         public var value: SECJsonable?
+        
+        /// MARK: SECSymbolized
         public var symbol: SECSymbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
         public var symbolOffset: SECPoint?
+        
+        /// 单个拐点文本的样式设置。
         public var label: SECFormattedLabel?
+        /// 单个拐点标志的样式设置。
         public var itemStyle: SECItemStyle?
+        /// 单项线条样式。
         public var lineStyle: SECEmphasisLineStyle?
+        /// 单项区域填充样式。
         public var areaStyle: SECEmphasisAreaStyle?
         
         public init() {}
     }
     
+    /// 类型
     public var type: SECSerieType {
         return .radar
     }
     
+    /// 系列名称，用于tooltip的显示，legend 的图例筛选，在 setOption 更新数据和配置项时用于指定对应的系列。
     public var name: String?
+    /// 雷达图所使用的 radar 组件的 index。
     public var radarIndex: UInt8?
+    
+    /// MARK: SECSymbolized
     public var symbol: SECSymbol?
     public var symbolSize: Float?
     public var symbolRotate: Float?
     public var symbolOffset: SECPoint?
+    
+    /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: SECFormattedLabel?
+    /// 折线拐点标志的样式。
     public var itemStyle: SECItemStyle?
+    /// 线条样式。
     public var lineStyle: SECEmphasisLineStyle?
+    /// 区域填充样式。
     public var areaStyle: SECEmphasisAreaStyle?
+    /// 雷达图的数据是多变量（维度）的，如下示例：
+    ///     data : [
+    ///         {
+    ///             value : [4300, 10000, 28000, 35000, 50000, 19000],
+    ///             name : '预算分配（Allocated Budget）'
+    ///         },
+    ///         {
+    ///             value : [5000, 14000, 28000, 31000, 42000, 21000],
+    ///             name : '实际开销（Actual Spending）'
+    ///         }
+    ///     ]
+    /// 其中的value项数组是具体的数据，每个值跟 radar.indicator 一一对应。
     public var data: [SECJsonable]?
     public var zlevel: Float?
     public var z: Float?

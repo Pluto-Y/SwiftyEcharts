@@ -491,8 +491,58 @@ public struct SECRadarOptions {
     // MARK: 浏览器占比变化
     /// 地址: http://echarts.baidu.com/demo.html#radar2
     static func radar2Option() -> SECOption {
-        // TODO: 添加实现
+        var list: [SECJsonable] = []
+        for i in 1...28 {
+            list.append("\(i + 2000)")
+        }
+
+        var series: [SECSeries] = []
+        for i in 1...28 {
+            let datas = [(40 - i) * 10, (38 - i) * 4 + 60, i * 5 + 10, i * 9, i * i / 2]
+            series.append(SECRadarSerie(
+                .name("浏览器（数据纯属虚构）"),
+                .symbol(.none),
+                .lineStyle(SECEmphasisLineStyle( // FIXME: 网站里面用的是itemStyle里面的lineStyle，暂时还没实现
+                    .normal(SECLineStyle(
+                        .width(1)
+                        ))
+                    )),
+                .data([
+                    SECRadarSerieData(
+                        .value(datas),
+                        .name("\(i+2000)")
+                    )
+                    ])
+                ))
+        }
         return SECOption(
+            .title(SECTitle(
+                .text("浏览器占比变化"),
+                .subtext("纯属虚构"),
+                .x(.right),
+                .y(.bottom)
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.item),
+                .backgroundColor(.rgba(0, 0, 250, 0.2))
+                )),
+            .legend(SECLegend(
+                .show(false), // 由于屏幕太小隐藏
+                .data(list)
+                )),
+            .visualMap(SECContinuousVisualMap(
+                .color(.array([.red, .yellow]))
+                )),
+            .radar(SECRadar(
+                .indicator([
+                    SECIndicator(.text("IE8-"), .max(400)),
+                    SECIndicator(.text("IE9+"), .max(400)),
+                    SECIndicator(.text("Safari"), .max(400)),
+                    SECIndicator(.text("Firefox"), .max(400)),
+                    SECIndicator(.text("Chrome"), .max(400))
+                    ])
+                )),
+            .series(series)
         )
     }
     

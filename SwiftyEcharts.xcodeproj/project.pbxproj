@@ -147,6 +147,7 @@
 		6FEC7D1F1E55EEE0003A88D7 /* SECMarkDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1E1E55EEE0003A88D7 /* SECMarkDataType.swift */; };
 		6FEC7D231E58152F003A88D7 /* AreaRainfallDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */; };
 		6FEF717C1E65B75800E1ED70 /* RadarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEF717B1E65B75800E1ED70 /* RadarsController.swift */; };
+		6FEF717E1E686EB700E1ED70 /* SECColorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEF717D1E686EB700E1ED70 /* SECColorSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -320,6 +321,7 @@
 		6FEC7D1E1E55EEE0003A88D7 /* SECMarkDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkDataType.swift; sourceTree = "<group>"; };
 		6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AreaRainfallDatas.plist; sourceTree = "<group>"; };
 		6FEF717B1E65B75800E1ED70 /* RadarsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarsController.swift; sourceTree = "<group>"; };
+		6FEF717D1E686EB700E1ED70 /* SECColorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECColorSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -602,6 +604,7 @@
 				6FEC7D181E5376F9003A88D7 /* SECPercentSpec.swift */,
 				6FEC7D1C1E54996B003A88D7 /* SECTwoElementsSpec.swift */,
 				6FA9DB251E59FA6A00CE5277 /* SECOneOrMoreSepc.swift */,
+				6FEF717D1E686EB700E1ED70 /* SECColorSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1018,6 +1021,7 @@
 			files = (
 				6FEC7D1D1E54996B003A88D7 /* SECTwoElementsSpec.swift in Sources */,
 				6F4ACB481E1D258B00CE5FD5 /* SECJsonableSpec.swift in Sources */,
+				6FEF717E1E686EB700E1ED70 /* SECColorSpec.swift in Sources */,
 				5408989D1E52EB6500A89BB0 /* SECLinSerieSpec.swift in Sources */,
 				6FEC7D191E5376F9003A88D7 /* SECPercentSpec.swift in Sources */,
 				6FA9DB261E59FA6A00CE5277 /* SECOneOrMoreSepc.swift in Sources */,

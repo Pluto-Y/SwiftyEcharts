@@ -40,7 +40,9 @@ public struct SECHeatmapSerie : SECSeries, SECZable {
     public init() {}
 }
 
-extension SECHeatmapSerie.Data : SECEnumable {
+public typealias SECHeatmapSerieData = SECHeatmapSerie.Data
+
+extension SECHeatmapSerieData : SECEnumable {
     public enum Enums {
         case name(String), value([SECJsonable]), label(SECLabel), itemStyle(SECItemStyle)
     }
@@ -63,7 +65,7 @@ extension SECHeatmapSerie.Data : SECEnumable {
     }
 }
 
-extension SECHeatmapSerie.Data : SECMappable {
+extension SECHeatmapSerieData : SECMappable {
     public func mapping(map: SECMap) {
         map["name"] = name
         map["value"] = value

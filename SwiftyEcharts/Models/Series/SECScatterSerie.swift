@@ -214,7 +214,9 @@ public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZabl
     public var animationDelayUpdate: SECTime?
 }
 
-extension SECScatterSerie.Data : SECEnumable {
+public typealias SECScatterSerieData = SECScatterSerie.Data
+
+extension SECScatterSerieData : SECEnumable {
     public enum Enums {
         case name(String), value(String), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECLabel), itemStyle(SECItemStyle)
     }
@@ -245,7 +247,7 @@ extension SECScatterSerie.Data : SECEnumable {
     }
 }
 
-extension SECScatterSerie.Data : SECMappable {
+extension SECScatterSerieData : SECMappable {
     public func mapping(map: SECMap) {
         map["name"] = name
         map["value"] = value

@@ -90,6 +90,8 @@ public struct SECItemStyle : SECEmphasisable {
     public init() { }
 }
 
+public typealias SECEmphasisItemStyle = SECItemStyle
+
 extension SECItemStyle : SECEnumable {
     public enum Enums {
         case normal(Style), emphasis(Style)

@@ -51,6 +51,17 @@ public struct SECTreemapSerie : SECSeries, SECZable {
         }
     }
     
+    /// 表示同一层级节点，在颜色列表中（参见 color 属性）选择时，按照什么来选择。可选值：
+    ///
+    /// - 'value'：将节点的值（即 series-treemap.data.value）映射到颜色列表中。这样得到的颜色，反应了节点值的大小。可以使用 visualDimension 属性来设置，用 data 中哪个纬度的值来映射。
+    /// - 'index'：将节点的 index（序号）映射到颜色列表中。即同一层级中，第一个节点取颜色列表中第一个颜色，第二个节点取第二个。这样得到的颜色，便于区分相邻节点。
+    /// - 'id'：将节点的 id（即 series-treemap.data.id）映射到颜色列表中。id 是用户指定的，这样能够使得，在treemap 通过 setOption 变化数值时，同一 id 映射到同一颜色，保持一致性。参见 例子。关于视觉设置，详见 series-treemap.levels。
+    ///
+    ///     注：treemap中 colorMappingBy 属性可能在多处地方存在：
+    ///
+    ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
+    ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
+    ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
     public enum ColorMappingBy : String, SECJsonable {
         case value = "value"
         case index = "index"
@@ -301,15 +312,121 @@ public struct SECTreemapSerie : SECSeries, SECZable {
     ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
     ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
     public var colorSaturation: [Float]?
+    /// 表示同一层级节点，在颜色列表中（参见 color 属性）选择时，按照什么来选择。可选值：
+    ///
+    /// - 'value'：将节点的值（即 series-treemap.data.value）映射到颜色列表中。这样得到的颜色，反应了节点值的大小。可以使用 visualDimension 属性来设置，用 data 中哪个纬度的值来映射。
+    /// - 'index'：将节点的 index（序号）映射到颜色列表中。即同一层级中，第一个节点取颜色列表中第一个颜色，第二个节点取第二个。这样得到的颜色，便于区分相邻节点。
+    /// - 'id'：将节点的 id（即 series-treemap.data.id）映射到颜色列表中。id 是用户指定的，这样能够使得，在treemap 通过 setOption 变化数值时，同一 id 映射到同一颜色，保持一致性。参见 例子。关于视觉设置，详见 series-treemap.levels。
+    /// 
+    ///     注：treemap中 colorMappingBy 属性可能在多处地方存在：
+    ///
+    ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
+    ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
+    ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
     public var colorMappingBy: ColorMappingBy?
+    /// 如果某个节点的矩形的面积，小于这个数值（单位：px平方），这个节点就不显示。
+    ///
+    /// 如果不加这个限制，很小的节点会影响显示效果。
+    ///
+    /// 关于视觉设置，详见 series-treemap.levels。
+    /// 
+    ///     注：treemap中 visibleMin 属性可能在多处地方存在：
+    ///
+    ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
+    ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
+    ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
     public var visibleMin: Float?
+    /// 如果某个节点的矩形面积，小于这个数值（单位：px平方），则不显示这个节点的子节点。
+    ///
+    /// 这能够在矩形面积不足够大时候，隐藏节点的细节。当用户用鼠标缩放节点时，如果面积大于此阈值，又会显示子节点。
+    ///
+    /// 关于视觉设置，详见 series-treemap.levels。
+    ///
+    ///     注：treemap中 childrenVisibleMin 属性可能在多处地方存在：
+    /// 
+    ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
+    ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
+    ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
     public var childrenVisibleMin: Float?
+    /// label 描述了每个矩形中，文本标签的样式。
+    ///
+    ///     注：treemap中 label 属性可能在多处地方存在：
+    ///
+    ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
+    ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
+    ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
     public var label: SECLabel?
+    ///     注：treemap中 itemStyle 属性可能在多处地方存在：
+    ///
+    ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
+    ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
+    ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
     public var itemStyle: SECItemStyle?
+    /// 面包屑，能够显示当前节点的路径。
     public var breadcrumb: Breadcrumb?
-    public var data: [Any]?
+    /// series-treemap.data 的数据格式是树状的，例如：
+    ///
+    ///     [ // 注意，最外层是一个数组，而非从某个根节点开始。
+    ///         {
+    ///             value: 1212,
+    ///             children: [
+    ///                 {
+    ///                     value: 2323,    // value字段的值，对应到面积大小。
+    ///                                     // 也可以是数组，如 [2323, 43, 55]，则数组第一项对应到面积大小。
+    ///                                     // 数组其他项可以用于额外的视觉映射，详情参见 series-treemp.levels。
+    ///                     id: 'someid-1', // id 不是必须设置的。
+    ///                                     // 但是如果想使用 API 来改变某个节点，需要用 id 来定位。
+    ///                     name: 'description of this node', // 显示在矩形中的描述文字。
+    ///                     children: [...],
+    ///                     label: {        // 此节点特殊的 label 定义（如果需要的话）。
+    ///                         ...         // label的格式参见 series-treemap.label。
+    ///                     },
+    ///                     itemStyle: {    // 此节点特殊的 itemStyle 定义（如果需要的话）。
+    ///                         ...         // label的格式参见 series-treemap.itemStyle。
+    ///                     }
+    ///                 },
+    ///                 {
+    ///                     value: 4545,
+    ///                     id: 'someid-2',
+    ///                     name: 'description of this node',
+    ///                     children: [
+    ///                         {
+    ///                             value: 5656,
+    ///                             id: 'someid-3',
+    ///                             name: 'description of this node',
+    ///                             children: [...]
+    ///                         },
+    ///                         ...
+    ///                     ]
+    ///                 }
+    ///             ]
+    ///         },
+    ///         {
+    ///             value: [23, 59, 12]
+    ///             // 如果没有children，可以不写
+    ///         },
+    ///         ...
+    ///     ]
+    public var data: [SECJsonable]?
+    /// 初始动画的时长，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果：
+    ///
+    ///     animationDuration: function (idx) {
+    ///         // 越往后的数据延迟越大
+    ///         return idx * 100;
+    ///     }
     public var animationDuration: Float?
+    /// 初始动画的缓动效果。不同的缓动效果可以参考 缓动示例。http://echarts.baidu.com/gallery/editor.html?c=line-easing
     public var animationEasing: SECAnimation?
+    /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
+    ///
+    /// 如下示例：
+    ///
+    ///     animationDelay: function (idx) {
+    ///         // 越往后的数据延迟越大
+    ///         return idx * 100;
+    ///     }
+    ///
+    /// 也可以看该示例: http://echarts.baidu.com/gallery/editor.html?c=bar-animation-delay
     public var animationDelay: SECTime?
     
     public init() {}

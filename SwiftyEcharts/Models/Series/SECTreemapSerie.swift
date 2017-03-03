@@ -390,7 +390,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
     /// http://echarts.baidu.com/gallery/editor.html?c=treemap-drill-down
     public var leafDepth: Float?
     /// 是否开启拖拽漫游（移动和缩放）。
-    public var roam: Bool?
+    public var roam: SECRoam?
     /// 点击节点后的行为。
     public var nodeClick: NodeClick?
     /// 点击某个节点，会自动放大那个节点到合适的比例（节点占可视区域的面积比例），这个配置项就是这个比例。
@@ -835,7 +835,7 @@ extension SECTreemapSerieData : SECMappable {
 
 extension SECTreemapSerie : SECEnumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), squareRotio(Float), leafDepth(Float), roam(Bool), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(SECRange), colorSaturation(SECRange), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(SECLabel), itemStyle(SECItemStyle), breadcrumb(Breadcrumb), data([SECJsonable]), animationDuration(Float), animationEasing(SECAnimation), animationDelay(SECTime)
+        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), squareRotio(Float), leafDepth(Float), roam(SECRoam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(SECRange), colorSaturation(SECRange), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(SECLabel), itemStyle(SECItemStyle), breadcrumb(Breadcrumb), data([SECJsonable]), animationDuration(Float), animationEasing(SECAnimation), animationDelay(SECTime)
     }
     
     public typealias ContentEnum = Enums

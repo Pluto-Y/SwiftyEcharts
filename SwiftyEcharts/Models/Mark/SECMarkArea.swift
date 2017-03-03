@@ -8,29 +8,10 @@
 
 public struct SECMarkArea : SECAnimatable {
 
-    public struct LabelContent : SECDisplayable  {
-        /// 是否显示标签。
-        public var show: Bool?
-        /// 标签的位置。
-        public var position: SECMarkPosition?
-        public var offset: [Float]?
-        public var textStyle: SECTextStyle?
-        public init() { }
-    }
-    
-    public struct Label : SECEmphasisable {
-        public typealias Style = LabelContent
-        
-        public var normal: Style?
-        public var emphasis: Style?
-        
-        public init() { }
-    }
-    
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     /// 标域文本配置。
-    public var label: Label?
+    public var label: SECFormattedLabel?
     /// 该标域的样式。
     public var itemStyle: SECItemStyle?
     /// 标域的数据数组。
@@ -78,67 +59,9 @@ public struct SECMarkArea : SECAnimatable {
     public init() { }
 }
 
-extension SECMarkArea.LabelContent : SECEnumable {
-    public enum Enums {
-        case show(Bool), position(SECMarkPosition), offset([Float]), textStyle(SECTextStyle)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .show(show):
-                self.show = show
-            case let .position(position):
-                self.position = position
-            case let .offset(offset):
-                self.offset = offset
-            case let .textStyle(textStyle):
-                self.textStyle = textStyle
-            }
-        }
-    }
-}
-
-extension SECMarkArea.LabelContent : SECMappable {
-    public func mapping(map: SECMap) {
-        map["show"] = show
-        map["position"] = position
-        map["offset"] = offset
-        map["textStyle"] = textStyle
-    }
-}
-
-extension SECMarkArea.Label : SECEnumable {
-    public enum Enums {
-        case normal(Style), emphasis(Style)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .normal(normal):
-                self.normal = normal
-            case let .emphasis(emphasis):
-                self.emphasis = emphasis
-            }
-        }
-    }
-}
-
-extension SECMarkArea.Label : SECMappable {
-    public func mapping(map: SECMap) {
-        map["normal"] = normal
-        map["emphasis"] = emphasis
-    }
-}
-
 extension SECMarkArea : SECEnumable {
     public enum Enums {
-        case silent(Bool), label(Label), itemStyle(SECItemStyle), data([SECJsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case silent(Bool), label(SECFormattedLabel), itemStyle(SECItemStyle), data([SECJsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums

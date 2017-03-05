@@ -60,6 +60,8 @@ public struct SECLabel : SECEmphasisable {
     public init() { }
 }
 
+public typealias SECEmphasisLabel = SECLabel
+
 extension SECLabel : SECEnumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
@@ -142,6 +144,8 @@ public struct SECFormattedLabel : SECEmphasisable {
     public init() {}
     
 }
+
+public typealias SECEmphasisFormattedLabel = SECFormattedLabel
 
 extension SECFormattedLabel : SECEnumable {
     public enum Enums {

@@ -12,7 +12,6 @@ import SwiftyEcharts
 
 class SECFontSpec: QuickSpec {
     
-    
     override func spec() {
         describe("For font style ") {
             

@@ -29,8 +29,19 @@ public struct SECGaugeOptions {
     // MARK: Gauge
     /// 地址: http://echarts.baidu.com/demo.html#gauge
     static func gaugeOption() -> SECOption {
-        // TODO: 添加实现
         return SECOption(
+            .tooltip(SECTooltip(
+                .formatter(.string("{a} <br/>{b} : {c}%"))
+                )),
+            .toolbox(SECToolbox(
+                .feature(SECTFeature(
+                    .restore(SECTFRestore())
+                    .saveAsImage(SECTFSaveAsImage())
+                    ))
+                )),
+            .series([
+//                SECGaugeser
+                ])
         )
     }
 }

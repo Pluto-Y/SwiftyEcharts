@@ -34,78 +34,79 @@ public struct SECParallelSerie : SECSeries, SECZable, SECAnimatable {
 }
 
 extension SECParallelSerie : SECEnumable {
-	public enum Enums {
-		case coordinateSystem(SECCoordinateSystem), parallelIndex(UInt8), name(String), lineStyle(SECEmphasisLineStyle), inactiveOpacity(Float), activeOpacity(Float), realtime(Bool), data([SECJsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
-	}
-
-	public typealias ContentEnum = Enums
-
-	public init(_ elements: Enums...) {
-		for ele in elements {
-			switch ele {
-				case let .coordinateSystem(coordinateSystem):
-					self.coordinateSystem = coordinateSystem
-				case let .parallelIndex(parallelIndex):
-					self.parallelIndex = parallelIndex
-				case let .name(name):
-					self.name = name
-				case let .lineStyle(lineStyle):
-					self.lineStyle = lineStyle
-				case let .inactiveOpacity(inactiveOpacity):
-					self.inactiveOpacity = inactiveOpacity
-				case let .activeOpacity(activeOpacity):
-					self.activeOpacity = activeOpacity
-				case let .realtime(realtime):
-					self.realtime = realtime
-				case let .data(data):
-					self.data = data
-				case let .zlevel(zlevel):
-					self.zlevel = zlevel
-				case let .z(z):
-					self.z = z
-				case let .silent(silent):
-					self.silent = silent
-				case let .animation(animation):
-					self.animation = animation
-				case let .animationThreshold(animationThreshold):
-					self.animationThreshold = animationThreshold
-				case let .animationDuration(animationDuration):
-					self.animationDuration = animationDuration
-				case let .animationEasing(animationEasing):
-					self.animationEasing = animationEasing
-				case let .animationDelay(animationDelay):
-					self.animationDelay = animationDelay
-				case let .animationDurationUpdate(animationDurationUpdate):
-					self.animationDurationUpdate = animationDurationUpdate
-				case let .animationEasingUpdate(animationEasingUpdate):
-					self.animationEasingUpdate = animationEasingUpdate
-				case let .animationDelayUpdate(animationDelayUpdate):
-					self.animationDelayUpdate = animationDelayUpdate
-			}
-		}
-	}
+    public enum Enums {
+        case coordinateSystem(SECCoordinateSystem), parallelIndex(UInt8), name(String), lineStyle(SECEmphasisLineStyle), inactiveOpacity(Float), activeOpacity(Float), realtime(Bool), data([SECJsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .coordinateSystem(coordinateSystem):
+                self.coordinateSystem = coordinateSystem
+            case let .parallelIndex(parallelIndex):
+                self.parallelIndex = parallelIndex
+            case let .name(name):
+                self.name = name
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            case let .inactiveOpacity(inactiveOpacity):
+                self.inactiveOpacity = inactiveOpacity
+            case let .activeOpacity(activeOpacity):
+                self.activeOpacity = activeOpacity
+            case let .realtime(realtime):
+                self.realtime = realtime
+            case let .data(data):
+                self.data = data
+            case let .zlevel(zlevel):
+                self.zlevel = zlevel
+            case let .z(z):
+                self.z = z
+            case let .silent(silent):
+                self.silent = silent
+            case let .animation(animation):
+                self.animation = animation
+            case let .animationThreshold(animationThreshold):
+                self.animationThreshold = animationThreshold
+            case let .animationDuration(animationDuration):
+                self.animationDuration = animationDuration
+            case let .animationEasing(animationEasing):
+                self.animationEasing = animationEasing
+            case let .animationDelay(animationDelay):
+                self.animationDelay = animationDelay
+            case let .animationDurationUpdate(animationDurationUpdate):
+                self.animationDurationUpdate = animationDurationUpdate
+            case let .animationEasingUpdate(animationEasingUpdate):
+                self.animationEasingUpdate = animationEasingUpdate
+            case let .animationDelayUpdate(animationDelayUpdate):
+                self.animationDelayUpdate = animationDelayUpdate
+            }
+        }
+    }
 }
 
 extension SECParallelSerie : SECMappable {
-	public func mapping(map: SECMap) {
-		map["coordinateSystem"] = coordinateSystem
-		map["parallelIndex"] = parallelIndex
-		map["name"] = name
-		map["lineStyle"] = lineStyle
-		map["inactiveOpacity"] = inactiveOpacity
-		map["activeOpacity"] = activeOpacity
-		map["realtime"] = realtime
-		map["data"] = data
-		map["zlevel"] = zlevel
-		map["z"] = z
-		map["silent"] = silent
-		map["animation"] = animation
-		map["animationThreshold"] = animationThreshold
-		map["animationDuration"] = animationDuration
-		map["animationEasing"] = animationEasing
-		map["animationDelay"] = animationDelay
-		map["animationDurationUpdate"] = animationDurationUpdate
-		map["animationEasingUpdate"] = animationEasingUpdate
-		map["animationDelayUpdate"] = animationDelayUpdate
-	}
+    public func mapping(map: SECMap) {
+        map["type"] = type
+        map["coordinateSystem"] = coordinateSystem
+        map["parallelIndex"] = parallelIndex
+        map["name"] = name
+        map["lineStyle"] = lineStyle
+        map["inactiveOpacity"] = inactiveOpacity
+        map["activeOpacity"] = activeOpacity
+        map["realtime"] = realtime
+        map["data"] = data
+        map["zlevel"] = zlevel
+        map["z"] = z
+        map["silent"] = silent
+        map["animation"] = animation
+        map["animationThreshold"] = animationThreshold
+        map["animationDuration"] = animationDuration
+        map["animationEasing"] = animationEasing
+        map["animationDelay"] = animationDelay
+        map["animationDurationUpdate"] = animationDurationUpdate
+        map["animationEasingUpdate"] = animationEasingUpdate
+        map["animationDelayUpdate"] = animationDelayUpdate
+    }
 }

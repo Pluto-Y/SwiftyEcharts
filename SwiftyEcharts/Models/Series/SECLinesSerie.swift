@@ -21,6 +21,15 @@ public struct SECLinesSerie : SECSeries, SECZable, SECAnimatable {
         public init() { }
     }
     
+    public struct Data {
+        public var name: String?
+        public var coords: [SECPoint]?
+        public var lineStyle: SECLineStyle?
+        public var label: SECFormattedLabel?
+        
+        public init() { }
+    }
+    
     public var type: SECSerieType {
         return .lines
     }
@@ -56,6 +65,8 @@ public struct SECLinesSerie : SECSeries, SECZable, SECAnimatable {
     
     public init() { }
 }
+
+public typealias SECLinesSerieData = SECLinesSerie.Data
 
 extension SECLinesSerie.Effect : SECEnumable {
     public enum Enums {
@@ -98,6 +109,38 @@ extension SECLinesSerie.Effect : SECMappable {
         map["color"] = color
         map["trailLength"] = trailLength
         map["loop"] = loop
+    }
+}
+
+extension SECLinesSerieData : SECEnumable {
+    public enum Enums {
+        case name(String), coords([SECPoint]), lineStyle(SECLineStyle), label(SECFormattedLabel)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .coords(coords):
+                self.coords = coords
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            case let .label(label):
+                self.label = label
+            }
+        }
+    }
+}
+
+extension SECLinesSerieData : SECMappable {
+    public func mapping(map: SECMap) {
+        map["name"] = name
+        map["coords"] = coords
+        map["lineStyle"] = lineStyle
+        map["label"] = label
     }
 }
 
@@ -205,4 +248,3 @@ extension SECLinesSerie : SECMappable {
         map["animationDelayUpdate"] = animationDelayUpdate
     }
 }
-

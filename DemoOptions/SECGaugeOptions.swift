@@ -35,12 +35,18 @@ public struct SECGaugeOptions {
                 )),
             .toolbox(SECToolbox(
                 .feature(SECTFeature(
-                    .restore(SECTFRestore())
+                    .restore(SECTFRestore()),
                     .saveAsImage(SECTFSaveAsImage())
                     ))
                 )),
             .series([
-//                SECGaugeser
+                SECGaugeSerie(
+                    .name("业务指标"),
+                    .detail(SECGSDetail(
+                        .formatter(.string("{value}%"))
+                        )),
+                    .data([["name":"完成率", "value": 50]]) // FIXIM: 封装Data类型？
+                )
                 ])
         )
     }

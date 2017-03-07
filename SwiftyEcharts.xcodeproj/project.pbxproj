@@ -147,6 +147,7 @@
 		6FD249EC1E5337EC00FBB2F7 /* SECBoxplotSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249EB1E5337EC00FBB2F7 /* SECBoxplotSerie.swift */; };
 		6FD249EE1E533DCD00FBB2F7 /* SECCandlestickSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249ED1E533DCD00FBB2F7 /* SECCandlestickSerie.swift */; };
 		6FD249F01E53493C00FBB2F7 /* SECHeatmapSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249EF1E53493C00FBB2F7 /* SECHeatmapSerie.swift */; };
+		6FE45D501E6F092500E9083D /* GaugesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE45D4F1E6F092500E9083D /* GaugesController.swift */; };
 		6FEC7D191E5376F9003A88D7 /* SECPercentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D181E5376F9003A88D7 /* SECPercentSpec.swift */; };
 		6FEC7D1B1E549487003A88D7 /* SECTwoElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1A1E549487003A88D7 /* SECTwoElements.swift */; };
 		6FEC7D1D1E54996B003A88D7 /* SECTwoElementsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1C1E54996B003A88D7 /* SECTwoElementsSpec.swift */; };
@@ -327,6 +328,7 @@
 		6FD249EB1E5337EC00FBB2F7 /* SECBoxplotSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECBoxplotSerie.swift; sourceTree = "<group>"; };
 		6FD249ED1E533DCD00FBB2F7 /* SECCandlestickSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECCandlestickSerie.swift; sourceTree = "<group>"; };
 		6FD249EF1E53493C00FBB2F7 /* SECHeatmapSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECHeatmapSerie.swift; sourceTree = "<group>"; };
+		6FE45D4F1E6F092500E9083D /* GaugesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaugesController.swift; sourceTree = "<group>"; };
 		6FEC7D181E5376F9003A88D7 /* SECPercentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPercentSpec.swift; sourceTree = "<group>"; };
 		6FEC7D1A1E549487003A88D7 /* SECTwoElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECTwoElements.swift; sourceTree = "<group>"; };
 		6FEC7D1C1E54996B003A88D7 /* SECTwoElementsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECTwoElementsSpec.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 				6F0E46251E61B204008DA184 /* BaseDemoController.swift */,
 				6F0E46271E61D6C6008DA184 /* PiesController.swift */,
 				6FEF717B1E65B75800E1ED70 /* RadarsController.swift */,
+				6FE45D4F1E6F092500E9083D /* GaugesController.swift */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -1026,6 +1029,7 @@
 				6F0E46281E61D6C6008DA184 /* PiesController.swift in Sources */,
 				6F9B70E01DE808E600406B55 /* AppDelegate.swift in Sources */,
 				5427F08B1E2C96F900CE20E5 /* SECCandlestickOptions.swift in Sources */,
+				6FE45D501E6F092500E9083D /* GaugesController.swift in Sources */,
 				5427F0951E2C980700CE20E5 /* SECParalledOptions.swift in Sources */,
 				5427F09F1E2C984500CE20E5 /* SECThemeRiverOptions.swift in Sources */,
 				5427F09D1E2C983A00CE20E5 /* SECPictoriaBarOptions.swift in Sources */,

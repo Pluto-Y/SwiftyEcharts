@@ -95,6 +95,7 @@ public struct SECGaugeSerie: SECSeries, SECAnimatable {
     public var markPoint: SECMarkPoint?
     public var markLine: SECMarkLine?
     public var markArea: SECMarkArea?
+    public var data: [SECJsonable]?
     public var silent: Bool?
     public var animation: Bool?
     public var animationThreshold: Float?
@@ -345,7 +346,7 @@ extension SECGSDetail : SECMappable {
 
 extension SECGaugeSerie : SECEnumable {
     public enum Enums {
-        case name(String), radius(SECLength), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(SECItemStyle), title(Title), detail(Detail), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), radius(SECLength), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(SECItemStyle), title(Title), detail(Detail), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), data([SECJsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -391,6 +392,8 @@ extension SECGaugeSerie : SECEnumable {
                 self.markLine = markLine
             case let .markArea(markArea):
                 self.markArea = markArea
+            case let .data(data):
+                self.data = data
             case let .silent(silent):
                 self.silent = silent
             case let .animation(animation):
@@ -436,6 +439,7 @@ extension SECGaugeSerie : SECMappable {
         map["markPoint"] = markPoint
         map["markLine"] = markLine
         map["markArea"] = markArea
+        map["data"] = data
         map["silent"] = silent
         map["animation"] = animation
         map["animationThreshold"] = animationThreshold

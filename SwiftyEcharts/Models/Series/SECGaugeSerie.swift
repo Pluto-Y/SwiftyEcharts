@@ -107,3 +107,344 @@ public struct SECGaugeSerie: SECSeries, SECAnimatable {
     
     public init() { }
 }
+
+public typealias SECGSAxisLine = SECGaugeSerie.AxisLine
+public typealias SECGSSplitLine = SECGaugeSerie.SplitLine
+public typealias SECGSAxisTick = SECGaugeSerie.AxisTick
+public typealias SECGSAxisLabel = SECGaugeSerie.AxisLabel
+public typealias SECGSPointer = SECGaugeSerie.Pointer
+public typealias SECGSTitle = SECGaugeSerie.Title
+public typealias SECGSDetail = SECGaugeSerie.Detail
+
+extension SECGSAxisLine : SECEnumable {
+    public enum Enums {
+        case show(Bool), lineStyle(SECLineStyle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            }
+        }
+    }
+}
+
+extension SECGSAxisLine : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["lineStyle"] = lineStyle
+    }
+}
+
+extension SECGSSplitLine : SECEnumable {
+    public enum Enums {
+        case show(Bool), length(SECLength), lineStyle(SECLineStyle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .length(length):
+                self.length = length
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            }
+        }
+    }
+}
+
+extension SECGSSplitLine : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["length"] = length
+        map["lineStyle"] = lineStyle
+    }
+}
+
+extension SECGSAxisTick : SECEnumable {
+    public enum Enums {
+        case show(Bool), splitNumber(UInt8), length(SECLength), lineStyle(SECLineStyle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .splitNumber(splitNumber):
+                self.splitNumber = splitNumber
+            case let .length(length):
+                self.length = length
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            }
+        }
+    }
+}
+
+extension SECGSAxisTick : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["splitNumber"] = splitNumber
+        map["length"] = length
+        map["lineStyle"] = lineStyle
+    }
+}
+
+extension SECGSAxisLabel : SECEnumable {
+    public enum Enums {
+        case show(Bool), distance(Float), formatter(SECFormatter), textStyle(SECTextStyle), color(SECColor)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .distance(distance):
+                self.distance = distance
+            case let .formatter(formatter):
+                self.formatter = formatter
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            case let .color(color):
+                self.color = color
+            }
+        }
+    }
+}
+
+extension SECGSAxisLabel : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["distance"] = distance
+        map["formatter"] = formatter
+        map["textStyle"] = textStyle
+        map["color"] = color
+    }
+}
+
+extension SECGSPointer : SECEnumable {
+    public enum Enums {
+        case show(Bool), length(SECLength), width(Float)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .length(length):
+                self.length = length
+            case let .width(width):
+                self.width = width
+            }
+        }
+    }
+}
+
+extension SECGSPointer : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["length"] = length
+        map["width"] = width
+    }
+}
+
+extension SECGSTitle : SECEnumable {
+    public enum Enums {
+        case show(Bool), offsetCenter(SECPoint), textStyle(SECTextStyle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .offsetCenter(offsetCenter):
+                self.offsetCenter = offsetCenter
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            }
+        }
+    }
+}
+
+extension SECGSTitle : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["offsetCenter"] = offsetCenter
+        map["textStyle"] = textStyle
+    }
+}
+
+extension SECGSDetail : SECEnumable {
+    public enum Enums {
+        case show(Bool), width(Float), height(Float), backgroundColor(SECColor), borderWidth(Float), borderColor(SECColor), offsetCenter(SECPoint), formatter(SECFormatter), textStyle(SECTextStyle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .width(width):
+                self.width = width
+            case let .height(height):
+                self.height = height
+            case let .backgroundColor(backgroundColor):
+                self.backgroundColor = backgroundColor
+            case let .borderWidth(borderWidth):
+                self.borderWidth = borderWidth
+            case let .borderColor(borderColor):
+                self.borderColor = borderColor
+            case let .offsetCenter(offsetCenter):
+                self.offsetCenter = offsetCenter
+            case let .formatter(formatter):
+                self.formatter = formatter
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            }
+        }
+    }
+}
+
+extension SECGSDetail : SECMappable {
+    public func mapping(map: SECMap) {
+        map["show"] = show
+        map["width"] = width
+        map["height"] = height
+        map["backgroundColor"] = backgroundColor
+        map["borderWidth"] = borderWidth
+        map["borderColor"] = borderColor
+        map["offsetCenter"] = offsetCenter
+        map["formatter"] = formatter
+        map["textStyle"] = textStyle
+    }
+}
+
+extension SECGaugeSerie : SECEnumable {
+    public enum Enums {
+        case name(String), radius(SECLength), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(SECItemStyle), title(Title), detail(Detail), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .radius(radius):
+                self.radius = radius
+            case let .startAngle(startAngle):
+                self.startAngle = startAngle
+            case let .endAngle(endAngle):
+                self.endAngle = endAngle
+            case let .clockwise(clockwise):
+                self.clockwise = clockwise
+            case let .min(min):
+                self.min = min
+            case let .max(max):
+                self.max = max
+            case let .splitNumber(splitNumber):
+                self.splitNumber = splitNumber
+            case let .axisLine(axisLine):
+                self.axisLine = axisLine
+            case let .splitLine(splitLine):
+                self.splitLine = splitLine
+            case let .axisTick(axisTick):
+                self.axisTick = axisTick
+            case let .axisLabel(axisLabel):
+                self.axisLabel = axisLabel
+            case let .pointer(pointer):
+                self.pointer = pointer
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            case let .title(title):
+                self.title = title
+            case let .detail(detail):
+                self.detail = detail
+            case let .markPoint(markPoint):
+                self.markPoint = markPoint
+            case let .markLine(markLine):
+                self.markLine = markLine
+            case let .markArea(markArea):
+                self.markArea = markArea
+            case let .silent(silent):
+                self.silent = silent
+            case let .animation(animation):
+                self.animation = animation
+            case let .animationThreshold(animationThreshold):
+                self.animationThreshold = animationThreshold
+            case let .animationDuration(animationDuration):
+                self.animationDuration = animationDuration
+            case let .animationEasing(animationEasing):
+                self.animationEasing = animationEasing
+            case let .animationDelay(animationDelay):
+                self.animationDelay = animationDelay
+            case let .animationDurationUpdate(animationDurationUpdate):
+                self.animationDurationUpdate = animationDurationUpdate
+            case let .animationEasingUpdate(animationEasingUpdate):
+                self.animationEasingUpdate = animationEasingUpdate
+            case let .animationDelayUpdate(animationDelayUpdate):
+                self.animationDelayUpdate = animationDelayUpdate
+            }
+        }
+    }
+}
+
+extension SECGaugeSerie : SECMappable {
+    public func mapping(map: SECMap) {
+        map["type"] = type
+        map["name"] = name
+        map["radius"] = radius
+        map["startAngle"] = startAngle
+        map["endAngle"] = endAngle
+        map["clockwise"] = clockwise
+        map["min"] = min
+        map["max"] = max
+        map["splitNumber"] = splitNumber
+        map["axisLine"] = axisLine
+        map["splitLine"] = splitLine
+        map["axisTick"] = axisTick
+        map["axisLabel"] = axisLabel
+        map["pointer"] = pointer
+        map["itemStyle"] = itemStyle
+        map["title"] = title
+        map["detail"] = detail
+        map["markPoint"] = markPoint
+        map["markLine"] = markLine
+        map["markArea"] = markArea
+        map["silent"] = silent
+        map["animation"] = animation
+        map["animationThreshold"] = animationThreshold
+        map["animationDuration"] = animationDuration
+        map["animationEasing"] = animationEasing
+        map["animationDelay"] = animationDelay
+        map["animationDurationUpdate"] = animationDurationUpdate
+        map["animationEasingUpdate"] = animationEasingUpdate
+        map["animationDelayUpdate"] = animationDelayUpdate
+    }
+}
+

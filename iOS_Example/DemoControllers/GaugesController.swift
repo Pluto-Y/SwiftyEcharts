@@ -40,12 +40,12 @@ class GaugesController: BaseDemoController {
     }
     
     func randomForGauge() {
+        var option = self.option
         let data: [String: SECJsonable] = ["value": Double(arc4random_uniform(100) + 1), "name": "完成率"]
-        var serie = self.option.series![0] as! SECGaugeSerie
+        var serie = option.series![0] as! SECGaugeSerie
         serie.data = [data]
-        self.option.series = [serie]
-        self.echartsView.option = self.option
-        self.echartsView.loadEcharts()
+        option.series = [serie]
+        self.echartsView.setOption(option)
     }
     
 }

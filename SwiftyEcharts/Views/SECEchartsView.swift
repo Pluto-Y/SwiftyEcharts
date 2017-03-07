@@ -36,6 +36,17 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKSc
         self.loadHTMLString(htmlContents, baseURL: NSURL(fileURLWithPath: bundlePath))
     }
     
+    /// 设置图表实例的配置项以及数据，万能接口，所有参数和数据的修改都可以通过setOption完成，ECharts 会合并新的参数和数据，然后刷新图表。如果开启动画的话，ECharts 找到两组数据之间的差异然后通过合适的动画去表现数据的变化。
+    ///
+    /// - Parameters:
+    ///   - option: 图表的配置项和数据。
+    ///   - notMerge: 可选，是否不跟之前设置的option进行合并，默认为false，即合并。
+    ///   - lazyUpdate: 可选，在设置完option后是否不立即更新图表，默认为false，即立即更新。
+    ///   - silent: 可选，阻止调用 setOption 时抛出事件，默认为false，即抛出事件。
+    public func setOption(option: SECOption, _ notMerge: Bool = false, _ lazyUpdate: Bool = false, _ silent: Bool = false) {
+        self.callJsMethod("myChart.setOption(\(option.jsonString), \(notMerge), \(lazyUpdate), \(silent))")
+    }
+    
     // MARK: - Private Functions
     private func initViews() {
         var bundle = NSBundle.mainBundle()

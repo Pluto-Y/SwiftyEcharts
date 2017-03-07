@@ -37,7 +37,7 @@ public struct SECLineOptions {
             .title(SECTitle(
                 .text("雨量流量关系图"),
                 .subtext("数据来自西安兰特水电测控技术有限公司"),
-                .textAlign(.center)
+                .x(.center)
                 )),
             .grid(SECGrid(
                 .bottom(.value(80))
@@ -59,7 +59,7 @@ public struct SECLineOptions {
                 )),
             .legend(SECLegend(
                 .data(["流量", "降雨量"]),
-                .left(.left)
+                .x(.left)
                 )),
             .dataZoom([
                 SECSliderDataZoom(
@@ -269,7 +269,7 @@ public struct SECLineOptions {
             .title(SECTitle(
                 .text("雨量流量关系图"),
                 .subtext("数据来自西安兰特水电测控技术有限公司"),
-                .textAlign(.center)
+                .x(.center)
                 )),
             .tooltip(SECTooltip(
                 .trigger(.axis),
@@ -279,7 +279,7 @@ public struct SECLineOptions {
                 )),
             .legend(SECLegend(
                 .data(["流量", "降雨量"]),
-                .left(.left)
+                .x(.left)
                 )),
             .toolbox(SECToolbox(
                 .feature(SECTFeature(
@@ -901,7 +901,7 @@ public struct SECLineOptions {
     
     // MARK: 高度(km)与气温(°C)变化关系
     /// 地址:http://echarts.baidu.com/demo.html#line-y-category
-    static func lineYCategory() -> SECOption {
+    static func lineYCategoryOption() -> SECOption {
         return SECOption(
             .legend(SECLegend(
                 .data(["高度(km)与气温(°C)变化关系"])

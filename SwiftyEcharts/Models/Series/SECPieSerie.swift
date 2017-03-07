@@ -8,6 +8,22 @@
 
 public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     
+    public struct Data {
+        /// 数据项名称。
+        public var name: String?
+        /// 数据值。
+        public var value: Float?
+        /// 该数据项是否被选中。
+        public var selected: Bool?
+        /// 单个扇区的标签配置。
+        public var label: SECLabel?
+        public var labelLine: LabelLine?
+        /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+        public var itemStyle: SECItemStyle?
+        
+        public init() { }
+    }
+    
     /// 是否展示成南丁格尔图，通过半径区分数据大小
     ///
     /// - enable: 显示为南丁格尔图
@@ -176,6 +192,8 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     public init() { }
 }
 
+public typealias SECPieSerieData = SECPieSerie.Data
+
 extension SECPieSerie.LabelLineContent : SECEnumable {
     public enum Enums {
         case show(Bool), length(Float), length2(Float), smooth(Bool), lineStyle(SECLineStyle)
@@ -315,6 +333,46 @@ extension SECPieSerie : SECEnumable {
                 self.animationDelayUpdate = animationDelayUpdate
             }
         }
+    }
+}
+
+extension SECPieSerieData : SECEnumable {
+    
+    public enum Enums {
+        case name(String), value(Float), selected(Bool), label(SECLabel), labelLine(SECPieSerie.LabelLine), itemStyle(SECItemStyle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .value(value):
+                self.value = value
+            case let .selected(selected):
+                self.selected = selected
+            case let .label(label):
+                self.label = label
+            case let .labelLine(labelLine):
+                self.labelLine = labelLine
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            }
+        }
+    }
+    
+}
+
+extension SECPieSerieData : SECMappable {
+    public func mapping(map: SECMap) {
+        map["name"] = name
+        map["value"] = value
+        map["selected"] = selected
+        map["label"] = label
+        map["labelLine"] = labelLine
+        map["itemStyle"] = itemStyle
     }
 }
 

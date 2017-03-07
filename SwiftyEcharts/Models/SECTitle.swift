@@ -111,7 +111,7 @@ public struct SECTitle: SECBorderable, SECDisplayable, SECTextful, SECZable {
 
 extension SECTitle : SECEnumable {
     public enum Enums {
-        case show(Bool), text(String), link(String), target(SECTarget), textStyle(SECTextStyle), textAlign(SECAlign), textBaseline(SECVerticalAlign), subtext(String), sublink(String), subtarget(SECTarget), subtextStyle(SECTextStyle), padding(SECPadding), itemGap(Float), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), text(String), link(String), target(SECTarget), textStyle(SECTextStyle), textAlign(SECAlign), textBaseline(SECVerticalAlign), subtext(String), sublink(String), subtarget(SECTarget), subtextStyle(SECTextStyle), padding(SECPadding), itemGap(Float), zlevel(Float), z(Float), left(SECPosition), x(SECPosition), top(SECPosition), y(SECPosition), right(SECPosition), bottom(SECPosition), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -151,6 +151,10 @@ extension SECTitle : SECEnumable {
                 self.z = z
             case let .left(left):
                 self.left = left
+            case let .x(left):
+                self.left = left
+            case let .y(top):
+                self.top = top
             case let .top(top):
                 self.top = top
             case let .right(right):

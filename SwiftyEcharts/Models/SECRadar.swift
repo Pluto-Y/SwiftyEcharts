@@ -127,6 +127,8 @@ public struct SECRadar : SECZable {
     public init() {}
 }
 
+public typealias SECIndicator = SECRadar.Indicator
+
 
 extension SECRadar.Name : SECEnumable {
     public enum Enums {
@@ -157,9 +159,9 @@ extension SECRadar.Name : SECMappable {
     }
 }
 
-extension SECRadar.Indicator : SECEnumable {
+extension SECIndicator : SECEnumable {
     public enum Enums {
-        case name(String), max(Float), min(Float)
+        case text(String), name(String), max(Float), min(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -167,6 +169,8 @@ extension SECRadar.Indicator : SECEnumable {
     public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
+            case let .text(name):
+                self.name = name
             case let .name(name):
                 self.name = name
             case let .max(max):
@@ -178,7 +182,7 @@ extension SECRadar.Indicator : SECEnumable {
     }
 }
 
-extension SECRadar.Indicator : SECMappable {
+extension SECIndicator : SECMappable {
     public func mapping(map: SECMap) {
         map["name"] = name
         map["max"] = max

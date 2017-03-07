@@ -34,7 +34,7 @@ public enum SECColor: SECJsonable {
     case rgb(Int, Int, Int)
     case hexColor(String)
     case array([SECColor])
-    case red, blue, green, transparent
+    case red, blue, green, yellow, transparent
     case image(String, ImageRepeat)
     
     public var jsonString: String {
@@ -49,6 +49,8 @@ public enum SECColor: SECJsonable {
             return "\"red\""
         case .blue:
             return "\"blue\""
+        case .yellow:
+            return "\"yellow\""
         case .green:
             return "\"green\""
         case .transparent:
@@ -58,7 +60,7 @@ public enum SECColor: SECJsonable {
             for color in colors {
                 result += "\(color.jsonString)" + ","
             }
-            result = result.substringFromIndex(result.endIndex.predecessor())
+            result = result.substringToIndex(result.endIndex.predecessor())
             result += "]"
             return result
         case let .image(base64Str, r):

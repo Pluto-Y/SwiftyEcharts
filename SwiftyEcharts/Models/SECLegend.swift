@@ -18,31 +18,21 @@ public enum SECOrient : String, SECJsonable {
     }
 }
 
-/// 选择的模式
+/// 图例选择的模式，控制是否可以通过点击图例改变系列的显示状态。默认开启图例选择，可以设成 false 关闭。
 ///
-/// - selectable: 设置成是否可选择
-/// - mode: 设置成单选或者多选
-public enum SECSelectedMode : CustomStringConvertible, SECJsonable {
+/// 除此之外也可以设成 'single' 或者 'multiple' 使用单选或者多选模式。
+public enum SECSelectedMode : String, SECJsonable {
+    case enable = "true"
+    case disable = "false"
+    case single = "single"
+    case multiple = "multiple"
     
-    /// 单选或多选模式
-    ///
-    /// - single: 单选
-    /// - multiple: 多选
-    public enum Mode: String {
-        case single = "single", multiple = "multiple"
-    }
-    
-    case selectable(Bool)
-    case mode(Mode)
-    
-    public var description: String {
+    public var jsonString: String {
         switch self {
-        case .selectable(true):
-            return "true"
-        case .selectable(false):
-            return "false"
-        case let .mode(mode):
-            return "\(mode.rawValue)"
+        case .enable, .disable:
+            return "\(self.rawValue)"
+        case .single, .multiple:
+            return "\"\(self.rawValue)\""
         }
     }
     
@@ -194,7 +184,7 @@ extension SECLegend.Data : SECMappable {
 
 extension SECLegend : SECEnumable {
     public enum Enums {
-        case show(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), data([SECJsonable]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), zlevel(Float), z(Float), left(SECPosition), x(SECPosition), top(SECPosition), y(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), data([SECJsonable]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -210,7 +200,11 @@ extension SECLegend : SECEnumable {
                 self.z = z
             case let .left(left):
                 self.left = left
+            case let .x(left):
+                self.left = left
             case let .top(top):
+                self.top = top
+            case let .y(top):
                 self.top = top
             case let .right(right):
                 self.right = right

@@ -41,7 +41,9 @@ extension SECLineSerie {
     }
 }
 
-extension SECLineSerie.Data : SECEnumable {
+public typealias SECLineSerieData = SECLineSerie.Data
+
+extension SECLineSerieData : SECEnumable {
     public enum Enums {
         case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECLabel), itemStyle(SECItemStyle)
     }
@@ -72,7 +74,7 @@ extension SECLineSerie.Data : SECEnumable {
     }
 }
 
-extension SECLineSerie.Data : SECMappable {
+extension SECLineSerieData : SECMappable {
     public func mapping(map: SECMap) {
         map["name"] = name
         map["value"] = value

@@ -55,7 +55,7 @@ public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderab
     ///     // 则 range 恢复为 [min, max]，即 [0, 400]，同时也恢复了自动随 min max 而改变的能力。
     ///
     /// getOption 得到的 range 总是 Array，不会为 null 或 undefined。
-    public var range: [Float]?
+    public var range: SECRange?
     /// 是否显示拖拽用的手柄（手柄能拖拽调整选中范围）。
     ///
     /// （注：为兼容 ECharts2，当 visualMap.type 未指定时，假如设置了 'calculable'，则type自动被设置为'continuous'，无视 visualMap-piecewise.splitNumber 等设置。所以，建议使用者不要不指定 visualMap.type，否则表意不清晰。）
@@ -190,7 +190,7 @@ public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderab
 
 extension SECContinuousVisualMap : SECEnumable {
     public enum Enums {
-        case min(Float), max(Float), range([Float]), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(SECAlign), text([String]), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: SECJsonable]), outRange([String: SECJsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), color(SECColor), textStyle(SECTextStyle), formatter(SECFormatter)
+        case min(Float), max(Float), range(SECRange), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(SECAlign), text([String]), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: SECJsonable]), outRange([String: SECJsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), color(SECColor), textStyle(SECTextStyle), formatter(SECFormatter)
     }
     
     public typealias ContentEnum = Enums
@@ -291,7 +291,7 @@ extension SECContinuousVisualMap : SECMappable {
         map["inRange"] = inRange
         map["outRange"] = outRange
         map["controller"] = controller
-        map["zlevel"] = type
+        map["zlevel"] = zlevel
         map["z"] = z
         map["left"] = left
         map["top"] = top

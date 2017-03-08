@@ -31,6 +31,8 @@ class MenuController : UITableViewController {
             self.navigationController?.pushViewController(PiesController(), animated: true)
         case 3: // 雷达图
             self.navigationController?.pushViewController(RadarsController(), animated: true)
+        case 4: // 漏斗图
+            self.navigationController?.pushViewController(FunnelController(), animated: true)
         default:
             print("敬请期待...")
         }

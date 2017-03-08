@@ -30,18 +30,18 @@ public struct SECGaugeOptions {
     /// 地址: http://echarts.baidu.com/demo.html#gauge
     static func gaugeOption() -> SECOption {
         return SECOption(
-            .tooltip(SECTooltip(
-                .formatter(.string("{a} <br/>{b} : {c}%"))
-                )),
-            .toolbox(SECToolbox(
-                .feature(SECTFeature(
-                    .restore(SECTFRestore())
-                    .saveAsImage(SECTFSaveAsImage())
-                    ))
-                )),
-            .series([
-//                SECGaugeser
-                ])
+//            .tooltip(SECTooltip(
+//                .formatter(.string("{a} <br/>{b} : {c}%"))
+//                )),
+//            .toolbox(SECToolbox(
+//                .feature(SECTFeature(
+//                    .restore(SECTFRestore())
+//                    .saveAsImage(SECTFSaveAsImage())
+//                    ))
+//                )),
+//            .series([
+////                SECGaugeser
+//                ])
         )
     }
 }

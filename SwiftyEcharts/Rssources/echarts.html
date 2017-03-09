@@ -67,12 +67,19 @@
         function loadEcharts(echartJson, initParams) {
             //alert('init params : ' + JSON.stringify(echartJson));
             initEchartView(initParams);
-            //alert('myChart:'+ myChart);
+            // alert('myChart:'+ myChart);
             option = JSON.parse(echartJson.replace(new RegExp("<br>", "gm"), "\\n"));
             //alert('before evalForFunction option:'+ option);
             option = preTask(option);
             //alert('after evalForFunction option:'+ JSON.stringify(option));
             myChart.setOption(option);
+        }
+    
+        function refreshEcharts(echartJson, notMerge, lazyUpdate, silent) {
+            var newOption = JSON.parse(echartJson);
+            newOption = preTask(newOption);
+            
+            myChart.setOption(newOption, notMerge, lazyUpdate, silent);
         }
     </script>
 </head>

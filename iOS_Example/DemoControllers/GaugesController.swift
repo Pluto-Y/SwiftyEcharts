@@ -26,6 +26,11 @@ class GaugesController: BaseDemoController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
+        }
+        
         switch indexPath.row {
         case 0:
             print("")
@@ -47,7 +52,7 @@ class GaugesController: BaseDemoController {
         var serie = option.series![0] as! SECGaugeSerie
         serie.data = [data]
         option.series = [serie]
-        self.echartsView.setOption(option)
+        self.echartsView.refreshEcharts(option)
     }
     
     func randomForGaugeCar() {
@@ -66,7 +71,7 @@ class GaugesController: BaseDemoController {
         serie4.data = [data4]
 
         option.series = [serie1, serie2, serie3, serie4]
-        self.echartsView.setOption(option)
+        self.echartsView.refreshEcharts(option)
     }
     
 }

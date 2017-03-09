@@ -43,8 +43,20 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKSc
     ///   - notMerge: 可选，是否不跟之前设置的option进行合并，默认为false，即合并。
     ///   - lazyUpdate: 可选，在设置完option后是否不立即更新图表，默认为false，即立即更新。
     ///   - silent: 可选，阻止调用 setOption 时抛出事件，默认为false，即抛出事件。
-    public func setOption(option: SECOption, _ notMerge: Bool = false, _ lazyUpdate: Bool = false, _ silent: Bool = false) {
-        self.callJsMethod("myChart.setOption(\(option.jsonString), \(notMerge), \(lazyUpdate), \(silent))")
+    public func refreshEcharts(option: SECOption, _ notMerge: Bool = false, _ lazyUpdate: Bool = false, _ silent: Bool = false) {
+        let optionJson = option.jsonString
+        
+        // 定义Js与Clousure之间的匹配关系
+        // 必须要在option.jsonString调用过一次之后
+        // 并且需要在调用loadEcharts之前，这样才能建立关系
+        for function in SECJsMap.allFunctions() {
+            self.callJsMethod(function)
+            //            self.callJsMethod("function \(name)(params){ alert(\(name));eval('window.webkit.messageHandlers.\(name).postMessage(' + params + ')'); }")
+        }
+        
+        let js = "refreshEcharts('\(optionJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))', \(notMerge), \(lazyUpdate), \(silent))"
+//        print(js)
+        self.callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
     }
     
     // MARK: - Private Functions

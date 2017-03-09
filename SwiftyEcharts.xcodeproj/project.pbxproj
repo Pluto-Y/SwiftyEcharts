@@ -84,6 +84,7 @@
 		6F4ACB511E21352600CE5FD5 /* SECMappableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4ACB501E21352600CE5FD5 /* SECMappableSpec.swift */; };
 		6F5E2D1E1E4CB2E5009C4DA7 /* SECSingleAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E2D1D1E4CB2E5009C4DA7 /* SECSingleAxis.swift */; };
 		6F67FCB71E71C85400BE2E4B /* SECSelectedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FCB61E71C85400BE2E4B /* SECSelectedMode.swift */; };
+		6F67FCB91E71CA1B00BE2E4B /* SECSelectedModeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FCB81E71CA1B00BE2E4B /* SECSelectedModeSpec.swift */; };
 		6F91EB7B1DF08026003EEEC0 /* SECLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7A1DF08026003EEEC0 /* SECLine.swift */; };
 		6F91EB7D1DF081A2003EEEC0 /* SECShadowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7C1DF081A2003EEEC0 /* SECShadowable.swift */; };
 		6F91EB7F1DF142E3003EEEC0 /* SECLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7E1DF142E3003EEEC0 /* SECLegend.swift */; };
@@ -269,6 +270,7 @@
 		6F4ACB501E21352600CE5FD5 /* SECMappableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMappableSpec.swift; sourceTree = "<group>"; };
 		6F5E2D1D1E4CB2E5009C4DA7 /* SECSingleAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSingleAxis.swift; sourceTree = "<group>"; };
 		6F67FCB61E71C85400BE2E4B /* SECSelectedMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSelectedMode.swift; sourceTree = "<group>"; };
+		6F67FCB81E71CA1B00BE2E4B /* SECSelectedModeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSelectedModeSpec.swift; sourceTree = "<group>"; };
 		6F91EB7A1DF08026003EEEC0 /* SECLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLine.swift; sourceTree = "<group>"; };
 		6F91EB7C1DF081A2003EEEC0 /* SECShadowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECShadowable.swift; sourceTree = "<group>"; };
 		6F91EB7E1DF142E3003EEEC0 /* SECLegend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLegend.swift; sourceTree = "<group>"; };
@@ -629,6 +631,7 @@
 				6FEC7D1C1E54996B003A88D7 /* SECTwoElementsSpec.swift */,
 				6FA9DB251E59FA6A00CE5277 /* SECOneOrMoreSepc.swift */,
 				6FEF717D1E686EB700E1ED70 /* SECColorSpec.swift */,
+				6F67FCB81E71CA1B00BE2E4B /* SECSelectedModeSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1051,6 +1054,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F67FCB91E71CA1B00BE2E4B /* SECSelectedModeSpec.swift in Sources */,
 				6FEC7D1D1E54996B003A88D7 /* SECTwoElementsSpec.swift in Sources */,
 				6F4ACB481E1D258B00CE5FD5 /* SECJsonableSpec.swift in Sources */,
 				6FEF717E1E686EB700E1ED70 /* SECColorSpec.swift in Sources */,

@@ -16,7 +16,7 @@ class GaugesController: BaseDemoController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.menus = ["Gauge Car Dark(暂缺)", "Gauge Car(暂缺)", "Gauge"]
+        self.menus = ["Gauge Car Dark(暂缺)", "Gauge Car", "Gauge"]
         
         self.optionClosures = [SECGaugeOptions.gaugeCarDarkOption, SECGaugeOptions.gaugeCarOption, SECGaugeOptions.gaugeOption]
         
@@ -30,13 +30,15 @@ class GaugesController: BaseDemoController {
         case 0:
             print("")
         case 1:
-            print("")
+            timer = NSTimer(timeInterval: 2, target: self, selector: #selector(self.randomForGaugeCar), userInfo: nil, repeats: true)
         case 2:
             timer = NSTimer(timeInterval: 2, target: self, selector: #selector(self.randomForGauge), userInfo: nil, repeats: true)
         default:
             print("错误输入")
         }
-        NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+        if let t = timer {
+            NSRunLoop.currentRunLoop().addTimer(t, forMode: NSRunLoopCommonModes)
+        }
     }
     
     func randomForGauge() {
@@ -45,6 +47,25 @@ class GaugesController: BaseDemoController {
         var serie = option.series![0] as! SECGaugeSerie
         serie.data = [data]
         option.series = [serie]
+        self.echartsView.setOption(option)
+    }
+    
+    func randomForGaugeCar() {
+        var option = self.option
+        let data1: [String: SECJsonable] = ["value": Double(arc4random_uniform(100) + 1), "name": "km/h"]
+        var serie1 = option.series![0] as! SECGaugeSerie
+        serie1.data = [data1]
+        let data2: [String: SECJsonable] = ["value": Double(arc4random_uniform(7) + 1), "name": "x1000 r/min"]
+        var serie2 = option.series![1] as! SECGaugeSerie
+        serie2.data = [data2]
+        let data3: [String: SECJsonable] = ["value": Double(arc4random_uniform(2) + 1), "name": "gas"]
+        var serie3 = option.series![2] as! SECGaugeSerie
+        serie3.data = [data3]
+        let data4: [String: SECJsonable] = ["value": Double(arc4random_uniform(2) + 1), "name": "gas"]
+        var serie4 = option.series![3] as! SECGaugeSerie
+        serie4.data = [data4]
+
+        option.series = [serie1, serie2, serie3, serie4]
         self.echartsView.setOption(option)
     }
     

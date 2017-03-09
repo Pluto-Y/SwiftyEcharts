@@ -26,3 +26,12 @@ public enum SECSelectedMode : String, SECJsonable {
     
 }
 
+extension SECSelectedMode : BooleanLiteralConvertible {
+    public init(booleanLiteral value: Bool) {
+        if value {
+            self = .enable
+        } else {
+            self = .disable
+        }
+    }
+}

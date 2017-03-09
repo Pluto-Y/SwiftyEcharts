@@ -78,6 +78,7 @@ public struct SECGaugeSerie: SECSeries, SECAnimatable {
     
     public var name: String?
     public var radius: SECLength?
+    public var center: SECPoint?
     public var startAngle: Float?
     public var endAngle: Float?
     public var clockwise: Bool?
@@ -346,7 +347,7 @@ extension SECGSDetail : SECMappable {
 
 extension SECGaugeSerie : SECEnumable {
     public enum Enums {
-        case name(String), radius(SECLength), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(SECItemStyle), title(Title), detail(Detail), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), data([SECJsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), radius(SECLength), center(SECPoint), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(SECItemStyle), title(Title), detail(Detail), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), data([SECJsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -358,6 +359,8 @@ extension SECGaugeSerie : SECEnumable {
                 self.name = name
             case let .radius(radius):
                 self.radius = radius
+            case let .center(center):
+                self.center = center
             case let .startAngle(startAngle):
                 self.startAngle = startAngle
             case let .endAngle(endAngle):
@@ -422,6 +425,7 @@ extension SECGaugeSerie : SECMappable {
         map["type"] = type
         map["name"] = name
         map["radius"] = radius
+        map["center"] = center
         map["startAngle"] = startAngle
         map["endAngle"] = endAngle
         map["clockwise"] = clockwise

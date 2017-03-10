@@ -6,8 +6,12 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 漏斗图
+///
+/// 示例:http://echarts.baidu.com/gallery/editor.html?c=funnel
 public struct SECFunnelSerie: SECSeries, SECAnimatable {
     
+    /// 排序，ascending: 升序， descending: 降序
     public enum Sort: String, SECJsonable {
         case ascending = "ascending"
         case descending = "descending"
@@ -17,9 +21,13 @@ public struct SECFunnelSerie: SECSeries, SECAnimatable {
         }
     }
     
+    /// 标签的视觉引导线样式，在 label 位置 设置为'left'或者'right'的时候会显示视觉引导线。
     public struct LabelLineContent {
+        /// 是否显示视觉引导线。
         public var show: Bool?
+        /// 视觉引导线第一段的长度。
         public var length: Float?
+        /// 线条样式
         public var lineStyle: SECLineStyle?
         
         public init() { }
@@ -35,36 +43,100 @@ public struct SECFunnelSerie: SECSeries, SECAnimatable {
     }
     
     public struct Data {
+        /// 数据项名称。
         public var name: String?
+        /// 数据值。
         public var value: Float?
+        /// 单个数据的标签配置。
         public var label: SECLabel?
+        /// 标签的视觉引导线样式
         public var labelLine: LabelLine?
+        /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
         public var itemStyle: SECItemStyle?
         
         public init() { }
     }
     
+    /// 类型
     public var type: SECSerieType {
         return .funnel
     }
     
+    /// 系列名称，用于tooltip的显示，legend 的图例筛选，在 setOption 更新数据和配置项时用于指定对应的系列。
     public var name: String?
+    /// 指定的数据最小值。
     public var min: Float?
+    /// 指定的数据最大值。
     public var max: Float?
+    /// 数据最小值 min 映射的宽度。
+    ///
+    /// 可以是绝对的像素大小，也可以是相对布局宽度的百分比，如果需要最小值的图形并不是尖端三角，可通过设置该属性实现。
     public var minSize: SECLength?
+    /// 数据最大值 max 映射的宽度。
+    ///
+    /// 可以是绝对的像素大小，也可以是相对布局宽度的百分比。
     public var maxSize: SECLength?
+    /// 数据排序， 可以取 'ascending', 'descending'。
     public var sort: Sort?
+    /// 数据图形间距。
     public var gap: Float?
+    /// 是否启用图例 hover 时的联动高亮。
     public var legendHoverLink: Bool?
+    /// 水平方向对齐布局类型，默认居中对齐，可用选项还有：'left' | 'right' | 'center'
     public var funnelAlign: SECAlign?
+    /// 漏斗图图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: SECFormattedLabel?
+    /// 标签的视觉引导线样式，在 label 位置 设置为'left'或者'right'的时候会显示视觉引导线。
     public var labelLine: LabelLine?
+    /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: SECItemStyle?
+    /// 系列中的数据内容数组。数组项可以为单个数值，如：
+    ///
+    ///     [12, 34, 56, 10, 23]
+    ///
+    /// 如果需要在数据中加入其它维度给 visualMap 组件用来映射到颜色等其它图形属性。每个数据项也可以是数组，如：
+    ///
+    /// [[12, 14], [34, 50], [56, 30], [10, 15], [23, 10]]
+    ///
+    /// 这时候可以将每项数组中的第二个值指定给 visualMap 组件。
+    ///
+    /// 更多时候我们需要指定每个数据项的名称，这时候需要每个项为一个对象：
+    ///
+    ///     [{
+    ///         // 数据项的名称
+    ///         name: '数据1',
+    ///         // 数据项值8
+    ///         value: 10
+    ///     }, {
+    ///         name: '数据2',
+    ///         value: 20
+    ///     }]
+    ///
+    /// 需要对个别内容指定进行个性化定义时：
+    ///
+    ///     [{
+    ///         name: '数据1',
+    ///         value: 10
+    ///     }, {
+    ///     // 数据项名称
+    ///         name: '数据2',
+    ///         value : 56,
+    ///         //自定义特殊 tooltip，仅对该数据项有效
+    ///         tooltip:{},
+    ///         //自定义特殊itemStyle，仅对该item有效
+    ///         itemStyle:{}
+    ///     }]
     public var data: [SECJsonable]?
+    /// 图表标注。
     public var markPoint: SECMarkPoint?
+    /// 图表标线。
     public var markLine: SECMarkLine?
+    /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
     public var markArea: SECMarkArea?
+    /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
+    
+    /// MARK: SECAnimatable
     public var animation: Bool?
     public var animationThreshold: Float?
     public var animationDuration: SECTime?

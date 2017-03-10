@@ -50,11 +50,11 @@ public struct SECBarOptions {
                 )),
             .tooltip(SECTooltip()),
             .xAxis(SECAxis(
-                    .data(xAxisData),
-                    .silent(false),
-                    .splitLine(SECSplitLine(
-                        .show(false)
-                        ))
+                .data(xAxisData),
+                .silent(false),
+                .splitLine(SECSplitLine(
+                    .show(false)
+                    ))
                 )),
             .yAxis(SECAxis()),
             .series([
@@ -86,11 +86,10 @@ public struct SECBarOptions {
     /// 地址: http://echarts.baidu.com/demo.html#bar-gradient
     static func barGradientOption() -> SECOption {
         let dataAxis: [SECJsonable] =  ["点", "击", "柱", "子", "或", "者", "两", "指", "在", "触", "屏", "上", "滑", "动", "能", "够", "自", "动", "缩", "放"]
-        let data = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220]
         let yMax = 500
         var dataShadow: [SECJsonable] = []
         
-        for _ in 0..<data.count {
+        for _ in 0..<dataAxis.count {
             dataShadow.append(yMax)
         }
         return SECOption(
@@ -122,7 +121,6 @@ public struct SECBarOptions {
                     .show(false)
                     )),
                 .axisLabel(SECAxisLabel(
-                    .inside(true),
                     .textStyle(SECTextStyle(
                         .color(.hexColor("#999"))
                         ))
@@ -145,9 +143,23 @@ public struct SECBarOptions {
                 SECBarSerie(
                     .itemStyle(SECItemStyle(
                         .normal(SECCommonItemStyleContent(
-//                            .color
+                            .color(.linearGradient(0, 0, 0, 1,
+                                [
+                                    ["offset": 0, "color": SECColor.hexColor("#83bff6")],
+                                    ["offset": 0.5, "color": SECColor.hexColor("#188df0")],
+                                    ["offset": 1, "color": SECColor.hexColor("#188df0")]
+                                ], false))
+                            )),
+                        .emphasis(SECCommonItemStyleContent(
+                            .color(.linearGradient(0, 0, 0, 1,
+                                [
+                                    ["offset": 0, "color": SECColor.hexColor("#2378f7")],
+                                    ["offset": 0.7, "color": SECColor.hexColor("#2378f7")],
+                                    ["offset": 1, "color": SECColor.hexColor("#83bff6")]
+                                ], false))
                             ))
-                        ))
+                        )),
+                    .data([220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220])
                 )
                 ])
         )
@@ -361,10 +373,10 @@ public struct SECBarOptions {
                             // 如果有两个点组成一条线，要将两个点放在一个数组中
                             [SECMarkLineData(
                                 .type(.min)
-                            ),
-                            SECMarkLineData(
-                                .type(.max)
-                            )]
+                                ),
+                                SECMarkLineData(
+                                    .type(.max)
+                                )]
                             ])
                         ))
                 ),
@@ -767,7 +779,7 @@ public struct SECBarOptions {
                                 .type(.average),
                                 .name("平均值")
                             )
-                        ])
+                            ])
                         ))
                 ),
                 SECBarSerie(
@@ -795,7 +807,7 @@ public struct SECBarOptions {
                                 .type(.average),
                                 .name("平均值")
                             )
-                        ])
+                            ])
                         ))
                 )
                 ])

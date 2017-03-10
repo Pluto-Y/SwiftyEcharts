@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2377A359C591BD0C20703777 /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */; };
+		529DEFEB1E6EE9F400E70938 /* FunnelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529DEFEA1E6EE9F400E70938 /* FunnelController.swift */; };
 		5408989D1E52EB6500A89BB0 /* SECLinSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5408989C1E52EB6500A89BB0 /* SECLinSerieSpec.swift */; };
 		540898A81E53F6F300A89BB0 /* SECPercent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898A71E53F6F300A89BB0 /* SECPercent.swift */; };
 		540898AA1E53F71E00A89BB0 /* SECLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898A91E53F71E00A89BB0 /* SECLength.swift */; };
@@ -193,6 +194,7 @@
 /* Begin PBXFileReference section */
 		0E050E4779F8D6A158AB3CCF /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		1BF7A0380778E442CCDE890E /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		529DEFEA1E6EE9F400E70938 /* FunnelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnelController.swift; sourceTree = "<group>"; };
 		5408989C1E52EB6500A89BB0 /* SECLinSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLinSerieSpec.swift; sourceTree = "<group>"; };
 		540898A71E53F6F300A89BB0 /* SECPercent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPercent.swift; sourceTree = "<group>"; };
 		540898A91E53F71E00A89BB0 /* SECLength.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLength.swift; sourceTree = "<group>"; };
@@ -502,7 +504,9 @@
 				6F0E46251E61B204008DA184 /* BaseDemoController.swift */,
 				6F0E46271E61D6C6008DA184 /* PiesController.swift */,
 				6FEF717B1E65B75800E1ED70 /* RadarsController.swift */,
+				529DEFEA1E6EE9F400E70938 /* FunnelController.swift */,
 				6FE45D4F1E6F092500E9083D /* GaugesController.swift */,
+
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -1036,6 +1040,7 @@
 				6F0E46281E61D6C6008DA184 /* PiesController.swift in Sources */,
 				6F9B70E01DE808E600406B55 /* AppDelegate.swift in Sources */,
 				5427F08B1E2C96F900CE20E5 /* SECCandlestickOptions.swift in Sources */,
+				529DEFEB1E6EE9F400E70938 /* FunnelController.swift in Sources */,
 				6FE45D501E6F092500E9083D /* GaugesController.swift in Sources */,
 				5427F0951E2C980700CE20E5 /* SECParalledOptions.swift in Sources */,
 				5427F09F1E2C984500CE20E5 /* SECThemeRiverOptions.swift in Sources */,

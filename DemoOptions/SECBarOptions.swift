@@ -85,8 +85,71 @@ public struct SECBarOptions {
     // MARK: 特性示例：渐变色 阴影 点击缩放
     /// 地址: http://echarts.baidu.com/demo.html#bar-gradient
     static func barGradientOption() -> SECOption {
-        // TODO: 添加实现
+        let dataAxis: [SECJsonable] =  ["点", "击", "柱", "子", "或", "者", "两", "指", "在", "触", "屏", "上", "滑", "动", "能", "够", "自", "动", "缩", "放"]
+        let data = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220]
+        let yMax = 500
+        var dataShadow: [SECJsonable] = []
+        
+        for _ in 0..<data.count {
+            dataShadow.append(yMax)
+        }
         return SECOption(
+            .title(SECTitle(
+                .text("特性示例：渐变色 阴影 点击缩放"),
+                .subtext("Feature Sample: Gradient Color, Shadow, Click Zoom")
+                )),
+            .xAxis(SECAxis(
+                .data(dataAxis),
+                .axisLabel(SECAxisLabel(
+                    .inside(true),
+                    .textStyle(SECTextStyle(
+                        .color(.hexColor("#fff"))
+                        ))
+                    )),
+                .axisTick(SECAxisTick(
+                    .show(false)
+                    )),
+                .axisLine(SECAxisLine(
+                    .show(false)
+                    )),
+                .z(10)
+                )),
+            .yAxis(SECAxis(
+                .axisLine(SECAxisLine(
+                    .show(false)
+                    )),
+                .axisTick(SECAxisTick(
+                    .show(false)
+                    )),
+                .axisLabel(SECAxisLabel(
+                    .inside(true),
+                    .textStyle(SECTextStyle(
+                        .color(.hexColor("#999"))
+                        ))
+                    ))
+                )),
+            .dataZoom([SECInsideDataZoom(
+                )]),
+            .series([
+                SECBarSerie(
+                    .itemStyle(SECItemStyle(
+                        .normal(SECCommonItemStyleContent(
+                            .color(.rgba(0, 0, 0, 0.05))
+                            ))
+                        )),
+                    .barGap("-100%"),
+                    .barCategoryGap("40%"),
+                    .data(dataShadow),
+                    .animation(false)
+                ),
+                SECBarSerie(
+                    .itemStyle(SECItemStyle(
+                        .normal(SECCommonItemStyleContent(
+//                            .color
+                            ))
+                        ))
+                )
+                ])
         )
     }
     

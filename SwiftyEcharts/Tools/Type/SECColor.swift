@@ -69,6 +69,10 @@ public enum SECColor: SECJsonable {
                 }
                 result = result.substringToIndex(result.endIndex.predecessor())
                 result += "], \(absolute))"
+                let count = SECJsMap.allFunctions().count
+                let paramName = "linearGradient\(count)"
+                SECJsMap.add("var \(paramName) = \(result);")
+                result = "\"\(paramName)\""
             }
             return result
         case let .array(colors):
@@ -88,6 +92,7 @@ public enum SECColor: SECJsonable {
             return "{\"image\": \"\(paramName)\", \"repeat\": \(r.jsonString)}"
         }
     }
+    
 }
 
 public struct SECGradientColorElement {
@@ -119,8 +124,12 @@ extension SECGradientColorElement : DictionaryLiteralConvertible {
         var offset: Float?
         var color: SECColor?
         for (key, value) in elements {
-            if key == "offset", let v = value as? Float {
-                offset = v
+            if key == "offset" {
+                if let v = value as? Int{
+                    offset = Float(v)
+                } else if let v = value as? Float {
+                    offset = v
+                }
             } else if key == "color", let v = value as? SECColor {
                 color = v
             }

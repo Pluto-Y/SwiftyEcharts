@@ -35,7 +35,7 @@ public enum SECColor: SECJsonable {
     case hexColor(String)
     case array([SECColor])
     case image(String, ImageRepeat)
-//    case linearGradient(Float, Float, Float, Float, )
+    case linearGradient(Float, Float, Float, Float, [SECGradientColorElement], Bool)
     case auto, red, blue, green, yellow, transparent
     
     public var jsonString: String {
@@ -58,12 +58,27 @@ public enum SECColor: SECJsonable {
             return "\"green\""
         case .transparent:
             return "\"transparent\""
+        case let .linearGradient(x0, y0, x2, y2, colors, absolute):
+            var result = "null"
+            if colors.count > 0 {
+                result = "new echarts.graphic.LinearGradient(\(x0), \(y0), \(x2), \(y2), ["
+                for color in colors {
+                    if color.jsonString != "null" {
+                        result += "\(color.jsonString),"
+                    }
+                }
+                result = result.substringToIndex(result.endIndex.predecessor())
+                result += "], \(absolute))"
+            }
+            return result
         case let .array(colors):
             var result = "["
-            for color in colors {
-                result += "\(color.jsonString)" + ","
+            if colors.count > 0 {
+                for color in colors {
+                    result += "\(color.jsonString)" + ","
+                }
+                result = result.substringToIndex(result.endIndex.predecessor())
             }
-            result = result.substringToIndex(result.endIndex.predecessor())
             result += "]"
             return result
         case let .image(base64Str, r):
@@ -75,9 +90,11 @@ public enum SECColor: SECJsonable {
     }
 }
 
-public struct SECPointColor {
+public struct SECGradientColorElement {
     private var offset: Float?
     private var color: SECColor?
+    
+    public init() { }
     
     public init(_ offset: Float, _ color: SECColor) {
         self.offset = offset
@@ -85,9 +102,32 @@ public struct SECPointColor {
     }
 }
 
-//extension SECPointColor : DictionaryLiteralConvertible {
-//    public associatedtype Key = String
-//    public associatedtype Value = SECJsonable
-//    
-//    public init(dictionaryLiteral elements: (Self.Key, Self.Value)...)
-//}
+extension SECGradientColorElement: SECJsonable {
+    public var jsonString: String {
+        if let o = offset, let c = color {
+            return "{\"offset\": \(o.jsonString), \"color\": \(c.jsonString)}"
+        }
+        return "null"
+    }
+}
+
+extension SECGradientColorElement : DictionaryLiteralConvertible {
+    public typealias Key = String
+    public typealias Value = SECJsonable
+    
+    public init(dictionaryLiteral elements: (String, SECJsonable)...) {
+        var offset: Float?
+        var color: SECColor?
+        for (key, value) in elements {
+            if key == "offset", let v = value as? Float {
+                offset = v
+            } else if key == "color", let v = value as? SECColor {
+                color = v
+            }
+            if let o = offset, let c = color {
+                self = SECGradientColorElement(o, c)
+                break
+            }
+        }
+    }
+}

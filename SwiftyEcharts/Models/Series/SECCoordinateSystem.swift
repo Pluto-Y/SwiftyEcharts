@@ -15,6 +15,7 @@ public enum SECCoordinateSystem : String, SECJsonable {
     case cartesian2d = "cartesian2d"
     case polar = "polar"
     case geo = "geo"
+    case parallel = "parallel"
     
     public var jsonString: String {
         return "\"\(self.rawValue)\""

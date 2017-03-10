@@ -18,26 +18,6 @@ public enum SECOrient : String, SECJsonable {
     }
 }
 
-/// 图例选择的模式，控制是否可以通过点击图例改变系列的显示状态。默认开启图例选择，可以设成 false 关闭。
-///
-/// 除此之外也可以设成 'single' 或者 'multiple' 使用单选或者多选模式。
-public enum SECSelectedMode : String, SECJsonable {
-    case enable = "true"
-    case disable = "false"
-    case single = "single"
-    case multiple = "multiple"
-    
-    public var jsonString: String {
-        switch self {
-        case .enable, .disable:
-            return "\(self.rawValue)"
-        case .single, .multiple:
-            return "\"\(self.rawValue)\""
-        }
-    }
-    
-}
-
 /// 图例组件。
 /// 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
 /// ECharts 3 中单个 echarts 实例中可以存在多个图例组件，会方便多个图例的布局。

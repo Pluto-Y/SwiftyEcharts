@@ -34,8 +34,9 @@ public enum SECColor: SECJsonable {
     case rgb(Int, Int, Int)
     case hexColor(String)
     case array([SECColor])
-    case red, blue, green, yellow, transparent
     case image(String, ImageRepeat)
+//    case linearGradient(Float, Float, Float, Float, )
+    case auto, red, blue, green, yellow, transparent
     
     public var jsonString: String {
         switch self {
@@ -45,6 +46,8 @@ public enum SECColor: SECJsonable {
             return "\"rgba(\(r), \(g), \(b), 1.0)\""
         case let .hexColor(hexColor):
             return "\"\(hexColor)\""
+        case .auto:
+            return "\"auto\""
         case .red:
             return "\"red\""
         case .blue:
@@ -71,3 +74,20 @@ public enum SECColor: SECJsonable {
         }
     }
 }
+
+public struct SECPointColor {
+    private var offset: Float?
+    private var color: SECColor?
+    
+    public init(_ offset: Float, _ color: SECColor) {
+        self.offset = offset
+        self.color = color
+    }
+}
+
+//extension SECPointColor : DictionaryLiteralConvertible {
+//    public associatedtype Key = String
+//    public associatedtype Value = SECJsonable
+//    
+//    public init(dictionaryLiteral elements: (Self.Key, Self.Value)...)
+//}

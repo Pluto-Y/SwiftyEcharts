@@ -77,14 +77,53 @@ public struct SECBarOptions {
     // MARK: 柱状图框选
     /// 地址: http://echarts.baidu.com/demo.html#bar-brush
     static func barBrushOption() -> SECOption {
-        // TODO: 添加实现
+        var xAxisData: [SECJsonable] = []
+        var data1: [SECJsonable] = []
+        var data2: [SECJsonable] = []
+        var data3: [SECJsonable] = []
+        var data4: [SECJsonable] = []
+        for i in 0..<10 {
+            xAxisData.append("Class\(i)")
+            data1.append(Double((arc4random_uniform(100)+1)) / 100.0 * 2)
+            data2.append(Double((arc4random_uniform(100)+1)) / 100.0)
+            data3.append(Double((arc4random_uniform(100)+1)) / 100.0 * 5)
+            data4.append(Double((arc4random_uniform(100)+1)) / 100.0 + 0.3)
+        }
+        
+        var itemStyle = SECItemStyle(
+            .normal(SECCommonItemStyleContent()),
+            .emphasis(SECCommonItemStyleContent(
+//                .barBorderWidth(1), // 这个属性在网页上好像没用
+                .shadowBlur(10),
+                .shadowOffsetX(0),
+                .shadowOffsetY(0),
+                .shadowColor(.rgba(0, 0, 0, 0.5))
+                ))
+        )
         return SECOption(
+            .backgroundColor(.hexColor("#eee")),
+            .legend(SECLegend(
+                .data(["bar", "bar2", "bar3", "bar4"]),
+                .align(.left),
+                .left(.value(10))
+                )),
+            .brush(SECBrush(
+                .toolbox([.rect, .polygon, .lineX, .lineY, .keep, .clear]),
+                .xAxisIndex(.indexes([0]))
+                )),
+            .toolbox(SECToolbox(
+                .feature(SECTFeature(
+                    .magicType(SECTFMagicType(
+                        
+                        ))
+                    ))
+                ))
         )
     }
     
     // MARK: 特性示例：渐变色 阴影 点击缩放
     /// 地址: http://echarts.baidu.com/demo.html#bar-gradient
-    static func barGradientOption() -> SECOption {
+    static func barGradientOption() -> SECOption { // FIXME: 缺少点击事件
         let dataAxis: [SECJsonable] =  ["点", "击", "柱", "子", "或", "者", "两", "指", "在", "触", "屏", "上", "滑", "动", "能", "够", "自", "动", "缩", "放"]
         let yMax = 500
         var dataShadow: [SECJsonable] = []

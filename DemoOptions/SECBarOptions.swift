@@ -85,12 +85,12 @@ public struct SECBarOptions {
         for i in 0..<10 {
             xAxisData.append("Class\(i)")
             data1.append(Double((arc4random_uniform(100)+1)) / 100.0 * 2)
-            data2.append(Double((arc4random_uniform(100)+1)) / 100.0)
+            data2.append(Double((arc4random_uniform(100)+1)) / -100.0)
             data3.append(Double((arc4random_uniform(100)+1)) / 100.0 * 5)
             data4.append(Double((arc4random_uniform(100)+1)) / 100.0 + 0.3)
         }
         
-        var itemStyle = SECItemStyle(
+        let itemStyle = SECItemStyle(
             .normal(SECCommonItemStyleContent()),
             .emphasis(SECCommonItemStyleContent(
 //                .barBorderWidth(1), // 这个属性在网页上好像没用
@@ -114,10 +114,77 @@ public struct SECBarOptions {
             .toolbox(SECToolbox(
                 .feature(SECTFeature(
                     .magicType(SECTFMagicType(
-                        
-                        ))
+                        .type([.stack, .tiled])
+                        )),
+                    .dataView(SECTFDataView())
                     ))
-                ))
+                )),
+            .tooltip(SECTooltip()),
+            .xAxis(SECAxis(
+                .data(xAxisData),
+                .name("X Axis"),
+                .silent(false),
+                .axisLine(SECAxisLine(
+                    .onZero(true)
+                    )),
+                .splitLine(SECSplitLine(
+                    .show(false)
+                    )),
+                .splitArea(SECSplitArea(
+                    .show(false)
+                    ))
+                )),
+            .yAxis(SECAxis(
+                .inverse(true),
+                .splitArea(SECSplitArea(
+                    .show(false)
+                    ))
+                )),
+            .grid(SECGrid(
+                .left(.value(100))
+                )),
+            .visualMap(SECContinuousVisualMap(
+                .dimension(1),
+                .text(["Hight", "Low"]),
+                .inverse(true),
+                .itemHeight(200),
+                .calculable(true),
+                .min(-2),
+                .max(6),
+                .top(.value(60)),
+                .left(.value(10)),
+                .inRange(["colorLightness": [0.4, 0.8]]),
+                .outRange(["color": SECColor.hexColor("#bbb")]),
+                .controller(SECVMController(
+                    .inRange(["color": SECColor.hexColor("#2f4554")])
+                    ))
+                )),
+            .series([
+                SECBarSerie(
+                    .name("bar"),
+                    .stack("one"),
+                    .itemStyle(itemStyle),
+                    .data(data1)
+                ),
+                SECBarSerie(
+                    .name("bar2"),
+                    .stack("one"),
+                    .itemStyle(itemStyle),
+                    .data(data2)
+                ),
+                SECBarSerie(
+                    .name("bar3"),
+                    .stack("two"),
+                    .itemStyle(itemStyle),
+                    .data(data3)
+                ),
+                SECBarSerie(
+                    .name("bar4"),
+                    .stack("two"),
+                    .itemStyle(itemStyle),
+                    .data(data4)
+                )
+                ])
         )
     }
     

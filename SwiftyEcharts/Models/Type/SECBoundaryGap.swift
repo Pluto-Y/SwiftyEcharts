@@ -16,7 +16,7 @@
 ///         boundaryGap: ['20%', '20%']
 public enum SECBoundaryGap : SECJsonable {
     case category(Bool)
-    case notCategory(SECTwoElements)
+    case notCategory(SECRange)
     
     public var jsonString: String {
         switch self {

@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECOneOrMore<T> {
+public struct SECOneOrMore<T>: ArrayLiteralConvertible {
     private var one: T? = nil
     private var more: [T]? = nil
     public init(one: T) {
@@ -15,6 +15,14 @@ public struct SECOneOrMore<T> {
     
     public init(more: [T]) {
         self.more = more
+    }
+    
+    public init(arrayLiteral elements: T...) {
+        if elements.count == 1 {
+            self.one = elements[0]
+        } else {
+            self.more = elements
+        }
     }
 }
 
@@ -36,15 +44,4 @@ extension SECOneOrMore {
         }
         return more![index]
     }
-}
-prefix operator | {}
-
-public prefix func |<T>(value: T) -> SECOneOrMore<T> {
-    return SECOneOrMore(one: value)
-}
-
-prefix operator || {}
-
-public prefix func ||<T>(values: [T]) -> SECOneOrMore<T> {
-    return SECOneOrMore(more: values)
 }

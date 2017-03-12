@@ -64,7 +64,7 @@ class BarsController: BaseDemoController {
         xAxis1?.data?.removeFirst()
         xAxis1?.data?.append(dynamicCount++)
         
-        newOptionForDynamicData.xAxis = SECOneOrMore(more: [xAxis0!, xAxis1!])
+        newOptionForDynamicData.xAxis = [xAxis0!, xAxis1!]
         echartsView.refreshEcharts(newOptionForDynamicData)
     }
 }

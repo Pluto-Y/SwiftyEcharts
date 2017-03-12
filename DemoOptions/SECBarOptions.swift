@@ -931,7 +931,7 @@ public struct SECBarOptions {
         for i in 0..<10 {
             xAxisData1.append(dateFormatter.stringFromDate(date))
             xAxisData2.append(i)
-            date = NSDate(timeIntervalSince1970: date.timeIntervalSince1970 + 2*60)
+            date = NSDate(timeIntervalSince1970: date.timeIntervalSince1970)
         }
         var seriesData1: [SECJsonable] = []
         var seriesData2: [SECJsonable] = []

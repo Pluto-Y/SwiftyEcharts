@@ -27,3 +27,11 @@ public enum SECBoundaryGap : SECJsonable {
         }
     }
 }
+
+/// 保证该类可以通过 Bool 的类型进行创建
+extension SECBoundaryGap : BooleanLiteralConvertible {
+    public typealias BooleanLiteralType = Bool
+    public init(booleanLiteral value: Bool) {
+        self = SECBoundaryGap.category(value)
+    }
+}

@@ -152,8 +152,8 @@
 		6FD249F01E53493C00FBB2F7 /* SECHeatmapSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD249EF1E53493C00FBB2F7 /* SECHeatmapSerie.swift */; };
 		6FE45D501E6F092500E9083D /* GaugesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE45D4F1E6F092500E9083D /* GaugesController.swift */; };
 		6FEC7D191E5376F9003A88D7 /* SECPercentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D181E5376F9003A88D7 /* SECPercentSpec.swift */; };
-		6FEC7D1B1E549487003A88D7 /* SECTwoElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1A1E549487003A88D7 /* SECTwoElements.swift */; };
-		6FEC7D1D1E54996B003A88D7 /* SECTwoElementsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1C1E54996B003A88D7 /* SECTwoElementsSpec.swift */; };
+		6FEC7D1B1E549487003A88D7 /* SECPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1A1E549487003A88D7 /* SECPair.swift */; };
+		6FEC7D1D1E54996B003A88D7 /* SECPairSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1C1E54996B003A88D7 /* SECPairSpec.swift */; };
 		6FEC7D1F1E55EEE0003A88D7 /* SECMarkDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1E1E55EEE0003A88D7 /* SECMarkDataType.swift */; };
 		6FEC7D231E58152F003A88D7 /* AreaRainfallDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */; };
 		6FEF717C1E65B75800E1ED70 /* RadarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEF717B1E65B75800E1ED70 /* RadarsController.swift */; };
@@ -336,8 +336,8 @@
 		6FD249EF1E53493C00FBB2F7 /* SECHeatmapSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECHeatmapSerie.swift; sourceTree = "<group>"; };
 		6FE45D4F1E6F092500E9083D /* GaugesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaugesController.swift; sourceTree = "<group>"; };
 		6FEC7D181E5376F9003A88D7 /* SECPercentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPercentSpec.swift; sourceTree = "<group>"; };
-		6FEC7D1A1E549487003A88D7 /* SECTwoElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECTwoElements.swift; sourceTree = "<group>"; };
-		6FEC7D1C1E54996B003A88D7 /* SECTwoElementsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECTwoElementsSpec.swift; sourceTree = "<group>"; };
+		6FEC7D1A1E549487003A88D7 /* SECPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPair.swift; sourceTree = "<group>"; };
+		6FEC7D1C1E54996B003A88D7 /* SECPairSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECPairSpec.swift; sourceTree = "<group>"; };
 		6FEC7D1E1E55EEE0003A88D7 /* SECMarkDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkDataType.swift; sourceTree = "<group>"; };
 		6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AreaRainfallDatas.plist; sourceTree = "<group>"; };
 		6FEF717B1E65B75800E1ED70 /* RadarsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarsController.swift; sourceTree = "<group>"; };
@@ -378,7 +378,7 @@
 				540898B11E54637600A89BB0 /* SECColor.swift */,
 				540898A71E53F6F300A89BB0 /* SECPercent.swift */,
 				540898A91E53F71E00A89BB0 /* SECLength.swift */,
-				6FEC7D1A1E549487003A88D7 /* SECTwoElements.swift */,
+				6FEC7D1A1E549487003A88D7 /* SECPair.swift */,
 				6FA9DB231E59EA2000CE5277 /* SECOneOrMore.swift */,
 			);
 			path = Type;
@@ -506,7 +506,6 @@
 				6FEF717B1E65B75800E1ED70 /* RadarsController.swift */,
 				529DEFEA1E6EE9F400E70938 /* FunnelController.swift */,
 				6FE45D4F1E6F092500E9083D /* GaugesController.swift */,
-
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -632,7 +631,7 @@
 				6F4ACB501E21352600CE5FD5 /* SECMappableSpec.swift */,
 				5408989C1E52EB6500A89BB0 /* SECLinSerieSpec.swift */,
 				6FEC7D181E5376F9003A88D7 /* SECPercentSpec.swift */,
-				6FEC7D1C1E54996B003A88D7 /* SECTwoElementsSpec.swift */,
+				6FEC7D1C1E54996B003A88D7 /* SECPairSpec.swift */,
 				6FA9DB251E59FA6A00CE5277 /* SECOneOrMoreSepc.swift */,
 				6FEF717D1E686EB700E1ED70 /* SECColorSpec.swift */,
 				6F67FCB81E71CA1B00BE2E4B /* SECSelectedModeSpec.swift */,
@@ -1005,7 +1004,7 @@
 				540DE5F91E2CF05C002F25E3 /* SECMarkPosition.swift in Sources */,
 				6F1FDA8F1DF5D6E9004BC74E /* SECGrid.swift in Sources */,
 				5469CBF71E320B210063D1C3 /* SECContinuousVisualMap.swift in Sources */,
-				6FEC7D1B1E549487003A88D7 /* SECTwoElements.swift in Sources */,
+				6FEC7D1B1E549487003A88D7 /* SECPair.swift in Sources */,
 				540898A81E53F6F300A89BB0 /* SECPercent.swift in Sources */,
 				5469CBF31E31B8700063D1C3 /* SECPieSerie.swift in Sources */,
 				6F91EB7D1DF081A2003EEEC0 /* SECShadowable.swift in Sources */,
@@ -1060,7 +1059,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F67FCB91E71CA1B00BE2E4B /* SECSelectedModeSpec.swift in Sources */,
-				6FEC7D1D1E54996B003A88D7 /* SECTwoElementsSpec.swift in Sources */,
+				6FEC7D1D1E54996B003A88D7 /* SECPairSpec.swift in Sources */,
 				6F4ACB481E1D258B00CE5FD5 /* SECJsonableSpec.swift in Sources */,
 				6FEF717E1E686EB700E1ED70 /* SECColorSpec.swift in Sources */,
 				5408989D1E52EB6500A89BB0 /* SECLinSerieSpec.swift in Sources */,

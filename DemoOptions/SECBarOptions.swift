@@ -76,7 +76,7 @@ public struct SECBarOptions {
     
     // MARK: 柱状图框选
     /// 地址: http://echarts.baidu.com/demo.html#bar-brush
-    static func barBrushOption() -> SECOption {
+    static func barBrushOption() -> SECOption { // FIXME: 缺少事件
         var xAxisData: [SECJsonable] = []
         var data1: [SECJsonable] = []
         var data2: [SECJsonable] = []
@@ -923,9 +923,89 @@ public struct SECBarOptions {
     // MARK: 动态数据
     /// 地址: http://echarts.baidu.com/demo.html#dynamic-data
     static func dynamicDataOption() -> SECOption {
-        // TODO: 添加实现
+        var xAxisData1: [SECJsonable] = []
+        var xAxisData2: [SECJsonable] = []
+        var date = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "hh:mm:ss a"
+        for i in 0..<10 {
+            xAxisData1.append(dateFormatter.stringFromDate(date))
+            xAxisData2.append(i)
+            date = NSDate(timeIntervalSince1970: date.timeIntervalSince1970 + 2*60)
+        }
+        var seriesData1: [SECJsonable] = []
+        var seriesData2: [SECJsonable] = []
+        for _ in 0..<10 {
+            seriesData1.append(arc4random_uniform(1000) + 1)
+            seriesData2.append(Double(arc4random_uniform(100) + 1) / 10.0 + 5)
+        }
+        
         return SECOption(
-            
+            .title(SECTitle(
+                .text("动态数据"),
+                .subtext("纯属虚构")
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis)
+                )),
+            .legend(SECLegend(
+                .data(["最新成交价", "预购队列"])
+                )),
+            .toolbox(SECToolbox(
+                .show(true),
+                .feature(SECTFeature(
+                    .dataView(SECTFDataView(.readOnly(false))),
+                    .restore(SECTFRestore()),
+                    .saveAsImage(SECTFSaveAsImage())
+                    ))
+                )),
+            .dataZoom([SECSliderDataZoom(
+                .show(false),
+                .start(0),
+                .end(100)
+                )]),
+            .xAxises([
+                SECAxis(
+                    .type(.category),
+                    .boundaryGap(true),
+                    .data(xAxisData1)
+                ),
+                SECAxis(
+                    .type(.category),
+                    .boundaryGap(true),
+                    .data(xAxisData2)
+                )
+                ]),
+            .yAxises([
+                SECAxis(
+                    .type(.value),
+                    .scale(true),
+                    .name("价格"),
+                    .max(30),
+                    .min(0),
+                    .boundaryGap(.notCategory([0.2, 0.2]))
+                ),
+                SECAxis(
+                    .type(.value),
+                    .scale(true),
+                    .name("预购量"),
+                    .max(1200),
+                    .min(0),
+                    .boundaryGap(.notCategory([0.2, 0.2]))
+                )
+                ]),
+            .series([
+                SECBarSerie(
+                    .name("预购队列"),
+                    .xAxisIndex(1),
+                    .yAxisIndex(1),
+                    .data(seriesData1)
+                ),
+                SECLineSerie(
+                    .name("最新的成交价"),
+                    .data(seriesData2)
+                )
+                ])
         )
     }
     

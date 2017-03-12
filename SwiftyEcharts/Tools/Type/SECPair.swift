@@ -24,6 +24,15 @@ public struct SECPair<T>: ArrayLiteralConvertible {
             self.second = elements[1]
         }
     }
+    
+    public init (_ elements: [T]) {
+        if elements.count != 2 {
+            printError("The count of the array should only be two.")
+        } else {
+            self.first = elements[0]
+            self.second = elements[1]
+        }
+    }
 }
 
 extension SECPair : SECJsonable {

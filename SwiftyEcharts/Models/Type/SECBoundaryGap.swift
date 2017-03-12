@@ -22,8 +22,8 @@ public enum SECBoundaryGap : SECJsonable {
         switch self {
         case let .category(enable):
             return "\(enable)"
-        case let .notCategory(twoElements):
-            return "[\(twoElements.jsonString)]"
+        case let .notCategory(range):
+            return "[\(range.jsonString)]"
         }
     }
 }
@@ -33,5 +33,13 @@ extension SECBoundaryGap : BooleanLiteralConvertible {
     public typealias BooleanLiteralType = Bool
     public init(booleanLiteral value: Bool) {
         self = SECBoundaryGap.category(value)
+    }
+}
+
+/// 保证该类可以通过常量数组进行创建
+extension SECBoundaryGap : ArrayLiteralConvertible {
+    public init(arrayLiteral elements: SECLength...) {
+        let range: SECRange = SECRange(elements)
+        self = SECBoundaryGap.notCategory(range)
     }
 }

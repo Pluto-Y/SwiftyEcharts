@@ -29,6 +29,14 @@ extension SECOneOrMore : SECJsonable {
     }
 }
 
+extension SECOneOrMore {
+    public subscript(index: Int) -> T? {
+        if one != nil {
+            return index == 0 ? one : nil
+        }
+        return more![index]
+    }
+}
 prefix operator | {}
 
 public prefix func |<T>(value: T) -> SECOneOrMore<T> {

@@ -45,6 +45,7 @@
 		5427F0AB1E2CEB8800CE20E5 /* SECMarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0AA1E2CEB8800CE20E5 /* SECMarkData.swift */; };
 		5435CCBE1E24990B00D753B2 /* SECUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435CCBD1E24990B00D753B2 /* SECUtilities.swift */; };
 		5446EA0E1E7672E5009BAE71 /* SECThemeRiverSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5446EA0D1E7672E5009BAE71 /* SECThemeRiverSerie.swift */; };
+		5446EA101E767D69009BAE71 /* ThemeRiversController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5446EA0F1E767D69009BAE71 /* ThemeRiversController.swift */; };
 		5447FD941E2DE8BB001D88F3 /* SECDataZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447FD931E2DE8BB001D88F3 /* SECDataZoom.swift */; };
 		5447FD961E2DEA93001D88F3 /* SECInsideDataZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447FD951E2DEA93001D88F3 /* SECInsideDataZoom.swift */; };
 		5447FDA71E2E2AD6001D88F3 /* SECSliderDataZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447FDA61E2E2AD6001D88F3 /* SECSliderDataZoom.swift */; };
@@ -232,6 +233,7 @@
 		5427F0AA1E2CEB8800CE20E5 /* SECMarkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECMarkData.swift; sourceTree = "<group>"; };
 		5435CCBD1E24990B00D753B2 /* SECUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECUtilities.swift; sourceTree = "<group>"; };
 		5446EA0D1E7672E5009BAE71 /* SECThemeRiverSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECThemeRiverSerie.swift; sourceTree = "<group>"; };
+		5446EA0F1E767D69009BAE71 /* ThemeRiversController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeRiversController.swift; sourceTree = "<group>"; };
 		5447FD931E2DE8BB001D88F3 /* SECDataZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECDataZoom.swift; sourceTree = "<group>"; };
 		5447FD951E2DEA93001D88F3 /* SECInsideDataZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECInsideDataZoom.swift; sourceTree = "<group>"; };
 		5447FDA61E2E2AD6001D88F3 /* SECSliderDataZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECSliderDataZoom.swift; sourceTree = "<group>"; };
@@ -509,6 +511,7 @@
 				6FEF717B1E65B75800E1ED70 /* RadarsController.swift */,
 				529DEFEA1E6EE9F400E70938 /* FunnelController.swift */,
 				6FE45D4F1E6F092500E9083D /* GaugesController.swift */,
+				5446EA0F1E767D69009BAE71 /* ThemeRiversController.swift */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -1042,6 +1045,7 @@
 				5427F08F1E2C97BB00CE20E5 /* SECHeatmapOptions.swift in Sources */,
 				6F0E46281E61D6C6008DA184 /* PiesController.swift in Sources */,
 				6F9B70E01DE808E600406B55 /* AppDelegate.swift in Sources */,
+				5446EA101E767D69009BAE71 /* ThemeRiversController.swift in Sources */,
 				5427F08B1E2C96F900CE20E5 /* SECCandlestickOptions.swift in Sources */,
 				529DEFEB1E6EE9F400E70938 /* FunnelController.swift in Sources */,
 				6FE45D501E6F092500E9083D /* GaugesController.swift in Sources */,

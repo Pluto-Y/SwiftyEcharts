@@ -68,13 +68,15 @@ public struct SECThemeRiverSerie: SECSeries, SECZable {
     public var legend: SECLegend?
     /// 主题河流中tooltip的样式。
     public var tooltip: SECTooltip?
+    /// 数据
+    public var data: [SECJsonable]?
     
     public init() { }
 }
 
 extension SECThemeRiverSerie : SECEnumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(SECLength), height(SECLength), coordinateSystem(SECCoordinateSystem), boundaryGap(SECBoundaryGap), singleAxisIndex(UInt8), label(SECFormattedLabel), itemStyle(SECItemStyle), legend(SECLegend), tooltip(SECTooltip)
+        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(SECLength), height(SECLength), coordinateSystem(SECCoordinateSystem), boundaryGap(SECBoundaryGap), singleAxisIndex(UInt8), label(SECFormattedLabel), itemStyle(SECItemStyle), legend(SECLegend), tooltip(SECTooltip), data([SECJsonable])
     }
     
     public typealias ContentEnum = Enums
@@ -112,6 +114,8 @@ extension SECThemeRiverSerie : SECEnumable {
                 self.legend = legend
             case let .tooltip(tooltip):
                 self.tooltip = tooltip
+            case let .data(data):
+                self.data = data
             }
         }
     }
@@ -135,5 +139,6 @@ extension SECThemeRiverSerie : SECMappable {
         map["itemStyle"] = itemStyle
         map["legend"] = legend
         map["tooltip"] = tooltip
+        map["data"] = data
     }
 }

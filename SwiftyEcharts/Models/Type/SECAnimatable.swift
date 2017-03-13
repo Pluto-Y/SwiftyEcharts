@@ -26,12 +26,10 @@ public enum SECTime: SECJsonable {
         case let .number(time):
             return "\(time)"
         case let .function(f):
-            if let endIndex = f.rangeOfString("(")?.startIndex, let starIndex = f.rangeOfString("function")?.endIndex {
-                let functionName = f.substringToIndex(endIndex).substringFromIndex(starIndex).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                SECJsCache.add(f)
-                return "\"\(functionName)\""
-            }
-            return "null"
+            let count = SECJsCache.allJsStrings().count
+            let funcName = "timeFunc\(count)"
+            SECJsCache.add("var \(funcName) = \(f);")
+            return "\"\(funcName)\""
         }
     }
 }

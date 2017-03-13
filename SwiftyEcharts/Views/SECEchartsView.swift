@@ -51,7 +51,7 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKSc
         // 定义Js与Clousure之间的匹配关系
         // 必须要在option.jsonString调用过一次之后
         // 并且需要在调用loadEcharts之前，这样才能建立关系
-        for function in SECJsCache.allFunctions() {
+        for function in SECJsCache.allJsStrings() {
             self.callJsMethod(function)
             //            self.callJsMethod("function \(name)(params){ alert(\(name));eval('window.webkit.messageHandlers.\(name).postMessage(' + params + ')'); }")
         }
@@ -136,7 +136,7 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKSc
         // 定义Js与Clousure之间的匹配关系
         // 必须要在option.jsonString调用过一次之后
         // 并且需要在调用loadEcharts之前，这样才能建立关系
-        for function in SECJsCache.allFunctions() {
+        for function in SECJsCache.allJsStrings() {
             print(function)
             self.callJsMethod(function)
         }

@@ -10,27 +10,25 @@
 /// 例如需要在 Serie 中动态执行的 data , 或者是 formatter 需要在执行是才知道数据的情况下都可以缓存在该处
 public struct SECJsCache {
     private static var jsCache: [String] = [String]()
+    private static let lock = NSLock()
     
-    public static func add(function: String) -> Bool {
-        jsCache.append(function)
-        return true
-    }
-    
-    public static func remove(function: String) {
-        if let index = jsCache.indexOf(function) {
-            jsCache.removeAtIndex(index)
-        }
+    public static func add(jsStr: String) {
+        lock.lock()
+        jsCache.append(jsStr)
+        lock.unlock()
     }
     
     public static func removeAll() {
+        lock.lock()
         jsCache.removeAll()
+        lock.unlock()
     }
     
-    public static func allFunctions() -> [String] {
+    public static func allJsStrings() -> [String] {
         return jsCache
     }
     
-    public static func contain(function: String) -> Bool {
-        return jsCache.contains(function)
+    public static func contain(jsStr: String) -> Bool {
+        return jsCache.contains(jsStr)
     }
 }

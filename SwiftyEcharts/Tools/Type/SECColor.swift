@@ -69,9 +69,9 @@ public enum SECColor: SECJsonable {
                 }
                 result = result.substringToIndex(result.endIndex.predecessor())
                 result += "], \(absolute))"
-                let count = SECJsMap.allFunctions().count
+                let count = SECJsCache.allFunctions().count
                 let paramName = "linearGradient\(count)"
-                SECJsMap.add("var \(paramName) = \(result);")
+                SECJsCache.add("var \(paramName) = \(result);")
                 result = "\"\(paramName)\""
             }
             return result
@@ -86,9 +86,9 @@ public enum SECColor: SECJsonable {
             result += "]"
             return result
         case let .image(base64Str, r):
-            let count = SECJsMap.allFunctions().count
+            let count = SECJsCache.allFunctions().count
             let paramName = "tmp\(count)"
-            SECJsMap.add("var \(paramName) = new Image(); \(paramName).src = '\(base64Str)';")
+            SECJsCache.add("var \(paramName) = new Image(); \(paramName).src = '\(base64Str)';")
             return "{\"image\": \"\(paramName)\", \"repeat\": \(r.jsonString)}"
         }
     }

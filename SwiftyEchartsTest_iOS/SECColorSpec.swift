@@ -59,7 +59,7 @@ class SECColorSpec: QuickSpec {
                 let gradientElement2 = SECGradientColorElement(offset2, color2)
                 let linearGradient = SECColor.linearGradient(x0, y0, x2, y2, [gradientElement1, gradientElement2], false)
                 print(linearGradient.jsonString)
-                let linearGrandientJs = SECJsMap.allFunctions()[0]
+                let linearGrandientJs = SECJsCache.allFunctions()[0]
                 expect(linearGrandientJs).to(equal("var linearGradient0 = new echarts.graphic.LinearGradient(\(x0.jsonString), \(y0.jsonString), \(x2.jsonString), \(y2.jsonString), [\(gradientElement1.jsonString),\(gradientElement2.jsonString)], false);"))
             }
         }

@@ -28,7 +28,7 @@ public enum SECTime: SECJsonable {
         case let .function(f):
             if let endIndex = f.rangeOfString("(")?.startIndex, let starIndex = f.rangeOfString("function")?.endIndex {
                 let functionName = f.substringToIndex(endIndex).substringFromIndex(starIndex).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                SECJsMap.add(f)
+                SECJsCache.add(f)
                 return "\"\(functionName)\""
             }
             return "null"

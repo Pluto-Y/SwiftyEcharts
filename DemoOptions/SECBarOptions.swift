@@ -562,7 +562,7 @@ public struct SECBarOptions {
                 .axisPointer(SECTooltip.AxisPointer(
                     .type(.shadow)
                     )),
-                .formatter(.function("function tooltipFomatter(params) { var tar = params[1]; return tar.name + '<br>/' + tar.seriesName + ' : ' + tar.value;}"))
+                .formatter(.function("function tooltipFomatter(params) { var tar = params[1]; return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;}"))
                 )),
             .grid(SECGrid(
                 .left(.value(3%)),

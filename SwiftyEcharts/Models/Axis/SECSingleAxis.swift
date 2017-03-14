@@ -34,8 +34,8 @@ public struct SECSingleAxis : SECZable {
     public var nameRotate: Float? 
     public var inverse: Bool? 
     public var boundaryGap: SECBoundaryGap? 
-    public var min: Float? 
-    public var max: Float? 
+    public var min: SECJsonable?
+    public var max: SECJsonable?
     public var scale: Bool? 
     public var splitNumber: UInt8? 
     public var minInterval: UInt8? 
@@ -55,7 +55,7 @@ public struct SECSingleAxis : SECZable {
 
 extension SECSingleAxis : SECEnumable {
 	public enum Enums {
-		case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), type(SECAxisType), name(String), nameLocation(NameLocation), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any])
+		case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), type(SECAxisType), name(String), nameLocation(NameLocation), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(SECJsonable), max(SECJsonable), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any])
 	}
 
 	public typealias ContentEnum = Enums

@@ -11,7 +11,6 @@ import SwiftyEcharts
 
 class LinesController: BaseDemoController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

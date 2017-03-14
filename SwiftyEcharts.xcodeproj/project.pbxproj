@@ -91,6 +91,7 @@
 		6F91EB7B1DF08026003EEEC0 /* SECLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7A1DF08026003EEEC0 /* SECLine.swift */; };
 		6F91EB7D1DF081A2003EEEC0 /* SECShadowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7C1DF081A2003EEEC0 /* SECShadowable.swift */; };
 		6F91EB7F1DF142E3003EEEC0 /* SECLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7E1DF142E3003EEEC0 /* SECLegend.swift */; };
+		6F999F1D1E78498700D2490A /* SankeysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F999F1C1E78498700D2490A /* SankeysController.swift */; };
 		6F9B70D81DE8070E00406B55 /* SECEchartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B70D71DE8070E00406B55 /* SECEchartsView.swift */; };
 		6F9B70E01DE808E600406B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B70DF1DE808E600406B55 /* AppDelegate.swift */; };
 		6F9B70E21DE808E600406B55 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B70E11DE808E600406B55 /* MenuController.swift */; };
@@ -280,6 +281,7 @@
 		6F91EB7A1DF08026003EEEC0 /* SECLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLine.swift; sourceTree = "<group>"; };
 		6F91EB7C1DF081A2003EEEC0 /* SECShadowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECShadowable.swift; sourceTree = "<group>"; };
 		6F91EB7E1DF142E3003EEEC0 /* SECLegend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECLegend.swift; sourceTree = "<group>"; };
+		6F999F1C1E78498700D2490A /* SankeysController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SankeysController.swift; sourceTree = "<group>"; };
 		6F9B70D71DE8070E00406B55 /* SECEchartsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SECEchartsView.swift; sourceTree = "<group>"; };
 		6F9B70DD1DE808E600406B55 /* iOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9B70DF1DE808E600406B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 				529DEFEA1E6EE9F400E70938 /* FunnelController.swift */,
 				6FE45D4F1E6F092500E9083D /* GaugesController.swift */,
 				5446EA0F1E767D69009BAE71 /* ThemeRiversController.swift */,
+				6F999F1C1E78498700D2490A /* SankeysController.swift */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -1040,6 +1043,7 @@
 				5427F09B1E2C982900CE20E5 /* SECGaugeOptions.swift in Sources */,
 				6F9B70E21DE808E600406B55 /* MenuController.swift in Sources */,
 				5427F0911E2C97C600CE20E5 /* SECGraphOptions.swift in Sources */,
+				6F999F1D1E78498700D2490A /* SankeysController.swift in Sources */,
 				6F0E46241E61AB10008DA184 /* BarsController.swift in Sources */,
 				5427F0971E2C981500CE20E5 /* SECSankeyOptions.swift in Sources */,
 				5427F08F1E2C97BB00CE20E5 /* SECHeatmapOptions.swift in Sources */,

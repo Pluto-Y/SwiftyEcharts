@@ -35,7 +35,9 @@ class MenuController : UITableViewController {
             self.navigationController?.pushViewController(FunnelController(), animated: true)
         case 5: // 仪表盘
             self.navigationController?.pushViewController(GaugesController(), animated: true)
-        case 6: // 主题河流图
+        case 6: // 桑基图
+            self.navigationController?.pushViewController(SankeysController(), animated: true)
+        case 7: // 主题河流图
             self.navigationController?.pushViewController(ThemeRiversController(), animated: true)
         default:
             print("敬请期待...")

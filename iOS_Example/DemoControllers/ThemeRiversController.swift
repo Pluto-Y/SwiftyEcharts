@@ -15,7 +15,7 @@ class ThemeRiversController: BaseDemoController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menus = ["主题河流图", "ThemeRiver Lastfm(暂缺)"]
+        menus = ["主题河流图", "ThemeRiver Lastfm"]
         
         optionClosures = [SECThemeRiverOptions.themeRiverBasicOption, SECThemeRiverOptions.themeRiverLastfmOption]
         

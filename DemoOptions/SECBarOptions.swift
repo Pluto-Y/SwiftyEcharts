@@ -50,11 +50,11 @@ public struct SECBarOptions {
                 )),
             .tooltip(SECTooltip()),
             .xAxis(SECAxis(
-                    .data(xAxisData),
-                    .silent(false),
-                    .splitLine(SECSplitLine(
-                        .show(false)
-                        ))
+                .data(xAxisData),
+                .silent(false),
+                .splitLine(SECSplitLine(
+                    .show(false)
+                    ))
                 )),
             .yAxis(SECAxis()),
             .series([
@@ -76,17 +76,198 @@ public struct SECBarOptions {
     
     // MARK: 柱状图框选
     /// 地址: http://echarts.baidu.com/demo.html#bar-brush
-    static func barBrushOption() -> SECOption {
-        // TODO: 添加实现
+    static func barBrushOption() -> SECOption { // FIXME: 缺少事件
+        var xAxisData: [SECJsonable] = []
+        var data1: [SECJsonable] = []
+        var data2: [SECJsonable] = []
+        var data3: [SECJsonable] = []
+        var data4: [SECJsonable] = []
+        for i in 0..<10 {
+            xAxisData.append("Class\(i)")
+            data1.append(Double((arc4random_uniform(100)+1)) / 100.0 * 2)
+            data2.append(Double((arc4random_uniform(100)+1)) / -100.0)
+            data3.append(Double((arc4random_uniform(100)+1)) / 100.0 * 5)
+            data4.append(Double((arc4random_uniform(100)+1)) / 100.0 + 0.3)
+        }
+        
+        let itemStyle = SECItemStyle(
+            .normal(SECCommonItemStyleContent()),
+            .emphasis(SECCommonItemStyleContent(
+//                .barBorderWidth(1), // 这个属性在网页上好像没用
+                .shadowBlur(10),
+                .shadowOffsetX(0),
+                .shadowOffsetY(0),
+                .shadowColor(.rgba(0, 0, 0, 0.5))
+                ))
+        )
         return SECOption(
+            .backgroundColor(.hexColor("#eee")),
+            .legend(SECLegend(
+                .data(["bar", "bar2", "bar3", "bar4"]),
+                .align(.left),
+                .left(.value(10))
+                )),
+            .brush(SECBrush(
+                .toolbox([.rect, .polygon, .lineX, .lineY, .keep, .clear]),
+                .xAxisIndex(.indexes([0]))
+                )),
+            .toolbox(SECToolbox(
+                .feature(SECTFeature(
+                    .magicType(SECTFMagicType(
+                        .type([.stack, .tiled])
+                        )),
+                    .dataView(SECTFDataView())
+                    ))
+                )),
+            .tooltip(SECTooltip()),
+            .xAxis(SECAxis(
+                .data(xAxisData),
+                .name("X Axis"),
+                .silent(false),
+                .axisLine(SECAxisLine(
+                    .onZero(true)
+                    )),
+                .splitLine(SECSplitLine(
+                    .show(false)
+                    )),
+                .splitArea(SECSplitArea(
+                    .show(false)
+                    ))
+                )),
+            .yAxis(SECAxis(
+                .inverse(true),
+                .splitArea(SECSplitArea(
+                    .show(false)
+                    ))
+                )),
+            .grid(SECGrid(
+                .left(.value(100))
+                )),
+            .visualMap(SECContinuousVisualMap(
+                .dimension(1),
+                .text(["Hight", "Low"]),
+                .inverse(true),
+                .itemHeight(200),
+                .calculable(true),
+                .min(-2),
+                .max(6),
+                .top(.value(60)),
+                .left(.value(10)),
+                .inRange(["colorLightness": [0.4, 0.8]]),
+                .outRange(["color": SECColor.hexColor("#bbb")]),
+                .controller(SECVMController(
+                    .inRange(["color": SECColor.hexColor("#2f4554")])
+                    ))
+                )),
+            .series([
+                SECBarSerie(
+                    .name("bar"),
+                    .stack("one"),
+                    .itemStyle(itemStyle),
+                    .data(data1)
+                ),
+                SECBarSerie(
+                    .name("bar2"),
+                    .stack("one"),
+                    .itemStyle(itemStyle),
+                    .data(data2)
+                ),
+                SECBarSerie(
+                    .name("bar3"),
+                    .stack("two"),
+                    .itemStyle(itemStyle),
+                    .data(data3)
+                ),
+                SECBarSerie(
+                    .name("bar4"),
+                    .stack("two"),
+                    .itemStyle(itemStyle),
+                    .data(data4)
+                )
+                ])
         )
     }
     
     // MARK: 特性示例：渐变色 阴影 点击缩放
     /// 地址: http://echarts.baidu.com/demo.html#bar-gradient
-    static func barGradientOption() -> SECOption {
-        // TODO: 添加实现
+    static func barGradientOption() -> SECOption { // FIXME: 缺少点击事件
+        let dataAxis: [SECJsonable] =  ["点", "击", "柱", "子", "或", "者", "两", "指", "在", "触", "屏", "上", "滑", "动", "能", "够", "自", "动", "缩", "放"]
+        let yMax = 500
+        var dataShadow: [SECJsonable] = []
+        
+        for _ in 0..<dataAxis.count {
+            dataShadow.append(yMax)
+        }
         return SECOption(
+            .title(SECTitle(
+                .text("特性示例：渐变色 阴影 点击缩放"),
+                .subtext("Feature Sample: Gradient Color, Shadow, Click Zoom")
+                )),
+            .xAxis(SECAxis(
+                .data(dataAxis),
+                .axisLabel(SECAxisLabel(
+                    .inside(true),
+                    .textStyle(SECTextStyle(
+                        .color(.hexColor("#fff"))
+                        ))
+                    )),
+                .axisTick(SECAxisTick(
+                    .show(false)
+                    )),
+                .axisLine(SECAxisLine(
+                    .show(false)
+                    )),
+                .z(10)
+                )),
+            .yAxis(SECAxis(
+                .axisLine(SECAxisLine(
+                    .show(false)
+                    )),
+                .axisTick(SECAxisTick(
+                    .show(false)
+                    )),
+                .axisLabel(SECAxisLabel(
+                    .textStyle(SECTextStyle(
+                        .color(.hexColor("#999"))
+                        ))
+                    ))
+                )),
+            .dataZoom([SECInsideDataZoom(
+                )]),
+            .series([
+                SECBarSerie(
+                    .itemStyle(SECItemStyle(
+                        .normal(SECCommonItemStyleContent(
+                            .color(.rgba(0, 0, 0, 0.05))
+                            ))
+                        )),
+                    .barGap("-100%"),
+                    .barCategoryGap("40%"),
+                    .data(dataShadow),
+                    .animation(false)
+                ),
+                SECBarSerie(
+                    .itemStyle(SECItemStyle(
+                        .normal(SECCommonItemStyleContent(
+                            .color(.linearGradient(0, 0, 0, 1,
+                                [
+                                    ["offset": 0, "color": SECColor.hexColor("#83bff6")],
+                                    ["offset": 0.5, "color": SECColor.hexColor("#188df0")],
+                                    ["offset": 1, "color": SECColor.hexColor("#188df0")]
+                                ], false))
+                            )),
+                        .emphasis(SECCommonItemStyleContent(
+                            .color(.linearGradient(0, 0, 0, 1,
+                                [
+                                    ["offset": 0, "color": SECColor.hexColor("#2378f7")],
+                                    ["offset": 0.7, "color": SECColor.hexColor("#2378f7")],
+                                    ["offset": 1, "color": SECColor.hexColor("#83bff6")]
+                                ], false))
+                            ))
+                        )),
+                    .data([220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220])
+                )
+                ])
         )
     }
     
@@ -298,10 +479,10 @@ public struct SECBarOptions {
                             // 如果有两个点组成一条线，要将两个点放在一个数组中
                             [SECMarkLineData(
                                 .type(.min)
-                            ),
-                            SECMarkLineData(
-                                .type(.max)
-                            )]
+                                ),
+                                SECMarkLineData(
+                                    .type(.max)
+                                )]
                             ])
                         ))
                 ),
@@ -381,7 +562,7 @@ public struct SECBarOptions {
                 .axisPointer(SECTooltip.AxisPointer(
                     .type(.shadow)
                     )),
-                .formatter(.function("function tooltipFomatter(params) { var tar = params[1]; return tar.name + '<br>/' + tar.seriesName + ' : ' + tar.value;}"))
+                .formatter(.function("function tooltipFomatter(params) { var tar = params[1]; return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;}"))
                 )),
             .grid(SECGrid(
                 .left(.value(3%)),
@@ -704,7 +885,7 @@ public struct SECBarOptions {
                                 .type(.average),
                                 .name("平均值")
                             )
-                        ])
+                            ])
                         ))
                 ),
                 SECBarSerie(
@@ -732,7 +913,7 @@ public struct SECBarOptions {
                                 .type(.average),
                                 .name("平均值")
                             )
-                        ])
+                            ])
                         ))
                 )
                 ])
@@ -742,9 +923,89 @@ public struct SECBarOptions {
     // MARK: 动态数据
     /// 地址: http://echarts.baidu.com/demo.html#dynamic-data
     static func dynamicDataOption() -> SECOption {
-        // TODO: 添加实现
+        var xAxisData1: [SECJsonable] = []
+        var xAxisData2: [SECJsonable] = []
+        var date = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "hh:mm:ss a"
+        for i in 0..<10 {
+            xAxisData1.append(dateFormatter.stringFromDate(date))
+            xAxisData2.append(i)
+            date = NSDate(timeIntervalSince1970: date.timeIntervalSince1970)
+        }
+        var seriesData1: [SECJsonable] = []
+        var seriesData2: [SECJsonable] = []
+        for _ in 0..<10 {
+            seriesData1.append(arc4random_uniform(1000) + 1)
+            seriesData2.append(Double(arc4random_uniform(100) + 1) / 10.0 + 5)
+        }
+        
         return SECOption(
-            
+            .title(SECTitle(
+                .text("动态数据"),
+                .subtext("纯属虚构")
+                )),
+            .tooltip(SECTooltip(
+                .trigger(.axis)
+                )),
+            .legend(SECLegend(
+                .data(["最新成交价", "预购队列"])
+                )),
+            .toolbox(SECToolbox(
+                .show(true),
+                .feature(SECTFeature(
+                    .dataView(SECTFDataView(.readOnly(false))),
+                    .restore(SECTFRestore()),
+                    .saveAsImage(SECTFSaveAsImage())
+                    ))
+                )),
+            .dataZoom([SECSliderDataZoom(
+                .show(false),
+                .start(0),
+                .end(100)
+                )]),
+            .xAxises([
+                SECAxis(
+                    .type(.category),
+                    .boundaryGap(true),
+                    .data(xAxisData1)
+                ),
+                SECAxis(
+                    .type(.category),
+                    .boundaryGap(true),
+                    .data(xAxisData2)
+                )
+                ]),
+            .yAxises([
+                SECAxis(
+                    .type(.value),
+                    .scale(true),
+                    .name("价格"),
+                    .max(30),
+                    .min(0),
+                    .boundaryGap(.notCategory([0.2, 0.2]))
+                ),
+                SECAxis(
+                    .type(.value),
+                    .scale(true),
+                    .name("预购量"),
+                    .max(1200),
+                    .min(0),
+                    .boundaryGap(.notCategory([0.2, 0.2]))
+                )
+                ]),
+            .series([
+                SECBarSerie(
+                    .name("预购队列"),
+                    .xAxisIndex(1),
+                    .yAxisIndex(1),
+                    .data(seriesData1)
+                ),
+                SECLineSerie(
+                    .name("最新的成交价"),
+                    .data(seriesData2)
+                )
+                ])
         )
     }
     

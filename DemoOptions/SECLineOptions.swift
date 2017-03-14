@@ -75,7 +75,7 @@ public struct SECLineOptions {
                 ]),
             .xAxis(SECAxis(
                     .type(.category),
-                    .boundaryGap(.category(false)),
+                    .boundaryGap(false),
                     .axisLine(SECAxisLine(
                         .onZero(false)
                         )),
@@ -171,7 +171,7 @@ public struct SECLineOptions {
                 )),
             .xAxis(SECAxis(
                     .type(.category),
-                    .boundaryGap(.category(false)),
+                    .boundaryGap(false),
                     .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
             .yAxis(SECAxis(
@@ -320,7 +320,7 @@ public struct SECLineOptions {
             .xAxises([
                 SECAxis(
                     .type(.category),
-                    .boundaryGap(.category(false)),
+                    .boundaryGap(false),
                     .axisLine(SECAxisLine(
                         .onZero(true)
                         )),
@@ -329,7 +329,7 @@ public struct SECLineOptions {
                 SECAxis(
                     .gridIndex(1),
                     .type(.category),
-                    .boundaryGap(.category(false)),
+                    .boundaryGap(false),
                     .axisLine(SECAxisLine(
                         .onZero(true)
                         )),
@@ -529,7 +529,7 @@ public struct SECLineOptions {
                 )),
             .xAxis(SECAxis(
                 .type(.category),
-                .boundaryGap(.category(false)),
+                .boundaryGap(false),
                 .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
             .yAxis(SECAxis(
@@ -721,7 +721,7 @@ public struct SECLineOptions {
                 )),
             .xAxis(SECAxis(
                     .type(.category),
-                    .boundaryGap(.category(false)),
+                    .boundaryGap(false),
                     .data(["00:00", "01:15", "02:30", "03:45", "05:00", "06:15", "07:30", "08:45", "10:00", "11:15", "12:30", "13:45", "15:00", "16:15", "17:30", "18:45", "20:00", "21:15", "22:30", "23:45"])
                 )),
             .yAxis(SECAxis(
@@ -813,7 +813,7 @@ public struct SECLineOptions {
                 )),
             .xAxis(SECAxis(
                     .type(.category),
-                    .boundaryGap(.category(false)),
+                    .boundaryGap(false),
                     .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
             .yAxis(SECAxis(

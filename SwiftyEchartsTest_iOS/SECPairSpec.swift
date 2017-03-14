@@ -1,5 +1,5 @@
 //
-//  SECTwoElementsSpec.swift
+//  SECPairSpec.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 15/02/2017.
@@ -10,30 +10,30 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class SECTwoElementsSpec : QuickSpec {
+class SECPairSpec : QuickSpec {
     
     override func spec() {
         
         describe("Testing for type named 'SECTwoElement'") {
             
             it(" needs to check constructor and jsonString ") {
-                let noArgElements = SECTwoElements()
+                let noArgElements = SECPair()
                 
                 expect(noArgElements.jsonString).to(equal("null"))
                 
                 let percentValue: Float = 3
                 let floatValue: Float = 2
-                let twoElements: SECTwoElements = [floatValue, percentValue%]
+                let twoElements: SECPair = [floatValue, percentValue%]
                 let precisionFomatStr = String(format: "\"%%.%df%%%%\"", SECPercent.precision)
                 let percentJson = String(format: precisionFomatStr, percentValue)
                 
                 expect(twoElements.jsonString).to(equal("[\(floatValue), \(percentJson)]"))
                 
-                let toMuchElements: SECTwoElements = [3, 4, 5, 6%]
+                let toMuchElements: SECPair = [3, 4, 5, 6%]
                 expect(toMuchElements.jsonString).to(equal("null"))
                 
                 // 如果不是 SECLength 的话，就会产生编译错误
-//                let errorType: SECTwoElements = ["hello", 4]
+//                let errorType: SECPair = ["hello", 4]
             }
             
         }

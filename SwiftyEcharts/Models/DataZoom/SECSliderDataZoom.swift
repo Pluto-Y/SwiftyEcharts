@@ -442,6 +442,7 @@ extension SECSliderDataZoom : SECEnumable {
 extension SECSliderDataZoom : SECMappable {
     public func mapping(map: SECMap) {
         map["type"] = type
+        map["show"] = show
         map["backgroundColor"] = backgroundColor
         map["dataBackground"] = dataBackground
         map["fillerColor"] = fillerColor

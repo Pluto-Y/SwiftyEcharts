@@ -7,6 +7,30 @@
 //
 
 public struct SECBrush {
+    
+    /// 使用在 toolbox 中的按钮。
+    ///
+    /// brush 相关的 toolbox 按钮有：
+    ///
+    /// - rect: 开启矩形选框选择功能。
+    /// - polygon: 开启任意形状选框选择功能。
+    /// - lineX: 开启横向选择功能。
+    /// - lineY: 开启纵向选择功能。
+    /// - keep: 切换『单选』和『多选』模式。后者可支持同时画多个选框。前者支持单击清除所有选框。
+    /// - clear: 清空所有选框。
+    public enum Toolbox: String, SECJsonable {
+        case rect = "rect"
+        case polygon = "polygon"
+        case lineX = "lineX"
+        case lineY = "lineY"
+        case keep = "keep"
+        case clear = "clear"
+        
+        public var jsonString: String {
+            return "\"\(self.rawValue)\""
+        }
+    }
+    
     /// 用来设置多选坐标轴的枚举
     ///
     /// - indexes: 如 [0, 4, 2]，表示指定这些 index 所对应的坐标系。
@@ -96,7 +120,7 @@ public struct SECBrush {
     /// - liney：开启纵向选择功能。
     /// - keep：切换『单选』和『多选』模式。后者可支持同时画多个选框。前者支持单击清除所有选框。
     /// - clear：清空所有选框。
-    public var toolbox: SECToolbox?
+    public var toolbox: [Toolbox]?
     /// 不同系列间，选中的项可以联动。
     ///
     /// 参见如下效果（刷选一个 scatter，其他 scatter 以及 parallel 图都会有选中效果）：
@@ -345,6 +369,8 @@ public struct SECBrush {
     public var outOfBrush: String? // FIXME: 还需研究
 }
 
+public typealias SECBrushToolbox = SECBrush.Toolbox
+
 extension SECBrush.Style : SECEnumable {
     public enum Enums {
         case borderWidth(Float), color(SECColor), borderColor(SECColor), width(Float)
@@ -379,7 +405,7 @@ extension SECBrush.Style : SECMappable {
 
 extension SECBrush : SECEnumable {
     public enum Enums {
-        case toolbox(SECToolbox), brushLink(Indexes), seriesIndex(Indexes), geoIndex(Indexes), xAxisIndex(Indexes), yAxisIndex(Indexes), brushType(Type), brushMode(Mode), transformable(Bool), brushStyle(Style), throttleType(ThrottleType), throttleDelay(Float), removeOnClick(Float), inBrush(String), outOfBrush(String)
+        case toolbox([SECBrushToolbox]), brushLink(Indexes), seriesIndex(Indexes), geoIndex(Indexes), xAxisIndex(Indexes), yAxisIndex(Indexes), brushType(Type), brushMode(Mode), transformable(Bool), brushStyle(Style), throttleType(ThrottleType), throttleDelay(Float), removeOnClick(Float), inBrush(String), outOfBrush(String)
     }
     
     public typealias ContentEnum = Enums

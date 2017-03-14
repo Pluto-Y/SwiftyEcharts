@@ -1,5 +1,5 @@
 //
-//  SECTwoElements.swift
+//  SECPair.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 15/02/2017.
@@ -11,16 +11,12 @@
 /// 例如一个点, [x, y]
 ///
 /// 例如一个访问， [min, max]
-public struct SECTwoElements {
+public struct SECPair<T>: ArrayLiteralConvertible {
     
-    private var first: SECLength?
-    private var second: SECLength?
+    private var first: T?
+    private var second: T?
     
-}
-
-extension SECTwoElements : ArrayLiteralConvertible {
-    
-    public init(arrayLiteral elements: SECLength...) {
+    public init(arrayLiteral elements: T...) {
         if elements.count != 2 {
             printError("The count of the array should only be two.")
         } else {
@@ -29,11 +25,19 @@ extension SECTwoElements : ArrayLiteralConvertible {
         }
     }
     
+    public init (_ elements: [T]) {
+        if elements.count != 2 {
+            printError("The count of the array should only be two.")
+        } else {
+            self.first = elements[0]
+            self.second = elements[1]
+        }
+    }
 }
 
-extension SECTwoElements : SECJsonable {
+extension SECPair : SECJsonable {
     public var jsonString: String {
-        if let first = self.first, let second = self.second {
+        if let first = self.first as? SECJsonable, let second = self.second as? SECJsonable {
             return "[\(first.jsonString), \(second.jsonString)]"
         }
         return "null"
@@ -41,6 +45,6 @@ extension SECTwoElements : SECJsonable {
 }
 
 /// 用于指定坐标点, eg: [x, y]
-public typealias SECPoint = SECTwoElements
+public typealias SECPoint = SECPair<SECLength>
 /// 用于指定范围, eg: [min, max]
-public typealias SECRange = SECTwoElements
+public typealias SECRange = SECPair<SECLength>

@@ -23,21 +23,23 @@ class MenuController : UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch indexPath.row {
-        case 0: // 折线图的Demo
+        case 0: // 折线图
             self.navigationController?.pushViewController(LinesController(), animated: true)
-        case 1: // 柱状图的Demo
+        case 1: // 柱状图
             self.navigationController?.pushViewController(BarsController(), animated: true)
-        case 2: // 饼图的Demo
+        case 2: // 地图
+            self.navigationController?.pushViewController(MapsController(), animated: true)
+        case 3: // 饼图的Demo
             self.navigationController?.pushViewController(PiesController(), animated: true)
-        case 3: // 雷达图
+        case 4: // 雷达图
             self.navigationController?.pushViewController(RadarsController(), animated: true)
-        case 4: // 漏斗图
+        case 5: // 漏斗图
             self.navigationController?.pushViewController(FunnelController(), animated: true)
-        case 5: // 仪表盘
+        case 6: // 仪表盘
             self.navigationController?.pushViewController(GaugesController(), animated: true)
-        case 6: // 桑基图
+        case 7: // 桑基图
             self.navigationController?.pushViewController(SankeysController(), animated: true)
-        case 7: // 主题河流图
+        case 8: // 主题河流图
             self.navigationController?.pushViewController(ThemeRiversController(), animated: true)
         default:
             print("敬请期待...")

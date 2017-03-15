@@ -13,7 +13,7 @@ class SankeysController: BaseDemoController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menus = ["Sankey Diagram(暂缺)", "Sankey Diagram(暂缺)"]
+        menus = ["Sankey Diagram", "Sankey Diagram"]
         
         optionClosures = [SECSankeyOptions.sankeyEnergyOption, SECSankeyOptions.sankeyProductOption]
         

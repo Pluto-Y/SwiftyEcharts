@@ -6,49 +6,150 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 桑基图
+///
+/// 是一种特殊的流图, 它主要用来表示原材料、能量等如何从初始形式经过中间过程的加工、转化到达最终形式。
+///
+/// 示例：http://echarts.baidu.com/gallery/editor.html?c=sankey-energy
+///
+/// 可视编码：
+///
+/// 桑基图将原数据中的每个node编码成一个小矩形，不同的节点尽量用不同的颜色展示，小矩形旁边的label编码的是节点的名称。
+///
+/// 此外，图中每两个小矩形之间的边编码的是原数据中的link，边的粗细编码的是link中的value。
+/// 
+/// 排序： 如果想指定结果的纵向顺序，那么可以把 layoutIterations 设为 0，此时纵向的顺序依照数据在 links 中出现的顺序。
 public struct SECSankeySerie: SECSeries, SECZable, SECAnimatable {
     
     public struct Data {
+        /// 数据项名称。
         public var name: String?
+        /// 数据项值。
         public var value: Float?
+        /// 该节点的样式。
         public var itemStyle: SECItemStyle?
+        /// 该节点标签的样式。
         public var label: SECFormattedLabel?
         
         public init() { }
     }
     
     public struct Link {
+        /// 边的源节点名称
         public var source: String?
+        /// 边的目标节点名称
         public var target: String?
+        /// 边的数值，决定边的宽度。
         public var value: Float?
+        /// 关系边的线条样式。
         public var lineStyle: SECLineStyle?
         
         public init() { }
     }
     
+    /// 类型
     public var type: SECSerieType {
         return .sankey
     }
     
+    // MARK: SECZable
     public var zlevel: Float?
     public var z: Float?
+    
+    /// sankey组件离容器左侧的距离。
+    ///
+    /// left 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'left', 'center', 'right'。
+    ///
+    /// 如果 left 的值为'left', 'center', 'right'，组件会根据相应的位置自动对齐。
     public var left: SECPosition?
+    /// sankey组件离容器上侧的距离。
+    ///
+    /// top 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'top', 'middle', 'bottom'。
+    ///
+    /// 如果 top 的值为'top', 'middle', 'bottom'，组件会根据相应的位置自动对齐。
     public var top: SECPosition?
+    /// sankey组件离容器右侧的距离。
+    ///
+    /// right 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     public var right: SECPosition?
+    /// sankey组件离容器下侧的距离。
+    /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     public var bottom: SECPosition?
+    /// sankey组件的宽度。
     public var width: SECLength?
+    /// sankey组件的高度。
     public var height: SECLength?
+    /// 图中每个矩形节点的宽度。
     public var nodeWidth: Float?
+    /// 图中每一列任意两个矩形节点之间的间隔。
     public var nodeGap: Float?
+    /// 布局的迭代次数，用来不断优化图中节点的位置，以减少节点和边之间的相互遮盖。
+    ///
+    /// 默认布局迭代次数：32。
+    ///
+    /// 经测试，布局迭代次数不要低于默认值。
     public var layoutIterations: Float?
+    /// label 描述了每个矩形节点中文本标签的样式。
     public var label: SECFormattedLabel?
+    /// 桑基图节点矩形的样式。
     public var itemStyle: SECItemStyle?
+    /// 桑基图边的样式，其中 lineStyle.normal.color 支持设置为'source'或者'target'特殊值，此时边会自动取源节点或目标节点的颜色作为自己的颜色。
     public var lineStyle: SECLineStyle?
+    /// 系列中的数据内容数组。数组项可以为单个数值，如：
+    ///
+    /// [12, 34, 56, 10, 23]
+    ///
+    /// 如果需要在数据中加入其它维度给 visualMap 组件用来映射到颜色等其它图形属性。每个数据项也可以是数组，如：
+    ///
+    /// [[12, 14], [34, 50], [56, 30], [10, 15], [23, 10]]
+    ///
+    /// 这时候可以将每项数组中的第二个值指定给 visualMap 组件。
+    ///
+    /// 更多时候我们需要指定每个数据项的名称，这时候需要每个项为一个对象：
+    ///
+    ///     [{
+    ///         // 数据项的名称
+    ///         name: '数据1',
+    ///         // 数据项值8
+    ///         value: 10
+    ///     }, {
+    ///         name: '数据2',
+    ///         value: 20
+    ///     }]
+    ///
+    /// 需要对个别内容指定进行个性化定义时：
+    ///
+    ///     [{
+    ///         name: '数据1',
+    ///         value: 10
+    ///     }, {
+    ///         // 数据项名称
+    ///         name: '数据2',
+    ///         value : 56,
+    ///         //自定义特殊 tooltip，仅对该数据项有效
+    ///         tooltip:{},
+    ///         //自定义特殊itemStyle，仅对该item有效
+    ///         itemStyle:{}
+    ///     }]
     public var data: [SECJsonable]?
+    /// 同 data
     public var nodes: [SECJsonable]?
+    /// 节点间的关系数据。示例：
+    ///
+    ///     links: [{
+    ///         source: 'n1',
+    ///         target: 'n2'
+    ///     }, {
+    ///         source: 'n2',
+    ///         target: 'n3'
+    ///     }]
     public var links: [Link]?
+    /// 同 links
     public var edges: [Link]?
+    /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
+    
+    // MARK: SECAnimatable
     public var animation: Bool?
     public var animationThreshold: Float?
     public var animationDuration: SECTime?

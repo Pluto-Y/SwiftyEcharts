@@ -42,7 +42,7 @@ public struct SECSankeySerie: SECSeries, SECZable, SECAnimatable {
         /// 边的数值，决定边的宽度。
         public var value: Float?
         /// 关系边的线条样式。
-        public var lineStyle: SECLineStyle?
+        public var lineStyle: SECEmphasisLineStyle?
         
         public init() { }
     }
@@ -94,7 +94,7 @@ public struct SECSankeySerie: SECSeries, SECZable, SECAnimatable {
     /// 桑基图节点矩形的样式。
     public var itemStyle: SECItemStyle?
     /// 桑基图边的样式，其中 lineStyle.normal.color 支持设置为'source'或者'target'特殊值，此时边会自动取源节点或目标节点的颜色作为自己的颜色。
-    public var lineStyle: SECLineStyle?
+    public var lineStyle: SECEmphasisLineStyle?
     /// 系列中的数据内容数组。数组项可以为单个数值，如：
     ///
     /// [12, 34, 56, 10, 23]
@@ -143,9 +143,9 @@ public struct SECSankeySerie: SECSeries, SECZable, SECAnimatable {
     ///         source: 'n2',
     ///         target: 'n3'
     ///     }]
-    public var links: [Link]?
+    public var links: [SECJsonable]?
     /// 同 links
-    public var edges: [Link]?
+    public var edges: [SECJsonable]?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     
@@ -196,7 +196,7 @@ extension SECSankeySerie.Data : SECMappable {
 
 extension SECSankeySerie.Link : SECEnumable {
     public enum Enums {
-        case source(String), target(String), value(Float), lineStyle(SECLineStyle)
+        case source(String), target(String), value(Float), lineStyle(SECEmphasisLineStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -228,7 +228,7 @@ extension SECSankeySerie.Link : SECMappable {
 
 extension SECSankeySerie : SECEnumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(SECLength), height(SECLength), nodeWidth(Float), nodeGap(Float), layoutIterations(Float), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECLineStyle), data([SECJsonable]), nodes([SECJsonable]), links([Link]), edges([Link]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(SECLength), height(SECLength), nodeWidth(Float), nodeGap(Float), layoutIterations(Float), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), data([SECJsonable]), nodes([SECJsonable]), links([SECJsonable]), edges([SECJsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums

@@ -244,6 +244,8 @@ public struct SECMapSerie: SECSeries, SECZable {
     public var silent: Bool?
 }
 
+public typealias SECMapSerieData = SECMapSerie.Data
+
 extension SECMapSerie.ScaleLimit : SECEnumable {
     public enum Enums {
         case min(Float), max(Float)

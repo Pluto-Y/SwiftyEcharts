@@ -21,9 +21,9 @@ public extension SECJsonable {
         return "\(self)"
     }
     
-    internal func toJson() -> String {
-        return self.jsonString
-    }
+//    internal func toJson() -> String {
+//        return self.jsonString
+//    }
 }
 
 extension Bool : SECJsonable {
@@ -110,7 +110,7 @@ extension Optional : CustomStringConvertible {
             return "null"
         case let .Some(value):
             if value is SECJsonable {
-                return (value as! SECJsonable).toJson()
+                return (value as! SECJsonable).jsonString
             } else {
                 return "\(value)"
             }
@@ -119,10 +119,14 @@ extension Optional : CustomStringConvertible {
 }
 
 internal func obtainJsonString(from value: Any) -> String {
-    if let i = value as? SECJsonable {
-        return "\(i.toJson())"
+     if let a = value as? [SECJsonable] { // 处理数据
+        return "\(a.jsonString)"
+    } else if let d = value as? [String: SECJsonable] {
+        return "\(d.jsonString)"
     } else if let s = value as? String { // 处理字符串常量的情况
         return "\(s.jsonString)"
+    } else if let i = value as? SECJsonable {
+        return "\(i.jsonString)"
     } else if let d = value as? CustomStringConvertible {
         return "\(d.description)"
     } else {

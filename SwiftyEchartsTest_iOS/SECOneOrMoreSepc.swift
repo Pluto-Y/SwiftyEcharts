@@ -26,13 +26,6 @@ class SECOneOrMoreSepc : QuickSpec {
                 expect(more.jsonString).to(equal(moreValue.jsonString))
             }
             
-            it(" needs to check the operator contstruct") {
-                let one = |oneValue
-                expect(one.jsonString).to(equal(SECOneOrMore(one: oneValue).jsonString))
-                
-                let more = ||moreValue
-                expect(more.jsonString).to(equal(SECOneOrMore(more: moreValue).jsonString))
-            }
         }
     }
     

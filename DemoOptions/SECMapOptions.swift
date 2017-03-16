@@ -61,48 +61,45 @@ public struct SECMapOptions {
                 ))
         )
         
-        print(serieTemplate.jsonString)
-        
         var iphone3Data = serieTemplate
         iphone3Data.name = "iphone3"
-//        iphone3Data.data = [
-//            SECMapSerieData(.name("北京"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("天津"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("上海"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("重庆"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("河北"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("河南"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("云南"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("辽宁"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("黑龙江"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("湖南"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("安徽"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("山东"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("新疆"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("江苏"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("浙江"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("江西"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("湖北"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("广西"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("甘肃"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("山西"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("内蒙古"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("陕西"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("吉林"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("福建"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("贵州"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("广东"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("青海"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("西藏"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("四川"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("宁夏"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("海南"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("台湾"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("香港"), .value(Float(arc4random_uniform(1000)))),
-//            SECMapSerieData(.name("澳门"), .value(Float(arc4random_uniform(1000))))
-//        ]
-        
-        print(iphone3Data.jsonString)
+        iphone3Data.roam = .disable
+        iphone3Data.data = [
+            SECMapSerieData(.name("北京"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("天津"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("上海"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("重庆"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("河北"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("河南"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("云南"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("辽宁"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("黑龙江"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("湖南"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("安徽"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("山东"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("新疆"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("江苏"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("浙江"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("江西"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("湖北"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("广西"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("甘肃"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("山西"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("内蒙古"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("陕西"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("吉林"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("福建"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("贵州"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("广东"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("青海"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("西藏"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("四川"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("宁夏"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("海南"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("台湾"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("香港"), .value(Float(arc4random_uniform(1000)))),
+            SECMapSerieData(.name("澳门"), .value(Float(arc4random_uniform(1000))))
+        ]
         
         var iphone4Data = serieTemplate
         iphone4Data.name = "iphone4"
@@ -129,8 +126,6 @@ public struct SECMapOptions {
 
         ]
         
-        print(iphone4Data.jsonString)
-        
         var iphone5Data = serieTemplate
         iphone5Data.name = "iphone5"
         iphone5Data.data = [
@@ -144,8 +139,6 @@ public struct SECMapOptions {
 
         ]
         
-        print(iphone5Data.jsonString)
-
         return SECOption(
             .title(SECTitle(
                 .text("iphone销量"),

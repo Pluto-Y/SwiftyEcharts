@@ -99,7 +99,7 @@ public struct SECPiecewiseVisualMap : SECVisualMap, SECDisplayable, SECBorderabl
     ///
     /// text 中的顺序，其实试试就知道。若要看详细的规则，参见 visualMap.inverse。
     /// 兼容 ECharts2，当有 text 时，label不显示。
-    public var text: [String]?
+    public var text: SECPiecewiseText?
     /// 两端文字主体之间的距离，单位为px。参见 visualMap-piecewise.text
     public var textGap: Float?
     /// 是否显示每项的文本标签。默认情况是，如果 visualMap-piecewise.text 被使用则不显示文本标签，否则显示。
@@ -187,7 +187,7 @@ public struct SECPiecewiseVisualMap : SECVisualMap, SECDisplayable, SECBorderabl
 
 extension SECPiecewiseVisualMap : SECEnumable {
     public enum Enums {
-        case splitNumber(Int), pieces([SECJsonable]), min(Float), max(Float), minOpen(Bool), maxOpen(Bool), selectedMode(SECSelectedMode), inverse(Bool), precision(UInt), itemWidth(Float), itemHeight(Float), align(SECAlign), text([String]), textGap(Float), showLabel(Bool), itemGap(Float), itemSymbol(SECSymbol), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: SECJsonable]), outRange([String: SECJsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), color(SECColor), textStyle(SECTextStyle), formatter(SECFormatter)
+        case splitNumber(Int), pieces([SECJsonable]), min(Float), max(Float), minOpen(Bool), maxOpen(Bool), selectedMode(SECSelectedMode), inverse(Bool), precision(UInt), itemWidth(Float), itemHeight(Float), align(SECAlign), text(SECPiecewiseText), textGap(Float), showLabel(Bool), itemGap(Float), itemSymbol(SECSymbol), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: SECJsonable]), outRange([String: SECJsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), color(SECColor), textStyle(SECTextStyle), formatter(SECFormatter)
     }
     
     public typealias ContentEnum = Enums

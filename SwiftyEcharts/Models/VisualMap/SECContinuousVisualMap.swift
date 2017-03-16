@@ -90,7 +90,7 @@ public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderab
     /// 两端的文本，如 ['High', 'Low']。
     ///
     /// text 中的顺序，其实试试就知道。若要看详细的规则，参见 visualMap.inverse。
-    public var text: [String]?
+    public var text: SECPiecewiseText?
     /// 两端文字主体之间的距离，单位为px。参见 visualMap-continuous.text
     public var textGap: Float?
     /// 是否显示 visualMap-continuous 组件。如果设置为 false，不会显示，但是数据映射的功能还存在。
@@ -190,7 +190,7 @@ public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderab
 
 extension SECContinuousVisualMap : SECEnumable {
     public enum Enums {
-        case min(Float), max(Float), range(SECRange), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(SECAlign), text([String]), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: SECJsonable]), outRange([String: SECJsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), color(SECColor), textStyle(SECTextStyle), formatter(SECFormatter)
+        case min(Float), max(Float), range(SECRange), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(SECAlign), text(SECPiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: SECJsonable]), outRange([String: SECJsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), color(SECColor), textStyle(SECTextStyle), formatter(SECFormatter)
     }
     
     public typealias ContentEnum = Enums

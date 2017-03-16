@@ -48,3 +48,5 @@ extension SECPair : SECJsonable {
 public typealias SECPoint = SECPair<SECLength>
 /// 用于指定范围, eg: [min, max]
 public typealias SECRange = SECPair<SECLength>
+/// 用来指定两端的文本 , eg: SECContinuousVisualMap.text
+public typealias SECPiecewiseText = SECPair<String>

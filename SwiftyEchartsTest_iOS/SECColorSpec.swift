@@ -50,17 +50,32 @@ class SECColorSpec: QuickSpec {
             let hexColor = SECColor.hexColor("#209")
             let hexColor2 = SECColor.hexColor("#22EE98")
             
-            
             it(" needs to check the linearGradient case ") {
                 let x0: Float = 0, y0: Float = 0, x2: Float = 0, y2: Float = 1
                 let offset1: Float = 0, offset2: Float = 1
                 let color1 = SECColor.red, color2 = SECColor.blue
                 let gradientElement1: SECGradientColorElement = ["offset": offset1, "color": color1]
                 let gradientElement2 = SECGradientColorElement(offset2, color2)
+                SECJsCache.removeAll()
                 let linearGradient = SECColor.linearGradient(x0, y0, x2, y2, [gradientElement1, gradientElement2], false)
-//                print(linearGradient.jsonString)
-                let linearGrandientJs = SECJsCache.allFunctions()[0]
-                expect(linearGrandientJs).to(equal("var linearGradient0 = new echarts.graphic.LinearGradient(\(x0.jsonString), \(y0.jsonString), \(x2.jsonString), \(y2.jsonString), [\(gradientElement1.jsonString),\(gradientElement2.jsonString)], false);"))
+                expect(linearGradient.jsonString).to(equal("\"linearGradient0\""))
+                let linearGradientJs = SECJsCache.allJsStrings()[0]
+                expect(linearGradientJs).to(equal("var linearGradient0 = new echarts.graphic.LinearGradient(\(x0.jsonString), \(y0.jsonString), \(x2.jsonString), \(y2.jsonString), [\(gradientElement1.jsonString),\(gradientElement2.jsonString)], false);"))
+            }
+            
+            it(" needs to check the radialGradient case ") {
+                let x: Float = 3.0, y: Float = 9.27, r: Float = 85.3
+                let offset1: Float = 0, offset2: Float = 0.5, offset3: Float = 1
+                let color1 = SECColor.blue, color2 = SECColor.transparent, color3 = SECColor.green
+                let gradientElement1: SECGradientColorElement = ["offset": offset1, "color": color1]
+                let gradientElement2 = SECGradientColorElement(offset2, color2)
+                let gradientElement3 = SECGradientColorElement(offset3, color3)
+                SECJsCache.removeAll()
+                let radialGradient = SECColor.radialGradient(x, y, r, [gradientElement1, gradientElement2, gradientElement3], true)
+                expect(radialGradient.jsonString).to(equal("\"radialGradient0\""))
+                
+                let radialGradientJs = SECJsCache.allJsStrings()[0]
+                expect(radialGradientJs).to(equal("var radialGradient0 = new echarts.graphic.RadialGradient(\(x.jsonString), \(y.jsonString), \(r.jsonString), [\(gradientElement1.jsonString),\(gradientElement2.jsonString),\(gradientElement3.jsonString)], true);"))
             }
         }
         

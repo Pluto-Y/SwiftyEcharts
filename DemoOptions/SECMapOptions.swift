@@ -183,8 +183,27 @@ public struct SECMapOptions {
     // MARK: Map China
     /// 地址: http://echarts.baidu.com/demo.html#map-china
     static func mapChinaOption() -> SECOption {
-        // TODO: 添加实现
         return SECOption(
+            .tooltip(SECTooltip(
+                .trigger(.item),
+                .formatter(.string("{b}"))
+                )),
+            .series([
+                SECMapSerie(
+                    .name("中国"),
+                    .map("china2"),
+                    .selectedMode(.multiple),
+                    .label(SECLabel(
+                        .normal(SECCommonLabelStyle(.show(true))),
+                        .emphasis(SECCommonLabelStyle(.show(true)))
+                        )),
+                    .data([
+                        SECMapSerieData(
+                            .name("广东"),
+                            .selected(true))
+                            ])
+                )
+                ])
         )
     }
     

@@ -26,7 +26,7 @@ public struct SECOneOrMore<T>: ArrayLiteralConvertible {
     }
 }
 
-extension SECOneOrMore : SECJsonable {
+extension SECOneOrMore : Jsonable {
     public var jsonString: String {
         if let datas = self.more {
             return datas.jsonString

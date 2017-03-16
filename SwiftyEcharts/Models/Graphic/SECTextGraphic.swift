@@ -112,8 +112,8 @@ extension SECTextGraphic.Style : SECEnumable {
     }
 }
 
-extension SECTextGraphic.Style : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTextGraphic.Style : Mappable {
+    public func mapping(map: Mapper) {
         map["text"] = text
         map["x"] = x
         map["y"] = y
@@ -175,8 +175,8 @@ extension SECTextGraphic : SECEnumable {
     }
 }
 
-extension SECTextGraphic : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTextGraphic : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

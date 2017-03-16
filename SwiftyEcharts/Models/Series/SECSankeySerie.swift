@@ -76,9 +76,9 @@ public struct SECSankeySerie: SECSeries, SECZable, SECAnimatable {
     /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     public var bottom: SECPosition?
     /// sankey组件的宽度。
-    public var width: SECLength?
+    public var width: LengthValue?
     /// sankey组件的高度。
-    public var height: SECLength?
+    public var height: LengthValue?
     /// 图中每个矩形节点的宽度。
     public var nodeWidth: Float?
     /// 图中每一列任意两个矩形节点之间的间隔。
@@ -131,9 +131,9 @@ public struct SECSankeySerie: SECSeries, SECZable, SECAnimatable {
     ///         //自定义特殊itemStyle，仅对该item有效
     ///         itemStyle:{}
     ///     }]
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 同 data
-    public var nodes: [SECJsonable]?
+    public var nodes: [Jsonable]?
     /// 节点间的关系数据。示例：
     ///
     ///     links: [{
@@ -143,9 +143,9 @@ public struct SECSankeySerie: SECSeries, SECZable, SECAnimatable {
     ///         source: 'n2',
     ///         target: 'n3'
     ///     }]
-    public var links: [SECJsonable]?
+    public var links: [Jsonable]?
     /// 同 links
-    public var edges: [SECJsonable]?
+    public var edges: [Jsonable]?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     
@@ -185,8 +185,8 @@ extension SECSankeySerie.Data : SECEnumable {
     }
 }
 
-extension SECSankeySerie.Data : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECSankeySerie.Data : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["itemStyle"] = itemStyle
@@ -217,8 +217,8 @@ extension SECSankeySerie.Link : SECEnumable {
     }
 }
 
-extension SECSankeySerie.Link : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECSankeySerie.Link : Mappable {
+    public func mapping(map: Mapper) {
         map["source"] = source
         map["target"] = target
         map["value"] = value
@@ -228,7 +228,7 @@ extension SECSankeySerie.Link : SECMappable {
 
 extension SECSankeySerie : SECEnumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(SECLength), height(SECLength), nodeWidth(Float), nodeGap(Float), layoutIterations(Float), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), data([SECJsonable]), nodes([SECJsonable]), links([SECJsonable]), edges([SECJsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(LengthValue), height(LengthValue), nodeWidth(Float), nodeGap(Float), layoutIterations(Float), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), data([Jsonable]), nodes([Jsonable]), links([Jsonable]), edges([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -295,8 +295,8 @@ extension SECSankeySerie : SECEnumable {
     }
 }
 
-extension SECSankeySerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECSankeySerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["zlevel"] = zlevel
         map["z"] = z

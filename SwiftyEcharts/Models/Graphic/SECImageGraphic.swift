@@ -96,8 +96,8 @@ extension SECImageGraphic.Style : SECEnumable {
     }
 }
 
-extension SECImageGraphic.Style : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECImageGraphic.Style : Mappable {
+    public func mapping(map: Mapper) {
         map["image"] = image
         map["x"] = x
         map["y"] = y
@@ -158,8 +158,8 @@ extension SECImageGraphic : SECEnumable {
     }
 }
 
-extension SECImageGraphic : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECImageGraphic : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

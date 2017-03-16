@@ -22,17 +22,17 @@ public struct SECLineOptions {
         }
         
         
-        let xAxisDatas = (plistDatas["XAxisDatas"] as! [String]).map({ (ele) -> SECJsonable in
+        let xAxisDatas = (plistDatas["XAxisDatas"] as! [String]).map({ (ele) -> Jsonable in
             return ele
         })
-        let seriesDatas1 = (plistDatas["SeriesData1"] as! [Float]).map { (ele) -> SECJsonable in
+        let seriesDatas1 = (plistDatas["SeriesData1"] as! [Float]).map { (ele) -> Jsonable in
             return ele
         }
-        let seriesDatas2 = (plistDatas["SeriesData2"] as! [Float]).map { (ele) -> SECJsonable in
+        let seriesDatas2 = (plistDatas["SeriesData2"] as! [Float]).map { (ele) -> Jsonable in
             return ele
         }
-        let areaData1: [SECJsonable] = [[["xAxis": "2009/9/12/\\n7:00"], ["xAxis": "2009/9/22\\n7:00"]]]
-        let areaData2: [SECJsonable] = [[["xAxis": "2009/9/10/\\n7:00"], ["xAxis": "2009/9/20\\n7:00"]]]
+        let areaData1: [Jsonable] = [[["xAxis": "2009/9/12/\\n7:00"], ["xAxis": "2009/9/22\\n7:00"]]]
+        let areaData2: [Jsonable] = [[["xAxis": "2009/9/10/\\n7:00"], ["xAxis": "2009/9/20\\n7:00"]]]
         return SECOption(
             .title(SECTitle(
                 .text("雨量流量关系图"),
@@ -256,13 +256,13 @@ public struct SECLineOptions {
         }
         
         
-        let xAxisDatas = (plistDatas["XAxisDatas"] as! [String]).map({ (ele) -> SECJsonable in
+        let xAxisDatas = (plistDatas["XAxisDatas"] as! [String]).map({ (ele) -> Jsonable in
             return ele.stringByReplacingOccurrencesOfString("2009/", withString: "").stringByReplacingOccurrencesOfString("\\n", withString: " ")
         })
-        let seriesDatas1 = (plistDatas["SeriesData1"] as! [Float]).map { (ele) -> SECJsonable in
+        let seriesDatas1 = (plistDatas["SeriesData1"] as! [Float]).map { (ele) -> Jsonable in
             return ele
         }
-        let seriesDatas2 = (plistDatas["SeriesData2"] as! [Float]).map { (ele) -> SECJsonable in
+        let seriesDatas2 = (plistDatas["SeriesData2"] as! [Float]).map { (ele) -> Jsonable in
             return ele
         }
         return SECOption(
@@ -382,7 +382,7 @@ public struct SECLineOptions {
     static func lineDraggableOption() -> SECOption {
         // 未完成对应的拖拽代码
         let symbolSize: Float = 20
-        let data: [SECJsonable] =  [[15, 0], [-50, 10], [-56.5, 20], [-46.5, 30], [-22.1, 40]]
+        let data: [Jsonable] =  [[15, 0], [-50, 10], [-56.5, 20], [-46.5, 30], [-22.1, 40]]
         return SECOption(
             .title(SECTitle(
                 .text("Try Dragging these Points")
@@ -620,7 +620,7 @@ public struct SECLineOptions {
     // MARK: 极坐标双数值轴
     /// 地址:http://echarts.baidu.com/demo.html#line-polar
     static func linePolarOption() -> SECOption {
-        var data: [SECJsonable] = []
+        var data: [Jsonable] = []
         for i in 0...100 {
             let theta: Double = Double(i) / 100.0 * 360
             let r: Double = 5 * sin(theta / 180 * M_PI) + 5
@@ -661,7 +661,7 @@ public struct SECLineOptions {
     // MARK: 极坐标双数值轴
     /// 地址: http://echarts.baidu.com/demo.html#line-polar2
     static func linePolar2Option() -> SECOption {
-        var data: [SECJsonable] = []
+        var data: [Jsonable] = []
         for i in 0...360 {
             let t = Double(i) / 180 * M_PI
             let r = sin(2 * t) * cos(2 * t)

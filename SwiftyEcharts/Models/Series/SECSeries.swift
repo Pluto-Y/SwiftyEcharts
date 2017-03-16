@@ -27,7 +27,7 @@
 /// - gauge: 仪表盘
 /// - pictorialBar: 象形柱图
 /// - themeRiver: 主题河流
-public enum SECSerieType: String, SECJsonable {
+public enum SECSerieType: String, Jsonable {
     case line = "line"
     case bar = "bar"
     case pie = "pie"

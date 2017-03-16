@@ -7,7 +7,7 @@
 //
 
 /// 指定窗口打开主标题超链接。
-public enum SECTarget : SECJsonable, CustomStringConvertible {
+public enum SECTarget : Jsonable, CustomStringConvertible {
     
     ///  当前窗口打开
     case tself
@@ -29,7 +29,7 @@ public enum SECTarget : SECJsonable, CustomStringConvertible {
 /// - all: 所有
 /// - verticalAndHorizontal: 垂直和水平方向
 /// - trbl: 上右下左
-public enum SECPadding : SECJsonable, CustomStringConvertible {
+public enum SECPadding : Jsonable, CustomStringConvertible {
     case all(Float)
     case verticalAndHorizontal(Float, Float)
     case trbl(Float, Float, Float, Float)
@@ -179,8 +179,8 @@ extension SECTitle : SECEnumable {
         }
     }
 }
-extension SECTitle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTitle : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["text"] = text
         map["link"] = link

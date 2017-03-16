@@ -78,8 +78,8 @@ extension SECArcGraphic.Shape : SECEnumable {
     }
 }
 
-extension SECArcGraphic.Shape : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECArcGraphic.Shape : Mappable {
+    public func mapping(map: Mapper) {
         map["cx"] = cx
         map["cy"] = cy
         map["r"] = r
@@ -137,8 +137,8 @@ extension SECArcGraphic : SECEnumable {
     }
 }
 
-extension SECArcGraphic : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECArcGraphic : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

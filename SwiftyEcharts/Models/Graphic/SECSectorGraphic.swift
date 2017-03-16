@@ -78,8 +78,8 @@ extension SECSectorGraphic.Shape : SECEnumable {
     }
 }
 
-extension SECSectorGraphic.Shape : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECSectorGraphic.Shape : Mappable {
+    public func mapping(map: Mapper) {
         map["cx"] = cx
         map["cy"] = cy
         map["r"] = r
@@ -137,8 +137,8 @@ extension SECSectorGraphic : SECEnumable {
     }
 }
 
-extension SECSectorGraphic : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECSectorGraphic : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

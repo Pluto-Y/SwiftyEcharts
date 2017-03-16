@@ -1,19 +1,19 @@
 //
-//  SECMappable.swift
+//  Mappable.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 04/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECMappable: SECJsonable {
-    func mapping(map: SECMap)
+public protocol Mappable: Jsonable {
+    func mapping(map: Mapper)
 }
 
-extension SECMappable {
+extension Mappable {
 
     public var jsonString: String {
-        let map = SECMap()
+        let map = Mapper()
         mapping(map)
         return map.jsonString
     }

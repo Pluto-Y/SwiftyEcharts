@@ -18,7 +18,7 @@ public struct SECBrush {
     /// - lineY: 开启纵向选择功能。
     /// - keep: 切换『单选』和『多选』模式。后者可支持同时画多个选框。前者支持单击清除所有选框。
     /// - clear: 清空所有选框。
-    public enum Toolbox: String, SECJsonable {
+    public enum Toolbox: String, Jsonable {
         case rect = "rect"
         case polygon = "polygon"
         case lineX = "lineX"
@@ -36,7 +36,7 @@ public struct SECBrush {
     /// - indexes: 如 [0, 4, 2]，表示指定这些 index 所对应的坐标系。
     /// - all: 表示所有
     /// - none: 表示不指定
-    public enum Indexes : SECJsonable {
+    public enum Indexes : Jsonable {
         case indexes([Int])
         case all
         case none
@@ -59,7 +59,7 @@ public struct SECBrush {
     /// - polygon: 任意形状选框
     /// - lineX: 横向选择
     /// - lineY: 纵向选择
-    public enum Type : String, SECJsonable {
+    public enum Type : String, Jsonable {
         case rect = "rect"
         case polygon = "polygon"
         case lineX = "lineX"
@@ -74,7 +74,7 @@ public struct SECBrush {
     ///
     /// - single: 单选
     /// - multiple: 多选
-    public enum Mode : String, SECJsonable {
+    public enum Mode : String, Jsonable {
         case single = "single"
         case multiple = "multiple"
         
@@ -94,7 +94,7 @@ public struct SECBrush {
     /// 例如下面这个例子，就是使用了 debounce的效果：只有用户停止动作了，柱状图才更新。不然的话，如果柱状图的频繁更新，那么动画效果很差。
     ///
     /// http://echarts.baidu.com/gallery/view.html?c=scatter-map-brush&edit=1&reset=1
-    public enum ThrottleType : String, SECJsonable {
+    public enum ThrottleType : String, Jsonable {
         case debounce = "debounce"
         case fixRate = "fixRate"
         
@@ -394,8 +394,8 @@ extension SECBrush.Style : SECEnumable {
     }
 }
 
-extension SECBrush.Style : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECBrush.Style : Mappable {
+    public func mapping(map: Mapper) {
         map["borderWidth"] = borderWidth
         map["color"] = color
         map["borderColor"] = borderColor
@@ -448,8 +448,8 @@ extension SECBrush : SECEnumable {
     }
 }
 
-extension SECBrush : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECBrush : Mappable {
+    public func mapping(map: Mapper) {
         map["toolbox"] = toolbox
         map["brushLink"] = brushLink
         map["seriesIndex"] = seriesIndex

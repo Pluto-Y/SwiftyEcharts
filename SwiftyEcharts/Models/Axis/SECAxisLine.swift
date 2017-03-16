@@ -38,8 +38,8 @@ extension SECAxisLine : SECEnumable {
     }
 }
 
-extension SECAxisLine : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECAxisLine : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["onZero"] = onZero
         map["lineStyle"] = lineStyle

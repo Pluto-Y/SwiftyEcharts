@@ -1,5 +1,5 @@
 //
-//  SECPercent.swift
+//  Percent.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 15/02/2017.
@@ -8,7 +8,7 @@
 
 /// 用来标示百分比的情况， 通常可以通过用 数值 + % 形式来初始化
 /// 并且可以通过 Percent.precision 来进行全局定义
-public struct SECPercent {
+public struct Percent {
     public static var precision: Int = 2
     private let value: Double
     
@@ -17,31 +17,31 @@ public struct SECPercent {
     }
 }
 
-extension SECPercent : SECJsonable {
+extension Percent : Jsonable {
     public var jsonString: String {
-        let formatStr = String(format: "%%.%df", SECPercent.precision)
+        let formatStr = String(format: "%%.%df", Percent.precision)
         return "\"\(String(format: formatStr, value))%\""
     }
 }
 
-extension SECPercent : SECLength {
+extension Percent : LengthValue {
     
 }
 
 // 用自定义操作符 % 将 Int, Float 以及 Double 转换成 Percent 类型
 postfix operator % { }
 
-public postfix func %(value: Double) -> SECPercent {
-    let percent: SECPercent = SECPercent(value)
+public postfix func %(value: Double) -> Percent {
+    let percent: Percent = Percent(value)
     return percent
 }
 
-public postfix func %(value: Float) -> SECPercent {
-    let percent: SECPercent = SECPercent(Double(value))
+public postfix func %(value: Float) -> Percent {
+    let percent: Percent = Percent(Double(value))
     return percent
 }
 
-public postfix func %(value: Int) -> SECPercent {
-    let percent: SECPercent = SECPercent(Double(value))
+public postfix func %(value: Int) -> Percent {
+    let percent: Percent = Percent(Double(value))
     return percent
 }

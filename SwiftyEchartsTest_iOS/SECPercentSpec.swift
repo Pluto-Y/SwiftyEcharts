@@ -1,5 +1,5 @@
 //
-//  SECPercentSpec.swift
+//  PercentSpec.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 15/02/2017.
@@ -10,20 +10,20 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class SECPercentSpec : QuickSpec {
+class PercentSpec : QuickSpec {
     override func spec() {
-        describe("Testing for type named 'SECPercent'") {
+        describe("Testing for type named 'Percent'") {
             
             it(" needs to check jsonString ") {
                 let value = Double(Float(arc4random()) / Float(UINT32_MAX))
-                let percent = SECPercent(value)
-                let formatStr = String(format: "%%.%df", SECPercent.precision)
+                let percent = Percent(value)
+                let formatStr = String(format: "%%.%df", Percent.precision)
                 expect(percent.jsonString).to(equal("\"\(String(format: formatStr, value))%\""))
             }
             
             it(" needs to support for 'num%' format constructor") {
                 // 检查 Double + %
-                let percent: SECPercent = 32.0%
+                let percent: Percent = 32.0%
                 expect(percent.jsonString).to(equal("\"32.00%\""))
                 // 检查 Float + %
                 let percentFloat = Float(23.6)%
@@ -34,18 +34,18 @@ class SECPercentSpec : QuickSpec {
             }
             
             
-            it(" needs to check the precision for SECPercent") {
+            it(" needs to check the precision for Percent") {
                 // 检查精度问题
-                let originPrecision = SECPercent.precision
+                let originPrecision = Percent.precision
                 
                 let precision = 4
-                SECPercent.precision = precision
+                Percent.precision = precision
                 let formatStr = String(format: "%%.%df", precision)
                 let value = 78.9012345
-                let percent: SECPercent = value%
+                let percent: Percent = value%
                 expect(percent.jsonString).to(equal("\"\(String(format: formatStr, value))%\""))
                 
-                SECPercent.precision = originPrecision
+                Percent.precision = originPrecision
             }
         }
     }

@@ -15,7 +15,7 @@ public struct SECMarkArea : SECAnimatable {
     /// 该标域的样式。
     public var itemStyle: SECItemStyle?
     /// 标域的数据数组。
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 是否开启动画。
     public var animation: Bool?
     /// 是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
@@ -61,7 +61,7 @@ public struct SECMarkArea : SECAnimatable {
 
 extension SECMarkArea : SECEnumable {
     public enum Enums {
-        case silent(Bool), label(SECFormattedLabel), itemStyle(SECItemStyle), data([SECJsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case silent(Bool), label(SECFormattedLabel), itemStyle(SECItemStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -98,8 +98,8 @@ extension SECMarkArea : SECEnumable {
     }
 }
 
-extension SECMarkArea : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECMarkArea : Mappable {
+    public func mapping(map: Mapper) {
         map["silent"] = silent
         map["label"] = label
         map["itemStyle"] = itemStyle

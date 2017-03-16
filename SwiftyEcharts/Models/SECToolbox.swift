@@ -181,8 +181,8 @@ extension SECToolbox.IconStyleContent : SECEnumable {
     }
 }
 
-extension SECToolbox.IconStyleContent : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.IconStyleContent : Mappable {
+    public func mapping(map: Mapper) {
         map["color"] = color
         map["borderColor"] = borderColor
         map["borderWidth"] = borderWidth
@@ -216,8 +216,8 @@ extension SECToolbox.IconStyle : SECEnumable {
     }
 }
 
-extension SECToolbox.IconStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.IconStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
@@ -227,7 +227,7 @@ extension SECToolbox.IconStyle : SECMappable {
 extension SECToolbox.Feature {
     /// 保存为图片。
     public struct SaveAsImage : SECDisplayable {
-        public enum Type : String, SECJsonable {
+        public enum Type : String, Jsonable {
             case png = "png"
             case jpeg = "jpeg"
             
@@ -290,8 +290,8 @@ extension SECToolbox.Feature.SaveAsImage : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature.SaveAsImage : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature.SaveAsImage : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["backgroundColor"] = backgroundColor
@@ -342,8 +342,8 @@ extension SECToolbox.Feature.Restore : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature.Restore : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature.Restore : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["title"] = title
         map["icon"] = icon
@@ -423,8 +423,8 @@ extension SECToolbox.Feature.DataView : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature.DataView : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature.DataView : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["title"] = title
         map["icon"] = icon
@@ -452,7 +452,7 @@ extension SECToolbox.Feature {
         /// - bool: 如果设置为 false 则不控制任何x轴
         /// - int: 如果设置成 3 则控制 axisIndex 为 3 的x轴
         /// - array: 如果设置为 [0, 3] 则控制 axisIndex 为 0 和 3 的x轴。
-        public enum AxisIndexSelector : SECJsonable {
+        public enum AxisIndexSelector : Jsonable {
             case bool(Bool)
             case int(UInt)
             case array([UInt])
@@ -529,8 +529,8 @@ extension SECToolbox.Feature.DataZoom.Title : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature.DataZoom.Title : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature.DataZoom.Title : Mappable {
+    public func mapping(map: Mapper) {
         map["zoom"] = zoom
         map["back"] = back
     }
@@ -555,8 +555,8 @@ extension SECToolbox.Feature.DataZoom.Icon : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature.DataZoom.Icon : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature.DataZoom.Icon : Mappable {
+    public func mapping(map: Mapper) {
         map["zoom"] = zoom
         map["back"] = back
     }
@@ -589,8 +589,8 @@ extension SECToolbox.Feature.DataZoom : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature.DataZoom : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature.DataZoom : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["title"] = title
         map["icon"] = icon
@@ -618,7 +618,7 @@ extension SECToolbox.Feature {
         /// - bar: 柱状图
         /// - stack: 堆叠模式
         /// - tiled: 平铺模式
-        public enum Type : String, SECJsonable {
+        public enum Type : String, Jsonable {
             case line = "line"
             case bar = "bar"
             case stack = "stack"
@@ -681,8 +681,8 @@ extension SECToolbox.Feature.MagicType.Title : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature.MagicType.Title : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature.MagicType.Title : Mappable {
+    public func mapping(map: Mapper) {
         map["line"] = line
         map["bar"] = bar
         map["stack"] = stack
@@ -713,8 +713,8 @@ extension SECToolbox.Feature.MagicType.Icon : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature.MagicType.Icon : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature.MagicType.Icon : Mappable {
+    public func mapping(map: Mapper) {
         map["line"] = line
         map["bar"] = bar
         map["stack"] = stack
@@ -745,8 +745,8 @@ extension SECToolbox.Feature.MagicType : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature.MagicType : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature.MagicType : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["type"] = type
         map["title"] = title
@@ -770,7 +770,7 @@ extension SECToolbox.Feature {
         /// - lineY: 开启纵向选择功能。
         /// - keep: 切换『单选』和『多选』模式。后者可支持同时画多个选框。前者支持单击清除所有选框。
         /// - clear: 清空所有选框。
-        public enum Type: String, SECJsonable {
+        public enum Type: String, Jsonable {
             case rect = "rect"
             case polygon = "polygon"
             case lineX = "lineX"
@@ -836,8 +836,8 @@ extension SECToolbox.Feature.Brush.Icon : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature.Brush.Icon : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature.Brush.Icon : Mappable {
+    public func mapping(map: Mapper) {
         map["rect"] = rect
         map["polygon"] = polygon
         map["lineX"] = lineX
@@ -874,8 +874,8 @@ extension SECToolbox.Feature.Brush.Title : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature.Brush.Title : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature.Brush.Title : Mappable {
+    public func mapping(map: Mapper) {
         map["rect"] = rect
         map["polygon"] = polygon
         map["lineX"] = lineX
@@ -906,8 +906,8 @@ extension SECToolbox.Feature.Brush : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature.Brush : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature.Brush : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["icon"] = icon
         map["title"] = title
@@ -950,8 +950,8 @@ extension SECToolbox.Feature : SECEnumable {
     }
 }
 
-extension SECToolbox.Feature : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox.Feature : Mappable {
+    public func mapping(map: Mapper) {
         map["saveAsImage"] = saveAsImage
         map["restore"] = restore
         map["dataView"] = dataView
@@ -1007,8 +1007,8 @@ extension SECToolbox : SECEnumable {
     }
 }
 
-extension SECToolbox : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECToolbox : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["orient"] = orient
         map["itemSize"] = itemSize

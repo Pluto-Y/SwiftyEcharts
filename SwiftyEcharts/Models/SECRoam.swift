@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public enum SECRoam : String, SECJsonable {
+public enum SECRoam : String, Jsonable {
     case enable = "true"
     case disable = "false"
     case scale = "scale"

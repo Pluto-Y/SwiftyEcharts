@@ -147,7 +147,7 @@ public struct SECLinesSerie : SECSeries, SECZable, SECAnimatable {
     ///             normal: {}
     ///         }
     ///     }
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 图表标注。
     public var markPoint: SECMarkPoint?
     /// 图表标线。
@@ -207,8 +207,8 @@ extension SECLinesSerie.Effect : SECEnumable {
     }
 }
 
-extension SECLinesSerie.Effect : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECLinesSerie.Effect : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["period"] = period
         map["constantSpeed"] = constantSpeed
@@ -243,8 +243,8 @@ extension SECLinesSerieData : SECEnumable {
     }
 }
 
-extension SECLinesSerieData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECLinesSerieData : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["coords"] = coords
         map["lineStyle"] = lineStyle
@@ -254,7 +254,7 @@ extension SECLinesSerieData : SECMappable {
 
 extension SECLinesSerie : SECEnumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(SECSymbol), symbolSize(Float), lineStyle(SECLineStyle), label(SECFormattedLabel), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(SECSymbol), symbolSize(Float), lineStyle(SECLineStyle), label(SECFormattedLabel), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -323,8 +323,8 @@ extension SECLinesSerie : SECEnumable {
     }
 }
 
-extension SECLinesSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECLinesSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["coordinateSystem"] = coordinateSystem

@@ -37,8 +37,8 @@ extension SECSplitArea : SECEnumable {
     }
 }
 
-extension SECSplitArea : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECSplitArea : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["interval"] = interval
         map["areaStyle"] = areaStyle

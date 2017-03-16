@@ -1,5 +1,5 @@
 //
-//  SECJsonableSpec.swift
+//  JsonableSpec.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 04/01/2017.
@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class SECJsonableSpec: QuickSpec {
+class JsonableSpec: QuickSpec {
     
     
     override func spec() {

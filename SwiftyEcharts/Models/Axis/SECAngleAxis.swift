@@ -152,8 +152,8 @@ extension SECAngleAxis.Data : SECEnumable {
     }
 }
 
-extension SECAngleAxis.Data : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECAngleAxis.Data : Mappable {
+    public func mapping(map: Mapper) {
         map["value"] = value
         map["textStyle"] = textStyle
     }
@@ -218,8 +218,8 @@ extension SECAngleAxis : SECEnumable {
     }
 }
 
-extension SECAngleAxis : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECAngleAxis : Mappable {
+    public func mapping(map: Mapper) {
         map["polarIndex"] = polarIndex
         map["startAngle"] = startAngle
         map["clockwise"] = clockwise

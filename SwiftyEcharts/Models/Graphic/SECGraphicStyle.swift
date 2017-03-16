@@ -59,8 +59,8 @@ extension SECCommonGraphicStyle : SECEnumable {
     }
 }
 
-extension SECCommonGraphicStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECCommonGraphicStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["fill"] = fill
         map["stroke"] = stroke
         map["lineWidth"] = lineWidth

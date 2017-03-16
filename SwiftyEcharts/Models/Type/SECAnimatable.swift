@@ -17,7 +17,7 @@
 ///         // 越往后的数据延迟越大
 ///         return idx * 100;
 ///     }
-public enum SECTime: SECJsonable {
+public enum SECTime: Jsonable {
     case number(Float)
     case function(String)
     
@@ -26,9 +26,9 @@ public enum SECTime: SECJsonable {
         case let .number(time):
             return "\(time)"
         case let .function(f):
-            let count = SECJsCache.allJsStrings().count
+            let count = JsCache.allJsStrings().count
             let funcName = "timeFunc\(count)"
-            SECJsCache.add("var \(funcName) = \(f);")
+            JsCache.add("var \(funcName) = \(f);")
             return "\"\(funcName)\""
         }
     }
@@ -37,7 +37,7 @@ public enum SECTime: SECJsonable {
 /// 默认支持的动画执行类型
 /// 具体详情可以查看一下地址进行对比
 /// http://echarts.baidu.com/gallery/editor.html?c=line-easing
-public enum SECAnimation: String, SECJsonable {
+public enum SECAnimation: String, Jsonable {
     case linear = "linear"
     case quadraticIn = "quadraticIn"
     case quadraticOut = "quadraticOut"

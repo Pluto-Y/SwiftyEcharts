@@ -12,7 +12,7 @@ import SwiftyEcharts
 
 class SECMappableSpec: QuickSpec {
     
-    struct MappableStructTest: SECMappable {
+    struct MappableStructTest: Mappable {
         var boolVar: Bool = false
         var boolOpt: Bool?
         var intVar: Int = 0
@@ -24,7 +24,7 @@ class SECMappableSpec: QuickSpec {
         var stringVar: String = ""
         var stringOpt: String?
         
-        func mapping(map: SECMap) {
+        func mapping(map: Mapper) {
             map["boolVar"] = boolVar
             map["boolOpt"] = boolOpt
             map["intVar"] = intVar
@@ -38,7 +38,7 @@ class SECMappableSpec: QuickSpec {
         }
     }
     
-    class MappableClassTest: SECMappable {
+    class MappableClassTest: Mappable {
         var boolVar: Bool = false
         var boolOpt: Bool?
         var intVar: Int = 0
@@ -50,7 +50,7 @@ class SECMappableSpec: QuickSpec {
         var stringVar: String = ""
         var stringOpt: String?
         
-        func mapping(map: SECMap) {
+        func mapping(map: Mapper) {
             map["boolVar"] = boolVar
             map["boolOpt"] = boolOpt
             map["intVar"] = intVar
@@ -79,9 +79,9 @@ class SECMappableSpec: QuickSpec {
                 mappableStruct.floatOpt = nil
                 mappableStruct.stringVar = "Pluto"
                 mappableStruct.stringOpt = nil
-                SECMap.ignoreNil = true
+                Mapper.ignoreNil = true
                 expect(mappableStruct.jsonString).to(equal("{\n\"boolVar\":false,\n\"doubleOpt\":11.0,\n\"doubleVar\":10.0,\n\"floatVar\":3.14,\n\"intOpt\":12,\n\"intVar\":10,\n\"stringVar\":\"Pluto\"\n}"))
-                SECMap.ignoreNil = false
+                Mapper.ignoreNil = false
                 expect(mappableStruct.jsonString).to(equal("{\n\"boolOpt\":null,\n\"boolVar\":false,\n\"doubleOpt\":11.0,\n\"doubleVar\":10.0,\n\"floatOpt\":null,\n\"floatVar\":3.14,\n\"intOpt\":12,\n\"intVar\":10,\n\"stringOpt\":null,\n\"stringVar\":\"Pluto\"\n}"))
             }
             
@@ -97,9 +97,9 @@ class SECMappableSpec: QuickSpec {
                 mappableClass.floatOpt = nil
                 mappableClass.stringVar = "Pluto"
                 mappableClass.stringOpt = nil
-                SECMap.ignoreNil = true
+                Mapper.ignoreNil = true
                 expect(mappableClass.jsonString).to(equal("{\n\"boolVar\":false,\n\"doubleOpt\":11.0,\n\"doubleVar\":10.0,\n\"floatVar\":3.14,\n\"intOpt\":12,\n\"intVar\":10,\n\"stringVar\":\"Pluto\"\n}"))
-                SECMap.ignoreNil = false
+                Mapper.ignoreNil = false
                 expect(mappableClass.jsonString).to(equal("{\n\"boolOpt\":null,\n\"boolVar\":false,\n\"doubleOpt\":11.0,\n\"doubleVar\":10.0,\n\"floatOpt\":null,\n\"floatVar\":3.14,\n\"intOpt\":12,\n\"intVar\":10,\n\"stringOpt\":null,\n\"stringVar\":\"Pluto\"\n}"))
             }
         }

@@ -164,8 +164,8 @@ extension SECOption : SECEnumable {
     }
 }
 
-extension SECOption : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECOption : Mappable {
+    public func mapping(map: Mapper) {
         map["title"] = title
         map["legend"] = legend
         map["grid"] = grid

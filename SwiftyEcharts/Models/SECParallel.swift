@@ -325,8 +325,8 @@ extension SECParallel : SECEnumable {
     }
 }
 
-extension SECParallel : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECParallel : Mappable {
+    public func mapping(map: Mapper) {
         map["zlevel"] = zlevel
         map["z"] = z
         map["left"] = left
@@ -401,8 +401,8 @@ extension SECParallel.ParallelAxisDefault : SECEnumable {
     }
 }
 
-extension SECParallel.ParallelAxisDefault : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECParallel.ParallelAxisDefault : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["nameLocation"] = nameLocation
@@ -446,8 +446,8 @@ extension SECParallel.ParallelAxisDefault.Data : SECEnumable {
     }
 }
 
-extension SECParallel.ParallelAxisDefault.Data : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECParallel.ParallelAxisDefault.Data : Mappable {
+    public func mapping(map: Mapper) {
         map["value"] = value
         map["textStyle"] = textStyle
     }

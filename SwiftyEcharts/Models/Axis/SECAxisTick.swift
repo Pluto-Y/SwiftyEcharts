@@ -60,8 +60,8 @@ extension SECAxisTick : SECEnumable {
     }
 }
 
-extension SECAxisTick : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECAxisTick : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["alignWithLabel"] = alignWithLabel
         map["interval"] = interval

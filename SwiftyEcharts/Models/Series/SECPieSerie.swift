@@ -30,7 +30,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     /// - dispable: 显示为普通饼图
     /// - radius: 面积展现数据的百分比，半径展现数据的大小
     /// - area: 所有扇区面积相同，仅通过半径展现数据大小
-    public enum RoseType : String, SECJsonable {
+    public enum RoseType : String, Jsonable {
         case enable = "true"
         case dispable = "false"
         case radius = "radius"
@@ -74,7 +74,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     ///
     /// - expansion: 默认研圆弧展开的效果。
     /// - scale:  缩放效果，配合设置 animationEasing='elasticOut' 可以做成 popup 的效果。
-    public enum AnimationType : String, SECJsonable {
+    public enum AnimationType : String, Jsonable {
         case expansion = "expansion"
         case scale = "scale"
         
@@ -138,7 +138,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     /// 可以将内半径设大显示成圆环图（Donut chart）。
     public var radius: SECRange?
     /// 系列中的数据内容数组。数组项可以为单个数值，如：
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 图表标注。
     public var markPoint: SECMarkPoint?
     /// 图表标线。
@@ -219,8 +219,8 @@ extension SECPieSerie.LabelLineContent : SECEnumable {
     }
 }
 
-extension SECPieSerie.LabelLineContent : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECPieSerie.LabelLineContent : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["length"] = length
         map["length2"] = length2
@@ -248,8 +248,8 @@ extension SECPieSerie.LabelLine : SECEnumable {
     }
 }
 
-extension SECPieSerie.LabelLine : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECPieSerie.LabelLine : Mappable {
+    public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
@@ -257,7 +257,7 @@ extension SECPieSerie.LabelLine : SECMappable {
 
 extension SECPieSerie : SECEnumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SECSelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(RoseType), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(SECFormattedLabel), labelLine(LabelLine), itemStyle(SECItemStyle), zlevel(Float), z(Float), center(SECPoint), radius(SECLength), radiusRange(SECRange), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SECSelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(RoseType), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(SECFormattedLabel), labelLine(LabelLine), itemStyle(SECItemStyle), zlevel(Float), z(Float), center(SECPoint), radius(LengthValue), radiusRange(SECRange), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -365,8 +365,8 @@ extension SECPieSerieData : SECEnumable {
     
 }
 
-extension SECPieSerieData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECPieSerieData : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["selected"] = selected
@@ -376,8 +376,8 @@ extension SECPieSerieData : SECMappable {
     }
 }
 
-extension SECPieSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECPieSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["legendHoverLink"] = legendHoverLink

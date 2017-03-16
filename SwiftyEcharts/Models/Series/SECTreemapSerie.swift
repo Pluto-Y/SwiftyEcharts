@@ -41,7 +41,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
     /// - false：节点点击无反应。
     /// - 'zoomToNode'：点击节点后缩放到节点。
     /// - 'link'：如果节点数据中有 link 点击节点后会进行超链接跳转。
-    public enum NodeClick : String, SECJsonable {
+    public enum NodeClick : String, Jsonable {
         case disable = "false"
         case zoomToNode = "zoomToNode"
         case link = "link"
@@ -62,7 +62,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
     ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
     ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
     ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-    public enum ColorMappingBy : String, SECJsonable {
+    public enum ColorMappingBy : String, Jsonable {
         case value = "value"
         case index = "index"
         case id = "id"
@@ -185,7 +185,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
         /// 意义同 html <a> 标签中的 target，参见 series-treemap.data.link。可选值为：'blank' 或 'self'。
         public var target: SECTarget?
         /// 子节点，递归定义，格式同 series-treemap.data。
-        public var children: [SECJsonable]?
+        public var children: [Jsonable]?
         
         public init() {}
     }
@@ -229,7 +229,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
     
     public struct Data {
         /// 每个树节点的值，对应到面积大小。可以是number，也可以是数组，如 [2323, 43, 55]，则数组第一项对应到面积大小。
-        public var value: SECJsonable?
+        public var value: Jsonable?
         /// 每个树节点的id。id 不是必须设置的。但是如果想使用 API 来改变某个节点，需要用 id 来定位。
         public var id: String?
         /// 显示在矩形中的描述文字。
@@ -370,9 +370,9 @@ public struct SECTreemapSerie : SECSeries, SECZable {
     /// 默认自适应。
     public var bottom: SECPosition?
     /// treemap 组件的宽度。
-    public var width: SECLength?
+    public var width: LengthValue?
     /// treemap 组件的高度。
-    public var height: SECLength?
+    public var height: LengthValue?
     /// 期望矩形长宽比率。布局计算时会尽量向这个比率靠近。
     ///
     /// 默认为黄金比：0.5 * (1 + Math.sqrt(5))。
@@ -615,7 +615,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
     ///         },
     ///         ...
     ///     ]
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 初始动画的时长，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果：
     ///
     ///     animationDuration: function (idx) {
@@ -682,8 +682,8 @@ extension SECTreemapSerieLevel : SECEnumable {
     }
 }
 
-extension SECTreemapSerieLevel : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTreemapSerieLevel : Mappable {
+    public func mapping(map: Mapper) {
         map["visualDimension"] = visualDimension
         map["visualMin"] = visualMin
         map["visualMax"] = visualMax
@@ -700,7 +700,7 @@ extension SECTreemapSerieLevel : SECMappable {
 
 extension SECTreemapSerieSilent : SECEnumable {
     public enum Enums {
-        case link(String), target(SECTarget), children([SECJsonable])
+        case link(String), target(SECTarget), children([Jsonable])
     }
     
     public typealias ContentEnum = Enums
@@ -719,8 +719,8 @@ extension SECTreemapSerieSilent : SECEnumable {
     }
 }
 
-extension SECTreemapSerieSilent : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTreemapSerieSilent : Mappable {
+    public func mapping(map: Mapper) {
         map["link"] = link
         map["target"] = target
         map["children"] = children
@@ -758,8 +758,8 @@ extension SECTreemapSerieBreadcrumb : SECEnumable {
     }
 }
 
-extension SECTreemapSerieBreadcrumb : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTreemapSerieBreadcrumb : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["left"] = left
         map["top"] = top
@@ -773,7 +773,7 @@ extension SECTreemapSerieBreadcrumb : SECMappable {
 
 extension SECTreemapSerieData : SECEnumable {
     public enum Enums {
-        case value(SECJsonable), id(String), name(String), visualDimension(Float), visualMin(Float), visualMax(Float), color([SECColor]), colorAlpha(SECRange), colorSaturation(SECRange), colorMappingBy(SECTreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(SECLabel), itemStyle(SECItemStyle)
+        case value(Jsonable), id(String), name(String), visualDimension(Float), visualMin(Float), visualMax(Float), color([SECColor]), colorAlpha(SECRange), colorSaturation(SECRange), colorMappingBy(SECTreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(SECLabel), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -814,8 +814,8 @@ extension SECTreemapSerieData : SECEnumable {
     }
 }
 
-extension SECTreemapSerieData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTreemapSerieData : Mappable {
+    public func mapping(map: Mapper) {
         map["value"] = value
         map["id"] = id
         map["name"] = name
@@ -835,7 +835,7 @@ extension SECTreemapSerieData : SECMappable {
 
 extension SECTreemapSerie : SECEnumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), squareRotio(Float), leafDepth(Float), roam(SECRoam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(SECRange), colorSaturation(SECRange), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(SECLabel), itemStyle(SECItemStyle), breadcrumb(Breadcrumb), data([SECJsonable]), animationDuration(Float), animationEasing(SECAnimation), animationDelay(SECTime)
+        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), squareRotio(Float), leafDepth(Float), roam(SECRoam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(SECRange), colorSaturation(SECRange), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(SECLabel), itemStyle(SECItemStyle), breadcrumb(Breadcrumb), data([Jsonable]), animationDuration(Float), animationEasing(SECAnimation), animationDelay(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -908,8 +908,8 @@ extension SECTreemapSerie : SECEnumable {
     }
 }
 
-extension SECTreemapSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTreemapSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["zlevel"] = zlevel
         map["z"] = z

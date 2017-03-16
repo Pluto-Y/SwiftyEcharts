@@ -300,8 +300,8 @@ extension SECSliderDataZoom.DataBackground : SECEnumable {
     }
 }
 
-extension SECSliderDataZoom.DataBackground : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECSliderDataZoom.DataBackground : Mappable {
+    public func mapping(map: Mapper) {
         map["lineStyle"] = lineStyle
         map["areaStyle"] = areaStyle
     }
@@ -340,8 +340,8 @@ extension SECSliderDataZoom.HandleStyle : SECEnumable {
     }
 }
 
-extension SECSliderDataZoom.HandleStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECSliderDataZoom.HandleStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["color"] = color
         map["borderColor"] = borderColor
         map["borderWidth"] = borderWidth
@@ -439,8 +439,8 @@ extension SECSliderDataZoom : SECEnumable {
     }
 }
 
-extension SECSliderDataZoom : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECSliderDataZoom : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["show"] = show
         map["backgroundColor"] = backgroundColor

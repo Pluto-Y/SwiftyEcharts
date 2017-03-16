@@ -146,14 +146,14 @@ public struct SECThemeRiverOptions {
             "Bxc3xa9la Fleck and the Flecktones",
             "Joshua Redman"
         ]
-        var data: [SECJsonable] = []
+        var data: [Jsonable] = []
         for i in 0..<rawData.count {
             for j in 0..<rawData[i].count {
                 var l: String = "null"
                 if i < labels.count {
                     l = labels[i]
                 }
-                let d: [SECJsonable] = [j, rawData[i][j], l]
+                let d: [Jsonable] = [j, rawData[i][j], l]
                 data.append(d)
             }
         }

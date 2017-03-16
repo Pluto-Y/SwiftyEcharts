@@ -7,7 +7,7 @@
 //
 
 // FIXME: 添加注释
-public enum SECSymbol: CustomStringConvertible, SECJsonable {
+public enum SECSymbol: CustomStringConvertible, Jsonable {
     case emptyCircle
     case circle
     case rect

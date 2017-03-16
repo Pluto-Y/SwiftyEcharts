@@ -49,11 +49,11 @@ public struct SECThemeRiverSerie: SECSeries, SECZable {
     /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     public var bottom: SECPosition?
     /// thmemRiver组件的宽度。
-    public var width: SECLength?
+    public var width: LengthValue?
     /// thmemRiver组件的高度。
     ///
     /// 注意： 整个主题河流view的位置信息复用了单个时间轴的位置信息，即left，top，right，bottom。
-    public var height: SECLength?
+    public var height: LengthValue?
     /// 坐标系统，主题河流用的是单个的时间轴。
     public var coordinateSystem: SECCoordinateSystem?
     /// 图中与坐标轴正交的方向的边界间隙，设置该值是为了调整图的位置，使其尽量处于屏幕的正中间，避免处于屏幕的上方或下方。
@@ -69,14 +69,14 @@ public struct SECThemeRiverSerie: SECSeries, SECZable {
     /// 主题河流中tooltip的样式。
     public var tooltip: SECTooltip?
     /// 数据
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     
     public init() { }
 }
 
 extension SECThemeRiverSerie : SECEnumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(SECLength), height(SECLength), coordinateSystem(SECCoordinateSystem), boundaryGap(SECBoundaryGap), singleAxisIndex(UInt8), label(SECFormattedLabel), itemStyle(SECItemStyle), legend(SECLegend), tooltip(SECTooltip), data([SECJsonable])
+        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(LengthValue), height(LengthValue), coordinateSystem(SECCoordinateSystem), boundaryGap(SECBoundaryGap), singleAxisIndex(UInt8), label(SECFormattedLabel), itemStyle(SECItemStyle), legend(SECLegend), tooltip(SECTooltip), data([Jsonable])
     }
     
     public typealias ContentEnum = Enums
@@ -121,8 +121,8 @@ extension SECThemeRiverSerie : SECEnumable {
     }
 }
 
-extension SECThemeRiverSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECThemeRiverSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["zlevel"] = zlevel
         map["z"] = z

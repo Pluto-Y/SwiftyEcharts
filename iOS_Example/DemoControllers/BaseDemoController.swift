@@ -43,7 +43,7 @@ class BaseDemoController: UIViewController, UITableViewDelegate, UITableViewData
         echartsView = SECEchartsView(frame: CGRect(x: 0, y: height - 299, width: width, height: 300))
         self.view.addSubview(echartsView!)
         
-        SECMap.ignoreNil = true
+        Mapper.ignoreNil = true
 
     }
     

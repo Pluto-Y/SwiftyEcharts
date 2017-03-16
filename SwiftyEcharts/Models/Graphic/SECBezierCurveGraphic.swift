@@ -93,8 +93,8 @@ extension SECBezierCurveGraphic.Shape : SECEnumable {
     }
 }
 
-extension SECBezierCurveGraphic.Shape : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECBezierCurveGraphic.Shape : Mappable {
+    public func mapping(map: Mapper) {
         map["x1"] = x1
         map["y1"] = y1
         map["x2"] = x2
@@ -154,8 +154,8 @@ extension SECBezierCurveGraphic : SECEnumable {
     }
 }
 
-extension SECBezierCurveGraphic : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECBezierCurveGraphic : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

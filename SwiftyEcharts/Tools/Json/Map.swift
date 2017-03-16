@@ -1,5 +1,5 @@
 //
-//  SECMap.swift
+//  Mapper.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 09/01/2017.
@@ -7,14 +7,14 @@
 //
 
 
-public final class SECMap {
+public final class Mapper {
     public static var ignoreNil: Bool = true
-    public var mapDic: [String: SECJsonable?] = {
-        let dic = [String: SECJsonable?]()
+    public var mapDic: [String: Jsonable?] = {
+        let dic = [String: Jsonable?]()
         return dic
     }()
     
-    public subscript(key: String) -> SECJsonable? {
+    public subscript(key: String) -> Jsonable? {
         get {
             if let value = mapDic[key] {
                 return value
@@ -27,9 +27,9 @@ public final class SECMap {
     }
 }
 
-extension SECMap: SECJsonable {
+extension Mapper: Jsonable {
     public var jsonString: String {
-        if SECMap.ignoreNil {
+        if Mapper.ignoreNil {
             let tmpDic = mapDic
             for (key, val) in tmpDic {
                 if val == nil {

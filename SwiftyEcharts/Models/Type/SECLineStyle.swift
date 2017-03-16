@@ -13,7 +13,7 @@ public protocol SECLineStyleContent: SECColorful, SECShadowable, SECOpacitable {
 
 
 /// 线条样式
-public struct SECLineStyle: SECShadowable, SECColorful, SECOpacitable, SECJsonable {
+public struct SECLineStyle: SECShadowable, SECColorful, SECOpacitable, Jsonable {
     /// 线的颜色。
     public var color: SECColor?
     /// 线宽。
@@ -73,8 +73,8 @@ extension SECLineStyle : SECEnumable {
     }
 }
 
-extension SECLineStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECLineStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["color"] = color
         map["width"] = width
         map["type"] = type
@@ -115,8 +115,8 @@ extension SECEmphasisLineStyle : SECEnumable {
     }
 }
 
-extension SECEmphasisLineStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECEmphasisLineStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }

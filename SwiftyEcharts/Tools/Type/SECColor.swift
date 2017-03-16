@@ -17,9 +17,9 @@ public protocol SECColorful {
 /// - rgba: 以RGBA形式创建的颜色
 /// - rgb: 以RGB形式创建的颜色
 /// - hexColor: 以16进制字符串创建的颜色
-public enum SECColor: SECJsonable {
+public enum SECColor: Jsonable {
     
-    public enum ImageRepeat : String, SECJsonable {
+    public enum ImageRepeat : String, Jsonable {
         case repeatAll = "repeat"
         case repeatX = "repeat-x"
         case repeatY = "repeat-y"
@@ -71,9 +71,9 @@ public enum SECColor: SECJsonable {
                 }
                 jsStr = jsStr.substringToIndex(jsStr.endIndex.predecessor())
                 jsStr += "], \(absolute))"
-                let count = SECJsCache.allJsStrings().count
+                let count = JsCache.allJsStrings().count
                 let paramName = "linearGradient\(count)"
-                SECJsCache.add("var \(paramName) = \(jsStr);")
+                JsCache.add("var \(paramName) = \(jsStr);")
                 result = "\"\(paramName)\""
             }
             return result
@@ -88,9 +88,9 @@ public enum SECColor: SECJsonable {
                 }
                 jsStr = jsStr.substringToIndex(jsStr.endIndex.predecessor())
                 jsStr += "], \(absolute))"
-                let count = SECJsCache.allJsStrings().count
+                let count = JsCache.allJsStrings().count
                 let paramName = "radialGradient\(count)"
-                SECJsCache.add("var \(paramName) = \(jsStr);")
+                JsCache.add("var \(paramName) = \(jsStr);")
                 result = "\"\(paramName)\""
             }
             return result
@@ -105,9 +105,9 @@ public enum SECColor: SECJsonable {
             result += "]"
             return result
         case let .image(base64Str, r):
-            let count = SECJsCache.allJsStrings().count
+            let count = JsCache.allJsStrings().count
             let paramName = "imgColor\(count)"
-            SECJsCache.add("var \(paramName) = new Image(); \(paramName).src = '\(base64Str)';")
+            JsCache.add("var \(paramName) = new Image(); \(paramName).src = '\(base64Str)';")
             return "{\"image\": \"\(paramName)\", \"repeat\": \(r.jsonString)}"
         }
     }
@@ -126,7 +126,7 @@ public struct SECGradientColorElement {
     }
 }
 
-extension SECGradientColorElement: SECJsonable {
+extension SECGradientColorElement: Jsonable {
     public var jsonString: String {
         if let o = offset, let c = color {
             return "{\"offset\": \(o.jsonString), \"color\": \(c.jsonString)}"
@@ -137,9 +137,9 @@ extension SECGradientColorElement: SECJsonable {
 
 extension SECGradientColorElement : DictionaryLiteralConvertible {
     public typealias Key = String
-    public typealias Value = SECJsonable
+    public typealias Value = Jsonable
     
-    public init(dictionaryLiteral elements: (String, SECJsonable)...) {
+    public init(dictionaryLiteral elements: (String, Jsonable)...) {
         var offset: Float?
         var color: SECColor?
         for (key, value) in elements {

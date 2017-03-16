@@ -27,7 +27,7 @@ public struct SECRadar : SECZable {
     ///
     /// - polygon:
     /// - circle:
-    public enum Shape : String, SECJsonable {
+    public enum Shape : String, Jsonable {
         case polygon = "polygon"
         case circle = "circle"
         
@@ -73,7 +73,7 @@ public struct SECRadar : SECZable {
     public var center: SECPoint?
     /// 坐标系的半径，数组的第一项是内半径，第二项是外半径。
     /// 支持设置成百分比，相对于容器高宽中较小的一项的一半。
-    public var radius: SECLength?
+    public var radius: LengthValue?
     /// 坐标系起始角度，也就是第一个指示器轴的角度。
     public var startAngle: Float?
     /// 雷达图每个指示器名称的配置项。
@@ -151,8 +151,8 @@ extension SECRadar.Name : SECEnumable {
     }
 }
 
-extension SECRadar.Name : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECRadar.Name : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["formatter"] = formatter
         map["textStyle"] = textStyle
@@ -182,8 +182,8 @@ extension SECIndicator : SECEnumable {
     }
 }
 
-extension SECIndicator : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECIndicator : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["max"] = max
         map["min"] = min
@@ -192,7 +192,7 @@ extension SECIndicator : SECMappable {
 
 extension SECRadar : SECEnumable {
     public enum Enums {
-        case zlevel(Float), z(Float), center(SECPoint), radius(SECLength), startAngle(Float), name(Name), nameGap(Float), splitNumber(Int), shape(Shape), scale(Bool), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), indicator([Indicator])
+        case zlevel(Float), z(Float), center(SECPoint), radius(LengthValue), startAngle(Float), name(Name), nameGap(Float), splitNumber(Int), shape(Shape), scale(Bool), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), indicator([Indicator])
     }
     
     public typealias ContentEnum = Enums
@@ -241,8 +241,8 @@ extension SECRadar : SECEnumable {
     }
 }
 
-extension SECRadar : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECRadar : Mappable {
+    public func mapping(map: Mapper) {
         map["zlevel"] = zlevel
         map["z"] = z
         map["center"] = center

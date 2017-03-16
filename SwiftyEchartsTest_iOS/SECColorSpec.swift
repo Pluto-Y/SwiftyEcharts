@@ -56,10 +56,10 @@ class SECColorSpec: QuickSpec {
                 let color1 = SECColor.red, color2 = SECColor.blue
                 let gradientElement1: SECGradientColorElement = ["offset": offset1, "color": color1]
                 let gradientElement2 = SECGradientColorElement(offset2, color2)
-                SECJsCache.removeAll()
+                JsCache.removeAll()
                 let linearGradient = SECColor.linearGradient(x0, y0, x2, y2, [gradientElement1, gradientElement2], false)
                 expect(linearGradient.jsonString).to(equal("\"linearGradient0\""))
-                let linearGradientJs = SECJsCache.allJsStrings()[0]
+                let linearGradientJs = JsCache.allJsStrings()[0]
                 expect(linearGradientJs).to(equal("var linearGradient0 = new echarts.graphic.LinearGradient(\(x0.jsonString), \(y0.jsonString), \(x2.jsonString), \(y2.jsonString), [\(gradientElement1.jsonString),\(gradientElement2.jsonString)], false);"))
             }
             
@@ -70,11 +70,11 @@ class SECColorSpec: QuickSpec {
                 let gradientElement1: SECGradientColorElement = ["offset": offset1, "color": color1]
                 let gradientElement2 = SECGradientColorElement(offset2, color2)
                 let gradientElement3 = SECGradientColorElement(offset3, color3)
-                SECJsCache.removeAll()
+                JsCache.removeAll()
                 let radialGradient = SECColor.radialGradient(x, y, r, [gradientElement1, gradientElement2, gradientElement3], true)
                 expect(radialGradient.jsonString).to(equal("\"radialGradient0\""))
                 
-                let radialGradientJs = SECJsCache.allJsStrings()[0]
+                let radialGradientJs = JsCache.allJsStrings()[0]
                 expect(radialGradientJs).to(equal("var radialGradient0 = new echarts.graphic.RadialGradient(\(x.jsonString), \(y.jsonString), \(r.jsonString), [\(gradientElement1.jsonString),\(gradientElement2.jsonString),\(gradientElement3.jsonString)], true);"))
             }
         }

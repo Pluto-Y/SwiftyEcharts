@@ -42,7 +42,7 @@ public struct SECMarkData {
         ///                 }
         ///             }
         ///         }
-        public var coord: SECJsonable?
+        public var coord: Jsonable?
         /// 相对容器的屏幕 x 坐标，单位像素。
         public var x: Float?
         /// 相对容器的屏幕 y 坐标，单位像素。
@@ -81,7 +81,7 @@ public struct SECMarkData {
 
 extension SECMarkData.DataContent : SECEnumable {
     public enum Enums {
-        case type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(SECJsonable), x(Float), y(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), lineStyle(SECEmphasisLineStyle), label(SECLabel)
+        case type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(Float), y(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), lineStyle(SECEmphasisLineStyle), label(SECLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -120,8 +120,8 @@ extension SECMarkData.DataContent : SECEnumable {
     }
 }
 
-extension SECMarkData.DataContent : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECMarkData.DataContent : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["valueIndex"] = valueIndex
         map["valueDim"] = valueDim
@@ -157,8 +157,8 @@ extension SECMarkData : SECEnumable {
     }
 }
 
-extension SECMarkData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECMarkData : Mappable {
+    public func mapping(map: Mapper) {
         map["0"] = begin
         map["1"] = end
     }

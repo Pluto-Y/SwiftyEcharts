@@ -17,7 +17,7 @@ public struct SECGaugeSerie: SECSeries, SECAnimatable {
     
     public struct SplitLine {
         public var show: Bool?
-        public var length: SECLength?
+        public var length: LengthValue?
         public var lineStyle: SECLineStyle?
         
         public init() { }
@@ -26,7 +26,7 @@ public struct SECGaugeSerie: SECSeries, SECAnimatable {
     public struct AxisTick {
         public var show: Bool?
         public var splitNumber: UInt8?
-        public var length: SECLength?
+        public var length: LengthValue?
         public var lineStyle: SECLineStyle?
         
         public init() { }
@@ -44,7 +44,7 @@ public struct SECGaugeSerie: SECSeries, SECAnimatable {
     
     public struct Pointer {
         public var show: Bool?
-        public var length: SECLength?
+        public var length: LengthValue?
         public var width: Float?
         
         public init() { }
@@ -77,7 +77,7 @@ public struct SECGaugeSerie: SECSeries, SECAnimatable {
     }
     
     public var name: String?
-    public var radius: SECLength?
+    public var radius: LengthValue?
     public var center: SECPoint?
     public var startAngle: Float?
     public var endAngle: Float?
@@ -96,7 +96,7 @@ public struct SECGaugeSerie: SECSeries, SECAnimatable {
     public var markPoint: SECMarkPoint?
     public var markLine: SECMarkLine?
     public var markArea: SECMarkArea?
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     public var silent: Bool?
     public var animation: Bool?
     public var animationThreshold: Float?
@@ -137,8 +137,8 @@ extension SECGSAxisLine : SECEnumable {
     }
 }
 
-extension SECGSAxisLine : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECGSAxisLine : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["lineStyle"] = lineStyle
     }
@@ -146,7 +146,7 @@ extension SECGSAxisLine : SECMappable {
 
 extension SECGSSplitLine : SECEnumable {
     public enum Enums {
-        case show(Bool), length(SECLength), lineStyle(SECLineStyle)
+        case show(Bool), length(LengthValue), lineStyle(SECLineStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -165,8 +165,8 @@ extension SECGSSplitLine : SECEnumable {
     }
 }
 
-extension SECGSSplitLine : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECGSSplitLine : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["length"] = length
         map["lineStyle"] = lineStyle
@@ -175,7 +175,7 @@ extension SECGSSplitLine : SECMappable {
 
 extension SECGSAxisTick : SECEnumable {
     public enum Enums {
-        case show(Bool), splitNumber(UInt8), length(SECLength), lineStyle(SECLineStyle)
+        case show(Bool), splitNumber(UInt8), length(LengthValue), lineStyle(SECLineStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -196,8 +196,8 @@ extension SECGSAxisTick : SECEnumable {
     }
 }
 
-extension SECGSAxisTick : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECGSAxisTick : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["splitNumber"] = splitNumber
         map["length"] = length
@@ -230,8 +230,8 @@ extension SECGSAxisLabel : SECEnumable {
     }
 }
 
-extension SECGSAxisLabel : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECGSAxisLabel : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["distance"] = distance
         map["formatter"] = formatter
@@ -242,7 +242,7 @@ extension SECGSAxisLabel : SECMappable {
 
 extension SECGSPointer : SECEnumable {
     public enum Enums {
-        case show(Bool), length(SECLength), width(Float)
+        case show(Bool), length(LengthValue), width(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -261,8 +261,8 @@ extension SECGSPointer : SECEnumable {
     }
 }
 
-extension SECGSPointer : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECGSPointer : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["length"] = length
         map["width"] = width
@@ -290,8 +290,8 @@ extension SECGSTitle : SECEnumable {
     }
 }
 
-extension SECGSTitle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECGSTitle : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["offsetCenter"] = offsetCenter
         map["textStyle"] = textStyle
@@ -331,8 +331,8 @@ extension SECGSDetail : SECEnumable {
     }
 }
 
-extension SECGSDetail : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECGSDetail : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["width"] = width
         map["height"] = height
@@ -347,7 +347,7 @@ extension SECGSDetail : SECMappable {
 
 extension SECGaugeSerie : SECEnumable {
     public enum Enums {
-        case name(String), radius(SECLength), center(SECPoint), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(SECItemStyle), title(Title), detail(Detail), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), data([SECJsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), radius(LengthValue), center(SECPoint), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(SECItemStyle), title(Title), detail(Detail), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), data([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -420,8 +420,8 @@ extension SECGaugeSerie : SECEnumable {
     }
 }
 
-extension SECGaugeSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECGaugeSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["radius"] = radius

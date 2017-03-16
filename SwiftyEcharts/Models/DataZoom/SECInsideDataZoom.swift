@@ -247,8 +247,8 @@ extension SECInsideDataZoom : SECEnumable {
     }
 }
 
-extension SECInsideDataZoom : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECInsideDataZoom : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["disabled"] = disabled
         map["xAxisIndex"] = xAxisIndex

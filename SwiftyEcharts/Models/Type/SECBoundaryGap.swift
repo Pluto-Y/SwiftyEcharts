@@ -14,7 +14,7 @@
 /// 示例:
 ///
 ///         boundaryGap: ['20%', '20%']
-public enum SECBoundaryGap : SECJsonable {
+public enum SECBoundaryGap : Jsonable {
     case category(Bool)
     case notCategory(SECRange)
     
@@ -38,7 +38,7 @@ extension SECBoundaryGap : BooleanLiteralConvertible {
 
 /// 保证该类可以通过常量数组进行创建
 extension SECBoundaryGap : ArrayLiteralConvertible {
-    public init(arrayLiteral elements: SECLength...) {
+    public init(arrayLiteral elements: LengthValue...) {
         let range: SECRange = SECRange(elements)
         self = SECBoundaryGap.notCategory(range)
     }

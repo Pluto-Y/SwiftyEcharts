@@ -33,10 +33,10 @@ public struct SECBarSerie : SECSeries, SECAnimatable, SECZable {
     public var stack: String?
     /// 柱条的宽度，不设时自适应。支持设置成相对于类目宽度的百分比。
     /// 在同一坐标系上，此属性会被多个 'bar' 系列共享。此属性应设置于此坐标系中最后一个 'bar' 系列上才会生效，并且是对此坐标系中所有 'bar' 系列生效。
-    public var barWidth: SECLength?
+    public var barWidth: LengthValue?
     /// 柱条的最大宽度，不设时自适应。支持设置成相对于类目宽度的百分比。
     /// 在同一坐标系上，此属性会被多个 'bar' 系列共享。此属性应设置于此坐标系中最后一个 'bar' 系列上才会生效，并且是对此坐标系中所有 'bar' 系列生效。
-    public var barMaxWidth: SECLength?
+    public var barMaxWidth: LengthValue?
     /// 柱条最小高度，可用于防止某数据项的值过小而影响交互。
     public var barMinHeight: Float?
     /// 柱间距离，可设固定值（如 20）或者百分比（如 '30%'，表示柱子宽度的 30%）。
@@ -49,7 +49,7 @@ public struct SECBarSerie : SECSeries, SECAnimatable, SECZable {
     /// 在同一坐标系上，此属性会被多个 'bar' 系列共享。此属性应设置于此坐标系中最后一个 'bar' 系列上才会生效，并且是对此坐标系中所有 'bar' 系列生效。
     public var barCategoryGap: String? // FIXME: ??是否需要新类型
     /// 数据
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 图表标注。
     public var markPoint: SECMarkPoint?
     /// 图表标线。
@@ -108,7 +108,7 @@ public struct SECBarSerie : SECSeries, SECAnimatable, SECZable {
 
 extension SECBarSerie : SECEnumable {
     public enum Enums {
-        case name(String), legendHoverLine(Bool), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(SECItemStyle), stack(String), barWidth(SECLength), barMaxWidth(SECLength), barMinHeight(Float), barGap(String), barCategoryGap(String), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), legendHoverLine(Bool), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(SECItemStyle), stack(String), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(Float), barGap(String), barCategoryGap(String), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -177,8 +177,8 @@ extension SECBarSerie : SECEnumable {
     }
 }
 
-extension SECBarSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECBarSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["legendHoverLine"] = legendHoverLine
@@ -259,8 +259,8 @@ extension SECBarSerie.LabelContent : SECEnumable {
     }
 }
 
-extension SECBarSerie.LabelContent : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECBarSerie.LabelContent : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["position"] = position
         map["offset"] = offset
@@ -289,8 +289,8 @@ extension SECBarSerie.Label : SECEnumable {
     }
 }
 
-extension SECBarSerie.Label : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECBarSerie.Label : Mappable {
+    public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
@@ -334,8 +334,8 @@ extension SECBarSerieData : SECEnumable {
     }
 }
 
-extension SECBarSerieData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECBarSerieData : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["label"] = label

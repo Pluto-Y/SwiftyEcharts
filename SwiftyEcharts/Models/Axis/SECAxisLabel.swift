@@ -57,8 +57,8 @@ extension SECAxisLabel : SECEnumable {
     }
 }
 
-extension SECAxisLabel : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECAxisLabel : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["interval"] = interval
         map["inside"] = inside

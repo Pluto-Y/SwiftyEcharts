@@ -23,7 +23,7 @@ public struct SECHeatmapSerie : SECSeries, SECZable {
         /// 数据项名称。
         public var name: String?
         /// 数据项值。
-        public var value: [SECJsonable]?
+        public var value: [Jsonable]?
         /// 在直角坐标系(coordinateSystem: 'cartesian2d')上有效。
         public var label: SECLabel?
         /// 单个数据点的样式设置，在直角坐标系(coordinateSystem: 'cartesian2d')上有效。
@@ -146,7 +146,7 @@ public struct SECHeatmapSerie : SECSeries, SECZable {
     /// 当某数据不存在时（ps：不存在不代表值为 0），可以用 '-' 或者 null 或者 undefined 或者 NaN 表示。
     ///
     /// 例如，无数据在折线图中可表现为该点是断开的，在其它图中可表示为图形不存在。
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 图表标注。
     public var markPoint: SECMarkPoint?
     /// 图表标线。
@@ -166,7 +166,7 @@ public typealias SECHeatmapSerieData = SECHeatmapSerie.Data
 
 extension SECHeatmapSerieData : SECEnumable {
     public enum Enums {
-        case name(String), value([SECJsonable]), label(SECLabel), itemStyle(SECItemStyle)
+        case name(String), value([Jsonable]), label(SECLabel), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -187,8 +187,8 @@ extension SECHeatmapSerieData : SECEnumable {
     }
 }
 
-extension SECHeatmapSerieData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECHeatmapSerieData : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["label"] = label
@@ -198,7 +198,7 @@ extension SECHeatmapSerieData : SECMappable {
 
 extension SECHeatmapSerie : SECEnumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), blurSize(Float), minOpacity(Float), maxOpacity(Float), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), blurSize(Float), minOpacity(Float), maxOpacity(Float), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool)
     }
     
     public typealias ContentEnum = Enums
@@ -241,8 +241,8 @@ extension SECHeatmapSerie : SECEnumable {
     }
 }
 
-extension SECHeatmapSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECHeatmapSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["coordinateSystem"] = coordinateSystem

@@ -11,7 +11,7 @@
 /// - min: 最小值
 /// - max: 最大值
 /// - average: 平均值
-public enum SECMarkDataType : String, SECJsonable {
+public enum SECMarkDataType : String, Jsonable {
     case min = "min"
     case max = "max"
     case average = "average"

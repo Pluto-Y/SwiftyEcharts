@@ -13,7 +13,7 @@ extension SECLineSerie {
     /// - max: 取过滤点的最大值
     /// - min: 取过滤点的最小值
     /// - sum: 取过滤点的和
-    public enum Sampling: String, SECJsonable {
+    public enum Sampling: String, Jsonable {
         case average = "average"
         case max = "max"
         case min = "min"
@@ -74,8 +74,8 @@ extension SECLineSerieData : SECEnumable {
     }
 }
 
-extension SECLineSerieData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECLineSerieData : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["symbol"] = symbol
@@ -100,7 +100,7 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
     public typealias Step = SECLocation
     
     /// 折线平滑后是否在一个维度上保持单调性，可以设置成'x', 'y'来指明是在 x 轴或者 y 轴上保持单调性。
-    public enum SmoothMonotone : String, SECJsonable{
+    public enum SmoothMonotone : String, Jsonable{
         case x = "x"
         case y = "y"
         
@@ -264,7 +264,7 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
     /// 当某数据不存在时（ps：不存在不代表值为 0），可以用 '-' 或者 null 或者 undefined 或者 NaN 表示。
     ///
     /// 例如，无数据在折线图中可表现为该点是断开的，在其它图中可表示为图形不存在。
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 图表标注。
     public var markPoint: SECMarkPoint?
     /// 图表标线。
@@ -329,7 +329,7 @@ extension SECLineSerie : SECSeries {
 
 extension SECLineSerie : SECEnumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(SECLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(SECLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -420,8 +420,8 @@ extension SECLineSerie : SECEnumable {
     }
 }
 
-extension SECLineSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECLineSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["coordinateSystem"] = coordinateSystem

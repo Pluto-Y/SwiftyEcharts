@@ -34,8 +34,8 @@ public struct SECSingleAxis : SECZable {
     public var nameRotate: Float? 
     public var inverse: Bool? 
     public var boundaryGap: SECBoundaryGap? 
-    public var min: SECJsonable?
-    public var max: SECJsonable?
+    public var min: Jsonable?
+    public var max: Jsonable?
     public var scale: Bool? 
     public var splitNumber: UInt8? 
     public var minInterval: UInt8? 
@@ -55,7 +55,7 @@ public struct SECSingleAxis : SECZable {
 
 extension SECSingleAxis : SECEnumable {
 	public enum Enums {
-		case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), type(SECAxisType), name(String), nameLocation(NameLocation), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(SECJsonable), max(SECJsonable), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any])
+		case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), type(SECAxisType), name(String), nameLocation(NameLocation), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Jsonable), max(Jsonable), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any])
 	}
 
 	public typealias ContentEnum = Enums
@@ -132,8 +132,8 @@ extension SECSingleAxis : SECEnumable {
 	}
 }
 
-extension SECSingleAxis : SECMappable {
-	public func mapping(map: SECMap) {
+extension SECSingleAxis : Mappable {
+	public func mapping(map: Mapper) {
 		map["zlevel"] = zlevel
 		map["z"] = z
 		map["left"] = left
@@ -188,8 +188,8 @@ extension SECSingleAxis.Data : SECEnumable {
 	}
 }
 
-extension SECSingleAxis.Data : SECMappable {
-	public func mapping(map: SECMap) {
+extension SECSingleAxis.Data : Mappable {
+	public func mapping(map: Mapper) {
 		map["value"] = value
 		map["textStyle"] = textStyle
 	}

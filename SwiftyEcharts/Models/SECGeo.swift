@@ -178,8 +178,8 @@ extension SECGeo.ScaleLimit : SECEnumable {
     }
 }
 
-extension SECGeo.ScaleLimit : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECGeo.ScaleLimit : Mappable {
+    public func mapping(map: Mapper) {
         map["min"] = min
         map["max"] = max
     }
@@ -208,8 +208,8 @@ extension SECGeo.Region : SECEnumable {
     }
 }
 
-extension SECGeo.Region : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECGeo.Region : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["selected"] = selected
         map["itemStyle"] = itemStyle
@@ -274,8 +274,8 @@ extension SECGeo : SECEnumable {
     }
 }
 
-extension SECGeo : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECGeo : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["map"] = self.map
         map["roam"] = roam

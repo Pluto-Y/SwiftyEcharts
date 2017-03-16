@@ -10,7 +10,7 @@
 ///
 /// - horizontal: 水平
 /// - vertical: 垂直
-public enum SECOrient : String, SECJsonable {
+public enum SECOrient : String, Jsonable {
     case horizontal = "horizontal", vertical = "vertical"
 
     public var jsonString: String {
@@ -114,7 +114,7 @@ public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadow
     ///     }
     public var tooltip: SECTooltip?
     /// 图例的数据数组。
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     public var backgroundColor: SECColor?
     public var borderColor: SECColor?
     public var borderWidth: Float?
@@ -154,8 +154,8 @@ extension SECLegend.Data : SECEnumable {
     }
 }
 
-extension SECLegend.Data : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECLegend.Data : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["icon"] = icon
         map["textStyle"] = textStyle
@@ -164,7 +164,7 @@ extension SECLegend.Data : SECMappable {
 
 extension SECLegend : SECEnumable {
     public enum Enums {
-        case show(Bool), zlevel(Float), z(Float), left(SECPosition), x(SECPosition), top(SECPosition), y(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), data([SECJsonable]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), zlevel(Float), z(Float), left(SECPosition), x(SECPosition), top(SECPosition), y(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), data([Jsonable]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -239,8 +239,8 @@ extension SECLegend : SECEnumable {
     }
 }
 
-extension SECLegend : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECLegend : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["zlevel"] = zlevel
         map["z"] = z

@@ -1,5 +1,5 @@
 //
-//  SECUtilities.swift
+//  Utilities.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 10/01/2017.

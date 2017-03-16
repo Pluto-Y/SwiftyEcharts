@@ -173,7 +173,7 @@ public struct SECParallelAxis {
     ///             color: 'red'
     ///         }
     ///     }, '周二', '周三', '周四', '周五', '周六', '周日']
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
 }
 
 extension SECParallelAxis.AreaSelectStyle : SECEnumable {
@@ -201,8 +201,8 @@ extension SECParallelAxis.AreaSelectStyle : SECEnumable {
     }
 }
 
-extension SECParallelAxis.AreaSelectStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECParallelAxis.AreaSelectStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["width"] = width
         map["borderWidth"] = borderWidth
         map["borderColor"] = borderColor
@@ -213,7 +213,7 @@ extension SECParallelAxis.AreaSelectStyle : SECMappable {
 
 extension SECParallelAxis : SECEnumable {
 	public enum Enums {
-		case dim(Float), parallelIndex(UInt8), realtiem(Bool), areaSelectedStyle(AreaSelectStyle), type(SECAxisType), name(String), nameTextStyle(SECTextStyle), nameLocation(NameLocation), nameGap(Float), nameRotate(Float), inverse(Bool), boudaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), splitName(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), data([SECJsonable])
+		case dim(Float), parallelIndex(UInt8), realtiem(Bool), areaSelectedStyle(AreaSelectStyle), type(SECAxisType), name(String), nameTextStyle(SECTextStyle), nameLocation(NameLocation), nameGap(Float), nameRotate(Float), inverse(Bool), boudaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), splitName(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), data([Jsonable])
 	}
 
 	public typealias ContentEnum = Enums
@@ -276,8 +276,8 @@ extension SECParallelAxis : SECEnumable {
 	}
 }
 
-extension SECParallelAxis : SECMappable {
-	public func mapping(map: SECMap) {
+extension SECParallelAxis : Mappable {
+	public func mapping(map: Mapper) {
 		map["dim"] = dim
 		map["parallelIndex"] = parallelIndex
 		map["realtiem"] = realtiem

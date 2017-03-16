@@ -19,7 +19,7 @@
 ///
 ///     '{b0}: {c0}<br />{b1}: {c1}'
 /// ## function:回调函数 支持js函数，只需通过字符串来指定声明函数即可
-public enum SECFormatter: SECJsonable {
+public enum SECFormatter: Jsonable {
     case string(String)
     case function(String)
     
@@ -28,9 +28,9 @@ public enum SECFormatter: SECJsonable {
         case let .string(formatter):
             return "\"\(formatter)\""
         case let .function(f):
-            let count = SECJsCache.allJsStrings().count
+            let count = JsCache.allJsStrings().count
             let funcName = "formatterFunc\(count)"
-            SECJsCache.add("var \(funcName) = \(f);")
+            JsCache.add("var \(funcName) = \(f);")
             return "\"\(funcName)\""
         }
     }

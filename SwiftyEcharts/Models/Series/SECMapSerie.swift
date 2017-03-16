@@ -137,7 +137,7 @@ public struct SECMapSerie: SECSeries, SECZable {
     ///     {
     ///         'China' : '中国'
     ///     }
-    public var nameMap: [String: SECJsonable]?
+    public var nameMap: [String: Jsonable]?
     /// 选中模式，表示是否支持多个选中，默认关闭，支持布尔值和字符串，字符串取值可选'single'表示单选，或者'multiple'表示多选。
     public var selectedMode: SECSelectedMode?
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
@@ -184,7 +184,7 @@ public struct SECMapSerie: SECSeries, SECZable {
     /// 设置这两个值后 left/right/top/bottom/width/height 无效。
     public var layoutCenter: SECPosition?
     /// 地图的大小，见 layoutCenter。支持相对于屏幕宽高的百分比或者绝对的像素大小。
-    public var layoutSize: SECLength?
+    public var layoutSize: LengthValue?
     /// 默认情况下，map series 会自己生成内部专用的 geo 组件。但是也可以用这个 geoIndex 指定一个 geo 组件。这样的话，map 和 其他 series（例如散点图）就可以共享一个 geo 组件了。并且，geo 组件的颜色也可以被这个 map series 控制，从而用 visualMap 来更改。
     /// 当设定了 geoIndex 后，series-map.map 属性，以及 series-map.itemStyle 等样式配置不再起作用，而是采用 geo 中的相应属性。
     /// 参见：http://echarts.baidu.com/gallery/editor.html?c=geo-map-scatter
@@ -233,7 +233,7 @@ public struct SECMapSerie: SECSeries, SECZable {
     ///         //自定义特殊itemStyle，仅对该item有效
     ///         itemStyle:{}
     ///     }]
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 图表标注。
     public var markPoint: SECMarkPoint?
     /// 图表标线。
@@ -265,8 +265,8 @@ extension SECMapSerie.ScaleLimit : SECEnumable {
     }
 }
 
-extension SECMapSerie.ScaleLimit : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECMapSerie.ScaleLimit : Mappable {
+    public func mapping(map: Mapper) {
         map["min"] = min
         map["max"] = max
     }
@@ -297,8 +297,8 @@ extension SECMapSerie.Data : SECEnumable {
     }
 }
 
-extension SECMapSerie.Data : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECMapSerie.Data : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["selected"] = selected
@@ -309,7 +309,7 @@ extension SECMapSerie.Data : SECMappable {
 
 extension SECMapSerie : SECEnumable {
     public enum Enums {
-        case name(String), map(String), roam(SECRoam), center(SECPosition), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: SECJsonable]), selectedMode(SECSelectedMode), label(SECLabel), itemStyle(SECItemStyle), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), layoutCenter(SECPosition), layoutSize(SECLength), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool)
+        case name(String), map(String), roam(SECRoam), center(SECPosition), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SECSelectedMode), label(SECLabel), itemStyle(SECItemStyle), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), layoutCenter(SECPosition), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool)
     }
     
     public typealias ContentEnum = Enums
@@ -376,8 +376,8 @@ extension SECMapSerie : SECEnumable {
     }
 }
 
-extension SECMapSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECMapSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["map"] = self.map

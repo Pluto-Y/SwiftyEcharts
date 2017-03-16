@@ -1,22 +1,22 @@
 //
-//  SECJsonable.swift
+//  Jsonable.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 04/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECJsonable{
+public protocol Jsonable{
     var jsonString: String { get }
 }
 
-public extension SECJsonable where Self: CustomStringConvertible {
+public extension Jsonable where Self: CustomStringConvertible {
     var jsonString: String {
         return "\"\(self.description)\""
     }
 }
 
-public extension SECJsonable {
+public extension Jsonable {
     var jsonString: String {
         return "\(self)"
     }
@@ -26,73 +26,73 @@ public extension SECJsonable {
 //    }
 }
 
-extension Bool : SECJsonable {
+extension Bool : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int : SECJsonable {
+extension Int : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int8 : SECJsonable {
+extension Int8 : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int16 : SECJsonable {
+extension Int16 : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int32 : SECJsonable {
+extension Int32 : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int64 : SECJsonable {
+extension Int64 : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt : SECJsonable {
+extension UInt : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt8 : SECJsonable {
+extension UInt8 : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt16 : SECJsonable {
+extension UInt16 : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt32 : SECJsonable {
+extension UInt32 : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt64 : SECJsonable {
+extension UInt64 : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Double : SECJsonable {
+extension Double : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Float : SECJsonable {
+extension Float : Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
 
-extension String : SECJsonable {
+extension String : Jsonable {
     public var jsonString: String {
         return "\"\(self)\""
     }
@@ -109,8 +109,8 @@ extension Optional : CustomStringConvertible {
         case .None:
             return "null"
         case let .Some(value):
-            if value is SECJsonable {
-                return (value as! SECJsonable).jsonString
+            if value is Jsonable {
+                return (value as! Jsonable).jsonString
             } else {
                 return "\(value)"
             }
@@ -119,13 +119,13 @@ extension Optional : CustomStringConvertible {
 }
 
 internal func obtainJsonString(from value: Any) -> String {
-     if let a = value as? [SECJsonable] { // 处理数据
+     if let a = value as? [Jsonable] { // 处理数据
         return "\(a.jsonString)"
-    } else if let d = value as? [String: SECJsonable] {
+    } else if let d = value as? [String: Jsonable] {
         return "\(d.jsonString)"
     } else if let s = value as? String { // 处理字符串常量的情况
         return "\(s.jsonString)"
-    } else if let i = value as? SECJsonable {
+    } else if let i = value as? Jsonable {
         return "\(i.jsonString)"
     } else if let d = value as? CustomStringConvertible {
         return "\(d.description)"
@@ -135,7 +135,7 @@ internal func obtainJsonString(from value: Any) -> String {
  
 }
 
-extension Array : SECJsonable {
+extension Array : Jsonable {
     public var jsonString: String {
         var jsonStr = "[\n"
         
@@ -154,7 +154,7 @@ extension Array : SECJsonable {
     }
 }
 
-extension Dictionary : SECJsonable {
+extension Dictionary : Jsonable {
     public var jsonString: String {
         var jsonStr = "{\n"
         

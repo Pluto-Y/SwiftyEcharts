@@ -39,8 +39,8 @@ extension SECSplitLine : SECEnumable {
     }
 }
 
-extension SECSplitLine : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECSplitLine : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["interval"] = interval
         map["lineStyle"] = lineStyle

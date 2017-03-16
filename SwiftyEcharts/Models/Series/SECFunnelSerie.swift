@@ -12,7 +12,7 @@
 public struct SECFunnelSerie: SECSeries, SECAnimatable {
     
     /// 排序，ascending: 升序， descending: 降序
-    public enum Sort: String, SECJsonable {
+    public enum Sort: String, Jsonable {
         case ascending = "ascending"
         case descending = "descending"
         
@@ -71,11 +71,11 @@ public struct SECFunnelSerie: SECSeries, SECAnimatable {
     /// 数据最小值 min 映射的宽度。
     ///
     /// 可以是绝对的像素大小，也可以是相对布局宽度的百分比，如果需要最小值的图形并不是尖端三角，可通过设置该属性实现。
-    public var minSize: SECLength?
+    public var minSize: LengthValue?
     /// 数据最大值 max 映射的宽度。
     ///
     /// 可以是绝对的像素大小，也可以是相对布局宽度的百分比。
-    public var maxSize: SECLength?
+    public var maxSize: LengthValue?
     /// 数据排序， 可以取 'ascending', 'descending'。
     public var sort: Sort?
     /// 数据图形间距。
@@ -126,7 +126,7 @@ public struct SECFunnelSerie: SECSeries, SECAnimatable {
     ///         //自定义特殊itemStyle，仅对该item有效
     ///         itemStyle:{}
     ///     }]
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 图表标注。
     public var markPoint: SECMarkPoint?
     /// 图表标线。
@@ -172,8 +172,8 @@ extension SECFunnelSerie.LabelLineContent : SECEnumable {
     }
 }
 
-extension SECFunnelSerie.LabelLineContent : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECFunnelSerie.LabelLineContent : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["length"] = length
         map["lineStyle"] = lineStyle
@@ -199,8 +199,8 @@ extension SECFunnelSerie.LabelLine : SECEnumable {
     }
 }
 
-extension SECFunnelSerie.LabelLine : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECFunnelSerie.LabelLine : Mappable {
+    public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
@@ -231,8 +231,8 @@ extension SECFunnelSerieData : SECEnumable {
     }
 }
 
-extension SECFunnelSerieData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECFunnelSerieData : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["label"] = label
@@ -243,7 +243,7 @@ extension SECFunnelSerieData : SECMappable {
 
 extension SECFunnelSerie : SECEnumable {
     public enum Enums {
-        case name(String), min(Float), max(Float), minSize(SECLength), maxSize(SECLength), sort(Sort), gap(Float), legendHoverLink(Bool), funnelAlign(SECAlign), label(SECFormattedLabel), labelLine(LabelLine), itemStyle(SECItemStyle), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), min(Float), max(Float), minSize(LengthValue), maxSize(LengthValue), sort(Sort), gap(Float), legendHoverLink(Bool), funnelAlign(SECAlign), label(SECFormattedLabel), labelLine(LabelLine), itemStyle(SECItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -306,8 +306,8 @@ extension SECFunnelSerie : SECEnumable {
     }
 }
 
-extension SECFunnelSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECFunnelSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["min"] = min

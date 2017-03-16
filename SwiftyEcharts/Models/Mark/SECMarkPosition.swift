@@ -7,7 +7,7 @@
 //
 
 /// 标签的位置的可选类型
-public enum SECMarkPosition : SECJsonable {
+public enum SECMarkPosition : Jsonable {
     case xy(Float, Float)
     case xyPercent(Float, Float)
     case top, left, right, bottom, inside, insideLeft, insideTop, insideRight, insideBottom, insideTopLeft, insideBottomLeft, insideTopRight, insideBottomRight

@@ -17,7 +17,7 @@ public struct SECEffectScatterSerie : SECSeries, SECSymbolized, SECZable {
     ///
     /// - render: 绘制完成后显示特效
     /// - emphasis: 高亮（hover）的时候显示特效
-    public enum ShowEffectOn : String, SECJsonable {
+    public enum ShowEffectOn : String, Jsonable {
         case render = "render"
         case emphasis = "emphasis"
         
@@ -29,7 +29,7 @@ public struct SECEffectScatterSerie : SECSeries, SECSymbolized, SECZable {
     /// 涟漪特效相关配置。
     public struct RippleEffect {
         /// 波纹的绘制方式
-        public enum BrushType : String, SECJsonable {
+        public enum BrushType : String, Jsonable {
             case stroke = "stroke"
             case fill = "fill"
             
@@ -224,8 +224,8 @@ extension SECEffectScatterSerie.RippleEffect : SECEnumable {
     }
 }
 
-extension SECEffectScatterSerie.RippleEffect : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECEffectScatterSerie.RippleEffect : Mappable {
+    public func mapping(map: Mapper) {
         map["period"] = period
         map["scale"] = scale
         map["brushType"] = brushType
@@ -307,8 +307,8 @@ extension SECEffectScatterSerie : SECEnumable {
     }
 }
 
-extension SECEffectScatterSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECEffectScatterSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["legendHoverLink"] = legendHoverLink

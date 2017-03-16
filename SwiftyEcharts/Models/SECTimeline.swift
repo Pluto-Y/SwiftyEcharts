@@ -92,7 +92,7 @@ public struct SECTimeline : SECDisplayable, SECSymbolized, SECZable {
     /// - value: 数值轴，适用于连续数据。
     /// - category: 类目轴，适用于离散的类目数据。
     /// - time: 时间轴，适用于连续的时序数据，与数值轴相比时间轴带有时间的格式化，在刻度计算上也有所不同，例如会根据跨度的范围来决定使用月，星期，日还是小时范围的刻度。
-    public enum AxisType : String, SECJsonable {
+    public enum AxisType : String, Jsonable {
         case value = "value"
         case category = "category"
         case time = "time"
@@ -219,7 +219,7 @@ public struct SECTimeline : SECDisplayable, SECSymbolized, SECZable {
     /// 可能的数据对象
     public struct Data {
         /// 值
-        public var value: SECJsonable?
+        public var value: Jsonable?
         /// tooltip, 主要用来修改里面的 `formatter`
         public var tooltip: SECTooltip?
         /// 标记图形
@@ -312,7 +312,7 @@ public struct SECTimeline : SECDisplayable, SECSymbolized, SECZable {
     /// 『控制按钮』的样式。『控制按钮』包括：『播放按钮』、『前进按钮』、『后退按钮』。
     public var controlStyle: ControlStyle?
     /// 数据
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     
 }
 
@@ -349,8 +349,8 @@ extension SECTimeline.LineStyle : SECEnumable {
     }
 }
 
-extension SECTimeline.LineStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTimeline.LineStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["color"] = color
         map["width"] = width
@@ -398,8 +398,8 @@ extension SECTimeline.CheckpointStyle : SECEnumable {
     }
 }
 
-extension SECTimeline.CheckpointStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTimeline.CheckpointStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["symbol"] = symbol
         map["symbolSize"] = symbolSize
         map["symbolRotate"] = symbolRotate
@@ -435,8 +435,8 @@ extension SECTimeline.ControlStyle.CStyle : SECEnumable {
     }
 }
 
-extension SECTimeline.ControlStyle.CStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTimeline.ControlStyle.CStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["color"] = color
         map["borderWidth"] = borderWidth
         map["borderColor"] = borderColor
@@ -485,8 +485,8 @@ extension SECTimeline.ControlStyle : SECEnumable {
     }
 }
 
-extension SECTimeline.ControlStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTimeline.ControlStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["showPlayBtn"] = showPlayBtn
         map["showPrevBtn"] = showPrevBtn
@@ -506,7 +506,7 @@ extension SECTimeline.ControlStyle : SECMappable {
 
 extension SECTimeline.Data : SECEnumable {
     public enum Enums {
-        case value(SECJsonable), tooltip(SECTooltip), symbol(SECSymbol), symbolSize(Float)
+        case value(Jsonable), tooltip(SECTooltip), symbol(SECSymbol), symbolSize(Float)
     }
     
     public typealias ContentEnums = Enums
@@ -527,8 +527,8 @@ extension SECTimeline.Data : SECEnumable {
     }
 }
 
-extension SECTimeline.Data : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTimeline.Data : Mappable {
+    public func mapping(map: Mapper) {
         map["value"] = value
         map["tooltip"] = tooltip
         map["symbol"] = symbol
@@ -538,7 +538,7 @@ extension SECTimeline.Data : SECMappable {
 
 extension SECTimeline : SECEnumable {
     public enum Enums {
-        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), padding(SECPadding), orient(SECOrient), inverse(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), lineStyle(LineStyle), itemStyle(SECItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([SECJsonable])
+        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), padding(SECPadding), orient(SECOrient), inverse(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), lineStyle(LineStyle), itemStyle(SECItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([Jsonable])
     }
     
     public typealias ContentEnum = Enums
@@ -605,8 +605,8 @@ extension SECTimeline : SECEnumable {
     }
 }
 
-extension SECTimeline : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTimeline : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["type"] = type
         map["axisType"] = axisType

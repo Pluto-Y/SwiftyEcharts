@@ -1,5 +1,5 @@
 //
-//  SECPair.swift
+//  Pair.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 15/02/2017.
@@ -11,7 +11,7 @@
 /// 例如一个点, [x, y]
 ///
 /// 例如一个访问， [min, max]
-public struct SECPair<T>: ArrayLiteralConvertible {
+public struct Pair<T>: ArrayLiteralConvertible {
     
     private var first: T?
     private var second: T?
@@ -35,9 +35,9 @@ public struct SECPair<T>: ArrayLiteralConvertible {
     }
 }
 
-extension SECPair : SECJsonable {
+extension Pair : Jsonable {
     public var jsonString: String {
-        if let first = self.first as? SECJsonable, let second = self.second as? SECJsonable {
+        if let first = self.first as? Jsonable, let second = self.second as? Jsonable {
             return "[\(first.jsonString), \(second.jsonString)]"
         }
         return "null"
@@ -45,8 +45,8 @@ extension SECPair : SECJsonable {
 }
 
 /// 用于指定坐标点, eg: [x, y]
-public typealias SECPoint = SECPair<SECLength>
+public typealias SECPoint = Pair<LengthValue>
 /// 用于指定范围, eg: [min, max]
-public typealias SECRange = SECPair<SECLength>
+public typealias SECRange = Pair<LengthValue>
 /// 用来指定两端的文本 , eg: SECContinuousVisualMap.text
-public typealias SECPiecewiseText = SECPair<String>
+public typealias SECPiecewiseText = Pair<String>

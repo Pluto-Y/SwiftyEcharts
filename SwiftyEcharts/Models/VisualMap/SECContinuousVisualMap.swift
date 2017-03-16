@@ -116,8 +116,8 @@ public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderab
     ///
     /// 反之，鼠标悬浮到图表中的图形元素上时，在 visualMap 组件的相应位置会有三角提示其所对应的数值。
     public var hoverLink: Bool?
-    public var inRange: [String: SECJsonable]?
-    public var outRange: [String: SECJsonable]?
+    public var inRange: [String: Jsonable]?
+    public var outRange: [String: Jsonable]?
     /// visualMap 组件中，控制器 的 inRange outOfRange 设置。如果没有这个 controller 设置，控制器 会使用外层的 inRange outOfRange 设置；如果有这个 controller 设置，则会采用这个设置。适用于一些控制器视觉效果需要特殊定制或调整的场景。
     public var controller: SECVMController?
     
@@ -190,7 +190,7 @@ public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderab
 
 extension SECContinuousVisualMap : SECEnumable {
     public enum Enums {
-        case min(Float), max(Float), range(SECRange), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(SECAlign), text(SECPiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: SECJsonable]), outRange([String: SECJsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), color(SECColor), textStyle(SECTextStyle), formatter(SECFormatter)
+        case min(Float), max(Float), range(SECRange), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(SECAlign), text(SECPiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), color(SECColor), textStyle(SECTextStyle), formatter(SECFormatter)
     }
     
     public typealias ContentEnum = Enums
@@ -269,8 +269,8 @@ extension SECContinuousVisualMap : SECEnumable {
     }
 }
 
-extension SECContinuousVisualMap : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECContinuousVisualMap : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["min"] = min
         map["max"] = max

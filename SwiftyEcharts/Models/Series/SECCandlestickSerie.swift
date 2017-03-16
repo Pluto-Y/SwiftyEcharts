@@ -32,7 +32,7 @@ public struct SECCandlestickSerie : SECSeries, SECZable {
         /// 数据项值。
         ///
         ///     [open, close, lowest, highest] （即：[开盘值, 收盘值, 最低值, 最高值]）
-        public var value: [SECJsonable]?
+        public var value: [Jsonable]?
         /// candlestick 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
         public var itemStyle: SECItemStyle?
         
@@ -86,7 +86,7 @@ public struct SECCandlestickSerie : SECSeries, SECZable {
     /// 二维数组的每一数组项（上例中的每行）是渲染一个box，它含有四个量值，依次是：
     ///
     ///     [open, close, lowest, highest] （即：[开盘值, 收盘值, 最低值, 最高值]）
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 图表标注。
     public var markPoint: SECMarkPoint?
     /// 图表标线。
@@ -126,7 +126,7 @@ public typealias SECCandlestickSerieData = SECCandlestickSerie.Data
 
 extension SECCandlestickSerieData : SECEnumable {
     public enum Enums {
-        case name(String), value([SECJsonable]), itemStyle(SECItemStyle)
+        case name(String), value([Jsonable]), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -145,8 +145,8 @@ extension SECCandlestickSerieData : SECEnumable {
     }
 }
 
-extension SECCandlestickSerieData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECCandlestickSerieData : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["itemStyle"] = itemStyle
@@ -155,7 +155,7 @@ extension SECCandlestickSerieData : SECMappable {
 
 extension SECCandlestickSerie : SECEnumable {
     public enum Enums {
-        case coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), barWidth(Float), barMinWidth(Float), barMaxWidth(Float), itemStyle(SECItemStyle), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(SECAnimation), animationDelay(Float)
+        case coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), barWidth(Float), barMinWidth(Float), barMaxWidth(Float), itemStyle(SECItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(SECAnimation), animationDelay(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -210,8 +210,8 @@ extension SECCandlestickSerie : SECEnumable {
     }
 }
 
-extension SECCandlestickSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECCandlestickSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["coordinateSystem"] = coordinateSystem
         map["xAxisIndex"] = xAxisIndex

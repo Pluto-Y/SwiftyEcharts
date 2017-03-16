@@ -20,9 +20,9 @@ public struct SECBarOptions {
             tmp *= 5.0
             return tmp
         }
-        var xAxisData: [SECJsonable] = []
-        var data1: [SECJsonable] = []
-        var data2: [SECJsonable] = []
+        var xAxisData: [Jsonable] = []
+        var data1: [Jsonable] = []
+        var data2: [Jsonable] = []
         for i in 0..<100 {
             xAxisData.append("类目\(i)")
             data1.append(calculateData(Float(i), function: sin))
@@ -77,11 +77,11 @@ public struct SECBarOptions {
     // MARK: 柱状图框选
     /// 地址: http://echarts.baidu.com/demo.html#bar-brush
     static func barBrushOption() -> SECOption { // FIXME: 缺少事件
-        var xAxisData: [SECJsonable] = []
-        var data1: [SECJsonable] = []
-        var data2: [SECJsonable] = []
-        var data3: [SECJsonable] = []
-        var data4: [SECJsonable] = []
+        var xAxisData: [Jsonable] = []
+        var data1: [Jsonable] = []
+        var data2: [Jsonable] = []
+        var data3: [Jsonable] = []
+        var data4: [Jsonable] = []
         for i in 0..<10 {
             xAxisData.append("Class\(i)")
             data1.append(Double((arc4random_uniform(100)+1)) / 100.0 * 2)
@@ -191,9 +191,9 @@ public struct SECBarOptions {
     // MARK: 特性示例：渐变色 阴影 点击缩放
     /// 地址: http://echarts.baidu.com/demo.html#bar-gradient
     static func barGradientOption() -> SECOption { // FIXME: 缺少点击事件
-        let dataAxis: [SECJsonable] =  ["点", "击", "柱", "子", "或", "者", "两", "指", "在", "触", "屏", "上", "滑", "动", "能", "够", "自", "动", "缩", "放"]
+        let dataAxis: [Jsonable] =  ["点", "击", "柱", "子", "或", "者", "两", "指", "在", "触", "屏", "上", "滑", "动", "能", "够", "自", "动", "缩", "放"]
         let yMax = 500
-        var dataShadow: [SECJsonable] = []
+        var dataShadow: [Jsonable] = []
         
         for _ in 0..<dataAxis.count {
             dataShadow.append(yMax)
@@ -614,7 +614,7 @@ public struct SECBarOptions {
     // MARK: 阶梯瀑布图
     /// 地址：http://echarts.baidu.com/demo.html#bar-waterfall2
     static func barWaterfall2Option() -> SECOption {
-        var list: [SECJsonable] = []
+        var list: [Jsonable] = []
         for i in 1...11 {
             list.append("11月\(i)日")
         }
@@ -923,8 +923,8 @@ public struct SECBarOptions {
     // MARK: 动态数据
     /// 地址: http://echarts.baidu.com/demo.html#dynamic-data
     static func dynamicDataOption() -> SECOption {
-        var xAxisData1: [SECJsonable] = []
-        var xAxisData2: [SECJsonable] = []
+        var xAxisData1: [Jsonable] = []
+        var xAxisData2: [Jsonable] = []
         var date = NSDate()
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "hh:mm:ss a"
@@ -933,8 +933,8 @@ public struct SECBarOptions {
             xAxisData2.append(i)
             date = NSDate(timeIntervalSince1970: date.timeIntervalSince1970)
         }
-        var seriesData1: [SECJsonable] = []
-        var seriesData2: [SECJsonable] = []
+        var seriesData1: [Jsonable] = []
+        var seriesData2: [Jsonable] = []
         for _ in 0..<10 {
             seriesData1.append(arc4random_uniform(1000) + 1)
             seriesData2.append(Double(arc4random_uniform(100) + 1) / 10.0 + 5)

@@ -21,7 +21,7 @@ public struct SECBoxplotSerie : SECSeries, SECZable {
         /// 数据值。
         ///
         /// [min,  Q1,  median (or Q2),  Q3,  max]
-        public var value: [SECJsonable]?
+        public var value: [Jsonable]?
         /// boxplot 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
         public var itemStyle: SECItemStyle?
         
@@ -82,7 +82,7 @@ public struct SECBoxplotSerie : SECSeries, SECZable {
     /// ECharts 并不内置对原始数据的处理，输入给 boxplot 的数据须是如上五个统计结果量值。
     ///
     /// 但是 ECharts 也额外提供了简单的 原始数据处理函数，如这个 例子 使用了echarts.dataTool.prepareBoxplotData 来进行简单的数据统计。
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 图表标注。
     public var markPoint: SECMarkPoint?
     /// 图表标线。
@@ -124,7 +124,7 @@ public typealias SECBoxplotSerieData = SECBoxplotSerie.Data
 
 extension SECBoxplotSerieData : SECEnumable {
     public enum Enums {
-        case name(String), value([SECJsonable]), itemStyle(SECItemStyle)
+        case name(String), value([Jsonable]), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -143,8 +143,8 @@ extension SECBoxplotSerieData : SECEnumable {
     }
 }
 
-extension SECBoxplotSerieData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECBoxplotSerieData : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["itemStyle"] = itemStyle
@@ -153,7 +153,7 @@ extension SECBoxplotSerieData : SECMappable {
 
 extension SECBoxplotSerie : SECEnumable {
     public enum Enums {
-        case coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), boxWidth([Float]), itemStyle(SECItemStyle), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(SECAnimation), animationDelay(Float)
+        case coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), boxWidth([Float]), itemStyle(SECItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(SECAnimation), animationDelay(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -204,8 +204,8 @@ extension SECBoxplotSerie : SECEnumable {
     }
 }
 
-extension SECBoxplotSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECBoxplotSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["coordinateSystem"] = coordinateSystem
         map["xAxisIndex"] = xAxisIndex

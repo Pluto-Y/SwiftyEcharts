@@ -54,18 +54,18 @@
 /// ✦ 与 ECharts2 中 dataRange 的关系 ✦
 ///
 /// visualMap 是由 ECharts2 中的 dataRange 组件改名以及扩展而来。ECharts3里 option 中的 dataRange 配置项仍然被兼容，会自动转换成 visualMap 配置项。在option中推荐写 visualMap 而非 dataRange。
-public protocol SECVisualMap : SECMappable {
+public protocol SECVisualMap : Mappable {
     var type: String { get }
 }
 
 public struct SECVMController {
-    public var inRange: [String: SECJsonable]?
-    public var outRange: [String: SECJsonable]?
+    public var inRange: [String: Jsonable]?
+    public var outRange: [String: Jsonable]?
 }
 
 extension SECVMController : SECEnumable {
     public enum Enums {
-        case inRange([String: SECJsonable]), outRange([String: SECJsonable])
+        case inRange([String: Jsonable]), outRange([String: Jsonable])
     }
     
     public typealias ContentEnum = Enums
@@ -82,8 +82,8 @@ extension SECVMController : SECEnumable {
     }
 }
 
-extension SECVMController : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECVMController : Mappable {
+    public func mapping(map: Mapper) {
         map["inRange"] = inRange
         map["outRange"] = outRange
     }

@@ -95,8 +95,8 @@ extension SECGroupGraphic : SECEnumable {
     }
 }
 
-extension SECGroupGraphic : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECGroupGraphic : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

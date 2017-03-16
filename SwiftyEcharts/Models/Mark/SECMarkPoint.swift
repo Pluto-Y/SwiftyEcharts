@@ -13,9 +13,9 @@ public struct SECMarkPoint : SECSymbolized, SECAnimatable {
         public var type: SECMarkDataType?
         public var valueIndex: UInt8?
         public var valueDim: String?
-        public var coord: [SECJsonable]?
-        public var x: SECLength?
-        public var y: SECLength?
+        public var coord: [Jsonable]?
+        public var x: LengthValue?
+        public var y: LengthValue?
         public var xAxis: Float?
         public var yAxis: Float?
         public var value: Float?
@@ -43,7 +43,7 @@ public struct SECMarkPoint : SECSymbolized, SECAnimatable {
     /// 标注的样式。
     public var itemStyle: SECItemStyle?
     /// 标注的数据数组
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 是否开启动画。
     public var animation: Bool?
     /// 是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
@@ -92,7 +92,7 @@ public typealias SECMarkPointData = SECMarkPoint.Data
 
 extension SECMarkPoint : SECEnumable {
     public enum Enums {
-        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), silent(Bool), label(SECFormattedLabel), itemStyle(SECItemStyle),  data([SECJsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), silent(Bool), label(SECFormattedLabel), itemStyle(SECItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -137,8 +137,8 @@ extension SECMarkPoint : SECEnumable {
     }
 }
 
-extension SECMarkPoint : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECMarkPoint : Mappable {
+    public func mapping(map: Mapper) {
         map["symbol"] = symbol
         map["symbolSize"] = symbolSize
         map["symbolRotate"] = symbolRotate
@@ -161,7 +161,7 @@ extension SECMarkPoint : SECMappable {
 
 extension SECMarkPointData : SECEnumable {
     public enum Enums {
-        case name(String), type(SECMarkDataType), valueIndex(UInt8), valueDim(String), coord([SECJsonable]), x(SECLength), y(SECLength), xAxis(Float), yAxis(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), itemStyle(SECItemStyle), label(SECLabel)
+        case name(String), type(SECMarkDataType), valueIndex(UInt8), valueDim(String), coord([Jsonable]), x(LengthValue), y(LengthValue), xAxis(Float), yAxis(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), itemStyle(SECItemStyle), label(SECLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -206,8 +206,8 @@ extension SECMarkPointData : SECEnumable {
     }
 }
 
-extension SECMarkPointData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECMarkPointData : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["type"] = type
         map["valueIndex"] = valueIndex

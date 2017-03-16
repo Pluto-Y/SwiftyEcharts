@@ -171,8 +171,8 @@ extension SECRadiusAxis : SECEnumable {
     }
 }
 
-extension SECRadiusAxis : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECRadiusAxis : Mappable {
+    public func mapping(map: Mapper) {
         map["polarIndex"] = polarIndex
         map["type"] = type
         map["name"] = name

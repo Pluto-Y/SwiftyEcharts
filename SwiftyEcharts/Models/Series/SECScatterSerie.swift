@@ -161,7 +161,7 @@ public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZabl
     /// 当某数据不存在时（ps：不存在不代表值为 0），可以用 '-'。
     ///
     /// 例如，无数据在折线图中可表现为该点是断开的，在其它图中可表示为图形不存在。
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 图表标注。
     public var markPoint: SECMarkPoint?
     /// 图表标线。
@@ -247,8 +247,8 @@ extension SECScatterSerieData : SECEnumable {
     }
 }
 
-extension SECScatterSerieData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECScatterSerieData : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["symbol"] = symbol
@@ -262,7 +262,7 @@ extension SECScatterSerieData : SECMappable {
 
 extension SECScatterSerie : SECEnumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), hoverAnimation(Bool), legendHoverLink(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), large(Bool), largeThreshold(Float), label(SECFormattedLabel), itemStyle(SECItemStyle), data([SECJsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), hoverAnimation(Bool), legendHoverLink(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), large(Bool), largeThreshold(Float), label(SECFormattedLabel), itemStyle(SECItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -337,8 +337,8 @@ extension SECScatterSerie : SECEnumable {
     }
 }
 
-extension SECScatterSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECScatterSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["coordinateSystem"] = coordinateSystem

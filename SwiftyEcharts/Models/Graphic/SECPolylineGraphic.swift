@@ -16,7 +16,7 @@ public struct SECPolylineGraphic : SECGraphic {
         ///
         /// - val: 如果为 val：表示贝塞尔 (bezier) 差值平滑，smooth 指定了平滑等级，范围 [0, 1]。
         /// - spline: 如果为 'spline'：表示 Catmull-Rom spline 差值平滑。
-        public enum Smooth : SECJsonable {
+        public enum Smooth : Jsonable {
             case val(Float)
             case spline
             
@@ -88,8 +88,8 @@ extension SECPolylineGraphic.Shape : SECEnumable {
     }
 }
 
-extension SECPolylineGraphic.Shape : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECPolylineGraphic.Shape : Mappable {
+    public func mapping(map: Mapper) {
         map["point"] = point
         map["smooth"] = smooth
         map["smoothConstraint"] = smoothConstraint
@@ -143,8 +143,8 @@ extension SECPolylineGraphic : SECEnumable {
     }
 }
 
-extension SECPolylineGraphic : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECPolylineGraphic : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

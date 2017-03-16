@@ -66,8 +66,8 @@ extension SECCommonItemStyleContent : SECEnumable {
     }
 }
 
-extension SECCommonItemStyleContent : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECCommonItemStyleContent : Mappable {
+    public func mapping(map: Mapper) {
         map["color"] = color
         map["borderColor"] = borderColor
         map["borderWidth"] = borderWidth
@@ -111,8 +111,8 @@ extension SECItemStyle : SECEnumable {
     }
 }
 
-extension SECItemStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECItemStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }

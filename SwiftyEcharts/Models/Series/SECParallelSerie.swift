@@ -149,7 +149,7 @@ public struct SECParallelSerie : SECSeries, SECZable, SECAnimatable {
     ///     ]
     ///
     /// 数据中，每一行是一个『数据项』，每一列属于一个『维度』。（例如上面数据每一列的含义分别是：『日期』,『AQI指数』, 『PM2.5』, 『PM10』, 『一氧化碳值』, 『二氧化氮值』, 『二氧化硫值』）。
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     
     /// MARK: SECZable
     public var zlevel: Float?
@@ -173,7 +173,7 @@ public struct SECParallelSerie : SECSeries, SECZable, SECAnimatable {
 
 extension SECParallelSerie : SECEnumable {
     public enum Enums {
-        case coordinateSystem(SECCoordinateSystem), parallelIndex(UInt8), name(String), lineStyle(SECEmphasisLineStyle), inactiveOpacity(Float), activeOpacity(Float), realtime(Bool), data([SECJsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case coordinateSystem(SECCoordinateSystem), parallelIndex(UInt8), name(String), lineStyle(SECEmphasisLineStyle), inactiveOpacity(Float), activeOpacity(Float), realtime(Bool), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -224,8 +224,8 @@ extension SECParallelSerie : SECEnumable {
     }
 }
 
-extension SECParallelSerie : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECParallelSerie : Mappable {
+    public func mapping(map: Mapper) {
         map["type"] = type
         map["coordinateSystem"] = coordinateSystem
         map["parallelIndex"] = parallelIndex

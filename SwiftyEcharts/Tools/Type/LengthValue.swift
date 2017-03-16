@@ -1,5 +1,5 @@
 //
-//  SECLength.swift
+//  LengthValue.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 15/02/2017.
@@ -15,9 +15,9 @@
 /// 或者
 ///
 ///     .width(32.0%)
-public protocol SECLength : SECJsonable { }
+public protocol LengthValue : Jsonable { }
 
-/// 保证Float, Double, Int 都支持 SECLength 协议
-extension Float : SECLength { }
-extension Double : SECLength { }
-extension Int : SECLength { }
+/// 保证Float, Double, Int 都支持 LengthValue 协议
+extension Float : LengthValue { }
+extension Double : LengthValue { }
+extension Int : LengthValue { }

@@ -491,7 +491,7 @@ public struct SECRadarOptions {
     // MARK: 浏览器占比变化
     /// 地址: http://echarts.baidu.com/demo.html#radar2
     static func radar2Option() -> SECOption {
-        var list: [SECJsonable] = []
+        var list: [Jsonable] = []
         for i in 1...28 {
             list.append("\(i + 2000)")
         }

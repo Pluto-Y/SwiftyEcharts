@@ -11,7 +11,7 @@
 /// - left: 左边
 /// - right: 右边
 /// - center: 中间
-public enum SECAlign: String, SECJsonable {
+public enum SECAlign: String, Jsonable {
     case left = "left"
     case right = "right"
     case center = "center"
@@ -28,7 +28,7 @@ public enum SECAlign: String, SECJsonable {
 /// - top: 顶部
 /// - middle: 中间
 /// - bottom: 底部
-public enum SECVerticalAlign: String, SECJsonable {
+public enum SECVerticalAlign: String, Jsonable {
     case top = "top"
     case middle = "middle"
     case bottom = "bottom"
@@ -81,8 +81,8 @@ extension SECTextStyle : SECEnumable {
     }
 }
 
-extension SECTextStyle: SECMappable {
-    public func mapping(map: SECMap) {
+extension SECTextStyle: Mappable {
+    public func mapping(map: Mapper) {
         map["color"] = color
         map["fontStyle"] = fontStyle
         map["fontWeight"] = fontWeight

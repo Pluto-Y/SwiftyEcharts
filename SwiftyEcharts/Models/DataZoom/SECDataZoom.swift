@@ -80,7 +80,7 @@ public protocol SECDataZoom {
 /// 如下面的例子：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=doc-example/bar-dataZoom-filterMode
-public enum SECFilterMode : String, SECJsonable{
+public enum SECFilterMode : String, Jsonable{
     case filter = "filter"
     case empty = "empty"
     

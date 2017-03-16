@@ -45,13 +45,13 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKSc
     ///   - silent: 可选，阻止调用 setOption 时抛出事件，默认为false，即抛出事件。
     public func refreshEcharts(option: SECOption, _ notMerge: Bool = false, _ lazyUpdate: Bool = false, _ silent: Bool = false) {
         
-        SECJsCache.removeAll() // 清空之前缓存的方法，避免出现重复的情况， 在调用 option.jsonString 会重新生成
+        JsCache.removeAll() // 清空之前缓存的方法，避免出现重复的情况， 在调用 option.jsonString 会重新生成
         let optionJson = option.jsonString
         
         // 定义Js与Clousure之间的匹配关系
         // 必须要在option.jsonString调用过一次之后
         // 并且需要在调用loadEcharts之前，这样才能建立关系
-        for function in SECJsCache.allJsStrings() {
+        for function in JsCache.allJsStrings() {
             self.callJsMethod(function)
             //            self.callJsMethod("function \(name)(params){ alert(\(name));eval('window.webkit.messageHandlers.\(name).postMessage(' + params + ')'); }")
         }
@@ -130,13 +130,13 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKSc
         }
         resizeDiv()
         
-        SECJsCache.removeAll() // 清空之前缓存的方法，避免出现重复的情况， 在调用 option.jsonString 会重新生成
+        JsCache.removeAll() // 清空之前缓存的方法，避免出现重复的情况， 在调用 option.jsonString 会重新生成
         let optionJson = option.jsonString
         
         // 定义Js与Clousure之间的匹配关系
         // 必须要在option.jsonString调用过一次之后
         // 并且需要在调用loadEcharts之前，这样才能建立关系
-        for function in SECJsCache.allJsStrings() {
+        for function in JsCache.allJsStrings() {
             print(function)
             self.callJsMethod(function)
         }

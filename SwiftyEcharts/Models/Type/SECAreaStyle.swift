@@ -56,8 +56,8 @@ extension SECAreaStyle : SECEnumable {
     }
 }
 
-extension SECAreaStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECAreaStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["color"] = color
         map["shadowBlur"] = shadowBlur
         map["shadowColor"] = shadowColor
@@ -93,8 +93,8 @@ extension SECEmphasisAreaStyle : SECEnumable {
     }
 }
 
-extension SECEmphasisAreaStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECEmphasisAreaStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }

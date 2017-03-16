@@ -17,9 +17,9 @@
 /// - bottom: 垂直：底部
 /// - value: 绝对位置
 /// - percent: 相对位置
-public enum SECPosition : SECJsonable {
+public enum SECPosition : Jsonable {
     case auto, left, center, right, top, middle, bottom, start, end, inside, inner
-    case value(SECLength)
+    case value(LengthValue)
     
     public var jsonString: String {
         switch self {
@@ -51,7 +51,7 @@ public enum SECPosition : SECJsonable {
     }
 }
 
-public enum SECLocation : String, SECJsonable {
+public enum SECLocation : String, Jsonable {
     case start = "start"
     case middle = "middle"
     case end = "end"

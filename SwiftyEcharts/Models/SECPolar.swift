@@ -54,8 +54,8 @@ extension SECPolar : SECEnumable {
     }
 }
 
-extension SECPolar : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECPolar : Mappable {
+    public func mapping(map: Mapper) {
         map["zlevel"] = zlevel
         map["z"] = z
         map["center"] = center

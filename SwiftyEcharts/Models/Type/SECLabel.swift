@@ -42,8 +42,8 @@ extension SECCommonLabelStyle : SECEnumable {
     }
 }
 
-extension SECCommonLabelStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECCommonLabelStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["position"] = position
         map["textStyle"] = textStyle
@@ -81,8 +81,8 @@ extension SECLabel : SECEnumable {
     }
 }
 
-extension SECLabel : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECLabel : Mappable {
+    public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
@@ -125,8 +125,8 @@ extension SECFormattedLabelStyle : SECEnumable {
     }
 }
 
-extension SECFormattedLabelStyle : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECFormattedLabelStyle : Mappable {
+    public func mapping(map: Mapper) {
         map["show"] = show
         map["position"] = position
         map["formatter"] = formatter
@@ -166,8 +166,8 @@ extension SECFormattedLabel : SECEnumable {
     }
 }
 
-extension SECFormattedLabel : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECFormattedLabel : Mappable {
+    public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }

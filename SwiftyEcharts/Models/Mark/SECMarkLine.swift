@@ -42,11 +42,11 @@ public struct SECMarkLine : SECAnimatable {
         ///                 }
         ///             }
         ///         }
-        public var coord: SECJsonable?
+        public var coord: Jsonable?
         /// 相对容器的屏幕 x 坐标，单位像素。
-        public var x: SECLength?
+        public var x: LengthValue?
         /// 相对容器的屏幕 y 坐标，单位像素。
-        public var y: SECLength?
+        public var y: LengthValue?
         
         public var xAxis: String?
         
@@ -65,7 +65,7 @@ public struct SECMarkLine : SECAnimatable {
         /// 标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
         /// 例如 [0, '50%'] 就是把自己向上移动了一半的位置，在 symbol 图形是气泡的时候可以让图形下端的箭头对准数据点。
         /// - Note: 该属性只在 SECMarkArea 无效
-        public var symbolOffset: [SECLength]?
+        public var symbolOffset: [LengthValue]?
         /// 该数据项线的样式，起点和终点项的 lineStyle会合并到一起。
         public var lineStyle: SECEmphasisLineStyle?
         /// 该数据项标签的样式，起点和终点项的 label会合并到一起。
@@ -144,7 +144,7 @@ public struct SECMarkLine : SECAnimatable {
     ///                 }
     ///             ]
     ///         ]
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     /// 是否开启动画。
     public var animation: Bool?
     /// 是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
@@ -192,7 +192,7 @@ public typealias SECMarkLineData = SECMarkLine.Data
 
 extension SECMarkLineData : SECEnumable {
     public enum Enums {
-        case name(String), type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(SECJsonable), x(SECLength), y(SECLength), xAxis(String), yAxis(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([SECLength]), lineStyle(SECEmphasisLineStyle), label(SECFormattedLabel)
+        case name(String), type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(LengthValue), y(LengthValue), xAxis(String), yAxis(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([LengthValue]), lineStyle(SECEmphasisLineStyle), label(SECFormattedLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -237,8 +237,8 @@ extension SECMarkLineData : SECEnumable {
     }
 }
 
-extension SECMarkLineData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECMarkLineData : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["type"] = type
         map["valueIndex"] = valueIndex
@@ -260,7 +260,7 @@ extension SECMarkLineData : SECMappable {
 
 extension SECMarkLine : SECEnumable {
     public enum Enums {
-        case silent(Bool), symbol(SECSymbol), symbolSize(Float), precision(Float), label(SECLabel), lineStyle(SECEmphasisLineStyle), data([SECJsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case silent(Bool), symbol(SECSymbol), symbolSize(Float), precision(Float), label(SECLabel), lineStyle(SECEmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -303,8 +303,8 @@ extension SECMarkLine : SECEnumable {
     }
 }
 
-extension SECMarkLine : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECMarkLine : Mappable {
+    public func mapping(map: Mapper) {
         map["silent"] = silent
         map["symbol"] = symbol
         map["symbolSize"] = symbolSize

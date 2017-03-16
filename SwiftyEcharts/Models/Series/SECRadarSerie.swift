@@ -19,7 +19,7 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
         /// 数据项名称
         public var name: String?
         /// 单个数据项的数值。
-        public var value: SECJsonable?
+        public var value: Jsonable?
         
         /// MARK: SECSymbolized
         public var symbol: SECSymbol?
@@ -75,7 +75,7 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
     ///         }
     ///     ]
     /// 其中的value项数组是具体的数据，每个值跟 radar.indicator 一一对应。
-    public var data: [SECJsonable]?
+    public var data: [Jsonable]?
     public var zlevel: Float?
     public var z: Float?
     public var silent: Bool?
@@ -95,7 +95,7 @@ public typealias SECRadarSerieData = SECRadarSerie.Data
 
 extension SECRadarSerieData : SECEnumable {
     public enum Enums {
-        case name(String), value(SECJsonable), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle)
+        case name(String), value(Jsonable), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -128,8 +128,8 @@ extension SECRadarSerieData : SECEnumable {
     }
 }
 
-extension SECRadarSerieData : SECMappable {
-    public func mapping(map: SECMap) {
+extension SECRadarSerieData : Mappable {
+    public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["symbol"] = symbol
@@ -145,7 +145,7 @@ extension SECRadarSerieData : SECMappable {
 
 extension SECRadarSerie : SECEnumable {
 	public enum Enums {
-		case name(String), radarIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle), data([SECJsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+		case name(String), radarIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
 	}
 
 	public typealias ContentEnum = Enums
@@ -202,8 +202,8 @@ extension SECRadarSerie : SECEnumable {
 	}
 }
 
-extension SECRadarSerie : SECMappable {
-	public func mapping(map: SECMap) {
+extension SECRadarSerie : Mappable {
+	public func mapping(map: Mapper) {
 		map["type"] = type
 		map["name"] = name
 		map["radarIndex"] = radarIndex

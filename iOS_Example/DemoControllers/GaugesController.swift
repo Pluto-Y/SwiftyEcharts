@@ -48,7 +48,7 @@ class GaugesController: BaseDemoController {
     
     func randomForGauge() {
         var option = self.option
-        let data: [String: SECJsonable] = ["value": Double(arc4random_uniform(100) + 1), "name": "完成率"]
+        let data: [String: Jsonable] = ["value": Double(arc4random_uniform(100) + 1), "name": "完成率"]
         var serie = option.series![0] as! SECGaugeSerie
         serie.data = [data]
         option.series = [serie]
@@ -57,16 +57,16 @@ class GaugesController: BaseDemoController {
     
     func randomForGaugeCar() {
         var option = self.option
-        let data1: [String: SECJsonable] = ["value": Double(arc4random_uniform(100) + 1), "name": "km/h"]
+        let data1: [String: Jsonable] = ["value": Double(arc4random_uniform(100) + 1), "name": "km/h"]
         var serie1 = option.series![0] as! SECGaugeSerie
         serie1.data = [data1]
-        let data2: [String: SECJsonable] = ["value": Double(arc4random_uniform(7) + 1), "name": "x1000 r/min"]
+        let data2: [String: Jsonable] = ["value": Double(arc4random_uniform(7) + 1), "name": "x1000 r/min"]
         var serie2 = option.series![1] as! SECGaugeSerie
         serie2.data = [data2]
-        let data3: [String: SECJsonable] = ["value": Double(arc4random_uniform(2) + 1), "name": "gas"]
+        let data3: [String: Jsonable] = ["value": Double(arc4random_uniform(2) + 1), "name": "gas"]
         var serie3 = option.series![2] as! SECGaugeSerie
         serie3.data = [data3]
-        let data4: [String: SECJsonable] = ["value": Double(arc4random_uniform(2) + 1), "name": "gas"]
+        let data4: [String: Jsonable] = ["value": Double(arc4random_uniform(2) + 1), "name": "gas"]
         var serie4 = option.series![3] as! SECGaugeSerie
         serie4.data = [data4]
 

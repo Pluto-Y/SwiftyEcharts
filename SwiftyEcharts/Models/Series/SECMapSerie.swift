@@ -380,7 +380,7 @@ extension SECMapSerie : SECMappable {
     public func mapping(map: SECMap) {
         map["type"] = type
         map["name"] = name
-        map["map"] = map
+        map["map"] = self.map
         map["roam"] = roam
         map["center"] = center
         map["aspectScale"] = aspectScale

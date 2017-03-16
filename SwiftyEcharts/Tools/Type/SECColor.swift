@@ -36,7 +36,9 @@ public enum SECColor: SECJsonable {
     case array([SECColor])
     case image(String, ImageRepeat)
     case linearGradient(Float, Float, Float, Float, [SECGradientColorElement], Bool)
+    case radialGradient(Float, Float, Float, [SECGradientColorElement], Bool)
     case auto, red, blue, green, yellow, transparent
+    
     
     public var jsonString: String {
         switch self {
@@ -71,6 +73,23 @@ public enum SECColor: SECJsonable {
                 jsStr += "], \(absolute))"
                 let count = SECJsCache.allJsStrings().count
                 let paramName = "linearGradient\(count)"
+                SECJsCache.add("var \(paramName) = \(jsStr);")
+                result = "\"\(paramName)\""
+            }
+            return result
+        case let .radialGradient(x, y, r, colors, absolute):
+            var result = "null"
+            if colors.count > 0 {
+                var jsStr = "new echarts.graphic.RadialGradient(\(x), \(y), \(r), ["
+                for color in colors {
+                    if color.jsonString != "null" {
+                        jsStr += "\(color.jsonString),"
+                    }
+                }
+                jsStr = jsStr.substringToIndex(jsStr.endIndex.predecessor())
+                jsStr += "], \(absolute))"
+                let count = SECJsCache.allJsStrings().count
+                let paramName = "radialGradient\(count)"
                 SECJsCache.add("var \(paramName) = \(jsStr);")
                 result = "\"\(paramName)\""
             }

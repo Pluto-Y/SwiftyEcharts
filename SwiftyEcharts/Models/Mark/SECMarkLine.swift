@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECMarkLine: SECAnimatable {
+public struct SECMarkLine: Animatable {
     
     public struct Data {
         /// 名称
@@ -55,7 +55,7 @@ public struct SECMarkLine: SECAnimatable {
         public var value: Float?
         /// 标记的图形
         /// - Note: 该属性只在 SECMarkArea 无效
-        public var symbol: SECSymbol?
+        public var symbol: Symbol?
         /// 标记的大小
         /// - Note: 该属性只在 SECMarkArea 无效
         public var symbolSize: Float?
@@ -67,7 +67,7 @@ public struct SECMarkLine: SECAnimatable {
         /// - Note: 该属性只在 SECMarkArea 无效
         public var symbolOffset: [LengthValue]?
         /// 该数据项线的样式，起点和终点项的 lineStyle会合并到一起。
-        public var lineStyle: SECEmphasisLineStyle?
+        public var lineStyle: EmphasisLineStyle?
         /// 该数据项标签的样式，起点和终点项的 label会合并到一起。
         public var label: FormattedLabel?
         
@@ -77,7 +77,7 @@ public struct SECMarkLine: SECAnimatable {
     public var silent: Bool?
     /// 标线两端的标记类型，可以是一个数组分别指定两端，也可以是单个统一指定，具体格式见 data.symbol。 
     // FIXME: 暂不支持两端
-    public var symbol: SECSymbol?
+    public var symbol: Symbol?
     /// 标线两端的标记大小，可以是一个数组分别指定两端，也可以是单个统一指定。
     /// 注意： 这里无法像一般的 symbolSize 那样通过数组分别指定高宽。
     // FIXME: 暂不支持两端
@@ -87,7 +87,7 @@ public struct SECMarkLine: SECAnimatable {
     /// 标线的文本。
     public var label: Label?
     /// 标线的样式
-    public var lineStyle: SECEmphasisLineStyle?
+    public var lineStyle: EmphasisLineStyle?
     /// 标线的数据数组。每个数组项可以是一个两个值的数组，分别表示线的起点和终点，每一项是一个对象，有下面几种方式指定起点或终点的位置。
     /// - 1.通过 x, y 属性指定相对容器的屏幕坐标，单位像素，支持百分比。
     /// - 2.用 coord 属性指定数据在相应坐标系上的坐标位置，单个维度支持设置 'min', 'max', 'average'。
@@ -155,9 +155,9 @@ public struct SECMarkLine: SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDuration: SECTime?
+    public var animationDuration: Time?
     /// 初始动画的缓动效果。不同的缓动效果可以参考
-    public var animationEasing: SECAnimation?
+    public var animationEasing: EasingFunction?
     /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
     ///
     /// 如下示例：
@@ -166,16 +166,16 @@ public struct SECMarkLine: SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelay: SECTime?
+    public var animationDelay: Time?
     /// 数据更新动画的时长。
     /// 支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
     ///     animationDurationUpdate: function (idx) {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDurationUpdate: SECTime?
+    public var animationDurationUpdate: Time?
     /// 数据更新动画的缓动效果。
-    public var animationEasingUpdate: SECAnimation?
+    public var animationEasingUpdate: EasingFunction?
     /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
     /// 如下示例：
     ///
@@ -183,7 +183,7 @@ public struct SECMarkLine: SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelayUpdate: SECTime?
+    public var animationDelayUpdate: Time?
     
     public init() { }
 }
@@ -192,7 +192,7 @@ public typealias SECMarkLineData = SECMarkLine.Data
 
 extension SECMarkLineData: Enumable {
     public enum Enums {
-        case name(String), type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(LengthValue), y(LengthValue), xAxis(String), yAxis(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([LengthValue]), lineStyle(SECEmphasisLineStyle), label(FormattedLabel)
+        case name(String), type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(LengthValue), y(LengthValue), xAxis(String), yAxis(String), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset([LengthValue]), lineStyle(EmphasisLineStyle), label(FormattedLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -260,7 +260,7 @@ extension SECMarkLineData: Mappable {
 
 extension SECMarkLine: Enumable {
     public enum Enums {
-        case silent(Bool), symbol(SECSymbol), symbolSize(Float), precision(Float), label(Label), lineStyle(SECEmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case silent(Bool), symbol(Symbol), symbolSize(Float), precision(Float), label(Label), lineStyle(EmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

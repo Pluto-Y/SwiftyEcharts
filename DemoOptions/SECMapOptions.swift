@@ -12,47 +12,47 @@ public struct SECMapOptions {
     
     // MARK: 模拟迁徙
     /// 地址: http://echarts.baidu.com/demo.html#geo-lines
-    static func geoLinesOption() -> SECOption {
+    static func geoLinesOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: 65k+ 飞机航线
     /// 地址: http://echarts.baidu.com/demo.html#lines-airline
-    static func linesAirlineOption() -> SECOption {
+    static func linesAirlineOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: 北京公交路线 - 百度地图
     /// 地址: http://echarts.baidu.com/demo.html#lines-bmap-bus
-    static func linesBmapBusOption() -> SECOption {
+    static func linesBmapBusOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: 北京公交路线 - 线特效
     /// 地址: http://echarts.baidu.com/demo.html#lines-bmap-effect
-    static func linesBmapEffectOption() -> SECOption {
+    static func linesBmapEffectOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: 杭州热门步行路线 - 百度地图
     /// 地址: http://echarts.baidu.com/demo.html#lines-bmap
-    static func linesBmapOption() -> SECOption {
+    static func linesBmapOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: iPhone销量
     /// 地址: http://echarts.baidu.com/demo.html#map-china-dataRange
-    static func mapChinaDataRangeOption() -> SECOption {
+    static func mapChinaDataRangeOption() -> Option {
         let serieTemplate = SECMapSerie(
             .map("china"),
             .label(Label(
@@ -139,13 +139,13 @@ public struct SECMapOptions {
 
         ]
         
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("iphone销量"),
                 .subtext("纯属虚构"),
                 .left(.center)
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.item)
                 )),
             .legend(Legend(
@@ -161,7 +161,7 @@ public struct SECMapOptions {
                 .text(["高", "低"]),
                 .calculable(true)
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .show(true),
                 .orient(.vertical),
                 .left(.right),
@@ -182,9 +182,9 @@ public struct SECMapOptions {
 
     // MARK: Map China
     /// 地址: http://echarts.baidu.com/demo.html#map-china
-    static func mapChinaOption() -> SECOption {
-        return SECOption(
-            .tooltip(SECTooltip(
+    static func mapChinaOption() -> Option {
+        return Option(
+            .tooltip(Tooltip(
                 .trigger(.item),
                 .formatter(.string("{b}"))
                 )),
@@ -209,57 +209,57 @@ public struct SECMapOptions {
     
     // MARK: 香港18区人口密度 （2011）
     /// 地址: http://echarts.baidu.com/demo.html#map-HK
-    static func mapHKOption() -> SECOption {
+    static func mapHKOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: Map Locate
     /// 地址: http://echarts.baidu.com/demo.html#map-locate
-    static func mapLocateOption() -> SECOption {
+    static func mapLocateOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: 34 省切换查看
     /// 地址: http://echarts.baidu.com/demo.html#map-province
-    static func mapProvinceOption() -> SECOption {
+    static func mapProvinceOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: USA Population Estimates (2012)
     /// 地址: http://echarts.baidu.com/demo.html#map-usa
-    static func mapUsaOption() -> SECOption {
+    static func mapUsaOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: World Population (2010)
     /// 地址: http://echarts.baidu.com/demo.html#map-world-dataRange
-    static func mapWorldDataRangeOption() -> SECOption {
+    static func mapWorldDataRangeOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: map and scatter share a geo
     /// 地址: http://echarts.baidu.com/demo.html#geo-map-scatter
-    static func geoMapScatterOption() -> SECOption {
+    static func geoMapScatterOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: Map World
     /// 地址: http://echarts.baidu.com/demo.html#map-world
-    static func mapWorldOption() -> SECOption {
-        return SECOption(
-            .tooltip(SECTooltip(
+    static func mapWorldOption() -> Option {
+        return Option(
+            .tooltip(Tooltip(
                 .trigger(.item),
                 .formatter(.string("{b}"))
                 )),

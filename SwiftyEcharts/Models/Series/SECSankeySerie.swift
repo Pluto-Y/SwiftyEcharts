@@ -19,7 +19,7 @@
 /// 此外，图中每两个小矩形之间的边编码的是原数据中的link，边的粗细编码的是link中的value。
 /// 
 /// 排序： 如果想指定结果的纵向顺序，那么可以把 layoutIterations 设为 0，此时纵向的顺序依照数据在 links 中出现的顺序。
-public struct SECSankeySerie: SECSeries, Zable, SECAnimatable {
+public struct SECSankeySerie: SECSeries, Zable, Animatable {
     
     public struct Data {
         /// 数据项名称。
@@ -27,7 +27,7 @@ public struct SECSankeySerie: SECSeries, Zable, SECAnimatable {
         /// 数据项值。
         public var value: Float?
         /// 该节点的样式。
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         /// 该节点标签的样式。
         public var label: FormattedLabel?
         
@@ -42,7 +42,7 @@ public struct SECSankeySerie: SECSeries, Zable, SECAnimatable {
         /// 边的数值，决定边的宽度。
         public var value: Float?
         /// 关系边的线条样式。
-        public var lineStyle: SECEmphasisLineStyle?
+        public var lineStyle: EmphasisLineStyle?
         
         public init() { }
     }
@@ -61,20 +61,20 @@ public struct SECSankeySerie: SECSeries, Zable, SECAnimatable {
     /// left 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'left', 'center', 'right'。
     ///
     /// 如果 left 的值为'left', 'center', 'right'，组件会根据相应的位置自动对齐。
-    public var left: SECPosition?
+    public var left: Position?
     /// sankey组件离容器上侧的距离。
     ///
     /// top 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'top', 'middle', 'bottom'。
     ///
     /// 如果 top 的值为'top', 'middle', 'bottom'，组件会根据相应的位置自动对齐。
-    public var top: SECPosition?
+    public var top: Position?
     /// sankey组件离容器右侧的距离。
     ///
     /// right 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
-    public var right: SECPosition?
+    public var right: Position?
     /// sankey组件离容器下侧的距离。
     /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// sankey组件的宽度。
     public var width: LengthValue?
     /// sankey组件的高度。
@@ -92,9 +92,9 @@ public struct SECSankeySerie: SECSeries, Zable, SECAnimatable {
     /// label 描述了每个矩形节点中文本标签的样式。
     public var label: FormattedLabel?
     /// 桑基图节点矩形的样式。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 桑基图边的样式，其中 lineStyle.normal.color 支持设置为'source'或者'target'特殊值，此时边会自动取源节点或目标节点的颜色作为自己的颜色。
-    public var lineStyle: SECEmphasisLineStyle?
+    public var lineStyle: EmphasisLineStyle?
     /// 系列中的数据内容数组。数组项可以为单个数值，如：
     ///
     /// [12, 34, 56, 10, 23]
@@ -149,22 +149,22 @@ public struct SECSankeySerie: SECSeries, Zable, SECAnimatable {
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     
-    // MARK: SECAnimatable
+    // MARK: Animatable
     public var animation: Bool?
     public var animationThreshold: Float?
-    public var animationDuration: SECTime?
-    public var animationEasing: SECAnimation?
-    public var animationDelay: SECTime?
-    public var animationDurationUpdate: SECTime?
-    public var animationEasingUpdate: SECAnimation?
-    public var animationDelayUpdate: SECTime?
+    public var animationDuration: Time?
+    public var animationEasing: EasingFunction?
+    public var animationDelay: Time?
+    public var animationDurationUpdate: Time?
+    public var animationEasingUpdate: EasingFunction?
+    public var animationDelayUpdate: Time?
     
     public init() { }
 }
 
 extension SECSankeySerie.Data: Enumable {
     public enum Enums {
-        case name(String), value(Float), itemStyle(SECItemStyle), label(FormattedLabel)
+        case name(String), value(Float), itemStyle(ItemStyle), label(FormattedLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -196,7 +196,7 @@ extension SECSankeySerie.Data: Mappable {
 
 extension SECSankeySerie.Link: Enumable {
     public enum Enums {
-        case source(String), target(String), value(Float), lineStyle(SECEmphasisLineStyle)
+        case source(String), target(String), value(Float), lineStyle(EmphasisLineStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -228,7 +228,7 @@ extension SECSankeySerie.Link: Mappable {
 
 extension SECSankeySerie: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(LengthValue), height(LengthValue), nodeWidth(Float), nodeGap(Float), layoutIterations(Float), label(FormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), data([Jsonable]), nodes([Jsonable]), links([Jsonable]), edges([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), nodeWidth(Float), nodeGap(Float), layoutIterations(Float), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), data([Jsonable]), nodes([Jsonable]), links([Jsonable]), edges([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

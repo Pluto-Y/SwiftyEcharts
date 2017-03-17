@@ -173,7 +173,7 @@ public struct SECTreemapSerie: SECSeries, Zable {
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
         ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
         ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         
         public init() {}
     }
@@ -198,31 +198,31 @@ public struct SECTreemapSerie: SECSeries, Zable {
         /// left 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'left', 'center', 'right'。
         ///
         /// 如果 left 的值为'left', 'center', 'right'，组件会根据相应的位置自动对齐。
-        public var left: SECPosition?
+        public var left: Position?
         /// asdf 组件离容器上侧的距离。
         ///
         /// top 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'top', 'middle', 'bottom'。
         ///
         /// 如果 top 的值为'top', 'middle', 'bottom'，组件会根据相应的位置自动对齐。
-        public var top: SECPosition?
+        public var top: Position?
         /// asdf 组件离容器右侧的距离。
         ///
         /// right 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
         ///
         /// 默认自适应。
-        public var right: SECPosition?
+        public var right: Position?
         /// asdf 组件离容器下侧的距离。
         ///
         /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
         ///
         /// 默认自适应。
-        public var bottom: SECPosition?
+        public var bottom: Position?
         /// 面包屑的高度。
         public var height: Float?
         /// 当面包屑没有内容时候，设个最小宽度。
         public var emptyItemWidth: Float?
         /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         
         public init() {}
     }
@@ -331,7 +331,7 @@ public struct SECTreemapSerie: SECSeries, Zable {
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
         ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
         ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         
         public init() {}
     }
@@ -350,25 +350,25 @@ public struct SECTreemapSerie: SECSeries, Zable {
     /// left 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'left', 'center', 'right'。
     ///
     ///如果 left 的值为'left', 'center', 'right'，组件会根据相应的位置自动对齐。
-    public var left: SECPosition?
+    public var left: Position?
     /// treemap 组件离容器上侧的距离。
     ///
     /// top 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'top', 'middle', 'bottom'。
     ///
     /// 如果 top 的值为'top', 'middle', 'bottom'，组件会根据相应的位置自动对齐。
-    public var top: SECPosition?
+    public var top: Position?
     /// treemap 组件离容器右侧的距离。
     ///
     /// right 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     ///
     /// 默认自适应。
-    public var right: SECPosition?
+    public var right: Position?
     /// treemap 组件离容器下侧的距离。
     ///
     /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     ///
     /// 默认自适应。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// treemap 组件的宽度。
     public var width: LengthValue?
     /// treemap 组件的高度。
@@ -569,7 +569,7 @@ public struct SECTreemapSerie: SECSeries, Zable {
     ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
     ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
     ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 面包屑，能够显示当前节点的路径。
     public var breadcrumb: Breadcrumb?
     /// series-treemap.data 的数据格式是树状的，例如：
@@ -624,7 +624,7 @@ public struct SECTreemapSerie: SECSeries, Zable {
     ///     }
     public var animationDuration: Float?
     /// 初始动画的缓动效果。不同的缓动效果可以参考 缓动示例。http://echarts.baidu.com/gallery/editor.html?c=line-easing
-    public var animationEasing: SECAnimation?
+    public var animationEasing: EasingFunction?
     /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
     ///
     /// 如下示例：
@@ -635,7 +635,7 @@ public struct SECTreemapSerie: SECSeries, Zable {
     ///     }
     ///
     /// 也可以看该示例: http://echarts.baidu.com/gallery/editor.html?c=bar-animation-delay
-    public var animationDelay: SECTime?
+    public var animationDelay: Time?
     
     public init() {}
 }
@@ -647,7 +647,7 @@ public typealias SECTreemapSerieData = SECTreemapSerie.Data
 
 extension SECTreemapSerieLevel: Enumable {
     public enum Enums {
-        case visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(SECTreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(SECItemStyle)
+        case visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(SECTreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -729,7 +729,7 @@ extension SECTreemapSerieSilent: Mappable {
 
 extension SECTreemapSerieBreadcrumb: Enumable {
     public enum Enums {
-        case show(Bool), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), height(Float), emptyItemWidth(Float), itemStyle(SECItemStyle)
+        case show(Bool), left(Position), top(Position), right(Position), bottom(Position), height(Float), emptyItemWidth(Float), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -773,7 +773,7 @@ extension SECTreemapSerieBreadcrumb: Mappable {
 
 extension SECTreemapSerieData: Enumable {
     public enum Enums {
-        case value(Jsonable), id(String), name(String), visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(SECTreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(SECItemStyle)
+        case value(Jsonable), id(String), name(String), visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(SECTreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -835,7 +835,7 @@ extension SECTreemapSerieData: Mappable {
 
 extension SECTreemapSerie: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), squareRotio(Float), leafDepth(Float), roam(Roam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(Range), colorSaturation(Range), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(SECItemStyle), breadcrumb(Breadcrumb), data([Jsonable]), animationDuration(Float), animationEasing(SECAnimation), animationDelay(SECTime)
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float), squareRotio(Float), leafDepth(Float), roam(Roam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(Range), colorSaturation(Range), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle), breadcrumb(Breadcrumb), data([Jsonable]), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Time)
     }
     
     public typealias ContentEnum = Enums

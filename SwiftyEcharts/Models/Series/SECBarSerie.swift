@@ -7,7 +7,7 @@
 //
 
 /// 柱状/条形图 通过 柱形的高度/条形的宽度 来表现数据的大小，用于有至少一个类目轴或时间轴的直角坐标系上。
-public struct SECBarSerie: SECSeries, SECAnimatable, Zable {
+public struct SECBarSerie: SECSeries, Animatable, Zable {
     /// 类型
     public var type: SECSerieType {
         return .bar
@@ -28,7 +28,7 @@ public struct SECBarSerie: SECSeries, SECAnimatable, Zable {
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: Label?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 数据堆叠，同个类目轴上系列配置相同的stack值可以堆叠放置。
     public var stack: String?
     /// 柱条的宽度，不设时自适应。支持设置成相对于类目宽度的百分比。
@@ -75,9 +75,9 @@ public struct SECBarSerie: SECSeries, SECAnimatable, Zable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDuration: SECTime?
+    public var animationDuration: Time?
     /// 初始动画的缓动效果。不同的缓动效果可以参考
-    public var animationEasing: SECAnimation?
+    public var animationEasing: EasingFunction?
     /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
     ///
     /// 如下示例：
@@ -86,16 +86,16 @@ public struct SECBarSerie: SECSeries, SECAnimatable, Zable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelay: SECTime?
+    public var animationDelay: Time?
     /// 数据更新动画的时长。
     /// 支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
     ///     animationDurationUpdate: function (idx) {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDurationUpdate: SECTime?
+    public var animationDurationUpdate: Time?
     /// 数据更新动画的缓动效果。
-    public var animationEasingUpdate: SECAnimation?
+    public var animationEasingUpdate: EasingFunction?
     /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
     /// 如下示例：
     ///
@@ -103,12 +103,12 @@ public struct SECBarSerie: SECSeries, SECAnimatable, Zable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelayUpdate: SECTime?
+    public var animationDelayUpdate: Time?
 }
 
 extension SECBarSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLine(Bool), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(SECItemStyle), stack(String), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(Float), barGap(String), barCategoryGap(String), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), legendHoverLine(Bool), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(ItemStyle), stack(String), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(Float), barGap(String), barCategoryGap(String), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -305,7 +305,7 @@ extension SECBarSerie {
         /// 单个柱条文本的样式设置。
         public var label: FormattedLabel?
         /// 图形样式。
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
     }
 }
 
@@ -313,7 +313,7 @@ public typealias SECBarSerieData = SECBarSerie.Data
 
 extension SECBarSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Float), label(FormattedLabel), itemStyle(SECItemStyle)
+        case name(String), value(Float), label(FormattedLabel), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums

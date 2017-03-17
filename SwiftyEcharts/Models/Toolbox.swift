@@ -1,5 +1,5 @@
 //
-//  SECToolbox.swift
+//  Toolbox.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 16/01/2017.
@@ -7,7 +7,7 @@
 //
 
 /// 工具栏。内置有导出图片，数据视图，动态类型切换，数据区域缩放，重置五个工具。
-public struct SECToolbox: Displayable, Zable {
+public struct Toolbox: Displayable, Zable {
     
     /// 各工具配置项。
     /// 除了各个内置的工具按钮外，还可以自定义工具按钮。
@@ -85,33 +85,33 @@ public struct SECToolbox: Displayable, Zable {
     /// left 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'left', 'center', 'right'。
     ///
     /// 如果 left 的值为'left', 'center', 'right'，组件会根据相应的位置自动对齐。
-    public var left: SECPosition?
+    public var left: Position?
     /// 工具栏组件离容器上侧的距离。
     ///
     /// top 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'top', 'middle', 'bottom'。
     ///
     /// 如果 top 的值为'top', 'middle', 'bottom'，组件会根据相应的位置自动对齐。
-    public var top: SECPosition?
+    public var top: Position?
     /// 工具栏组件离容器右侧的距离。
     ///
     /// right 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     ///
     /// 默认自适应。
-    public var right: SECPosition?
+    public var right: Position?
     /// 工具栏组件离容器下侧的距离。
     ///
     /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     ///
     /// 默认自适应。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// 工具栏组件的宽度。默认自适应。
     public var width: Float?
     /// 工具栏组件的高度。默认自适应。
     public var height: Float?
 }
 
-// MARK: - SECToolbox.IconStyle
-extension SECToolbox {
+// MARK: - Toolbox.IconStyle
+extension Toolbox {
     public struct IconStyleContent: Opacitable {
         public var color: Color?
         public var borderColor: Color?
@@ -127,7 +127,7 @@ extension SECToolbox {
             }
         }
         /// 文本位置，'left' / 'right' / 'top' / 'bottom'。
-        public var textPosition: SECPosition?
+        public var textPosition: Position?
         /// 文本对齐方式，'left' / 'right'。
         public var textAlign: Align?
         
@@ -144,9 +144,9 @@ extension SECToolbox {
     }
 }
 
-extension SECToolbox.IconStyleContent: Enumable {
+extension Toolbox.IconStyleContent: Enumable {
     public enum Enums {
-        case color(Color), borderColor(Color), borderWidth(Float), borderType(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), textPosition(SECPosition), textAlign(Align)
+        case color(Color), borderColor(Color), borderWidth(Float), borderType(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), textPosition(Position), textAlign(Align)
     }
     
     public typealias ContentEnum = Enums
@@ -181,7 +181,7 @@ extension SECToolbox.IconStyleContent: Enumable {
     }
 }
 
-extension SECToolbox.IconStyleContent: Mappable {
+extension Toolbox.IconStyleContent: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["borderColor"] = borderColor
@@ -197,7 +197,7 @@ extension SECToolbox.IconStyleContent: Mappable {
     }
 }
 
-extension SECToolbox.IconStyle: Enumable {
+extension Toolbox.IconStyle: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -216,15 +216,15 @@ extension SECToolbox.IconStyle: Enumable {
     }
 }
 
-extension SECToolbox.IconStyle: Mappable {
+extension Toolbox.IconStyle: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
 }
 
-// MARK: - SECToolbox.Feature.SaveAsImage
-extension SECToolbox.Feature {
+// MARK: - Toolbox.Feature.SaveAsImage
+extension Toolbox.Feature {
     /// 保存为图片。
     public struct SaveAsImage: Displayable {
         public enum Type: String, Jsonable {
@@ -251,15 +251,15 @@ extension SECToolbox.Feature {
         /// Icon 的 path 字符串，ECharts 3 中支持使用自定义的 svg path 作为 icon，格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
         public var icon: String? // FIXME: 暂时还不理解
         /// icon 样式设置。
-        public var iconStyle: SECToolbox.IconStyle?
+        public var iconStyle: Toolbox.IconStyle?
         /// 保存图片的分辨率比例，默认跟容器相同大小，如果需要保存更高分辨率的，可以设置为大于 1 的值，例如 2。
         public var pixelRatio: Float?
     }
 }
 
-extension SECToolbox.Feature.SaveAsImage: Enumable {
+extension Toolbox.Feature.SaveAsImage: Enumable {
     public enum Enums {
-        case type(Type), name(String), backgroundColor(Color), excludeComponents([String]), show(Bool), title(String), icon(String), iconStyle(SECToolbox.IconStyle), pixelRatio(Float)
+        case type(Type), name(String), backgroundColor(Color), excludeComponents([String]), show(Bool), title(String), icon(String), iconStyle(Toolbox.IconStyle), pixelRatio(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -290,7 +290,7 @@ extension SECToolbox.Feature.SaveAsImage: Enumable {
     }
 }
 
-extension SECToolbox.Feature.SaveAsImage: Mappable {
+extension Toolbox.Feature.SaveAsImage: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
@@ -304,8 +304,8 @@ extension SECToolbox.Feature.SaveAsImage: Mappable {
     }
 }
 
-// MARK: - SECToolbox.Feature.Restore
-extension SECToolbox.Feature {
+// MARK: - Toolbox.Feature.Restore
+extension Toolbox.Feature {
     /// 配置项还原。
     public struct Restore: Displayable {
         /// 是否显示该工具。
@@ -315,13 +315,13 @@ extension SECToolbox.Feature {
         /// Icon 的 path 字符串，ECharts 3 中支持使用自定义的 svg path 作为 icon，格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
         public var icon: String? // FIXME: 暂时还不理解
         /// icon 样式设置。
-        public var iconStyle: SECToolbox.IconStyle?
+        public var iconStyle: Toolbox.IconStyle?
     }
 }
 
-extension SECToolbox.Feature.Restore: Enumable {
+extension Toolbox.Feature.Restore: Enumable {
     public enum Enums {
-        case show(Bool), title(String), icon(String), iconStyle(SECToolbox.IconStyle)
+        case show(Bool), title(String), icon(String), iconStyle(Toolbox.IconStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -342,7 +342,7 @@ extension SECToolbox.Feature.Restore: Enumable {
     }
 }
 
-extension SECToolbox.Feature.Restore: Mappable {
+extension Toolbox.Feature.Restore: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["title"] = title
@@ -351,8 +351,8 @@ extension SECToolbox.Feature.Restore: Mappable {
     }
 }
 
-// MARK: - SECToolbox.Feature.DataView
-extension SECToolbox.Feature {
+// MARK: - Toolbox.Feature.DataView
+extension Toolbox.Feature {
     /// 数据视图工具，可以展现当前图表所用的数据，编辑后可以动态更新。
     public struct DataView: Displayable {
         /// 是否显示该工具。
@@ -362,7 +362,7 @@ extension SECToolbox.Feature {
         /// Icon 的 path 字符串，ECharts 3 中支持使用自定义的 svg path 作为 icon，格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
         public var icon: String? // FIXME: 暂时还不理解
         /// 数据视图 icon 样式设置。
-        public var iconStyle: SECToolbox.IconStyle?
+        public var iconStyle: Toolbox.IconStyle?
         /// 是否不可编辑（只读）。
         public var readOnly: Bool?
 //        public var optionToContent: String? // FIXME: 是否需要封装?
@@ -384,9 +384,9 @@ extension SECToolbox.Feature {
     }
 }
 
-extension SECToolbox.Feature.DataView: Enumable {
+extension Toolbox.Feature.DataView: Enumable {
     public enum Enums {
-        case show(Bool), title(String), icon(String), iconStyle(SECToolbox.IconStyle), readOnly(Bool), lang([String]), backgroundColor(Color), textareaColor(Color), textareaBorderColor(Color), textColor(Color), buttonColor(Color), buttonTextColor(Color)
+        case show(Bool), title(String), icon(String), iconStyle(Toolbox.IconStyle), readOnly(Bool), lang([String]), backgroundColor(Color), textareaColor(Color), textareaBorderColor(Color), textColor(Color), buttonColor(Color), buttonTextColor(Color)
     }
     
     public typealias ContentEnum = Enums
@@ -423,7 +423,7 @@ extension SECToolbox.Feature.DataView: Enumable {
     }
 }
 
-extension SECToolbox.Feature.DataView: Mappable {
+extension Toolbox.Feature.DataView: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["title"] = title
@@ -442,8 +442,8 @@ extension SECToolbox.Feature.DataView: Mappable {
     }
 }
 
-// MARK: - SECToolbox.Feature.DataZoom
-extension SECToolbox.Feature {
+// MARK: - Toolbox.Feature.DataZoom
+extension Toolbox.Feature {
     /// 数据区域缩放。目前只支持直角坐标系的缩放。
     public struct DataZoom: Displayable {
         
@@ -502,7 +502,7 @@ extension SECToolbox.Feature {
         /// 缩放和还原的 icon path。
         public var icon: Icon?
         /// 数据区域缩放 icon 样式设置。
-        public var iconStyle: SECToolbox.IconStyle?
+        public var iconStyle: Toolbox.IconStyle?
         /// 指定哪些 xAxis 被控制。如果缺省则控制所有的x轴。如果设置为 false 则不控制任何x轴。如果设置成 3 则控制 axisIndex 为 3 的x轴。如果设置为 [0, 3] 则控制 axisIndex 为 0 和 3 的x轴。
         public var xAxisIndex: AxisIndexSelector?
         /// 指定哪些 yAxis 被控制。如果缺省则控制所有的y轴。如果设置为 false 则不控制任何y轴。如果设置成 3 则控制 axisIndex 为 3 的y轴。如果设置为 [0, 3] 则控制 axisIndex 为 0 和 3 的y轴。
@@ -510,7 +510,7 @@ extension SECToolbox.Feature {
     }
 }
 
-extension SECToolbox.Feature.DataZoom.Title: Enumable {
+extension Toolbox.Feature.DataZoom.Title: Enumable {
     public enum Enums {
         case zoom(String), back(String)
     }
@@ -529,14 +529,14 @@ extension SECToolbox.Feature.DataZoom.Title: Enumable {
     }
 }
 
-extension SECToolbox.Feature.DataZoom.Title: Mappable {
+extension Toolbox.Feature.DataZoom.Title: Mappable {
     public func mapping(map: Mapper) {
         map["zoom"] = zoom
         map["back"] = back
     }
 }
 
-extension SECToolbox.Feature.DataZoom.Icon: Enumable {
+extension Toolbox.Feature.DataZoom.Icon: Enumable {
     public enum Enums {
         case zoom(String), back(String)
     }
@@ -555,16 +555,16 @@ extension SECToolbox.Feature.DataZoom.Icon: Enumable {
     }
 }
 
-extension SECToolbox.Feature.DataZoom.Icon: Mappable {
+extension Toolbox.Feature.DataZoom.Icon: Mappable {
     public func mapping(map: Mapper) {
         map["zoom"] = zoom
         map["back"] = back
     }
 }
 
-extension SECToolbox.Feature.DataZoom: Enumable {
+extension Toolbox.Feature.DataZoom: Enumable {
     public enum Enums {
-        case show(Bool), title(Title), icon(Icon), iconStyle(SECToolbox.IconStyle), xAxisIndex(AxisIndexSelector), yAxisIndex(AxisIndexSelector)
+        case show(Bool), title(Title), icon(Icon), iconStyle(Toolbox.IconStyle), xAxisIndex(AxisIndexSelector), yAxisIndex(AxisIndexSelector)
     }
     
     public typealias ContentEnum = Enums
@@ -589,7 +589,7 @@ extension SECToolbox.Feature.DataZoom: Enumable {
     }
 }
 
-extension SECToolbox.Feature.DataZoom: Mappable {
+extension Toolbox.Feature.DataZoom: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["title"] = title
@@ -601,8 +601,8 @@ extension SECToolbox.Feature.DataZoom: Mappable {
 }
 
 
-// MARK: - SECToolbox.Feature.MagicType
-extension SECToolbox.Feature {
+// MARK: - Toolbox.Feature.MagicType
+extension Toolbox.Feature {
     /// 动态类型切换 示例：
     ///
     ///     feature: {
@@ -658,7 +658,7 @@ extension SECToolbox.Feature {
     }
 }
 
-extension SECToolbox.Feature.MagicType.Title: Enumable {
+extension Toolbox.Feature.MagicType.Title: Enumable {
     public enum Enums {
         case line(String), bar(String), stack(String), tiled(String)
     }
@@ -681,7 +681,7 @@ extension SECToolbox.Feature.MagicType.Title: Enumable {
     }
 }
 
-extension SECToolbox.Feature.MagicType.Title: Mappable {
+extension Toolbox.Feature.MagicType.Title: Mappable {
     public func mapping(map: Mapper) {
         map["line"] = line
         map["bar"] = bar
@@ -690,7 +690,7 @@ extension SECToolbox.Feature.MagicType.Title: Mappable {
     }
 }
 
-extension SECToolbox.Feature.MagicType.Icon: Enumable {
+extension Toolbox.Feature.MagicType.Icon: Enumable {
     public enum Enums {
         case line(String), bar(String), stack(String), tiled(String)
     }
@@ -713,7 +713,7 @@ extension SECToolbox.Feature.MagicType.Icon: Enumable {
     }
 }
 
-extension SECToolbox.Feature.MagicType.Icon: Mappable {
+extension Toolbox.Feature.MagicType.Icon: Mappable {
     public func mapping(map: Mapper) {
         map["line"] = line
         map["bar"] = bar
@@ -722,7 +722,7 @@ extension SECToolbox.Feature.MagicType.Icon: Mappable {
     }
 }
 
-extension SECToolbox.Feature.MagicType: Enumable {
+extension Toolbox.Feature.MagicType: Enumable {
     public enum Enums {
         case show(Bool), type([Type]), title(Title), icon(Icon)
     }
@@ -745,7 +745,7 @@ extension SECToolbox.Feature.MagicType: Enumable {
     }
 }
 
-extension SECToolbox.Feature.MagicType: Mappable {
+extension Toolbox.Feature.MagicType: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["type"] = type
@@ -756,8 +756,8 @@ extension SECToolbox.Feature.MagicType: Mappable {
     }
 }
 
-// MARK: - SECToolbox.Feature.Brush
-extension SECToolbox.Feature {
+// MARK: - Toolbox.Feature.Brush
+extension Toolbox.Feature {
     /// 选框组件的控制按钮。
     ///
     /// 也可以不在这里指定，而是在 brush.toolbox 中指定。
@@ -809,7 +809,7 @@ extension SECToolbox.Feature {
     }
 }
 
-extension SECToolbox.Feature.Brush.Icon: Enumable {
+extension Toolbox.Feature.Brush.Icon: Enumable {
     public enum Enums {
         case rect(String), polygon(String), lineX(String), lineY(String), keep(String), clear(String)
     }
@@ -836,7 +836,7 @@ extension SECToolbox.Feature.Brush.Icon: Enumable {
     }
 }
 
-extension SECToolbox.Feature.Brush.Icon: Mappable {
+extension Toolbox.Feature.Brush.Icon: Mappable {
     public func mapping(map: Mapper) {
         map["rect"] = rect
         map["polygon"] = polygon
@@ -847,7 +847,7 @@ extension SECToolbox.Feature.Brush.Icon: Mappable {
     }
 }
 
-extension SECToolbox.Feature.Brush.Title: Enumable {
+extension Toolbox.Feature.Brush.Title: Enumable {
     public enum Enums {
         case rect(String), polygon(String), lineX(String), lineY(String), keep(String), clear(String)
     }
@@ -874,7 +874,7 @@ extension SECToolbox.Feature.Brush.Title: Enumable {
     }
 }
 
-extension SECToolbox.Feature.Brush.Title: Mappable {
+extension Toolbox.Feature.Brush.Title: Mappable {
     public func mapping(map: Mapper) {
         map["rect"] = rect
         map["polygon"] = polygon
@@ -885,7 +885,7 @@ extension SECToolbox.Feature.Brush.Title: Mappable {
     }
 }
 
-extension SECToolbox.Feature.Brush: Enumable {
+extension Toolbox.Feature.Brush: Enumable {
     public enum Enums {
         case type([Type]), icon(Icon), title(Title)
     }
@@ -906,7 +906,7 @@ extension SECToolbox.Feature.Brush: Enumable {
     }
 }
 
-extension SECToolbox.Feature.Brush: Mappable {
+extension Toolbox.Feature.Brush: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["icon"] = icon
@@ -914,16 +914,16 @@ extension SECToolbox.Feature.Brush: Mappable {
     }
 }
 
-public typealias SECTFeature = SECToolbox.Feature
-public typealias SECTFDataZoom = SECToolbox.Feature.DataZoom
-public typealias SECTFDataView = SECToolbox.Feature.DataView
-public typealias SECTFMagicType = SECToolbox.Feature.MagicType
-public typealias SECTFRestore = SECToolbox.Feature.Restore
-public typealias SECTFSaveAsImage = SECToolbox.Feature.SaveAsImage
-public typealias SECTFBrush = SECToolbox.Feature.Brush
+public typealias SECTFeature = Toolbox.Feature
+public typealias SECTFDataZoom = Toolbox.Feature.DataZoom
+public typealias SECTFDataView = Toolbox.Feature.DataView
+public typealias SECTFMagicType = Toolbox.Feature.MagicType
+public typealias SECTFRestore = Toolbox.Feature.Restore
+public typealias SECTFSaveAsImage = Toolbox.Feature.SaveAsImage
+public typealias SECTFBrush = Toolbox.Feature.Brush
 
 
-extension SECToolbox.Feature: Enumable {
+extension Toolbox.Feature: Enumable {
     public enum Enums {
         case saveAsImage(SECTFSaveAsImage), restore(SECTFRestore), dataView(SECTFDataView), dataZoom(SECTFDataZoom), magicType(SECTFMagicType), brush(SECTFBrush)
     }
@@ -950,7 +950,7 @@ extension SECToolbox.Feature: Enumable {
     }
 }
 
-extension SECToolbox.Feature: Mappable {
+extension Toolbox.Feature: Mappable {
     public func mapping(map: Mapper) {
         map["saveAsImage"] = saveAsImage
         map["restore"] = restore
@@ -962,9 +962,9 @@ extension SECToolbox.Feature: Mappable {
 }
 
 
-extension SECToolbox: Enumable {
+extension Toolbox: Enumable {
     public enum Enums {
-        case show(Bool), orient(SECOrient), itemSize(Float), itemGap(Float), showTitle(Bool), feature(SECTFeature), iconStyle(IconStyle), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float)
+        case show(Bool), orient(SECOrient), itemSize(Float), itemGap(Float), showTitle(Bool), feature(SECTFeature), iconStyle(IconStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -1007,7 +1007,7 @@ extension SECToolbox: Enumable {
     }
 }
 
-extension SECToolbox: Mappable {
+extension Toolbox: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["orient"] = orient

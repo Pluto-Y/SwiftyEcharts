@@ -12,25 +12,25 @@ public struct SECBoxplotOptions {
     
     // MARK: Boxplot Light Velocity
     /// 地址: http://echarts.baidu.com/demo.html#boxplot-light-velocity
-    static func boxplotLightVelocityOption() -> SECOption {
+    static func boxplotLightVelocityOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: Boxplot Light Velocity2
     /// 地址: http://echarts.baidu.com/demo.html#boxplot-light-velocity2
-    static func boxplotLightVelocity2Option() -> SECOption {
+    static func boxplotLightVelocity2Option() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: Multiple Categories
     /// 地址: http://echarts.baidu.com/demo.html#boxplot-multi
-    static func boxplotMultiOption() -> SECOption {
+    static func boxplotMultiOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
 }

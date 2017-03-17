@@ -42,7 +42,7 @@ public struct Legend: Borderable, Displayable, Formatted, Shadowable, Zable {
         /// 图例项的名称，应等于某系列的`name`值（如果是饼图，也可以是饼图单个数据的`name`）。
         public var name: String?
         /// 图例项的 icon。
-        public var icon: SECSymbol?
+        public var icon: Symbol?
         /// 图例项的文本样式。
         public var textStyle: TextStyle?
         
@@ -58,13 +58,13 @@ public struct Legend: Borderable, Displayable, Formatted, Shadowable, Zable {
     /// z相比zlevel优先级更低，而且不会创建新的 Canvas。
     public var z: Float?
     /// 图例组件离容器左侧的距离。
-    public var left: SECPosition?
+    public var left: Position?
     /// 图例组件离容器上侧的距离。
-    public var top: SECPosition?
+    public var top: Position?
     /// 图例组件离容器右侧的距离。
-    public var right: SECPosition?
+    public var right: Position?
     /// 图例组件离容器下侧的距离。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// 图例组件的宽度。为空时，为自适应。
     public var width: Float?
     /// 图例组件的高度。为空时，为自适应。
@@ -112,7 +112,7 @@ public struct Legend: Borderable, Displayable, Formatted, Shadowable, Zable {
     ///             show: true
     ///         }
     ///     }
-    public var tooltip: SECTooltip?
+    public var tooltip: Tooltip?
     /// 图例的数据数组。
     public var data: [Jsonable]?
     public var backgroundColor: Color?
@@ -135,7 +135,7 @@ public struct Legend: Borderable, Displayable, Formatted, Shadowable, Zable {
 
 extension Legend.Data: Enumable {
     public enum Enums {
-        case name(String), icon(SECSymbol), textStyle(TextStyle)
+        case name(String), icon(Symbol), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -164,7 +164,7 @@ extension Legend.Data: Mappable {
 
 extension Legend: Enumable {
     public enum Enums {
-        case show(Bool), zlevel(Float), z(Float), left(SECPosition), x(SECPosition), top(SECPosition), y(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(Align), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(Formatter), selectedMode(SelectedMode), inactiveColor(Color), selected([String: Bool]), textStyle(TextStyle), tooltip(SECTooltip), data([Jsonable]), backgroundColor(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), zlevel(Float), z(Float), left(Position), x(Position), top(Position), y(Position), right(Position), bottom(Position), width(Float), height(Float), orient(SECOrient), align(Align), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(Formatter), selectedMode(SelectedMode), inactiveColor(Color), selected([String: Bool]), textStyle(TextStyle), tooltip(Tooltip), data([Jsonable]), backgroundColor(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
     public typealias ContentEnum = Enums

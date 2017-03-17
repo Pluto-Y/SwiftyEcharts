@@ -27,7 +27,7 @@ public struct SECHeatmapSerie: SECSeries, Zable {
         /// 在直角坐标系(coordinateSystem: 'cartesian2d')上有效。
         public var label: Label?
         /// 单个数据点的样式设置，在直角坐标系(coordinateSystem: 'cartesian2d')上有效。
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         
         public init() {}
     }
@@ -166,7 +166,7 @@ public typealias SECHeatmapSerieData = SECHeatmapSerie.Data
 
 extension SECHeatmapSerieData: Enumable {
     public enum Enums {
-        case name(String), value([Jsonable]), label(Label), itemStyle(SECItemStyle)
+        case name(String), value([Jsonable]), label(Label), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums

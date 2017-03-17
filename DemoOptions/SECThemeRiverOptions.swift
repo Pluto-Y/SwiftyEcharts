@@ -12,13 +12,13 @@ public struct SECThemeRiverOptions {
     
     // MARK: 主题河流图
     /// 地址: http://echarts.baidu.com/demo.html#themeRiver-basic
-    static func themeRiverBasicOption() -> SECOption {
-        return SECOption(
-            .tooltip(SECTooltip(
+    static func themeRiverBasicOption() -> Option {
+        return Option(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .type(.line),
-                    .lineStyle(SECLineStyle(
+                    .lineStyle(LineStyle(
                         .color(.rgba(0, 0, 0, 0.2)),
                         .width(1),
                         .type(.solid)
@@ -34,7 +34,7 @@ public struct SECThemeRiverOptions {
                 .type(.time),
                 .splitLine(SECSplitLine(
                     .show(true),
-                    .lineStyle(SECLineStyle(
+                    .lineStyle(LineStyle(
                         .type(.dashed),
                         .opacity(0.2)
                         ))
@@ -42,8 +42,8 @@ public struct SECThemeRiverOptions {
                 )),
             .series([
                 SECThemeRiverSerie(
-                    .itemStyle(SECItemStyle(
-                        .emphasis(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .emphasis(CommonItemStyleContent(
                             .shadowBlur(20),
                             .shadowColor(.rgba(0, 0, 0, 0.8))
                             ))
@@ -97,7 +97,7 @@ public struct SECThemeRiverOptions {
     
     // MARK: ThemeRiver Lastfm
     /// 地址: http://echarts.baidu.com/demo.html#themeRiver-lastfm
-    static func themeRiverLastfmOption() -> SECOption {
+    static func themeRiverLastfmOption() -> Option {
         let rawData = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 49, 67, 16, 0, 19, 19, 0, 0, 1, 10, 5, 6, 1, 1, 0, 25, 0, 0, 0],
@@ -157,7 +157,7 @@ public struct SECThemeRiverOptions {
                 data.append(d)
             }
         }
-        return SECOption(
+        return Option(
             .singleAxis(SECSingleAxis(
                 .max("dataMax")
                 )),

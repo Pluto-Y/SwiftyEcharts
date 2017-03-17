@@ -6,9 +6,9 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECMarkPoint: SECSymbolized, SECAnimatable {
+public struct SECMarkPoint: Symbolized, Animatable {
     
-    public struct Data: SECSymbolized {
+    public struct Data: Symbolized {
         public var name: String?
         public var type: SECMarkDataType?
         public var valueIndex: UInt8?
@@ -19,16 +19,16 @@ public struct SECMarkPoint: SECSymbolized, SECAnimatable {
         public var xAxis: Float?
         public var yAxis: Float?
         public var value: Float?
-        public var symbol: SECSymbol?
+        public var symbol: Symbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
         public var symbolOffset: Point?
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         public var label: Label?
     }
     
     /// 标记的图形。
-    public var symbol: SECSymbol?
+    public var symbol: Symbol?
     /// 标记的大小
     public var symbolSize: Float?
     /// 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
@@ -41,7 +41,7 @@ public struct SECMarkPoint: SECSymbolized, SECAnimatable {
     /// 标注的文本。
     public var label: FormattedLabel?
     /// 标注的样式。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 标注的数据数组
     public var data: [Jsonable]?
     /// 是否开启动画。
@@ -54,9 +54,9 @@ public struct SECMarkPoint: SECSymbolized, SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDuration: SECTime?
+    public var animationDuration: Time?
     /// 初始动画的缓动效果。不同的缓动效果可以参考
-    public var animationEasing: SECAnimation?
+    public var animationEasing: EasingFunction?
     /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
     ///
     /// 如下示例：
@@ -65,16 +65,16 @@ public struct SECMarkPoint: SECSymbolized, SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelay: SECTime?
+    public var animationDelay: Time?
     /// 数据更新动画的时长。
     /// 支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
     ///     animationDurationUpdate: function (idx) {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDurationUpdate: SECTime?
+    public var animationDurationUpdate: Time?
     /// 数据更新动画的缓动效果。
-    public var animationEasingUpdate: SECAnimation?
+    public var animationEasingUpdate: EasingFunction?
     /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
     /// 如下示例：
     ///
@@ -82,7 +82,7 @@ public struct SECMarkPoint: SECSymbolized, SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelayUpdate: SECTime?
+    public var animationDelayUpdate: Time?
     
     public init() { }
     
@@ -92,7 +92,7 @@ public typealias SECMarkPointData = SECMarkPoint.Data
 
 extension SECMarkPoint: Enumable {
     public enum Enums {
-        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), silent(Bool), label(FormattedLabel), itemStyle(SECItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), silent(Bool), label(FormattedLabel), itemStyle(ItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -161,7 +161,7 @@ extension SECMarkPoint: Mappable {
 
 extension SECMarkPointData: Enumable {
     public enum Enums {
-        case name(String), type(SECMarkDataType), valueIndex(UInt8), valueDim(String), coord([Jsonable]), x(LengthValue), y(LengthValue), xAxis(Float), yAxis(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), itemStyle(SECItemStyle), label(Label)
+        case name(String), type(SECMarkDataType), valueIndex(UInt8), valueDim(String), coord([Jsonable]), x(LengthValue), y(LengthValue), xAxis(Float), yAxis(Float), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), itemStyle(ItemStyle), label(Label)
     }
     
     public typealias ContentEnum = Enums

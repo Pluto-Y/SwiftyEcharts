@@ -15,14 +15,14 @@ public struct SECSingleAxis: Zable {
         public init() {}
     }
     
-    public typealias NameLocation = SECLocation
+    public typealias NameLocation = Location
     
     public var zlevel: Float?
     public var z: Float? 
-    public var left: SECPosition? 
-    public var top: SECPosition? 
-    public var right: SECPosition? 
-    public var bottom: SECPosition? 
+    public var left: Position? 
+    public var top: Position? 
+    public var right: Position? 
+    public var bottom: Position? 
     public var width: Float? 
     public var height: Float? 
     public var orient: SECOrient? 
@@ -33,7 +33,7 @@ public struct SECSingleAxis: Zable {
     public var nameGap: Float? 
     public var nameRotate: Float? 
     public var inverse: Bool? 
-    public var boundaryGap: SECBoundaryGap? 
+    public var boundaryGap: BoundaryGap? 
     public var min: Jsonable?
     public var max: Jsonable?
     public var scale: Bool? 
@@ -55,7 +55,7 @@ public struct SECSingleAxis: Zable {
 
 extension SECSingleAxis: Enumable {
 	public enum Enums {
-		case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), type(SECAxisType), name(String), nameLocation(NameLocation), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Jsonable), max(Jsonable), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any])
+		case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float), orient(SECOrient), type(SECAxisType), name(String), nameLocation(NameLocation), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Jsonable), max(Jsonable), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any])
 	}
 
 	public typealias ContentEnum = Enums

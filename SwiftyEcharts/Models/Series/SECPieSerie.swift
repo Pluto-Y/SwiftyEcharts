@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECPieSerie: SECSeries, SECAnimatable, Zable {
+public struct SECPieSerie: SECSeries, Zable {
     
     public struct Data {
         /// 数据项名称。
@@ -19,7 +19,7 @@ public struct SECPieSerie: SECSeries, SECAnimatable, Zable {
         public var label: Label?
         public var labelLine: LabelLine?
         /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         
         public init() { }
     }
@@ -56,7 +56,7 @@ public struct SECPieSerie: SECSeries, SECAnimatable, Zable {
         /// 是否平滑视觉引导线，默认不平滑，可以设置成 true 平滑显示，也可以设置为 0 到 1 的值，表示平滑程度。
         public var smooth: Bool? // FIXME: 需要调整类型
         /// 视觉引导线样式
-        public var lineStyle: SECLineStyle?
+        public var lineStyle: LineStyle?
         
         public init() { }
     }
@@ -116,7 +116,7 @@ public struct SECPieSerie: SECSeries, SECAnimatable, Zable {
     /// 标签的视觉引导线样式，在 label 位置 设置为'outside'的时候会显示视觉引导线。
     public var labelLine: LabelLine?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 所有图形的 zlevel 值。
     /// zlevel用于 Canvas 分层，不同zlevel值的图形会放置在不同的 Canvas 中，Canvas 分层是一种常见的优化手段。我们可以把一些图形变化频繁（例如有动画）的组件设置成一个单独的zlevel。需要注意的是过多的 Canvas 会引起内存开销的增大，在手机端上需要谨慎使用以防崩溃。
     /// zlevel 大的 Canvas 会放在 zlevel 小的 Canvas 的上面。
@@ -149,45 +149,16 @@ public struct SECPieSerie: SECSeries, SECAnimatable, Zable {
     public var silent: Bool?
     /// 初始动画效果
     public var animationType: AnimationType?
-    /// 是否开启动画。
+    
+    // MARK: Animatable
     public var animation: Bool?
-    /// 是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
     public var animationThreshold: Float?
-    /// 初始动画的时长，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果：
-    ///
-    ///     animationDuration: function (idx) {
-    ///         // 越往后的数据延迟越大
-    ///         return idx * 100;
-    ///     }
-    public var animationDuration: SECTime?
-    /// 初始动画的缓动效果。不同的缓动效果可以参考
-    public var animationEasing: SECAnimation?
-    /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
-    ///
-    /// 如下示例：
-    ///
-    ///     animationDuration: function (idx) {
-    ///         // 越往后的数据延迟越大
-    ///         return idx * 100;
-    ///     }
-    public var animationDelay: SECTime?
-    /// 数据更新动画的时长。
-    /// 支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
-    ///     animationDurationUpdate: function (idx) {
-    ///         // 越往后的数据延迟越大
-    ///         return idx * 100;
-    ///     }
-    public var animationDurationUpdate: SECTime?
-    /// 数据更新动画的缓动效果。
-    public var animationEasingUpdate: SECAnimation?
-    /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
-    /// 如下示例：
-    ///
-    ///     animationDelayUpdate: function (idx) {
-    ///         // 越往后的数据延迟越大
-    ///         return idx * 100;
-    ///     }
-    public var animationDelayUpdate: SECTime?
+    public var animationDuration: Time?
+    public var animationEasing: EasingFunction?
+    public var animationDelay: Time?
+    public var animationDurationUpdate: Time?
+    public var animationEasingUpdate: EasingFunction?
+    public var animationDelayUpdate: Time?
     
     public init() { }
 }
@@ -196,7 +167,7 @@ public typealias SECPieSerieData = SECPieSerie.Data
 
 extension SECPieSerie.LabelLineContent: Enumable {
     public enum Enums {
-        case show(Bool), length(Float), length2(Float), smooth(Bool), lineStyle(SECLineStyle)
+        case show(Bool), length(Float), length2(Float), smooth(Bool), lineStyle(LineStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -257,7 +228,7 @@ extension SECPieSerie.LabelLine: Mappable {
 
 extension SECPieSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(RoseType), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(FormattedLabel), labelLine(LabelLine), itemStyle(SECItemStyle), zlevel(Float), z(Float), center(Point), radius(LengthValue), radiusRange(Range), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(RoseType), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(FormattedLabel), labelLine(LabelLine), itemStyle(ItemStyle), zlevel(Float), z(Float), center(Point), radius(LengthValue), radiusRange(Range), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -339,7 +310,7 @@ extension SECPieSerie: Enumable {
 extension SECPieSerieData: Enumable {
     
     public enum Enums {
-        case name(String), value(Float), selected(Bool), label(Label), labelLine(SECPieSerie.LabelLine), itemStyle(SECItemStyle)
+        case name(String), value(Float), selected(Bool), label(Label), labelLine(SECPieSerie.LabelLine), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums

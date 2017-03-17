@@ -44,7 +44,7 @@ public struct SECAxis: Zable {
     /// 坐标轴所在的 grid 的索引，默认位于第一个 grid。
     public var gridIndex: UInt?
     /// 坐标轴的位置。
-    public var position: SECPosition?
+    public var position: Position?
     /// 坐标轴相对于默认位置的偏移，在相同的 position 上有多个 X 轴的时候有用。
     public var offset: Float?
     /// 坐标轴类型。
@@ -70,7 +70,7 @@ public struct SECAxis: Zable {
     /// 示例:
     ///
     ///         boundaryGap: ['20%', '20%']
-    public var boundaryGap: SECBoundaryGap?
+    public var boundaryGap: BoundaryGap?
     /// 坐标轴刻度最小值，在类目轴中无效。
     /// 可以设置成特殊值 'dataMin'，此时取数据在该轴上的最小值作为最小刻度。
     /// 不设置时会自动计算最小值保证坐标轴刻度的均匀分布。
@@ -163,7 +163,7 @@ extension SECAxis.Data: Mappable {
 
 extension SECAxis: Enumable {
     public enum Enums {
-        case gridIndex(UInt), position(SECPosition), offset(Float), type(SECAxisType), name(String), nameLocation(String), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Jsonable]), zlevel(Float), z(Float)
+        case gridIndex(UInt), position(Position), offset(Float), type(SECAxisType), name(String), nameLocation(String), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Jsonable]), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums

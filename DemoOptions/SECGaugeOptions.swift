@@ -12,20 +12,20 @@ public struct SECGaugeOptions {
     
     // MARK: Gauge Car Dark
     /// 地址: http://echarts.baidu.com/demo.html#gauge-car-dark
-    static func gaugeCarDarkOption() -> SECOption {
+    static func gaugeCarDarkOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: Gauge Car
     /// 地址: http://echarts.baidu.com/demo.html#gauge-car
-    static func gaugeCarOption() -> SECOption {
-        return SECOption(
-            .tooltip(SECTooltip(
+    static func gaugeCarOption() -> Option {
+        return Option(
+            .tooltip(Tooltip(
                 .formatter(.string("{a}<br/>{c} {b}"))
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .show(true),
                 .feature(SECTFeature(
                     .restore(SECTFRestore(.show(true))),
@@ -40,7 +40,7 @@ public struct SECGaugeOptions {
                     .splitNumber(11),
                     .radius(50%),
                     .axisLine(SECGaugeSerie.AxisLine(
-                        .lineStyle(SECLineStyle(
+                        .lineStyle(LineStyle(
                             .width(10)
                             ))
                         )),
@@ -73,7 +73,7 @@ public struct SECGaugeOptions {
                     .endAngle(45),
                     .splitNumber(7),
                     .axisLine(SECGaugeSerie.AxisLine(
-                        .lineStyle(SECLineStyle(
+                        .lineStyle(LineStyle(
                             .width(8)
                             ))
                         )),
@@ -106,7 +106,7 @@ public struct SECGaugeOptions {
                     .endAngle(45),
                     .splitNumber(2),
                     .axisLine(SECGaugeSerie.AxisLine(
-                        .lineStyle(SECLineStyle(
+                        .lineStyle(LineStyle(
                             .width(8)
                             ))
                         )),
@@ -141,7 +141,7 @@ public struct SECGaugeOptions {
                     .endAngle(225),
                     .splitNumber(2),
                     .axisLine(SECGaugeSerie.AxisLine(
-                        .lineStyle(SECLineStyle(
+                        .lineStyle(LineStyle(
                             .width(8)
                             ))
                         )),
@@ -168,12 +168,12 @@ public struct SECGaugeOptions {
     
     // MARK: Gauge
     /// 地址: http://echarts.baidu.com/demo.html#gauge
-    static func gaugeOption() -> SECOption {
-        return SECOption(
-            .tooltip(SECTooltip(
+    static func gaugeOption() -> Option {
+        return Option(
+            .tooltip(Tooltip(
                 .formatter(.string("{a} <br/>{b} : {c}%"))
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .feature(SECTFeature(
                     .restore(SECTFRestore()),
                     .saveAsImage(SECTFSaveAsImage())

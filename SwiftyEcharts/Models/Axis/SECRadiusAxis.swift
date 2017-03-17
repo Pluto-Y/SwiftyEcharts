@@ -15,7 +15,7 @@ public struct SECRadiusAxis: Zable {
     /// 坐标轴名称。
     public var name: String?
     /// 坐标轴名称显示位置。
-    public var nameLocation: SECPosition?
+    public var nameLocation: Position?
     /// 坐标轴名称的文字样式。
     public var nameTextStyle: TextStyle?
     /// 坐标轴名称与轴线之间的距离。
@@ -31,7 +31,7 @@ public struct SECRadiusAxis: Zable {
     /// 非类目轴，包括时间，数值，对数轴，boundaryGap是一个两个值的数组，分别表示数据最小值和最大值的延伸范围，可以直接设置数值或者相对的百分比，在设置 min 和 max 后无效。 示例：
     ///
     /// boundaryGap: ['20%', '20%']
-    public var boundaryGap: SECBoundaryGap?
+    public var boundaryGap: BoundaryGap?
     /// 坐标轴刻度最小值。
     ///
     /// 可以设置成特殊值 'dataMin'，此时取数据在该轴上的最小值作为最小刻度。
@@ -108,7 +108,7 @@ public struct SECRadiusAxis: Zable {
 
 extension SECRadiusAxis: Enumable {
     public enum Enums {
-        case polarIndex(UInt8), type(SECAxisType), name(String), nameLocation(SECPosition), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(Float), interval(Float), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), zlevel(Float), z(Float)
+        case polarIndex(UInt8), type(SECAxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(Float), interval(Float), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums

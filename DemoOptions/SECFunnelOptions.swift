@@ -12,20 +12,20 @@ public struct SECFunnelOptions {
     
     // MARK: 漏斗图(对比)
     /// 地址: http://echarts.baidu.com/demo.html#funnel-align
-    static func unnelAlignOption() -> SECOption {
+    static func unnelAlignOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("漏斗图(对比)"),
                 .subtext("纯属虚构"),
                 .left(.left),
                 .top(.bottom)
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.item),
                 .formatter(.string("{a} <br/>{b} : {c}%"))
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .show(true),
                 .orient(.vertical),
                 .top(.center),
@@ -95,18 +95,18 @@ public struct SECFunnelOptions {
     
     // MARK: 漏斗图
     /// 地址: http://echarts.baidu.com/demo.html#funnel-customize
-    static func funnelCustomizeOption() -> SECOption {
+    static func funnelCustomizeOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("漏斗图"),
                 .subtext("纯属虚构")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.item),
                 .formatter(.string("{a} <br/>{b} : {c}%"))
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .feature(SECTFeature(
                     .dataView(SECTFDataView(
                         .readOnly(false)
@@ -136,8 +136,8 @@ public struct SECFunnelOptions {
                             .show(false)
                             ))
                         )),
-                    .itemStyle(SECItemStyle(
-                        .normal(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
                             .opacity(0.7)
                             ))
                         )),
@@ -165,8 +165,8 @@ public struct SECFunnelOptions {
                             .formatter(.string("{b}实际: {c}%"))
                             ))
                         )),
-                    .itemStyle(SECItemStyle(
-                        .normal(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
                             .opacity(0.5),
                             .borderColor(.hexColor("#fff")),
                             .borderWidth(2)
@@ -187,20 +187,20 @@ public struct SECFunnelOptions {
     
     // MARK: 漏斗图
     /// 地址: http://echarts.baidu.com/demo.html#funnel-mutiple
-    static func funnelMutipleOption() -> SECOption {
+    static func funnelMutipleOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("漏斗图"),
                 .subtext("纯属虚构"),
                 .left(.left),
                 .top(.bottom)
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.item),
                 .formatter(.string("{a} <br/>{b} : {c}%"))
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .orient(.vertical),
                 .top(.center),
                 .feature(SECTFeature(
@@ -275,18 +275,18 @@ public struct SECFunnelOptions {
     
     // MARK: 漏斗图
     /// 地址: http://echarts.baidu.com/demo.html#funnel
-    static func funnelOption() -> SECOption {
+    static func funnelOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("漏斗图"),
                 .subtext("纯属虚构")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.item),
                 .formatter(.string("{a} <br/>{b} : {c}%"))
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .feature(SECTFeature(
                     .dataView(SECTFDataView(
                         .readOnly(false)
@@ -321,14 +321,14 @@ public struct SECFunnelOptions {
                     .labelLine(SECFunnelSerie.LabelLine(
                         .normal(SECFunnelSerie.LabelLineContent(
                             .length(10),
-                            .lineStyle(SECLineStyle(
+                            .lineStyle(LineStyle(
                                 .width(1),
                                 .type(.solid)
                                 ))
                             ))
                         )),
-                    .itemStyle(SECItemStyle(
-                        .normal(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
                             .borderColor(.hexColor("#fff")),
                             .borderWidth(1)
                             ))

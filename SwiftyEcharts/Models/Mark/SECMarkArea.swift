@@ -6,14 +6,14 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECMarkArea: SECAnimatable {
+public struct SECMarkArea: Animatable {
 
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     /// 标域文本配置。
     public var label: FormattedLabel?
     /// 该标域的样式。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 标域的数据数组。
     public var data: [Jsonable]?
     /// 是否开启动画。
@@ -26,9 +26,9 @@ public struct SECMarkArea: SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDuration: SECTime?
+    public var animationDuration: Time?
     /// 初始动画的缓动效果。不同的缓动效果可以参考
-    public var animationEasing: SECAnimation?
+    public var animationEasing: EasingFunction?
     /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
     ///
     /// 如下示例：
@@ -37,16 +37,16 @@ public struct SECMarkArea: SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelay: SECTime?
+    public var animationDelay: Time?
     /// 数据更新动画的时长。
     /// 支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
     ///     animationDurationUpdate: function (idx) {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDurationUpdate: SECTime?
+    public var animationDurationUpdate: Time?
     /// 数据更新动画的缓动效果。
-    public var animationEasingUpdate: SECAnimation?
+    public var animationEasingUpdate: EasingFunction?
     /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
     /// 如下示例：
     ///
@@ -54,14 +54,14 @@ public struct SECMarkArea: SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelayUpdate: SECTime?
+    public var animationDelayUpdate: Time?
     
     public init() { }
 }
 
 extension SECMarkArea: Enumable {
     public enum Enums {
-        case silent(Bool), label(FormattedLabel), itemStyle(SECItemStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case silent(Bool), label(FormattedLabel), itemStyle(ItemStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

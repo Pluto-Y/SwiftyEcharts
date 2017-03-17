@@ -1,16 +1,16 @@
 //
-//  SECItemStyle.swift
+//  ItemStyle.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 03/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECItemStyleContent: Colorful, Borderable, Shadowable, Opacitable {
+public protocol ItemStyleContent: Colorful, Borderable, Shadowable, Opacitable {
     var borderType: LineType? { get set }
 }
 
-public struct SECCommonItemStyleContent: SECItemStyleContent {
+public struct CommonItemStyleContent: ItemStyleContent {
     
     public var color: Color?
     public var borderColor: Color?
@@ -31,7 +31,7 @@ public struct SECCommonItemStyleContent: SECItemStyleContent {
     public init() { }
 }
 
-extension SECCommonItemStyleContent: Enumable {
+extension CommonItemStyleContent: Enumable {
     public enum Enums {
         case color(Color), borderColor(Color), borderWidth(Float), borderType(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), barBorderRadius(Float)
     }
@@ -66,7 +66,7 @@ extension SECCommonItemStyleContent: Enumable {
     }
 }
 
-extension SECCommonItemStyleContent: Mappable {
+extension CommonItemStyleContent: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["borderColor"] = borderColor
@@ -81,8 +81,8 @@ extension SECCommonItemStyleContent: Mappable {
     }
 }
 
-public struct SECItemStyle: Emphasisable {
-    public typealias Style = SECCommonItemStyleContent
+public struct ItemStyle: Emphasisable {
+    public typealias Style = CommonItemStyleContent
     
     public var normal: Style?
     public var emphasis: Style?
@@ -90,9 +90,9 @@ public struct SECItemStyle: Emphasisable {
     public init() { }
 }
 
-public typealias SECEmphasisItemStyle = SECItemStyle
+public typealias EmphasisItemStyle = ItemStyle
 
-extension SECItemStyle: Enumable {
+extension ItemStyle: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -111,7 +111,7 @@ extension SECItemStyle: Enumable {
     }
 }
 
-extension SECItemStyle: Mappable {
+extension ItemStyle: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis

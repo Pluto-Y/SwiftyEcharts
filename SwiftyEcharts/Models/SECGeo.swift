@@ -52,7 +52,7 @@ public struct SECGeo: Displayable, Zable {
     public struct Region {
         public var name: String?
         public var selected: Bool?
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         public var label: Label?
     }
     /// 是否显示地理坐标系组件。
@@ -116,7 +116,7 @@ public struct SECGeo: Displayable, Zable {
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: FormattedLabel?
     /// 地图区域的多边形 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
@@ -125,25 +125,25 @@ public struct SECGeo: Displayable, Zable {
     /// left 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'left', 'center', 'right'。
     ///
     /// 如果 left 的值为'left', 'center', 'right'，组件会根据相应的位置自动对齐。
-    public var left: SECPosition?
+    public var left: Position?
     /// 组件离容器上侧的距离。
     ///
     /// top 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'top', 'middle', 'bottom'。
     ///
     /// 如果 top 的值为'top', 'middle', 'bottom'，组件会根据相应的位置自动对齐。
-    public var top: SECPosition?
+    public var top: Position?
     /// 组件离容器右侧的距离。
     ///
     /// right 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     ///
     /// 默认自适应。
-    public var right: SECPosition?
+    public var right: Position?
     /// 组件离容器下侧的距离。
     ///
     /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     ///
     /// 默认自适应。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// layoutCenter 和 layoutSize 提供了除了 left/right/top/bottom/width/height 之外的布局手段。
     /// 在使用 left/right/top/bottom/width/height 的时候，可能很难在保持地图高宽比的情况下把地图放在某个盒形区域的正中间，并且保证不超出盒形的范围。此时可以通过 layoutCenter 属性定义地图中心在屏幕中的位置，layoutSize 定义地图的大小。如下示例
     /// layoutCenter: ['30%', '30%'],
@@ -187,7 +187,7 @@ extension SECGeo.ScaleLimit: Mappable {
 
 extension SECGeo.Region: Enumable {
     public enum Enums {
-        case name(String), selected(Bool), itemStyle(SECItemStyle), label(Label)
+        case name(String), selected(Bool), itemStyle(ItemStyle), label(Label)
     }
     
     public typealias ContentEnum = Enums
@@ -219,7 +219,7 @@ extension SECGeo.Region: Mappable {
 
 extension SECGeo: Enumable {
     public enum Enums {
-        case show(Bool), map(String), roam(Bool), center([Float]), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap(String), selectedMode(SelectedMode), label(FormattedLabel), itemStyle(SECItemStyle), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), layoutCenter(String), layoutSize(String), regions([Region]), silent(Bool)
+        case show(Bool), map(String), roam(Bool), center([Float]), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap(String), selectedMode(SelectedMode), label(FormattedLabel), itemStyle(ItemStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), layoutCenter(String), layoutSize(String), regions([Region]), silent(Bool)
     }
     
     public typealias ContentEnum = Enums

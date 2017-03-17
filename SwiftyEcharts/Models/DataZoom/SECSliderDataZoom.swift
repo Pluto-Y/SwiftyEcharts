@@ -12,9 +12,9 @@ public struct SECSliderDataZoom: SECDataZoom, Displayable, Zable {
     /// 数据阴影的样式。
     public struct DataBackground {
         /// 阴影的线条样式
-        public var lineStyle: SECEmphasisLineStyle?
+        public var lineStyle: EmphasisLineStyle?
         /// 阴影的填充样式
-        public var areaStyle: SECAreaStyle?
+        public var areaStyle: AreaStyle?
     }
     
     /// 手柄的样式配置，见 示例: http://echarts.baidu.com/gallery/editor.html?c=area-simple
@@ -272,18 +272,18 @@ public struct SECSliderDataZoom: SECDataZoom, Displayable, Zable {
     /// z相比zlevel优先级更低，而且不会创建新的 Canvas。
     public var z: Float?
     /// dataZoom-slider组件离容器左侧的距离。
-    public var left: SECPosition?
+    public var left: Position?
     /// dataZoom-slider组件离容器上侧的距离。
-    public var top: SECPosition?
+    public var top: Position?
     /// dataZoom-slider组件离容器右侧的距离。
-    public var right: SECPosition?
+    public var right: Position?
     /// dataZoom-slider组件离容器下侧的距离。
-    public var bottom: SECPosition?
+    public var bottom: Position?
 }
 
 extension SECSliderDataZoom.DataBackground: Enumable {
     public enum Enums {
-        case lineStyle(SECEmphasisLineStyle), areaStyle(SECAreaStyle)
+        case lineStyle(EmphasisLineStyle), areaStyle(AreaStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -356,7 +356,7 @@ extension SECSliderDataZoom.HandleStyle: Mappable {
 
 extension SECSliderDataZoom: Enumable {
     public enum Enums {
-        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(Float), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(SECFilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition)
+        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(Float), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(SECFilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position)
     }
     
     public typealias ContentEnum = Enums

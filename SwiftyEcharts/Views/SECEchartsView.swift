@@ -10,7 +10,7 @@ import WebKit
 
 public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
     
-    public var option: SECOption?
+    public var option: Option?
     
     
     private var htmlContents: String = ""
@@ -43,7 +43,7 @@ public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKSc
     ///   - notMerge: 可选，是否不跟之前设置的option进行合并，默认为false，即合并。
     ///   - lazyUpdate: 可选，在设置完option后是否不立即更新图表，默认为false，即立即更新。
     ///   - silent: 可选，阻止调用 setOption 时抛出事件，默认为false，即抛出事件。
-    public func refreshEcharts(option: SECOption, _ notMerge: Bool = false, _ lazyUpdate: Bool = false, _ silent: Bool = false) {
+    public func refreshEcharts(option: Option, _ notMerge: Bool = false, _ lazyUpdate: Bool = false, _ silent: Bool = false) {
         
         JsCache.removeAll() // 清空之前缓存的方法，避免出现重复的情况， 在调用 option.jsonString 会重新生成
         let optionJson = option.jsonString

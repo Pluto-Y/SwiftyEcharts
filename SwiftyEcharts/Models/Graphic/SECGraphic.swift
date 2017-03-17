@@ -348,7 +348,7 @@ public protocol SECGraphic: Zable, Mappable {
     /// left 和 right 只有一个可以生效。
     ///
     /// 如果指定 left 或 right，则 shape 里的 x、cx 等定位属性不再生效。
-    var left: SECPosition? { get set }
+    var left: Position? { get set }
     /// 描述怎么根据父元素进行定位。
     ///
     ///『父元素』是指：如果是顶层元素，父元素是 echarts 图表容器。如果是 group 的子元素，父元素就是 group 元素。
@@ -362,7 +362,7 @@ public protocol SECGraphic: Zable, Mappable {
     /// left 和 right 只有一个可以生效。
     ///
     /// 如果指定 left 或 right，则 shape 里的 x、cx 等定位属性不再生效。
-    var right: SECPosition? { get set }
+    var right: Position? { get set }
     /// 描述怎么根据父元素进行定位。
     ///
     /// 『父元素』是指：如果是顶层元素，父元素是 echarts 图表容器。如果是 group 的子元素，父元素就是 group 元素。
@@ -376,7 +376,7 @@ public protocol SECGraphic: Zable, Mappable {
     /// top 和 bottom 只有一个可以生效。
     ///
     /// 如果指定 top 或 bottom，则 shape 里的 y、cy 等定位属性不再生效。
-    var top: SECPosition? { get set }
+    var top: Position? { get set }
     /// /// 描述怎么根据父元素进行定位。
     ///
     /// 『父元素』是指：如果是顶层元素，父元素是 echarts 图表容器。如果是 group 的子元素，父元素就是 group 元素。
@@ -390,7 +390,7 @@ public protocol SECGraphic: Zable, Mappable {
     /// top 和 bottom 只有一个可以生效。
     ///
     /// 如果指定 top 或 bottom，则 shape 里的 y、cy 等定位属性不再生效。
-    var bottom: SECPosition? { get set }
+    var bottom: Position? { get set }
     /// 决定此图形元素在定位时，对自身的包围盒计算方式。
     /// 
     /// 参见例子：

@@ -1,5 +1,5 @@
 //
-//  SECAnimatable.swift
+//  Animatable.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 04/01/2017.
@@ -17,7 +17,7 @@
 ///         // 越往后的数据延迟越大
 ///         return idx * 100;
 ///     }
-public enum SECTime: Jsonable {
+public enum Time: Jsonable {
     case number(Float)
     case function(String)
     
@@ -37,7 +37,7 @@ public enum SECTime: Jsonable {
 /// 默认支持的动画执行类型
 /// 具体详情可以查看一下地址进行对比
 /// http://echarts.baidu.com/gallery/editor.html?c=line-easing
-public enum SECAnimation: String, Jsonable {
+public enum EasingFunction: String, Jsonable {
     case linear = "linear"
     case quadraticIn = "quadraticIn"
     case quadraticOut = "quadraticOut"
@@ -76,7 +76,7 @@ public enum SECAnimation: String, Jsonable {
 }
 
 /// 动画的接口，针对那些需要动画的组件而封装的接口
-public protocol SECAnimatable {
+public protocol Animatable {
     
     /// 是否开启动画。
     var animation: Bool? { get set }
@@ -88,9 +88,9 @@ public protocol SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    var animationDuration: SECTime? { get set }
+    var animationDuration: Time? { get set }
     /// 初始动画的缓动效果。不同的缓动效果可以参考
-    var animationEasing: SECAnimation? { get set }
+    var animationEasing: EasingFunction? { get set }
     /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
     /// 
     /// 如下示例：
@@ -99,16 +99,16 @@ public protocol SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    var animationDelay: SECTime? { get set }
+    var animationDelay: Time? { get set }
     /// 数据更新动画的时长。
     /// 支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
     ///     animationDurationUpdate: function (idx) {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    var animationDurationUpdate: SECTime? { get set }
+    var animationDurationUpdate: Time? { get set }
     /// 数据更新动画的缓动效果。
-    var animationEasingUpdate: SECAnimation? { get set }
+    var animationEasingUpdate: EasingFunction? { get set }
     /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
     /// 如下示例：
     ///
@@ -116,5 +116,5 @@ public protocol SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    var animationDelayUpdate: SECTime? { get set }
+    var animationDelayUpdate: Time? { get set }
 }

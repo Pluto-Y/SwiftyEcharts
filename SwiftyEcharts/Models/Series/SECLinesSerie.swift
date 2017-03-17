@@ -15,7 +15,7 @@
 /// 迁徙示例：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=geo-lines
-public struct SECLinesSerie: SECSeries, Zable, SECAnimatable {
+public struct SECLinesSerie: SECSeries, Zable, Animatable {
     
     /// 线特效的配置，见示例 模拟迁徙 和 北京公交路线
     ///
@@ -28,7 +28,7 @@ public struct SECLinesSerie: SECSeries, Zable, SECAnimatable {
         /// 配置特效图形的移动动画是否是固定速度，单位像素/秒，设置为大于 0 的值后会忽略 period 配置项。
         public var constantSpeed: Float?
         /// 特效图形的标记。
-        public var symbol: SECSymbol?
+        public var symbol: Symbol?
         /// 特效标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示高和宽，例如 [20, 10] 表示标记宽为20，高为10。
         public var symbolSize: Float?
         /// 特效标记的颜色，默认取 lineStyle.normal.color。
@@ -73,7 +73,7 @@ public struct SECLinesSerie: SECSeries, Zable, SECAnimatable {
         /// 一个包含两个到多个二维坐标的数组。在 polyline 设置为 true 时支持多于两个的坐标。
         public var coords: [Point]?
         /// 单个数据（单条线）的样式设置。
-        public var lineStyle: SECLineStyle?
+        public var lineStyle: LineStyle?
         /// 单个数据（单条线）的标签设置。在 polyline 设置为 true 时无效。
         public var label: FormattedLabel?
         
@@ -114,11 +114,11 @@ public struct SECLinesSerie: SECSeries, Zable, SECAnimatable {
     /// 开启绘制优化的阈值。
     public var largeThreshold: Float?
     /// 线两端的标记类型，可以是一个数组分别指定两端，也可以是单个统一指定。 具体支持的格式可以参考 标线的 symbol
-    public var symbol: SECSymbol?
+    public var symbol: Symbol?
     /// 线两端的标记大小，可以是一个数组分别指定两端，也可以是单个统一指定。 注意： 这里无法像一般的 symbolSize 那样通过数组分别指定高宽。
     public var symbolSize: Float?
     /// 线条样式。
-    public var lineStyle: SECLineStyle?
+    public var lineStyle: LineStyle?
     /// 标签相关配置。在 polyline 设置为 true 时无效。
     public var label: FormattedLabel?
     /// 线数据集。
@@ -161,15 +161,15 @@ public struct SECLinesSerie: SECSeries, Zable, SECAnimatable {
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     
-    /// MARK: SECAnimatable
+    /// MARK: Animatable
     public var animation: Bool?
     public var animationThreshold: Float?
-    public var animationDuration: SECTime?
-    public var animationEasing: SECAnimation?
-    public var animationDelay: SECTime?
-    public var animationDurationUpdate: SECTime?
-    public var animationEasingUpdate: SECAnimation?
-    public var animationDelayUpdate: SECTime?
+    public var animationDuration: Time?
+    public var animationEasing: EasingFunction?
+    public var animationDelay: Time?
+    public var animationDurationUpdate: Time?
+    public var animationEasingUpdate: EasingFunction?
+    public var animationDelayUpdate: Time?
     
     public init() { }
 }
@@ -178,7 +178,7 @@ public typealias SECLinesSerieData = SECLinesSerie.Data
 
 extension SECLinesSerie.Effect: Enumable {
     public enum Enums {
-        case show(Bool), period(Float), constantSpeed(Float), symbol(SECSymbol), symbolSize(Float), color(Color), trailLength(Float), loop(Bool)
+        case show(Bool), period(Float), constantSpeed(Float), symbol(Symbol), symbolSize(Float), color(Color), trailLength(Float), loop(Bool)
     }
     
     public typealias ContentEnum = Enums
@@ -222,7 +222,7 @@ extension SECLinesSerie.Effect: Mappable {
 
 extension SECLinesSerieData: Enumable {
     public enum Enums {
-        case name(String), coords([Point]), lineStyle(SECLineStyle), label(FormattedLabel)
+        case name(String), coords([Point]), lineStyle(LineStyle), label(FormattedLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -254,7 +254,7 @@ extension SECLinesSerieData: Mappable {
 
 extension SECLinesSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(SECSymbol), symbolSize(Float), lineStyle(SECLineStyle), label(FormattedLabel), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(Symbol), symbolSize(Float), lineStyle(LineStyle), label(FormattedLabel), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

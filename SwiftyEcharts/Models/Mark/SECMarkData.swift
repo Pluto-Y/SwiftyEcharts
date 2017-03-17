@@ -9,7 +9,7 @@
 public struct SECMarkData {
     
     /// 起点和终点的数据
-    public struct DataContent: SECSymbolized {
+    public struct DataContent: Symbolized {
         
         /// 标注类型
         public var type: SECMarkDataType?
@@ -51,7 +51,7 @@ public struct SECMarkData {
         public var value: Float?
         /// 标记的图形
         /// - Note: 该属性只在 SECMarkArea 无效
-        public var symbol: SECSymbol?
+        public var symbol: Symbol?
         /// 标记的大小
         /// - Note: 该属性只在 SECMarkArea 无效
         public var symbolSize: Float?
@@ -63,7 +63,7 @@ public struct SECMarkData {
         /// - Note: 该属性只在 SECMarkArea 无效
         public var symbolOffset: Point?
         /// 该数据项线的样式，起点和终点项的 lineStyle会合并到一起。
-        public var lineStyle: SECEmphasisLineStyle?
+        public var lineStyle: EmphasisLineStyle?
         /// 该数据项标签的样式，起点和终点项的 label会合并到一起。
         public var label: Label?
         
@@ -81,7 +81,7 @@ public struct SECMarkData {
 
 extension SECMarkData.DataContent: Enumable {
     public enum Enums {
-        case type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(Float), y(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), lineStyle(SECEmphasisLineStyle), label(Label)
+        case type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(Float), y(Float), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), lineStyle(EmphasisLineStyle), label(Label)
     }
     
     public typealias ContentEnum = Enums

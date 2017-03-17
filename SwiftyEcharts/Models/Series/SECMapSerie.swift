@@ -69,7 +69,7 @@ public struct SECMapSerie: SECSeries, Zable {
         /// 该区域是否选中。
         public var selected: Bool?
         /// 该数据所在区域的多边形样式设置
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         /// 该数据所在区域的标签样式设置
         public var label: Label?
     }
@@ -123,7 +123,7 @@ public struct SECMapSerie: SECSeries, Zable {
     /// 例如：
     ///
     ///     center: [115.97, 29.71]
-    public var center: SECPosition?
+    public var center: Position?
     /// 这个参数用于 scale 地图的长宽比。
     ///
     /// 最终的 aspect 的计算方式是：geoBoundingRect.width / geoBoundingRect.height * aspectScale
@@ -143,7 +143,7 @@ public struct SECMapSerie: SECSeries, Zable {
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: Label?
     /// 地图区域的多边形 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     
     /// MARK: Zable
     public var zlevel: Float?
@@ -154,25 +154,25 @@ public struct SECMapSerie: SECSeries, Zable {
     /// left 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'left', 'center', 'right'。
     ///
     /// 如果 left 的值为'left', 'center', 'right'，组件会根据相应的位置自动对齐。
-    public var left: SECPosition?
+    public var left: Position?
     /// 组件离容器上侧的距离。
     ///
     /// top 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'top', 'middle', 'bottom'。
     ///
     /// 如果 top 的值为'top', 'middle', 'bottom'，组件会根据相应的位置自动对齐。
-    public var top: SECPosition?
+    public var top: Position?
     /// 组件离容器右侧的距离。
     ///
     /// right 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     ///
     /// 默认自适应。
-    public var right: SECPosition?
+    public var right: Position?
     /// 组件离容器下侧的距离。
     ///
     /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     ///
     /// 默认自适应。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// layoutCenter 和 layoutSize 提供了除了 left/right/top/bottom/width/height 之外的布局手段。
     ///
     /// 在使用 left/right/top/bottom/width/height 的时候，可能很难在保持地图高宽比的情况下把地图放在某个盒形区域的正中间，并且保证不超出盒形的范围。此时可以通过 layoutCenter 属性定义地图中心在屏幕中的位置，layoutSize 定义地图的大小。如下示例
@@ -182,7 +182,7 @@ public struct SECMapSerie: SECSeries, Zable {
     ///     layoutSize: 100
     ///
     /// 设置这两个值后 left/right/top/bottom/width/height 无效。
-    public var layoutCenter: SECPosition?
+    public var layoutCenter: Position?
     /// 地图的大小，见 layoutCenter。支持相对于屏幕宽高的百分比或者绝对的像素大小。
     public var layoutSize: LengthValue?
     /// 默认情况下，map series 会自己生成内部专用的 geo 组件。但是也可以用这个 geoIndex 指定一个 geo 组件。这样的话，map 和 其他 series（例如散点图）就可以共享一个 geo 组件了。并且，geo 组件的颜色也可以被这个 map series 控制，从而用 visualMap 来更改。
@@ -274,7 +274,7 @@ extension SECMapSerie.ScaleLimit: Mappable {
 
 extension SECMapSerie.Data: Enumable {
     public enum Enums {
-        case name(String), value(Float), selected(Bool), itemStyle(SECItemStyle), label(Label)
+        case name(String), value(Float), selected(Bool), itemStyle(ItemStyle), label(Label)
     }
     
     public typealias ContentEnum = Enums
@@ -309,7 +309,7 @@ extension SECMapSerie.Data: Mappable {
 
 extension SECMapSerie: Enumable {
     public enum Enums {
-        case name(String), map(String), roam(Roam), center(SECPosition), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SelectedMode), label(Label), itemStyle(SECItemStyle), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), layoutCenter(SECPosition), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool)
+        case name(String), map(String), roam(Roam), center(Position), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SelectedMode), label(Label), itemStyle(ItemStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), layoutCenter(Position), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool)
     }
     
     public typealias ContentEnum = Enums

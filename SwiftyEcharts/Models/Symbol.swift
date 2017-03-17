@@ -1,5 +1,5 @@
 //
-//  SECSymbol.swift
+//  Symbol.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 06/12/2016.
@@ -7,7 +7,7 @@
 //
 
 // FIXME: 添加注释
-public enum SECSymbol: CustomStringConvertible, Jsonable {
+public enum Symbol: CustomStringConvertible, Jsonable {
     case emptyCircle
     case circle
     case rect
@@ -48,8 +48,8 @@ public enum SECSymbol: CustomStringConvertible, Jsonable {
     }
 }
 
-public protocol SECSymbolized {
-    var symbol: SECSymbol? { get set }
+public protocol Symbolized {
+    var symbol: Symbol? { get set }
     var symbolSize: Float? { get set }
     var symbolRotate: Float? { get set }
     var symbolOffset: Point? { get set }

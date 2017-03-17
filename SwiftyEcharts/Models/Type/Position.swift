@@ -1,5 +1,5 @@
 //
-//  SECPosition.swift
+//  Position.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 15/02/2017.
@@ -17,7 +17,7 @@
 /// - bottom: 垂直：底部
 /// - value: 绝对位置
 /// - percent: 相对位置
-public enum SECPosition: Jsonable {
+public enum Position: Jsonable {
     case auto, left, center, right, top, middle, bottom, start, end, inside, inner
     case value(LengthValue)
     
@@ -51,7 +51,7 @@ public enum SECPosition: Jsonable {
     }
 }
 
-public enum SECLocation: String, Jsonable {
+public enum Location: String, Jsonable {
     case start = "start"
     case middle = "middle"
     case end = "end"

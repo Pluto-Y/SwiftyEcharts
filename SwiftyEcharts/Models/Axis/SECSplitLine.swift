@@ -13,14 +13,14 @@ public struct SECSplitLine: Displayable, SECLine {
     /// 分隔线的显示间隔
     public var interval: UInt?
     /// 分割线的样式
-    public var lineStyle: SECLineStyle?
+    public var lineStyle: LineStyle?
     
     public init() { }
 }
 
 extension SECSplitLine: Enumable {
     public enum Enums {
-        case show(Bool), interval(UInt), lineStyle(SECLineStyle)
+        case show(Bool), interval(UInt), lineStyle(LineStyle)
     }
     
     public typealias ContentEnum = Enums

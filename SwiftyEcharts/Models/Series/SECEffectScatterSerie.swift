@@ -11,7 +11,7 @@
 /// Tip: ECharts 2.x 中在地图上通过 markPoint 实现地图特效在 ECharts 3 中建议通过地理坐标系上的 effectScatter 实现。
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=effectScatter-map
-public struct SECEffectScatterSerie: SECSeries, SECSymbolized, Zable {
+public struct SECEffectScatterSerie: SECSeries, Symbolized, Zable {
     
     /// 何时显示特效
     ///
@@ -75,15 +75,15 @@ public struct SECEffectScatterSerie: SECSeries, SECSymbolized, Zable {
     public var polarIndex: UInt8?
     /// 使用的地理坐标系的 index，在单个图表实例中存在多个地理坐标系的时候有用。
     public var geoIndex: UInt8?
-    /// MARK: SECSymbolized
-    public var symbol: SECSymbol?
+    /// MARK: Symbolized
+    public var symbol: Symbol?
     public var symbolSize: Float?
     public var symbolRotate: Float?
     public var symbolOffset: Point?
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: FormattedLabel?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 系列中的数据内容数组。数组项通常为具体的数据项。
     ///
     /// 通常来说，数据用一个二维数组表示。如下，每一列被称为一个『维度』。
@@ -190,15 +190,15 @@ public struct SECEffectScatterSerie: SECSeries, SECSymbolized, Zable {
     public var z: Float?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
-    /// MARK: SECAnimatable
+    /// MARK: Animatable
     public var animation: Bool?
     public var animationThreshold: Float?
-    public var animationDuration: SECTime?
-    public var animationEasing: SECAnimation?
-    public var animationDelay: SECTime?
-    public var animationDurationUpdate: SECTime?
-    public var animationEasingUpdate: SECAnimation?
-    public var animationDelayUpdate: SECTime?
+    public var animationDuration: Time?
+    public var animationEasing: EasingFunction?
+    public var animationDelay: Time?
+    public var animationDurationUpdate: Time?
+    public var animationEasingUpdate: EasingFunction?
+    public var animationDelayUpdate: Time?
     
     public init() {}
 }
@@ -234,7 +234,7 @@ extension SECEffectScatterSerie.RippleEffect: Mappable {
 
 extension SECEffectScatterSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(SECItemStyle), data([Any]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), legendHoverLink(Bool), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), data([Any]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

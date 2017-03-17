@@ -12,7 +12,7 @@ public struct SECBarOptions {
     
     // MARK: 柱状图动画延迟
     /// 地址: http://echarts.baidu.com/demo.html#bar-animation-delay
-    static func barAnimationDelayOption() -> SECOption {
+    static func barAnimationDelayOption() -> Option {
         func calculateData(index: Float, function: (Double) -> Double) -> Float {
             var tmp: Float = Float(function(Double(index) / 5.0))
             tmp *= (index / 5.0 - 1.0)
@@ -28,7 +28,7 @@ public struct SECBarOptions {
             data1.append(calculateData(Float(i), function: sin))
             data2.append(calculateData(Float(i), function: cos))
         }
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("柱状图动画延迟")
                 )),
@@ -36,7 +36,7 @@ public struct SECBarOptions {
                 .data(["bar", "bar2"]),
                 .align(.left)
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .feature(SECTFeature(
                     .magicType(SECTFMagicType(
                         .type([.stack, .tiled])
@@ -48,7 +48,7 @@ public struct SECBarOptions {
                         ))
                     ))
                 )),
-            .tooltip(SECTooltip()),
+            .tooltip(Tooltip()),
             .xAxis(SECAxis(
                 .data(xAxisData),
                 .silent(false),
@@ -76,7 +76,7 @@ public struct SECBarOptions {
     
     // MARK: 柱状图框选
     /// 地址: http://echarts.baidu.com/demo.html#bar-brush
-    static func barBrushOption() -> SECOption { // FIXME: 缺少事件
+    static func barBrushOption() -> Option { // FIXME: 缺少事件
         var xAxisData: [Jsonable] = []
         var data1: [Jsonable] = []
         var data2: [Jsonable] = []
@@ -90,9 +90,9 @@ public struct SECBarOptions {
             data4.append(Double((arc4random_uniform(100)+1)) / 100.0 + 0.3)
         }
         
-        let itemStyle = SECItemStyle(
-            .normal(SECCommonItemStyleContent()),
-            .emphasis(SECCommonItemStyleContent(
+        let itemStyle = ItemStyle(
+            .normal(CommonItemStyleContent()),
+            .emphasis(CommonItemStyleContent(
 //                .barBorderWidth(1), // 这个属性在网页上好像没用
                 .shadowBlur(10),
                 .shadowOffsetX(0),
@@ -100,7 +100,7 @@ public struct SECBarOptions {
                 .shadowColor(.rgba(0, 0, 0, 0.5))
                 ))
         )
-        return SECOption(
+        return Option(
             .backgroundColor(.hexColor("#eee")),
             .legend(Legend(
                 .data(["bar", "bar2", "bar3", "bar4"]),
@@ -111,7 +111,7 @@ public struct SECBarOptions {
                 .toolbox([.rect, .polygon, .lineX, .lineY, .keep, .clear]),
                 .xAxisIndex(.indexes([0]))
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .feature(SECTFeature(
                     .magicType(SECTFMagicType(
                         .type([.stack, .tiled])
@@ -119,7 +119,7 @@ public struct SECBarOptions {
                     .dataView(SECTFDataView())
                     ))
                 )),
-            .tooltip(SECTooltip()),
+            .tooltip(Tooltip()),
             .xAxis(SECAxis(
                 .data(xAxisData),
                 .name("X Axis"),
@@ -140,7 +140,7 @@ public struct SECBarOptions {
                     .show(false)
                     ))
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .left(.value(100))
                 )),
             .visualMap(SECContinuousVisualMap(
@@ -190,7 +190,7 @@ public struct SECBarOptions {
     
     // MARK: 特性示例：渐变色 阴影 点击缩放
     /// 地址: http://echarts.baidu.com/demo.html#bar-gradient
-    static func barGradientOption() -> SECOption { // FIXME: 缺少点击事件
+    static func barGradientOption() -> Option { // FIXME: 缺少点击事件
         let dataAxis: [Jsonable] =  ["点", "击", "柱", "子", "或", "者", "两", "指", "在", "触", "屏", "上", "滑", "动", "能", "够", "自", "动", "缩", "放"]
         let yMax = 500
         var dataShadow: [Jsonable] = []
@@ -198,7 +198,7 @@ public struct SECBarOptions {
         for _ in 0..<dataAxis.count {
             dataShadow.append(yMax)
         }
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("特性示例：渐变色 阴影 点击缩放"),
                 .subtext("Feature Sample: Gradient Color, Shadow, Click Zoom")
@@ -236,8 +236,8 @@ public struct SECBarOptions {
                 )]),
             .series([
                 SECBarSerie(
-                    .itemStyle(SECItemStyle(
-                        .normal(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
                             .color(.rgba(0, 0, 0, 0.05))
                             ))
                         )),
@@ -247,8 +247,8 @@ public struct SECBarOptions {
                     .animation(false)
                 ),
                 SECBarSerie(
-                    .itemStyle(SECItemStyle(
-                        .normal(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
                             .color(.linearGradient(0, 0, 0, 1,
                                 [
                                     ["offset": 0, "color": Color.hexColor("#83bff6")],
@@ -256,7 +256,7 @@ public struct SECBarOptions {
                                     ["offset": 1, "color": Color.hexColor("#188df0")]
                                 ], false))
                             )),
-                        .emphasis(SECCommonItemStyleContent(
+                        .emphasis(CommonItemStyleContent(
                             .color(.linearGradient(0, 0, 0, 1,
                                 [
                                     ["offset": 0, "color": Color.hexColor("#2378f7")],
@@ -273,11 +273,11 @@ public struct SECBarOptions {
     
     // MARK: 正负条形图
     /// 地址:http://echarts.baidu.com/demo.html#bar-negative
-    static func barNegativeOption() -> SECOption {
-        return SECOption(
-            .tooltip(SECTooltip(
+    static func barNegativeOption() -> Option {
+        return Option(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .type(.shadow)
                     ))
                 )),
@@ -332,25 +332,25 @@ public struct SECBarOptions {
     
     // MARK: 交错正负轴标签
     /// 地址: http://echarts.baidu.com/demo.html#bar-negative2
-    static func barNegative2Option() -> SECOption {
+    static func barNegative2Option() -> Option {
         let labelRight = FormattedLabel(
             .normal(FormattedLabelStyle(
                 .position(.right)
                 ))
         )
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("交错正负轴标签"),
                 .subtext("From ExcelHome"),
                 .sublink("http://e.weibo.com/1341556070/AjwF2AgQm")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .type(.shadow)
                     ))
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .top(.value(80)),
                 .bottom(.value(30))
                 )),
@@ -358,7 +358,7 @@ public struct SECBarOptions {
                 .type(.value),
                 .position(.top),
                 .splitLine(SECSplitLine(
-                    .lineStyle(SECLineStyle(
+                    .lineStyle(LineStyle(
                         .type(.dashed)
                         ))
                     ))
@@ -422,18 +422,18 @@ public struct SECBarOptions {
     
     // MARK: 堆叠柱状图
     /// 地址: http://echarts.baidu.com/demo.html#bar-stack
-    static func barStackOption() -> SECOption {
-        return SECOption(
-            .tooltip(SECTooltip(
+    static func barStackOption() -> Option {
+        return Option(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .type(.shadow)
                     ))
                 )),
             .legend(Legend(
                 .data(["直接访问","邮件营销","联盟广告","视频广告","搜索引擎","百度","谷歌","必应","其他"])
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
@@ -470,8 +470,8 @@ public struct SECBarOptions {
                     .name("搜索引擎"),
                     .data([820, 932, 901, 934, 1290, 1330, 1320]),
                     .markLine(SECMarkLine(
-                        .lineStyle(SECEmphasisLineStyle(
-                            .normal(SECLineStyle(
+                        .lineStyle(EmphasisLineStyle(
+                            .normal(LineStyle(
                                 .type(.dashed)
                                 ))
                             )),
@@ -513,16 +513,16 @@ public struct SECBarOptions {
     
     // MARK: 坐标轴刻度与标签对齐
     /// 地址: http://echarts.baidu.com/demo.html#bar-tick-align
-    static func barTickAlignOption() -> SECOption {
-        return SECOption(
+    static func barTickAlignOption() -> Option {
+        return Option(
             .color([.hexColor("#3398DB")]),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .type(.shadow)
                     ))
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
@@ -550,21 +550,21 @@ public struct SECBarOptions {
     
     // MARK: 深圳月最低生活费组成（单位:元）
     /// 地址: http://echarts.baidu.com/demo.html#bar-waterfall
-    static func barWaterfallOption() -> SECOption {
-        return SECOption(
+    static func barWaterfallOption() -> Option {
+        return Option(
             .title(Title(
                 .text("深圳月最低生活费组成（单位:元）"),
                 .subtext("From ExcelHome"),
                 .sublink("http://e.weibo.com/1341556070/AjQH99che")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .type(.shadow)
                     )),
                 .formatter(.function("function tooltipFomatter(params) { var tar = params[1]; return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;}"))
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
@@ -584,12 +584,12 @@ public struct SECBarOptions {
                 SECBarSerie(
                     .name("辅助"),
                     .stack("总量"),
-                    .itemStyle(SECItemStyle(
-                        .normal(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
                             .borderColor(.rgba(0, 0, 0, 0)),
                             .color(.rgba(0, 0, 0, 0))
                             )),
-                        .emphasis(SECCommonItemStyleContent(
+                        .emphasis(CommonItemStyleContent(
                             .borderColor(.rgba(0, 0, 0, 0)),
                             .color(.rgba(0, 0, 0, 0))
                             ))
@@ -613,20 +613,20 @@ public struct SECBarOptions {
     
     // MARK: 阶梯瀑布图
     /// 地址：http://echarts.baidu.com/demo.html#bar-waterfall2
-    static func barWaterfall2Option() -> SECOption {
+    static func barWaterfall2Option() -> Option {
         var list: [Jsonable] = []
         for i in 1...11 {
             list.append("11月\(i)日")
         }
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("阶梯瀑布图"),
                 .subtext("From ExcelHome"),
                 .sublink("http://e.weibo.com/1341556070/Aj1J2x5a5")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .type(.shadow)
                     )),
                 .formatter(.function("function tooltipAxisPointer(params){ var tar; if(params[1].value != '-') { tar = params[1]; } else { tar = param[0]; } return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value}"))
@@ -634,7 +634,7 @@ public struct SECBarOptions {
             .legend(Legend(
                 .data(["支出","收入"])
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
@@ -654,12 +654,12 @@ public struct SECBarOptions {
                 SECBarSerie(
                     .name("辅助"),
                     .stack("总量"),
-                    .itemStyle(SECItemStyle(
-                        .normal(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
                             .borderColor(.rgba(0, 0, 0, 0)),
                             .color(.rgba(0, 0, 0, 0))
                             )),
-                        .emphasis(SECCommonItemStyleContent(
+                        .emphasis(CommonItemStyleContent(
                             .borderColor(.rgba(0, 0, 0, 0)),
                             .color(.rgba(0, 0, 0, 0))
                             ))
@@ -694,18 +694,18 @@ public struct SECBarOptions {
     
     // MARK: 堆叠条形图
     /// 地址: http://echarts.baidu.com/demo.html#bar-y-category-stack
-    static func barYCategoryStackOption() -> SECOption {
-        return SECOption(
-            .tooltip(SECTooltip(
+    static func barYCategoryStackOption() -> Option {
+        return Option(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .type(.shadow)
                     ))
                 )),
             .legend(Legend(
                 .data(["邮件营销","联盟广告","视频广告","直接访问","搜索引擎"])
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
@@ -781,22 +781,22 @@ public struct SECBarOptions {
     
     // MARK: 世界人口总量 - 条形图
     /// 地址:http://echarts.baidu.com/demo.html#bar-y-category
-    static func barYCategoryOption() -> SECOption {
-        return SECOption(
+    static func barYCategoryOption() -> Option {
+        return Option(
             .title(Title(
                 .text("世界人口总量"),
                 .subtext("数据来自网络")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .type(.shadow)
                     ))
                 )),
             .legend(Legend(
                 .data(["2011年", "2012年"])
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
@@ -825,19 +825,19 @@ public struct SECBarOptions {
     
     // MARK: 某地区蒸发量和降水量
     /// 地址: http://echarts.baidu.com/demo.html#bar1
-    static func bar1Option() -> SECOption {
-        return SECOption(
+    static func bar1Option() -> Option {
+        return Option(
             .title(Title(
                 .text("某地区蒸发量和降水量"),
                 .subtext("纯属虚构")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis)
                 )),
             .legend(Legend(
                 .data(["蒸发量","降水量"])
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .show(true),
                 .feature(SECTFeature(
                     .dataView(SECTFDataView(
@@ -922,7 +922,7 @@ public struct SECBarOptions {
     
     // MARK: 动态数据
     /// 地址: http://echarts.baidu.com/demo.html#dynamic-data
-    static func dynamicDataOption() -> SECOption {
+    static func dynamicDataOption() -> Option {
         var xAxisData1: [Jsonable] = []
         var xAxisData2: [Jsonable] = []
         var date = NSDate()
@@ -940,18 +940,18 @@ public struct SECBarOptions {
             seriesData2.append(Double(arc4random_uniform(100) + 1) / 10.0 + 5)
         }
         
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("动态数据"),
                 .subtext("纯属虚构")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis)
                 )),
             .legend(Legend(
                 .data(["最新成交价", "预购队列"])
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .show(true),
                 .feature(SECTFeature(
                     .dataView(SECTFDataView(.readOnly(false))),
@@ -1011,12 +1011,12 @@ public struct SECBarOptions {
     
     // MARK: 折柱混合
     /// 地址: http://echarts.baidu.com/demo.html#mix-line-bar
-    static func mixLineBarOption() -> SECOption {
-        return SECOption(
-            .tooltip(SECTooltip(
+    static func mixLineBarOption() -> Option {
+        return Option(
+            .tooltip(Tooltip(
                 .trigger(.axis)
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .feature(SECTFeature(
                     .dataView(SECTFDataView(
                         .show(true),
@@ -1083,33 +1083,33 @@ public struct SECBarOptions {
     
     // MARK: 全国宏观经济
     /// 地址: http://echarts.baidu.com/demo.html#mix-timeline-finance
-    static func mixTimelineFinanceOption() -> SECOption {
+    static func mixTimelineFinanceOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: Budge
     /// 地址: http://echarts.baidu.com/demo.html#mix-zoom-on-value
-    static func mixZoomOnValueOption() -> SECOption {
+    static func mixZoomOnValueOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: 多 Y 轴示例
     /// 地址: http://echarts.baidu.com/demo.html#multiple-y-axis
-    static func multipleYAxisOption() -> SECOption {
+    static func multipleYAxisOption() -> Option {
         let colors: [Color] = [.hexColor("#5793f3"), .hexColor("#d14a61"), .hexColor("#675bba")]
-        return SECOption(
+        return Option(
             .color(colors),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis)
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .right(.value(20%))
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .feature(SECTFeature(
                     .dataView(SECTFDataView(
                         .show(true),
@@ -1141,7 +1141,7 @@ public struct SECBarOptions {
                     .max(250),
                     .position(.right),
                     .axisLine(SECAxisLine(
-                        .lineStyle(SECLineStyle(
+                        .lineStyle(LineStyle(
                             .color(colors[0])
                             ))
                         )),
@@ -1157,7 +1157,7 @@ public struct SECBarOptions {
                     .position(.right),
                     .offset(40), // 针对屏幕小进行调整
                     .axisLine(SECAxisLine(
-                        .lineStyle(SECLineStyle(
+                        .lineStyle(LineStyle(
                             .color(colors[1])
                             ))
                         )),
@@ -1172,7 +1172,7 @@ public struct SECBarOptions {
                     .max(25),
                     .position(.left),
                     .axisLine(SECAxisLine(
-                        .lineStyle(SECLineStyle(
+                        .lineStyle(LineStyle(
                             .color(colors[2])
                             ))
                         )),
@@ -1202,9 +1202,9 @@ public struct SECBarOptions {
     
     // MARK: 水印 - ECharts 下载统计
     /// 地址: http://echarts.baidu.com/demo.html#watermark
-    static func watermarkOption() -> SECOption {
+    static func watermarkOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
 }

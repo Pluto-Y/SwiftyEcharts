@@ -34,7 +34,7 @@ public struct SECCandlestickSerie: SECSeries, Zable {
         ///     [open, close, lowest, highest] （即：[开盘值, 收盘值, 最低值, 最高值]）
         public var value: [Jsonable]?
         /// candlestick 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         
         public init() {}
     }
@@ -70,7 +70,7 @@ public struct SECCandlestickSerie: SECSeries, Zable {
     /// 指定柱最小宽度。可以使用绝对数值（如 10）或百分比（如 '20%'，表示 band width 的百分之多少）。默认自适应。
     public var barMaxWidth: Float?
     /// candlestick 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 数据格式是如下的二维数组。
     ///
     ///     [
@@ -108,7 +108,7 @@ public struct SECCandlestickSerie: SECSeries, Zable {
     ///     }
     public var animationDuration: Float?
     /// 初始动画的缓动效果。不同的缓动效果可以参考 缓动示例。
-    public var animationEasing: SECAnimation?
+    public var animationEasing: EasingFunction?
     /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
     ///
     /// 如下示例：
@@ -126,7 +126,7 @@ public typealias SECCandlestickSerieData = SECCandlestickSerie.Data
 
 extension SECCandlestickSerieData: Enumable {
     public enum Enums {
-        case name(String), value([Jsonable]), itemStyle(SECItemStyle)
+        case name(String), value([Jsonable]), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -155,7 +155,7 @@ extension SECCandlestickSerieData: Mappable {
 
 extension SECCandlestickSerie: Enumable {
     public enum Enums {
-        case coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), barWidth(Float), barMinWidth(Float), barMaxWidth(Float), itemStyle(SECItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(SECAnimation), animationDelay(Float)
+        case coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), barWidth(Float), barMinWidth(Float), barMaxWidth(Float), itemStyle(ItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Float)
     }
     
     public typealias ContentEnum = Enums

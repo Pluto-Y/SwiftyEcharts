@@ -12,13 +12,13 @@ public struct SECLineOptions {
     
     // MARK: 雨量流量关系图
     /// 地址:http://echarts.baidu.com/demo.html#area-rainfall
-    static func areaRainfallOption() -> SECOption {
+    static func areaRainfallOption() -> Option {
         guard let plistUrl = NSBundle.mainBundle().pathForResource("AreaRainfallDatas", ofType: "plist") else {
-            return SECOption()
+            return Option()
         }
         
         guard let plistDatas = NSDictionary(contentsOfFile: plistUrl) else {
-            return SECOption()
+            return Option()
         }
         
         
@@ -33,16 +33,16 @@ public struct SECLineOptions {
         }
         let areaData1: [Jsonable] = [[["xAxis": "2009/9/12/\\n7:00"], ["xAxis": "2009/9/22\\n7:00"]]]
         let areaData2: [Jsonable] = [[["xAxis": "2009/9/10/\\n7:00"], ["xAxis": "2009/9/20\\n7:00"]]]
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("雨量流量关系图"),
                 .subtext("数据来自西安兰特水电测控技术有限公司"),
                 .x(.center)
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .bottom(.value(80))
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .feature(SECTFeature(
                     .dataZoom(SECTFDataZoom(
                         .yAxisIndex(.bool(false))
@@ -51,9 +51,9 @@ public struct SECLineOptions {
                     .saveAsImage(SECTFSaveAsImage())
                     ))
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .animation(false)
                     ))
                 )),
@@ -100,12 +100,12 @@ public struct SECLineOptions {
                 SECLineSerie(
                     .name("流量"),
                     .animation(false),
-                    .areaStyle(SECEmphasisAreaStyle(
-                        .normal(SECCommonAreaStyleContent(
+                    .areaStyle(EmphasisAreaStyle(
+                        .normal(CommonAreaStyleContent(
                             ))
                         )),
-                    .lineStyle(SECEmphasisLineStyle(
-                        .normal(SECLineStyle(
+                    .lineStyle(EmphasisLineStyle(
+                        .normal(LineStyle(
                             .width(1)
                             ))
                         )),
@@ -119,12 +119,12 @@ public struct SECLineOptions {
                     .name("降雨量"),
                     .yAxisIndex(1),
                     .animation(false),
-                    .areaStyle(SECEmphasisAreaStyle(
-                        .normal(SECCommonAreaStyleContent(
+                    .areaStyle(EmphasisAreaStyle(
+                        .normal(CommonAreaStyleContent(
                             ))
                         )),
-                    .lineStyle(SECEmphasisLineStyle(
-                        .normal(SECLineStyle(
+                    .lineStyle(EmphasisLineStyle(
+                        .normal(LineStyle(
                             .width(1)
                             ))
                         )),
@@ -140,30 +140,30 @@ public struct SECLineOptions {
     
     // MARK: 大数据量面积图
     /// 地址: http://echarts.baidu.com/demo.html#area-simple
-    static func areaSimpleOption() -> SECOption {
+    static func areaSimpleOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: 堆叠区域图
     /// 地址:http://echarts.baidu.com/demo.html#area-stack
-    static func areaStackOption() -> SECOption {
-        return SECOption(
+    static func areaStackOption() -> Option {
+        return Option(
             .title(Title(
                 .text("堆叠区域图")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis)
                 )),
-            .toolbox(SECToolbox(
-                .feature(SECToolbox.Feature(
-                    .saveAsImage(SECToolbox.Feature.SaveAsImage(
+            .toolbox(Toolbox(
+                .feature(Toolbox.Feature(
+                    .saveAsImage(Toolbox.Feature.SaveAsImage(
                         
                         ))
                     ))
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
@@ -181,32 +181,32 @@ public struct SECLineOptions {
                 SECLineSerie(
                     .name("邮件营销"),
                     .stack("总量"),
-                    .areaStyle(SECEmphasisAreaStyle(
-                        .normal(SECCommonAreaStyleContent())
+                    .areaStyle(EmphasisAreaStyle(
+                        .normal(CommonAreaStyleContent())
                         )),
                     .data([120, 132, 101, 134, 90, 230, 210])
                 ),
                 SECLineSerie(
                     .name("联盟广告"),
                     .stack("总量"),
-                    .areaStyle(SECEmphasisAreaStyle(
-                        .normal(SECCommonAreaStyleContent())
+                    .areaStyle(EmphasisAreaStyle(
+                        .normal(CommonAreaStyleContent())
                         )),
                     .data([220, 182, 191, 234, 290, 330, 310])
                 ),
                 SECLineSerie(
                     .name("视频广告"),
                     .stack("总量"),
-                    .areaStyle(SECEmphasisAreaStyle(
-                        .normal(SECCommonAreaStyleContent())
+                    .areaStyle(EmphasisAreaStyle(
+                        .normal(CommonAreaStyleContent())
                         )),
                     .data([150, 232, 201, 154, 190, 330, 410])
                 ),
                 SECLineSerie(
                     .name("直接访问"),
                     .stack("总量"),
-                    .areaStyle(SECEmphasisAreaStyle(
-                        .normal(SECCommonAreaStyleContent())
+                    .areaStyle(EmphasisAreaStyle(
+                        .normal(CommonAreaStyleContent())
                         )),
                     .data([320, 332, 301, 334, 390, 330, 320])
                 ),
@@ -219,8 +219,8 @@ public struct SECLineOptions {
                             .position(.top)
                             ))
                         )),
-                    .areaStyle(SECEmphasisAreaStyle(
-                        .normal(SECCommonAreaStyleContent())
+                    .areaStyle(EmphasisAreaStyle(
+                        .normal(CommonAreaStyleContent())
                         )),
                     .data([820, 932, 901, 934, 1290, 1330, 1320])
                 )
@@ -230,29 +230,29 @@ public struct SECLineOptions {
     
     // MARK: Confidence Band
     /// 地址: http://echarts.baidu.com/demo.html#confidence-band
-    static func confidenceBandOption() -> SECOption {
+    static func confidenceBandOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: 动态数据 + 时间坐标轴
     /// 地址: http://echarts.baidu.com/demo.html#dynamic-data2
-    static func dynamicData2Option() -> SECOption {
+    static func dynamicData2Option() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: 雨量流量关系图2
     /// 地址:http://echarts.baidu.com/demo.html#grid-multiple
-    static func gridMultipleOption() -> SECOption {
+    static func gridMultipleOption() -> Option {
         guard let plistUrl = NSBundle.mainBundle().pathForResource("AreaRainfallDatas", ofType: "plist") else {
-            return SECOption()
+            return Option()
         }
         
         guard let plistDatas = NSDictionary(contentsOfFile: plistUrl) else {
-            return SECOption()
+            return Option()
         }
         
         
@@ -265,15 +265,15 @@ public struct SECLineOptions {
         let seriesDatas2 = (plistDatas["SeriesData2"] as! [Float]).map { (ele) -> Jsonable in
             return ele
         }
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("雨量流量关系图"),
                 .subtext("数据来自西安兰特水电测控技术有限公司"),
                 .x(.center)
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .animation(false)
                     ))
                 )),
@@ -281,7 +281,7 @@ public struct SECLineOptions {
                 .data(["流量", "降雨量"]),
                 .x(.left)
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .feature(SECTFeature(
                     .dataZoom(SECTFDataZoom(
                         .yAxisIndex(.bool(false))
@@ -305,12 +305,12 @@ public struct SECLineOptions {
                 )
                 ]),
             .grids([
-                SECGrid(
+                Grid(
                     .left(.value(50)),
                     .right(.value(50)),
                     .height(25%)
                 ),
-                SECGrid(
+                Grid(
                     .left(.value(50)),
                     .right(.value(50)),
                     .top(.value(58%)),
@@ -371,27 +371,27 @@ public struct SECLineOptions {
     
     // MARK: Beijing AQI
     /// 地址: http://echarts.baidu.com/demo.html#line-aqi
-    static func lineApiOption() -> SECOption {
+    static func lineApiOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: Try Dragging these Points
     /// 地址: http://echarts.baidu.com/demo.html#line-draggable
-    static func lineDraggableOption() -> SECOption {
+    static func lineDraggableOption() -> Option {
         // 未完成对应的拖拽代码
         let symbolSize: Float = 20
         let data: [Jsonable] =  [[15, 0], [-50, 10], [-56.5, 20], [-46.5, 30], [-22.1, 40]]
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("Try Dragging these Points")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .triggerOn(.none),
                 .formatter(.function("function tooltipFormatter(params) { return 'X: ' + params.data[0].toFixed(2) + '<br>Y: ' + params.data[1].toFixed(2);}"))
                 )),
-            .grid(SECGrid()),
+            .grid(Grid()),
             .xAxis(SECAxis(
                 .min(-100),
                 .max(80),
@@ -438,21 +438,21 @@ public struct SECLineOptions {
     
     // MARK: Different Easing Functions
     /// 地址: http://echarts.baidu.com/demo.html#line-easing
-    static func lineEasingOption() -> SECOption {
+    static func lineEasingOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: 指数折线图
     /// 地址: http://echarts.baidu.com/gallery/editor.html?c=line-log
-    static func lineLogOption() -> SECOption {
-        return SECOption(
+    static func lineLogOption() -> Option {
+        return Option(
             .title(Title(
                 .text("对数轴示例"),
                 .left(.center)
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.item),
                 .formatter(.string("{a} <br/>{b} : {c}"))
                 )),
@@ -468,7 +468,7 @@ public struct SECLineOptions {
                         )),
                     .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
@@ -497,21 +497,21 @@ public struct SECLineOptions {
     
     // MARK: 未来一周气温变化
     /// 地址: http://echarts.baidu.com/demo.html#line-marker
-    static func lineMarkerOption() -> SECOption {
-        return SECOption(
+    static func lineMarkerOption() -> Option {
+        return Option(
             .title(Title(
                 .text("未来一周气温变化"),
                 .subtext("纯属虚构")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis)
                 )),
             .legend(Legend(
                 .data(["最高气温","低气温"])
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .show(true),
-                .feature(SECToolbox.Feature(
+                .feature(Toolbox.Feature(
                     .dataZoom(SECTFDataZoom(
                         .yAxisIndex(.bool(false))
                         )),
@@ -611,15 +611,15 @@ public struct SECLineOptions {
     
     // MARK: Click to Add Points
     /// 地址: http://echarts.baidu.com/demo.html#line-pen
-    static func linePenOption() -> SECOption {
+    static func linePenOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: 极坐标双数值轴
     /// 地址:http://echarts.baidu.com/demo.html#line-polar
-    static func linePolarOption() -> SECOption {
+    static func linePolarOption() -> Option {
         var data: [Jsonable] = []
         for i in 0...100 {
             let theta: Double = Double(i) / 100.0 * 360
@@ -627,18 +627,18 @@ public struct SECLineOptions {
             data.append([r, theta])
             
         }
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("极坐标双数值轴")
                 )),
             .legend(Legend(
                 .data(["line"])
                 )),
-            .polar(SECPolar(
+            .polar(Polar(
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .type(.cross)
                     ))
                 )),
@@ -660,26 +660,26 @@ public struct SECLineOptions {
     
     // MARK: 极坐标双数值轴
     /// 地址: http://echarts.baidu.com/demo.html#line-polar2
-    static func linePolar2Option() -> SECOption {
+    static func linePolar2Option() -> Option {
         var data: [Jsonable] = []
         for i in 0...360 {
             let t = Double(i) / 180 * M_PI
             let r = sin(2 * t) * cos(2 * t)
             data.append([r, Double(i)])
         }
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("极坐标双数值轴")
                 )),
             .legend(Legend(
                 .data(["line"])
                 )),
-            .polar(SECPolar(
+            .polar(Polar(
                 .center([50%, 54%])
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(SECTooltip.AxisPointer(
+                .axisPointer(Tooltip.AxisPointer(
                     .type(.cross)
                     ))
                 )),
@@ -704,16 +704,16 @@ public struct SECLineOptions {
     
     // MARK: 一天用电量分布
     /// 地址:http://echarts.baidu.com/demo.html#line-sections
-    static func lineSectionsOption() -> SECOption {
-        return SECOption(
+    static func lineSectionsOption() -> Option {
+        return Option(
             .title(Title(
                 .text("一天用电量分布"),
                 .subtext("纯属虚构")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis)
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .show(true),
                 .feature(SECTFeature(
                     .saveAsImage(SECTFSaveAsImage())
@@ -787,26 +787,26 @@ public struct SECLineOptions {
     
     // MARK: 折线图堆叠
     /// 地址:http://echarts.baidu.com/demo.html#line-stack
-    static func lineStackOption() -> SECOption {
-        return SECOption(
+    static func lineStackOption() -> Option {
+        return Option(
             .title(Title(
                 .text("折线图堆叠")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis)
                 )),
             .legend(Legend(
                 .data(["邮件营销","联盟广告","视频广告","直接访问","搜索引擎"])
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .toolbox(SECToolbox(
-                .feature(SECToolbox.Feature(
-                    .saveAsImage(SECToolbox.Feature.SaveAsImage(
+            .toolbox(Toolbox(
+                .feature(Toolbox.Feature(
+                    .saveAsImage(Toolbox.Feature.SaveAsImage(
                         
                         ))
                     ))
@@ -851,21 +851,21 @@ public struct SECLineOptions {
     
     // MARK: Line Step
     /// 地址:http://echarts.baidu.com/demo.html#line-step
-    static func lineStepOption() -> SECOption {
-        return SECOption(
+    static func lineStepOption() -> Option {
+        return Option(
             .title(Title(
                 .text("Step Line")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis)
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .toolbox(SECToolbox(
+            .toolbox(Toolbox(
                 .feature(SECTFeature(
                     .saveAsImage(SECTFSaveAsImage(
                         ))
@@ -901,16 +901,16 @@ public struct SECLineOptions {
     
     // MARK: 高度(km)与气温(°C)变化关系
     /// 地址:http://echarts.baidu.com/demo.html#line-y-category
-    static func lineYCategoryOption() -> SECOption {
-        return SECOption(
+    static func lineYCategoryOption() -> Option {
+        return Option(
             .legend(Legend(
                 .data(["高度(km)与气温(°C)变化关系"])
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis),
                 .formatter(.string("Temperature : <br/>{b}km : {c}°C"))
                 )),
-            .grid(SECGrid(
+            .grid(Grid(
                 .left(.value(3%)),
                 .right(.value(4%)),
                 .bottom(.value(3%)),
@@ -936,8 +936,8 @@ public struct SECLineOptions {
                 SECLineSerie(
                     .name("高度(km)与气温(°C)变化关系"),
                     .smooth(true),
-                    .lineStyle(SECEmphasisLineStyle(
-                        .normal(SECLineStyle(
+                    .lineStyle(EmphasisLineStyle(
+                        .normal(LineStyle(
                             .width(3),
                             .shadowColor(.rgba(0, 0, 0, 0.4)),
                             .shadowBlur(10.0),

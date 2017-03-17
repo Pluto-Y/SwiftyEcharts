@@ -1,5 +1,5 @@
 //
-//  SECTimeline.swift
+//  Timeline.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 19/01/2017.
@@ -86,7 +86,7 @@
 /// 与 ECharts 2 的兼容性：
 /// ECharts 3 中不再支持 timeline.notMerge 参数，也就是不支持 notMerge 模式。如果遇到这种场景需要使用，可在外部进行option管理，并用 setOption(option, true) 这样的notMerge方式设置。
 /// ECharts 3 和 ECharts 2 相比，timeline 属性的定义位置有所不同，移到了 baseOption 中，统一作为一个普通的组件看待。但是，仍然兼容 ECharts2 的 timeline 定义位置，只是不再推荐这样写。
-public struct SECTimeline: Displayable, SECSymbolized, Zable {
+public struct Timeline: Displayable, Symbolized, Zable {
     /// 轴的类型。可选值为
     ///
     /// - value: 数值轴，适用于连续数据。
@@ -144,9 +144,9 @@ public struct SECTimeline: Displayable, SECSymbolized, Zable {
         public var opacity: Float?
     }
     
-    public struct CheckpointStyle: SECSymbolized, Colorful, Borderable {
+    public struct CheckpointStyle: Symbolized, Colorful, Borderable {
         /// timeline.checkpointStyle 标记的图形。
-        public var symbol: SECSymbol?
+        public var symbol: Symbol?
         /// timeline.checkpointStyle 标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
         public var symbolSize: Float?
         /// timeline.checkpointStyle 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
@@ -165,7 +165,7 @@ public struct SECTimeline: Displayable, SECSymbolized, Zable {
         /// timeline组件中『当前项』（checkpoint）的动画时长。
         public var animationDuration: Float?
         /// timeline组件中『当前项』（checkpoint）的动画的缓动效果。
-        public var animationEasing: SECAnimation?
+        public var animationEasing: EasingFunction?
     }
     
     public struct ControlStyle: Displayable, Emphasisable {
@@ -197,7 +197,7 @@ public struct SECTimeline: Displayable, SECSymbolized, Zable {
         /// 『控制按钮』的位置。
         /// 当 timeline.orient 为 'horizontal'时，'left'、'right'有效。
         /// 当 timeline.orient 为 'vertical'时，'top'、'bottom'有效。
-        public var position: SECPosition?
+        public var position: Position?
         /// 『播放按钮』的『可播放状态』的图形。
         /// 在 ECharts 3 里可以通过 'path://' 将图标设置为任意的矢量路径。这种方式相比于使用图片的方式，不用担心因为缩放而产生锯齿或模糊，而且可以设置为任意颜色。路径图形会自适应调整为合适（如果是 symbol 的话就是 symbolSize）的大小。路径的格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
         public var playIcon: String?
@@ -221,9 +221,9 @@ public struct SECTimeline: Displayable, SECSymbolized, Zable {
         /// 值
         public var value: Jsonable?
         /// tooltip, 主要用来修改里面的 `formatter`
-        public var tooltip: SECTooltip?
+        public var tooltip: Tooltip?
         /// 标记图形
-        public var symbol: SECSymbol?
+        public var symbol: Symbol?
         /// 标记图形大小
         public var symbolSize: Float?
     }
@@ -260,19 +260,19 @@ public struct SECTimeline: Displayable, SECSymbolized, Zable {
     /// timeline组件离容器左侧的距离。
     /// left 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'left', 'center', 'right'。
     /// 如果 left 的值为'left', 'center', 'right'，组件会根据相应的位置自动对齐。
-    public var left: SECPosition?
+    public var left: Position?
     /// timeline组件离容器上侧的距离。
     /// top 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'top', 'middle', 'bottom'。
     /// 如果 top 的值为'top', 'middle', 'bottom'，组件会根据相应的位置自动对齐。
-    public var top: SECPosition?
+    public var top: Position?
     /// timeline组件离容器右侧的距离。
     /// right 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     /// 默认自适应。
-    public var right: SECPosition?
+    public var right: Position?
     /// timeline组件离容器下侧的距离。
     /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     /// 默认自适应。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// timeline内边距，单位px，默认各方向内边距为5，接受数组分别设定上右下左边距。
     /// 使用示例：
     ///
@@ -293,7 +293,7 @@ public struct SECTimeline: Displayable, SECSymbolized, Zable {
     /// 是否反向放置 timeline，反向则首位颠倒过来。
     public var inverse: Bool?
     /// timeline标记的图形。
-    public var symbol: SECSymbol?
+    public var symbol: Symbol?
     /// timeline标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
     public var symbolSize: Float?
     /// timeline标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
@@ -306,7 +306,7 @@ public struct SECTimeline: Displayable, SECSymbolized, Zable {
     /// 轴的文本标签。有 normal 和 emphasis 两个状态，normal 是文本正常的样式，emphasis 是文本高亮的样式，比如鼠标悬浮或者图例联动高亮的时候会使用 emphasis 作为文本的样式。
     //    public var label: // FIXME?
     /// timeline 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 『当前项』（checkpoint）的图形样式。
     public var checkpointStyle: CheckpointStyle?
     /// 『控制按钮』的样式。『控制按钮』包括：『播放按钮』、『前进按钮』、『后退按钮』。
@@ -316,7 +316,7 @@ public struct SECTimeline: Displayable, SECSymbolized, Zable {
     
 }
 
-extension SECTimeline.LineStyle: Enumable {
+extension Timeline.LineStyle: Enumable {
     public enum Enums {
         case show(Bool), color(Color), width(Float), type(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
     }
@@ -349,7 +349,7 @@ extension SECTimeline.LineStyle: Enumable {
     }
 }
 
-extension SECTimeline.LineStyle: Mappable {
+extension Timeline.LineStyle: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["color"] = color
@@ -363,9 +363,9 @@ extension SECTimeline.LineStyle: Mappable {
     }
 }
 
-extension SECTimeline.CheckpointStyle: Enumable {
+extension Timeline.CheckpointStyle: Enumable {
     public enum Enums {
-        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), color(Color), borderColor(Color), borderWidth(Float), animation(Bool), animationDuration(Float), animationEasing(SECAnimation)
+        case symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), color(Color), borderColor(Color), borderWidth(Float), animation(Bool), animationDuration(Float), animationEasing(EasingFunction)
     }
     
     public typealias ContentEnum = Enums
@@ -398,7 +398,7 @@ extension SECTimeline.CheckpointStyle: Enumable {
     }
 }
 
-extension SECTimeline.CheckpointStyle: Mappable {
+extension Timeline.CheckpointStyle: Mappable {
     public func mapping(map: Mapper) {
         map["symbol"] = symbol
         map["symbolSize"] = symbolSize
@@ -413,7 +413,7 @@ extension SECTimeline.CheckpointStyle: Mappable {
     }
 }
 
-extension SECTimeline.ControlStyle.CStyle: Enumable {
+extension Timeline.ControlStyle.CStyle: Enumable {
     public enum Enums {
         case color(Color), borderWidth(Float), borderColor(Color)
     }
@@ -435,7 +435,7 @@ extension SECTimeline.ControlStyle.CStyle: Enumable {
     }
 }
 
-extension SECTimeline.ControlStyle.CStyle: Mappable {
+extension Timeline.ControlStyle.CStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["borderWidth"] = borderWidth
@@ -444,9 +444,9 @@ extension SECTimeline.ControlStyle.CStyle: Mappable {
     }
 }
 
-extension SECTimeline.ControlStyle: Enumable {
+extension Timeline.ControlStyle: Enumable {
     public enum Enums {
-        case show(Bool), showPlayBtn(Bool), showPrevBtn(Bool), showNextBtn(Bool), itemSize(Float), itemGap(Float), position(SECPosition), playIcon(String), stopIcon(String), prevIcon(String), nextIcon(String), normal(CStyle), emphasis(CStyle)
+        case show(Bool), showPlayBtn(Bool), showPrevBtn(Bool), showNextBtn(Bool), itemSize(Float), itemGap(Float), position(Position), playIcon(String), stopIcon(String), prevIcon(String), nextIcon(String), normal(CStyle), emphasis(CStyle)
     }
     
     public typealias ContentsEnums = Enums
@@ -485,7 +485,7 @@ extension SECTimeline.ControlStyle: Enumable {
     }
 }
 
-extension SECTimeline.ControlStyle: Mappable {
+extension Timeline.ControlStyle: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["showPlayBtn"] = showPlayBtn
@@ -504,9 +504,9 @@ extension SECTimeline.ControlStyle: Mappable {
     }
 }
 
-extension SECTimeline.Data: Enumable {
+extension Timeline.Data: Enumable {
     public enum Enums {
-        case value(Jsonable), tooltip(SECTooltip), symbol(SECSymbol), symbolSize(Float)
+        case value(Jsonable), tooltip(Tooltip), symbol(Symbol), symbolSize(Float)
     }
     
     public typealias ContentEnums = Enums
@@ -527,7 +527,7 @@ extension SECTimeline.Data: Enumable {
     }
 }
 
-extension SECTimeline.Data: Mappable {
+extension Timeline.Data: Mappable {
     public func mapping(map: Mapper) {
         map["value"] = value
         map["tooltip"] = tooltip
@@ -536,9 +536,9 @@ extension SECTimeline.Data: Mappable {
     }
 }
 
-extension SECTimeline: Enumable {
+extension Timeline: Enumable {
     public enum Enums {
-        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), padding(SECPadding), orient(SECOrient), inverse(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), lineStyle(LineStyle), itemStyle(SECItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([Jsonable])
+        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), padding(SECPadding), orient(SECOrient), inverse(Bool), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), lineStyle(LineStyle), itemStyle(ItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([Jsonable])
     }
     
     public typealias ContentEnum = Enums
@@ -605,7 +605,7 @@ extension SECTimeline: Enumable {
     }
 }
 
-extension SECTimeline: Mappable {
+extension Timeline: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["type"] = type

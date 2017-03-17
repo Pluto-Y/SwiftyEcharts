@@ -22,7 +22,7 @@ public struct SECParallelAxis {
         public var opacity: Float?
     }
     
-    public typealias NameLocation = SECLocation
+    public typealias NameLocation = Location
     
     /// 坐标轴的维度序号。
     ///
@@ -92,7 +92,7 @@ public struct SECParallelAxis {
     /// 非类目轴，包括时间，数值，对数轴，boundaryGap是一个两个值的数组，分别表示数据最小值和最大值的延伸范围，可以直接设置数值或者相对的百分比，在设置 min 和 max 后无效。 示例：
     ///
     /// boundaryGap: ['20%', '20%']
-    public var boudaryGap: SECBoundaryGap?
+    public var boudaryGap: BoundaryGap?
     /// 坐标轴刻度最小值。
     ///
     /// 可以设置成特殊值 'dataMin'，此时取数据在该轴上的最小值作为最小刻度。
@@ -213,7 +213,7 @@ extension SECParallelAxis.AreaSelectStyle: Mappable {
 
 extension SECParallelAxis: Enumable {
 	public enum Enums {
-		case dim(Float), parallelIndex(UInt8), realtiem(Bool), areaSelectedStyle(AreaSelectStyle), type(SECAxisType), name(String), nameTextStyle(TextStyle), nameLocation(NameLocation), nameGap(Float), nameRotate(Float), inverse(Bool), boudaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), splitName(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), data([Jsonable])
+		case dim(Float), parallelIndex(UInt8), realtiem(Bool), areaSelectedStyle(AreaSelectStyle), type(SECAxisType), name(String), nameTextStyle(TextStyle), nameLocation(NameLocation), nameGap(Float), nameRotate(Float), inverse(Bool), boudaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitName(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), data([Jsonable])
 	}
 
 	public typealias ContentEnum = Enums

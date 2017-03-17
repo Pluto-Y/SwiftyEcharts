@@ -130,21 +130,21 @@ public struct SECContinuousVisualMap: SECVisualMap, Displayable, Borderable, Col
     /// left 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'left', 'center', 'right'。
     ///
     /// 如果 left 的值为'left', 'center', 'right'，组件会根据相应的位置自动对齐。
-    public var left: SECPosition?
+    public var left: Position?
     /// visualMap 组件离容器上侧的距离。
     ///
     /// top 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'top', 'middle', 'bottom'。
     ///
     /// 如果 top 的值为'top', 'middle', 'bottom'，组件会根据相应的位置自动对齐。
-    public var top: SECPosition?
+    public var top: Position?
     /// visualMap 组件离容器右侧的距离。
     ///
     /// right 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
-    public var right: SECPosition?
+    public var right: Position?
     /// visualMap 组件离容器下侧的距离。
     ///
     /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// 如何放置 visualMap 组件，水平（'horizontal'）或者竖直（'vertical'）。
     public var orient: SECOrient?
     /// visualMap-continuous内边距，单位px，默认各方向内边距为5，接受数组分别设定上右下左边距。
@@ -190,7 +190,7 @@ public struct SECContinuousVisualMap: SECVisualMap, Displayable, Borderable, Col
 
 extension SECContinuousVisualMap: Enumable {
     public enum Enums {
-        case min(Float), max(Float), range(Range), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
+        case min(Float), max(Float), range(Range), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(SECVMController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(SECOrient), padding(SECPadding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
     }
     
     public typealias ContentEnum = Enums

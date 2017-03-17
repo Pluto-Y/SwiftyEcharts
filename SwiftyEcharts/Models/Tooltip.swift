@@ -1,5 +1,5 @@
 //
-//  SECTooltip.swift
+//  Tooltip.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 01/12/2016.
@@ -8,7 +8,7 @@
 
 
 /// 提示框组件
-public struct SECTooltip: Borderable, Displayable, Formatted, Jsonable {
+public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
     
     /// 触发类型。
     ///
@@ -165,7 +165,7 @@ public struct SECTooltip: Borderable, Displayable, Formatted, Jsonable {
         ///         }
         public var animationDelayUpdate: Float?
         /// axisPointer.type 为 'line' 时有效。
-        public var lineStyle: SECLineStyle?
+        public var lineStyle: LineStyle?
         /// axisPointer.type 为 'cross' 时有效。
         public var crossStyle: CrossStyle?
         /// axisPointer.type 为 'shadow' 时有效。
@@ -191,7 +191,7 @@ public struct SECTooltip: Borderable, Displayable, Formatted, Jsonable {
     /// 浮层隐藏的延迟，单位为 ms，在 alwaysShowContent 为 true 的时候无效。
     public var hideDelay: Float?
     /// 提示框浮层的位置，默认不设置时位置会跟随鼠标的位置。
-    public var position: SECTooltip.Position?
+    public var position: Tooltip.Position?
     /// 是否将 tooltip 框限制在图表的区域内。
     /// 当图表外层的 dom 被设置为 'overflow: hidden'，或者移动端窄屏，导致 tooltip 超出外界被截断时，此配置比较有用。
     public var confine: Bool?
@@ -219,7 +219,7 @@ public struct SECTooltip: Borderable, Displayable, Formatted, Jsonable {
     public init() { }
 }
 
-extension SECTooltip.AxisPointer.ShadowStyle: Enumable {
+extension Tooltip.AxisPointer.ShadowStyle: Enumable {
     public enum Enums {
         case color(Color), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
     }
@@ -246,7 +246,7 @@ extension SECTooltip.AxisPointer.ShadowStyle: Enumable {
     }
 }
 
-extension SECTooltip.AxisPointer.ShadowStyle: Mappable {
+extension Tooltip.AxisPointer.ShadowStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["shadowBlur"] = shadowBlur
@@ -257,7 +257,7 @@ extension SECTooltip.AxisPointer.ShadowStyle: Mappable {
     }
 }
 
-extension SECTooltip.AxisPointer.CrossStyle: Enumable {
+extension Tooltip.AxisPointer.CrossStyle: Enumable {
     public enum Enums {
         case color(Color), width(Float), type(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), textStyle(TextStyle)
     }
@@ -288,7 +288,7 @@ extension SECTooltip.AxisPointer.CrossStyle: Enumable {
     }
 }
 
-extension SECTooltip.AxisPointer.CrossStyle: Mappable {
+extension Tooltip.AxisPointer.CrossStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["width"] = width
@@ -301,9 +301,9 @@ extension SECTooltip.AxisPointer.CrossStyle: Mappable {
     }
 }
 
-extension SECTooltip.AxisPointer: Enumable {
+extension Tooltip.AxisPointer: Enumable {
     public enum Enums {
-        case type(Type), axis(String), animation(Bool), animationThreshold(Float), animationDuration(UInt32), animationEasing(String), animationDelay(Float), animationDurationUpdate(UInt32), animationEasingUpdate(String), animationDelayUpdate(Float), lineStyle(SECLineStyle), crossStyle(CrossStyle), shadowStyle(ShadowStyle)
+        case type(Type), axis(String), animation(Bool), animationThreshold(Float), animationDuration(UInt32), animationEasing(String), animationDelay(Float), animationDurationUpdate(UInt32), animationEasingUpdate(String), animationDelayUpdate(Float), lineStyle(LineStyle), crossStyle(CrossStyle), shadowStyle(ShadowStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -342,7 +342,7 @@ extension SECTooltip.AxisPointer: Enumable {
     }
 }
 
-extension SECTooltip.AxisPointer: Mappable {
+extension Tooltip.AxisPointer: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["axis"] = axis
@@ -360,9 +360,9 @@ extension SECTooltip.AxisPointer: Mappable {
     }
 }
 
-extension SECTooltip: Enumable {
+extension Tooltip: Enumable {
     public enum Enums {
-        case show(Bool), showContent(Bool), trigger(Trigger), triggerOn(Trigger.TriggerOn), alwaysShowContent(Bool), showDelay(Float), hideDelay(Float), position(SECTooltip.Position), confine(Bool), transitionDuration(Float), formatter(Formatter), backgroundColor(Color), borderColor(Color), borderWidth(Float), padding(SECPadding), textStyle(TextStyle), extraCssText(String), axisPointer(AxisPointer)
+        case show(Bool), showContent(Bool), trigger(Trigger), triggerOn(Trigger.TriggerOn), alwaysShowContent(Bool), showDelay(Float), hideDelay(Float), position(Tooltip.Position), confine(Bool), transitionDuration(Float), formatter(Formatter), backgroundColor(Color), borderColor(Color), borderWidth(Float), padding(SECPadding), textStyle(TextStyle), extraCssText(String), axisPointer(AxisPointer)
     }
     public typealias ContentEnum = Enums
     
@@ -410,7 +410,7 @@ extension SECTooltip: Enumable {
     }
 }
 
-extension SECTooltip: Mappable {
+extension Tooltip: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["showContent"] = showContent

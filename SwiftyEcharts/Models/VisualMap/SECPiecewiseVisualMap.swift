@@ -107,7 +107,7 @@ public struct SECPiecewiseVisualMap: SECVisualMap, Displayable, Borderable, Colo
     /// 每两个图元之间的间隔距离，单位为px。
     public var itemGap: Float?
     /// 默认的图形。
-    public var itemSymbol: SECSymbol?
+    public var itemSymbol: Symbol?
     /// 是否显示 visualMap-piecewise 组件。如果设置为 false，不会显示，但是数据映射的功能还存在。
     public var show: Bool?
     /// 指定用数据的『哪个维度』，映射到视觉元素上。『数据』即 series.data。 可以把 series.data 理解成一个二维数组，例如：
@@ -140,13 +140,13 @@ public struct SECPiecewiseVisualMap: SECVisualMap, Displayable, Borderable, Colo
     /// z相比zlevel优先级更低，而且不会创建新的 Canvas。
     public var z: Float?
     /// visualMap 组件离容器左侧的距离。
-    public var left: SECPosition?
+    public var left: Position?
     /// visualMap 组件离容器上侧的距离。
-    public var top: SECPosition?
+    public var top: Position?
     /// visualMap 组件离容器右侧的距离。
-    public var right: SECPosition?
+    public var right: Position?
     /// visualMap 组件离容器下侧的距离。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// 如何放置 visualMap 组件，水平（'horizontal'）或者竖直（'vertical'）。
     public var orient: SECOrient?
     /// visualMap-piecewise内边距，单位px，默认各方向内边距为5，接受数组分别设定上右下左边距。
@@ -187,7 +187,7 @@ public struct SECPiecewiseVisualMap: SECVisualMap, Displayable, Borderable, Colo
 
 extension SECPiecewiseVisualMap: Enumable {
     public enum Enums {
-        case splitNumber(Int), pieces([Jsonable]), min(Float), max(Float), minOpen(Bool), maxOpen(Bool), selectedMode(SelectedMode), inverse(Bool), precision(UInt), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), showLabel(Bool), itemGap(Float), itemSymbol(SECSymbol), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
+        case splitNumber(Int), pieces([Jsonable]), min(Float), max(Float), minOpen(Bool), maxOpen(Bool), selectedMode(SelectedMode), inverse(Bool), precision(UInt), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), showLabel(Bool), itemGap(Float), itemSymbol(Symbol), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(SECVMController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(SECOrient), padding(SECPadding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
     }
     
     public typealias ContentEnum = Enums

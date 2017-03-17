@@ -46,10 +46,10 @@ public struct SECPolylineGraphic: SECGraphic {
     }
     public var id: String?
     public var action: SECGraphicAction?
-    public var left: SECPosition?
-    public var right: SECPosition?
-    public var top: SECPosition?
-    public var bottom: SECPosition?
+    public var left: Position?
+    public var right: Position?
+    public var top: Position?
+    public var bottom: Position?
     public var bounding: SECGraphicBounding?
     public var z: Float?
     public var zlevel: Float?
@@ -98,7 +98,7 @@ extension SECPolylineGraphic.Shape: Mappable {
 
 extension SECPolylineGraphic: Enumable {
     public enum Enums {
-        case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
+        case id(String), action(SECGraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
     }
     
     public typealias ContentEnum = Enums

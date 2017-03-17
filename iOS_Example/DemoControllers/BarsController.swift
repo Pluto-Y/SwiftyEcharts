@@ -13,7 +13,7 @@ class BarsController: BaseDemoController {
     
     private var timer: NSTimer?
     private var dynamicCount = 11
-    private var newOptionForDynamicData = SECOption()
+    private var newOptionForDynamicData = Option()
     
     override func viewDidLoad() {
         super.viewDidLoad()

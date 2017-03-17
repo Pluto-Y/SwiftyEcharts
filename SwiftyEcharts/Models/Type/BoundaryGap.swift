@@ -1,5 +1,5 @@
 //
-//  SECBoundaryGap.swift
+//  BoundaryGap.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 15/02/2017.
@@ -14,7 +14,7 @@
 /// 示例:
 ///
 ///         boundaryGap: ['20%', '20%']
-public enum SECBoundaryGap: Jsonable {
+public enum BoundaryGap: Jsonable {
     case category(Bool)
     case notCategory(Range)
     
@@ -29,17 +29,17 @@ public enum SECBoundaryGap: Jsonable {
 }
 
 /// 保证该类可以通过 Bool 的类型进行创建
-extension SECBoundaryGap: BooleanLiteralConvertible {
+extension BoundaryGap: BooleanLiteralConvertible {
     public typealias BooleanLiteralType = Bool
     public init(booleanLiteral value: Bool) {
-        self = SECBoundaryGap.category(value)
+        self = BoundaryGap.category(value)
     }
 }
 
 /// 保证该类可以通过常量数组进行创建
-extension SECBoundaryGap: ArrayLiteralConvertible {
+extension BoundaryGap: ArrayLiteralConvertible {
     public init(arrayLiteral elements: LengthValue...) {
         let range: Range = Range(elements)
-        self = SECBoundaryGap.notCategory(range)
+        self = BoundaryGap.notCategory(range)
     }
 }

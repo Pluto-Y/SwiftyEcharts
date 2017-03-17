@@ -6,11 +6,11 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECGaugeSerie: SECSeries, SECAnimatable {
+public struct SECGaugeSerie: SECSeries, Animatable {
     
     public struct AxisLine {
         public var show: Bool?
-        public var lineStyle: SECLineStyle?
+        public var lineStyle: LineStyle?
         
         public init() { }
     }
@@ -18,7 +18,7 @@ public struct SECGaugeSerie: SECSeries, SECAnimatable {
     public struct SplitLine {
         public var show: Bool?
         public var length: LengthValue?
-        public var lineStyle: SECLineStyle?
+        public var lineStyle: LineStyle?
         
         public init() { }
     }
@@ -27,7 +27,7 @@ public struct SECGaugeSerie: SECSeries, SECAnimatable {
         public var show: Bool?
         public var splitNumber: UInt8?
         public var length: LengthValue?
-        public var lineStyle: SECLineStyle?
+        public var lineStyle: LineStyle?
         
         public init() { }
     }
@@ -90,7 +90,7 @@ public struct SECGaugeSerie: SECSeries, SECAnimatable {
     public var axisTick: AxisTick?
     public var axisLabel: AxisLabel?
     public var pointer: Pointer?
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     public var title: Title?
     public var detail: Detail?
     public var markPoint: SECMarkPoint?
@@ -100,12 +100,12 @@ public struct SECGaugeSerie: SECSeries, SECAnimatable {
     public var silent: Bool?
     public var animation: Bool?
     public var animationThreshold: Float?
-    public var animationDuration: SECTime?
-    public var animationEasing: SECAnimation?
-    public var animationDelay: SECTime?
-    public var animationDurationUpdate: SECTime?
-    public var animationEasingUpdate: SECAnimation?
-    public var animationDelayUpdate: SECTime?
+    public var animationDuration: Time?
+    public var animationEasing: EasingFunction?
+    public var animationDelay: Time?
+    public var animationDurationUpdate: Time?
+    public var animationEasingUpdate: EasingFunction?
+    public var animationDelayUpdate: Time?
     
     public init() { }
 }
@@ -120,7 +120,7 @@ public typealias SECGSDetail = SECGaugeSerie.Detail
 
 extension SECGSAxisLine: Enumable {
     public enum Enums {
-        case show(Bool), lineStyle(SECLineStyle)
+        case show(Bool), lineStyle(LineStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -146,7 +146,7 @@ extension SECGSAxisLine: Mappable {
 
 extension SECGSSplitLine: Enumable {
     public enum Enums {
-        case show(Bool), length(LengthValue), lineStyle(SECLineStyle)
+        case show(Bool), length(LengthValue), lineStyle(LineStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -175,7 +175,7 @@ extension SECGSSplitLine: Mappable {
 
 extension SECGSAxisTick: Enumable {
     public enum Enums {
-        case show(Bool), splitNumber(UInt8), length(LengthValue), lineStyle(SECLineStyle)
+        case show(Bool), splitNumber(UInt8), length(LengthValue), lineStyle(LineStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -347,7 +347,7 @@ extension SECGSDetail: Mappable {
 
 extension SECGaugeSerie: Enumable {
     public enum Enums {
-        case name(String), radius(LengthValue), center(Point), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(SECItemStyle), title(Title), detail(Detail), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), data([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), radius(LengthValue), center(Point), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(ItemStyle), title(Title), detail(Detail), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), data([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

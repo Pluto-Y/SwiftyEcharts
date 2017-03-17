@@ -27,7 +27,7 @@ public struct SECAxisTick: SECLine, Displayable {
     /// 坐标轴刻度的长度。
     public var length: Float?
     /// 刻度横线的样式
-    public var lineStyle: SECLineStyle?
+    public var lineStyle: LineStyle?
     
     public init() { }
     
@@ -35,7 +35,7 @@ public struct SECAxisTick: SECLine, Displayable {
 
 extension SECAxisTick: Enumable {
     public enum Enums {
-        case show(Bool), alignWithLabel(Bool), interval(Int), inside(Bool), length(Float), lineStyle(SECLineStyle)
+        case show(Bool), alignWithLabel(Bool), interval(Int), inside(Bool), length(Float), lineStyle(LineStyle)
     }
     
     public typealias ContentEnum = Enums

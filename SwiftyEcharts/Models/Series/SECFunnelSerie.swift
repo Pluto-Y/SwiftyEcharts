@@ -9,7 +9,7 @@
 /// 漏斗图
 ///
 /// 示例:http://echarts.baidu.com/gallery/editor.html?c=funnel
-public struct SECFunnelSerie: SECSeries, SECAnimatable {
+public struct SECFunnelSerie: SECSeries, Animatable {
     
     /// 排序，ascending: 升序， descending: 降序
     public enum Sort: String, Jsonable {
@@ -28,7 +28,7 @@ public struct SECFunnelSerie: SECSeries, SECAnimatable {
         /// 视觉引导线第一段的长度。
         public var length: Float?
         /// 线条样式
-        public var lineStyle: SECLineStyle?
+        public var lineStyle: LineStyle?
         
         public init() { }
     }
@@ -52,7 +52,7 @@ public struct SECFunnelSerie: SECSeries, SECAnimatable {
         /// 标签的视觉引导线样式
         public var labelLine: LabelLine?
         /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         
         public init() { }
     }
@@ -89,7 +89,7 @@ public struct SECFunnelSerie: SECSeries, SECAnimatable {
     /// 标签的视觉引导线样式，在 label 位置 设置为'left'或者'right'的时候会显示视觉引导线。
     public var labelLine: LabelLine?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 系列中的数据内容数组。数组项可以为单个数值，如：
     ///
     ///     [12, 34, 56, 10, 23]
@@ -136,15 +136,15 @@ public struct SECFunnelSerie: SECSeries, SECAnimatable {
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     
-    /// MARK: SECAnimatable
+    /// MARK: Animatable
     public var animation: Bool?
     public var animationThreshold: Float?
-    public var animationDuration: SECTime?
-    public var animationEasing: SECAnimation?
-    public var animationDelay: SECTime?
-    public var animationDurationUpdate: SECTime?
-    public var animationEasingUpdate: SECAnimation?
-    public var animationDelayUpdate: SECTime?
+    public var animationDuration: Time?
+    public var animationEasing: EasingFunction?
+    public var animationDelay: Time?
+    public var animationDurationUpdate: Time?
+    public var animationEasingUpdate: EasingFunction?
+    public var animationDelayUpdate: Time?
     
     public init() { }
 }
@@ -153,7 +153,7 @@ public typealias SECFunnelSerieData = SECFunnelSerie.Data
 
 extension SECFunnelSerie.LabelLineContent: Enumable {
     public enum Enums {
-        case show(Bool), length(Float), lineStyle(SECLineStyle)
+        case show(Bool), length(Float), lineStyle(LineStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -208,7 +208,7 @@ extension SECFunnelSerie.LabelLine: Mappable {
 
 extension SECFunnelSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Float), label(Label), labelLine(SECFunnelSerie.LabelLine), itemStyle(SECItemStyle)
+        case name(String), value(Float), label(Label), labelLine(SECFunnelSerie.LabelLine), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -243,7 +243,7 @@ extension SECFunnelSerieData: Mappable {
 
 extension SECFunnelSerie: Enumable {
     public enum Enums {
-        case name(String), min(Float), max(Float), minSize(LengthValue), maxSize(LengthValue), sort(Sort), gap(Float), legendHoverLink(Bool), funnelAlign(Align), label(FormattedLabel), labelLine(LabelLine), itemStyle(SECItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), min(Float), max(Float), minSize(LengthValue), maxSize(LengthValue), sort(Sort), gap(Float), legendHoverLink(Bool), funnelAlign(Align), label(FormattedLabel), labelLine(LabelLine), itemStyle(ItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

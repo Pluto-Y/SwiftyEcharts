@@ -8,13 +8,13 @@
 
 public protocol LabelStyle: Displayable, Textful{
     
-    var position: SECPosition? { get set }
+    var position: Position? { get set }
 }
 
 public struct CommonLabelStyle: LabelStyle {
     
     public var show: Bool?
-    public var position: SECPosition?
+    public var position: Position?
     public var textStyle: TextStyle?
     
     public init() { }
@@ -23,7 +23,7 @@ public struct CommonLabelStyle: LabelStyle {
 
 extension CommonLabelStyle: Enumable {
     public enum Enums {
-        case show(Bool), position(SECPosition), textStyle(TextStyle)
+        case show(Bool), position(Position), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -60,7 +60,7 @@ public struct Label: Emphasisable {
     public init() { }
 }
 
-public typealias SECEmphasisLabel = Label
+public typealias EmphasisLabel = Label
 
 extension Label: Enumable {
     public enum Enums {
@@ -91,7 +91,7 @@ extension Label: Mappable {
 public struct FormattedLabelStyle: LabelStyle, Formatted {
     
     public var show: Bool?
-    public var position: SECPosition?
+    public var position: Position?
     public var formatter: Formatter?
     public var offset: Point?
     public var textStyle: TextStyle?
@@ -102,7 +102,7 @@ public struct FormattedLabelStyle: LabelStyle, Formatted {
 
 extension FormattedLabelStyle: Enumable {
     public enum Enums {
-        case show(Bool), position(SECPosition), formatter(Formatter), offset(Point), textStyle(TextStyle)
+        case show(Bool), position(Position), formatter(Formatter), offset(Point), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums

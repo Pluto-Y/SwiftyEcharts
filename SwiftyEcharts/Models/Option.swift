@@ -1,31 +1,31 @@
 //
-//  SECOption.swift
+//  Option.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 09/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECOption: Textful, SECAnimatable {
+public struct Option: Textful, Animatable {
     public var title: Title?
     public var legend: Legend?
-    public var grid: OneOrMore<SECGrid>?
+    public var grid: OneOrMore<Grid>?
     public var xAxis: OneOrMore<SECAxis>?
     public var yAxis: OneOrMore<SECAxis>?
-    public var polar: SECPolar?
+    public var polar: Polar?
     public var radiusAxis: [SECRadiusAxis]?
     public var angleAxis: [SECAngleAxis]?
     public var radar: OneOrMore<SECRadar>?
     public var dataZoom: [SECDataZoom]?
     public var visualMap: SECVisualMap?
-    public var tooltip: SECTooltip?
-    public var toolbox: SECToolbox?
+    public var tooltip: Tooltip?
+    public var toolbox: Toolbox?
     public var brush: SECBrush?
     public var geo: SECGeo?
     public var parallel: SECParallel?
     public var parallelAxis: [SECParallelAxis]?
     public var singleAxis: OneOrMore<SECSingleAxis>?
-    public var timeline: SECTimeline?
+    public var timeline: Timeline?
     public var graphic: [SECGraphic]?
     public var series: [SECSeries]?
     public var color: [Color]?
@@ -42,9 +42,9 @@ public struct SECOption: Textful, SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDuration: SECTime?
+    public var animationDuration: Time?
     /// 初始动画的缓动效果。不同的缓动效果可以参考
-    public var animationEasing: SECAnimation?
+    public var animationEasing: EasingFunction?
     /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
     ///
     /// 如下示例：
@@ -53,16 +53,16 @@ public struct SECOption: Textful, SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelay: SECTime?
+    public var animationDelay: Time?
     /// 数据更新动画的时长。
     /// 支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
     ///     animationDurationUpdate: function (idx) {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDurationUpdate: SECTime?
+    public var animationDurationUpdate: Time?
     /// 数据更新动画的缓动效果。
-    public var animationEasingUpdate: SECAnimation?
+    public var animationEasingUpdate: EasingFunction?
     /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
     /// 如下示例：
     ///
@@ -70,14 +70,14 @@ public struct SECOption: Textful, SECAnimatable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelayUpdate: SECTime?
+    public var animationDelayUpdate: Time?
     
     public init() { }
 }
 
-extension SECOption: Enumable {
+extension Option: Enumable {
     public enum Enums {
-        case title(Title), legend(Legend), grid(SECGrid), grids([SECGrid]), xAxis(SECAxis), xAxises([SECAxis]), yAxis(SECAxis), yAxises([SECAxis]), polar(SECPolar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(SECRadar), radars([SECRadar]), dataZoom([SECDataZoom]), visualMap(SECVisualMap), tooltip(SECTooltip), toolbox(SECToolbox), brush(SECBrush), geo(SECGeo), parallel(SECParallel), parallelAxis([SECParallelAxis]), singleAxis(SECSingleAxis), singleAxises([SECSingleAxis]), timeline(SECTimeline), graphic([SECGraphic]), series([SECSeries]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case title(Title), legend(Legend), grid(Grid), grids([Grid]), xAxis(SECAxis), xAxises([SECAxis]), yAxis(SECAxis), yAxises([SECAxis]), polar(Polar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(SECRadar), radars([SECRadar]), dataZoom([SECDataZoom]), visualMap(SECVisualMap), tooltip(Tooltip), toolbox(Toolbox), brush(SECBrush), geo(SECGeo), parallel(SECParallel), parallelAxis([SECParallelAxis]), singleAxis(SECSingleAxis), singleAxises([SECSingleAxis]), timeline(Timeline), graphic([SECGraphic]), series([SECSeries]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -164,7 +164,7 @@ extension SECOption: Enumable {
     }
 }
 
-extension SECOption: Mappable {
+extension Option: Mappable {
     public func mapping(map: Mapper) {
         map["title"] = title
         map["legend"] = legend

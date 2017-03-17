@@ -1,17 +1,17 @@
 //
-//  SECAreaStyle.swift
+//  AreaStyle.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 04/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECAreaStyleContent: Colorful, Shadowable, Opacitable {
+public protocol AreaStyleContent: Colorful, Shadowable, Opacitable {
 
 }
 
 /// 分隔区域的样式设置。
-public struct SECAreaStyle: SECAreaStyleContent {
+public struct AreaStyle: AreaStyleContent {
     /// 分隔区域颜色。分隔区域会按数组中颜色的顺序依次循环设置颜色。默认是一个深浅的间隔色。
     public var color: Color?
     /// 阴影设置
@@ -27,9 +27,9 @@ public struct SECAreaStyle: SECAreaStyleContent {
     }
 }
 
-public typealias SECCommonAreaStyleContent = SECAreaStyle
+public typealias CommonAreaStyleContent = AreaStyle
 
-extension SECAreaStyle: Enumable {
+extension AreaStyle: Enumable {
     public enum Enums {
         case color(Color), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
     }
@@ -56,7 +56,7 @@ extension SECAreaStyle: Enumable {
     }
 }
 
-extension SECAreaStyle: Mappable {
+extension AreaStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["shadowBlur"] = shadowBlur
@@ -67,14 +67,14 @@ extension SECAreaStyle: Mappable {
     }
 }
 
-public struct SECEmphasisAreaStyle: Emphasisable {
-    public typealias Style = SECCommonAreaStyleContent
+public struct EmphasisAreaStyle: Emphasisable {
+    public typealias Style = CommonAreaStyleContent
     
     public var normal: Style?
     public var emphasis: Style?
 }
 
-extension SECEmphasisAreaStyle: Enumable {
+extension EmphasisAreaStyle: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -93,7 +93,7 @@ extension SECEmphasisAreaStyle: Enumable {
     }
 }
 
-extension SECEmphasisAreaStyle: Mappable {
+extension EmphasisAreaStyle: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis

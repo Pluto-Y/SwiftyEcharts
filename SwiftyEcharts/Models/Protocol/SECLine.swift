@@ -1,5 +1,5 @@
 //
-//  SECLineStyleContainer.swift
+//  LineStyleContainer.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 01/12/2016.
@@ -21,5 +21,5 @@ public enum LineType: String, Jsonable {
 
 
 public protocol SECLine {
-    var lineStyle: SECLineStyle? { get set }
+    var lineStyle: LineStyle? { get set }
 }

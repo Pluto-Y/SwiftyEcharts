@@ -145,7 +145,7 @@ public struct SECParallel: Zable {
         /// 坐标轴名称
         public var name: String?
         /// 坐标轴名称显示位置
-        public var nameLocation: SECPosition?
+        public var nameLocation: Position?
         /// 坐标轴名称的文字样式
         public var nameTextStyle: TextStyle?
         /// 坐标轴名称与轴线之间的距离
@@ -161,7 +161,7 @@ public struct SECParallel: Zable {
         /// 非类目轴，包括时间，数值，对数轴，boundaryGap是一个两个值的数组，分别表示数据最小值和最大值的延伸范围，可以直接设置数值或者相对的百分比，在设置 min 和 max 后无效。 示例：
         ///
         /// boundaryGap: ['20%', '20%']
-        public var boundaryGap: SECBoundaryGap?
+        public var boundaryGap: BoundaryGap?
         /// 坐标轴刻度最小值。
         ///
         /// 可以设置成特殊值 'dataMin'，此时取数据在该轴上的最小值作为最小刻度。
@@ -236,25 +236,25 @@ public struct SECParallel: Zable {
     /// left 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'left', 'center', 'right'。
     ///
     /// 如果 left 的值为'left', 'center', 'right'，组件会根据相应的位置自动对齐。
-    public var left: SECPosition?
+    public var left: Position?
     /// 组件离容器上侧的距离。
     ///
     /// top 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'top', 'middle', 'bottom'。
     ///
     /// 如果 top 的值为'top', 'middle', 'bottom'，组件会根据相应的位置自动对齐。
-    public var top: SECPosition?
+    public var top: Position?
     /// 组件离容器右侧的距离。
     ///
     /// right 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     ///
     /// 默认自适应。
-    public var right: SECPosition?
+    public var right: Position?
     /// 组件离容器下侧的距离。
     ///
     /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     ///
     /// 默认自适应。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// parallel 组件的宽度。默认自适应。
     public var width: Float?
     /// parallel 组件的高度。默认自适应。
@@ -284,7 +284,7 @@ public struct SECParallel: Zable {
 
 extension SECParallel: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), layout(SECOrient), axisExpandable(Bool), axisExpandCenter(Float), axisExpandCount(Float), axisExpandWidth(Float), parallelAxisDefault(ParallelAxisDefault)
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float), layout(SECOrient), axisExpandable(Bool), axisExpandCenter(Float), axisExpandCount(Float), axisExpandWidth(Float), parallelAxisDefault(ParallelAxisDefault)
     }
     
     public typealias ContentEnum = Enums
@@ -346,7 +346,7 @@ extension SECParallel: Mappable {
 
 extension SECParallel.ParallelAxisDefault: Enumable {
     public enum Enums {
-        case type(SECAxisType), name(String), nameLocation(SECPosition), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(String), max(String), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), data([Any])
+        case type(SECAxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(String), max(String), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), data([Any])
     }
     
     public typealias ContentEnum = Enums

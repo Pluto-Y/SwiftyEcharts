@@ -11,14 +11,14 @@ public struct SECSplitArea: Displayable {
     
     public var show: Bool?
     public var interval: UInt?
-    public var areaStyle: SECAreaStyle?
+    public var areaStyle: AreaStyle?
     
     public init() { }
 }
 
 extension SECSplitArea: Enumable {
     public enum Enums {
-        case show(Bool), interval(UInt), areaStyle(SECAreaStyle)
+        case show(Bool), interval(UInt), areaStyle(AreaStyle)
     }
     
     public typealias ContentEnum = Enums

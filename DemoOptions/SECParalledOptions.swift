@@ -12,25 +12,25 @@ public struct SECParalledOptions {
     
     // MARK: Parallel Aqi
     /// 地址: http://echarts.baidu.com/demo.html#parallel-aqi
-    static func parallelAqiOption() -> SECOption {
+    static func parallelAqiOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: Parallel Nutrients
     /// 地址: http://echarts.baidu.com/demo.html#parallel-nutrients
-    static func parallelNutrientsOption() -> SECOption {
+    static func parallelNutrientsOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
     
     // MARK: Scatter Matrix
     /// 地址: http://echarts.baidu.com/demo.html#scatter-matrix
-    static func scatterMatrixOption() -> SECOption {
+    static func scatterMatrixOption() -> Option {
         // TODO: 添加实现
-        return SECOption(
+        return Option(
         )
     }
 }

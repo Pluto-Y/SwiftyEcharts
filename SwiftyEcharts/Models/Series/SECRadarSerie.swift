@@ -13,16 +13,16 @@
 /// 下面是 AQI 数据用雷达图表现的示例。
 ///
 /// 地址：http://echarts.baidu.com/gallery/editor.html?c=radar-aqi
-public struct SECRadarSerie: SECSeries, SECSymbolized, Zable, SECAnimatable {
+public struct SECRadarSerie: SECSeries, Symbolized, Zable, Animatable {
     
-    public struct Data: SECSymbolized {
+    public struct Data: Symbolized {
         /// 数据项名称
         public var name: String?
         /// 单个数据项的数值。
         public var value: Jsonable?
         
-        /// MARK: SECSymbolized
-        public var symbol: SECSymbol?
+        /// MARK: Symbolized
+        public var symbol: Symbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
         public var symbolOffset: Point?
@@ -30,11 +30,11 @@ public struct SECRadarSerie: SECSeries, SECSymbolized, Zable, SECAnimatable {
         /// 单个拐点文本的样式设置。
         public var label: FormattedLabel?
         /// 单个拐点标志的样式设置。
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         /// 单项线条样式。
-        public var lineStyle: SECEmphasisLineStyle?
+        public var lineStyle: EmphasisLineStyle?
         /// 单项区域填充样式。
-        public var areaStyle: SECEmphasisAreaStyle?
+        public var areaStyle: EmphasisAreaStyle?
         
         public init() {}
     }
@@ -49,8 +49,8 @@ public struct SECRadarSerie: SECSeries, SECSymbolized, Zable, SECAnimatable {
     /// 雷达图所使用的 radar 组件的 index。
     public var radarIndex: UInt8?
     
-    /// MARK: SECSymbolized
-    public var symbol: SECSymbol?
+    /// MARK: Symbolized
+    public var symbol: Symbol?
     public var symbolSize: Float?
     public var symbolRotate: Float?
     public var symbolOffset: Point?
@@ -58,11 +58,11 @@ public struct SECRadarSerie: SECSeries, SECSymbolized, Zable, SECAnimatable {
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: FormattedLabel?
     /// 折线拐点标志的样式。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 线条样式。
-    public var lineStyle: SECEmphasisLineStyle?
+    public var lineStyle: EmphasisLineStyle?
     /// 区域填充样式。
-    public var areaStyle: SECEmphasisAreaStyle?
+    public var areaStyle: EmphasisAreaStyle?
     /// 雷达图的数据是多变量（维度）的，如下示例：
     ///     data : [
     ///         {
@@ -81,12 +81,12 @@ public struct SECRadarSerie: SECSeries, SECSymbolized, Zable, SECAnimatable {
     public var silent: Bool?
     public var animation: Bool?
     public var animationThreshold: Float?
-    public var animationDuration: SECTime?
-    public var animationEasing: SECAnimation?
-    public var animationDelay: SECTime?
-    public var animationDurationUpdate: SECTime?
-    public var animationEasingUpdate: SECAnimation?
-    public var animationDelayUpdate: SECTime?
+    public var animationDuration: Time?
+    public var animationEasing: EasingFunction?
+    public var animationDelay: Time?
+    public var animationDurationUpdate: Time?
+    public var animationEasingUpdate: EasingFunction?
+    public var animationDelayUpdate: Time?
     
     public init() {}
 }
@@ -95,7 +95,7 @@ public typealias SECRadarSerieData = SECRadarSerie.Data
 
 extension SECRadarSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Jsonable), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle)
+        case name(String), value(Jsonable), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -145,7 +145,7 @@ extension SECRadarSerieData: Mappable {
 
 extension SECRadarSerie: Enumable {
 	public enum Enums {
-		case name(String), radarIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+		case name(String), radarIndex(UInt8), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
 	}
 
 	public typealias ContentEnum = Enums

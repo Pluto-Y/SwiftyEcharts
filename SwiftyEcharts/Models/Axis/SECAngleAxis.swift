@@ -54,7 +54,7 @@ public struct SECAngleAxis: Zable {
     /// 非类目轴，包括时间，数值，对数轴，boundaryGap是一个两个值的数组，分别表示数据最小值和最大值的延伸范围，可以直接设置数值或者相对的百分比，在设置 min 和 max 后无效。 示例：
     ///
     /// boundaryGap: ['20%', '20%']
-    public var boundaryGap: SECBoundaryGap?
+    public var boundaryGap: BoundaryGap?
     /// 坐标轴刻度最大值。
     ///
     /// 可以设置成特殊值 'dataMax'，此时取数据在该轴上的最大值作为最大刻度。
@@ -161,7 +161,7 @@ extension SECAngleAxis.Data: Mappable {
 
 extension SECAngleAxis: Enumable {
     public enum Enums {
-        case polarIndex(UInt8), startAngle(Float), clockwise(Bool), type(SECAxisType), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any]), zlevel(Float), z(Float)
+        case polarIndex(UInt8), startAngle(Float), clockwise(Bool), type(SECAxisType), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any]), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums

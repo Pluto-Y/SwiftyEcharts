@@ -113,7 +113,7 @@
 /// 可以通过 parallel.axisExpandable 来改善显示效果，如下例子：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=map-parallel-prices
-public struct SECParallelSerie: SECSeries, Zable, SECAnimatable {
+public struct SECParallelSerie: SECSeries, Zable, Animatable {
     
     /// 类型
     public var type: SECSerieType {
@@ -127,7 +127,7 @@ public struct SECParallelSerie: SECSeries, Zable, SECAnimatable {
     /// 系列名称，用于tooltip的显示，legend 的图例筛选，在 setOption 更新数据和配置项时用于指定对应的系列。
     public var name: String?
     /// 线条样式。
-    public var lineStyle: SECEmphasisLineStyle?
+    public var lineStyle: EmphasisLineStyle?
     /// 框选时，未被选中的条线会设置成这个『透明度』（从而可以达到变暗的效果）。
     public var inactiveOpacity: Float?
     /// 框选时，选中的条线会设置成这个『透明度』（从而可以达到高亮的效果）。
@@ -158,22 +158,22 @@ public struct SECParallelSerie: SECSeries, Zable, SECAnimatable {
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     
-    /// MARK: SECAnimatable
+    /// MARK: Animatable
     public var animation: Bool?
     public var animationThreshold: Float?
-    public var animationDuration: SECTime?
-    public var animationEasing: SECAnimation?
-    public var animationDelay: SECTime?
-    public var animationDurationUpdate: SECTime?
-    public var animationEasingUpdate: SECAnimation?
-    public var animationDelayUpdate: SECTime?
+    public var animationDuration: Time?
+    public var animationEasing: EasingFunction?
+    public var animationDelay: Time?
+    public var animationDurationUpdate: Time?
+    public var animationEasingUpdate: EasingFunction?
+    public var animationDelayUpdate: Time?
     
     public init() { }
 }
 
 extension SECParallelSerie: Enumable {
     public enum Enums {
-        case coordinateSystem(SECCoordinateSystem), parallelIndex(UInt8), name(String), lineStyle(SECEmphasisLineStyle), inactiveOpacity(Float), activeOpacity(Float), realtime(Bool), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case coordinateSystem(SECCoordinateSystem), parallelIndex(UInt8), name(String), lineStyle(EmphasisLineStyle), inactiveOpacity(Float), activeOpacity(Float), realtime(Bool), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

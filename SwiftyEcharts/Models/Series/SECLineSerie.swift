@@ -26,16 +26,16 @@ extension SECLineSerie {
 }
 
 extension SECLineSerie {
-    public struct Data: SECSymbolized {
+    public struct Data: Symbolized {
         
         public var name: String?
         public var value: Float?
-        public var symbol: SECSymbol?
+        public var symbol: Symbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
         public var symbolOffset: Point?
         public var label: Label? // 官方文档显示只有 normal 的模式？
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
         
         public init() { }
     }
@@ -45,7 +45,7 @@ public typealias SECLineSerieData = SECLineSerie.Data
 
 extension SECLineSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(Label), itemStyle(SECItemStyle)
+        case name(String), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(Label), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -92,12 +92,12 @@ extension SECLineSerieData: Mappable {
 ///
 /// - Note: 设置 areaStyle 后可以绘制面积图。
 /// - Note: 配合分段型 visualMap 组件可以将折线/面积图通过不同颜色分区间。如下示例
-public struct SECLineSerie: SECSymbolized, SECAnimatable, Zable {
+public struct SECLineSerie: Symbolized, Animatable, Zable {
     
     /// 阶梯线图类型。
     ///
     /// 具体差别可以参考: http://echarts.baidu.com/gallery/editor.html?c=line-step
-    public typealias Step = SECLocation
+    public typealias Step = Location
     
     /// 折线平滑后是否在一个维度上保持单调性，可以设置成'x', 'y'来指明是在 x 轴或者 y 轴上保持单调性。
     public enum SmoothMonotone: String, Jsonable{
@@ -119,8 +119,8 @@ public struct SECLineSerie: SECSymbolized, SECAnimatable, Zable {
     public var yAxisIndex: UInt?
     /// 使用的极坐标系的 index，在单个图表实例中存在多个极坐标系的时候有用。
     public var polarIndex: UInt?
-    // MARK: SECSymbolized
-    public var symbol: SECSymbol?
+    // MARK: Symbolized
+    public var symbol: Symbol?
     public var symbolSize: Float?
     public var symbolRotate: Float?
     public var symbolOffset: Point?
@@ -150,13 +150,13 @@ public struct SECLineSerie: SECSymbolized, SECAnimatable, Zable {
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: Label?
     /// 折线拐点标志的样式。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 线条样式。
     ///
     /// 注： 修改 lineStyle 中的颜色不会影响图例颜色，如果需要图例颜色和折线图颜色一致，需修改 itemStyle.normal.color，线条颜色默认也会取改颜色。
-    public var lineStyle: SECEmphasisLineStyle?
+    public var lineStyle: EmphasisLineStyle?
     /// 区域填充样式。
-    public var areaStyle: SECEmphasisAreaStyle?
+    public var areaStyle: EmphasisAreaStyle?
     /// 是否平滑曲线显示。
     public var smooth: Bool?
     /// 折线平滑后是否在一个维度上保持单调性，可以设置成'x', 'y'来指明是在 x 轴或者 y 轴上保持单调性。
@@ -287,9 +287,9 @@ public struct SECLineSerie: SECSymbolized, SECAnimatable, Zable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDuration: SECTime?
+    public var animationDuration: Time?
     /// 初始动画的缓动效果。不同的缓动效果可以参考
-    public var animationEasing: SECAnimation?
+    public var animationEasing: EasingFunction?
     /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
     ///
     /// 如下示例：
@@ -298,16 +298,16 @@ public struct SECLineSerie: SECSymbolized, SECAnimatable, Zable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelay: SECTime?
+    public var animationDelay: Time?
     /// 数据更新动画的时长。
     /// 支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
     ///     animationDurationUpdate: function (idx) {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDurationUpdate: SECTime?
+    public var animationDurationUpdate: Time?
     /// 数据更新动画的缓动效果。
-    public var animationEasingUpdate: SECAnimation?
+    public var animationEasingUpdate: EasingFunction?
     /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
     /// 如下示例：
     ///
@@ -315,7 +315,7 @@ public struct SECLineSerie: SECSymbolized, SECAnimatable, Zable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelayUpdate: SECTime?
+    public var animationDelayUpdate: Time?
     
     public init() { }
     
@@ -329,7 +329,7 @@ extension SECLineSerie: SECSeries {
 
 extension SECLineSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(Label), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(Label), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

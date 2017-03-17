@@ -12,16 +12,16 @@ public struct SECRadarOptions {
     
     // MARK: AQI - 雷达图
     /// 地址: http://echarts.baidu.com/demo.html#radar-aqi
-    static func radarAqiOption() -> SECOption {
+    static func radarAqiOption() -> Option {
         
-        let lineStyle = SECEmphasisLineStyle(
-            .normal(SECLineStyle(
+        let lineStyle = EmphasisLineStyle(
+            .normal(LineStyle(
                 .width(1),
                 .opacity(0.5)
                 ))
         )
         
-        return SECOption(
+        return Option(
             .backgroundColor(.hexColor("#161627")),
             .title(Title(
                 .text("AQI - 雷达图"),
@@ -75,7 +75,7 @@ public struct SECRadarOptions {
                         ))
                     )),
                 .splitLine(SECSplitLine(
-                    .lineStyle(SECLineStyle(
+                    .lineStyle(LineStyle(
                         .color(.array([
                             .rgba(238,197, 102, 0.1), .rgba(238, 197, 102, 0.2),
                             .rgba(238,197, 102, 0.4), .rgba(238, 197, 102, 0.6),
@@ -87,7 +87,7 @@ public struct SECRadarOptions {
                     .show(false)
                     )),
                 .axisLine(SECAxisLine(
-                    .lineStyle(SECLineStyle(
+                    .lineStyle(LineStyle(
                         .color(.rgba(238, 197, 102, 0.5))
                         ))
                     ))
@@ -130,13 +130,13 @@ public struct SECRadarOptions {
                         [46,5,49,0.28,10,6,31]
                         ]),
                     .symbol(.none),
-                    .itemStyle(SECItemStyle(
-                        .normal(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
                             .color(.hexColor("#F9713C"))
                             ))
                         )),
-                    .areaStyle(SECEmphasisAreaStyle(
-                        .normal(SECCommonAreaStyleContent(
+                    .areaStyle(EmphasisAreaStyle(
+                        .normal(CommonAreaStyleContent(
                             .opacity(0.1)
                             ))
                         ))
@@ -178,13 +178,13 @@ public struct SECRadarOptions {
                         [118,50,0,1.383,76,11,31]
                         ]),
                     .symbol(.none),
-                    .itemStyle(SECItemStyle(
-                        .normal(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
                             .color(.hexColor("#B3E4A1"))
                             ))
                         )),
-                    .areaStyle(SECEmphasisAreaStyle(
-                        .normal(SECCommonAreaStyleContent(
+                    .areaStyle(EmphasisAreaStyle(
+                        .normal(CommonAreaStyleContent(
                             .opacity(0.05)
                             ))
                         ))
@@ -226,13 +226,13 @@ public struct SECRadarOptions {
                         [187,143,201,1.39,89,53,31]
                         ]),
                     .symbol(.none),
-                    .itemStyle(SECItemStyle(
-                        .normal(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
                             .color(.rgb(238, 197, 102))
                             ))
                         )),
-                    .areaStyle(SECEmphasisAreaStyle(
-                        .normal(SECCommonAreaStyleContent(
+                    .areaStyle(EmphasisAreaStyle(
+                        .normal(CommonAreaStyleContent(
                             .opacity(0.05)
                             ))
                         ))
@@ -243,8 +243,8 @@ public struct SECRadarOptions {
     
     // MARK: 自定义雷达图
     /// 地址: http://echarts.baidu.com/demo.html#radar-custom
-    static func radarCustomOption() -> SECOption {
-        return SECOption(
+    static func radarCustomOption() -> Option {
+        return Option(
             .title(Title(
                 .text("自定义雷达图")
                 )),
@@ -272,19 +272,19 @@ public struct SECRadarOptions {
                             ))
                         )),
                     .splitArea(SECSplitArea(
-                        .areaStyle(SECAreaStyle(
+                        .areaStyle(AreaStyle(
                             .color(.array([.rgba(114, 172, 209, 0.2), .rgba(114, 172, 209, 0.4), .rgba(114, 172, 209, 0.6), .rgba(114, 172, 209, 0.8), .rgba(114, 172, 209, 1)])),
                             .shadowColor(.rgba(0, 0, 0, 0.3)),
                             .shadowBlur(10)
                             ))
                         )),
                     .axisLine(SECAxisLine(
-                        .lineStyle(SECLineStyle(
+                        .lineStyle(LineStyle(
                             .color(.rgba(255, 255, 255, 0.5))
                             ))
                         )),
                     .splitLine(SECSplitLine(
-                        .lineStyle(SECLineStyle(
+                        .lineStyle(LineStyle(
                             .color(.rgba(255, 255, 255, 0.5))
                             ))
                         ))
@@ -305,8 +305,8 @@ public struct SECRadarOptions {
             .series([
                 SECRadarSerie(
                     .name("雷达图"),
-                    .lineStyle(SECEmphasisLineStyle( // 这里进行了修改
-                        .emphasis(SECLineStyle(
+                    .lineStyle(EmphasisLineStyle( // 这里进行了修改
+                        .emphasis(LineStyle(
                             .width(4)
                             ))
                         )),
@@ -316,8 +316,8 @@ public struct SECRadarOptions {
                             .name("图一"),
                             .symbol(.rect),
                             .symbolSize(5),
-                            .lineStyle(SECEmphasisLineStyle(
-                                .normal(SECLineStyle(
+                            .lineStyle(EmphasisLineStyle(
+                                .normal(LineStyle(
                                     .type(.dashed)
                                     ))
                                 ))
@@ -325,8 +325,8 @@ public struct SECRadarOptions {
                         SECRadarSerieData(
                             .value([60, 5, 0.30, -100, 1500]),
                             .name("图二"),
-                            .areaStyle(SECEmphasisAreaStyle(
-                                .normal(SECCommonAreaStyleContent(
+                            .areaStyle(EmphasisAreaStyle(
+                                .normal(CommonAreaStyleContent(
                                     .color(.rgba(255, 255, 255, 0.5))
                                     ))
                                 ))
@@ -350,8 +350,8 @@ public struct SECRadarOptions {
                         SECRadarSerieData(
                             .value([90, 113, 140, 30, 70, 60]),
                             .name("李四"),
-                            .areaStyle(SECEmphasisAreaStyle(
-                                .normal(SECCommonAreaStyleContent(
+                            .areaStyle(EmphasisAreaStyle(
+                                .normal(CommonAreaStyleContent(
                                     .opacity(0.9),
                                     .color(.red) // FIXME: 新类型？
                                     ))
@@ -366,16 +366,16 @@ public struct SECRadarOptions {
     
     // MARK: 多雷达图
     /// 地址: http://echarts.baidu.com/demo.html#radar-multiple
-    static func radarMultipleOption() -> SECOption {
+    static func radarMultipleOption() -> Option {
         var indicator: [SECIndicator] = []
         for i in 1...12 {
             indicator.append(SECIndicator(.text("\(i)月"), .max(100)))
         }
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("多雷达图")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.axis)
                 )),
             .legend(Legend(
@@ -451,12 +451,12 @@ public struct SECRadarOptions {
     
     // MARK: 基础雷达图
     /// 地址: http://echarts.baidu.com/demo.html#radar
-    static func radarOption() -> SECOption {
-        return SECOption(
+    static func radarOption() -> Option {
+        return Option(
             .title(Title(
                 .text("基础雷达图")
                 )),
-            .tooltip(SECTooltip()),
+            .tooltip(Tooltip()),
             .legend(Legend(
                 .data(["预算分配（Allocated Budget）", "实际开销（Actual Spending）"])
                 )),
@@ -490,7 +490,7 @@ public struct SECRadarOptions {
 
     // MARK: 浏览器占比变化
     /// 地址: http://echarts.baidu.com/demo.html#radar2
-    static func radar2Option() -> SECOption {
+    static func radar2Option() -> Option {
         var list: [Jsonable] = []
         for i in 1...28 {
             list.append("\(i + 2000)")
@@ -502,8 +502,8 @@ public struct SECRadarOptions {
             series.append(SECRadarSerie(
                 .name("浏览器（数据纯属虚构）"),
                 .symbol(.none),
-                .lineStyle(SECEmphasisLineStyle( // FIXME: 网站里面用的是itemStyle里面的lineStyle，暂时还没实现
-                    .normal(SECLineStyle(
+                .lineStyle(EmphasisLineStyle( // FIXME: 网站里面用的是itemStyle里面的lineStyle，暂时还没实现
+                    .normal(LineStyle(
                         .width(1)
                         ))
                     )),
@@ -515,14 +515,14 @@ public struct SECRadarOptions {
                     ])
                 ))
         }
-        return SECOption(
+        return Option(
             .title(Title(
                 .text("浏览器占比变化"),
                 .subtext("纯属虚构"),
                 .x(.right),
                 .y(.bottom)
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.item),
                 .backgroundColor(.rgba(0, 0, 250, 0.2))
                 )),

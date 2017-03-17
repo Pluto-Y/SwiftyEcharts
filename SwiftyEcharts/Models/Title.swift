@@ -80,13 +80,13 @@ public struct Title: Borderable, Displayable, Textful, Zable {
     /// z相比zlevel优先级更低，而且不会创建新的 Canvas
     public var z: Float?
     /// grid 组件离容器左侧的距离。
-    public var left: SECPosition?
+    public var left: Position?
     /// grid 组件离容器上侧的距离。
-    public var top: SECPosition?
+    public var top: Position?
     /// grid 组件离容器右侧的距离。
-    public var right: SECPosition?
+    public var right: Position?
     /// grid 组件离容器下侧的距离。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// 标题背景色，默认透明。
     public var backgroundColor: Color?
     /// 标题的边框颜色。支持的颜色格式同 backgroundColor。
@@ -111,7 +111,7 @@ public struct Title: Borderable, Displayable, Textful, Zable {
 
 extension Title: Enumable {
     public enum Enums {
-        case show(Bool), text(String), link(String), target(SECTarget), textStyle(TextStyle), textAlign(Align), textBaseline(VerticalAlign), subtext(String), sublink(String), subtarget(SECTarget), subtextStyle(TextStyle), padding(SECPadding), itemGap(Float), zlevel(Float), z(Float), left(SECPosition), x(SECPosition), top(SECPosition), y(SECPosition), right(SECPosition), bottom(SECPosition), backgroundColor(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), text(String), link(String), target(SECTarget), textStyle(TextStyle), textAlign(Align), textBaseline(VerticalAlign), subtext(String), sublink(String), subtarget(SECTarget), subtextStyle(TextStyle), padding(SECPadding), itemGap(Float), zlevel(Float), z(Float), left(Position), x(Position), top(Position), y(Position), right(Position), bottom(Position), backgroundColor(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
     public typealias ContentEnum = Enums

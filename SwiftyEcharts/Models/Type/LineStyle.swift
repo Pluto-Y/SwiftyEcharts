@@ -1,19 +1,19 @@
 //
-//  SECLineStyle.swift
+//  LineStyle.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 03/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECLineStyleContent: Colorful, Shadowable, Opacitable {
+public protocol LineStyleContent: Colorful, Shadowable, Opacitable {
     var width: Float? { get set }
     var type: LineType? { get set }
 }
 
 
 /// 线条样式
-public struct SECLineStyle: Shadowable, Colorful, Opacitable, Jsonable {
+public struct LineStyle: Shadowable, Colorful, Opacitable, Jsonable {
     /// 线的颜色。
     public var color: Color?
     /// 线宽。
@@ -40,7 +40,7 @@ public struct SECLineStyle: Shadowable, Colorful, Opacitable, Jsonable {
 }
 
 
-extension SECLineStyle: Enumable {
+extension LineStyle: Enumable {
     public enum Enums {
         case color(Color), width(Float), type(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), curveness(Float)
     }
@@ -73,7 +73,7 @@ extension SECLineStyle: Enumable {
     }
 }
 
-extension SECLineStyle: Mappable {
+extension LineStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["width"] = width
@@ -87,8 +87,8 @@ extension SECLineStyle: Mappable {
     }
 }
 
-public struct SECEmphasisLineStyle: Emphasisable {
-    public typealias Style = SECLineStyle
+public struct EmphasisLineStyle: Emphasisable {
+    public typealias Style = LineStyle
     
     public var normal: Style?
     public var emphasis: Style?
@@ -96,7 +96,7 @@ public struct SECEmphasisLineStyle: Emphasisable {
     public init() { }
 }
 
-extension SECEmphasisLineStyle: Enumable {
+extension EmphasisLineStyle: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -115,7 +115,7 @@ extension SECEmphasisLineStyle: Enumable {
     }
 }
 
-extension SECEmphasisLineStyle: Mappable {
+extension EmphasisLineStyle: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis

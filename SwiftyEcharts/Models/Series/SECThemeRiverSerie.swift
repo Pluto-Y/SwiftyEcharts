@@ -33,21 +33,21 @@ public struct SECThemeRiverSerie: SECSeries, Zable {
     /// left 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'left', 'center', 'right'。
     ///
     /// 如果 left 的值为'left', 'center', 'right'，组件会根据相应的位置自动对齐。
-    public var left: SECPosition?
+    public var left: Position?
     /// thmemRiver组件离容器上侧的距离。
     ///
     /// top 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比，也可以是 'top', 'middle', 'bottom'。
     ///
     /// 如果 top 的值为'top', 'middle', 'bottom'，组件会根据相应的位置自动对齐。
-    public var top: SECPosition?
+    public var top: Position?
     /// thmemRiver组件离容器右侧的距离。
     ///
     /// right 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
-    public var right: SECPosition?
+    public var right: Position?
     /// thmemRiver组件离容器下侧的距离。
     ///
     /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// thmemRiver组件的宽度。
     public var width: LengthValue?
     /// thmemRiver组件的高度。
@@ -57,17 +57,17 @@ public struct SECThemeRiverSerie: SECSeries, Zable {
     /// 坐标系统，主题河流用的是单个的时间轴。
     public var coordinateSystem: SECCoordinateSystem?
     /// 图中与坐标轴正交的方向的边界间隙，设置该值是为了调整图的位置，使其尽量处于屏幕的正中间，避免处于屏幕的上方或下方。
-    public var boundaryGap: SECBoundaryGap?
+    public var boundaryGap: BoundaryGap?
     /// 单个时间轴的index，默认值为0，因为只有单个轴。
     public var singleAxisIndex: UInt8?
     /// label 描述了主题河流中每个带状河流分支对应的文本标签的样式。
     public var label: FormattedLabel?
     /// 主题河流中每个带状河流分支的样式。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 主题河流中图例的样式。
     public var legend: Legend?
     /// 主题河流中tooltip的样式。
-    public var tooltip: SECTooltip?
+    public var tooltip: Tooltip?
     /// 数据
     public var data: [Jsonable]?
     
@@ -76,7 +76,7 @@ public struct SECThemeRiverSerie: SECSeries, Zable {
 
 extension SECThemeRiverSerie: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(LengthValue), height(LengthValue), coordinateSystem(SECCoordinateSystem), boundaryGap(SECBoundaryGap), singleAxisIndex(UInt8), label(FormattedLabel), itemStyle(SECItemStyle), legend(Legend), tooltip(SECTooltip), data([Jsonable])
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), coordinateSystem(SECCoordinateSystem), boundaryGap(BoundaryGap), singleAxisIndex(UInt8), label(FormattedLabel), itemStyle(ItemStyle), legend(Legend), tooltip(Tooltip), data([Jsonable])
     }
     
     public typealias ContentEnum = Enums

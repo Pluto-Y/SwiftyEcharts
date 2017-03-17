@@ -12,12 +12,12 @@ public struct SECSankeyOptions {
     
     // MARK: Sankey Diagram
     /// 地址: http://echarts.baidu.com/demo.html#sankey-energy
-    static func sankeyEnergyOption() -> SECOption {
-        return SECOption(
+    static func sankeyEnergyOption() -> Option {
+        return Option(
             .title(Title(
                 .text("Sankey Diagram")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.item),
                 .triggerOn(.mousemove)
             )),
@@ -157,14 +157,14 @@ public struct SECSankeyOptions {
                         ["source": "Working hours", "target": "Cocoa mass (Organic)", "value": 0.00158227069058333],
                         ["source": "Working hours", "target": "Cane sugar (Organic)", "value": 0.000957528158533333]
                         ]),
-                    .itemStyle(SECItemStyle(
-                        .normal(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
                             .borderWidth(1),
                             .borderColor(.hexColor("#aaa"))
                             ))
                         )),
-                    .lineStyle(SECEmphasisLineStyle(
-                        .normal(SECLineStyle(
+                    .lineStyle(EmphasisLineStyle(
+                        .normal(LineStyle(
                             .curveness(0.5)
                             ))
                         ))
@@ -175,12 +175,12 @@ public struct SECSankeyOptions {
 
     // MARK: Sankey Diagram
     /// 地址: http://echarts.baidu.com/demo.html#sankey-product
-    static func sankeyProductOption() -> SECOption {
-        return SECOption(
+    static func sankeyProductOption() -> Option {
+        return Option(
             .title(Title(
                 .text("Sankey Diagram")
                 )),
-            .tooltip(SECTooltip(
+            .tooltip(Tooltip(
                 .trigger(.item),
                 .triggerOn(.mousemove)
                 )),
@@ -306,14 +306,14 @@ public struct SECSankeyOptions {
                         ["source": "Wave", "target": "Electricity grid", "value": 19.013],
                         ["source": "Wind", "target": "Electricity grid", "value": 289.366]
                         ]),
-                    .itemStyle(SECItemStyle(
-                        .normal(SECCommonItemStyleContent(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
                             .borderWidth(1),
                             .borderColor(.hexColor("#aaa"))
                             ))
                         )),
-                    .lineStyle(SECEmphasisLineStyle(
-                        .normal(SECLineStyle(
+                    .lineStyle(EmphasisLineStyle(
+                        .normal(LineStyle(
                             .curveness(0.5)
                             ))
                         ))

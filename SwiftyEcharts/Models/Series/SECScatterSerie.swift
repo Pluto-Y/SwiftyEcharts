@@ -6,23 +6,23 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECScatterSerie: SECSeries, SECSymbolized, SECAnimatable, Zable {
+public struct SECScatterSerie: SECSeries, Symbolized, Animatable, Zable {
     
     /// 数据项目
-    public struct Data: SECSymbolized {
+    public struct Data: Symbolized {
         /// 数据项名称。
         public var name: String?
         /// 数据项值。
         public var value: String?
-        // MARK: SECSymbolized
-        public var symbol: SECSymbol?
+        // MARK: Symbolized
+        public var symbol: Symbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
         public var symbolOffset: Point?
         /// 数据项文字样式
         public var label: Label?
         /// 单个数据点（气泡）的样式设置。
-        public var itemStyle: SECItemStyle?
+        public var itemStyle: ItemStyle?
     }
     
     /// 类型
@@ -49,7 +49,7 @@ public struct SECScatterSerie: SECSeries, SECSymbolized, SECAnimatable, Zable {
     /// 是否启用图例 hover 时的联动高亮。
     public var legendHoverLink: Bool?
     /// 标记的图形。
-    public var symbol: SECSymbol?
+    public var symbol: Symbol?
     /// 标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
     /// 如果需要每个数据的图形大小不一样，可以设置为如下格式的回调函数：
     /// (value: Array|number, params: Object) => number|Array
@@ -69,7 +69,7 @@ public struct SECScatterSerie: SECSeries, SECSymbolized, SECAnimatable, Zable {
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: FormattedLabel?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-    public var itemStyle: SECItemStyle?
+    public var itemStyle: ItemStyle?
     /// 系列中的数据内容数组。数组项通常为具体的数据项。
     ///
     /// 通常来说，数据用一个二维数组表示。如下，每一列被称为一个『维度』。
@@ -183,9 +183,9 @@ public struct SECScatterSerie: SECSeries, SECSymbolized, SECAnimatable, Zable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDuration: SECTime?
+    public var animationDuration: Time?
     /// 初始动画的缓动效果。不同的缓动效果可以参考
-    public var animationEasing: SECAnimation?
+    public var animationEasing: EasingFunction?
     /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
     ///
     /// 如下示例：
@@ -194,16 +194,16 @@ public struct SECScatterSerie: SECSeries, SECSymbolized, SECAnimatable, Zable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelay: SECTime?
+    public var animationDelay: Time?
     /// 数据更新动画的时长。
     /// 支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
     ///     animationDurationUpdate: function (idx) {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDurationUpdate: SECTime?
+    public var animationDurationUpdate: Time?
     /// 数据更新动画的缓动效果。
-    public var animationEasingUpdate: SECAnimation?
+    public var animationEasingUpdate: EasingFunction?
     /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
     /// 如下示例：
     ///
@@ -211,14 +211,14 @@ public struct SECScatterSerie: SECSeries, SECSymbolized, SECAnimatable, Zable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDelayUpdate: SECTime?
+    public var animationDelayUpdate: Time?
 }
 
 public typealias SECScatterSerieData = SECScatterSerie.Data
 
 extension SECScatterSerieData: Enumable {
     public enum Enums {
-        case name(String), value(String), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(Label), itemStyle(SECItemStyle)
+        case name(String), value(String), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(Label), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -262,7 +262,7 @@ extension SECScatterSerieData: Mappable {
 
 extension SECScatterSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), hoverAnimation(Bool), legendHoverLink(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), large(Bool), largeThreshold(Float), label(FormattedLabel), itemStyle(SECItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), hoverAnimation(Bool), legendHoverLink(Bool), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), large(Bool), largeThreshold(Float), label(FormattedLabel), itemStyle(ItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

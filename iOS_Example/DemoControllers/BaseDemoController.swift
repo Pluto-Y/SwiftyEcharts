@@ -13,14 +13,14 @@ class BaseDemoController: UIViewController, UITableViewDelegate, UITableViewData
 
     var menuTableView: UITableView!
     var echartsView: SECEchartsView!
-    var option: SECOption! {
+    var option: Option! {
         didSet {
             echartsView.option = option
             echartsView.loadEcharts()
         }
     }
     var menus: [String] = []
-    var optionClosures: [() -> SECOption] = []
+    var optionClosures: [() -> Option] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

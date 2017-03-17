@@ -1,5 +1,5 @@
 //
-//  SECGrid.swift
+//  Grid.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 06/12/2016.
@@ -8,7 +8,7 @@
 
 /// 直角坐标系内绘图网格，单个 grid 内最多可以放置上下两个 X 轴，左右两个 Y 轴。可以在网格上绘制折线图，柱状图，散点图（气泡图）。
 /// 在 ECharts 2.x 里单个 echarts 实例中最多只能存在一个 grid 组件，在 ECharts 3 中可以存在任意个 grid 组件。
-public struct SECGrid: Borderable, Displayable, Shadowable, Zable {
+public struct Grid: Borderable, Displayable, Shadowable, Zable {
     /// 是否显示直角坐标系网格。
     public var show: Bool?
     /// 所有图形的 zlevel 值。
@@ -19,13 +19,13 @@ public struct SECGrid: Borderable, Displayable, Shadowable, Zable {
     /// z相比zlevel优先级更低，而且不会创建新的 Canvas。
     public var z: Float?
     /// grid 组件离容器左侧的距离。
-    public var left: SECPosition?
+    public var left: Position?
     /// grid 组件离容器上侧的距离。
-    public var top: SECPosition?
+    public var top: Position?
     /// grid 组件离容器右侧的距离。
-    public var right: SECPosition?
+    public var right: Position?
     /// grid 组件离容器下侧的距离。
-    public var bottom: SECPosition?
+    public var bottom: Position?
     /// grid 组件的宽度。默认自适应。
     public var width: LengthValue?
     /// grid 组件的高度。默认自适应。
@@ -58,9 +58,9 @@ public struct SECGrid: Borderable, Displayable, Shadowable, Zable {
     public init() { }
 }
 
-extension SECGrid: Enumable {
+extension Grid: Enumable {
     public enum Enums {
-        case show(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(LengthValue), height(LengthValue), containLabel(Bool), background(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), containLabel(Bool), background(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     public typealias ContentEnum = Enums
     
@@ -106,7 +106,7 @@ extension SECGrid: Enumable {
     }
 }
 
-extension SECGrid: Mappable {
+extension Grid: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["zlevel"] = zlevel

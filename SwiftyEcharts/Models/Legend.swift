@@ -1,5 +1,5 @@
 //
-//  SECLegend.swift
+//  Legend.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 02/12/2016.
@@ -10,7 +10,7 @@
 ///
 /// - horizontal: 水平
 /// - vertical: 垂直
-public enum SECOrient : String, Jsonable {
+public enum SECOrient: String, Jsonable {
     case horizontal = "horizontal", vertical = "vertical"
 
     public var jsonString: String {
@@ -21,7 +21,7 @@ public enum SECOrient : String, Jsonable {
 /// 图例组件。
 /// 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
 /// ECharts 3 中单个 echarts 实例中可以存在多个图例组件，会方便多个图例的布局。
-public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadowable, SECZable {
+public struct Legend: Borderable, Displayable, Formatted, Shadowable, Zable {
     
     /// 图例的数据数组。数组项通常为一个字符串，每一项代表一个系列的 `name`（如果是饼图，也可以是饼图单个数据的 `name`）。图例组件会自动获取对应系列的颜色，图形标记（symbol）作为自己绘制的颜色和标记，特殊字符串 `''`（空字符串）或者 `'\n'`（换行字符串）用于图例的换行。
     ///
@@ -44,7 +44,7 @@ public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadow
         /// 图例项的 icon。
         public var icon: SECSymbol?
         /// 图例项的文本样式。
-        public var textStyle: SECTextStyle?
+        public var textStyle: TextStyle?
         
         public init() { }
     }
@@ -72,7 +72,7 @@ public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadow
     /// 图例列表的布局朝向。
     public var orient: SECOrient?
     /// 图例标记和文本的对齐。默认自动，根据组件的位置和 orient 决定，当组件的 left 值为 'right' 以及纵向布局（orient 为 'vertical'）的时候为右对齐，及为 'right'。
-    public var align: SECAlign?
+    public var align: Align?
     /// 图例内边距，单位px，默认各方向内边距为5，接受数组分别设定上右下左边距。
     public var padding: SECPadding?
     /// 图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
@@ -82,11 +82,11 @@ public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadow
     /// 图例标记的图形搞度。
     public var itemHeight: Float?
     /// 用来格式化图例文本，支持字符串模板和回调函数两种形式。
-    public var formatter: SECFormatter?
+    public var formatter: Formatter?
     /// 图例选择的模式，控制是否可以通过点击图例改变系列的显示状态。
-    public var selectedMode: SECSelectedMode?
+    public var selectedMode: SelectedMode?
     /// 图例关闭时的颜色。
-    public var inactiveColor: SECColor?
+    public var inactiveColor: Color?
     /// 图例选中状态表。
     ///
     /// 示例：
@@ -99,7 +99,7 @@ public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadow
     ///     }
     public var selected: [String: Bool]?
     /// 图例的公用文本样式。
-    public var textStyle: SECTextStyle?
+    public var textStyle: TextStyle?
     /// 图例的 tooltip 配置，配置项同 tooltip。默认不显示，可以在 legend 文字很多的时候对文字做裁剪并且开启 tooltip，
     ///
     /// 如下示例：
@@ -115,15 +115,15 @@ public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadow
     public var tooltip: SECTooltip?
     /// 图例的数据数组。
     public var data: [Jsonable]?
-    public var backgroundColor: SECColor?
-    public var borderColor: SECColor?
+    public var backgroundColor: Color?
+    public var borderColor: Color?
     public var borderWidth: Float?
     
     /// 注意：此配置项生效的前提是，设置了 show: `true` 以及值不为 `tranparent` 的背景色 `backgroundColor。
     public var shadowBlur: Float?
     /// 阴影颜色。支持的格式同color。
     /// 注意：此配置项生效的前提是，设置了 show: `true`。
-    public var shadowColor: SECColor?
+    public var shadowColor: Color?
     /// 注意：此配置项生效的前提是，设置了 show: `true`。
     public var shadowOffsetX: Float?
     /// 注意：此配置项生效的前提是，设置了 show: `true`。
@@ -133,9 +133,9 @@ public struct SECLegend : SECBorderable, SECDisplayable, SECFormatted, SECShadow
     
 }
 
-extension SECLegend.Data : SECEnumable {
+extension Legend.Data: Enumable {
     public enum Enums {
-        case name(String), icon(SECSymbol), textStyle(SECTextStyle)
+        case name(String), icon(SECSymbol), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -154,7 +154,7 @@ extension SECLegend.Data : SECEnumable {
     }
 }
 
-extension SECLegend.Data : Mappable {
+extension Legend.Data: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["icon"] = icon
@@ -162,9 +162,9 @@ extension SECLegend.Data : Mappable {
     }
 }
 
-extension SECLegend : SECEnumable {
+extension Legend: Enumable {
     public enum Enums {
-        case show(Bool), zlevel(Float), z(Float), left(SECPosition), x(SECPosition), top(SECPosition), y(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(SECAlign), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(SECFormatter), selectedMode(SECSelectedMode), inactiveColor(SECColor), selected([String: Bool]), textStyle(SECTextStyle), tooltip(SECTooltip), data([Jsonable]), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), zlevel(Float), z(Float), left(SECPosition), x(SECPosition), top(SECPosition), y(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), align(Align), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(Formatter), selectedMode(SelectedMode), inactiveColor(Color), selected([String: Bool]), textStyle(TextStyle), tooltip(SECTooltip), data([Jsonable]), backgroundColor(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -239,7 +239,7 @@ extension SECLegend : SECEnumable {
     }
 }
 
-extension SECLegend : Mappable {
+extension Legend: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["zlevel"] = zlevel

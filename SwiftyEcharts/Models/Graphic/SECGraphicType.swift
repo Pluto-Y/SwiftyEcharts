@@ -20,7 +20,7 @@
 /// - polyline: 折线
 /// - line: 直线
 /// - bezierCurve: 二次或三次贝塞尔曲线
-public enum SECGraphicType : String, Jsonable {
+public enum SECGraphicType: String, Jsonable {
     case group = "group"
     case image = "image"
     case text = "text"

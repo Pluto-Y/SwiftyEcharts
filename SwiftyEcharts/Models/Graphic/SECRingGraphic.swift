@@ -7,7 +7,7 @@
 //
 
 /// 圆环类型的 `Graphic`
-public struct SECRingGraphic : SECGraphic {
+public struct SECRingGraphic: SECGraphic {
     
     /// 圆环的位置和大小
     public struct Shape {
@@ -46,7 +46,7 @@ public struct SECRingGraphic : SECGraphic {
     public init() {}
 }
 
-extension SECRingGraphic.Shape : SECEnumable {
+extension SECRingGraphic.Shape: Enumable {
     public enum Enums {
         case cx(Float), cy(Float), r(Float), r0(Float)
     }
@@ -69,7 +69,7 @@ extension SECRingGraphic.Shape : SECEnumable {
     }
 }
 
-extension SECRingGraphic.Shape : Mappable {
+extension SECRingGraphic.Shape: Mappable {
     public func mapping(map: Mapper) {
         map["cx"] = cx
         map["cy"] = cy
@@ -78,7 +78,7 @@ extension SECRingGraphic.Shape : Mappable {
     }
 }
 
-extension SECRingGraphic : SECEnumable {
+extension SECRingGraphic: Enumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
     }
@@ -125,7 +125,7 @@ extension SECRingGraphic : SECEnumable {
     }
 }
 
-extension SECRingGraphic : Mappable {
+extension SECRingGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

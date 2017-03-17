@@ -23,18 +23,18 @@ public struct SECRadarOptions {
         
         return SECOption(
             .backgroundColor(.hexColor("#161627")),
-            .title(SECTitle(
+            .title(Title(
                 .text("AQI - 雷达图"),
                 .left(.center),
-                .textStyle(SECTextStyle(
+                .textStyle(TextStyle(
                     .color(.hexColor("#eee"))
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .bottom(.value(5)),
                 .data(["北京", "上海", "广州"]),
                 .itemGap(20),
-                .textStyle(SECTextStyle(
+                .textStyle(TextStyle(
                     .color(.hexColor("#fff")),
                     .fontSize(14)
                     )),
@@ -70,7 +70,7 @@ public struct SECRadarOptions {
                 .shape(.circle),
                 .splitNumber(5),
                 .name(SECRadar.Name(
-                    .textStyle(SECTextStyle(
+                    .textStyle(TextStyle(
                         .color(.rgb(238, 197, 102))
                         ))
                     )),
@@ -245,10 +245,10 @@ public struct SECRadarOptions {
     /// 地址: http://echarts.baidu.com/demo.html#radar-custom
     static func radarCustomOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("自定义雷达图")
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["图一","图二", "张三", "李四"])
                 )),
             .radars([
@@ -267,7 +267,7 @@ public struct SECRadarOptions {
                     .shape(.circle),
                     .name(SECRadar.Name(
                         .formatter(.string("【{value}】")),
-                        .textStyle(SECTextStyle(
+                        .textStyle(TextStyle(
                             .color(.hexColor("#72ACD1"))
                             ))
                         )),
@@ -340,8 +340,8 @@ public struct SECRadarOptions {
                         SECRadarSerieData(
                             .value([120, 118, 130, 100, 99, 70]),
                             .name("张三"),
-                            .label(SECFormattedLabel(
-                                .normal(SECFormattedLabelStyle(
+                            .label(FormattedLabel(
+                                .normal(FormattedLabelStyle(
                                     .show(true),
                                     .formatter(.function("function labelFormatter(params){ return params.value; }"))
                                     ))
@@ -372,13 +372,13 @@ public struct SECRadarOptions {
             indicator.append(SECIndicator(.text("\(i)月"), .max(100)))
         }
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("多雷达图")
                 )),
             .tooltip(SECTooltip(
                 .trigger(.axis)
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .x(.center),
                 .data(["某软件","某主食手机","某水果手机","降水量","蒸发量"])
                 )),
@@ -453,11 +453,11 @@ public struct SECRadarOptions {
     /// 地址: http://echarts.baidu.com/demo.html#radar
     static func radarOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("基础雷达图")
                 )),
             .tooltip(SECTooltip()),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["预算分配（Allocated Budget）", "实际开销（Actual Spending）"])
                 )),
             .radar(SECRadar(
@@ -516,7 +516,7 @@ public struct SECRadarOptions {
                 ))
         }
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("浏览器占比变化"),
                 .subtext("纯属虚构"),
                 .x(.right),
@@ -526,7 +526,7 @@ public struct SECRadarOptions {
                 .trigger(.item),
                 .backgroundColor(.rgba(0, 0, 250, 0.2))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .show(false), // 由于屏幕太小隐藏
                 .data(list)
                 )),

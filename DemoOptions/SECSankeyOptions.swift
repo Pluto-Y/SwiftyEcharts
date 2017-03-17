@@ -14,7 +14,7 @@ public struct SECSankeyOptions {
     /// 地址: http://echarts.baidu.com/demo.html#sankey-energy
     static func sankeyEnergyOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("Sankey Diagram")
                 )),
             .tooltip(SECTooltip(
@@ -177,7 +177,7 @@ public struct SECSankeyOptions {
     /// 地址: http://echarts.baidu.com/demo.html#sankey-product
     static func sankeyProductOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("Sankey Diagram")
                 )),
             .tooltip(SECTooltip(

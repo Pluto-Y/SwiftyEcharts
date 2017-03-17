@@ -13,12 +13,12 @@
 /// 下面是一个 radar 组件的一个自定义例子。
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=doc-example/radar
-public struct SECRadar : SECZable {
+public struct SECRadar: Zable {
     /// 雷达图每个指示器名称的配置项。
-    public struct Name : SECDisplayable, SECFormatted, SECTextful {
+    public struct Name: Displayable, Formatted, Textful {
         public var show: Bool?
-        public var formatter: SECFormatter?
-        public var textStyle: SECTextStyle?
+        public var formatter: Formatter?
+        public var textStyle: TextStyle?
         
         public init() {}
     }
@@ -27,7 +27,7 @@ public struct SECRadar : SECZable {
     ///
     /// - polygon:
     /// - circle:
-    public enum Shape : String, Jsonable {
+    public enum Shape: String, Jsonable {
         case polygon = "polygon"
         case circle = "circle"
         
@@ -56,7 +56,7 @@ public struct SECRadar : SECZable {
         
         public init() {}
     }
-    // MARK: - SECZable
+    // MARK: - Zable
     public var zlevel: Float?
     public var z: Float?
     
@@ -70,7 +70,7 @@ public struct SECRadar : SECZable {
     ///     center: [400, 300]
     ///     // 设置成相对的百分比
     ///     center: [50%, 50%]
-    public var center: SECPoint?
+    public var center: Point?
     /// 坐标系的半径，数组的第一项是内半径，第二项是外半径。
     /// 支持设置成百分比，相对于容器高宽中较小的一项的一半。
     public var radius: LengthValue?
@@ -130,9 +130,9 @@ public struct SECRadar : SECZable {
 public typealias SECIndicator = SECRadar.Indicator
 
 
-extension SECRadar.Name : SECEnumable {
+extension SECRadar.Name: Enumable {
     public enum Enums {
-        case show(Bool), formatter(SECFormatter), textStyle(SECTextStyle)
+        case show(Bool), formatter(Formatter), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -151,7 +151,7 @@ extension SECRadar.Name : SECEnumable {
     }
 }
 
-extension SECRadar.Name : Mappable {
+extension SECRadar.Name: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["formatter"] = formatter
@@ -159,7 +159,7 @@ extension SECRadar.Name : Mappable {
     }
 }
 
-extension SECIndicator : SECEnumable {
+extension SECIndicator: Enumable {
     public enum Enums {
         case text(String), name(String), max(Float), min(Float)
     }
@@ -182,7 +182,7 @@ extension SECIndicator : SECEnumable {
     }
 }
 
-extension SECIndicator : Mappable {
+extension SECIndicator: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["max"] = max
@@ -190,9 +190,9 @@ extension SECIndicator : Mappable {
     }
 }
 
-extension SECRadar : SECEnumable {
+extension SECRadar: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), center(SECPoint), radius(LengthValue), startAngle(Float), name(Name), nameGap(Float), splitNumber(Int), shape(Shape), scale(Bool), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), indicator([Indicator])
+        case zlevel(Float), z(Float), center(Point), radius(LengthValue), startAngle(Float), name(Name), nameGap(Float), splitNumber(Int), shape(Shape), scale(Bool), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), indicator([Indicator])
     }
     
     public typealias ContentEnum = Enums
@@ -241,7 +241,7 @@ extension SECRadar : SECEnumable {
     }
 }
 
-extension SECRadar : Mappable {
+extension SECRadar: Mappable {
     public func mapping(map: Mapper) {
         map["zlevel"] = zlevel
         map["z"] = z

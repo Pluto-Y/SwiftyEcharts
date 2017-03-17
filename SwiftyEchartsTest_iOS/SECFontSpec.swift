@@ -15,9 +15,9 @@ class SECFontSpec: QuickSpec {
     override func spec() {
         describe("For font style ") {
             
-            let normalStyle = SECFontStyle.normal
-            let italicStyle = SECFontStyle.italic
-            let obliqueStyle = SECFontStyle.oblique
+            let normalStyle = FontStyle.normal
+            let italicStyle = FontStyle.italic
+            let obliqueStyle = FontStyle.oblique
 
             it("needs to check the description") {
                 expect(normalStyle.description).to(equal("normal"))
@@ -28,11 +28,11 @@ class SECFontSpec: QuickSpec {
         
         describe("For font weight") {
             let weightValue = 100
-            let normalWeight = SECFontWeight.normal
-            let boldWeight = SECFontWeight.bold
-            let bolderWeight = SECFontWeight.bolder
-            let lighterWeight = SECFontWeight.lighter
-            let valueWeight = SECFontWeight.weight(weightValue)
+            let normalWeight = FontWeight.normal
+            let boldWeight = FontWeight.bold
+            let bolderWeight = FontWeight.bolder
+            let lighterWeight = FontWeight.lighter
+            let valueWeight = FontWeight.weight(weightValue)
             
             it("needs to check the description") {
                 expect(normalWeight.description).to(equal("normal"))

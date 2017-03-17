@@ -7,10 +7,10 @@
 //
 
 /// 图片类型的 `Graphic`
-public struct SECImageGraphic : SECGraphic {
+public struct SECImageGraphic: SECGraphic {
     
     /// 图片样式
-    public struct Style : SECGraphicStyle {
+    public struct Style: SECGraphicStyle {
         /// 图片的内容，可以是图片的 URL，也可以是 dataURI.
         public var image: String?
         /// 图形元素的左上角在父节点坐标系（以父节点左上角为原点）中的横坐标值。
@@ -22,13 +22,13 @@ public struct SECImageGraphic : SECGraphic {
         /// 图形元素的高度。
         public var height: Float?
         /// MARK: SEGraphicStyle
-        public var fill: SECColor?
-        public var stroke: SECColor?
+        public var fill: Color?
+        public var stroke: Color?
         public var lineWidth: Float?
         public var shadowBlur: Float?
         public var shadowOffsetX: Float?
         public var shadowOffsetY: Float?
-        public var shadowColor: SECColor?
+        public var shadowColor: Color?
         
         public init() {}
     }
@@ -57,9 +57,9 @@ public struct SECImageGraphic : SECGraphic {
     public init() {}
 }
 
-extension SECImageGraphic.Style : SECEnumable {
+extension SECImageGraphic.Style: Enumable {
     public enum Enums {
-        case image(String), x(Float), y(Float), width(Float), height(Float), fill(SECColor), stroke(SECColor), lineWidth(Float), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), shadowColor(SECColor)
+        case image(String), x(Float), y(Float), width(Float), height(Float), fill(Color), stroke(Color), lineWidth(Float), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), shadowColor(Color)
     }
     
     public typealias ContentEnum = Enums
@@ -96,7 +96,7 @@ extension SECImageGraphic.Style : SECEnumable {
     }
 }
 
-extension SECImageGraphic.Style : Mappable {
+extension SECImageGraphic.Style: Mappable {
     public func mapping(map: Mapper) {
         map["image"] = image
         map["x"] = x
@@ -113,7 +113,7 @@ extension SECImageGraphic.Style : Mappable {
     }
 }
 
-extension SECImageGraphic : SECEnumable {
+extension SECImageGraphic: Enumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), style(Style)
     }
@@ -158,7 +158,7 @@ extension SECImageGraphic : SECEnumable {
     }
 }
 
-extension SECImageGraphic : Mappable {
+extension SECImageGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

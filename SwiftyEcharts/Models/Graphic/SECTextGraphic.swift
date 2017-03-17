@@ -7,10 +7,10 @@
 //
 
 /// 文本类型的 `Graphic`
-public struct SECTextGraphic : SECGraphic {
+public struct SECTextGraphic: SECGraphic {
     
     /// 文本样式
-    public struct Style : SECGraphicStyle {
+    public struct Style: SECGraphicStyle {
         /// 文本块文字。可以使用 \n 来换行。
         public var text: String?
         /// 图形元素的左上角在父节点坐标系（以父节点左上角为原点）中的横坐标值。
@@ -30,18 +30,18 @@ public struct SECTextGraphic : SECGraphic {
         public var font: String?
         /// 水平对齐方式，取值：'left', 'center', 'right'。
         /// 如果为 'left'，表示文本最左端在 x 值上。如果为 'right'，表示文本最右端在 x 值上。
-        public var textAlign: SECAlign?
+        public var textAlign: Align?
         /// 垂直对齐方式，取值：'top', 'middle', 'bottom'。
-        public var textVertical: SECVerticalAlign?
+        public var textVertical: VerticalAlign?
         
         /// MARK: SECGraphicStyle
-        public var fill: SECColor?
-        public var stroke: SECColor?
+        public var fill: Color?
+        public var stroke: Color?
         public var lineWidth: Float?
         public var shadowBlur: Float?
         public var shadowOffsetX: Float?
         public var shadowOffsetY: Float?
-        public var shadowColor: SECColor?
+        public var shadowColor: Color?
         
         public init() {}
     }
@@ -71,9 +71,9 @@ public struct SECTextGraphic : SECGraphic {
     public init() {}
 }
 
-extension SECTextGraphic.Style : SECEnumable {
+extension SECTextGraphic.Style: Enumable {
     public enum Enums {
-        case text(String), x(Float), y(Float), font(String), textAlign(SECAlign), textVertical(SECVerticalAlign), fill(SECColor), stroke(SECColor), lineWidth(Float), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), shadowColor(SECColor)
+        case text(String), x(Float), y(Float), font(String), textAlign(Align), textVertical(VerticalAlign), fill(Color), stroke(Color), lineWidth(Float), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), shadowColor(Color)
     }
     
     public typealias ContentEnum = Enums
@@ -112,7 +112,7 @@ extension SECTextGraphic.Style : SECEnumable {
     }
 }
 
-extension SECTextGraphic.Style : Mappable {
+extension SECTextGraphic.Style: Mappable {
     public func mapping(map: Mapper) {
         map["text"] = text
         map["x"] = x
@@ -130,7 +130,7 @@ extension SECTextGraphic.Style : Mappable {
     }
 }
 
-extension SECTextGraphic : SECEnumable {
+extension SECTextGraphic: Enumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), style(Style)
     }
@@ -175,7 +175,7 @@ extension SECTextGraphic : SECEnumable {
     }
 }
 
-extension SECTextGraphic : Mappable {
+extension SECTextGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

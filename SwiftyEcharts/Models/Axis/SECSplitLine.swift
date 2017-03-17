@@ -7,7 +7,7 @@
 //
 
 /// 分割线
-public struct SECSplitLine: SECDisplayable, SECLine {
+public struct SECSplitLine: Displayable, SECLine {
     /// 是否显示分隔线。
     public var show: Bool?
     /// 分隔线的显示间隔
@@ -18,7 +18,7 @@ public struct SECSplitLine: SECDisplayable, SECLine {
     public init() { }
 }
 
-extension SECSplitLine : SECEnumable {
+extension SECSplitLine: Enumable {
     public enum Enums {
         case show(Bool), interval(UInt), lineStyle(SECLineStyle)
     }
@@ -39,7 +39,7 @@ extension SECSplitLine : SECEnumable {
     }
 }
 
-extension SECSplitLine : Mappable {
+extension SECSplitLine: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["interval"] = interval

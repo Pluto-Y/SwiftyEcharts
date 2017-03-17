@@ -24,7 +24,7 @@
 /// - series-candlestick.itemStyle.normal.color0：阴线填充色（即『跌』）
 /// - series-candlestick.itemStyle.normal.borderColor：阳线边框色（即『涨』）
 /// - series-candlestick.itemStyle.normal.borderColor0：阴线边框色（即『跌』）
-public struct SECCandlestickSerie : SECSeries, SECZable {
+public struct SECCandlestickSerie: SECSeries, Zable {
     
     public struct Data {
         /// 数据项名称。
@@ -94,7 +94,7 @@ public struct SECCandlestickSerie : SECSeries, SECZable {
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
     public var markArea: SECMarkArea?
     
-    /// MARK: SECZable
+    /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
     
@@ -124,7 +124,7 @@ public struct SECCandlestickSerie : SECSeries, SECZable {
 
 public typealias SECCandlestickSerieData = SECCandlestickSerie.Data
 
-extension SECCandlestickSerieData : SECEnumable {
+extension SECCandlestickSerieData: Enumable {
     public enum Enums {
         case name(String), value([Jsonable]), itemStyle(SECItemStyle)
     }
@@ -145,7 +145,7 @@ extension SECCandlestickSerieData : SECEnumable {
     }
 }
 
-extension SECCandlestickSerieData : Mappable {
+extension SECCandlestickSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -153,7 +153,7 @@ extension SECCandlestickSerieData : Mappable {
     }
 }
 
-extension SECCandlestickSerie : SECEnumable {
+extension SECCandlestickSerie: Enumable {
     public enum Enums {
         case coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), barWidth(Float), barMinWidth(Float), barMaxWidth(Float), itemStyle(SECItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(SECAnimation), animationDelay(Float)
     }
@@ -210,7 +210,7 @@ extension SECCandlestickSerie : SECEnumable {
     }
 }
 
-extension SECCandlestickSerie : Mappable {
+extension SECCandlestickSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["coordinateSystem"] = coordinateSystem

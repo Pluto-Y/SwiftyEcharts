@@ -111,7 +111,7 @@
 /// 可以通过 parallel.axisExpandable 来改善显示效果，如下例子：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=map-parallel-prices
-public struct SECParallel : SECZable {
+public struct SECParallel: Zable {
     
     /// 配置多个 parallelAxis 时，有些值一样的属性，如果书写多遍则比较繁琐，那么可以放置在 parallel.parallelAxisDefault 里。在坐标轴初始化前，parallel.parallelAxisDefault 里的配置项，会分别融合进 parallelAxis，形成最终的坐标轴的配置。
     ///
@@ -137,7 +137,7 @@ public struct SECParallel : SECZable {
             /// 单个类目名称
             public var value: String?
             /// 类目标签的文字样式
-            public var textStyle: SECTextStyle?
+            public var textStyle: TextStyle?
         }
         
         /// 坐标轴类型
@@ -147,7 +147,7 @@ public struct SECParallel : SECZable {
         /// 坐标轴名称显示位置
         public var nameLocation: SECPosition?
         /// 坐标轴名称的文字样式
-        public var nameTextStyle: SECTextStyle?
+        public var nameTextStyle: TextStyle?
         /// 坐标轴名称与轴线之间的距离
         public var nameGap: Float?
         /// 坐标轴名字旋转，角度值
@@ -228,7 +228,7 @@ public struct SECParallel : SECZable {
         
     }
     
-    /// MARK: SECZable
+    /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
     /// 组件离容器左侧的距离。
@@ -282,7 +282,7 @@ public struct SECParallel : SECZable {
     public var parallelAxisDefault: ParallelAxisDefault?
 }
 
-extension SECParallel : SECEnumable {
+extension SECParallel: Enumable {
     public enum Enums {
         case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), layout(SECOrient), axisExpandable(Bool), axisExpandCenter(Float), axisExpandCount(Float), axisExpandWidth(Float), parallelAxisDefault(ParallelAxisDefault)
     }
@@ -325,7 +325,7 @@ extension SECParallel : SECEnumable {
     }
 }
 
-extension SECParallel : Mappable {
+extension SECParallel: Mappable {
     public func mapping(map: Mapper) {
         map["zlevel"] = zlevel
         map["z"] = z
@@ -344,9 +344,9 @@ extension SECParallel : Mappable {
     }
 }
 
-extension SECParallel.ParallelAxisDefault : SECEnumable {
+extension SECParallel.ParallelAxisDefault: Enumable {
     public enum Enums {
-        case type(SECAxisType), name(String), nameLocation(SECPosition), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(String), max(String), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), data([Any])
+        case type(SECAxisType), name(String), nameLocation(SECPosition), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(String), max(String), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), data([Any])
     }
     
     public typealias ContentEnum = Enums
@@ -401,7 +401,7 @@ extension SECParallel.ParallelAxisDefault : SECEnumable {
     }
 }
 
-extension SECParallel.ParallelAxisDefault : Mappable {
+extension SECParallel.ParallelAxisDefault: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
@@ -427,9 +427,9 @@ extension SECParallel.ParallelAxisDefault : Mappable {
     }
 }
 
-extension SECParallel.ParallelAxisDefault.Data : SECEnumable {
+extension SECParallel.ParallelAxisDefault.Data: Enumable {
     public enum Enums {
-        case value(String), textStyle(SECTextStyle)
+        case value(String), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -446,7 +446,7 @@ extension SECParallel.ParallelAxisDefault.Data : SECEnumable {
     }
 }
 
-extension SECParallel.ParallelAxisDefault.Data : Mappable {
+extension SECParallel.ParallelAxisDefault.Data: Mappable {
     public func mapping(map: Mapper) {
         map["value"] = value
         map["textStyle"] = textStyle

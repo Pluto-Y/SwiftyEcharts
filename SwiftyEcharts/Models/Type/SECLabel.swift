@@ -1,29 +1,29 @@
 //
-//  SECLabel.swift
+//  Label.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 03/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECLabelStyle : SECDisplayable, SECTextful{
+public protocol LabelStyle: Displayable, Textful{
     
     var position: SECPosition? { get set }
 }
 
-public struct SECCommonLabelStyle : SECLabelStyle {
+public struct CommonLabelStyle: LabelStyle {
     
     public var show: Bool?
     public var position: SECPosition?
-    public var textStyle: SECTextStyle?
+    public var textStyle: TextStyle?
     
     public init() { }
     
 }
 
-extension SECCommonLabelStyle : SECEnumable {
+extension CommonLabelStyle: Enumable {
     public enum Enums {
-        case show(Bool), position(SECPosition), textStyle(SECTextStyle)
+        case show(Bool), position(SECPosition), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -42,7 +42,7 @@ extension SECCommonLabelStyle : SECEnumable {
     }
 }
 
-extension SECCommonLabelStyle : Mappable {
+extension CommonLabelStyle: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["position"] = position
@@ -50,9 +50,9 @@ extension SECCommonLabelStyle : Mappable {
     }
 }
 
-public struct SECLabel : SECEmphasisable {
+public struct Label: Emphasisable {
     
-    public typealias Style = SECCommonLabelStyle
+    public typealias Style = CommonLabelStyle
     
     public var normal: Style?
     public var emphasis: Style?
@@ -60,9 +60,9 @@ public struct SECLabel : SECEmphasisable {
     public init() { }
 }
 
-public typealias SECEmphasisLabel = SECLabel
+public typealias SECEmphasisLabel = Label
 
-extension SECLabel : SECEnumable {
+extension Label: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -81,28 +81,28 @@ extension SECLabel : SECEnumable {
     }
 }
 
-extension SECLabel : Mappable {
+extension Label: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
 }
 
-public struct SECFormattedLabelStyle : SECLabelStyle, SECFormatted {
+public struct FormattedLabelStyle: LabelStyle, Formatted {
     
     public var show: Bool?
     public var position: SECPosition?
-    public var formatter: SECFormatter?
-    public var offset: SECPoint?
-    public var textStyle: SECTextStyle?
+    public var formatter: Formatter?
+    public var offset: Point?
+    public var textStyle: TextStyle?
     
     public init() { }
     
 }
 
-extension SECFormattedLabelStyle : SECEnumable {
+extension FormattedLabelStyle: Enumable {
     public enum Enums {
-        case show(Bool), position(SECPosition), formatter(SECFormatter), offset(SECPoint), textStyle(SECTextStyle)
+        case show(Bool), position(SECPosition), formatter(Formatter), offset(Point), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -125,7 +125,7 @@ extension SECFormattedLabelStyle : SECEnumable {
     }
 }
 
-extension SECFormattedLabelStyle : Mappable {
+extension FormattedLabelStyle: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["position"] = position
@@ -135,8 +135,8 @@ extension SECFormattedLabelStyle : Mappable {
     }
 }
 
-public struct SECFormattedLabel : SECEmphasisable {
-    public typealias Style = SECFormattedLabelStyle
+public struct FormattedLabel: Emphasisable {
+    public typealias Style = FormattedLabelStyle
     
     public var normal: Style?
     public var emphasis: Style?
@@ -145,9 +145,9 @@ public struct SECFormattedLabel : SECEmphasisable {
     
 }
 
-public typealias SECEmphasisFormattedLabel = SECFormattedLabel
+public typealias EmphasisFormattedLabel = FormattedLabel
 
-extension SECFormattedLabel : SECEnumable {
+extension FormattedLabel: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -166,7 +166,7 @@ extension SECFormattedLabel : SECEnumable {
     }
 }
 
-extension SECFormattedLabel : Mappable {
+extension FormattedLabel: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis

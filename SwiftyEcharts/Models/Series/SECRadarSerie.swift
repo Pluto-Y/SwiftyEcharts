@@ -13,9 +13,9 @@
 /// 下面是 AQI 数据用雷达图表现的示例。
 ///
 /// 地址：http://echarts.baidu.com/gallery/editor.html?c=radar-aqi
-public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable {
+public struct SECRadarSerie: SECSeries, SECSymbolized, Zable, SECAnimatable {
     
-    public struct Data : SECSymbolized {
+    public struct Data: SECSymbolized {
         /// 数据项名称
         public var name: String?
         /// 单个数据项的数值。
@@ -25,10 +25,10 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
         public var symbol: SECSymbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
-        public var symbolOffset: SECPoint?
+        public var symbolOffset: Point?
         
         /// 单个拐点文本的样式设置。
-        public var label: SECFormattedLabel?
+        public var label: FormattedLabel?
         /// 单个拐点标志的样式设置。
         public var itemStyle: SECItemStyle?
         /// 单项线条样式。
@@ -53,10 +53,10 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
     public var symbol: SECSymbol?
     public var symbolSize: Float?
     public var symbolRotate: Float?
-    public var symbolOffset: SECPoint?
+    public var symbolOffset: Point?
     
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
-    public var label: SECFormattedLabel?
+    public var label: FormattedLabel?
     /// 折线拐点标志的样式。
     public var itemStyle: SECItemStyle?
     /// 线条样式。
@@ -93,9 +93,9 @@ public struct SECRadarSerie : SECSeries, SECSymbolized, SECZable, SECAnimatable 
 
 public typealias SECRadarSerieData = SECRadarSerie.Data
 
-extension SECRadarSerieData : SECEnumable {
+extension SECRadarSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Jsonable), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle)
+        case name(String), value(Jsonable), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -128,7 +128,7 @@ extension SECRadarSerieData : SECEnumable {
     }
 }
 
-extension SECRadarSerieData : Mappable {
+extension SECRadarSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -143,9 +143,9 @@ extension SECRadarSerieData : Mappable {
     }
 }
 
-extension SECRadarSerie : SECEnumable {
+extension SECRadarSerie: Enumable {
 	public enum Enums {
-		case name(String), radarIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+		case name(String), radarIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
 	}
 
 	public typealias ContentEnum = Enums
@@ -202,7 +202,7 @@ extension SECRadarSerie : SECEnumable {
 	}
 }
 
-extension SECRadarSerie : Mappable {
+extension SECRadarSerie: Mappable {
 	public func mapping(map: Mapper) {
 		map["type"] = type
 		map["name"] = name

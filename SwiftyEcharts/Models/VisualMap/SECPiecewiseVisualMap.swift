@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECPiecewiseVisualMap : SECVisualMap, SECDisplayable, SECBorderable, SECColorful, SECTextful, SECFormatted, SECZable {
+public struct SECPiecewiseVisualMap: SECVisualMap, Displayable, Borderable, Colorful, Textful, Formatted, Zable {
     /// 类型为分段型。
     public var type: String {
         return "piecewise"
@@ -69,7 +69,7 @@ public struct SECPiecewiseVisualMap : SECVisualMap, SECDisplayable, SECBorderabl
     /// 选择模式，可以是：
     /// - 'multiple'（多选）。
     /// - 'single'（单选）。
-    public var selectedMode: SECSelectedMode?
+    public var selectedMode: SelectedMode?
     /// 是否反转。
     /// - 连续型数据平均分段 模式（即 (that is, when visualMap-piecewise.splitNumber 被使用时），数据排布规则，同 visualMap-continuous.inverse。
     /// - 连续型数据自定义分段 模式（即 visualMap-piecewise.pieces 被使用）或 离散数据根据类别分段 模式（即 visualMap-piecewise.categories 被使用），每个块的排布位置，取决于 pieces 或 categories 列表的定义顺序，即：
@@ -92,14 +92,14 @@ public struct SECPiecewiseVisualMap : SECVisualMap, SECDisplayable, SECBorderabl
     /// - 'auto' 自动决定。
     /// - 'left' 图形在左文字在右。
     /// - 'right' 图形在右文字在左。
-    public var align: SECAlign?
+    public var align: Align?
     /// 两端的文本，如['High', 'Low']。
     ///
     /// 参见例子 : http://echarts.baidu.com/gallery/editor.html?c=doc-example/map-visualMap-piecewise-text&edit=1&reset=1
     ///
     /// text 中的顺序，其实试试就知道。若要看详细的规则，参见 visualMap.inverse。
     /// 兼容 ECharts2，当有 text 时，label不显示。
-    public var text: SECPiecewiseText?
+    public var text: PiecewiseText?
     /// 两端文字主体之间的距离，单位为px。参见 visualMap-piecewise.text
     public var textGap: Float?
     /// 是否显示每项的文本标签。默认情况是，如果 visualMap-piecewise.text 被使用则不显示文本标签，否则显示。
@@ -165,16 +165,16 @@ public struct SECPiecewiseVisualMap : SECVisualMap, SECDisplayable, SECBorderabl
     ///      ]
     public var padding: SECPadding?
     /// 背景色。
-    public var backgroundColor: SECColor?
+    public var backgroundColor: Color?
     /// 边框颜色。
-    public var borderColor: SECColor?
+    public var borderColor: Color?
     /// 边框线宽，单位px。
     public var borderWidth: Float?
     /// 这个配置项，是为了兼容 ECharts2 而存在，ECharts3 中已经不推荐使用。它的功能已经移到了 visualMap-piecewise.inRange 和 visualMap-piecewise.outOfRange 中。
     /// 如果要使用，则须注意，color属性中的顺序是由数值 大 到 小，但是 visualMap-piecewise.inRange 或 visualMap-piecewise.outOfRange 中 color 的顺序，总是由数值 小 到 大。二者不一致。
-    public var color: SECColor?
+    public var color: Color?
     /// 文字样式
-    public var textStyle: SECTextStyle?
+    public var textStyle: TextStyle?
     /// 标签的格式化工具。
     /// 如果为string，表示模板，例如：aaaa{value}bbbb{value2}。其中 {value} 和 {value2} 是当前的范围边界值。
     ///
@@ -182,12 +182,12 @@ public struct SECPiecewiseVisualMap : SECVisualMap, SECDisplayable, SECBorderabl
     ///     formatter: function (value, value2) {
     ///         return 'aaaa' + value + 'bbbb' + value2; // 范围标签显示内容。
     ///     }
-    public var formatter: SECFormatter?
+    public var formatter: Formatter?
 }
 
-extension SECPiecewiseVisualMap : SECEnumable {
+extension SECPiecewiseVisualMap: Enumable {
     public enum Enums {
-        case splitNumber(Int), pieces([Jsonable]), min(Float), max(Float), minOpen(Bool), maxOpen(Bool), selectedMode(SECSelectedMode), inverse(Bool), precision(UInt), itemWidth(Float), itemHeight(Float), align(SECAlign), text(SECPiecewiseText), textGap(Float), showLabel(Bool), itemGap(Float), itemSymbol(SECSymbol), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), color(SECColor), textStyle(SECTextStyle), formatter(SECFormatter)
+        case splitNumber(Int), pieces([Jsonable]), min(Float), max(Float), minOpen(Bool), maxOpen(Bool), selectedMode(SelectedMode), inverse(Bool), precision(UInt), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), showLabel(Bool), itemGap(Float), itemSymbol(SECSymbol), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
     }
     
     public typealias ContentEnum = Enums
@@ -276,7 +276,7 @@ extension SECPiecewiseVisualMap : SECEnumable {
     }
 }
 
-extension SECPiecewiseVisualMap : Mappable {
+extension SECPiecewiseVisualMap: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["splitNumber"] = splitNumber

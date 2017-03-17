@@ -26,79 +26,79 @@ public extension Jsonable {
 //    }
 }
 
-extension Bool : Jsonable {
+extension Bool: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int : Jsonable {
+extension Int: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int8 : Jsonable {
+extension Int8: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int16 : Jsonable {
+extension Int16: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int32 : Jsonable {
+extension Int32: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Int64 : Jsonable {
+extension Int64: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt : Jsonable {
+extension UInt: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt8 : Jsonable {
+extension UInt8: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt16 : Jsonable {
+extension UInt16: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt32 : Jsonable {
+extension UInt32: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension UInt64 : Jsonable {
+extension UInt64: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Double : Jsonable {
+extension Double: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
-extension Float : Jsonable {
+extension Float: Jsonable {
     public var jsonString: String {
         return "\(self)"
     }
 }
 
-extension String : Jsonable {
+extension String: Jsonable {
     public var jsonString: String {
         return "\"\(self)\""
     }
 }
 
-extension Optional : CustomStringConvertible {
+extension Optional: CustomStringConvertible {
     
     public var jsonString: String {
         return description
@@ -135,7 +135,7 @@ internal func obtainJsonString(from value: Any) -> String {
  
 }
 
-extension Array : Jsonable {
+extension Array: Jsonable {
     public var jsonString: String {
         var jsonStr = "[\n"
         
@@ -154,7 +154,7 @@ extension Array : Jsonable {
     }
 }
 
-extension Dictionary : Jsonable {
+extension Dictionary: Jsonable {
     public var jsonString: String {
         var jsonStr = "{\n"
         

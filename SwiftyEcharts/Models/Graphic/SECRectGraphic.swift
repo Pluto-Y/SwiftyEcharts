@@ -7,7 +7,7 @@
 //
 
 /// 矩形类型的 `Graphic`
-public struct SECRectGraphic : SECGraphic {
+public struct SECRectGraphic: SECGraphic {
     
     public struct Shape {
         public var x: Float?
@@ -45,7 +45,7 @@ public struct SECRectGraphic : SECGraphic {
     public init() {}
 }
 
-extension SECRectGraphic.Shape : SECEnumable {
+extension SECRectGraphic.Shape: Enumable {
     public enum Enums {
         case x(Float), y(Float), width(Float), height(Float)
     }
@@ -68,7 +68,7 @@ extension SECRectGraphic.Shape : SECEnumable {
     }
 }
 
-extension SECRectGraphic.Shape : Mappable {
+extension SECRectGraphic.Shape: Mappable {
     public func mapping(map: Mapper) {
         map["x"] = x
         map["y"] = y
@@ -77,7 +77,7 @@ extension SECRectGraphic.Shape : Mappable {
     }
 }
 
-extension SECRectGraphic : SECEnumable {
+extension SECRectGraphic: Enumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
     }
@@ -124,7 +124,7 @@ extension SECRectGraphic : SECEnumable {
     }
 }
 
-extension SECRectGraphic : Mappable {
+extension SECRectGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

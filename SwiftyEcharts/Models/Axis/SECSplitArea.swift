@@ -7,7 +7,7 @@
 //
 
 /// 分割区域
-public struct SECSplitArea : SECDisplayable {
+public struct SECSplitArea: Displayable {
     
     public var show: Bool?
     public var interval: UInt?
@@ -16,7 +16,7 @@ public struct SECSplitArea : SECDisplayable {
     public init() { }
 }
 
-extension SECSplitArea : SECEnumable {
+extension SECSplitArea: Enumable {
     public enum Enums {
         case show(Bool), interval(UInt), areaStyle(SECAreaStyle)
     }
@@ -37,7 +37,7 @@ extension SECSplitArea : SECEnumable {
     }
 }
 
-extension SECSplitArea : Mappable {
+extension SECSplitArea: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["interval"] = interval

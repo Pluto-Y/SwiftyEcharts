@@ -6,9 +6,9 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECMarkPoint : SECSymbolized, SECAnimatable {
+public struct SECMarkPoint: SECSymbolized, SECAnimatable {
     
-    public struct Data : SECSymbolized {
+    public struct Data: SECSymbolized {
         public var name: String?
         public var type: SECMarkDataType?
         public var valueIndex: UInt8?
@@ -22,9 +22,9 @@ public struct SECMarkPoint : SECSymbolized, SECAnimatable {
         public var symbol: SECSymbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
-        public var symbolOffset: SECPoint?
+        public var symbolOffset: Point?
         public var itemStyle: SECItemStyle?
-        public var label: SECLabel?
+        public var label: Label?
     }
     
     /// 标记的图形。
@@ -35,11 +35,11 @@ public struct SECMarkPoint : SECSymbolized, SECAnimatable {
     public var symbolRotate: Float?
     /// 标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
     /// 例如 [0, '50%'] 就是把自己向上移动了一半的位置，在 symbol 图形是气泡的时候可以让图形下端的箭头对准数据点。
-    public var symbolOffset: SECPoint?
+    public var symbolOffset: Point?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     /// 标注的文本。
-    public var label: SECFormattedLabel?
+    public var label: FormattedLabel?
     /// 标注的样式。
     public var itemStyle: SECItemStyle?
     /// 标注的数据数组
@@ -90,9 +90,9 @@ public struct SECMarkPoint : SECSymbolized, SECAnimatable {
 
 public typealias SECMarkPointData = SECMarkPoint.Data
 
-extension SECMarkPoint : SECEnumable {
+extension SECMarkPoint: Enumable {
     public enum Enums {
-        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), silent(Bool), label(SECFormattedLabel), itemStyle(SECItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), silent(Bool), label(FormattedLabel), itemStyle(SECItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -137,7 +137,7 @@ extension SECMarkPoint : SECEnumable {
     }
 }
 
-extension SECMarkPoint : Mappable {
+extension SECMarkPoint: Mappable {
     public func mapping(map: Mapper) {
         map["symbol"] = symbol
         map["symbolSize"] = symbolSize
@@ -159,9 +159,9 @@ extension SECMarkPoint : Mappable {
 }
 
 
-extension SECMarkPointData : SECEnumable {
+extension SECMarkPointData: Enumable {
     public enum Enums {
-        case name(String), type(SECMarkDataType), valueIndex(UInt8), valueDim(String), coord([Jsonable]), x(LengthValue), y(LengthValue), xAxis(Float), yAxis(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), itemStyle(SECItemStyle), label(SECLabel)
+        case name(String), type(SECMarkDataType), valueIndex(UInt8), valueDim(String), coord([Jsonable]), x(LengthValue), y(LengthValue), xAxis(Float), yAxis(Float), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), itemStyle(SECItemStyle), label(Label)
     }
     
     public typealias ContentEnum = Enums
@@ -206,7 +206,7 @@ extension SECMarkPointData : SECEnumable {
     }
 }
 
-extension SECMarkPointData : Mappable {
+extension SECMarkPointData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["type"] = type

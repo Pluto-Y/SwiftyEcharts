@@ -9,7 +9,7 @@
 
 
 /// 坐标轴的定义
-public struct SECAxis : SECZable {
+public struct SECAxis: Zable {
 
     /// 类目数据，在类目轴（type: 'category'）中有效。
     /// 
@@ -30,9 +30,9 @@ public struct SECAxis : SECZable {
         /// 单个类目名称。
         public var value: String?
         /// 类目标签的文字样式。
-        public var textStyle: SECTextStyle?
+        public var textStyle: TextStyle?
         
-        public init(_ value: String, _ textStyle: SECTextStyle? = nil) {
+        public init(_ value: String, _ textStyle: TextStyle? = nil) {
             self.value = value
             self.textStyle = textStyle
         }
@@ -55,7 +55,7 @@ public struct SECAxis : SECZable {
     /// 可选: 'start', 'middle', 'end'
     public var nameLocation: String? // FIXME: ??? 是否需要添加枚举
     /// 坐标轴名称的文字样式。
-    public var nameTextStyle: SECTextStyle?
+    public var nameTextStyle: TextStyle?
     /// 坐标轴名称与轴线之间的距离。
     public var nameGap: Float?
     /// 坐标轴名字旋转，角度值。
@@ -135,9 +135,9 @@ public struct SECAxis : SECZable {
     
 }
 
-extension SECAxis.Data : SECEnumable {
+extension SECAxis.Data: Enumable {
     public enum Enums {
-        case value(String), textStyle(SECTextStyle)
+        case value(String), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -154,16 +154,16 @@ extension SECAxis.Data : SECEnumable {
     }
 }
 
-extension SECAxis.Data : Mappable {
+extension SECAxis.Data: Mappable {
     public func mapping(map: Mapper) {
         map["value"] = value
         map["textStyle"] = textStyle
     }
 }
 
-extension SECAxis : SECEnumable {
+extension SECAxis: Enumable {
     public enum Enums {
-        case gridIndex(UInt), position(SECPosition), offset(Float), type(SECAxisType), name(String), nameLocation(String), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Jsonable]), zlevel(Float), z(Float)
+        case gridIndex(UInt), position(SECPosition), offset(Float), type(SECAxisType), name(String), nameLocation(String), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Jsonable]), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums

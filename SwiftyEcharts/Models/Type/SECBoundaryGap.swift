@@ -14,9 +14,9 @@
 /// 示例:
 ///
 ///         boundaryGap: ['20%', '20%']
-public enum SECBoundaryGap : Jsonable {
+public enum SECBoundaryGap: Jsonable {
     case category(Bool)
-    case notCategory(SECRange)
+    case notCategory(Range)
     
     public var jsonString: String {
         switch self {
@@ -29,7 +29,7 @@ public enum SECBoundaryGap : Jsonable {
 }
 
 /// 保证该类可以通过 Bool 的类型进行创建
-extension SECBoundaryGap : BooleanLiteralConvertible {
+extension SECBoundaryGap: BooleanLiteralConvertible {
     public typealias BooleanLiteralType = Bool
     public init(booleanLiteral value: Bool) {
         self = SECBoundaryGap.category(value)
@@ -37,9 +37,9 @@ extension SECBoundaryGap : BooleanLiteralConvertible {
 }
 
 /// 保证该类可以通过常量数组进行创建
-extension SECBoundaryGap : ArrayLiteralConvertible {
+extension SECBoundaryGap: ArrayLiteralConvertible {
     public init(arrayLiteral elements: LengthValue...) {
-        let range: SECRange = SECRange(elements)
+        let range: Range = Range(elements)
         self = SECBoundaryGap.notCategory(range)
     }
 }

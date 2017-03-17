@@ -25,7 +25,7 @@ public struct SECThemeRiverOptions {
                         ))
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["DQ", "TY", "SS", "QG", "SY", "DD"])
                 )),
             .singleAxis(SECSingleAxis(
@@ -164,8 +164,8 @@ public struct SECThemeRiverOptions {
             .series([
                 SECThemeRiverSerie(
                     .data(data),
-                    .label(SECFormattedLabel(
-                        .normal(SECFormattedLabelStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
                             .show(false)
                             ))
                         ))

@@ -7,7 +7,7 @@
 //
 
 /// 滑动条型数据区域缩放组件（dataZoomSlider）
-public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
+public struct SECSliderDataZoom: SECDataZoom, Displayable, Zable {
     
     /// 数据阴影的样式。
     public struct DataBackground {
@@ -18,7 +18,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     }
     
     /// 手柄的样式配置，见 示例: http://echarts.baidu.com/gallery/editor.html?c=area-simple
-    public struct HandleStyle : SECColorful, SECBorderable, SECShadowable, SECOpacitable {
+    public struct HandleStyle: Colorful, Borderable, Shadowable, Opacitable {
         /// 图形的颜色。
         /// > 颜色可以使用 RGB 表示，比如 'rgb(128, 128, 128)'，如果想要加上 alpha 通道表示不透明度，可以使用 RGBA，比如 'rgba(128, 128, 128, 0.5)'，也可以使用十六进制格式，比如 '#ccc'。除了纯色之外颜色也支持渐变色和纹理填充
         ///
@@ -35,13 +35,13 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
         ///         imageDom, // 支持为 HTMLImageElement, HTMLCanvasElement，不支持路径字符串
         ///         'repeat' // 是否平铺, 可以是 repeat-x, repeat-y, no-repeat
         ///     )
-        public var color: SECColor?
+        public var color: Color?
         /// 图形的描边颜色。支持的格式同 color。
-        public var borderColor: SECColor?
+        public var borderColor: Color?
         /// 描边线宽。为 0 时无描边。
         public var borderWidth: Float?
         /// 柱条的描边类型，默认为实线，支持 'solid', 'dashed', 'dotted'。
-        public var borderType: SECLineType?
+        public var borderType: LineType?
         /// 图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果。
         ///
         /// 示例：
@@ -52,7 +52,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
         ///     }
         public var shadowBlur: Float?
         /// 阴影颜色。支持的格式同color。
-        public var shadowColor: SECColor?
+        public var shadowColor: Color?
         /// 阴影水平方向上的偏移距离。
         public var shadowOffsetX: Float?
         /// 阴影垂直方向上的偏移距离。
@@ -69,13 +69,13 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     /// 是否显示 组件。如果设置为 false，不会显示，但是数据过滤的功能还存在。
     public var show: Bool?
     /// 组件的背景颜色。
-    public var backgroundColor: SECColor?
+    public var backgroundColor: Color?
     /// 数据阴影的样式。
     public var dataBackground: DataBackground?
     /// 选中范围的填充颜色。
-    public var fillerColor: SECColor?
+    public var fillerColor: Color?
     /// 边框颜色。
-    public var borderColor: SECColor?
+    public var borderColor: Color?
     /// 手柄的 icon 形状，支持路径字符串，默认为：
     /// 'M8.2,13.6V3.9H6.3v9.7H3.1v14.9h3.3v9.7h1.8v-9.7h3.3V13.6H8.2z M9.7,24.4H4.8v-1.4h4.9V24.4z M9.7,19.1H4.8v-1.4h4.9V19.1z'
     /// 自定义 icon 见 示例: http://echarts.baidu.com/gallery/editor.html?c=area-simple
@@ -87,7 +87,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     /// 显示label的小数精度。默认根据数据自动决定。
     public var labelPrecision: Float?
     /// 显示的label的格式化器。
-    public var labelFormatter: SECFormatter?
+    public var labelFormatter: Formatter?
     /// 是否显示detail，即拖拽时候显示详细数值信息。
     public var showDetail: Bool?
     /// 是否在 dataZoom-silder 组件中显示数据阴影。数据阴影可以简单地反应数据走势。
@@ -95,7 +95,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     /// 拖动时，是否实时更新系列的视图。如果设置为 false，则只在拖拽结束的时候更新。
     public var realtime: Bool?
     /// 文本样式
-    public var textStyle: SECTextStyle?
+    public var textStyle: TextStyle?
     /// 设置 dataZoom-inside 组件控制的 x轴（即xAxis，是直角坐标系中的概念，参见 grid）。
     /// 不指定时，当 dataZoom-inside.orient 为 'horizontal'时，默认控制和 dataZoom 平行的第一个 xAxis。但是不建议使用默认值，建议显式指定。
     /// 如果是 number 表示控制一个轴，如果是 Array 表示控制多个轴。
@@ -117,7 +117,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     ///                 }
     ////            ]
     ///         }
-    public var xAxisIndex: SECOneOrMore<UInt8>?
+    public var xAxisIndex: OneOrMore<UInt8>?
     /// 设置 dataZoom-inside 组件控制的 x轴（即yAxis，是直角坐标系中的概念，参见 grid）。
     /// 不指定时，当 dataZoom-inside.orient 为 'vertical'时，默认控制和 dataZoom 平行的第一个 yAxis。但是不建议使用默认值，建议显式指定。
     /// 如果是 number 表示控制一个轴，如果是 Array 表示控制多个轴。
@@ -139,7 +139,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     ///                 }
     ////            ]
     ///         }
-    public var yAxisIndex: SECOneOrMore<UInt8>?
+    public var yAxisIndex: OneOrMore<UInt8>?
     /// 设置 dataZoom-inside 组件控制的 radius 轴（即radiusAxis，是直角坐标系中的概念，参见 polar）。
     /// 如果是 number 表示控制一个轴，如果是 Array 表示控制多个轴。
     /// 例如有如下 ECharts option：
@@ -160,7 +160,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     ///                 }
     ///             ]
     ///         }
-    public var radiusAxisIndex: SECOneOrMore<UInt8>?
+    public var radiusAxisIndex: OneOrMore<UInt8>?
     /// 设置 dataZoom-inside 组件控制的 angle 轴（即angleAxis，是直角坐标系中的概念，参见 polar）。
     /// 如果是 number 表示控制一个轴，如果是 Array 表示控制多个轴。
     /// 例如有如下 ECharts option：
@@ -181,7 +181,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     ///                 }
     ///             ]
     ///         }
-    public var angleAxisIndex: SECOneOrMore<UInt8>?
+    public var angleAxisIndex: OneOrMore<UInt8>?
     /// dataZoom 的运行原理是通过 数据过滤 来达到 数据窗口缩放 的效果。数据过滤模式的设置不同，效果也不同。
     /// 可选值为：
     /// - 'filter'：当前数据窗口外的数据，被 过滤掉。即会影响其他轴的数据范围。
@@ -281,7 +281,7 @@ public struct SECSliderDataZoom : SECDataZoom, SECDisplayable, SECZable {
     public var bottom: SECPosition?
 }
 
-extension SECSliderDataZoom.DataBackground : SECEnumable {
+extension SECSliderDataZoom.DataBackground: Enumable {
     public enum Enums {
         case lineStyle(SECEmphasisLineStyle), areaStyle(SECAreaStyle)
     }
@@ -300,16 +300,16 @@ extension SECSliderDataZoom.DataBackground : SECEnumable {
     }
 }
 
-extension SECSliderDataZoom.DataBackground : Mappable {
+extension SECSliderDataZoom.DataBackground: Mappable {
     public func mapping(map: Mapper) {
         map["lineStyle"] = lineStyle
         map["areaStyle"] = areaStyle
     }
 }
 
-extension SECSliderDataZoom.HandleStyle : SECEnumable {
+extension SECSliderDataZoom.HandleStyle: Enumable {
     public enum Enums {
-        case color(SECColor), borderColor(SECColor), borderWidth(Float), borderType(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
+        case color(Color), borderColor(Color), borderWidth(Float), borderType(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -340,7 +340,7 @@ extension SECSliderDataZoom.HandleStyle : SECEnumable {
     }
 }
 
-extension SECSliderDataZoom.HandleStyle : Mappable {
+extension SECSliderDataZoom.HandleStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["borderColor"] = borderColor
@@ -354,9 +354,9 @@ extension SECSliderDataZoom.HandleStyle : Mappable {
     }
 }
 
-extension SECSliderDataZoom : SECEnumable {
+extension SECSliderDataZoom: Enumable {
     public enum Enums {
-        case show(Bool), backgroundColor(SECColor), dataBackground(DataBackground), fillerColor(SECColor), borderColor(SECColor), handleIcon(String), handleSize(Float), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(SECFormatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(SECTextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(SECFilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition)
+        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(Float), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(SECFilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition)
     }
     
     public typealias ContentEnum = Enums
@@ -393,21 +393,21 @@ extension SECSliderDataZoom : SECEnumable {
             case let .textStyle(textStyle):
                 self.textStyle = textStyle
             case let .xAxisIndex(xAxisIndex):
-                self.xAxisIndex = SECOneOrMore(one: xAxisIndex)
+                self.xAxisIndex = OneOrMore(one: xAxisIndex)
             case let .xAxisIndexes(xAxisIndexes):
-                self.xAxisIndex = SECOneOrMore(more: xAxisIndexes)
+                self.xAxisIndex = OneOrMore(more: xAxisIndexes)
             case let .yAxisIndex(yAxisIndex):
-                self.yAxisIndex = SECOneOrMore(one: yAxisIndex)
+                self.yAxisIndex = OneOrMore(one: yAxisIndex)
             case let .yAxisIndexes(yAxisIndexes):
-                self.yAxisIndex = SECOneOrMore(more: yAxisIndexes)
+                self.yAxisIndex = OneOrMore(more: yAxisIndexes)
             case let .radiusAxisIndex(radiusAxisIndex):
-                self.radiusAxisIndex = SECOneOrMore(one: radiusAxisIndex)
+                self.radiusAxisIndex = OneOrMore(one: radiusAxisIndex)
             case let .radiusAxisIndexes(radiusAxisIndexes):
-                self.radiusAxisIndex = SECOneOrMore(more: radiusAxisIndexes)
+                self.radiusAxisIndex = OneOrMore(more: radiusAxisIndexes)
             case let .angleAxisIndex(angleAxisIndex):
-                self.angleAxisIndex = SECOneOrMore(one: angleAxisIndex)
+                self.angleAxisIndex = OneOrMore(one: angleAxisIndex)
             case let .angleAxisIndexes(angleAxisIndexes):
-                self.angleAxisIndex = SECOneOrMore(more: angleAxisIndexes)
+                self.angleAxisIndex = OneOrMore(more: angleAxisIndexes)
             case let .filterMode(filterMode):
                 self.filterMode = filterMode
             case let .start(start):
@@ -439,7 +439,7 @@ extension SECSliderDataZoom : SECEnumable {
     }
 }
 
-extension SECSliderDataZoom : Mappable {
+extension SECSliderDataZoom: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["show"] = show

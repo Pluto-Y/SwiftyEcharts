@@ -7,7 +7,7 @@
 //
 
 /// 坐标轴刻度相关设置。
-public struct SECAxisTick : SECLine, SECDisplayable {
+public struct SECAxisTick: SECLine, Displayable {
     /// 是否显示坐标轴刻度。
     public var show: Bool?
     /// 类目轴中在 boundaryGap 为 true 的时候有效，可以保证刻度线和标签对齐。
@@ -33,7 +33,7 @@ public struct SECAxisTick : SECLine, SECDisplayable {
     
 }
 
-extension SECAxisTick : SECEnumable {
+extension SECAxisTick: Enumable {
     public enum Enums {
         case show(Bool), alignWithLabel(Bool), interval(Int), inside(Bool), length(Float), lineStyle(SECLineStyle)
     }
@@ -60,7 +60,7 @@ extension SECAxisTick : SECEnumable {
     }
 }
 
-extension SECAxisTick : Mappable {
+extension SECAxisTick: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["alignWithLabel"] = alignWithLabel

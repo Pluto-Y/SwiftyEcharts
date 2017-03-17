@@ -14,11 +14,11 @@ public struct SECPieOptions {
     static func pieCustomOption() -> SECOption {
         return SECOption(
             .backgroundColor(.hexColor("#2c343c")),
-            .title(SECTitle(
+            .title(Title(
                 .text("Customized Pie"),
                 .left(.center),
                 .top(.value(20)),
-                .textStyle(SECTextStyle(
+                .textStyle(TextStyle(
                     .color(.hexColor("#ccc"))
                     ))
                 )),
@@ -47,9 +47,9 @@ public struct SECPieOptions {
                         ["value":400, "name":"搜索引擎"]
                         ]),
                     .roseType(.enable),
-                    .label(SECFormattedLabel(
-                        .normal(SECFormattedLabelStyle(
-                            .textStyle(SECTextStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
+                            .textStyle(TextStyle(
                                 .color(.rgba(255, 255, 255, 0.3))
                                 ))
                             ))
@@ -87,7 +87,7 @@ public struct SECPieOptions {
                 .trigger(.item),
                 .formatter(.string("{a} <br/>{b}: {c} ({d}%)"))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .orient(.vertical),
                 .x(.left),
                 .data(["直接访问","邮件营销","联盟广告","视频广告","搜索引擎"])
@@ -97,14 +97,14 @@ public struct SECPieOptions {
                     .name("访问来源"),
                     .radiusRange([50%, 70%]),
                     .avoidLabelOverlap(false),
-                    .label(SECFormattedLabel(
-                        .normal(SECFormattedLabelStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
                             .show(false),
                             .position(.center)
                             )),
-                        .emphasis(SECFormattedLabelStyle(
+                        .emphasis(FormattedLabelStyle(
                             .show(true),
-                            .textStyle(SECTextStyle(
+                            .textStyle(TextStyle(
                                 .fontSize(30),
                                 .fontWeight(.bold)
                                 ))
@@ -135,7 +135,7 @@ public struct SECPieOptions {
                 .trigger(.item),
                 .formatter(.string("{a} <br/>{b}: {c} ({d}%)"))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .orient(.vertical),
                 .x(.left),
                 .data(["直达","营销广告","搜索引擎","邮件营销","联盟广告","视频广告","百度","谷歌","必应","其他"])
@@ -145,8 +145,8 @@ public struct SECPieOptions {
                     .name("访问来源"),
                     .selectedMode(.single),
                     .radiusRange([0, 30%]),
-                    .label(SECFormattedLabel(
-                        .normal(SECFormattedLabelStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
                             .position(.inner)
                             ))
                         )),
@@ -194,9 +194,9 @@ public struct SECPieOptions {
         )
         return SECOption(
             .backgroundColor(.image(bgPartternBase64Str, .repeatAll)),
-            .title(SECTitle(
+            .title(Title(
                 .text("饼图纹理"),
-                .textStyle(SECTextStyle(
+                .textStyle(TextStyle(
                     .color(.hexColor("#235894"))
                     ))
                 )),
@@ -207,9 +207,9 @@ public struct SECPieOptions {
                     .selectedMode(.single),
                     .selectedOffset(30),
                     .clockwise(true),
-                    .label(SECFormattedLabel(
-                        .normal(SECFormattedLabelStyle(
-                            .textStyle(SECTextStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
+                            .textStyle(TextStyle(
                                 .fontSize(12),
                                 .color(.hexColor("#235894"))
                             ))
@@ -239,7 +239,7 @@ public struct SECPieOptions {
     /// 地址: http://echarts.baidu.com/demo.html#pie-simple
     static func pieSimpleOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("某站点用户访问来源"),
                 .sublink("纯属虚构"),
                 .x(.center)
@@ -248,7 +248,7 @@ public struct SECPieOptions {
                 .trigger(.item),
                 .formatter(.string("{a} <br/>{b}: {c} ({d}%)"))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .orient(.vertical),
                 .left(.auto),
                 .data(["直接访问","邮件营销","联盟广告","视频广告","搜索引擎"])
@@ -281,7 +281,7 @@ public struct SECPieOptions {
     /// 地址: http://echarts.baidu.com/demo.html#pie-roseType
     static func pieRoseTypeOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("南丁格尔玫瑰图"),
                 .sublink("纯属虚构"),
                 .x(.center)
@@ -290,7 +290,7 @@ public struct SECPieOptions {
                 .trigger(.item),
                 .formatter(.string("{a} <br/>{b} : {c} ({d}%)"))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .x(.center),
                 .y(.bottom),
                 .data(["rose1","rose2","rose3","rose4","rose5","rose6","rose7","rose8"])
@@ -319,11 +319,11 @@ public struct SECPieOptions {
                     .radiusRange([10, 55]),
                     .center([25%, 50%]),
                     .roseType(.enable),
-                    .label(SECFormattedLabel(
-                        .normal(SECFormattedLabelStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
                             .show(false)
                             )),
-                        .emphasis(SECFormattedLabelStyle(
+                        .emphasis(FormattedLabelStyle(
                             .show(true)
                             ))
                         )),

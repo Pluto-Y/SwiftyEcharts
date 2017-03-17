@@ -6,20 +6,20 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECLineStyleContent: SECColorful, SECShadowable, SECOpacitable {
+public protocol SECLineStyleContent: Colorful, Shadowable, Opacitable {
     var width: Float? { get set }
-    var type: SECLineType? { get set }
+    var type: LineType? { get set }
 }
 
 
 /// 线条样式
-public struct SECLineStyle: SECShadowable, SECColorful, SECOpacitable, Jsonable {
+public struct SECLineStyle: Shadowable, Colorful, Opacitable, Jsonable {
     /// 线的颜色。
-    public var color: SECColor?
+    public var color: Color?
     /// 线宽。
     public var width: Float?
     /// 线的类型。
-    public var type: SECLineType?
+    public var type: LineType?
     /// 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
     public var opacity: Float? {
         didSet {
@@ -27,9 +27,9 @@ public struct SECLineStyle: SECShadowable, SECColorful, SECOpacitable, Jsonable 
         }
     }
     
-    // MARK: - SECShadowable
+    // MARK: - Shadowable
     public var shadowBlur: Float?
-    public var shadowColor: SECColor?
+    public var shadowColor: Color?
     public var shadowOffsetX: Float?
     public var shadowOffsetY: Float?
     
@@ -40,9 +40,9 @@ public struct SECLineStyle: SECShadowable, SECColorful, SECOpacitable, Jsonable 
 }
 
 
-extension SECLineStyle : SECEnumable {
+extension SECLineStyle: Enumable {
     public enum Enums {
-        case color(SECColor), width(Float), type(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), curveness(Float)
+        case color(Color), width(Float), type(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), curveness(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -73,7 +73,7 @@ extension SECLineStyle : SECEnumable {
     }
 }
 
-extension SECLineStyle : Mappable {
+extension SECLineStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["width"] = width
@@ -87,7 +87,7 @@ extension SECLineStyle : Mappable {
     }
 }
 
-public struct SECEmphasisLineStyle : SECEmphasisable {
+public struct SECEmphasisLineStyle: Emphasisable {
     public typealias Style = SECLineStyle
     
     public var normal: Style?
@@ -96,7 +96,7 @@ public struct SECEmphasisLineStyle : SECEmphasisable {
     public init() { }
 }
 
-extension SECEmphasisLineStyle : SECEnumable {
+extension SECEmphasisLineStyle: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -115,7 +115,7 @@ extension SECEmphasisLineStyle : SECEnumable {
     }
 }
 
-extension SECEmphasisLineStyle : Mappable {
+extension SECEmphasisLineStyle: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis

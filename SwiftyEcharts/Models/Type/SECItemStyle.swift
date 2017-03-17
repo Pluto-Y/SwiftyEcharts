@@ -6,18 +6,18 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECItemStyleContent : SECColorful, SECBorderable, SECShadowable, SECOpacitable {
-    var borderType: SECLineType? { get set }
+public protocol SECItemStyleContent: Colorful, Borderable, Shadowable, Opacitable {
+    var borderType: LineType? { get set }
 }
 
-public struct SECCommonItemStyleContent : SECItemStyleContent {
+public struct SECCommonItemStyleContent: SECItemStyleContent {
     
-    public var color: SECColor?
-    public var borderColor: SECColor?
+    public var color: Color?
+    public var borderColor: Color?
     public var borderWidth: Float?
-    public var borderType: SECLineType?
+    public var borderType: LineType?
     public var shadowBlur: Float?
-    public var shadowColor: SECColor?
+    public var shadowColor: Color?
     public var shadowOffsetX: Float?
     public var shadowOffsetY: Float?
     public var opacity: Float? {
@@ -31,9 +31,9 @@ public struct SECCommonItemStyleContent : SECItemStyleContent {
     public init() { }
 }
 
-extension SECCommonItemStyleContent : SECEnumable {
+extension SECCommonItemStyleContent: Enumable {
     public enum Enums {
-        case color(SECColor), borderColor(SECColor), borderWidth(Float), borderType(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), barBorderRadius(Float)
+        case color(Color), borderColor(Color), borderWidth(Float), borderType(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), barBorderRadius(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -66,7 +66,7 @@ extension SECCommonItemStyleContent : SECEnumable {
     }
 }
 
-extension SECCommonItemStyleContent : Mappable {
+extension SECCommonItemStyleContent: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["borderColor"] = borderColor
@@ -81,7 +81,7 @@ extension SECCommonItemStyleContent : Mappable {
     }
 }
 
-public struct SECItemStyle : SECEmphasisable {
+public struct SECItemStyle: Emphasisable {
     public typealias Style = SECCommonItemStyleContent
     
     public var normal: Style?
@@ -92,7 +92,7 @@ public struct SECItemStyle : SECEmphasisable {
 
 public typealias SECEmphasisItemStyle = SECItemStyle
 
-extension SECItemStyle : SECEnumable {
+extension SECItemStyle: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -111,7 +111,7 @@ extension SECItemStyle : SECEnumable {
     }
 }
 
-extension SECItemStyle : Mappable {
+extension SECItemStyle: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis

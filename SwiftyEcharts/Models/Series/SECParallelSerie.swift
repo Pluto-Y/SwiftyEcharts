@@ -113,7 +113,7 @@
 /// 可以通过 parallel.axisExpandable 来改善显示效果，如下例子：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=map-parallel-prices
-public struct SECParallelSerie : SECSeries, SECZable, SECAnimatable {
+public struct SECParallelSerie: SECSeries, Zable, SECAnimatable {
     
     /// 类型
     public var type: SECSerieType {
@@ -151,7 +151,7 @@ public struct SECParallelSerie : SECSeries, SECZable, SECAnimatable {
     /// 数据中，每一行是一个『数据项』，每一列属于一个『维度』。（例如上面数据每一列的含义分别是：『日期』,『AQI指数』, 『PM2.5』, 『PM10』, 『一氧化碳值』, 『二氧化氮值』, 『二氧化硫值』）。
     public var data: [Jsonable]?
     
-    /// MARK: SECZable
+    /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
     
@@ -171,7 +171,7 @@ public struct SECParallelSerie : SECSeries, SECZable, SECAnimatable {
     public init() { }
 }
 
-extension SECParallelSerie : SECEnumable {
+extension SECParallelSerie: Enumable {
     public enum Enums {
         case coordinateSystem(SECCoordinateSystem), parallelIndex(UInt8), name(String), lineStyle(SECEmphasisLineStyle), inactiveOpacity(Float), activeOpacity(Float), realtime(Bool), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
@@ -224,7 +224,7 @@ extension SECParallelSerie : SECEnumable {
     }
 }
 
-extension SECParallelSerie : Mappable {
+extension SECParallelSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["coordinateSystem"] = coordinateSystem

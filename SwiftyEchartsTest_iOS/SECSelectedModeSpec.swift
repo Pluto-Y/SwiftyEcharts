@@ -1,5 +1,5 @@
 //
-//  SECSelectedModeSpec.swift
+//  SelectedModeSpec.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 10/03/2017.
@@ -10,18 +10,18 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class SECSelectedModeSpec: QuickSpec {
+class SelectedModeSpec: QuickSpec {
     
     override func spec() {
         
-        describe("For SECSelectedMode") {
-            let enableMode: SECSelectedMode = .enable
-            let disableMode: SECSelectedMode = .disable
-            let singleMode: SECSelectedMode = .single
-            let multipMode: SECSelectedMode = .multiple
+        describe("For SelectedMode") {
+            let enableMode: SelectedMode = .enable
+            let disableMode: SelectedMode = .disable
+            let singleMode: SelectedMode = .single
+            let multipMode: SelectedMode = .multiple
             
-            let trueLiteralMode: SECSelectedMode = true
-            let falseLiteralMode: SECSelectedMode = false
+            let trueLiteralMode: SelectedMode = true
+            let falseLiteralMode: SelectedMode = false
             
             it(" needs to check the BooleanLiteral Constructor") {
                 expect(trueLiteralMode.rawValue).to(equal(enableMode.rawValue))

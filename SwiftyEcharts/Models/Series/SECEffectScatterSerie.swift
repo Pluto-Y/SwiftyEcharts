@@ -11,13 +11,13 @@
 /// Tip: ECharts 2.x 中在地图上通过 markPoint 实现地图特效在 ECharts 3 中建议通过地理坐标系上的 effectScatter 实现。
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=effectScatter-map
-public struct SECEffectScatterSerie : SECSeries, SECSymbolized, SECZable {
+public struct SECEffectScatterSerie: SECSeries, SECSymbolized, Zable {
     
     /// 何时显示特效
     ///
     /// - render: 绘制完成后显示特效
     /// - emphasis: 高亮（hover）的时候显示特效
-    public enum ShowEffectOn : String, Jsonable {
+    public enum ShowEffectOn: String, Jsonable {
         case render = "render"
         case emphasis = "emphasis"
         
@@ -29,7 +29,7 @@ public struct SECEffectScatterSerie : SECSeries, SECSymbolized, SECZable {
     /// 涟漪特效相关配置。
     public struct RippleEffect {
         /// 波纹的绘制方式
-        public enum BrushType : String, Jsonable {
+        public enum BrushType: String, Jsonable {
             case stroke = "stroke"
             case fill = "fill"
             
@@ -79,9 +79,9 @@ public struct SECEffectScatterSerie : SECSeries, SECSymbolized, SECZable {
     public var symbol: SECSymbol?
     public var symbolSize: Float?
     public var symbolRotate: Float?
-    public var symbolOffset: SECPoint?
+    public var symbolOffset: Point?
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
-    public var label: SECFormattedLabel?
+    public var label: FormattedLabel?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: SECItemStyle?
     /// 系列中的数据内容数组。数组项通常为具体的数据项。
@@ -185,7 +185,7 @@ public struct SECEffectScatterSerie : SECSeries, SECSymbolized, SECZable {
     public var markLine: SECMarkLine?
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
     public var markArea: SECMarkArea?
-    /// MARK: SECZable
+    /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
@@ -203,7 +203,7 @@ public struct SECEffectScatterSerie : SECSeries, SECSymbolized, SECZable {
     public init() {}
 }
 
-extension SECEffectScatterSerie.RippleEffect : SECEnumable {
+extension SECEffectScatterSerie.RippleEffect: Enumable {
     public enum Enums {
         case period(Float), scale(Float), brushType(BrushType)
     }
@@ -224,7 +224,7 @@ extension SECEffectScatterSerie.RippleEffect : SECEnumable {
     }
 }
 
-extension SECEffectScatterSerie.RippleEffect : Mappable {
+extension SECEffectScatterSerie.RippleEffect: Mappable {
     public func mapping(map: Mapper) {
         map["period"] = period
         map["scale"] = scale
@@ -232,9 +232,9 @@ extension SECEffectScatterSerie.RippleEffect : Mappable {
     }
 }
 
-extension SECEffectScatterSerie : SECEnumable {
+extension SECEffectScatterSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECFormattedLabel), itemStyle(SECItemStyle), data([Any]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), legendHoverLink(Bool), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(SECItemStyle), data([Any]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -307,7 +307,7 @@ extension SECEffectScatterSerie : SECEnumable {
     }
 }
 
-extension SECEffectScatterSerie : Mappable {
+extension SECEffectScatterSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name

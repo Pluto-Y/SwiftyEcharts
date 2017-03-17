@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECMarkLine : SECAnimatable {
+public struct SECMarkLine: SECAnimatable {
     
     public struct Data {
         /// 名称
@@ -69,7 +69,7 @@ public struct SECMarkLine : SECAnimatable {
         /// 该数据项线的样式，起点和终点项的 lineStyle会合并到一起。
         public var lineStyle: SECEmphasisLineStyle?
         /// 该数据项标签的样式，起点和终点项的 label会合并到一起。
-        public var label: SECFormattedLabel?
+        public var label: FormattedLabel?
         
     }
     
@@ -85,7 +85,7 @@ public struct SECMarkLine : SECAnimatable {
     /// 标线数值的精度，在显示平均值线的时候有用。
     public var precision: Float?
     /// 标线的文本。
-    public var label: SECLabel?
+    public var label: Label?
     /// 标线的样式
     public var lineStyle: SECEmphasisLineStyle?
     /// 标线的数据数组。每个数组项可以是一个两个值的数组，分别表示线的起点和终点，每一项是一个对象，有下面几种方式指定起点或终点的位置。
@@ -190,9 +190,9 @@ public struct SECMarkLine : SECAnimatable {
 
 public typealias SECMarkLineData = SECMarkLine.Data
 
-extension SECMarkLineData : SECEnumable {
+extension SECMarkLineData: Enumable {
     public enum Enums {
-        case name(String), type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(LengthValue), y(LengthValue), xAxis(String), yAxis(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([LengthValue]), lineStyle(SECEmphasisLineStyle), label(SECFormattedLabel)
+        case name(String), type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(LengthValue), y(LengthValue), xAxis(String), yAxis(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset([LengthValue]), lineStyle(SECEmphasisLineStyle), label(FormattedLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -237,7 +237,7 @@ extension SECMarkLineData : SECEnumable {
     }
 }
 
-extension SECMarkLineData : Mappable {
+extension SECMarkLineData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["type"] = type
@@ -258,9 +258,9 @@ extension SECMarkLineData : Mappable {
     }
 }
 
-extension SECMarkLine : SECEnumable {
+extension SECMarkLine: Enumable {
     public enum Enums {
-        case silent(Bool), symbol(SECSymbol), symbolSize(Float), precision(Float), label(SECLabel), lineStyle(SECEmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case silent(Bool), symbol(SECSymbol), symbolSize(Float), precision(Float), label(Label), lineStyle(SECEmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -303,7 +303,7 @@ extension SECMarkLine : SECEnumable {
     }
 }
 
-extension SECMarkLine : Mappable {
+extension SECMarkLine: Mappable {
     public func mapping(map: Mapper) {
         map["silent"] = silent
         map["symbol"] = symbol

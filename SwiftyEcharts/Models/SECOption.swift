@@ -6,16 +6,16 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECOption : SECTextful, SECAnimatable {
-    public var title: SECTitle?
-    public var legend: SECLegend?
-    public var grid: SECOneOrMore<SECGrid>?
-    public var xAxis: SECOneOrMore<SECAxis>?
-    public var yAxis: SECOneOrMore<SECAxis>?
+public struct SECOption: Textful, SECAnimatable {
+    public var title: Title?
+    public var legend: Legend?
+    public var grid: OneOrMore<SECGrid>?
+    public var xAxis: OneOrMore<SECAxis>?
+    public var yAxis: OneOrMore<SECAxis>?
     public var polar: SECPolar?
     public var radiusAxis: [SECRadiusAxis]?
     public var angleAxis: [SECAngleAxis]?
-    public var radar: SECOneOrMore<SECRadar>?
+    public var radar: OneOrMore<SECRadar>?
     public var dataZoom: [SECDataZoom]?
     public var visualMap: SECVisualMap?
     public var tooltip: SECTooltip?
@@ -24,13 +24,13 @@ public struct SECOption : SECTextful, SECAnimatable {
     public var geo: SECGeo?
     public var parallel: SECParallel?
     public var parallelAxis: [SECParallelAxis]?
-    public var singleAxis: SECOneOrMore<SECSingleAxis>?
+    public var singleAxis: OneOrMore<SECSingleAxis>?
     public var timeline: SECTimeline?
     public var graphic: [SECGraphic]?
     public var series: [SECSeries]?
-    public var color: [SECColor]?
-    public var backgroundColor: SECColor?
-    public var textStyle: SECTextStyle?
+    public var color: [Color]?
+    public var backgroundColor: Color?
+    public var textStyle: TextStyle?
     
     /// 是否开启动画。
     public var animation: Bool?
@@ -75,9 +75,9 @@ public struct SECOption : SECTextful, SECAnimatable {
     public init() { }
 }
 
-extension SECOption : SECEnumable {
+extension SECOption: Enumable {
     public enum Enums {
-        case title(SECTitle), legend(SECLegend), grid(SECGrid), grids([SECGrid]), xAxis(SECAxis), xAxises([SECAxis]), yAxis(SECAxis), yAxises([SECAxis]), polar(SECPolar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(SECRadar), radars([SECRadar]), dataZoom([SECDataZoom]), visualMap(SECVisualMap), tooltip(SECTooltip), toolbox(SECToolbox), brush(SECBrush), geo(SECGeo), parallel(SECParallel), parallelAxis([SECParallelAxis]), singleAxis(SECSingleAxis), singleAxises([SECSingleAxis]), timeline(SECTimeline), graphic([SECGraphic]), series([SECSeries]), color([SECColor]), backgroundColor(SECColor), textStyle(SECTextStyle), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case title(Title), legend(Legend), grid(SECGrid), grids([SECGrid]), xAxis(SECAxis), xAxises([SECAxis]), yAxis(SECAxis), yAxises([SECAxis]), polar(SECPolar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(SECRadar), radars([SECRadar]), dataZoom([SECDataZoom]), visualMap(SECVisualMap), tooltip(SECTooltip), toolbox(SECToolbox), brush(SECBrush), geo(SECGeo), parallel(SECParallel), parallelAxis([SECParallelAxis]), singleAxis(SECSingleAxis), singleAxises([SECSingleAxis]), timeline(SECTimeline), graphic([SECGraphic]), series([SECSeries]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -90,17 +90,17 @@ extension SECOption : SECEnumable {
             case let .legend(legend):
                 self.legend = legend
             case let .grid(grid):
-                self.grid = SECOneOrMore(one: grid)
+                self.grid = OneOrMore(one: grid)
             case let .grids(grids):
-                self.grid = SECOneOrMore(more: grids)
+                self.grid = OneOrMore(more: grids)
             case let .xAxis(xAxis):
-                self.xAxis = SECOneOrMore(one: xAxis)
+                self.xAxis = OneOrMore(one: xAxis)
             case let .xAxises(xAxises):
-                self.xAxis = SECOneOrMore(more: xAxises)
+                self.xAxis = OneOrMore(more: xAxises)
             case let .yAxis(yAxis):
-                self.yAxis = SECOneOrMore(one: yAxis)
+                self.yAxis = OneOrMore(one: yAxis)
             case let .yAxises(yAxises):
-                self.yAxis = SECOneOrMore(more: yAxises)
+                self.yAxis = OneOrMore(more: yAxises)
             case let .polar(polar):
                 self.polar = polar
             case let .radiusAxis(radiusAxis):
@@ -108,9 +108,9 @@ extension SECOption : SECEnumable {
             case let .angleAxis(angleAxis):
                 self.angleAxis = angleAxis
             case let .radar(radar):
-                self.radar = SECOneOrMore(one: radar)
+                self.radar = OneOrMore(one: radar)
             case let .radars(radars):
-                self.radar = SECOneOrMore(more: radars)
+                self.radar = OneOrMore(more: radars)
             case let .dataZoom(dataZoom):
                 self.dataZoom = dataZoom
             case let .visualMap(visualMap):
@@ -128,9 +128,9 @@ extension SECOption : SECEnumable {
             case let .parallelAxis(parallelAxis):
                 self.parallelAxis = parallelAxis
             case let .singleAxis(singleAxis):
-                self.singleAxis = SECOneOrMore(one: singleAxis)
+                self.singleAxis = OneOrMore(one: singleAxis)
             case let .singleAxises(singleAxises):
-                self.singleAxis = SECOneOrMore(more: singleAxises)
+                self.singleAxis = OneOrMore(more: singleAxises)
             case let .timeline(timeline):
                 self.timeline = timeline
             case let .graphic(graphic):
@@ -164,7 +164,7 @@ extension SECOption : SECEnumable {
     }
 }
 
-extension SECOption : Mappable {
+extension SECOption: Mappable {
     public func mapping(map: Mapper) {
         map["title"] = title
         map["legend"] = legend

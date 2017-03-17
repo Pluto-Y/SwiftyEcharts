@@ -34,14 +34,14 @@
 /// - root 的设置暂时不支持。目前可以使用 zoom 的方式来查看树更下层次的细节，或者使用 leafDepth 开启 "drill down" 功能。
 /// - label 的配置被移动到了 itemStyle.normal/itemStyle.emphasis 外部，和 itemStyle 平级。
 /// - itemStyle.normal.childBorderWidth、itemStyle.normal.childBorderColor不再支持（因为这个配置方式只能定义两层的treemap）。统一使用 series-treemap.levels 来进行各层级的定义。
-public struct SECTreemapSerie : SECSeries, SECZable {
+public struct SECTreemapSerie: SECSeries, Zable {
     
     /// 点击节点后的行为。可取值为：
     /// 
     /// - false：节点点击无反应。
     /// - 'zoomToNode'：点击节点后缩放到节点。
     /// - 'link'：如果节点数据中有 link 点击节点后会进行超链接跳转。
-    public enum NodeClick : String, Jsonable {
+    public enum NodeClick: String, Jsonable {
         case disable = "false"
         case zoomToNode = "zoomToNode"
         case link = "link"
@@ -62,7 +62,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
     ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
     ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
     ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-    public enum ColorMappingBy : String, Jsonable {
+    public enum ColorMappingBy: String, Jsonable {
         case value = "value"
         case index = "index"
         case id = "id"
@@ -99,7 +99,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
         ///
         /// - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
         /// - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-        public var color: [SECColor]?
+        public var color: [Color]?
         /// 表示同一层级的节点的 颜色透明度 选取范围。数值范围 0 ~ 1。
         ///
         /// 例如, colorAlpha 可以是 [0.3, 1].
@@ -111,7 +111,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
         ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
         ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-        public var colorAlpha: SECRange?
+        public var colorAlpha: Range?
         /// 表示同一层级的节点的 颜色饱和度 选取范围。数值范围 0 ~ 1。
         ///
         /// 例如, colorSaturation 可以是 [0.3, 1].
@@ -123,7 +123,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
         ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
         ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-        public var colorSaturation: SECRange?
+        public var colorSaturation: Range?
         /// 表示同一层级节点，在颜色列表中（参见 color 属性）选择时，按照什么来选择。可选值：
         ///
         /// - 'value'：将节点的值（即 series-treemap.data.value）映射到颜色列表中。这样得到的颜色，反应了节点值的大小。可以使用 visualDimension 属性来设置，用 data 中哪个纬度的值来映射。
@@ -167,7 +167,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
         ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
         ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-        public var label: SECLabel?
+        public var label: Label?
         ///     注：treemap中 itemStyle 属性可能在多处地方存在：
         ///
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
@@ -190,7 +190,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
         public init() {}
     }
     
-    public struct Breadcrumb : SECDisplayable {
+    public struct Breadcrumb: Displayable {
         /// 是否显示面包屑。
         public var show: Bool?
         /// asdf 组件离容器左侧的距离。
@@ -259,7 +259,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
         ///
         /// - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
         /// - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-        public var color: [SECColor]?
+        public var color: [Color]?
         /// 本系列默认的 颜色透明度 选取范围。数值范围 0 ~ 1。
         ///
         /// 例如, colorAlpha 可以是 [0.3, 1].
@@ -270,7 +270,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
         ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
         ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-        public var colorAlpha: SECRange?
+        public var colorAlpha: Range?
         /// 本系列默认的 颜色透明度 选取范围。数值范围 0 ~ 1。
         ///
         /// 例如, colorAlpha 可以是 [0.3, 1].
@@ -281,7 +281,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
         ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
         ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-        public var colorSaturation: SECRange?
+        public var colorSaturation: Range?
         /// 表示同一层级节点，在颜色列表中（参见 color 属性）选择时，按照什么来选择。可选值：
         ///
         /// - 'value'：将节点的值（即 series-treemap.data.value）映射到颜色列表中。这样得到的颜色，反应了节点值的大小。可以使用 visualDimension 属性来设置，用 data 中哪个纬度的值来映射。
@@ -325,7 +325,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
         ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
         ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-        public var label: SECLabel?
+        public var label: Label?
         ///     注：treemap中 itemStyle 属性可能在多处地方存在：
         ///
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
@@ -341,7 +341,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
         return .treemap
     }
     
-    /// MARK: SECZable
+    /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
     
@@ -390,7 +390,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
     /// http://echarts.baidu.com/gallery/editor.html?c=treemap-drill-down
     public var leafDepth: Float?
     /// 是否开启拖拽漫游（移动和缩放）。
-    public var roam: SECRoam?
+    public var roam: Roam?
     /// 点击节点后的行为。
     public var nodeClick: NodeClick?
     /// 点击某个节点，会自动放大那个节点到合适的比例（节点占可视区域的面积比例），这个配置项就是这个比例。
@@ -508,7 +508,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
     ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
     ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
     ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-    public var colorAlpha: SECRange?
+    public var colorAlpha: Range?
     /// 本系列默认的 颜色透明度 选取范围。数值范围 0 ~ 1。
     ///
     /// 例如, colorAlpha 可以是 [0.3, 1].
@@ -519,7 +519,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
     ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
     ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
     ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-    public var colorSaturation: SECRange?
+    public var colorSaturation: Range?
     /// 表示同一层级节点，在颜色列表中（参见 color 属性）选择时，按照什么来选择。可选值：
     ///
     /// - 'value'：将节点的值（即 series-treemap.data.value）映射到颜色列表中。这样得到的颜色，反应了节点值的大小。可以使用 visualDimension 属性来设置，用 data 中哪个纬度的值来映射。
@@ -563,7 +563,7 @@ public struct SECTreemapSerie : SECSeries, SECZable {
     ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
     ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
     ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-    public var label: SECLabel?
+    public var label: Label?
     ///     注：treemap中 itemStyle 属性可能在多处地方存在：
     ///
     ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
@@ -645,9 +645,9 @@ public typealias SECTreemapSerieSilent = SECTreemapSerie.Silent
 public typealias SECTreemapSerieBreadcrumb = SECTreemapSerie.Breadcrumb
 public typealias SECTreemapSerieData = SECTreemapSerie.Data
 
-extension SECTreemapSerieLevel : SECEnumable {
+extension SECTreemapSerieLevel: Enumable {
     public enum Enums {
-        case visualDimension(Float), visualMin(Float), visualMax(Float), color([SECColor]), colorAlpha(SECRange), colorSaturation(SECRange), colorMappingBy(SECTreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(SECLabel), itemStyle(SECItemStyle)
+        case visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(SECTreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -682,7 +682,7 @@ extension SECTreemapSerieLevel : SECEnumable {
     }
 }
 
-extension SECTreemapSerieLevel : Mappable {
+extension SECTreemapSerieLevel: Mappable {
     public func mapping(map: Mapper) {
         map["visualDimension"] = visualDimension
         map["visualMin"] = visualMin
@@ -698,7 +698,7 @@ extension SECTreemapSerieLevel : Mappable {
     }
 }
 
-extension SECTreemapSerieSilent : SECEnumable {
+extension SECTreemapSerieSilent: Enumable {
     public enum Enums {
         case link(String), target(SECTarget), children([Jsonable])
     }
@@ -719,7 +719,7 @@ extension SECTreemapSerieSilent : SECEnumable {
     }
 }
 
-extension SECTreemapSerieSilent : Mappable {
+extension SECTreemapSerieSilent: Mappable {
     public func mapping(map: Mapper) {
         map["link"] = link
         map["target"] = target
@@ -727,7 +727,7 @@ extension SECTreemapSerieSilent : Mappable {
     }
 }
 
-extension SECTreemapSerieBreadcrumb : SECEnumable {
+extension SECTreemapSerieBreadcrumb: Enumable {
     public enum Enums {
         case show(Bool), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), height(Float), emptyItemWidth(Float), itemStyle(SECItemStyle)
     }
@@ -758,7 +758,7 @@ extension SECTreemapSerieBreadcrumb : SECEnumable {
     }
 }
 
-extension SECTreemapSerieBreadcrumb : Mappable {
+extension SECTreemapSerieBreadcrumb: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["left"] = left
@@ -771,9 +771,9 @@ extension SECTreemapSerieBreadcrumb : Mappable {
     }
 }
 
-extension SECTreemapSerieData : SECEnumable {
+extension SECTreemapSerieData: Enumable {
     public enum Enums {
-        case value(Jsonable), id(String), name(String), visualDimension(Float), visualMin(Float), visualMax(Float), color([SECColor]), colorAlpha(SECRange), colorSaturation(SECRange), colorMappingBy(SECTreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(SECLabel), itemStyle(SECItemStyle)
+        case value(Jsonable), id(String), name(String), visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(SECTreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -814,7 +814,7 @@ extension SECTreemapSerieData : SECEnumable {
     }
 }
 
-extension SECTreemapSerieData : Mappable {
+extension SECTreemapSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["value"] = value
         map["id"] = id
@@ -833,9 +833,9 @@ extension SECTreemapSerieData : Mappable {
     }
 }
 
-extension SECTreemapSerie : SECEnumable {
+extension SECTreemapSerie: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), squareRotio(Float), leafDepth(Float), roam(SECRoam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(SECRange), colorSaturation(SECRange), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(SECLabel), itemStyle(SECItemStyle), breadcrumb(Breadcrumb), data([Jsonable]), animationDuration(Float), animationEasing(SECAnimation), animationDelay(SECTime)
+        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), squareRotio(Float), leafDepth(Float), roam(Roam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(Range), colorSaturation(Range), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(SECItemStyle), breadcrumb(Breadcrumb), data([Jsonable]), animationDuration(Float), animationEasing(SECAnimation), animationDelay(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -908,7 +908,7 @@ extension SECTreemapSerie : SECEnumable {
     }
 }
 
-extension SECTreemapSerie : Mappable {
+extension SECTreemapSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["zlevel"] = zlevel

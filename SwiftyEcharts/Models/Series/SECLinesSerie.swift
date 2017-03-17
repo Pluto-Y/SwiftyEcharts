@@ -15,7 +15,7 @@
 /// 迁徙示例：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=geo-lines
-public struct SECLinesSerie : SECSeries, SECZable, SECAnimatable {
+public struct SECLinesSerie: SECSeries, Zable, SECAnimatable {
     
     /// 线特效的配置，见示例 模拟迁徙 和 北京公交路线
     ///
@@ -32,7 +32,7 @@ public struct SECLinesSerie : SECSeries, SECZable, SECAnimatable {
         /// 特效标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示高和宽，例如 [20, 10] 表示标记宽为20，高为10。
         public var symbolSize: Float?
         /// 特效标记的颜色，默认取 lineStyle.normal.color。
-        public var color: SECColor?
+        public var color: Color?
         /// 特效尾迹的长度。取从 0 到 1 的值，数值越大尾迹越长。
         public var trailLength: Float?
         /// 是否循环显示特效。
@@ -71,11 +71,11 @@ public struct SECLinesSerie : SECSeries, SECZable, SECAnimatable {
         /// 数据名称
         public var name: String?
         /// 一个包含两个到多个二维坐标的数组。在 polyline 设置为 true 时支持多于两个的坐标。
-        public var coords: [SECPoint]?
+        public var coords: [Point]?
         /// 单个数据（单条线）的样式设置。
         public var lineStyle: SECLineStyle?
         /// 单个数据（单条线）的标签设置。在 polyline 设置为 true 时无效。
-        public var label: SECFormattedLabel?
+        public var label: FormattedLabel?
         
         public init() { }
     }
@@ -120,7 +120,7 @@ public struct SECLinesSerie : SECSeries, SECZable, SECAnimatable {
     /// 线条样式。
     public var lineStyle: SECLineStyle?
     /// 标签相关配置。在 polyline 设置为 true 时无效。
-    public var label: SECFormattedLabel?
+    public var label: FormattedLabel?
     /// 线数据集。
     ///
     /// 注： 为了更好点支持多段线的配置，线数据的格式在 3.2.0 做了一定调整，如下：
@@ -154,7 +154,7 @@ public struct SECLinesSerie : SECSeries, SECZable, SECAnimatable {
     public var markLine: SECMarkLine?
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
     public var markArea: SECMarkArea?
-    /// MARK: SECZable
+    /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
     
@@ -176,9 +176,9 @@ public struct SECLinesSerie : SECSeries, SECZable, SECAnimatable {
 
 public typealias SECLinesSerieData = SECLinesSerie.Data
 
-extension SECLinesSerie.Effect : SECEnumable {
+extension SECLinesSerie.Effect: Enumable {
     public enum Enums {
-        case show(Bool), period(Float), constantSpeed(Float), symbol(SECSymbol), symbolSize(Float), color(SECColor), trailLength(Float), loop(Bool)
+        case show(Bool), period(Float), constantSpeed(Float), symbol(SECSymbol), symbolSize(Float), color(Color), trailLength(Float), loop(Bool)
     }
     
     public typealias ContentEnum = Enums
@@ -207,7 +207,7 @@ extension SECLinesSerie.Effect : SECEnumable {
     }
 }
 
-extension SECLinesSerie.Effect : Mappable {
+extension SECLinesSerie.Effect: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["period"] = period
@@ -220,9 +220,9 @@ extension SECLinesSerie.Effect : Mappable {
     }
 }
 
-extension SECLinesSerieData : SECEnumable {
+extension SECLinesSerieData: Enumable {
     public enum Enums {
-        case name(String), coords([SECPoint]), lineStyle(SECLineStyle), label(SECFormattedLabel)
+        case name(String), coords([Point]), lineStyle(SECLineStyle), label(FormattedLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -243,7 +243,7 @@ extension SECLinesSerieData : SECEnumable {
     }
 }
 
-extension SECLinesSerieData : Mappable {
+extension SECLinesSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["coords"] = coords
@@ -252,9 +252,9 @@ extension SECLinesSerieData : Mappable {
     }
 }
 
-extension SECLinesSerie : SECEnumable {
+extension SECLinesSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(SECSymbol), symbolSize(Float), lineStyle(SECLineStyle), label(SECFormattedLabel), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(SECSymbol), symbolSize(Float), lineStyle(SECLineStyle), label(FormattedLabel), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -323,7 +323,7 @@ extension SECLinesSerie : SECEnumable {
     }
 }
 
-extension SECLinesSerie : Mappable {
+extension SECLinesSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name

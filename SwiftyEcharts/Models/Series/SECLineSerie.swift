@@ -33,8 +33,8 @@ extension SECLineSerie {
         public var symbol: SECSymbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
-        public var symbolOffset: SECPoint?
-        public var label: SECLabel? // 官方文档显示只有 normal 的模式？
+        public var symbolOffset: Point?
+        public var label: Label? // 官方文档显示只有 normal 的模式？
         public var itemStyle: SECItemStyle?
         
         public init() { }
@@ -43,9 +43,9 @@ extension SECLineSerie {
 
 public typealias SECLineSerieData = SECLineSerie.Data
 
-extension SECLineSerieData : SECEnumable {
+extension SECLineSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECLabel), itemStyle(SECItemStyle)
+        case name(String), value(Float), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(Label), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -74,7 +74,7 @@ extension SECLineSerieData : SECEnumable {
     }
 }
 
-extension SECLineSerieData : Mappable {
+extension SECLineSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -92,7 +92,7 @@ extension SECLineSerieData : Mappable {
 ///
 /// - Note: 设置 areaStyle 后可以绘制面积图。
 /// - Note: 配合分段型 visualMap 组件可以将折线/面积图通过不同颜色分区间。如下示例
-public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
+public struct SECLineSerie: SECSymbolized, SECAnimatable, Zable {
     
     /// 阶梯线图类型。
     ///
@@ -100,7 +100,7 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
     public typealias Step = SECLocation
     
     /// 折线平滑后是否在一个维度上保持单调性，可以设置成'x', 'y'来指明是在 x 轴或者 y 轴上保持单调性。
-    public enum SmoothMonotone : String, Jsonable{
+    public enum SmoothMonotone: String, Jsonable{
         case x = "x"
         case y = "y"
         
@@ -123,7 +123,7 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
     public var symbol: SECSymbol?
     public var symbolSize: Float?
     public var symbolRotate: Float?
-    public var symbolOffset: SECPoint?
+    public var symbolOffset: Point?
     public var showSymbol: Bool?
     /// 标志图形默认只有主轴显示（随主轴标签间隔隐藏策略），如需全部显示可把 showAllSymbol 设为 true。
     public var showAllSymbol: Bool?
@@ -148,7 +148,7 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
     /// http://echarts.baidu.com/gallery/editor.html?c=line-step
     public var step: Step?
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
-    public var label: SECLabel?
+    public var label: Label?
     /// 折线拐点标志的样式。
     public var itemStyle: SECItemStyle?
     /// 线条样式。
@@ -271,7 +271,7 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
     public var markLine: SECMarkLine?
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
     public var markArea: SECMarkArea?
-    /// MARK: SECZable
+    /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
@@ -321,15 +321,15 @@ public struct SECLineSerie : SECSymbolized, SECAnimatable, SECZable {
     
 }
 
-extension SECLineSerie : SECSeries {
+extension SECLineSerie: SECSeries {
     public var type: SECSerieType {
         return .line
     }
 }
 
-extension SECLineSerie : SECEnumable {
+extension SECLineSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(SECLabel), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(Label), itemStyle(SECItemStyle), lineStyle(SECEmphasisLineStyle), areaStyle(SECEmphasisAreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -420,7 +420,7 @@ extension SECLineSerie : SECEnumable {
     }
 }
 
-extension SECLineSerie : Mappable {
+extension SECLineSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name

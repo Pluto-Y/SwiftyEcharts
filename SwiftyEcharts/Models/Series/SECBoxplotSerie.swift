@@ -13,7 +13,7 @@
 /// http://echarts.baidu.com/gallery/editor.html?c=boxplot-light-velocity
 ///
 /// 也支持多个 series 在同一个坐标系中，参见 例子。
-public struct SECBoxplotSerie : SECSeries, SECZable {
+public struct SECBoxplotSerie: SECSeries, Zable {
     
     public struct Data {
         /// 数据项名称。
@@ -90,7 +90,7 @@ public struct SECBoxplotSerie : SECSeries, SECZable {
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
     public var markArea: SECMarkArea?
     
-    /// MARK: SECZable
+    /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
     
@@ -122,7 +122,7 @@ public struct SECBoxplotSerie : SECSeries, SECZable {
 
 public typealias SECBoxplotSerieData = SECBoxplotSerie.Data
 
-extension SECBoxplotSerieData : SECEnumable {
+extension SECBoxplotSerieData: Enumable {
     public enum Enums {
         case name(String), value([Jsonable]), itemStyle(SECItemStyle)
     }
@@ -143,7 +143,7 @@ extension SECBoxplotSerieData : SECEnumable {
     }
 }
 
-extension SECBoxplotSerieData : Mappable {
+extension SECBoxplotSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -151,7 +151,7 @@ extension SECBoxplotSerieData : Mappable {
     }
 }
 
-extension SECBoxplotSerie : SECEnumable {
+extension SECBoxplotSerie: Enumable {
     public enum Enums {
         case coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), boxWidth([Float]), itemStyle(SECItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(SECAnimation), animationDelay(Float)
     }
@@ -204,7 +204,7 @@ extension SECBoxplotSerie : SECEnumable {
     }
 }
 
-extension SECBoxplotSerie : Mappable {
+extension SECBoxplotSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["coordinateSystem"] = coordinateSystem

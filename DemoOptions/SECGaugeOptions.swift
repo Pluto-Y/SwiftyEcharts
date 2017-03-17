@@ -51,14 +51,14 @@ public struct SECGaugeOptions {
                         .length(20) // FIXME: 缺少lineStyle
                         )),
                     .title(SECGaugeSerie.Title(
-                        .textStyle(SECTextStyle(
+                        .textStyle(TextStyle(
                             .fontWeight(.bolder),
                             .fontSize(20),
                             .fontStyle(.italic)
                             ))
                         )),
                     .detail(SECGaugeSerie.Detail(
-                        .textStyle(SECTextStyle(
+                        .textStyle(TextStyle(
                             .fontWeight(.bolder)
                             ))
                         )),
@@ -90,7 +90,7 @@ public struct SECGaugeOptions {
                         .offsetCenter([0, (-30)%])
                         )),
                     .detail(SECGaugeSerie.Detail(
-                        .textStyle(SECTextStyle(
+                        .textStyle(TextStyle(
                             .fontWeight(.bolder)
                             ))
                         )),

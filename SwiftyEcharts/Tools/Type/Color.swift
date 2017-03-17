@@ -1,5 +1,5 @@
 //
-//  SECColor.swift
+//  Color.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 30/11/2016.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-public protocol SECColorful {
-    var color: SECColor? { get set }
+public protocol Colorful {
+    var color: Color? { get set }
 }
 
 /// 颜色
@@ -17,9 +17,9 @@ public protocol SECColorful {
 /// - rgba: 以RGBA形式创建的颜色
 /// - rgb: 以RGB形式创建的颜色
 /// - hexColor: 以16进制字符串创建的颜色
-public enum SECColor: Jsonable {
+public enum Color: Jsonable {
     
-    public enum ImageRepeat : String, Jsonable {
+    public enum ImageRepeat: String, Jsonable {
         case repeatAll = "repeat"
         case repeatX = "repeat-x"
         case repeatY = "repeat-y"
@@ -33,7 +33,7 @@ public enum SECColor: Jsonable {
     case rgba(Int, Int, Int, Float)
     case rgb(Int, Int, Int)
     case hexColor(String)
-    case array([SECColor])
+    case array([Color])
     case image(String, ImageRepeat)
     case linearGradient(Float, Float, Float, Float, [SECGradientColorElement], Bool)
     case radialGradient(Float, Float, Float, [SECGradientColorElement], Bool)
@@ -116,11 +116,11 @@ public enum SECColor: Jsonable {
 
 public struct SECGradientColorElement {
     private var offset: Float?
-    private var color: SECColor?
+    private var color: Color?
     
     public init() { }
     
-    public init(_ offset: Float, _ color: SECColor) {
+    public init(_ offset: Float, _ color: Color) {
         self.offset = offset
         self.color = color
     }
@@ -135,13 +135,13 @@ extension SECGradientColorElement: Jsonable {
     }
 }
 
-extension SECGradientColorElement : DictionaryLiteralConvertible {
+extension SECGradientColorElement: DictionaryLiteralConvertible {
     public typealias Key = String
     public typealias Value = Jsonable
     
     public init(dictionaryLiteral elements: (String, Jsonable)...) {
         var offset: Float?
-        var color: SECColor?
+        var color: Color?
         for (key, value) in elements {
             if key == "offset" {
                 if let v = value as? Int{
@@ -149,7 +149,7 @@ extension SECGradientColorElement : DictionaryLiteralConvertible {
                 } else if let v = value as? Float {
                     offset = v
                 }
-            } else if key == "color", let v = value as? SECColor {
+            } else if key == "color", let v = value as? Color {
                 color = v
             }
             if let o = offset, let c = color {

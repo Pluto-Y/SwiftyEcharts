@@ -6,10 +6,10 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZable {
+public struct SECScatterSerie: SECSeries, SECSymbolized, SECAnimatable, Zable {
     
     /// 数据项目
-    public struct Data : SECSymbolized {
+    public struct Data: SECSymbolized {
         /// 数据项名称。
         public var name: String?
         /// 数据项值。
@@ -18,9 +18,9 @@ public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZabl
         public var symbol: SECSymbol?
         public var symbolSize: Float?
         public var symbolRotate: Float?
-        public var symbolOffset: SECPoint?
+        public var symbolOffset: Point?
         /// 数据项文字样式
-        public var label: SECLabel?
+        public var label: Label?
         /// 单个数据点（气泡）的样式设置。
         public var itemStyle: SECItemStyle?
     }
@@ -59,7 +59,7 @@ public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZabl
     public var symbolRotate: Float?
     /// 标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
     /// 例如 [0, '50%'] 就是把自己向上移动了一半的位置，在 symbol 图形是气泡的时候可以让图形下端的箭头对准数据点。
-    public var symbolOffset: SECPoint?
+    public var symbolOffset: Point?
     /// 是否开启大规模散点图的优化，在数据图形特别多的时候（>=5k）可以开启。
     /// 开启后配合 largeThreshold 在数据量大于指定阈值的时候对绘制进行优化。
     /// 缺点：优化后不能自定义设置单个数据项的样式。
@@ -67,7 +67,7 @@ public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZabl
     /// 开启绘制优化的阈值。
     public var largeThreshold: Float?
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
-    public var label: SECFormattedLabel?
+    public var label: FormattedLabel?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: SECItemStyle?
     /// 系列中的数据内容数组。数组项通常为具体的数据项。
@@ -168,7 +168,7 @@ public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZabl
     public var markLine: SECMarkLine?
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
     public var markArea: SECMarkArea?
-    /// MARK: SECZable
+    /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
@@ -216,9 +216,9 @@ public struct SECScatterSerie : SECSeries, SECSymbolized, SECAnimatable, SECZabl
 
 public typealias SECScatterSerieData = SECScatterSerie.Data
 
-extension SECScatterSerieData : SECEnumable {
+extension SECScatterSerieData: Enumable {
     public enum Enums {
-        case name(String), value(String), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), label(SECLabel), itemStyle(SECItemStyle)
+        case name(String), value(String), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(Label), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -247,7 +247,7 @@ extension SECScatterSerieData : SECEnumable {
     }
 }
 
-extension SECScatterSerieData : Mappable {
+extension SECScatterSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -260,9 +260,9 @@ extension SECScatterSerieData : Mappable {
     }
 }
 
-extension SECScatterSerie : SECEnumable {
+extension SECScatterSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), hoverAnimation(Bool), legendHoverLink(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(SECPoint), large(Bool), largeThreshold(Float), label(SECFormattedLabel), itemStyle(SECItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), hoverAnimation(Bool), legendHoverLink(Bool), symbol(SECSymbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), large(Bool), largeThreshold(Float), label(FormattedLabel), itemStyle(SECItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -337,7 +337,7 @@ extension SECScatterSerie : SECEnumable {
     }
 }
 
-extension SECScatterSerie : Mappable {
+extension SECScatterSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name

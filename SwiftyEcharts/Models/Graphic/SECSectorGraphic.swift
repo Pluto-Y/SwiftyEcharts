@@ -7,7 +7,7 @@
 //
 
 /// 扇形类型的 `Graphic`
-public struct SECSectorGraphic : SECGraphic {
+public struct SECSectorGraphic: SECGraphic {
     
     /// 扇形的大小和位置
     public struct Shape {
@@ -49,7 +49,7 @@ public struct SECSectorGraphic : SECGraphic {
     public init() {}
 }
 
-extension SECSectorGraphic.Shape : SECEnumable {
+extension SECSectorGraphic.Shape: Enumable {
     public enum Enums {
         case cx(Float), cy(Float), r(Float), r0(Float), startAngle(Float), endAngle(Float), clockwise(Bool)
     }
@@ -78,7 +78,7 @@ extension SECSectorGraphic.Shape : SECEnumable {
     }
 }
 
-extension SECSectorGraphic.Shape : Mappable {
+extension SECSectorGraphic.Shape: Mappable {
     public func mapping(map: Mapper) {
         map["cx"] = cx
         map["cy"] = cy
@@ -90,7 +90,7 @@ extension SECSectorGraphic.Shape : Mappable {
     }
 }
 
-extension SECSectorGraphic : SECEnumable {
+extension SECSectorGraphic: Enumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
     }
@@ -137,7 +137,7 @@ extension SECSectorGraphic : SECEnumable {
     }
 }
 
-extension SECSectorGraphic : Mappable {
+extension SECSectorGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

@@ -7,32 +7,32 @@
 //
 
 /// 通用 `Graphic` 的样式接口
-public protocol SECGraphicStyle : SECShadowable {
+public protocol SECGraphicStyle: Shadowable {
     /// 填充色。
-    var fill: SECColor? { get set }
+    var fill: Color? { get set }
     /// 笔画颜色。
-    var stroke: SECColor? { get set }
+    var stroke: Color? { get set }
     /// 笔画宽度。
     var lineWidth: Float? { get set }
 }
 
 /// 通用的 `Graphic` 的样式实现
-public struct SECCommonGraphicStyle : SECGraphicStyle {
+public struct SECCommonGraphicStyle: SECGraphicStyle {
     /// MARK: SECGraphicStyle
-    public var fill: SECColor?
-    public var stroke: SECColor?
+    public var fill: Color?
+    public var stroke: Color?
     public var lineWidth: Float?
     public var shadowBlur: Float?
     public var shadowOffsetX: Float?
     public var shadowOffsetY: Float?
-    public var shadowColor: SECColor?
+    public var shadowColor: Color?
     
     public init() {}
 }
 
-extension SECCommonGraphicStyle : SECEnumable {
+extension SECCommonGraphicStyle: Enumable {
     public enum Enums {
-        case fill(SECColor), stroke(SECColor), lineWidth(Float), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), shadowColor(SECColor)
+        case fill(Color), stroke(Color), lineWidth(Float), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), shadowColor(Color)
     }
     
     public typealias ContentEnum = Enums
@@ -59,7 +59,7 @@ extension SECCommonGraphicStyle : SECEnumable {
     }
 }
 
-extension SECCommonGraphicStyle : Mappable {
+extension SECCommonGraphicStyle: Mappable {
     public func mapping(map: Mapper) {
         map["fill"] = fill
         map["stroke"] = stroke

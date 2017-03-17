@@ -11,7 +11,7 @@
 /// - solid: 实线
 /// - dashed: 虚线
 /// - dotted: 点线
-public enum SECLineType: String, Jsonable {
+public enum LineType: String, Jsonable {
     case solid = "solid", dashed = "dashed", dotted = "dotted"
     
     public var jsonString: String {

@@ -7,7 +7,7 @@
 //
 
 /// 极坐标系的径向轴。
-public struct SECRadiusAxis : SECZable {
+public struct SECRadiusAxis: Zable {
     /// 径向轴所在的极坐标系的索引，默认使用第一个极坐标系。
     public var polarIndex: UInt8?
     /// 坐标轴类型。
@@ -17,7 +17,7 @@ public struct SECRadiusAxis : SECZable {
     /// 坐标轴名称显示位置。
     public var nameLocation: SECPosition?
     /// 坐标轴名称的文字样式。
-    public var nameTextStyle: SECTextStyle?
+    public var nameTextStyle: TextStyle?
     /// 坐标轴名称与轴线之间的距离。
     public var nameGap: Float?
     /// 坐标轴名字旋转，角度值。
@@ -101,14 +101,14 @@ public struct SECRadiusAxis : SECZable {
     /// 坐标轴在 grid 区域中的分隔区域，默认不显示。
     public var splitArea: SECSplitArea?
     
-    /// MARK: - SECZable
+    /// MARK: - Zable
     public var zlevel: Float?
     public var z: Float?
 }
 
-extension SECRadiusAxis : SECEnumable {
+extension SECRadiusAxis: Enumable {
     public enum Enums {
-        case polarIndex(UInt8), type(SECAxisType), name(String), nameLocation(SECPosition), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(Float), interval(Float), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), zlevel(Float), z(Float)
+        case polarIndex(UInt8), type(SECAxisType), name(String), nameLocation(SECPosition), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(Float), interval(Float), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -171,7 +171,7 @@ extension SECRadiusAxis : SECEnumable {
     }
 }
 
-extension SECRadiusAxis : Mappable {
+extension SECRadiusAxis: Mappable {
     public func mapping(map: Mapper) {
         map["polarIndex"] = polarIndex
         map["type"] = type

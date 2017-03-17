@@ -6,11 +6,11 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECSingleAxis : SECZable {
+public struct SECSingleAxis: Zable {
     
     public struct Data {
         public var value: String?
-        public var textStyle: SECTextStyle?
+        public var textStyle: TextStyle?
         
         public init() {}
     }
@@ -29,7 +29,7 @@ public struct SECSingleAxis : SECZable {
     public var type: SECAxisType? 
     public var name: String? 
     public var nameLocation: NameLocation? 
-    public var nameTextStyle: SECTextStyle? 
+    public var nameTextStyle: TextStyle? 
     public var nameGap: Float? 
     public var nameRotate: Float? 
     public var inverse: Bool? 
@@ -53,9 +53,9 @@ public struct SECSingleAxis : SECZable {
     public init() {}
 }
 
-extension SECSingleAxis : SECEnumable {
+extension SECSingleAxis: Enumable {
 	public enum Enums {
-		case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), type(SECAxisType), name(String), nameLocation(NameLocation), nameTextStyle(SECTextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Jsonable), max(Jsonable), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any])
+		case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(Float), height(Float), orient(SECOrient), type(SECAxisType), name(String), nameLocation(NameLocation), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(SECBoundaryGap), min(Jsonable), max(Jsonable), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any])
 	}
 
 	public typealias ContentEnum = Enums
@@ -132,7 +132,7 @@ extension SECSingleAxis : SECEnumable {
 	}
 }
 
-extension SECSingleAxis : Mappable {
+extension SECSingleAxis: Mappable {
 	public func mapping(map: Mapper) {
 		map["zlevel"] = zlevel
 		map["z"] = z
@@ -169,9 +169,9 @@ extension SECSingleAxis : Mappable {
 	}
 }
 
-extension SECSingleAxis.Data : SECEnumable {
+extension SECSingleAxis.Data: Enumable {
 	public enum Enums {
-		case value(String), textStyle(SECTextStyle)
+		case value(String), textStyle(TextStyle)
 	}
 
 	public typealias ContentEnum = Enums
@@ -188,7 +188,7 @@ extension SECSingleAxis.Data : SECEnumable {
 	}
 }
 
-extension SECSingleAxis.Data : Mappable {
+extension SECSingleAxis.Data: Mappable {
 	public func mapping(map: Mapper) {
 		map["value"] = value
 		map["textStyle"] = textStyle

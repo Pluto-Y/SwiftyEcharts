@@ -7,7 +7,7 @@
 //
 
 /// group 是唯一的可以有子节点的容器。group 可以用来整体定位一组图形元素。
-public struct SECGroupGraphic : SECGraphic {
+public struct SECGroupGraphic: SECGraphic {
     
     /// MARK: SECGraphic
     public var type: SECGraphicType {
@@ -46,7 +46,7 @@ public struct SECGroupGraphic : SECGraphic {
     
 }
 
-extension SECGroupGraphic : SECEnumable {
+extension SECGroupGraphic: Enumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), width(Float), height(Float), children([SECGraphic])
     }
@@ -95,7 +95,7 @@ extension SECGroupGraphic : SECEnumable {
     }
 }
 
-extension SECGroupGraphic : Mappable {
+extension SECGroupGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

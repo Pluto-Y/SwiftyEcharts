@@ -7,39 +7,39 @@
 //
 
 
-/// 触发类型。
-///
-/// - item: 数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
-/// - axis: 坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。
-/// - Note: 在 ECharts 2.x 中只支持类目轴上使用 axis trigger，在 ECharts 3 中支持在直角坐标系和极坐标系上的所有类型的轴。并且可以通过 axisPointer.axis 指定坐标轴。
-public enum SECTrigger : String, Jsonable {
-    case item = "item"
-    case axis = "axis"
+/// 提示框组件
+public struct SECTooltip: Borderable, Displayable, Formatted, Jsonable {
     
-    public var jsonString: String {
-        return "\"\(self.rawValue)\""
-    }
-    
-    /// 提示框触发的条件
+    /// 触发类型。
     ///
-    /// - mousemove: 鼠标移动时触发
-    /// - click: 鼠标点击时触发
-    /// - none: 不触发，用户可以通过 action.tooltip.showTip 和 action.tooltip.hideTip 来手动触发和隐藏。
-    /// - Note: 该属性为 ECharts 3.0 中新加。
-    public enum TriggerOn : String, Jsonable {
-        case mousemove = "mousemove"
-        case click = "click"
-        case none = "none"
+    /// - item: 数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
+    /// - axis: 坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。
+    /// - Note: 在 ECharts 2.x 中只支持类目轴上使用 axis trigger，在 ECharts 3 中支持在直角坐标系和极坐标系上的所有类型的轴。并且可以通过 axisPointer.axis 指定坐标轴。
+    public enum Trigger: String, Jsonable {
+        case item = "item"
+        case axis = "axis"
         
         public var jsonString: String {
             return "\"\(self.rawValue)\""
         }
+        
+        /// 提示框触发的条件
+        ///
+        /// - mousemove: 鼠标移动时触发
+        /// - click: 鼠标点击时触发
+        /// - none: 不触发，用户可以通过 action.tooltip.showTip 和 action.tooltip.hideTip 来手动触发和隐藏。
+        /// - Note: 该属性为 ECharts 3.0 中新加。
+        public enum TriggerOn: String, Jsonable {
+            case mousemove = "mousemove"
+            case click = "click"
+            case none = "none"
+            
+            public var jsonString: String {
+                return "\"\(self.rawValue)\""
+            }
+        }
+        
     }
-    
-}
-
-/// 提示框组件
-public struct SECTooltip : SECBorderable, SECDisplayable, SECFormatted, Jsonable {
     
     /// 提示框浮层的位置
     ///
@@ -77,35 +77,35 @@ public struct SECTooltip : SECBorderable, SECDisplayable, SECFormatted, Jsonable
     }
     
     /// 坐标轴指示器配置项
-    public struct AxisPointer : SECLine {
+    public struct AxisPointer: SECLine {
         
         /// 十字准星指示器样式
-        public struct CrossStyle : SECShadowable, SECColorful{
+        public struct CrossStyle: Shadowable, Colorful{
             /// 线的颜色
-            public var color: SECColor?
+            public var color: Color?
             /// 线宽
             public var width: Float?
             /// 线的类型
-            public var type: SECLineType?
+            public var type: LineType?
             
             public var shadowBlur: Float?
-            public var shadowColor: SECColor?
+            public var shadowColor: Color?
             public var shadowOffsetX: Float?
             public var shadowOffsetY: Float?
             
-            public var textStyle: SECTextStyle?
+            public var textStyle: TextStyle?
             
             public init() { }
         }
         
         /// 阴影提示器样式
-        public struct ShadowStyle : SECShadowable, SECColorful, SECOpacitable {
+        public struct ShadowStyle: Shadowable, Colorful, Opacitable {
             
             /// 填充的颜色
-            public var color: SECColor?
+            public var color: Color?
             
             public var shadowBlur: Float?
-            public var shadowColor: SECColor?
+            public var shadowColor: Color?
             public var shadowOffsetX: Float?
             public var shadowOffsetY: Float?
             
@@ -123,7 +123,7 @@ public struct SECTooltip : SECBorderable, SECDisplayable, SECFormatted, Jsonable
         /// - line: 直线指示器
         /// - cross: 十字准星指示器
         /// - shadow: 阴影指示器
-        public enum Type : String, Jsonable {
+        public enum Type: String, Jsonable {
             case line = "line", cross = "cross", shadow = "shadow"
             
             public var jsonString: String {
@@ -180,9 +180,9 @@ public struct SECTooltip : SECBorderable, SECDisplayable, SECFormatted, Jsonable
     /// 是否显示提示框浮层，默认显示。只需tooltip触发事件或显示axisPointer而不需要显示内容时可配置该项为false。
     public var showContent: Bool?
     /// 触发类型。
-    public var trigger: SECTrigger?
+    public var trigger: Trigger?
     /// 提示框触发的条件
-    public var triggerOn: SECTrigger.TriggerOn?
+    public var triggerOn: Trigger.TriggerOn?
     /// 是否永远显示提示框内容，默认情况下在移出可触发提示框区域后 一定时间 后隐藏，设置为 true 可以保证一直显示提示框内容。
     /// - Note: 该属性为 ECharts 3.0 中新加。
     public var alwaysShowContent: Bool?
@@ -198,17 +198,17 @@ public struct SECTooltip : SECBorderable, SECDisplayable, SECFormatted, Jsonable
     /// 提示框浮层的移动动画过渡时间，单位是 s，设置为 0 的时候会紧跟着鼠标移动。
     public var transitionDuration: Float?
     /// 提示框浮层内容格式器
-    public var formatter: SECFormatter?
+    public var formatter: Formatter?
     /// 提示框浮层的背景颜色。
-    public var backgroundColor: SECColor?
+    public var backgroundColor: Color?
     /// 提示框浮层的边框颜色
-    public var borderColor: SECColor?
+    public var borderColor: Color?
     /// 提示框浮层的边框宽。
     public var borderWidth: Float?
     /// 提示框浮层内边距
     public var padding: SECPadding?
     /// 提示框浮层的文本样式。
-    public var textStyle: SECTextStyle?
+    public var textStyle: TextStyle?
     /// 额外附加到浮层的 css 样式。如下为浮层添加阴影的示例：
     ///
     ///     extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);'
@@ -219,9 +219,9 @@ public struct SECTooltip : SECBorderable, SECDisplayable, SECFormatted, Jsonable
     public init() { }
 }
 
-extension SECTooltip.AxisPointer.ShadowStyle : SECEnumable {
+extension SECTooltip.AxisPointer.ShadowStyle: Enumable {
     public enum Enums {
-        case color(SECColor), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
+        case color(Color), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -246,7 +246,7 @@ extension SECTooltip.AxisPointer.ShadowStyle : SECEnumable {
     }
 }
 
-extension SECTooltip.AxisPointer.ShadowStyle : Mappable {
+extension SECTooltip.AxisPointer.ShadowStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["shadowBlur"] = shadowBlur
@@ -257,9 +257,9 @@ extension SECTooltip.AxisPointer.ShadowStyle : Mappable {
     }
 }
 
-extension SECTooltip.AxisPointer.CrossStyle : SECEnumable {
+extension SECTooltip.AxisPointer.CrossStyle: Enumable {
     public enum Enums {
-        case color(SECColor), width(Float), type(SECLineType), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), textStyle(SECTextStyle)
+        case color(Color), width(Float), type(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -288,7 +288,7 @@ extension SECTooltip.AxisPointer.CrossStyle : SECEnumable {
     }
 }
 
-extension SECTooltip.AxisPointer.CrossStyle : Mappable {
+extension SECTooltip.AxisPointer.CrossStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["width"] = width
@@ -301,7 +301,7 @@ extension SECTooltip.AxisPointer.CrossStyle : Mappable {
     }
 }
 
-extension SECTooltip.AxisPointer : SECEnumable {
+extension SECTooltip.AxisPointer: Enumable {
     public enum Enums {
         case type(Type), axis(String), animation(Bool), animationThreshold(Float), animationDuration(UInt32), animationEasing(String), animationDelay(Float), animationDurationUpdate(UInt32), animationEasingUpdate(String), animationDelayUpdate(Float), lineStyle(SECLineStyle), crossStyle(CrossStyle), shadowStyle(ShadowStyle)
     }
@@ -342,7 +342,7 @@ extension SECTooltip.AxisPointer : SECEnumable {
     }
 }
 
-extension SECTooltip.AxisPointer : Mappable {
+extension SECTooltip.AxisPointer: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["axis"] = axis
@@ -360,9 +360,9 @@ extension SECTooltip.AxisPointer : Mappable {
     }
 }
 
-extension SECTooltip : SECEnumable {
+extension SECTooltip: Enumable {
     public enum Enums {
-        case show(Bool), showContent(Bool), trigger(SECTrigger), triggerOn(SECTrigger.TriggerOn), alwaysShowContent(Bool), showDelay(Float), hideDelay(Float), position(SECTooltip.Position), confine(Bool), transitionDuration(Float), formatter(SECFormatter), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), padding(SECPadding), textStyle(SECTextStyle), extraCssText(String), axisPointer(AxisPointer)
+        case show(Bool), showContent(Bool), trigger(Trigger), triggerOn(Trigger.TriggerOn), alwaysShowContent(Bool), showDelay(Float), hideDelay(Float), position(SECTooltip.Position), confine(Bool), transitionDuration(Float), formatter(Formatter), backgroundColor(Color), borderColor(Color), borderWidth(Float), padding(SECPadding), textStyle(TextStyle), extraCssText(String), axisPointer(AxisPointer)
     }
     public typealias ContentEnum = Enums
     
@@ -410,7 +410,7 @@ extension SECTooltip : SECEnumable {
     }
 }
 
-extension SECTooltip : Mappable {
+extension SECTooltip: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["showContent"] = showContent

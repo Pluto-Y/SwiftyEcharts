@@ -1,12 +1,12 @@
 //
-//  SECRoam.swift
+//  Roam.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 03/03/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public enum SECRoam : String, Jsonable {
+public enum Roam: String, Jsonable {
     case enable = "true"
     case disable = "false"
     case scale = "scale"

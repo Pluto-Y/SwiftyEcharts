@@ -9,15 +9,15 @@
 public struct SECParallelAxis {
 
     /// 在坐标轴上可以进行框选，这里是一些框选的设置。
-    public struct AreaSelectStyle : SECColorful, SECOpacitable {
+    public struct AreaSelectStyle: Colorful, Opacitable {
         /// 框选范围的宽度。
         public var width: Float?
         /// 选框的边框宽度。
         public var borderWidth: Float?
         /// 选框的边框颜色。
-        public var borderColor: SECColor?
+        public var borderColor: Color?
         /// 选框的填充色。
-        public var color: SECColor?
+        public var color: Color?
         /// 选框的透明度。
         public var opacity: Float?
     }
@@ -76,7 +76,7 @@ public struct SECParallelAxis {
     /// 坐标轴名称。
     public var name: String?
     /// 坐标轴名称的文字样式。
-    public var nameTextStyle: SECTextStyle?
+    public var nameTextStyle: TextStyle?
     /// 坐标轴名称显示位置
     public var nameLocation: NameLocation?
     /// 坐标轴名称与轴线之间的距离。
@@ -176,9 +176,9 @@ public struct SECParallelAxis {
     public var data: [Jsonable]?
 }
 
-extension SECParallelAxis.AreaSelectStyle : SECEnumable {
+extension SECParallelAxis.AreaSelectStyle: Enumable {
     public enum Enums {
-        case width(Float), borderWidth(Float), borderColor(SECColor), color(SECColor), opacity(Float)
+        case width(Float), borderWidth(Float), borderColor(Color), color(Color), opacity(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -201,7 +201,7 @@ extension SECParallelAxis.AreaSelectStyle : SECEnumable {
     }
 }
 
-extension SECParallelAxis.AreaSelectStyle : Mappable {
+extension SECParallelAxis.AreaSelectStyle: Mappable {
     public func mapping(map: Mapper) {
         map["width"] = width
         map["borderWidth"] = borderWidth
@@ -211,9 +211,9 @@ extension SECParallelAxis.AreaSelectStyle : Mappable {
     }
 }
 
-extension SECParallelAxis : SECEnumable {
+extension SECParallelAxis: Enumable {
 	public enum Enums {
-		case dim(Float), parallelIndex(UInt8), realtiem(Bool), areaSelectedStyle(AreaSelectStyle), type(SECAxisType), name(String), nameTextStyle(SECTextStyle), nameLocation(NameLocation), nameGap(Float), nameRotate(Float), inverse(Bool), boudaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), splitName(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), data([Jsonable])
+		case dim(Float), parallelIndex(UInt8), realtiem(Bool), areaSelectedStyle(AreaSelectStyle), type(SECAxisType), name(String), nameTextStyle(TextStyle), nameLocation(NameLocation), nameGap(Float), nameRotate(Float), inverse(Bool), boudaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), splitName(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), data([Jsonable])
 	}
 
 	public typealias ContentEnum = Enums
@@ -276,7 +276,7 @@ extension SECParallelAxis : SECEnumable {
 	}
 }
 
-extension SECParallelAxis : Mappable {
+extension SECParallelAxis: Mappable {
 	public func mapping(map: Mapper) {
 		map["dim"] = dim
 		map["parallelIndex"] = parallelIndex

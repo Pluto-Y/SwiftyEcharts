@@ -7,7 +7,7 @@
 //
 
 /// 坐标轴刻度标签的相关设置。
-public struct SECAxisLabel : SECTextful, SECDisplayable, SECFormatted {
+public struct SECAxisLabel: Textful, Displayable, Formatted {
     
     /// 是否显示刻度标签。
     public var show: Bool?
@@ -21,16 +21,16 @@ public struct SECAxisLabel : SECTextful, SECDisplayable, SECFormatted {
     /// 刻度标签与轴线之间的距离。
     public var margin: Float?
     /// 刻度标签的内容格式器，支持字符串模板和回调函数两种形式。
-    public var formatter: SECFormatter?
+    public var formatter: Formatter?
     /// 刻度标签文字样式
-    public var textStyle: SECTextStyle?
+    public var textStyle: TextStyle?
     
     public init() { }
 }
 
-extension SECAxisLabel : SECEnumable {
+extension SECAxisLabel: Enumable {
     public enum Enums {
-        case show(Bool), interval(UInt), inside(Bool), rotate(Float), margin(Float), formatter(SECFormatter), textStyle(SECTextStyle)
+        case show(Bool), interval(UInt), inside(Bool), rotate(Float), margin(Float), formatter(Formatter), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -57,7 +57,7 @@ extension SECAxisLabel : SECEnumable {
     }
 }
 
-extension SECAxisLabel : Mappable {
+extension SECAxisLabel: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["interval"] = interval

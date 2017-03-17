@@ -7,7 +7,7 @@
 //
 
 /// 圆类型的 `Graphic`
-public struct SECCircleGraphic : SECGraphic {
+public struct SECCircleGraphic: SECGraphic {
     
     /// 圆形的位置和大小
     public struct Shape {
@@ -47,7 +47,7 @@ public struct SECCircleGraphic : SECGraphic {
     public init() {}
 }
 
-extension SECCircleGraphic.Shape : SECEnumable {
+extension SECCircleGraphic.Shape: Enumable {
     public enum Enums {
         case cx(Float), cy(Float), r(Float)
     }
@@ -68,7 +68,7 @@ extension SECCircleGraphic.Shape : SECEnumable {
     }
 }
 
-extension SECCircleGraphic.Shape : Mappable {
+extension SECCircleGraphic.Shape: Mappable {
     public func mapping(map: Mapper) {
         map["cx"] = cx
         map["cy"] = cy
@@ -76,7 +76,7 @@ extension SECCircleGraphic.Shape : Mappable {
     }
 }
 
-extension SECCircleGraphic : SECEnumable {
+extension SECCircleGraphic: Enumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
     }
@@ -123,7 +123,7 @@ extension SECCircleGraphic : SECEnumable {
     }
 }
 
-extension SECCircleGraphic : Mappable {
+extension SECCircleGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

@@ -7,7 +7,7 @@
 //
 
 /// 柱状/条形图 通过 柱形的高度/条形的宽度 来表现数据的大小，用于有至少一个类目轴或时间轴的直角坐标系上。
-public struct SECBarSerie : SECSeries, SECAnimatable, SECZable {
+public struct SECBarSerie: SECSeries, SECAnimatable, Zable {
     /// 类型
     public var type: SECSerieType {
         return .bar
@@ -106,7 +106,7 @@ public struct SECBarSerie : SECSeries, SECAnimatable, SECZable {
     public var animationDelayUpdate: SECTime?
 }
 
-extension SECBarSerie : SECEnumable {
+extension SECBarSerie: Enumable {
     public enum Enums {
         case name(String), legendHoverLine(Bool), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(SECItemStyle), stack(String), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(Float), barGap(String), barCategoryGap(String), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
@@ -177,7 +177,7 @@ extension SECBarSerie : SECEnumable {
     }
 }
 
-extension SECBarSerie : Mappable {
+extension SECBarSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
@@ -220,12 +220,12 @@ extension SECBarSerie {
         /// 是否对文字进行偏移。默认不偏移。例如：[30, 40] 表示文字在横向上偏移 30，纵向上偏移 40。
         public var offset: [Float]?
         /// 标签内容格式器，支持字符串模板和回调函数两种形式，字符串模板与回调函数返回的字符串均支持用 \n 换行。
-        public var formatter: SECFormatter?
+        public var formatter: Formatter?
         /// 标签的字体样式。
-        public var textStyle: SECTextStyle?
+        public var textStyle: TextStyle?
     }
     
-    public struct Label : SECEmphasisable {
+    public struct Label: Emphasisable {
         
         public typealias Style = LabelContent
         public var normal: Style?
@@ -234,9 +234,9 @@ extension SECBarSerie {
     }
 }
 
-extension SECBarSerie.LabelContent : SECEnumable {
+extension SECBarSerie.LabelContent: Enumable {
     public enum Enums {
-        case show(Bool), position(SECMarkPosition), offset([Float]), formatter(SECFormatter), textStyle(SECTextStyle)
+        case show(Bool), position(SECMarkPosition), offset([Float]), formatter(Formatter), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -259,7 +259,7 @@ extension SECBarSerie.LabelContent : SECEnumable {
     }
 }
 
-extension SECBarSerie.LabelContent : Mappable {
+extension SECBarSerie.LabelContent: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["position"] = position
@@ -270,7 +270,7 @@ extension SECBarSerie.LabelContent : Mappable {
 }
 
 
-extension SECBarSerie.Label : SECEnumable {
+extension SECBarSerie.Label: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -289,7 +289,7 @@ extension SECBarSerie.Label : SECEnumable {
     }
 }
 
-extension SECBarSerie.Label : Mappable {
+extension SECBarSerie.Label: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
@@ -303,7 +303,7 @@ extension SECBarSerie {
         /// 单个数据项的数值。
         public var value: Float?
         /// 单个柱条文本的样式设置。
-        public var label: SECFormattedLabel?
+        public var label: FormattedLabel?
         /// 图形样式。
         public var itemStyle: SECItemStyle?
     }
@@ -311,9 +311,9 @@ extension SECBarSerie {
 
 public typealias SECBarSerieData = SECBarSerie.Data
 
-extension SECBarSerieData : SECEnumable {
+extension SECBarSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Float), label(SECFormattedLabel), itemStyle(SECItemStyle)
+        case name(String), value(Float), label(FormattedLabel), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -334,7 +334,7 @@ extension SECBarSerieData : SECEnumable {
     }
 }
 
-extension SECBarSerieData : Mappable {
+extension SECBarSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value

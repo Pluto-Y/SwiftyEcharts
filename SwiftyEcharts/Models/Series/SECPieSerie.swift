@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
+public struct SECPieSerie: SECSeries, SECAnimatable, Zable {
     
     public struct Data {
         /// 数据项名称。
@@ -16,7 +16,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
         /// 该数据项是否被选中。
         public var selected: Bool?
         /// 单个扇区的标签配置。
-        public var label: SECLabel?
+        public var label: Label?
         public var labelLine: LabelLine?
         /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
         public var itemStyle: SECItemStyle?
@@ -30,7 +30,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     /// - dispable: 显示为普通饼图
     /// - radius: 面积展现数据的百分比，半径展现数据的大小
     /// - area: 所有扇区面积相同，仅通过半径展现数据大小
-    public enum RoseType : String, Jsonable {
+    public enum RoseType: String, Jsonable {
         case enable = "true"
         case dispable = "false"
         case radius = "radius"
@@ -46,7 +46,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
         }
     }
     
-    public struct LabelLineContent : SECDisplayable {
+    public struct LabelLineContent: Displayable {
         /// 是否显示视觉引导线。
         public var show: Bool?
         /// 视觉引导线第一段的长度。
@@ -61,7 +61,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
         public init() { }
     }
     
-    public struct LabelLine : SECEmphasisable {
+    public struct LabelLine: Emphasisable {
         public typealias Style = LabelLineContent
         
         public var normal: Style?
@@ -74,7 +74,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     ///
     /// - expansion: 默认研圆弧展开的效果。
     /// - scale:  缩放效果，配合设置 animationEasing='elasticOut' 可以做成 popup 的效果。
-    public enum AnimationType : String, Jsonable {
+    public enum AnimationType: String, Jsonable {
         case expansion = "expansion"
         case scale = "scale"
         
@@ -95,7 +95,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     /// 是否开启 hover 在扇区上的放大动画效果。
     public var hoverAnimation: Bool?
     /// 选中模式，表示是否支持多个选中，默认关闭，支持布尔值和字符串，字符串取值可选'single'，'multiple'，分别表示单选还是多选。
-    public var selectedMode: SECSelectedMode?
+    public var selectedMode: SelectedMode?
     /// 选中扇区的偏移距离。
     public var selectedOffset: Float?
     /// 饼图的扇区是否是顺时针排布。
@@ -112,7 +112,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     /// 是否在数据和为0（一般情况下所有数据为0） 的时候不显示扇区。
     public var stillShowZeroSum: Bool?
     /// 饼图图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
-    public var label: SECFormattedLabel?
+    public var label: FormattedLabel?
     /// 标签的视觉引导线样式，在 label 位置 设置为'outside'的时候会显示视觉引导线。
     public var labelLine: LabelLine?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
@@ -132,11 +132,11 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
     ///     center: [400, 300]
     ///     // 设置成相对的百分比
     ///     center: ['50%', '50%']
-    public var center: SECPoint?
+    public var center: Point?
     /// 饼图的半径，数组的第一项是内半径，第二项是外半径。
     /// 支持设置成百分比，相对于容器高宽中较小的一项的一半。
     /// 可以将内半径设大显示成圆环图（Donut chart）。
-    public var radius: SECRange?
+    public var radius: Range?
     /// 系列中的数据内容数组。数组项可以为单个数值，如：
     public var data: [Jsonable]?
     /// 图表标注。
@@ -194,7 +194,7 @@ public struct SECPieSerie : SECSeries, SECAnimatable, SECZable {
 
 public typealias SECPieSerieData = SECPieSerie.Data
 
-extension SECPieSerie.LabelLineContent : SECEnumable {
+extension SECPieSerie.LabelLineContent: Enumable {
     public enum Enums {
         case show(Bool), length(Float), length2(Float), smooth(Bool), lineStyle(SECLineStyle)
     }
@@ -219,7 +219,7 @@ extension SECPieSerie.LabelLineContent : SECEnumable {
     }
 }
 
-extension SECPieSerie.LabelLineContent : Mappable {
+extension SECPieSerie.LabelLineContent: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["length"] = length
@@ -229,7 +229,7 @@ extension SECPieSerie.LabelLineContent : Mappable {
     }
 }
 
-extension SECPieSerie.LabelLine : SECEnumable {
+extension SECPieSerie.LabelLine: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -248,16 +248,16 @@ extension SECPieSerie.LabelLine : SECEnumable {
     }
 }
 
-extension SECPieSerie.LabelLine : Mappable {
+extension SECPieSerie.LabelLine: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
 }
 
-extension SECPieSerie : SECEnumable {
+extension SECPieSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SECSelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(RoseType), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(SECFormattedLabel), labelLine(LabelLine), itemStyle(SECItemStyle), zlevel(Float), z(Float), center(SECPoint), radius(LengthValue), radiusRange(SECRange), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(RoseType), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(FormattedLabel), labelLine(LabelLine), itemStyle(SECItemStyle), zlevel(Float), z(Float), center(Point), radius(LengthValue), radiusRange(Range), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -336,10 +336,10 @@ extension SECPieSerie : SECEnumable {
     }
 }
 
-extension SECPieSerieData : SECEnumable {
+extension SECPieSerieData: Enumable {
     
     public enum Enums {
-        case name(String), value(Float), selected(Bool), label(SECLabel), labelLine(SECPieSerie.LabelLine), itemStyle(SECItemStyle)
+        case name(String), value(Float), selected(Bool), label(Label), labelLine(SECPieSerie.LabelLine), itemStyle(SECItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -365,7 +365,7 @@ extension SECPieSerieData : SECEnumable {
     
 }
 
-extension SECPieSerieData : Mappable {
+extension SECPieSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -376,7 +376,7 @@ extension SECPieSerieData : Mappable {
     }
 }
 
-extension SECPieSerie : Mappable {
+extension SECPieSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name

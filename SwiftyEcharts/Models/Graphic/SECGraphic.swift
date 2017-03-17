@@ -15,7 +15,7 @@
 /// - merge: 如果已有元素，则新的配置项和已有的设定进行 merge。如果没有则新建
 /// - replace: 如果已有元素，删除之，新建元素替代之
 /// - remove: 删除元素
-public enum SECGraphicAction : String, Jsonable {
+public enum SECGraphicAction: String, Jsonable {
     case merge = "merge"
     case replace = "replace"
     case remove = "remove"
@@ -29,7 +29,7 @@ public enum SECGraphicAction : String, Jsonable {
 ///
 /// - all: （默认） 表示用自身以及子节点整体的经过 transform 后的包围盒进行定位。 这种方式易于使整体都限制在父元素范围中。
 /// - raw: 表示仅仅用自身（不包括子节点）的没经过 tranform 的包围盒进行定位。 这种方式易于内容超出父元素范围的定位方式。
-public enum SECGraphicBounding : String, Jsonable {
+public enum SECGraphicBounding: String, Jsonable {
     case all = "all"
     case raw = "raw"
     
@@ -327,7 +327,7 @@ public enum SECGraphicBounding : String, Jsonable {
 ///         {type: 'rect', ...}, {type: 'circle', ...}, ...
 ///         ]
 ///     }
-public protocol SECGraphic : SECZable, Mappable {
+public protocol SECGraphic: Zable, Mappable {
     
     /// `Graphic` 的类型
     var type: SECGraphicType { get }

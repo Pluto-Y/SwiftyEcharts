@@ -7,7 +7,7 @@
 //
 
 /// 直线类型的 `Graphic`
-public struct SECLineGraphic : SECGraphic {
+public struct SECLineGraphic: SECGraphic {
     
     /// 直线的位置
     public struct Shape {
@@ -52,7 +52,7 @@ public struct SECLineGraphic : SECGraphic {
     public init() {}
 }
 
-extension SECLineGraphic.Shape : SECEnumable {
+extension SECLineGraphic.Shape: Enumable {
     public enum Enums {
         case x1(Float), y1(Float), x2(Float), y2(Float), percent(Float)
     }
@@ -77,7 +77,7 @@ extension SECLineGraphic.Shape : SECEnumable {
     }
 }
 
-extension SECLineGraphic.Shape : Mappable {
+extension SECLineGraphic.Shape: Mappable {
     public func mapping(map: Mapper) {
         map["x1"] = x1
         map["y1"] = y1
@@ -87,7 +87,7 @@ extension SECLineGraphic.Shape : Mappable {
     }
 }
 
-extension SECLineGraphic : SECEnumable {
+extension SECLineGraphic: Enumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
     }
@@ -134,7 +134,7 @@ extension SECLineGraphic : SECEnumable {
     }
 }
 
-extension SECLineGraphic : Mappable {
+extension SECLineGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

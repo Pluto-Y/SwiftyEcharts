@@ -7,7 +7,7 @@
 //
 
 /// 二次或三次贝塞尔曲线类型的 `Graphic`
-public struct SECBezierCurveGraphic : SECGraphic {
+public struct SECBezierCurveGraphic: SECGraphic {
     
     /// 贝塞尔曲线的参数
     public struct Shape {
@@ -60,7 +60,7 @@ public struct SECBezierCurveGraphic : SECGraphic {
     public init() {}
 }
 
-extension SECBezierCurveGraphic.Shape : SECEnumable {
+extension SECBezierCurveGraphic.Shape: Enumable {
     public enum Enums {
         case x1(Float), y1(Float), x2(Float), y2(Float), cpx1(Float), cpy1(Float), cpx2(Float), cpy2(Float), percent(Float)
     }
@@ -93,7 +93,7 @@ extension SECBezierCurveGraphic.Shape : SECEnumable {
     }
 }
 
-extension SECBezierCurveGraphic.Shape : Mappable {
+extension SECBezierCurveGraphic.Shape: Mappable {
     public func mapping(map: Mapper) {
         map["x1"] = x1
         map["y1"] = y1
@@ -107,7 +107,7 @@ extension SECBezierCurveGraphic.Shape : Mappable {
     }
 }
 
-extension SECBezierCurveGraphic : SECEnumable {
+extension SECBezierCurveGraphic: Enumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
     }
@@ -154,7 +154,7 @@ extension SECBezierCurveGraphic : SECEnumable {
     }
 }
 
-extension SECBezierCurveGraphic : Mappable {
+extension SECBezierCurveGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

@@ -17,14 +17,14 @@
 /// 主题河流中不同颜色的条带状河流分支编码了不同的事件或主题，河流分支的宽度编码了原数据集中的value值。
 ///
 /// 此外，原数据集中的时间属性，映射到单个时间轴上。
-public struct SECThemeRiverSerie: SECSeries, SECZable {
+public struct SECThemeRiverSerie: SECSeries, Zable {
     
     /// 类型
     public var type: SECSerieType {
         return .themeRiver
     }
     
-    /// MARK: SECZable
+    /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
     
@@ -61,11 +61,11 @@ public struct SECThemeRiverSerie: SECSeries, SECZable {
     /// 单个时间轴的index，默认值为0，因为只有单个轴。
     public var singleAxisIndex: UInt8?
     /// label 描述了主题河流中每个带状河流分支对应的文本标签的样式。
-    public var label: SECFormattedLabel?
+    public var label: FormattedLabel?
     /// 主题河流中每个带状河流分支的样式。
     public var itemStyle: SECItemStyle?
     /// 主题河流中图例的样式。
-    public var legend: SECLegend?
+    public var legend: Legend?
     /// 主题河流中tooltip的样式。
     public var tooltip: SECTooltip?
     /// 数据
@@ -74,9 +74,9 @@ public struct SECThemeRiverSerie: SECSeries, SECZable {
     public init() { }
 }
 
-extension SECThemeRiverSerie : SECEnumable {
+extension SECThemeRiverSerie: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(LengthValue), height(LengthValue), coordinateSystem(SECCoordinateSystem), boundaryGap(SECBoundaryGap), singleAxisIndex(UInt8), label(SECFormattedLabel), itemStyle(SECItemStyle), legend(SECLegend), tooltip(SECTooltip), data([Jsonable])
+        case zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(LengthValue), height(LengthValue), coordinateSystem(SECCoordinateSystem), boundaryGap(SECBoundaryGap), singleAxisIndex(UInt8), label(FormattedLabel), itemStyle(SECItemStyle), legend(Legend), tooltip(SECTooltip), data([Jsonable])
     }
     
     public typealias ContentEnum = Enums
@@ -121,7 +121,7 @@ extension SECThemeRiverSerie : SECEnumable {
     }
 }
 
-extension SECThemeRiverSerie : Mappable {
+extension SECThemeRiverSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["zlevel"] = zlevel

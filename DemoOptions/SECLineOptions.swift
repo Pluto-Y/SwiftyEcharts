@@ -34,7 +34,7 @@ public struct SECLineOptions {
         let areaData1: [Jsonable] = [[["xAxis": "2009/9/12/\\n7:00"], ["xAxis": "2009/9/22\\n7:00"]]]
         let areaData2: [Jsonable] = [[["xAxis": "2009/9/10/\\n7:00"], ["xAxis": "2009/9/20\\n7:00"]]]
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("雨量流量关系图"),
                 .subtext("数据来自西安兰特水电测控技术有限公司"),
                 .x(.center)
@@ -57,7 +57,7 @@ public struct SECLineOptions {
                     .animation(false)
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["流量", "降雨量"]),
                 .x(.left)
                 )),
@@ -150,7 +150,7 @@ public struct SECLineOptions {
     /// 地址:http://echarts.baidu.com/demo.html#area-stack
     static func areaStackOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("堆叠区域图")
                 )),
             .tooltip(SECTooltip(
@@ -213,8 +213,8 @@ public struct SECLineOptions {
                 SECLineSerie(
                     .name("搜索引擎"),
                     .stack("总量"),
-                    .label(SECLabel(
-                        .normal(SECCommonLabelStyle(
+                    .label(Label(
+                        .normal(CommonLabelStyle(
                             .show(true),
                             .position(.top)
                             ))
@@ -266,7 +266,7 @@ public struct SECLineOptions {
             return ele
         }
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("雨量流量关系图"),
                 .subtext("数据来自西安兰特水电测控技术有限公司"),
                 .x(.center)
@@ -277,7 +277,7 @@ public struct SECLineOptions {
                     .animation(false)
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["流量", "降雨量"]),
                 .x(.left)
                 )),
@@ -384,7 +384,7 @@ public struct SECLineOptions {
         let symbolSize: Float = 20
         let data: [Jsonable] =  [[15, 0], [-50, 10], [-56.5, 20], [-46.5, 30], [-22.1, 40]]
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("Try Dragging these Points")
                 )),
             .tooltip(SECTooltip(
@@ -448,7 +448,7 @@ public struct SECLineOptions {
     /// 地址: http://echarts.baidu.com/gallery/editor.html?c=line-log
     static func lineLogOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("对数轴示例"),
                 .left(.center)
                 )),
@@ -456,7 +456,7 @@ public struct SECLineOptions {
                 .trigger(.item),
                 .formatter(.string("{a} <br/>{b} : {c}"))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .left(.left),
                 .data(["2的指数", "3的指数"])
                 )),
@@ -499,14 +499,14 @@ public struct SECLineOptions {
     /// 地址: http://echarts.baidu.com/demo.html#line-marker
     static func lineMarkerOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("未来一周气温变化"),
                 .subtext("纯属虚构")
                 )),
             .tooltip(SECTooltip(
                 .trigger(.axis)
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["最高气温","低气温"])
                 )),
             .toolbox(SECToolbox(
@@ -591,8 +591,8 @@ public struct SECLineOptions {
                                     ),
                                     SECMarkLine.Data(
                                         .symbol(.circle),
-                                        .label(SECFormattedLabel(
-                                            .normal(SECFormattedLabelStyle(
+                                        .label(FormattedLabel(
+                                            .normal(FormattedLabelStyle(
                                                 .position(.start),
                                                 .formatter(.string("最大值"))
                                                 ))
@@ -628,10 +628,10 @@ public struct SECLineOptions {
             
         }
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("极坐标双数值轴")
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["line"])
                 )),
             .polar(SECPolar(
@@ -668,10 +668,10 @@ public struct SECLineOptions {
             data.append([r, Double(i)])
         }
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("极坐标双数值轴")
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["line"])
                 )),
             .polar(SECPolar(
@@ -706,7 +706,7 @@ public struct SECLineOptions {
     /// 地址:http://echarts.baidu.com/demo.html#line-sections
     static func lineSectionsOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("一天用电量分布"),
                 .subtext("纯属虚构")
                 )),
@@ -789,13 +789,13 @@ public struct SECLineOptions {
     /// 地址:http://echarts.baidu.com/demo.html#line-stack
     static func lineStackOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("折线图堆叠")
                 )),
             .tooltip(SECTooltip(
                 .trigger(.axis)
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["邮件营销","联盟广告","视频广告","直接访问","搜索引擎"])
                 )),
             .grid(SECGrid(
@@ -853,7 +853,7 @@ public struct SECLineOptions {
     /// 地址:http://echarts.baidu.com/demo.html#line-step
     static func lineStepOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("Step Line")
                 )),
             .tooltip(SECTooltip(
@@ -903,7 +903,7 @@ public struct SECLineOptions {
     /// 地址:http://echarts.baidu.com/demo.html#line-y-category
     static func lineYCategoryOption() -> SECOption {
         return SECOption(
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["高度(km)与气温(°C)变化关系"])
                 )),
             .tooltip(SECTooltip(

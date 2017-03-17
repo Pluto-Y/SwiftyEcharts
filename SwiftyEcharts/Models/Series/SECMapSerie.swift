@@ -15,7 +15,7 @@
 /// Tip: 在 ECharts 3 中不再建议在地图类型的图表使用 markLine 和 markPoint。如果要实现点数据或者线数据的可视化，可以使用在地理坐标系组件上的散点图和线图。
 ///
 /// 示例： http://echarts.baidu.com/gallery/editor.html?c=doc-example/map-example
-public struct SECMapSerie: SECSeries, SECZable {
+public struct SECMapSerie: SECSeries, Zable {
     
     /// 滚轮缩放的极限控制，通过min, max最小和最大的缩放值，默认的缩放为1。
     public struct ScaleLimit {
@@ -71,7 +71,7 @@ public struct SECMapSerie: SECSeries, SECZable {
         /// 该数据所在区域的多边形样式设置
         public var itemStyle: SECItemStyle?
         /// 该数据所在区域的标签样式设置
-        public var label: SECLabel?
+        public var label: Label?
     }
     
     public var type: SECSerieType {
@@ -117,7 +117,7 @@ public struct SECMapSerie: SECSeries, SECZable {
     /// ECharts 使用 geoJSON 格式的数据作为地图的轮廓，除了上述数据，你也可以通过其它手段获取地图的 geoJSON 数据注册到 ECharts 中。参见示例 USA Population Estimates
     public var map: String?
     /// 是否开启鼠标缩放和平移漫游。默认不开启。如果只想要开启缩放或者平移，可以设置成 'scale' 或者 'move'。设置成 true 为都开启
-    public var roam: SECRoam?
+    public var roam: Roam?
     /// 当前视角的中心点，用经纬度表示
     ///
     /// 例如：
@@ -139,13 +139,13 @@ public struct SECMapSerie: SECSeries, SECZable {
     ///     }
     public var nameMap: [String: Jsonable]?
     /// 选中模式，表示是否支持多个选中，默认关闭，支持布尔值和字符串，字符串取值可选'single'表示单选，或者'multiple'表示多选。
-    public var selectedMode: SECSelectedMode?
+    public var selectedMode: SelectedMode?
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
-    public var label: SECLabel?
+    public var label: Label?
     /// 地图区域的多边形 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: SECItemStyle?
     
-    /// MARK: SECZable
+    /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
     
@@ -246,7 +246,7 @@ public struct SECMapSerie: SECSeries, SECZable {
 
 public typealias SECMapSerieData = SECMapSerie.Data
 
-extension SECMapSerie.ScaleLimit : SECEnumable {
+extension SECMapSerie.ScaleLimit: Enumable {
     public enum Enums {
         case min(Float), max(Float)
     }
@@ -265,16 +265,16 @@ extension SECMapSerie.ScaleLimit : SECEnumable {
     }
 }
 
-extension SECMapSerie.ScaleLimit : Mappable {
+extension SECMapSerie.ScaleLimit: Mappable {
     public func mapping(map: Mapper) {
         map["min"] = min
         map["max"] = max
     }
 }
 
-extension SECMapSerie.Data : SECEnumable {
+extension SECMapSerie.Data: Enumable {
     public enum Enums {
-        case name(String), value(Float), selected(Bool), itemStyle(SECItemStyle), label(SECLabel)
+        case name(String), value(Float), selected(Bool), itemStyle(SECItemStyle), label(Label)
     }
     
     public typealias ContentEnum = Enums
@@ -297,7 +297,7 @@ extension SECMapSerie.Data : SECEnumable {
     }
 }
 
-extension SECMapSerie.Data : Mappable {
+extension SECMapSerie.Data: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -307,9 +307,9 @@ extension SECMapSerie.Data : Mappable {
     }
 }
 
-extension SECMapSerie : SECEnumable {
+extension SECMapSerie: Enumable {
     public enum Enums {
-        case name(String), map(String), roam(SECRoam), center(SECPosition), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SECSelectedMode), label(SECLabel), itemStyle(SECItemStyle), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), layoutCenter(SECPosition), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool)
+        case name(String), map(String), roam(Roam), center(SECPosition), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SelectedMode), label(Label), itemStyle(SECItemStyle), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), layoutCenter(SECPosition), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool)
     }
     
     public typealias ContentEnum = Enums
@@ -376,7 +376,7 @@ extension SECMapSerie : SECEnumable {
     }
 }
 
-extension SECMapSerie : Mappable {
+extension SECMapSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name

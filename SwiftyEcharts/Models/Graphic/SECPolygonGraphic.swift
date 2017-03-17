@@ -7,7 +7,7 @@
 //
 
 /// 多边形类型的 `Graphic`
-public struct SECPolygonGraphic : SECGraphic {
+public struct SECPolygonGraphic: SECGraphic {
     
     /// 多边形的位置和大小定义
     public struct Shape {
@@ -16,7 +16,7 @@ public struct SECPolygonGraphic : SECGraphic {
         ///
         /// - val: 如果为 val：表示贝塞尔 (bezier) 差值平滑，smooth 指定了平滑等级，范围 [0, 1]。
         /// - spline: 如果为 'spline'：表示 Catmull-Rom spline 差值平滑。
-        public enum Smooth : Jsonable {
+        public enum Smooth: Jsonable {
             case val(Float)
             case spline
             
@@ -67,7 +67,7 @@ public struct SECPolygonGraphic : SECGraphic {
     public init() {}
 }
 
-extension SECPolygonGraphic.Shape : SECEnumable {
+extension SECPolygonGraphic.Shape: Enumable {
     public enum Enums {
         case point([[Float]]), smooth(Smooth), smoothConstraint(Bool)
     }
@@ -88,7 +88,7 @@ extension SECPolygonGraphic.Shape : SECEnumable {
     }
 }
 
-extension SECPolygonGraphic.Shape : Mappable {
+extension SECPolygonGraphic.Shape: Mappable {
     public func mapping(map: Mapper) {
         map["point"] = point
         map["smooth"] = smooth
@@ -96,7 +96,7 @@ extension SECPolygonGraphic.Shape : Mappable {
     }
 }
 
-extension SECPolygonGraphic : SECEnumable {
+extension SECPolygonGraphic: Enumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
     }
@@ -143,7 +143,7 @@ extension SECPolygonGraphic : SECEnumable {
     }
 }
 
-extension SECPolygonGraphic : Mappable {
+extension SECPolygonGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

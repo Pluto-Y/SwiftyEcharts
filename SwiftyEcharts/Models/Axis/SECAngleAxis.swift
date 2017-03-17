@@ -7,7 +7,7 @@
 //
 
 /// 极坐标系的角度轴。
-public struct SECAngleAxis : SECZable {
+public struct SECAngleAxis: Zable {
     /// 类目数据，在类目轴（type: 'category'）中有效。
     ///
     /// 示例：
@@ -27,7 +27,7 @@ public struct SECAngleAxis : SECZable {
         /// 单个类目名称。
         public var value: String?
         /// 类目标签的文字样式。
-        public var textStyle: SECTextStyle?
+        public var textStyle: TextStyle?
         
         public init() {}
     }
@@ -126,16 +126,16 @@ public struct SECAngleAxis : SECZable {
     /// 数据
     public var data: [Any]?
     
-    /// MARK: - SECZable
+    /// MARK: - Zable
     public var zlevel: Float?
     public var z: Float?
     
     public init() {}
 }
 
-extension SECAngleAxis.Data : SECEnumable {
+extension SECAngleAxis.Data: Enumable {
     public enum Enums {
-        case value(String), textStyle(SECTextStyle)
+        case value(String), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -152,14 +152,14 @@ extension SECAngleAxis.Data : SECEnumable {
     }
 }
 
-extension SECAngleAxis.Data : Mappable {
+extension SECAngleAxis.Data: Mappable {
     public func mapping(map: Mapper) {
         map["value"] = value
         map["textStyle"] = textStyle
     }
 }
 
-extension SECAngleAxis : SECEnumable {
+extension SECAngleAxis: Enumable {
     public enum Enums {
         case polarIndex(UInt8), startAngle(Float), clockwise(Bool), type(SECAxisType), boundaryGap(SECBoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any]), zlevel(Float), z(Float)
     }
@@ -218,7 +218,7 @@ extension SECAngleAxis : SECEnumable {
     }
 }
 
-extension SECAngleAxis : Mappable {
+extension SECAngleAxis: Mappable {
     public func mapping(map: Mapper) {
         map["polarIndex"] = polarIndex
         map["startAngle"] = startAngle

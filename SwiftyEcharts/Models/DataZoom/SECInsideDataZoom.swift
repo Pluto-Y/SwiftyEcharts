@@ -14,7 +14,7 @@
 /// - 缩放：
 ///    - PC端：鼠标在坐标系范围内滚轮滚动（MAC触控板类同）
 ///    - 移动端：在移动端触屏上，支持两指滑动缩放。
-public struct SECInsideDataZoom : SECDataZoom {
+public struct SECInsideDataZoom: SECDataZoom {
     
     /// 类型
     public var type: String {
@@ -43,7 +43,7 @@ public struct SECInsideDataZoom : SECDataZoom {
     ///                 }
     ////            ]
     ///         }
-    public var xAxisIndex: SECOneOrMore<UInt8>?
+    public var xAxisIndex: OneOrMore<UInt8>?
     /// 设置 dataZoom-inside 组件控制的 x轴（即yAxis，是直角坐标系中的概念，参见 grid）。
     /// 不指定时，当 dataZoom-inside.orient 为 'vertical'时，默认控制和 dataZoom 平行的第一个 yAxis。但是不建议使用默认值，建议显式指定。
     /// 如果是 number 表示控制一个轴，如果是 Array 表示控制多个轴。
@@ -65,7 +65,7 @@ public struct SECInsideDataZoom : SECDataZoom {
     ///                 }
     ////            ]
     ///         }
-    public var yAxisIndex: SECOneOrMore<UInt8>?
+    public var yAxisIndex: OneOrMore<UInt8>?
     /// 设置 dataZoom-inside 组件控制的 radius 轴（即radiusAxis，是直角坐标系中的概念，参见 polar）。
     /// 如果是 number 表示控制一个轴，如果是 Array 表示控制多个轴。
     /// 例如有如下 ECharts option：
@@ -86,7 +86,7 @@ public struct SECInsideDataZoom : SECDataZoom {
     ///                 }
     ///             ]
     ///         }
-    public var radiusAxisIndex: SECOneOrMore<UInt8>?
+    public var radiusAxisIndex: OneOrMore<UInt8>?
     /// 设置 dataZoom-inside 组件控制的 angle 轴（即angleAxis，是直角坐标系中的概念，参见 polar）。
     /// 如果是 number 表示控制一个轴，如果是 Array 表示控制多个轴。
     /// 例如有如下 ECharts option：
@@ -107,7 +107,7 @@ public struct SECInsideDataZoom : SECDataZoom {
     ///                 }
     ///             ]
     ///         }
-    public var angleAxisIndex: SECOneOrMore<UInt8>?
+    public var angleAxisIndex: OneOrMore<UInt8>?
     /// dataZoom 的运行原理是通过 数据过滤 来达到 数据窗口缩放 的效果。数据过滤模式的设置不同，效果也不同。
     /// 可选值为：
     /// - 'filter'：当前数据窗口外的数据，被 过滤掉。即会影响其他轴的数据范围。
@@ -198,7 +198,7 @@ public struct SECInsideDataZoom : SECDataZoom {
     public init() {}
 }
 
-extension SECInsideDataZoom : SECEnumable {
+extension SECInsideDataZoom: Enumable {
     public enum Enums {
         case disabled(Bool), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(SECFilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), throttle(Float)
     }
@@ -211,21 +211,21 @@ extension SECInsideDataZoom : SECEnumable {
             case let .disabled(disabled):
                 self.disabled = disabled
             case let .xAxisIndex(xAxisIndex):
-                self.xAxisIndex = SECOneOrMore(one: xAxisIndex)
+                self.xAxisIndex = OneOrMore(one: xAxisIndex)
             case let .xAxisIndexes(xAxisIndexes):
-                self.xAxisIndex = SECOneOrMore(more: xAxisIndexes)
+                self.xAxisIndex = OneOrMore(more: xAxisIndexes)
             case let .yAxisIndex(yAxisIndex):
-                self.yAxisIndex = SECOneOrMore(one: yAxisIndex)
+                self.yAxisIndex = OneOrMore(one: yAxisIndex)
             case let .yAxisIndexes(yAxisIndexes):
-                self.yAxisIndex = SECOneOrMore(more: yAxisIndexes)
+                self.yAxisIndex = OneOrMore(more: yAxisIndexes)
             case let .radiusAxisIndex(radiusAxisIndex):
-                self.radiusAxisIndex = SECOneOrMore(one: radiusAxisIndex)
+                self.radiusAxisIndex = OneOrMore(one: radiusAxisIndex)
             case let .radiusAxisIndexes(radiusAxisIndexes):
-                self.radiusAxisIndex = SECOneOrMore(more: radiusAxisIndexes)
+                self.radiusAxisIndex = OneOrMore(more: radiusAxisIndexes)
             case let .angleAxisIndex(angleAxisIndex):
-                self.angleAxisIndex = SECOneOrMore(one: angleAxisIndex)
+                self.angleAxisIndex = OneOrMore(one: angleAxisIndex)
             case let .angleAxisIndexes(angleAxisIndexes):
-                self.angleAxisIndex = SECOneOrMore(more: angleAxisIndexes)
+                self.angleAxisIndex = OneOrMore(more: angleAxisIndexes)
             case let .filterMode(filterMode):
                 self.filterMode = filterMode
             case let .start(start):
@@ -247,7 +247,7 @@ extension SECInsideDataZoom : SECEnumable {
     }
 }
 
-extension SECInsideDataZoom : Mappable {
+extension SECInsideDataZoom: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["disabled"] = disabled

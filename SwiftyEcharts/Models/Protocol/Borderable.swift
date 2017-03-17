@@ -1,5 +1,5 @@
 //
-//  SECBorderable.swift
+//  Borderable.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 03/01/2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol SECBorderable {
-    var borderColor: SECColor? { get set }
+public protocol Borderable {
+    var borderColor: Color? { get set }
     var borderWidth: Float?  { get set }
 }

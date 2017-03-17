@@ -1,5 +1,5 @@
 //
-//  SECTitle.swift
+//  Title.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 30/11/2016.
@@ -7,7 +7,7 @@
 //
 
 /// 指定窗口打开主标题超链接。
-public enum SECTarget : Jsonable, CustomStringConvertible {
+public enum SECTarget: Jsonable, CustomStringConvertible {
     
     ///  当前窗口打开
     case tself
@@ -29,7 +29,7 @@ public enum SECTarget : Jsonable, CustomStringConvertible {
 /// - all: 所有
 /// - verticalAndHorizontal: 垂直和水平方向
 /// - trbl: 上右下左
-public enum SECPadding : Jsonable, CustomStringConvertible {
+public enum SECPadding: Jsonable, CustomStringConvertible {
     case all(Float)
     case verticalAndHorizontal(Float, Float)
     case trbl(Float, Float, Float, Float)
@@ -47,7 +47,7 @@ public enum SECPadding : Jsonable, CustomStringConvertible {
 
 /// 标题组件，包含主标题和副标题。
 /// 在 ECharts 2.x 中单个 ECharts 实例最多只能拥有一个标题组件。但是在 ECharts 3 中可以存在任意多个标题组件，这在需要标题进行排版，或者单个实例中的多个图表都需要标题时会比较有用。
-public struct SECTitle: SECBorderable, SECDisplayable, SECTextful, SECZable {
+public struct Title: Borderable, Displayable, Textful, Zable {
     /// 是否显示标题组件
     public var show: Bool?
     /// 主标题文本，支持使用 \n 换。
@@ -57,11 +57,11 @@ public struct SECTitle: SECBorderable, SECDisplayable, SECTextful, SECZable {
     /// 指定窗口打开主标题超链接。
     public var target: SECTarget?
     /// 主标题文字样式
-    public var textStyle: SECTextStyle?
+    public var textStyle: TextStyle?
     /// 标题文本水平对齐
-    public var textAlign: SECAlign?
+    public var textAlign: Align?
     /// 标题文本垂直对齐
-    public var textBaseline: SECVerticalAlign?
+    public var textBaseline: VerticalAlign?
     /// 副标题文本，支持使用 \n 换行
     public var subtext: String?
     /// 副标题文本超链接
@@ -69,7 +69,7 @@ public struct SECTitle: SECBorderable, SECDisplayable, SECTextful, SECZable {
     /// 指定窗口打开副标题超链接
     public var subtarget: SECTarget?
     /// 副标题文字样式
-    public var subtextStyle: SECTextStyle?
+    public var subtextStyle: TextStyle?
     /// 标题内边距
     public var padding: SECPadding?
     /// 主副标题之间的间距
@@ -88,9 +88,9 @@ public struct SECTitle: SECBorderable, SECDisplayable, SECTextful, SECZable {
     /// grid 组件离容器下侧的距离。
     public var bottom: SECPosition?
     /// 标题背景色，默认透明。
-    public var backgroundColor: SECColor?
+    public var backgroundColor: Color?
     /// 标题的边框颜色。支持的颜色格式同 backgroundColor。
-    public var borderColor: SECColor?
+    public var borderColor: Color?
     /// 标题的边框线宽。
     public var borderWidth: Float?
     /// 图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果
@@ -98,7 +98,7 @@ public struct SECTitle: SECBorderable, SECDisplayable, SECTextful, SECZable {
     public var shadowBlur: Float?
     /// 阴影颜色
     /// 注意：此配置项生效的前提是，设置了 show: true。
-    public var shadowColor: SECColor?
+    public var shadowColor: Color?
     /// 阴影水平方向上的偏移距离。
     /// 注意：此配置项生效的前提是，设置了 show: true。
     public var shadowOffsetX: Float?
@@ -109,9 +109,9 @@ public struct SECTitle: SECBorderable, SECDisplayable, SECTextful, SECZable {
     public init() { }
 }
 
-extension SECTitle : SECEnumable {
+extension Title: Enumable {
     public enum Enums {
-        case show(Bool), text(String), link(String), target(SECTarget), textStyle(SECTextStyle), textAlign(SECAlign), textBaseline(SECVerticalAlign), subtext(String), sublink(String), subtarget(SECTarget), subtextStyle(SECTextStyle), padding(SECPadding), itemGap(Float), zlevel(Float), z(Float), left(SECPosition), x(SECPosition), top(SECPosition), y(SECPosition), right(SECPosition), bottom(SECPosition), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), text(String), link(String), target(SECTarget), textStyle(TextStyle), textAlign(Align), textBaseline(VerticalAlign), subtext(String), sublink(String), subtarget(SECTarget), subtextStyle(TextStyle), padding(SECPadding), itemGap(Float), zlevel(Float), z(Float), left(SECPosition), x(SECPosition), top(SECPosition), y(SECPosition), right(SECPosition), bottom(SECPosition), backgroundColor(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -179,7 +179,7 @@ extension SECTitle : SECEnumable {
         }
     }
 }
-extension SECTitle : Mappable {
+extension Title: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["text"] = text

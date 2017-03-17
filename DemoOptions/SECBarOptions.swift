@@ -29,10 +29,10 @@ public struct SECBarOptions {
             data2.append(calculateData(Float(i), function: cos))
         }
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("柱状图动画延迟")
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["bar", "bar2"]),
                 .align(.left)
                 )),
@@ -102,7 +102,7 @@ public struct SECBarOptions {
         )
         return SECOption(
             .backgroundColor(.hexColor("#eee")),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["bar", "bar2", "bar3", "bar4"]),
                 .align(.left),
                 .left(.value(10))
@@ -154,9 +154,9 @@ public struct SECBarOptions {
                 .top(.value(60)),
                 .left(.value(10)),
                 .inRange(["colorLightness": [0.4, 0.8]]),
-                .outRange(["color": SECColor.hexColor("#bbb")]),
+                .outRange(["color": Color.hexColor("#bbb")]),
                 .controller(SECVMController(
-                    .inRange(["color": SECColor.hexColor("#2f4554")])
+                    .inRange(["color": Color.hexColor("#2f4554")])
                     ))
                 )),
             .series([
@@ -199,7 +199,7 @@ public struct SECBarOptions {
             dataShadow.append(yMax)
         }
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("特性示例：渐变色 阴影 点击缩放"),
                 .subtext("Feature Sample: Gradient Color, Shadow, Click Zoom")
                 )),
@@ -207,7 +207,7 @@ public struct SECBarOptions {
                 .data(dataAxis),
                 .axisLabel(SECAxisLabel(
                     .inside(true),
-                    .textStyle(SECTextStyle(
+                    .textStyle(TextStyle(
                         .color(.hexColor("#fff"))
                         ))
                     )),
@@ -227,7 +227,7 @@ public struct SECBarOptions {
                     .show(false)
                     )),
                 .axisLabel(SECAxisLabel(
-                    .textStyle(SECTextStyle(
+                    .textStyle(TextStyle(
                         .color(.hexColor("#999"))
                         ))
                     ))
@@ -251,17 +251,17 @@ public struct SECBarOptions {
                         .normal(SECCommonItemStyleContent(
                             .color(.linearGradient(0, 0, 0, 1,
                                 [
-                                    ["offset": 0, "color": SECColor.hexColor("#83bff6")],
-                                    ["offset": 0.5, "color": SECColor.hexColor("#188df0")],
-                                    ["offset": 1, "color": SECColor.hexColor("#188df0")]
+                                    ["offset": 0, "color": Color.hexColor("#83bff6")],
+                                    ["offset": 0.5, "color": Color.hexColor("#188df0")],
+                                    ["offset": 1, "color": Color.hexColor("#188df0")]
                                 ], false))
                             )),
                         .emphasis(SECCommonItemStyleContent(
                             .color(.linearGradient(0, 0, 0, 1,
                                 [
-                                    ["offset": 0, "color": SECColor.hexColor("#2378f7")],
-                                    ["offset": 0.7, "color": SECColor.hexColor("#2378f7")],
-                                    ["offset": 1, "color": SECColor.hexColor("#83bff6")]
+                                    ["offset": 0, "color": Color.hexColor("#2378f7")],
+                                    ["offset": 0.7, "color": Color.hexColor("#2378f7")],
+                                    ["offset": 1, "color": Color.hexColor("#83bff6")]
                                 ], false))
                             ))
                         )),
@@ -281,7 +281,7 @@ public struct SECBarOptions {
                     .type(.shadow)
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["利润", "支出", "收入"])
                 )),
             .xAxis(SECAxis(
@@ -333,13 +333,13 @@ public struct SECBarOptions {
     // MARK: 交错正负轴标签
     /// 地址: http://echarts.baidu.com/demo.html#bar-negative2
     static func barNegative2Option() -> SECOption {
-        let labelRight = SECFormattedLabel(
-            .normal(SECFormattedLabelStyle(
+        let labelRight = FormattedLabel(
+            .normal(FormattedLabelStyle(
                 .position(.right)
                 ))
         )
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("交错正负轴标签"),
                 .subtext("From ExcelHome"),
                 .sublink("http://e.weibo.com/1341556070/AjwF2AgQm")
@@ -430,7 +430,7 @@ public struct SECBarOptions {
                     .type(.shadow)
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["直接访问","邮件营销","联盟广告","视频广告","搜索引擎","百度","谷歌","必应","其他"])
                 )),
             .grid(SECGrid(
@@ -552,7 +552,7 @@ public struct SECBarOptions {
     /// 地址: http://echarts.baidu.com/demo.html#bar-waterfall
     static func barWaterfallOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("深圳月最低生活费组成（单位:元）"),
                 .subtext("From ExcelHome"),
                 .sublink("http://e.weibo.com/1341556070/AjQH99che")
@@ -619,7 +619,7 @@ public struct SECBarOptions {
             list.append("11月\(i)日")
         }
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("阶梯瀑布图"),
                 .subtext("From ExcelHome"),
                 .sublink("http://e.weibo.com/1341556070/Aj1J2x5a5")
@@ -631,7 +631,7 @@ public struct SECBarOptions {
                     )),
                 .formatter(.function("function tooltipAxisPointer(params){ var tar; if(params[1].value != '-') { tar = params[1]; } else { tar = param[0]; } return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value}"))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["支出","收入"])
                 )),
             .grid(SECGrid(
@@ -702,7 +702,7 @@ public struct SECBarOptions {
                     .type(.shadow)
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["邮件营销","联盟广告","视频广告","直接访问","搜索引擎"])
                 )),
             .grid(SECGrid(
@@ -783,7 +783,7 @@ public struct SECBarOptions {
     /// 地址:http://echarts.baidu.com/demo.html#bar-y-category
     static func barYCategoryOption() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("世界人口总量"),
                 .subtext("数据来自网络")
                 )),
@@ -793,7 +793,7 @@ public struct SECBarOptions {
                     .type(.shadow)
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["2011年", "2012年"])
                 )),
             .grid(SECGrid(
@@ -827,14 +827,14 @@ public struct SECBarOptions {
     /// 地址: http://echarts.baidu.com/demo.html#bar1
     static func bar1Option() -> SECOption {
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("某地区蒸发量和降水量"),
                 .subtext("纯属虚构")
                 )),
             .tooltip(SECTooltip(
                 .trigger(.axis)
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["蒸发量","降水量"])
                 )),
             .toolbox(SECToolbox(
@@ -941,14 +941,14 @@ public struct SECBarOptions {
         }
         
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("动态数据"),
                 .subtext("纯属虚构")
                 )),
             .tooltip(SECTooltip(
                 .trigger(.axis)
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["最新成交价", "预购队列"])
                 )),
             .toolbox(SECToolbox(
@@ -1034,7 +1034,7 @@ public struct SECBarOptions {
                         ))
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["蒸发量","降水量","平均温度"])
                 )),
             .xAxis(SECAxis(
@@ -1100,7 +1100,7 @@ public struct SECBarOptions {
     // MARK: 多 Y 轴示例
     /// 地址: http://echarts.baidu.com/demo.html#multiple-y-axis
     static func multipleYAxisOption() -> SECOption {
-        let colors: [SECColor] = [.hexColor("#5793f3"), .hexColor("#d14a61"), .hexColor("#675bba")]
+        let colors: [Color] = [.hexColor("#5793f3"), .hexColor("#d14a61"), .hexColor("#675bba")]
         return SECOption(
             .color(colors),
             .tooltip(SECTooltip(
@@ -1123,7 +1123,7 @@ public struct SECBarOptions {
                         ))
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["蒸发量","降水量","平均温度"])
                 )),
             .xAxis(SECAxis(

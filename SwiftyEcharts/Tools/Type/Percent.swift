@@ -17,14 +17,14 @@ public struct Percent {
     }
 }
 
-extension Percent : Jsonable {
+extension Percent: Jsonable {
     public var jsonString: String {
         let formatStr = String(format: "%%.%df", Percent.precision)
         return "\"\(String(format: formatStr, value))%\""
     }
 }
 
-extension Percent : LengthValue {
+extension Percent: LengthValue {
     
 }
 

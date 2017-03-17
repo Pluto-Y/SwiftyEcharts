@@ -6,17 +6,17 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public protocol SECAreaStyleContent : SECColorful, SECShadowable, SECOpacitable {
+public protocol SECAreaStyleContent: Colorful, Shadowable, Opacitable {
 
 }
 
 /// 分隔区域的样式设置。
-public struct SECAreaStyle : SECAreaStyleContent {
+public struct SECAreaStyle: SECAreaStyleContent {
     /// 分隔区域颜色。分隔区域会按数组中颜色的顺序依次循环设置颜色。默认是一个深浅的间隔色。
-    public var color: SECColor?
+    public var color: Color?
     /// 阴影设置
     public var shadowBlur: Float?
-    public var shadowColor: SECColor?
+    public var shadowColor: Color?
     public var shadowOffsetX: Float?
     public var shadowOffsetY: Float?
     /// 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
@@ -29,9 +29,9 @@ public struct SECAreaStyle : SECAreaStyleContent {
 
 public typealias SECCommonAreaStyleContent = SECAreaStyle
 
-extension SECAreaStyle : SECEnumable {
+extension SECAreaStyle: Enumable {
     public enum Enums {
-        case color(SECColor), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
+        case color(Color), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -56,7 +56,7 @@ extension SECAreaStyle : SECEnumable {
     }
 }
 
-extension SECAreaStyle : Mappable {
+extension SECAreaStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["shadowBlur"] = shadowBlur
@@ -67,14 +67,14 @@ extension SECAreaStyle : Mappable {
     }
 }
 
-public struct SECEmphasisAreaStyle : SECEmphasisable {
+public struct SECEmphasisAreaStyle: Emphasisable {
     public typealias Style = SECCommonAreaStyleContent
     
     public var normal: Style?
     public var emphasis: Style?
 }
 
-extension SECEmphasisAreaStyle : SECEnumable {
+extension SECEmphasisAreaStyle: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -93,7 +93,7 @@ extension SECEmphasisAreaStyle : SECEnumable {
     }
 }
 
-extension SECEmphasisAreaStyle : Mappable {
+extension SECEmphasisAreaStyle: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis

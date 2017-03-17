@@ -35,7 +35,7 @@ public struct Pair<T>: ArrayLiteralConvertible {
     }
 }
 
-extension Pair : Jsonable {
+extension Pair: Jsonable {
     public var jsonString: String {
         if let first = self.first as? Jsonable, let second = self.second as? Jsonable {
             return "[\(first.jsonString), \(second.jsonString)]"
@@ -45,8 +45,8 @@ extension Pair : Jsonable {
 }
 
 /// 用于指定坐标点, eg: [x, y]
-public typealias SECPoint = Pair<LengthValue>
+public typealias Point = Pair<LengthValue>
 /// 用于指定范围, eg: [min, max]
-public typealias SECRange = Pair<LengthValue>
+public typealias Range = Pair<LengthValue>
 /// 用来指定两端的文本 , eg: SECContinuousVisualMap.text
-public typealias SECPiecewiseText = Pair<String>
+public typealias PiecewiseText = Pair<String>

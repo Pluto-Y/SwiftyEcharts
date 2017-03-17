@@ -36,7 +36,7 @@ public struct SECBrush {
     /// - indexes: 如 [0, 4, 2]，表示指定这些 index 所对应的坐标系。
     /// - all: 表示所有
     /// - none: 表示不指定
-    public enum Indexes : Jsonable {
+    public enum Indexes: Jsonable {
         case indexes([Int])
         case all
         case none
@@ -59,7 +59,7 @@ public struct SECBrush {
     /// - polygon: 任意形状选框
     /// - lineX: 横向选择
     /// - lineY: 纵向选择
-    public enum Type : String, Jsonable {
+    public enum Type: String, Jsonable {
         case rect = "rect"
         case polygon = "polygon"
         case lineX = "lineX"
@@ -74,7 +74,7 @@ public struct SECBrush {
     ///
     /// - single: 单选
     /// - multiple: 多选
-    public enum Mode : String, Jsonable {
+    public enum Mode: String, Jsonable {
         case single = "single"
         case multiple = "multiple"
         
@@ -94,7 +94,7 @@ public struct SECBrush {
     /// 例如下面这个例子，就是使用了 debounce的效果：只有用户停止动作了，柱状图才更新。不然的话，如果柱状图的频繁更新，那么动画效果很差。
     ///
     /// http://echarts.baidu.com/gallery/view.html?c=scatter-map-brush&edit=1&reset=1
-    public enum ThrottleType : String, Jsonable {
+    public enum ThrottleType: String, Jsonable {
         case debounce = "debounce"
         case fixRate = "fixRate"
         
@@ -104,10 +104,10 @@ public struct SECBrush {
     }
     
     /// 选框的默认样式
-    public struct Style : SECColorful {
+    public struct Style: Colorful {
         public var borderWidth: Float?
-        public var color: SECColor?
-        public var borderColor: SECColor?
+        public var color: Color?
+        public var borderColor: Color?
         public var width: Float?
     }
     
@@ -371,9 +371,9 @@ public struct SECBrush {
 
 public typealias SECBrushToolbox = SECBrush.Toolbox
 
-extension SECBrush.Style : SECEnumable {
+extension SECBrush.Style: Enumable {
     public enum Enums {
-        case borderWidth(Float), color(SECColor), borderColor(SECColor), width(Float)
+        case borderWidth(Float), color(Color), borderColor(Color), width(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -394,7 +394,7 @@ extension SECBrush.Style : SECEnumable {
     }
 }
 
-extension SECBrush.Style : Mappable {
+extension SECBrush.Style: Mappable {
     public func mapping(map: Mapper) {
         map["borderWidth"] = borderWidth
         map["color"] = color
@@ -403,7 +403,7 @@ extension SECBrush.Style : Mappable {
     }
 }
 
-extension SECBrush : SECEnumable {
+extension SECBrush: Enumable {
     public enum Enums {
         case toolbox([SECBrushToolbox]), brushLink(Indexes), seriesIndex(Indexes), geoIndex(Indexes), xAxisIndex(Indexes), yAxisIndex(Indexes), brushType(Type), brushMode(Mode), transformable(Bool), brushStyle(Style), throttleType(ThrottleType), throttleDelay(Float), removeOnClick(Float), inBrush(String), outOfBrush(String)
     }
@@ -448,7 +448,7 @@ extension SECBrush : SECEnumable {
     }
 }
 
-extension SECBrush : Mappable {
+extension SECBrush: Mappable {
     public func mapping(map: Mapper) {
         map["toolbox"] = toolbox
         map["brushLink"] = brushLink

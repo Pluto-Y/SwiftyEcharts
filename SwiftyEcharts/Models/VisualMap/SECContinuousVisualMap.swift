@@ -12,7 +12,7 @@
 /// http://echarts.baidu.com/gallery/editor.html?c=doc-example/map-visualMap-continuous
 ///
 /// visualMapContinuous中，可以通过 visualMap.calculable 来显示或隐藏手柄（手柄能拖拽改变值域）。
-public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderable, SECColorful, SECTextful, SECFormatted, SECZable {
+public struct SECContinuousVisualMap: SECVisualMap, Displayable, Borderable, Colorful, Textful, Formatted, Zable {
     
     /// 类型为连续型。
     public var type: String {
@@ -55,7 +55,7 @@ public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderab
     ///     // 则 range 恢复为 [min, max]，即 [0, 400]，同时也恢复了自动随 min max 而改变的能力。
     ///
     /// getOption 得到的 range 总是 Array，不会为 null 或 undefined。
-    public var range: SECRange?
+    public var range: Range?
     /// 是否显示拖拽用的手柄（手柄能拖拽调整选中范围）。
     ///
     /// （注：为兼容 ECharts2，当 visualMap.type 未指定时，假如设置了 'calculable'，则type自动被设置为'continuous'，无视 visualMap-piecewise.splitNumber 等设置。所以，建议使用者不要不指定 visualMap.type，否则表意不清晰。）
@@ -86,11 +86,11 @@ public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderab
     /// - 'right' 手柄和label在左，orient 为 horizontal 时有效。
     /// - 'top' 手柄和label在下，orient 为 vertical 时有效。
     /// - 'bottom' 手柄和label在上，orient 为 vertical 时有效。
-    public var align: SECAlign?
+    public var align: Align?
     /// 两端的文本，如 ['High', 'Low']。
     ///
     /// text 中的顺序，其实试试就知道。若要看详细的规则，参见 visualMap.inverse。
-    public var text: SECPiecewiseText?
+    public var text: PiecewiseText?
     /// 两端文字主体之间的距离，单位为px。参见 visualMap-continuous.text
     public var textGap: Float?
     /// 是否显示 visualMap-continuous 组件。如果设置为 false，不会显示，但是数据映射的功能还存在。
@@ -121,7 +121,7 @@ public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderab
     /// visualMap 组件中，控制器 的 inRange outOfRange 设置。如果没有这个 controller 设置，控制器 会使用外层的 inRange outOfRange 设置；如果有这个 controller 设置，则会采用这个设置。适用于一些控制器视觉效果需要特殊定制或调整的场景。
     public var controller: SECVMController?
     
-    /// MARK: - SECZable
+    /// MARK: - Zable
     public var zlevel: Float?
     public var z: Float?
     
@@ -164,16 +164,16 @@ public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderab
     ///     ]
     public var padding: SECPadding?
     /// 背景色。
-    public var backgroundColor: SECColor?
+    public var backgroundColor: Color?
     /// 边框颜色。
-    public var borderColor: SECColor?
+    public var borderColor: Color?
     /// 边框线宽，单位px。
     public var borderWidth: Float?
     /// 这个配置项，是为了兼容 ECharts2 而存在，ECharts3 中已经不推荐使用。它的功能已经移到了 visualMap-continuous.inRange 和 visualMap-continuous.outOfRange 中。
     ///
     /// 如果要使用，则须注意，color属性中的顺序是由数值 大 到 小，但是 visualMap-continuous.inRange 或 visualMap-continuous.outOfRange 中 color 的顺序，总是由数值 小 到 大。二者不一致
-    public var color: SECColor?
-    public var textStyle: SECTextStyle?
+    public var color: Color?
+    public var textStyle: TextStyle?
     /// 标签的格式化工具。
     ///
     /// 如果为string，表示模板，例如：aaaa{value}。其中 {value} 是当前的范围边界值。
@@ -183,14 +183,14 @@ public struct SECContinuousVisualMap : SECVisualMap, SECDisplayable, SECBorderab
     ///     formatter: function (value) {
     ///         return 'aaaa' + value; // 范围标签显示内容。
     ///     }
-    public var formatter: SECFormatter?
+    public var formatter: Formatter?
     
     public init() {}
 }
 
-extension SECContinuousVisualMap : SECEnumable {
+extension SECContinuousVisualMap: Enumable {
     public enum Enums {
-        case min(Float), max(Float), range(SECRange), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(SECAlign), text(SECPiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(SECColor), borderColor(SECColor), borderWidth(Float), color(SECColor), textStyle(SECTextStyle), formatter(SECFormatter)
+        case min(Float), max(Float), range(Range), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(SECVMController), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), orient(SECOrient), padding(SECPadding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
     }
     
     public typealias ContentEnum = Enums
@@ -269,7 +269,7 @@ extension SECContinuousVisualMap : SECEnumable {
     }
 }
 
-extension SECContinuousVisualMap : Mappable {
+extension SECContinuousVisualMap: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["min"] = min

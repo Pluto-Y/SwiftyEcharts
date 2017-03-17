@@ -6,12 +6,12 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECMarkArea : SECAnimatable {
+public struct SECMarkArea: SECAnimatable {
 
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     /// 标域文本配置。
-    public var label: SECFormattedLabel?
+    public var label: FormattedLabel?
     /// 该标域的样式。
     public var itemStyle: SECItemStyle?
     /// 标域的数据数组。
@@ -59,9 +59,9 @@ public struct SECMarkArea : SECAnimatable {
     public init() { }
 }
 
-extension SECMarkArea : SECEnumable {
+extension SECMarkArea: Enumable {
     public enum Enums {
-        case silent(Bool), label(SECFormattedLabel), itemStyle(SECItemStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
+        case silent(Bool), label(FormattedLabel), itemStyle(SECItemStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(SECTime), animationEasing(SECAnimation), animationDelay(SECTime), animationDurationUpdate(SECTime), animationEasingUpdate(SECAnimation), animationDelayUpdate(SECTime)
     }
     
     public typealias ContentEnum = Enums
@@ -98,7 +98,7 @@ extension SECMarkArea : SECEnumable {
     }
 }
 
-extension SECMarkArea : Mappable {
+extension SECMarkArea: Mappable {
     public func mapping(map: Mapper) {
         map["silent"] = silent
         map["label"] = label

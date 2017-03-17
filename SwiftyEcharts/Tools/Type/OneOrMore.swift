@@ -1,12 +1,12 @@
 //
-//  SECOneOrMore.swift
+//  OneOrMore.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 19/02/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECOneOrMore<T>: ArrayLiteralConvertible {
+public struct OneOrMore<T>: ArrayLiteralConvertible {
     private var one: T? = nil
     private var more: [T]? = nil
     public init(one: T) {
@@ -26,7 +26,7 @@ public struct SECOneOrMore<T>: ArrayLiteralConvertible {
     }
 }
 
-extension SECOneOrMore : Jsonable {
+extension OneOrMore: Jsonable {
     public var jsonString: String {
         if let datas = self.more {
             return datas.jsonString
@@ -37,7 +37,7 @@ extension SECOneOrMore : Jsonable {
     }
 }
 
-extension SECOneOrMore {
+extension OneOrMore {
     public subscript(index: Int) -> T? {
         if one != nil {
             return index == 0 ? one : nil

@@ -8,8 +8,8 @@
 
 /// DataZoom 控件的接口，如果是 DataZoom控件需要实现这个接口
 public protocol SECDataZoom {
-    var xAxisIndex: SECOneOrMore<UInt8>? { get set }
-    var yAxisIndex: SECOneOrMore<UInt8>? { get set }
+    var xAxisIndex: OneOrMore<UInt8>? { get set }
+    var yAxisIndex: OneOrMore<UInt8>? { get set }
 }
 
 /// dataZoom 的运行原理是通过 数据过滤 来达到 数据窗口缩放 的效果。数据过滤模式的设置不同，效果也不同。
@@ -80,7 +80,7 @@ public protocol SECDataZoom {
 /// 如下面的例子：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=doc-example/bar-dataZoom-filterMode
-public enum SECFilterMode : String, Jsonable{
+public enum SECFilterMode: String, Jsonable{
     case filter = "filter"
     case empty = "empty"
     

@@ -7,7 +7,7 @@
 //
 
 /// 折线类型的 `Graphic`
-public struct SECPolylineGraphic : SECGraphic {
+public struct SECPolylineGraphic: SECGraphic {
     
     /// 折线的位置节点
     public struct Shape {
@@ -16,7 +16,7 @@ public struct SECPolylineGraphic : SECGraphic {
         ///
         /// - val: 如果为 val：表示贝塞尔 (bezier) 差值平滑，smooth 指定了平滑等级，范围 [0, 1]。
         /// - spline: 如果为 'spline'：表示 Catmull-Rom spline 差值平滑。
-        public enum Smooth : Jsonable {
+        public enum Smooth: Jsonable {
             case val(Float)
             case spline
             
@@ -67,7 +67,7 @@ public struct SECPolylineGraphic : SECGraphic {
     public init() {}
 }
 
-extension SECPolylineGraphic.Shape : SECEnumable {
+extension SECPolylineGraphic.Shape: Enumable {
     public enum Enums {
         case point([[Float]]), smooth(Smooth), smoothConstraint(Bool)
     }
@@ -88,7 +88,7 @@ extension SECPolylineGraphic.Shape : SECEnumable {
     }
 }
 
-extension SECPolylineGraphic.Shape : Mappable {
+extension SECPolylineGraphic.Shape: Mappable {
     public func mapping(map: Mapper) {
         map["point"] = point
         map["smooth"] = smooth
@@ -96,7 +96,7 @@ extension SECPolylineGraphic.Shape : Mappable {
     }
 }
 
-extension SECPolylineGraphic : SECEnumable {
+extension SECPolylineGraphic: Enumable {
     public enum Enums {
         case id(String), action(SECGraphicAction), left(SECPosition), right(SECPosition), top(SECPosition), bottom(SECPosition), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
     }
@@ -143,7 +143,7 @@ extension SECPolylineGraphic : SECEnumable {
     }
 }
 
-extension SECPolylineGraphic : Mappable {
+extension SECPolylineGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

@@ -15,7 +15,7 @@ public struct SECFunnelOptions {
     static func unnelAlignOption() -> SECOption {
         // TODO: 添加实现
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("漏斗图(对比)"),
                 .subtext("纯属虚构"),
                 .left(.left),
@@ -37,7 +37,7 @@ public struct SECFunnelOptions {
                     .saveAsImage(SECTFSaveAsImage())
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .orient(.vertical),
                 .left(.left),
                 .data(["产品A","产品B","产品C","产品D","产品E"])
@@ -98,7 +98,7 @@ public struct SECFunnelOptions {
     static func funnelCustomizeOption() -> SECOption {
         // TODO: 添加实现
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("漏斗图"),
                 .subtext("纯属虚构")
                 )),
@@ -115,18 +115,18 @@ public struct SECFunnelOptions {
                     .saveAsImage(SECTFSaveAsImage())
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["展现","点击","访问","咨询","订单"])
                 )),
             .series([
                 SECFunnelSerie(
                     .name("预期"),
                     .maxSize(80%),
-                    .label(SECFormattedLabel(
-                        .normal(SECFormattedLabelStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
                             .formatter(.string("{b}预期"))
                             )),
-                        .emphasis(SECFormattedLabelStyle(
+                        .emphasis(FormattedLabelStyle(
                             .position(.inside),
                             .formatter(.string("{b}预期: {c}%"))
                             ))
@@ -152,15 +152,15 @@ public struct SECFunnelOptions {
                 SECFunnelSerie(
                     .name("实际"),
                     .maxSize(80%),
-                    .label(SECFormattedLabel(
-                        .normal(SECFormattedLabelStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
                             .position(.inside),
                             .formatter(.string("{c}%")),
-                            .textStyle(SECTextStyle(
+                            .textStyle(TextStyle(
                                 .color(.hexColor("#fff"))
                                 ))
                             )),
-                        .emphasis(SECFormattedLabelStyle(
+                        .emphasis(FormattedLabelStyle(
                             .position(.inside),
                             .formatter(.string("{b}实际: {c}%"))
                             ))
@@ -190,7 +190,7 @@ public struct SECFunnelOptions {
     static func funnelMutipleOption() -> SECOption {
         // TODO: 添加实现
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("漏斗图"),
                 .subtext("纯属虚构"),
                 .left(.left),
@@ -211,7 +211,7 @@ public struct SECFunnelOptions {
                     .saveAsImage(SECTFSaveAsImage())
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .orient(.vertical),
                 .left(.left),
                 .data(["展现","点击","访问","咨询","订单"])
@@ -240,8 +240,8 @@ public struct SECFunnelOptions {
                 ),
                 SECFunnelSerie(
                     .name("漏斗图"),
-                    .label(SECFormattedLabel(
-                        .normal(SECFormattedLabelStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
                             .position(.left)
                             ))
                         )),
@@ -256,8 +256,8 @@ public struct SECFunnelOptions {
                 SECFunnelSerie(
                     .name("金字塔"),
                     .sort(.ascending),
-                    .label(SECFormattedLabel(
-                        .normal(SECFormattedLabelStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
                             .position(.left)
                             ))
                         )),
@@ -278,7 +278,7 @@ public struct SECFunnelOptions {
     static func funnelOption() -> SECOption {
         // TODO: 添加实现
         return SECOption(
-            .title(SECTitle(
+            .title(Title(
                 .text("漏斗图"),
                 .subtext("纯属虚构")
                 )),
@@ -295,7 +295,7 @@ public struct SECFunnelOptions {
                     .saveAsImage(SECTFSaveAsImage())
                     ))
                 )),
-            .legend(SECLegend(
+            .legend(Legend(
                 .data(["展现","点击","访问","咨询","订单"])
                 )),
             .series([
@@ -307,13 +307,13 @@ public struct SECFunnelOptions {
                     .maxSize(100%),
                     .sort(.descending),
                     .gap(2),
-                    .label(SECFormattedLabel(
-                        .normal(SECFormattedLabelStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
                             .show(true),
                             .position(.inside)
                             )),
-                        .emphasis(SECFormattedLabelStyle(
-                            .textStyle(SECTextStyle(
+                        .emphasis(FormattedLabelStyle(
+                            .textStyle(TextStyle(
                                 .fontSize(20)
                                 ))
                             ))

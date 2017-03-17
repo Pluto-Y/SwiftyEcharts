@@ -15,9 +15,9 @@
 /// 或者
 ///
 ///     .width(32.0%)
-public protocol LengthValue : Jsonable { }
+public protocol LengthValue: Jsonable { }
 
 /// 保证Float, Double, Int 都支持 LengthValue 协议
-extension Float : LengthValue { }
-extension Double : LengthValue { }
-extension Int : LengthValue { }
+extension Float: LengthValue { }
+extension Double: LengthValue { }
+extension Int: LengthValue { }

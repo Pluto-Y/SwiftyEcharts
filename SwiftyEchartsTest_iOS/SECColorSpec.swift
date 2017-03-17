@@ -1,5 +1,5 @@
 //
-//  SECColorSpec.swift
+//  ColorSpec.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 02/03/2017.
@@ -10,15 +10,15 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class SECColorSpec: QuickSpec {
+class ColorSpec: QuickSpec {
     
     override func spec() {
         
-        describe("For SECColor.ImageRepeat") {
-            let repeatAll = SECColor.ImageRepeat.repeatAll
-            let noRepeat = SECColor.ImageRepeat.noRepeat
-            let repeatX = SECColor.ImageRepeat.repeatX
-            let repeatY = SECColor.ImageRepeat.repeatY
+        describe("For Color.ImageRepeat") {
+            let repeatAll = Color.ImageRepeat.repeatAll
+            let noRepeat = Color.ImageRepeat.noRepeat
+            let repeatX = Color.ImageRepeat.repeatX
+            let repeatY = Color.ImageRepeat.repeatY
             
             it(" needs to check the jsonString for repeat ") {
                 expect(repeatAll.jsonString).to(equal("\"repeat\""))
@@ -33,7 +33,7 @@ class SECColorSpec: QuickSpec {
             let normalPosition: Float = 0
             let normalElement = SECGradientColorElement(normalPosition, .red)
             let dictionaryPosition: Float = 1
-            let dictionaryElement: SECGradientColorElement = ["offset": dictionaryPosition, "color": SECColor.blue]
+            let dictionaryElement: SECGradientColorElement = ["offset": dictionaryPosition, "color": Color.blue]
             let offsetOnlyElement: SECGradientColorElement = ["offset": dictionaryPosition, "test": false]
             
             it (" needs to check the constructor and jsonString for SECGradientColorElement") {
@@ -44,20 +44,20 @@ class SECColorSpec: QuickSpec {
         }
         
         
-        describe("For SECColor") { 
-            let rgbColor = SECColor.rgb(120, 0, 255)
-            let rgbaColor = SECColor.rgba(80, 22, 37, 0.5)
-            let hexColor = SECColor.hexColor("#209")
-            let hexColor2 = SECColor.hexColor("#22EE98")
+        describe("For Color") { 
+            let rgbColor = Color.rgb(120, 0, 255)
+            let rgbaColor = Color.rgba(80, 22, 37, 0.5)
+            let hexColor = Color.hexColor("#209")
+            let hexColor2 = Color.hexColor("#22EE98")
             
             it(" needs to check the linearGradient case ") {
                 let x0: Float = 0, y0: Float = 0, x2: Float = 0, y2: Float = 1
                 let offset1: Float = 0, offset2: Float = 1
-                let color1 = SECColor.red, color2 = SECColor.blue
+                let color1 = Color.red, color2 = Color.blue
                 let gradientElement1: SECGradientColorElement = ["offset": offset1, "color": color1]
                 let gradientElement2 = SECGradientColorElement(offset2, color2)
                 JsCache.removeAll()
-                let linearGradient = SECColor.linearGradient(x0, y0, x2, y2, [gradientElement1, gradientElement2], false)
+                let linearGradient = Color.linearGradient(x0, y0, x2, y2, [gradientElement1, gradientElement2], false)
                 expect(linearGradient.jsonString).to(equal("\"linearGradient0\""))
                 let linearGradientJs = JsCache.allJsStrings()[0]
                 expect(linearGradientJs).to(equal("var linearGradient0 = new echarts.graphic.LinearGradient(\(x0.jsonString), \(y0.jsonString), \(x2.jsonString), \(y2.jsonString), [\(gradientElement1.jsonString),\(gradientElement2.jsonString)], false);"))
@@ -66,12 +66,12 @@ class SECColorSpec: QuickSpec {
             it(" needs to check the radialGradient case ") {
                 let x: Float = 3.0, y: Float = 9.27, r: Float = 85.3
                 let offset1: Float = 0, offset2: Float = 0.5, offset3: Float = 1
-                let color1 = SECColor.blue, color2 = SECColor.transparent, color3 = SECColor.green
+                let color1 = Color.blue, color2 = Color.transparent, color3 = Color.green
                 let gradientElement1: SECGradientColorElement = ["offset": offset1, "color": color1]
                 let gradientElement2 = SECGradientColorElement(offset2, color2)
                 let gradientElement3 = SECGradientColorElement(offset3, color3)
                 JsCache.removeAll()
-                let radialGradient = SECColor.radialGradient(x, y, r, [gradientElement1, gradientElement2, gradientElement3], true)
+                let radialGradient = Color.radialGradient(x, y, r, [gradientElement1, gradientElement2, gradientElement3], true)
                 expect(radialGradient.jsonString).to(equal("\"radialGradient0\""))
                 
                 let radialGradientJs = JsCache.allJsStrings()[0]

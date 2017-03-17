@@ -1,5 +1,5 @@
 //
-//  SECTextStyle.swift
+//  TextStyle.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 30/11/2016.
@@ -11,7 +11,7 @@
 /// - left: 左边
 /// - right: 右边
 /// - center: 中间
-public enum SECAlign: String, Jsonable {
+public enum Align: String, Jsonable {
     case left = "left"
     case right = "right"
     case center = "center"
@@ -28,7 +28,7 @@ public enum SECAlign: String, Jsonable {
 /// - top: 顶部
 /// - middle: 中间
 /// - bottom: 底部
-public enum SECVerticalAlign: String, Jsonable {
+public enum VerticalAlign: String, Jsonable {
     case top = "top"
     case middle = "middle"
     case bottom = "bottom"
@@ -39,13 +39,13 @@ public enum SECVerticalAlign: String, Jsonable {
 }
 
 /// 文字样式
-public struct SECTextStyle: SECColorful {
+public struct TextStyle: Colorful {
     /// 颜色
-    public var color: SECColor?
+    public var color: Color?
     /// 文字字体的风格
-    public var fontStyle: SECFontStyle?
+    public var fontStyle: FontStyle?
     /// 文字字体的粗细
-    public var fontWeight: SECFontWeight?
+    public var fontWeight: FontWeight?
     /// 文字的字体系列
     public var fontFamily: String?
     /// 文字的字体大小
@@ -55,10 +55,10 @@ public struct SECTextStyle: SECColorful {
     
     
 }
-extension SECTextStyle : SECEnumable {
+extension TextStyle: Enumable {
     
     public enum Enums {
-        case color(SECColor), fontStyle(SECFontStyle), fontWeight(SECFontWeight), fontFamily(String), fontSize(UInt)
+        case color(Color), fontStyle(FontStyle), fontWeight(FontWeight), fontFamily(String), fontSize(UInt)
     }
     
     public typealias ContentEnum = Enums
@@ -81,7 +81,7 @@ extension SECTextStyle : SECEnumable {
     }
 }
 
-extension SECTextStyle: Mappable {
+extension TextStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["fontStyle"] = fontStyle
@@ -91,6 +91,6 @@ extension SECTextStyle: Mappable {
     }
 }
 
-public protocol SECTextful {
-    var textStyle: SECTextStyle? { get set }
+public protocol Textful {
+    var textStyle: TextStyle? { get set }
 }

@@ -7,7 +7,7 @@
 //
 
 /// 极坐标系，可以用于散点图和折线图。每个极坐标系拥有一个角度轴和一个半径轴。
-public struct SECPolar : SECZable {
+public struct SECPolar: Zable {
     /// 所有图形的 zlevel 值。
     /// zlevel用于 Canvas 分层，不同zlevel值的图形会放置在不同的 Canvas 中，Canvas 分层是一种常见的优化手段。我们可以把一些图形变化频繁（例如有动画）的组件设置成一个单独的zlevel。需要注意的是过多的 Canvas 会引起内存开销的增大，在手机端上需要谨慎使用以防崩溃。
     /// zlevel 大的 Canvas 会放在 zlevel 小的 Canvas 的上面。
@@ -25,15 +25,15 @@ public struct SECPolar : SECZable {
     ///     center: [400, 300]
     ///     // 设置成相对的百分比
     ///     center: [50%, 50%]
-    public var center: SECPoint?
+    public var center: Point?
     /// 极坐标系的半径，数组的第一项是内半径，第二项是外半径。
     /// 支持设置成百分比，相对于容器高宽中较小的一项的一半。
     public var radius: [Float]?
 }
 
-extension SECPolar : SECEnumable {
+extension SECPolar: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), center(SECPoint), radius([Float])
+        case zlevel(Float), z(Float), center(Point), radius([Float])
     }
     
     public typealias ContentEnum = Enums
@@ -54,7 +54,7 @@ extension SECPolar : SECEnumable {
     }
 }
 
-extension SECPolar : Mappable {
+extension SECPolar: Mappable {
     public func mapping(map: Mapper) {
         map["zlevel"] = zlevel
         map["z"] = z

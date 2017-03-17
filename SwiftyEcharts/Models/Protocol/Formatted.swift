@@ -1,5 +1,5 @@
 //
-//  SECFormatted.swift
+//  Formatted.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 01/12/2016.
@@ -19,7 +19,7 @@
 ///
 ///     '{b0}: {c0}<br />{b1}: {c1}'
 /// ## function:回调函数 支持js函数，只需通过字符串来指定声明函数即可
-public enum SECFormatter: Jsonable {
+public enum Formatter: Jsonable {
     case string(String)
     case function(String)
     
@@ -36,6 +36,6 @@ public enum SECFormatter: Jsonable {
     }
 }
 
-public protocol SECFormatted {
-    var formatter: SECFormatter? { get set }
+public protocol Formatted {
+    var formatter: Formatter? { get set }
 }

@@ -8,7 +8,7 @@
 
 /// 直角坐标系内绘图网格，单个 grid 内最多可以放置上下两个 X 轴，左右两个 Y 轴。可以在网格上绘制折线图，柱状图，散点图（气泡图）。
 /// 在 ECharts 2.x 里单个 echarts 实例中最多只能存在一个 grid 组件，在 ECharts 3 中可以存在任意个 grid 组件。
-public struct SECGrid : SECBorderable, SECDisplayable, SECShadowable, SECZable {
+public struct SECGrid: Borderable, Displayable, Shadowable, Zable {
     /// 是否显示直角坐标系网格。
     public var show: Bool?
     /// 所有图形的 zlevel 值。
@@ -34,10 +34,10 @@ public struct SECGrid : SECBorderable, SECDisplayable, SECShadowable, SECZable {
     public var containLabel: Bool?
     /// 网格背景色，默认透明。
     /// - Note: 注意：此配置项生效的前提是，设置了 show: true。
-    public var background: SECColor?
+    public var background: Color?
     /// 网格的边框颜色。支持的颜色格式同 backgroundColor。 
     /// - Note: 注意：此配置项生效的前提是，设置了 show: true。
-    public var borderColor: SECColor?
+    public var borderColor: Color?
     /// 网格的边框线宽。
     /// - Note:  注意：此配置项生效的前提是，设置了 show: true。
     public var borderWidth: Float?
@@ -47,7 +47,7 @@ public struct SECGrid : SECBorderable, SECDisplayable, SECShadowable, SECZable {
     public var shadowBlur: Float?
     /// 阴影颜色
     /// 注意：此配置项生效的前提是，设置了 show: true。
-    public var shadowColor: SECColor?
+    public var shadowColor: Color?
     /// 阴影水平方向上的偏移距离。
     /// 注意：此配置项生效的前提是，设置了 show: true。
     public var shadowOffsetX: Float?
@@ -58,9 +58,9 @@ public struct SECGrid : SECBorderable, SECDisplayable, SECShadowable, SECZable {
     public init() { }
 }
 
-extension SECGrid : SECEnumable {
+extension SECGrid: Enumable {
     public enum Enums {
-        case show(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(LengthValue), height(LengthValue), containLabel(Bool), background(SECColor), borderColor(SECColor), borderWidth(Float), shadowBlur(Float), shadowColor(SECColor), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), zlevel(Float), z(Float), left(SECPosition), top(SECPosition), right(SECPosition), bottom(SECPosition), width(LengthValue), height(LengthValue), containLabel(Bool), background(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     public typealias ContentEnum = Enums
     
@@ -106,7 +106,7 @@ extension SECGrid : SECEnumable {
     }
 }
 
-extension SECGrid : Mappable {
+extension SECGrid: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["zlevel"] = zlevel

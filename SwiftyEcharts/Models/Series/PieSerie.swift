@@ -1,12 +1,12 @@
 //
-//  SECPieSerie.swift
+//  PieSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 20/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECPieSerie: SECSeries, Zable {
+public struct PieSerie: Serie, Zable {
     
     public struct Data {
         /// 数据项名称。
@@ -84,7 +84,7 @@ public struct SECPieSerie: SECSeries, Zable {
     }
     
     /// 类型
-    public var type: SECSerieType {
+    public var type: SerieType {
         return .pie
     }
     
@@ -163,9 +163,9 @@ public struct SECPieSerie: SECSeries, Zable {
     public init() { }
 }
 
-public typealias SECPieSerieData = SECPieSerie.Data
+public typealias PieSerieData = PieSerie.Data
 
-extension SECPieSerie.LabelLineContent: Enumable {
+extension PieSerie.LabelLineContent: Enumable {
     public enum Enums {
         case show(Bool), length(Float), length2(Float), smooth(Bool), lineStyle(LineStyle)
     }
@@ -190,7 +190,7 @@ extension SECPieSerie.LabelLineContent: Enumable {
     }
 }
 
-extension SECPieSerie.LabelLineContent: Mappable {
+extension PieSerie.LabelLineContent: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["length"] = length
@@ -200,7 +200,7 @@ extension SECPieSerie.LabelLineContent: Mappable {
     }
 }
 
-extension SECPieSerie.LabelLine: Enumable {
+extension PieSerie.LabelLine: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -219,14 +219,14 @@ extension SECPieSerie.LabelLine: Enumable {
     }
 }
 
-extension SECPieSerie.LabelLine: Mappable {
+extension PieSerie.LabelLine: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
 }
 
-extension SECPieSerie: Enumable {
+extension PieSerie: Enumable {
     public enum Enums {
         case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(RoseType), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(FormattedLabel), labelLine(LabelLine), itemStyle(ItemStyle), zlevel(Float), z(Float), center(Point), radius(LengthValue), radiusRange(Range), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
@@ -307,10 +307,10 @@ extension SECPieSerie: Enumable {
     }
 }
 
-extension SECPieSerieData: Enumable {
+extension PieSerieData: Enumable {
     
     public enum Enums {
-        case name(String), value(Float), selected(Bool), label(Label), labelLine(SECPieSerie.LabelLine), itemStyle(ItemStyle)
+        case name(String), value(Float), selected(Bool), label(Label), labelLine(PieSerie.LabelLine), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -336,7 +336,7 @@ extension SECPieSerieData: Enumable {
     
 }
 
-extension SECPieSerieData: Mappable {
+extension PieSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -347,7 +347,7 @@ extension SECPieSerieData: Mappable {
     }
 }
 
-extension SECPieSerie: Mappable {
+extension PieSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name

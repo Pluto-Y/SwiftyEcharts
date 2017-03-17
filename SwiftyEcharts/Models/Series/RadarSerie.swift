@@ -1,5 +1,5 @@
 //
-//  SECRadarSerie.swift
+//  RadarSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 13/02/2017.
@@ -13,7 +13,7 @@
 /// 下面是 AQI 数据用雷达图表现的示例。
 ///
 /// 地址：http://echarts.baidu.com/gallery/editor.html?c=radar-aqi
-public struct SECRadarSerie: SECSeries, Symbolized, Zable, Animatable {
+public struct RadarSerie: Serie, Symbolized, Zable, Animatable {
     
     public struct Data: Symbolized {
         /// 数据项名称
@@ -40,7 +40,7 @@ public struct SECRadarSerie: SECSeries, Symbolized, Zable, Animatable {
     }
     
     /// 类型
-    public var type: SECSerieType {
+    public var type: SerieType {
         return .radar
     }
     
@@ -91,9 +91,9 @@ public struct SECRadarSerie: SECSeries, Symbolized, Zable, Animatable {
     public init() {}
 }
 
-public typealias SECRadarSerieData = SECRadarSerie.Data
+public typealias RadarSerieData = RadarSerie.Data
 
-extension SECRadarSerieData: Enumable {
+extension RadarSerieData: Enumable {
     public enum Enums {
         case name(String), value(Jsonable), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle)
     }
@@ -128,7 +128,7 @@ extension SECRadarSerieData: Enumable {
     }
 }
 
-extension SECRadarSerieData: Mappable {
+extension RadarSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -143,7 +143,7 @@ extension SECRadarSerieData: Mappable {
     }
 }
 
-extension SECRadarSerie: Enumable {
+extension RadarSerie: Enumable {
 	public enum Enums {
 		case name(String), radarIndex(UInt8), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
 	}
@@ -202,7 +202,7 @@ extension SECRadarSerie: Enumable {
 	}
 }
 
-extension SECRadarSerie: Mappable {
+extension RadarSerie: Mappable {
 	public func mapping(map: Mapper) {
 		map["type"] = type
 		map["name"] = name

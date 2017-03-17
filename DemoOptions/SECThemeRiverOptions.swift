@@ -41,7 +41,7 @@ public struct SECThemeRiverOptions {
                     ))
                 )),
             .series([
-                SECThemeRiverSerie(
+                ThemeRiverSerie(
                     .itemStyle(ItemStyle(
                         .emphasis(CommonItemStyleContent(
                             .shadowBlur(20),
@@ -162,7 +162,7 @@ public struct SECThemeRiverOptions {
                 .max("dataMax")
                 )),
             .series([
-                SECThemeRiverSerie(
+                ThemeRiverSerie(
                     .data(data),
                     .label(FormattedLabel(
                         .normal(FormattedLabelStyle(

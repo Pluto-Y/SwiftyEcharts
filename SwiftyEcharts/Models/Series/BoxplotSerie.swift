@@ -1,5 +1,5 @@
 //
-//  SECBoxplotSerie.swift
+//  BoxplotSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 14/02/2017.
@@ -13,7 +13,7 @@
 /// http://echarts.baidu.com/gallery/editor.html?c=boxplot-light-velocity
 ///
 /// 也支持多个 series 在同一个坐标系中，参见 例子。
-public struct SECBoxplotSerie: SECSeries, Zable {
+public struct BoxplotSerie: Serie, Zable {
     
     public struct Data {
         /// 数据项名称。
@@ -29,12 +29,12 @@ public struct SECBoxplotSerie: SECSeries, Zable {
     }
     
     /// 类型
-    public var type: SECSerieType {
+    public var type: SerieType {
         return .boxplot
     }
     
     /// 该系列使用的坐标系。
-    public var coordinateSystem: SECCoordinateSystem?
+    public var coordinateSystem: CoordinateSystem?
     /// 使用的 x 轴的 index，在单个图表实例中存在多个 x 轴的时候有用。
     public var xAxisIndex: UInt8?
     /// 使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用。
@@ -120,9 +120,9 @@ public struct SECBoxplotSerie: SECSeries, Zable {
     public init() {}
 }
 
-public typealias SECBoxplotSerieData = SECBoxplotSerie.Data
+public typealias BoxplotSerieData = BoxplotSerie.Data
 
-extension SECBoxplotSerieData: Enumable {
+extension BoxplotSerieData: Enumable {
     public enum Enums {
         case name(String), value([Jsonable]), itemStyle(ItemStyle)
     }
@@ -143,7 +143,7 @@ extension SECBoxplotSerieData: Enumable {
     }
 }
 
-extension SECBoxplotSerieData: Mappable {
+extension BoxplotSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -151,9 +151,9 @@ extension SECBoxplotSerieData: Mappable {
     }
 }
 
-extension SECBoxplotSerie: Enumable {
+extension BoxplotSerie: Enumable {
     public enum Enums {
-        case coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), boxWidth([Float]), itemStyle(ItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Float)
+        case coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), boxWidth([Float]), itemStyle(ItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -204,7 +204,7 @@ extension SECBoxplotSerie: Enumable {
     }
 }
 
-extension SECBoxplotSerie: Mappable {
+extension BoxplotSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["coordinateSystem"] = coordinateSystem

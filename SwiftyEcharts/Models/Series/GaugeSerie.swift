@@ -1,12 +1,12 @@
 //
-//  SECGaugeSerie.swift
+//  GaugeSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 07/03/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECGaugeSerie: SECSeries, Animatable {
+public struct GaugeSerie: Serie, Animatable {
     
     public struct AxisLine {
         public var show: Bool?
@@ -72,7 +72,7 @@ public struct SECGaugeSerie: SECSeries, Animatable {
         public init() { }
     }
     
-    public var type: SECSerieType {
+    public var type: SerieType {
         return .gauge
     }
     
@@ -110,13 +110,13 @@ public struct SECGaugeSerie: SECSeries, Animatable {
     public init() { }
 }
 
-public typealias SECGSAxisLine = SECGaugeSerie.AxisLine
-public typealias SECGSSplitLine = SECGaugeSerie.SplitLine
-public typealias SECGSAxisTick = SECGaugeSerie.AxisTick
-public typealias SECGSAxisLabel = SECGaugeSerie.AxisLabel
-public typealias SECGSPointer = SECGaugeSerie.Pointer
-public typealias SECGSTitle = SECGaugeSerie.Title
-public typealias SECGSDetail = SECGaugeSerie.Detail
+public typealias SECGSAxisLine = GaugeSerie.AxisLine
+public typealias SECGSSplitLine = GaugeSerie.SplitLine
+public typealias SECGSAxisTick = GaugeSerie.AxisTick
+public typealias SECGSAxisLabel = GaugeSerie.AxisLabel
+public typealias SECGSPointer = GaugeSerie.Pointer
+public typealias SECGSTitle = GaugeSerie.Title
+public typealias SECGSDetail = GaugeSerie.Detail
 
 extension SECGSAxisLine: Enumable {
     public enum Enums {
@@ -345,7 +345,7 @@ extension SECGSDetail: Mappable {
     }
 }
 
-extension SECGaugeSerie: Enumable {
+extension GaugeSerie: Enumable {
     public enum Enums {
         case name(String), radius(LengthValue), center(Point), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(ItemStyle), title(Title), detail(Detail), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), data([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
@@ -420,7 +420,7 @@ extension SECGaugeSerie: Enumable {
     }
 }
 
-extension SECGaugeSerie: Mappable {
+extension GaugeSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name

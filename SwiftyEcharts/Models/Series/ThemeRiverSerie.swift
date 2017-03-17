@@ -1,5 +1,5 @@
 //
-//  SECThemeRiverSerie.swift
+//  ThemeRiverSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 13/03/2017.
@@ -17,10 +17,10 @@
 /// 主题河流中不同颜色的条带状河流分支编码了不同的事件或主题，河流分支的宽度编码了原数据集中的value值。
 ///
 /// 此外，原数据集中的时间属性，映射到单个时间轴上。
-public struct SECThemeRiverSerie: SECSeries, Zable {
+public struct ThemeRiverSerie: Serie, Zable {
     
     /// 类型
-    public var type: SECSerieType {
+    public var type: SerieType {
         return .themeRiver
     }
     
@@ -55,7 +55,7 @@ public struct SECThemeRiverSerie: SECSeries, Zable {
     /// 注意： 整个主题河流view的位置信息复用了单个时间轴的位置信息，即left，top，right，bottom。
     public var height: LengthValue?
     /// 坐标系统，主题河流用的是单个的时间轴。
-    public var coordinateSystem: SECCoordinateSystem?
+    public var coordinateSystem: CoordinateSystem?
     /// 图中与坐标轴正交的方向的边界间隙，设置该值是为了调整图的位置，使其尽量处于屏幕的正中间，避免处于屏幕的上方或下方。
     public var boundaryGap: BoundaryGap?
     /// 单个时间轴的index，默认值为0，因为只有单个轴。
@@ -74,9 +74,9 @@ public struct SECThemeRiverSerie: SECSeries, Zable {
     public init() { }
 }
 
-extension SECThemeRiverSerie: Enumable {
+extension ThemeRiverSerie: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), coordinateSystem(SECCoordinateSystem), boundaryGap(BoundaryGap), singleAxisIndex(UInt8), label(FormattedLabel), itemStyle(ItemStyle), legend(Legend), tooltip(Tooltip), data([Jsonable])
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), coordinateSystem(CoordinateSystem), boundaryGap(BoundaryGap), singleAxisIndex(UInt8), label(FormattedLabel), itemStyle(ItemStyle), legend(Legend), tooltip(Tooltip), data([Jsonable])
     }
     
     public typealias ContentEnum = Enums
@@ -121,7 +121,7 @@ extension SECThemeRiverSerie: Enumable {
     }
 }
 
-extension SECThemeRiverSerie: Mappable {
+extension ThemeRiverSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["zlevel"] = zlevel

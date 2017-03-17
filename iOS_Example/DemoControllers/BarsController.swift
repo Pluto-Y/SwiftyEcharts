@@ -42,8 +42,8 @@ class BarsController: BaseDemoController {
     }
     
     func dynamicData() {
-        var serie0 = newOptionForDynamicData.series![0] as! SECBarSerie
-        var serie1 = newOptionForDynamicData.series![1] as! SECLineSerie
+        var serie0 = newOptionForDynamicData.series![0] as! BarSerie
+        var serie1 = newOptionForDynamicData.series![1] as! LineSerie
         var data0 = serie0.data
         var data1 = serie1.data
         data0?.removeFirst()

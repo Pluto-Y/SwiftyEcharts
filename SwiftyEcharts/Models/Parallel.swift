@@ -1,5 +1,5 @@
 //
-//  SECParallel.swift
+//  Parallel.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 09/02/2017.
@@ -111,7 +111,7 @@
 /// 可以通过 parallel.axisExpandable 来改善显示效果，如下例子：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=map-parallel-prices
-public struct SECParallel: Zable {
+public struct Parallel: Zable {
     
     /// 配置多个 parallelAxis 时，有些值一样的属性，如果书写多遍则比较繁琐，那么可以放置在 parallel.parallelAxisDefault 里。在坐标轴初始化前，parallel.parallelAxisDefault 里的配置项，会分别融合进 parallelAxis，形成最终的坐标轴的配置。
     ///
@@ -282,7 +282,7 @@ public struct SECParallel: Zable {
     public var parallelAxisDefault: ParallelAxisDefault?
 }
 
-extension SECParallel: Enumable {
+extension Parallel: Enumable {
     public enum Enums {
         case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float), layout(SECOrient), axisExpandable(Bool), axisExpandCenter(Float), axisExpandCount(Float), axisExpandWidth(Float), parallelAxisDefault(ParallelAxisDefault)
     }
@@ -325,7 +325,7 @@ extension SECParallel: Enumable {
     }
 }
 
-extension SECParallel: Mappable {
+extension Parallel: Mappable {
     public func mapping(map: Mapper) {
         map["zlevel"] = zlevel
         map["z"] = z
@@ -344,7 +344,7 @@ extension SECParallel: Mappable {
     }
 }
 
-extension SECParallel.ParallelAxisDefault: Enumable {
+extension Parallel.ParallelAxisDefault: Enumable {
     public enum Enums {
         case type(SECAxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(String), max(String), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), data([Any])
     }
@@ -401,7 +401,7 @@ extension SECParallel.ParallelAxisDefault: Enumable {
     }
 }
 
-extension SECParallel.ParallelAxisDefault: Mappable {
+extension Parallel.ParallelAxisDefault: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
@@ -427,7 +427,7 @@ extension SECParallel.ParallelAxisDefault: Mappable {
     }
 }
 
-extension SECParallel.ParallelAxisDefault.Data: Enumable {
+extension Parallel.ParallelAxisDefault.Data: Enumable {
     public enum Enums {
         case value(String), textStyle(TextStyle)
     }
@@ -446,7 +446,7 @@ extension SECParallel.ParallelAxisDefault.Data: Enumable {
     }
 }
 
-extension SECParallel.ParallelAxisDefault.Data: Mappable {
+extension Parallel.ParallelAxisDefault.Data: Mappable {
     public func mapping(map: Mapper) {
         map["value"] = value
         map["textStyle"] = textStyle

@@ -1,5 +1,5 @@
 //
-//  SECSeries.swift
+//  Serie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 03/01/2017.
@@ -27,7 +27,7 @@
 /// - gauge: 仪表盘
 /// - pictorialBar: 象形柱图
 /// - themeRiver: 主题河流
-public enum SECSerieType: String, Jsonable {
+public enum SerieType: String, Jsonable {
     case line = "line"
     case bar = "bar"
     case pie = "pie"
@@ -53,8 +53,8 @@ public enum SECSerieType: String, Jsonable {
     }
 }
 
-public protocol SECSeries {
+public protocol Serie {
     
     /// 系列列表。每个系列通过 type 决定自己的图表类型
-    var type: SECSerieType { get }
+    var type: SerieType { get }
 }

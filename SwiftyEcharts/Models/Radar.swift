@@ -1,5 +1,5 @@
 //
-//  SECRadar.swift
+//  Radar.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 06/02/2017.
@@ -13,7 +13,7 @@
 /// 下面是一个 radar 组件的一个自定义例子。
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=doc-example/radar
-public struct SECRadar: Zable {
+public struct Radar: Zable {
     /// 雷达图每个指示器名称的配置项。
     public struct Name: Displayable, Formatted, Textful {
         public var show: Bool?
@@ -127,10 +127,10 @@ public struct SECRadar: Zable {
     public init() {}
 }
 
-public typealias SECIndicator = SECRadar.Indicator
+public typealias SECIndicator = Radar.Indicator
 
 
-extension SECRadar.Name: Enumable {
+extension Radar.Name: Enumable {
     public enum Enums {
         case show(Bool), formatter(Formatter), textStyle(TextStyle)
     }
@@ -151,7 +151,7 @@ extension SECRadar.Name: Enumable {
     }
 }
 
-extension SECRadar.Name: Mappable {
+extension Radar.Name: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["formatter"] = formatter
@@ -190,7 +190,7 @@ extension SECIndicator: Mappable {
     }
 }
 
-extension SECRadar: Enumable {
+extension Radar: Enumable {
     public enum Enums {
         case zlevel(Float), z(Float), center(Point), radius(LengthValue), startAngle(Float), name(Name), nameGap(Float), splitNumber(Int), shape(Shape), scale(Bool), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), indicator([Indicator])
     }
@@ -241,7 +241,7 @@ extension SECRadar: Enumable {
     }
 }
 
-extension SECRadar: Mappable {
+extension Radar: Mappable {
     public func mapping(map: Mapper) {
         map["zlevel"] = zlevel
         map["z"] = z

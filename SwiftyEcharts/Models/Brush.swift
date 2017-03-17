@@ -1,12 +1,12 @@
 //
-//  SECBrush.swift
+//  Brush.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 09/02/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECBrush {
+public struct Brush {
     
     /// 使用在 toolbox 中的按钮。
     ///
@@ -369,9 +369,9 @@ public struct SECBrush {
     public var outOfBrush: String? // FIXME: 还需研究
 }
 
-public typealias SECBrushToolbox = SECBrush.Toolbox
+public typealias BrushToolbox = Brush.Toolbox
 
-extension SECBrush.Style: Enumable {
+extension Brush.Style: Enumable {
     public enum Enums {
         case borderWidth(Float), color(Color), borderColor(Color), width(Float)
     }
@@ -394,7 +394,7 @@ extension SECBrush.Style: Enumable {
     }
 }
 
-extension SECBrush.Style: Mappable {
+extension Brush.Style: Mappable {
     public func mapping(map: Mapper) {
         map["borderWidth"] = borderWidth
         map["color"] = color
@@ -403,9 +403,9 @@ extension SECBrush.Style: Mappable {
     }
 }
 
-extension SECBrush: Enumable {
+extension Brush: Enumable {
     public enum Enums {
-        case toolbox([SECBrushToolbox]), brushLink(Indexes), seriesIndex(Indexes), geoIndex(Indexes), xAxisIndex(Indexes), yAxisIndex(Indexes), brushType(Type), brushMode(Mode), transformable(Bool), brushStyle(Style), throttleType(ThrottleType), throttleDelay(Float), removeOnClick(Float), inBrush(String), outOfBrush(String)
+        case toolbox([BrushToolbox]), brushLink(Indexes), seriesIndex(Indexes), geoIndex(Indexes), xAxisIndex(Indexes), yAxisIndex(Indexes), brushType(Type), brushMode(Mode), transformable(Bool), brushStyle(Style), throttleType(ThrottleType), throttleDelay(Float), removeOnClick(Float), inBrush(String), outOfBrush(String)
     }
     
     public typealias ContentEnum = Enums
@@ -448,7 +448,7 @@ extension SECBrush: Enumable {
     }
 }
 
-extension SECBrush: Mappable {
+extension Brush: Mappable {
     public func mapping(map: Mapper) {
         map["toolbox"] = toolbox
         map["brushLink"] = brushLink

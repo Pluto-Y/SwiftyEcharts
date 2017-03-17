@@ -22,7 +22,7 @@ public struct SECSankeyOptions {
                 .triggerOn(.mousemove)
             )),
             .series([
-                SECSankeySerie( // FIXME: layout 好像没有什么效果
+                SankeySerie( // FIXME: layout 好像没有什么效果
                     .data([
                         ["name": "Total"],
                         ["name": "Environment"],
@@ -185,7 +185,7 @@ public struct SECSankeyOptions {
                 .triggerOn(.mousemove)
                 )),
             .series([
-                SECSankeySerie( // FIXME: layout 好像没有什么效果
+                SankeySerie( // FIXME: layout 好像没有什么效果
                     .data([
                         ["name":"Agricultural \\'waste\\'"],
                         ["name":"Bio-conversion"],

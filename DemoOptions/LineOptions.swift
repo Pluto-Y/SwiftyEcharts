@@ -1,5 +1,5 @@
 //
-//  SECLineOptions.swift
+//  LineOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SECLineOptions {
+public struct LineOptions {
     
     // MARK: 雨量流量关系图
     /// 地址:http://echarts.baidu.com/demo.html#area-rainfall
@@ -97,7 +97,7 @@ public struct SECLineOptions {
                 )
                 ]),
             .series([
-                SECLineSerie(
+                LineSerie(
                     .name("流量"),
                     .animation(false),
                     .areaStyle(EmphasisAreaStyle(
@@ -115,7 +115,7 @@ public struct SECLineOptions {
                         )),
                     .data(seriesDatas1)
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("降雨量"),
                     .yAxisIndex(1),
                     .animation(false),
@@ -178,7 +178,7 @@ public struct SECLineOptions {
                     .type(.value)
                 )),
             .series([
-                SECLineSerie(
+                LineSerie(
                     .name("邮件营销"),
                     .stack("总量"),
                     .areaStyle(EmphasisAreaStyle(
@@ -186,7 +186,7 @@ public struct SECLineOptions {
                         )),
                     .data([120, 132, 101, 134, 90, 230, 210])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("联盟广告"),
                     .stack("总量"),
                     .areaStyle(EmphasisAreaStyle(
@@ -194,7 +194,7 @@ public struct SECLineOptions {
                         )),
                     .data([220, 182, 191, 234, 290, 330, 310])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("视频广告"),
                     .stack("总量"),
                     .areaStyle(EmphasisAreaStyle(
@@ -202,7 +202,7 @@ public struct SECLineOptions {
                         )),
                     .data([150, 232, 201, 154, 190, 330, 410])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("直接访问"),
                     .stack("总量"),
                     .areaStyle(EmphasisAreaStyle(
@@ -210,7 +210,7 @@ public struct SECLineOptions {
                         )),
                     .data([320, 332, 301, 334, 390, 330, 320])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("搜索引擎"),
                     .stack("总量"),
                     .label(Label(
@@ -351,13 +351,13 @@ public struct SECLineOptions {
                 )
                 ]),
             .series([
-                SECLineSerie(
+                LineSerie(
                     .name("流量"),
                     .symbolSize(8),
                     .hoverAnimation(false),
                     .data(seriesDatas1)
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("降雨量"),
                     .xAxisIndex(1),
                     .yAxisIndex(1),
@@ -427,7 +427,7 @@ public struct SECLineOptions {
                 ),
                 ]),
             .series([
-                SECLineSerie(
+                LineSerie(
                     .smooth(false),
                     .symbolSize(symbolSize),
                     .data(data)
@@ -479,15 +479,15 @@ public struct SECLineOptions {
                     .name("y")
                 )),
             .series([
-                SECLineSerie(
+                LineSerie(
                     .name("3的指数"),
                     .data([1, 3, 9, 27, 81, 247, 741, 2223, 6669])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("2的指数"),
                     .data([1, 2, 4, 8, 16, 32, 64, 128, 256])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("1/2的指数"),
                     .data([1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625])
                 )
@@ -539,7 +539,7 @@ public struct SECLineOptions {
                     ))
                 )),
             .series([
-                SECLineSerie(
+                LineSerie(
                     .name("最高气温"),
                     .data([11, 11, 15, 13, 12, 13, 10]),
                     .markPoint(SECMarkPoint(
@@ -563,7 +563,7 @@ public struct SECLineOptions {
                             ])
                         ))
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("最低气温"),
                     .data([1, -2, 2, 5, 3, 2, 0]),
                     .markPoint(SECMarkPoint(
@@ -649,7 +649,7 @@ public struct SECLineOptions {
             .radiusAxis([SECRadiusAxis(
                 )]),
             .series([
-                SECLineSerie(
+                LineSerie(
                     .coordinateSystem(.polar),
                     .name("line"),
                     .data(data)
@@ -691,7 +691,7 @@ public struct SECLineOptions {
                 .min(0)
                 )]),
             .series([
-                SECLineSerie(
+                LineSerie(
                     .coordinateSystem(.polar),
                     .name("line"),
                     .showSymbol(false),
@@ -756,7 +756,7 @@ public struct SECLineOptions {
                     ])
                 )),
             .series([
-                SECLineSerie(
+                LineSerie(
                     .name("用电量"),
                     .smooth(true),
                     .data([300, 280, 250, 260, 270, 300, 550, 500, 400, 390, 380, 390, 400, 500, 600, 750, 800, 700, 600, 400]),
@@ -820,27 +820,27 @@ public struct SECLineOptions {
                     .type(.value)
                 )),
             .series([
-                SECLineSerie(
+                LineSerie(
                     .name("邮件营销"),
                     .stack("总量"),
                     .data([120, 132, 101, 134, 90, 230, 210])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("联盟广告"),
                     .stack("总量"),
                     .data([220, 182, 191, 234, 290, 330, 310])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("视频广告"),
                     .stack("总量"),
                     .data([150, 232, 201, 154, 190, 330, 410])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("直接访问"),
                     .stack("总量"),
                     .data([320, 332, 301, 334, 390, 330, 320])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("搜索引擎"),
                     .stack("总量"),
                     .data([820, 932, 901, 934, 1290, 1330, 1320])
@@ -879,17 +879,17 @@ public struct SECLineOptions {
                 .type(.value)
                 )),
             .series([
-                SECLineSerie(
+                LineSerie(
                     .name("Step Start"),
                     .step(.start),
                     .data([120, 132, 101, 134, 90, 230, 210])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("Step Middle"),
                     .step(.middle),
                     .data([220, 282, 201, 234, 290, 430, 410])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("Step End"),
                     .step(.end),
                     .data([450, 432, 401, 454, 590, 530, 510])
@@ -933,7 +933,7 @@ public struct SECLineOptions {
                 .data(["0", "10", "20", "30", "40", "50", "60", "70", "80"])
                 )),
             .series([
-                SECLineSerie(
+                LineSerie(
                     .name("高度(km)与气温(°C)变化关系"),
                     .smooth(true),
                     .lineStyle(EmphasisLineStyle(

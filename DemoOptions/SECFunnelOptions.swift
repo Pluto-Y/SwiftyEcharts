@@ -43,7 +43,7 @@ public struct SECFunnelOptions {
                 .data(["产品A","产品B","产品C","产品D","产品E"])
                 )),
             .series([
-                SECFunnelSerie(
+                FunnelSerie(
                     .name("漏斗图"),
                     .funnelAlign(.right),
                     .data([
@@ -54,7 +54,7 @@ public struct SECFunnelOptions {
                         ["value":100, "name":"产品A"]
                         ])
                 ),
-                SECFunnelSerie(
+                FunnelSerie(
                     .name("金字塔"),
                     .sort(.ascending),
                     .funnelAlign(.right),
@@ -66,7 +66,7 @@ public struct SECFunnelOptions {
                         ["value":100, "name":"产品A"]
                         ])
                 ),
-                SECFunnelSerie(
+                FunnelSerie(
                     .name("漏斗图"),
                     .funnelAlign(.right),
                     .data([
@@ -77,7 +77,7 @@ public struct SECFunnelOptions {
                         ["value":100, "name":"产品A"]
                         ])
                 ),
-                SECFunnelSerie(
+                FunnelSerie(
                     .name("金字塔"),
                     .sort(.ascending),
                     .funnelAlign(.right),
@@ -119,7 +119,7 @@ public struct SECFunnelOptions {
                 .data(["展现","点击","访问","咨询","订单"])
                 )),
             .series([
-                SECFunnelSerie(
+                FunnelSerie(
                     .name("预期"),
                     .maxSize(80%),
                     .label(FormattedLabel(
@@ -131,8 +131,8 @@ public struct SECFunnelOptions {
                             .formatter(.string("{b}预期: {c}%"))
                             ))
                         )),
-                    .labelLine(SECFunnelSerie.LabelLine(
-                        .normal(SECFunnelSerie.LabelLineContent(
+                    .labelLine(FunnelSerie.LabelLine(
+                        .normal(FunnelSerie.LabelLineContent(
                             .show(false)
                             ))
                         )),
@@ -149,7 +149,7 @@ public struct SECFunnelOptions {
                         ["value":100, "name":"展现"]
                         ])
                 ),
-                SECFunnelSerie(
+                FunnelSerie(
                     .name("实际"),
                     .maxSize(80%),
                     .label(FormattedLabel(
@@ -217,7 +217,7 @@ public struct SECFunnelOptions {
                 .data(["展现","点击","访问","咨询","订单"])
                 )),
             .series([
-                SECFunnelSerie(
+                FunnelSerie(
                     .name("漏斗图"),
                     .data([
                         ["value":60, "name":"访问"],
@@ -227,7 +227,7 @@ public struct SECFunnelOptions {
                         ["value":100, "name":"展现"]
                         ])
                 ),
-                SECFunnelSerie(
+                FunnelSerie(
                     .name("金字塔"),
                     .sort(.ascending),
                     .data([
@@ -238,7 +238,7 @@ public struct SECFunnelOptions {
                         ["value":100, "name":"展现"]
                         ])
                 ),
-                SECFunnelSerie(
+                FunnelSerie(
                     .name("漏斗图"),
                     .label(FormattedLabel(
                         .normal(FormattedLabelStyle(
@@ -253,7 +253,7 @@ public struct SECFunnelOptions {
                         ["value":100, "name":"展现"]
                         ])
                 ),
-                SECFunnelSerie(
+                FunnelSerie(
                     .name("金字塔"),
                     .sort(.ascending),
                     .label(FormattedLabel(
@@ -299,7 +299,7 @@ public struct SECFunnelOptions {
                 .data(["展现","点击","访问","咨询","订单"])
                 )),
             .series([
-                SECFunnelSerie(
+                FunnelSerie(
                     .name("漏斗图"),
                     .min(0),
                     .max(100),
@@ -318,8 +318,8 @@ public struct SECFunnelOptions {
                                 ))
                             ))
                         )),
-                    .labelLine(SECFunnelSerie.LabelLine(
-                        .normal(SECFunnelSerie.LabelLineContent(
+                    .labelLine(FunnelSerie.LabelLine(
+                        .normal(FunnelSerie.LabelLineContent(
                             .length(10),
                             .lineStyle(LineStyle(
                                 .width(1),

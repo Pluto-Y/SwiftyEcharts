@@ -1,5 +1,5 @@
 //
-//  SECFunnelSerie.swift
+//  FunnelSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 06/03/2017.
@@ -9,7 +9,7 @@
 /// 漏斗图
 ///
 /// 示例:http://echarts.baidu.com/gallery/editor.html?c=funnel
-public struct SECFunnelSerie: SECSeries, Animatable {
+public struct FunnelSerie: Serie, Animatable {
     
     /// 排序，ascending: 升序， descending: 降序
     public enum Sort: String, Jsonable {
@@ -58,7 +58,7 @@ public struct SECFunnelSerie: SECSeries, Animatable {
     }
     
     /// 类型
-    public var type: SECSerieType {
+    public var type: SerieType {
         return .funnel
     }
     
@@ -149,9 +149,9 @@ public struct SECFunnelSerie: SECSeries, Animatable {
     public init() { }
 }
 
-public typealias SECFunnelSerieData = SECFunnelSerie.Data
+public typealias FunnelSerieData = FunnelSerie.Data
 
-extension SECFunnelSerie.LabelLineContent: Enumable {
+extension FunnelSerie.LabelLineContent: Enumable {
     public enum Enums {
         case show(Bool), length(Float), lineStyle(LineStyle)
     }
@@ -172,7 +172,7 @@ extension SECFunnelSerie.LabelLineContent: Enumable {
     }
 }
 
-extension SECFunnelSerie.LabelLineContent: Mappable {
+extension FunnelSerie.LabelLineContent: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["length"] = length
@@ -180,7 +180,7 @@ extension SECFunnelSerie.LabelLineContent: Mappable {
     }
 }
 
-extension SECFunnelSerie.LabelLine: Enumable {
+extension FunnelSerie.LabelLine: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -199,16 +199,16 @@ extension SECFunnelSerie.LabelLine: Enumable {
     }
 }
 
-extension SECFunnelSerie.LabelLine: Mappable {
+extension FunnelSerie.LabelLine: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
 }
 
-extension SECFunnelSerieData: Enumable {
+extension FunnelSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Float), label(Label), labelLine(SECFunnelSerie.LabelLine), itemStyle(ItemStyle)
+        case name(String), value(Float), label(Label), labelLine(FunnelSerie.LabelLine), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -231,7 +231,7 @@ extension SECFunnelSerieData: Enumable {
     }
 }
 
-extension SECFunnelSerieData: Mappable {
+extension FunnelSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -241,7 +241,7 @@ extension SECFunnelSerieData: Mappable {
     }
 }
 
-extension SECFunnelSerie: Enumable {
+extension FunnelSerie: Enumable {
     public enum Enums {
         case name(String), min(Float), max(Float), minSize(LengthValue), maxSize(LengthValue), sort(Sort), gap(Float), legendHoverLink(Bool), funnelAlign(Align), label(FormattedLabel), labelLine(LabelLine), itemStyle(ItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
@@ -306,7 +306,7 @@ extension SECFunnelSerie: Enumable {
     }
 }
 
-extension SECFunnelSerie: Mappable {
+extension FunnelSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name

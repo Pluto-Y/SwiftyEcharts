@@ -1,5 +1,5 @@
 //
-//  SECTreemapSerie.swift
+//  TreemapSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 13/02/2017.
@@ -34,7 +34,7 @@
 /// - root 的设置暂时不支持。目前可以使用 zoom 的方式来查看树更下层次的细节，或者使用 leafDepth 开启 "drill down" 功能。
 /// - label 的配置被移动到了 itemStyle.normal/itemStyle.emphasis 外部，和 itemStyle 平级。
 /// - itemStyle.normal.childBorderWidth、itemStyle.normal.childBorderColor不再支持（因为这个配置方式只能定义两层的treemap）。统一使用 series-treemap.levels 来进行各层级的定义。
-public struct SECTreemapSerie: SECSeries, Zable {
+public struct TreemapSerie: Serie, Zable {
     
     /// 点击节点后的行为。可取值为：
     /// 
@@ -337,7 +337,7 @@ public struct SECTreemapSerie: SECSeries, Zable {
     }
     
     /// 类型
-    public var type: SECSerieType {
+    public var type: SerieType {
         return .treemap
     }
     
@@ -640,14 +640,14 @@ public struct SECTreemapSerie: SECSeries, Zable {
     public init() {}
 }
 
-public typealias SECTreemapSerieLevel = SECTreemapSerie.Level
-public typealias SECTreemapSerieSilent = SECTreemapSerie.Silent
-public typealias SECTreemapSerieBreadcrumb = SECTreemapSerie.Breadcrumb
-public typealias SECTreemapSerieData = SECTreemapSerie.Data
+public typealias TreemapSerieLevel = TreemapSerie.Level
+public typealias TreemapSerieSilent = TreemapSerie.Silent
+public typealias TreemapSerieBreadcrumb = TreemapSerie.Breadcrumb
+public typealias TreemapSerieData = TreemapSerie.Data
 
-extension SECTreemapSerieLevel: Enumable {
+extension TreemapSerieLevel: Enumable {
     public enum Enums {
-        case visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(SECTreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle)
+        case visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(TreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -682,7 +682,7 @@ extension SECTreemapSerieLevel: Enumable {
     }
 }
 
-extension SECTreemapSerieLevel: Mappable {
+extension TreemapSerieLevel: Mappable {
     public func mapping(map: Mapper) {
         map["visualDimension"] = visualDimension
         map["visualMin"] = visualMin
@@ -698,7 +698,7 @@ extension SECTreemapSerieLevel: Mappable {
     }
 }
 
-extension SECTreemapSerieSilent: Enumable {
+extension TreemapSerieSilent: Enumable {
     public enum Enums {
         case link(String), target(SECTarget), children([Jsonable])
     }
@@ -719,7 +719,7 @@ extension SECTreemapSerieSilent: Enumable {
     }
 }
 
-extension SECTreemapSerieSilent: Mappable {
+extension TreemapSerieSilent: Mappable {
     public func mapping(map: Mapper) {
         map["link"] = link
         map["target"] = target
@@ -727,7 +727,7 @@ extension SECTreemapSerieSilent: Mappable {
     }
 }
 
-extension SECTreemapSerieBreadcrumb: Enumable {
+extension TreemapSerieBreadcrumb: Enumable {
     public enum Enums {
         case show(Bool), left(Position), top(Position), right(Position), bottom(Position), height(Float), emptyItemWidth(Float), itemStyle(ItemStyle)
     }
@@ -758,7 +758,7 @@ extension SECTreemapSerieBreadcrumb: Enumable {
     }
 }
 
-extension SECTreemapSerieBreadcrumb: Mappable {
+extension TreemapSerieBreadcrumb: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["left"] = left
@@ -771,9 +771,9 @@ extension SECTreemapSerieBreadcrumb: Mappable {
     }
 }
 
-extension SECTreemapSerieData: Enumable {
+extension TreemapSerieData: Enumable {
     public enum Enums {
-        case value(Jsonable), id(String), name(String), visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(SECTreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle)
+        case value(Jsonable), id(String), name(String), visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(TreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -814,7 +814,7 @@ extension SECTreemapSerieData: Enumable {
     }
 }
 
-extension SECTreemapSerieData: Mappable {
+extension TreemapSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["value"] = value
         map["id"] = id
@@ -833,7 +833,7 @@ extension SECTreemapSerieData: Mappable {
     }
 }
 
-extension SECTreemapSerie: Enumable {
+extension TreemapSerie: Enumable {
     public enum Enums {
         case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float), squareRotio(Float), leafDepth(Float), roam(Roam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(Range), colorSaturation(Range), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle), breadcrumb(Breadcrumb), data([Jsonable]), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Time)
     }
@@ -908,7 +908,7 @@ extension SECTreemapSerie: Enumable {
     }
 }
 
-extension SECTreemapSerie: Mappable {
+extension TreemapSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["zlevel"] = zlevel

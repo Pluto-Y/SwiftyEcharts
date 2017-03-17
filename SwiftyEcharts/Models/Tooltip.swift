@@ -77,7 +77,7 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
     }
     
     /// 坐标轴指示器配置项
-    public struct AxisPointer: SECLine {
+    public struct AxisPointer: Line {
         
         /// 十字准星指示器样式
         public struct CrossStyle: Shadowable, Colorful{

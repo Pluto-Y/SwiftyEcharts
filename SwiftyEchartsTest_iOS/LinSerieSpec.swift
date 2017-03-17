@@ -10,10 +10,10 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class SECLineSerieSpec : QuickSpec {
+class LineSerieSpec : QuickSpec {
     
     override func spec() {
-        describe("For SECLineSerie.AreaStyle") {
+        describe("For LineSerie.AreaStyle") {
             
             it("needs to check the Jsonable for areaStyle") {
                 let areaStyle = EmphasisAreaStyle(

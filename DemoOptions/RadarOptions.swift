@@ -1,5 +1,5 @@
 //
-//  SECRadarOptions.swift
+//  RadarOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SECRadarOptions {
+public struct RadarOptions {
     
     // MARK: AQI - 雷达图
     /// 地址: http://echarts.baidu.com/demo.html#radar-aqi
@@ -40,7 +40,7 @@ public struct SECRadarOptions {
                     )),
                 .selectedMode(.single)
                 )),
-            .radar(SECRadar(
+            .radar(Radar(
                 .indicator([
                     SECIndicator(
                         .name("AQI"),
@@ -69,7 +69,7 @@ public struct SECRadarOptions {
                     ]),
                 .shape(.circle),
                 .splitNumber(5),
-                .name(SECRadar.Name(
+                .name(Radar.Name(
                     .textStyle(TextStyle(
                         .color(.rgb(238, 197, 102))
                         ))
@@ -93,7 +93,7 @@ public struct SECRadarOptions {
                     ))
                 )),
             .series([
-                SECRadarSerie(
+                RadarSerie(
                     .name("北京"),
                     .lineStyle(lineStyle),
                     .data([
@@ -141,7 +141,7 @@ public struct SECRadarOptions {
                             ))
                         ))
                 ),
-                SECRadarSerie(
+                RadarSerie(
                     .name("上海"),
                     .lineStyle(lineStyle),
                     .data([
@@ -189,7 +189,7 @@ public struct SECRadarOptions {
                             ))
                         ))
                 ),
-                SECRadarSerie(
+                RadarSerie(
                     .name("广州"),
                     .lineStyle(lineStyle),
                     .data([
@@ -252,7 +252,7 @@ public struct SECRadarOptions {
                 .data(["图一","图二", "张三", "李四"])
                 )),
             .radars([
-                SECRadar(
+                Radar(
                     .indicator([
                         SECIndicator(.text("指标一")),
                         SECIndicator(.text("指标二")),
@@ -265,7 +265,7 @@ public struct SECRadarOptions {
                     .startAngle(90),
                     .splitNumber(4),
                     .shape(.circle),
-                    .name(SECRadar.Name(
+                    .name(Radar.Name(
                         .formatter(.string("【{value}】")),
                         .textStyle(TextStyle(
                             .color(.hexColor("#72ACD1"))
@@ -289,7 +289,7 @@ public struct SECRadarOptions {
                             ))
                         ))
                 ),
-                SECRadar(
+                Radar(
                     .indicator([
                         SECIndicator(.text("语文"), .max(150)),
                         SECIndicator(.text("数学"), .max(150)),
@@ -303,7 +303,7 @@ public struct SECRadarOptions {
                 )
                 ]),
             .series([
-                SECRadarSerie(
+                RadarSerie(
                     .name("雷达图"),
                     .lineStyle(EmphasisLineStyle( // 这里进行了修改
                         .emphasis(LineStyle(
@@ -311,7 +311,7 @@ public struct SECRadarOptions {
                             ))
                         )),
                     .data([
-                        SECRadarSerieData(
+                        RadarSerieData(
                             .value([100, 8, 0.40, -80, 2000]),
                             .name("图一"),
                             .symbol(.rect),
@@ -322,7 +322,7 @@ public struct SECRadarOptions {
                                     ))
                                 ))
                         ),
-                        SECRadarSerieData(
+                        RadarSerieData(
                             .value([60, 5, 0.30, -100, 1500]),
                             .name("图二"),
                             .areaStyle(EmphasisAreaStyle(
@@ -333,11 +333,11 @@ public struct SECRadarOptions {
                         )
                         ])
                 ),
-                SECRadarSerie(
+                RadarSerie(
                     .name("成绩单"),
                     .radarIndex(1),
                     .data([
-                        SECRadarSerieData(
+                        RadarSerieData(
                             .value([120, 118, 130, 100, 99, 70]),
                             .name("张三"),
                             .label(FormattedLabel(
@@ -347,7 +347,7 @@ public struct SECRadarOptions {
                                     ))
                                 ))
                         ),
-                        SECRadarSerieData(
+                        RadarSerieData(
                             .value([90, 113, 140, 30, 70, 60]),
                             .name("李四"),
                             .areaStyle(EmphasisAreaStyle(
@@ -383,7 +383,7 @@ public struct SECRadarOptions {
                 .data(["某软件","某主食手机","某水果手机","降水量","蒸发量"])
                 )),
             .radars([
-                SECRadar(
+                Radar(
                     .indicator([
                         SECIndicator(.text("品牌"), .max(100)),
                         SECIndicator(.text("内容"), .max(100)),
@@ -393,7 +393,7 @@ public struct SECRadarOptions {
                     .center([25%, 40%]),
                     .radius(40)
                 ),
-                SECRadar(
+                Radar(
                     .indicator([
                         SECIndicator(.text("外观"), .max(100)),
                         SECIndicator(.text("拍照"), .max(100)),
@@ -404,42 +404,42 @@ public struct SECRadarOptions {
                     .center([50%, 60%]),
                     .radius(40)
                 ),
-                SECRadar(
+                Radar(
                     .indicator(indicator),
                     .center([75%, 40%]),
                     .radius(40)
                 )
                 ]),
             .series([
-                SECRadarSerie(// FIXME: 去掉两个属性
+                RadarSerie(// FIXME: 去掉两个属性
                     .data([
-                        SECRadarSerieData(
+                        RadarSerieData(
                             .value([60,73,85,40]),
                             .name("某软件")
                         )
                         ])
                 ),
-                SECRadarSerie(
+                RadarSerie(
                     .radarIndex(1),
                     .data([
-                        SECRadarSerieData(
+                        RadarSerieData(
                             .value([85, 90, 90, 95, 95]),
                             .name("某主食手机")
                         ),
-                        SECRadarSerieData(
+                        RadarSerieData(
                             .value([95, 80, 95, 90, 93]),
                             .name("某水果手机")
                         )
                         ])
                 ),
-                SECRadarSerie(// FIXME: 去掉一个属性
+                RadarSerie(// FIXME: 去掉一个属性
                     .radarIndex(2),
                     .data([
-                        SECRadarSerieData(
+                        RadarSerieData(
                             .name("降雨量"),
                             .value([2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 75.6, 82.2, 48.7, 18.8, 6.0, 2.3])
                         ),
-                        SECRadarSerieData(
+                        RadarSerieData(
                             .name("蒸发量"),
                             .value([2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 35.6, 62.2, 32.6, 20.0, 6.4, 3.3])
                         )
@@ -460,7 +460,7 @@ public struct SECRadarOptions {
             .legend(Legend(
                 .data(["预算分配（Allocated Budget）", "实际开销（Actual Spending）"])
                 )),
-            .radar(SECRadar(
+            .radar(Radar(
                 .indicator([
                     SECIndicator(.name("销售（sales）"), .max(6500)),
                     SECIndicator(.name("管理（Administration）"), .max(16000)),
@@ -471,14 +471,14 @@ public struct SECRadarOptions {
                     ])
                 )),
             .series([
-                SECRadarSerie(
+                RadarSerie(
                     .name("预算 vs 开销（Budget vs spending）"),
                     .data([
-                        SECRadarSerieData(
+                        RadarSerieData(
                             .value([4300, 10000, 28000, 35000, 50000, 19000]),
                             .name("预算分配（Allocated Budget）")
                         ),
-                        SECRadarSerieData(
+                        RadarSerieData(
                             .value([5000, 14000, 28000, 31000, 42000, 21000]),
                             .name("实际开销（Actual Spending）")
                         )
@@ -496,10 +496,10 @@ public struct SECRadarOptions {
             list.append("\(i + 2000)")
         }
 
-        var series: [SECSeries] = []
+        var series: [Serie] = []
         for i in 1...28 {
             let datas = [(40 - i) * 10, (38 - i) * 4 + 60, i * 5 + 10, i * 9, i * i / 2]
-            series.append(SECRadarSerie(
+            series.append(RadarSerie(
                 .name("浏览器（数据纯属虚构）"),
                 .symbol(.none),
                 .lineStyle(EmphasisLineStyle( // FIXME: 网站里面用的是itemStyle里面的lineStyle，暂时还没实现
@@ -508,7 +508,7 @@ public struct SECRadarOptions {
                         ))
                     )),
                 .data([
-                    SECRadarSerieData(
+                    RadarSerieData(
                         .value(datas),
                         .name("\(i+2000)")
                     )
@@ -533,7 +533,7 @@ public struct SECRadarOptions {
             .visualMap(SECContinuousVisualMap(
                 .color(.array([.red, .yellow]))
                 )),
-            .radar(SECRadar(
+            .radar(Radar(
                 .indicator([
                     SECIndicator(.text("IE8-"), .max(400)),
                     SECIndicator(.text("IE9+"), .max(400)),

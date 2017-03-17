@@ -1,5 +1,5 @@
 //
-//  SECGaugeOptions.swift
+//  GaugeOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SECGaugeOptions {
+public struct GaugeOptions {
     
     // MARK: Gauge Car Dark
     /// 地址: http://echarts.baidu.com/demo.html#gauge-car-dark
@@ -33,38 +33,38 @@ public struct SECGaugeOptions {
                     ))
                 )),
             .series([
-                SECGaugeSerie(
+                GaugeSerie(
                     .name("速度"), // 缺少z
                     .min(0),
                     .max(220),
                     .splitNumber(11),
                     .radius(50%),
-                    .axisLine(SECGaugeSerie.AxisLine(
+                    .axisLine(GaugeSerie.AxisLine(
                         .lineStyle(LineStyle(
                             .width(10)
                             ))
                         )),
-                    .axisTick(SECGaugeSerie.AxisTick(
+                    .axisTick(GaugeSerie.AxisTick(
                         .length(15) // FIXME: 缺少lineStyle
                         )),
-                    .splitLine(SECGaugeSerie.SplitLine(
+                    .splitLine(GaugeSerie.SplitLine(
                         .length(20) // FIXME: 缺少lineStyle
                         )),
-                    .title(SECGaugeSerie.Title(
+                    .title(GaugeSerie.Title(
                         .textStyle(TextStyle(
                             .fontWeight(.bolder),
                             .fontSize(20),
                             .fontStyle(.italic)
                             ))
                         )),
-                    .detail(SECGaugeSerie.Detail(
+                    .detail(GaugeSerie.Detail(
                         .textStyle(TextStyle(
                             .fontWeight(.bolder)
                             ))
                         )),
                     .data([["value": 40, "name": "km/h"]])
                 ),
-                SECGaugeSerie(
+                GaugeSerie(
                     .name("转速"),
                     .center([20%, 55%]),
                     .radius(35%),
@@ -72,31 +72,31 @@ public struct SECGaugeOptions {
                     .max(7),
                     .endAngle(45),
                     .splitNumber(7),
-                    .axisLine(SECGaugeSerie.AxisLine(
+                    .axisLine(GaugeSerie.AxisLine(
                         .lineStyle(LineStyle(
                             .width(8)
                             ))
                         )),
-                    .axisTick(SECGaugeSerie.AxisTick(
+                    .axisTick(GaugeSerie.AxisTick(
                         .length(12) // FIXME: 缺少lineStyle
                         )),
-                    .splitLine(SECGaugeSerie.SplitLine(
+                    .splitLine(GaugeSerie.SplitLine(
                         .length(20) // FIXME: 缺少lineStyle
                         )),
-                    .pointer(SECGaugeSerie.Pointer(
+                    .pointer(GaugeSerie.Pointer(
                         .width(5)
                         )),
-                    .title(SECGaugeSerie.Title(
+                    .title(GaugeSerie.Title(
                         .offsetCenter([0, (-30)%])
                         )),
-                    .detail(SECGaugeSerie.Detail(
+                    .detail(GaugeSerie.Detail(
                         .textStyle(TextStyle(
                             .fontWeight(.bolder)
                             ))
                         )),
                     .data([["value": 1.5, "name": "x1000 r/min"]])
                 ),
-                SECGaugeSerie(
+                GaugeSerie(
                     .name("油表"),
                     .center([77%, 50%]),
                     .radius(25%),
@@ -105,33 +105,33 @@ public struct SECGaugeOptions {
                     .startAngle(135),
                     .endAngle(45),
                     .splitNumber(2),
-                    .axisLine(SECGaugeSerie.AxisLine(
+                    .axisLine(GaugeSerie.AxisLine(
                         .lineStyle(LineStyle(
                             .width(8)
                             ))
                         )),
-                    .axisTick(SECGaugeSerie.AxisTick(
+                    .axisTick(GaugeSerie.AxisTick(
                         .splitNumber(5),
                         .length(10) // FIXME: 缺少lineStyle
                         )),
-                    .axisLabel(SECGaugeSerie.AxisLabel(
+                    .axisLabel(GaugeSerie.AxisLabel(
                         .formatter(.function("function axisLabelFormattter(v){ switch (v + '') { case '0' : return 'E'; case '1' : return 'Gas'; case '2' : return 'F'; }}"))
                         )),
-                    .splitLine(SECGaugeSerie.SplitLine(
+                    .splitLine(GaugeSerie.SplitLine(
                         .length(15) // FIXME: 缺少lineStyle
                         )),
-                    .pointer(SECGaugeSerie.Pointer(
+                    .pointer(GaugeSerie.Pointer(
                         .width(2)
                         )),
-                    .title(SECGaugeSerie.Title(
+                    .title(GaugeSerie.Title(
                         .show(false)
                         )),
-                    .detail(SECGaugeSerie.Detail(
+                    .detail(GaugeSerie.Detail(
                         .show(false)
                         )),
                     .data([["value": 0.5, "name": "gas"]])
                 ),
-                SECGaugeSerie(
+                GaugeSerie(
                     .name("水表"),
                     .center([77%, 50%]),
                     .radius(25%),
@@ -140,24 +140,24 @@ public struct SECGaugeOptions {
                     .startAngle(315),
                     .endAngle(225),
                     .splitNumber(2),
-                    .axisLine(SECGaugeSerie.AxisLine(
+                    .axisLine(GaugeSerie.AxisLine(
                         .lineStyle(LineStyle(
                             .width(8)
                             ))
                         )),
-                    .axisLabel(SECGaugeSerie.AxisLabel(
+                    .axisLabel(GaugeSerie.AxisLabel(
                         .formatter(.function("function axisLabelFomatter2(v){ switch (v + '') { case '0' : return 'H'; case '1' : return 'Water'; case '2' : return 'C'; } }"))
                         )),
-                    .splitLine(SECGaugeSerie.SplitLine(
+                    .splitLine(GaugeSerie.SplitLine(
                         .length(15) // FIXME: 缺少lineStyle
                         )),
-                    .pointer(SECGaugeSerie.Pointer(
+                    .pointer(GaugeSerie.Pointer(
                         .width(2)
                         )),
-                    .title(SECGaugeSerie.Title(
+                    .title(GaugeSerie.Title(
                         .show(false)
                         )),
-                    .detail(SECGaugeSerie.Detail(
+                    .detail(GaugeSerie.Detail(
                         .show(false)
                         )),
                     .data([["value": 0.5, "name": "gas"]])
@@ -180,7 +180,7 @@ public struct SECGaugeOptions {
                     ))
                 )),
             .series([
-                SECGaugeSerie(
+                GaugeSerie(
                     .name("业务指标"),
                     .detail(SECGSDetail(
                         .formatter(.string("{value}%"))

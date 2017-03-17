@@ -58,12 +58,12 @@ public struct SECBarOptions {
                 )),
             .yAxis(SECAxis()),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("bar"),
                     .data(data1),
                     .animationDelay(.function("function seriesDelay(idx){ return idx * 10; }"))
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("bar2"),
                     .data(data2),
                     .animationDelay(.function("function seriesDelay2(idx){ return idx * 10 + 100; }"))
@@ -107,7 +107,7 @@ public struct SECBarOptions {
                 .align(.left),
                 .left(.value(10))
                 )),
-            .brush(SECBrush(
+            .brush(Brush(
                 .toolbox([.rect, .polygon, .lineX, .lineY, .keep, .clear]),
                 .xAxisIndex(.indexes([0]))
                 )),
@@ -160,25 +160,25 @@ public struct SECBarOptions {
                     ))
                 )),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("bar"),
                     .stack("one"),
                     .itemStyle(itemStyle),
                     .data(data1)
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("bar2"),
                     .stack("one"),
                     .itemStyle(itemStyle),
                     .data(data2)
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("bar3"),
                     .stack("two"),
                     .itemStyle(itemStyle),
                     .data(data3)
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("bar4"),
                     .stack("two"),
                     .itemStyle(itemStyle),
@@ -235,7 +235,7 @@ public struct SECBarOptions {
             .dataZoom([SECInsideDataZoom(
                 )]),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .itemStyle(ItemStyle(
                         .normal(CommonItemStyleContent(
                             .color(.rgba(0, 0, 0, 0.05))
@@ -246,7 +246,7 @@ public struct SECBarOptions {
                     .data(dataShadow),
                     .animation(false)
                 ),
-                SECBarSerie(
+                BarSerie(
                     .itemStyle(ItemStyle(
                         .normal(CommonItemStyleContent(
                             .color(.linearGradient(0, 0, 0, 1,
@@ -295,31 +295,31 @@ public struct SECBarOptions {
                 .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("利润"),
-                    .label(SECBarSerie.Label(
-                        .normal(SECBarSerie.LabelContent(
+                    .label(BarSerie.Label(
+                        .normal(BarSerie.LabelContent(
                             .show(true),
                             .position(.inside)
                             ))
                         )),
                     .data([200, 170, 240, 244, 200, 220, 210])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("收入"),
                     .stack("总量"),
-                    .label(SECBarSerie.Label(
-                        .normal(SECBarSerie.LabelContent(
+                    .label(BarSerie.Label(
+                        .normal(BarSerie.LabelContent(
                             .show(true)
                             ))
                         )),
                     .data([320, 302, 341, 374, 390, 450, 420])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("支出"),
                     .stack("总量"),
-                    .label(SECBarSerie.Label(
-                        .normal(SECBarSerie.LabelContent(
+                    .label(BarSerie.Label(
+                        .normal(BarSerie.LabelContent(
                             .show(true),
                             .position(.left)
                             ))
@@ -380,36 +380,36 @@ public struct SECBarOptions {
                 .data(["ten", "nine", "eight", "seven", "six", "five", "four", "three", "two", "one"])
                 )),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("生活费"),
                     .stack("总量"),
-                    .label(SECBarSerie.Label(
-                        .normal(SECBarSerie.LabelContent(
+                    .label(BarSerie.Label(
+                        .normal(BarSerie.LabelContent(
                             .show(true),
                             .formatter(.string("{b}"))
                             ))
                         )),
                     .data([
-                        SECBarSerieData(
+                        BarSerieData(
                             .value(-0.07),
                             .label(labelRight)
                         ),
-                        SECBarSerieData(
+                        BarSerieData(
                             .value(-0.09),
                             .label(labelRight)
                         ),
                         0.2, 0.44,
-                        SECBarSerieData(
+                        BarSerieData(
                             .value(-0.23),
                             .label(labelRight)
                         ),
                         0.08,
-                        SECBarSerieData(
+                        BarSerieData(
                             .value(-0.17),
                             .label(labelRight)
                         ),
                         0.47,
-                        SECBarSerieData(
+                        BarSerieData(
                             .value(-0.36),
                             .label(labelRight)
                         ),
@@ -447,26 +447,26 @@ public struct SECBarOptions {
                 .type(.value)
                 )),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("直接访问"),
                     .data([320, 332, 301, 334, 390, 330, 320])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("邮件营销"),
                     .stack("广告"),
                     .data([120, 132, 101, 134, 90, 230, 210])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("联盟广告"),
                     .stack("广告"),
                     .data([220, 182, 191, 234, 290, 330, 310])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("视频广告"),
                     .stack("广告"),
                     .data([150, 232, 201, 154, 190, 330, 410])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("搜索引擎"),
                     .data([820, 932, 901, 934, 1290, 1330, 1320]),
                     .markLine(SECMarkLine(
@@ -486,23 +486,23 @@ public struct SECBarOptions {
                             ])
                         ))
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("百度"),
                     .barWidth(5),
                     .stack("搜索引擎"),
                     .data([620, 732, 701, 734, 1090, 1130, 1120])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("谷歌"),
                     .stack("搜索引擎"),
                     .data([120, 132, 101, 134, 290, 230, 220])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("必应"),
                     .stack("搜索引擎"),
                     .data([60, 72, 71, 74, 190, 130, 110])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("其他"),
                     .stack("搜索引擎"),
                     .data([62, 82, 91, 84, 109, 110, 120])
@@ -539,7 +539,7 @@ public struct SECBarOptions {
                 .type(.value)
                 )),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("直接访问"),
                     .barWidth(60%),
                     .data([10, 52, 200, 334, 390, 330, 220])
@@ -581,7 +581,7 @@ public struct SECBarOptions {
                 .type(.value)
                 )),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("辅助"),
                     .stack("总量"),
                     .itemStyle(ItemStyle(
@@ -596,11 +596,11 @@ public struct SECBarOptions {
                         )),
                     .data([0, 1700, 1400, 1200, 300, 0])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("生活费"),
                     .stack("总量"),
-                    .label(SECBarSerie.Label(
-                        .normal(SECBarSerie.LabelContent(
+                    .label(BarSerie.Label(
+                        .normal(BarSerie.LabelContent(
                             .show(true),
                             .position(.inside)
                             ))
@@ -651,7 +651,7 @@ public struct SECBarOptions {
                 .type(.value)
                 )),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("辅助"),
                     .stack("总量"),
                     .itemStyle(ItemStyle(
@@ -666,22 +666,22 @@ public struct SECBarOptions {
                         )),
                     .data([0, 900, 1245, 1530, 1376, 1376, 1511, 1689, 1856, 1495, 1292])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("收入"),
                     .stack("总量"),
-                    .label(SECBarSerie.Label(
-                        .normal(SECBarSerie.LabelContent(
+                    .label(BarSerie.Label(
+                        .normal(BarSerie.LabelContent(
                             .show(true),
                             .position(.top)
                             ))
                         )),
                     .data([900, 345, 393, "-", "-", 135, 178, 286, "-", "-", "-"])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("支出"),
                     .stack("总量"),
-                    .label(SECBarSerie.Label(
-                        .normal(SECBarSerie.LabelContent(
+                    .label(BarSerie.Label(
+                        .normal(BarSerie.LabelContent(
                             .show(true),
                             .position(.bottom)
                             ))
@@ -719,44 +719,44 @@ public struct SECBarOptions {
                 .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("直接访问"),
                     .stack("总量"),
-                    .label(SECBarSerie.Label(
-                        .normal(SECBarSerie.LabelContent(
+                    .label(BarSerie.Label(
+                        .normal(BarSerie.LabelContent(
                             .show(true),
                             .position(.insideRight)
                             ))
                         )),
                     .data([320, 332, 301, 334, 390, 330, 320])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("邮件营销"),
                     .stack("总量"),
-                    .label(SECBarSerie.Label(
-                        .normal(SECBarSerie.LabelContent(
+                    .label(BarSerie.Label(
+                        .normal(BarSerie.LabelContent(
                             .show(true),
                             .position(.insideRight)
                             ))
                         )),
                     .data([120, 132, 101, 134, 90, 230, 210])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("联盟广告"),
                     .stack("总量"),
-                    .label(SECBarSerie.Label(
-                        .normal(SECBarSerie.LabelContent(
+                    .label(BarSerie.Label(
+                        .normal(BarSerie.LabelContent(
                             .show(true),
                             .position(.insideRight)
                             ))
                         )),
                     .data([220, 182, 191, 234, 290, 330, 310])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("视频广告"),
                     .stack("总量"),
-                    .label(SECBarSerie.Label(
-                        .normal(SECBarSerie.LabelContent(
+                    .label(BarSerie.Label(
+                        .normal(BarSerie.LabelContent(
                             .show(true),
                             .position(.insideRight)
                             ))
@@ -764,11 +764,11 @@ public struct SECBarOptions {
                     .data([150, 232, 201, 154, 190, 330, 410])
                 ),
                 
-                SECBarSerie(
+                BarSerie(
                     .name("搜索引擎"),
                     .stack("总量"),
-                    .label(SECBarSerie.Label(
-                        .normal(SECBarSerie.LabelContent(
+                    .label(BarSerie.Label(
+                        .normal(BarSerie.LabelContent(
                             .show(true),
                             .position(.insideRight)
                             ))
@@ -811,11 +811,11 @@ public struct SECBarOptions {
                 .data(["巴西","印尼","美国","印度","中国","世界人口(万)"])
                 )),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("2011年"),
                     .data([18203, 23489, 29034, 104970, 131744, 630230])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("2012年"),
                     .data([19325, 23438, 31000, 121594, 134141, 681807])
                 )
@@ -864,7 +864,7 @@ public struct SECBarOptions {
                 .type(.value)
                 )),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("蒸发量"),
                     .data([2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]),
                     .markPoint(SECMarkPoint(
@@ -888,7 +888,7 @@ public struct SECBarOptions {
                             ])
                         ))
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("降水量"),
                     .data([2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]),
                     .markPoint(SECMarkPoint(
@@ -995,13 +995,13 @@ public struct SECBarOptions {
                 )
                 ]),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("预购队列"),
                     .xAxisIndex(1),
                     .yAxisIndex(1),
                     .data(seriesData1)
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("最新的成交价"),
                     .data(seriesData2)
                 )
@@ -1064,15 +1064,15 @@ public struct SECBarOptions {
                 )
                 ]),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("蒸发量"),
                     .data([2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("降水量"),
                     .data([2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("平均温度"),
                     .yAxisIndex(1),
                     .data([2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2])
@@ -1182,16 +1182,16 @@ public struct SECBarOptions {
                 )
                 ]),
             .series([
-                SECBarSerie(
+                BarSerie(
                     .name("蒸发量"),
                     .data([2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3])
                 ),
-                SECBarSerie(
+                BarSerie(
                     .name("降水量"),
                     .yAxisIndex(1),
                     .data([2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3])
                 ),
-                SECLineSerie(
+                LineSerie(
                     .name("平均温度"),
                     .yAxisIndex(2),
                     .data([2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2])

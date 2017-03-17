@@ -1,5 +1,5 @@
 //
-//  SECSankeySerie.swift
+//  SankeySerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 15/03/2017.
@@ -19,7 +19,7 @@
 /// 此外，图中每两个小矩形之间的边编码的是原数据中的link，边的粗细编码的是link中的value。
 /// 
 /// 排序： 如果想指定结果的纵向顺序，那么可以把 layoutIterations 设为 0，此时纵向的顺序依照数据在 links 中出现的顺序。
-public struct SECSankeySerie: SECSeries, Zable, Animatable {
+public struct SankeySerie: Serie, Zable, Animatable {
     
     public struct Data {
         /// 数据项名称。
@@ -48,7 +48,7 @@ public struct SECSankeySerie: SECSeries, Zable, Animatable {
     }
     
     /// 类型
-    public var type: SECSerieType {
+    public var type: SerieType {
         return .sankey
     }
     
@@ -162,7 +162,7 @@ public struct SECSankeySerie: SECSeries, Zable, Animatable {
     public init() { }
 }
 
-extension SECSankeySerie.Data: Enumable {
+extension SankeySerie.Data: Enumable {
     public enum Enums {
         case name(String), value(Float), itemStyle(ItemStyle), label(FormattedLabel)
     }
@@ -185,7 +185,7 @@ extension SECSankeySerie.Data: Enumable {
     }
 }
 
-extension SECSankeySerie.Data: Mappable {
+extension SankeySerie.Data: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -194,7 +194,7 @@ extension SECSankeySerie.Data: Mappable {
     }
 }
 
-extension SECSankeySerie.Link: Enumable {
+extension SankeySerie.Link: Enumable {
     public enum Enums {
         case source(String), target(String), value(Float), lineStyle(EmphasisLineStyle)
     }
@@ -217,7 +217,7 @@ extension SECSankeySerie.Link: Enumable {
     }
 }
 
-extension SECSankeySerie.Link: Mappable {
+extension SankeySerie.Link: Mappable {
     public func mapping(map: Mapper) {
         map["source"] = source
         map["target"] = target
@@ -226,7 +226,7 @@ extension SECSankeySerie.Link: Mappable {
     }
 }
 
-extension SECSankeySerie: Enumable {
+extension SankeySerie: Enumable {
     public enum Enums {
         case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), nodeWidth(Float), nodeGap(Float), layoutIterations(Float), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), data([Jsonable]), nodes([Jsonable]), links([Jsonable]), edges([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
@@ -295,7 +295,7 @@ extension SECSankeySerie: Enumable {
     }
 }
 
-extension SECSankeySerie: Mappable {
+extension SankeySerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["zlevel"] = zlevel

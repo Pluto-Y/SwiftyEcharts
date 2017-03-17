@@ -7,7 +7,7 @@
 //
 
 /// 坐标轴刻度相关设置。
-public struct SECAxisTick: SECLine, Displayable {
+public struct SECAxisTick: Line, Displayable {
     /// 是否显示坐标轴刻度。
     public var show: Bool?
     /// 类目轴中在 boundaryGap 为 true 的时候有效，可以保证刻度线和标签对齐。

@@ -1,5 +1,5 @@
 //
-//  SECBarSerie.swift
+//  BarSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 18/01/2017.
@@ -7,9 +7,9 @@
 //
 
 /// 柱状/条形图 通过 柱形的高度/条形的宽度 来表现数据的大小，用于有至少一个类目轴或时间轴的直角坐标系上。
-public struct SECBarSerie: SECSeries, Animatable, Zable {
+public struct BarSerie: Serie, Animatable, Zable {
     /// 类型
-    public var type: SECSerieType {
+    public var type: SerieType {
         return .bar
     }
     
@@ -20,7 +20,7 @@ public struct SECBarSerie: SECSeries, Animatable, Zable {
     /// 该系列使用的坐标系
     /// 目前可选为： cartesian2d
     /// 使用二维的直角坐标系（也称笛卡尔坐标系），通过 xAxisIndex, yAxisIndex指定相应的坐标轴组件。
-    public var coordinateSystem: SECCoordinateSystem?
+    public var coordinateSystem: CoordinateSystem?
     /// 使用的 x 轴的 index，在单个图表实例中存在多个 x 轴的时候有用。
     public var xAxisIndex: UInt8?
     /// 使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用。
@@ -106,9 +106,9 @@ public struct SECBarSerie: SECSeries, Animatable, Zable {
     public var animationDelayUpdate: Time?
 }
 
-extension SECBarSerie: Enumable {
+extension BarSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLine(Bool), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(ItemStyle), stack(String), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(Float), barGap(String), barCategoryGap(String), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), legendHoverLine(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(ItemStyle), stack(String), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(Float), barGap(String), barCategoryGap(String), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -177,7 +177,7 @@ extension SECBarSerie: Enumable {
     }
 }
 
-extension SECBarSerie: Mappable {
+extension BarSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name
@@ -211,7 +211,7 @@ extension SECBarSerie: Mappable {
     }
 }
 
-extension SECBarSerie {
+extension BarSerie {
     public struct LabelContent {
         /// 是否显示标签。
         public var show: Bool?
@@ -234,7 +234,7 @@ extension SECBarSerie {
     }
 }
 
-extension SECBarSerie.LabelContent: Enumable {
+extension BarSerie.LabelContent: Enumable {
     public enum Enums {
         case show(Bool), position(SECMarkPosition), offset([Float]), formatter(Formatter), textStyle(TextStyle)
     }
@@ -259,7 +259,7 @@ extension SECBarSerie.LabelContent: Enumable {
     }
 }
 
-extension SECBarSerie.LabelContent: Mappable {
+extension BarSerie.LabelContent: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["position"] = position
@@ -270,7 +270,7 @@ extension SECBarSerie.LabelContent: Mappable {
 }
 
 
-extension SECBarSerie.Label: Enumable {
+extension BarSerie.Label: Enumable {
     public enum Enums {
         case normal(Style), emphasis(Style)
     }
@@ -289,14 +289,14 @@ extension SECBarSerie.Label: Enumable {
     }
 }
 
-extension SECBarSerie.Label: Mappable {
+extension BarSerie.Label: Mappable {
     public func mapping(map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
 }
 
-extension SECBarSerie {
+extension BarSerie {
     public struct Data {
         /// 数据项名称。
         public var name: String?
@@ -309,9 +309,9 @@ extension SECBarSerie {
     }
 }
 
-public typealias SECBarSerieData = SECBarSerie.Data
+public typealias BarSerieData = BarSerie.Data
 
-extension SECBarSerieData: Enumable {
+extension BarSerieData: Enumable {
     public enum Enums {
         case name(String), value(Float), label(FormattedLabel), itemStyle(ItemStyle)
     }
@@ -334,7 +334,7 @@ extension SECBarSerieData: Enumable {
     }
 }
 
-extension SECBarSerieData: Mappable {
+extension BarSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value

@@ -18,7 +18,7 @@ class GaugesController: BaseDemoController {
         
         self.menus = ["Gauge Car Dark(暂缺)", "Gauge Car", "Gauge"]
         
-        self.optionClosures = [SECGaugeOptions.gaugeCarDarkOption, SECGaugeOptions.gaugeCarOption, SECGaugeOptions.gaugeOption]
+        self.optionClosures = [GaugeOptions.gaugeCarDarkOption, GaugeOptions.gaugeCarOption, GaugeOptions.gaugeOption]
         
         self.title = "仪表盘"
     }
@@ -49,7 +49,7 @@ class GaugesController: BaseDemoController {
     func randomForGauge() {
         var option = self.option
         let data: [String: Jsonable] = ["value": Double(arc4random_uniform(100) + 1), "name": "完成率"]
-        var serie = option.series![0] as! SECGaugeSerie
+        var serie = option.series![0] as! GaugeSerie
         serie.data = [data]
         option.series = [serie]
         self.echartsView.refreshEcharts(option)
@@ -58,16 +58,16 @@ class GaugesController: BaseDemoController {
     func randomForGaugeCar() {
         var option = self.option
         let data1: [String: Jsonable] = ["value": Double(arc4random_uniform(100) + 1), "name": "km/h"]
-        var serie1 = option.series![0] as! SECGaugeSerie
+        var serie1 = option.series![0] as! GaugeSerie
         serie1.data = [data1]
         let data2: [String: Jsonable] = ["value": Double(arc4random_uniform(7) + 1), "name": "x1000 r/min"]
-        var serie2 = option.series![1] as! SECGaugeSerie
+        var serie2 = option.series![1] as! GaugeSerie
         serie2.data = [data2]
         let data3: [String: Jsonable] = ["value": Double(arc4random_uniform(2) + 1), "name": "gas"]
-        var serie3 = option.series![2] as! SECGaugeSerie
+        var serie3 = option.series![2] as! GaugeSerie
         serie3.data = [data3]
         let data4: [String: Jsonable] = ["value": Double(arc4random_uniform(2) + 1), "name": "gas"]
-        var serie4 = option.series![3] as! SECGaugeSerie
+        var serie4 = option.series![3] as! GaugeSerie
         serie4.data = [data4]
 
         option.series = [serie1, serie2, serie3, serie4]

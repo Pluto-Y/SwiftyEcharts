@@ -20,6 +20,6 @@ public enum LineType: String, Jsonable {
 }
 
 
-public protocol SECLine {
+public protocol Line {
     var lineStyle: LineStyle? { get set }
 }

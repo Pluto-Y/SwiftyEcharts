@@ -1,5 +1,5 @@
 //
-//  SECParallelSerie.swift
+//  ParallelSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 04/03/2017.
@@ -113,15 +113,15 @@
 /// 可以通过 parallel.axisExpandable 来改善显示效果，如下例子：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=map-parallel-prices
-public struct SECParallelSerie: SECSeries, Zable, Animatable {
+public struct ParallelSerie: Serie, Zable, Animatable {
     
     /// 类型
-    public var type: SECSerieType {
+    public var type: SerieType {
         return .parallel
     }
     
     /// 该系列使用的坐标系, 目前只能用 parallel
-    public var coordinateSystem: SECCoordinateSystem?
+    public var coordinateSystem: CoordinateSystem?
     /// 使用的平行坐标系的 index，在单个图表实例中存在多个平行坐标系的时候有用。
     public var parallelIndex: UInt8?
     /// 系列名称，用于tooltip的显示，legend 的图例筛选，在 setOption 更新数据和配置项时用于指定对应的系列。
@@ -171,9 +171,9 @@ public struct SECParallelSerie: SECSeries, Zable, Animatable {
     public init() { }
 }
 
-extension SECParallelSerie: Enumable {
+extension ParallelSerie: Enumable {
     public enum Enums {
-        case coordinateSystem(SECCoordinateSystem), parallelIndex(UInt8), name(String), lineStyle(EmphasisLineStyle), inactiveOpacity(Float), activeOpacity(Float), realtime(Bool), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case coordinateSystem(CoordinateSystem), parallelIndex(UInt8), name(String), lineStyle(EmphasisLineStyle), inactiveOpacity(Float), activeOpacity(Float), realtime(Bool), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -224,7 +224,7 @@ extension SECParallelSerie: Enumable {
     }
 }
 
-extension SECParallelSerie: Mappable {
+extension ParallelSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["coordinateSystem"] = coordinateSystem

@@ -35,7 +35,7 @@ public struct SECPieOptions {
                     ])
                 )),
             .series([
-                SECPieSerie(
+                PieSerie(
                     .name("访问来源"),
                     .radius(55%),
                     .center([50%, 50%]),
@@ -54,8 +54,8 @@ public struct SECPieOptions {
                                 ))
                             ))
                         )),
-                    .labelLine(SECPieSerie.LabelLine(
-                        .normal(SECPieSerie.LabelLineContent(
+                    .labelLine(PieSerie.LabelLine(
+                        .normal(PieSerie.LabelLineContent(
                             .lineStyle(LineStyle(
                                 .color(.rgba(255, 255, 255, 0.3))
                                 )),
@@ -93,7 +93,7 @@ public struct SECPieOptions {
                 .data(["直接访问","邮件营销","联盟广告","视频广告","搜索引擎"])
                 )),
             .series([
-                SECPieSerie(
+                PieSerie(
                     .name("访问来源"),
                     .radiusRange([50%, 70%]),
                     .avoidLabelOverlap(false),
@@ -110,8 +110,8 @@ public struct SECPieOptions {
                                 ))
                             ))
                         )),
-                    .labelLine(SECPieSerie.LabelLine(
-                        .normal(SECPieSerie.LabelLineContent(
+                    .labelLine(PieSerie.LabelLine(
+                        .normal(PieSerie.LabelLineContent(
                             .show(false)
                             ))
                         )),
@@ -141,7 +141,7 @@ public struct SECPieOptions {
                 .data(["直达","营销广告","搜索引擎","邮件营销","联盟广告","视频广告","百度","谷歌","必应","其他"])
                 )),
             .series([
-                SECPieSerie(
+                PieSerie(
                     .name("访问来源"),
                     .selectedMode(.single),
                     .radiusRange([0, 30%]),
@@ -150,8 +150,8 @@ public struct SECPieOptions {
                             .position(.inner)
                             ))
                         )),
-                    .labelLine(SECPieSerie.LabelLine(
-                        .normal(SECPieSerie.LabelLineContent(
+                    .labelLine(PieSerie.LabelLine(
+                        .normal(PieSerie.LabelLineContent(
                             .show(false)
                             ))
                         )),
@@ -161,7 +161,7 @@ public struct SECPieOptions {
                         ["value":1548, "name":"搜索引擎"]
                         ])
                 ),
-                SECPieSerie(
+                PieSerie(
                     .name("访问来源"),
                     .radiusRange([40%, 55%]),
                     .data([
@@ -202,7 +202,7 @@ public struct SECPieOptions {
                 )),
             .tooltip(Tooltip()),
             .series([
-                SECPieSerie(
+                PieSerie(
                     .name("pie"),
                     .selectedMode(.single),
                     .selectedOffset(30),
@@ -215,8 +215,8 @@ public struct SECPieOptions {
                             ))
                         ))
                     )),
-                    .labelLine(SECPieSerie.LabelLine(
-                        .normal(SECPieSerie.LabelLineContent(
+                    .labelLine(PieSerie.LabelLine(
+                        .normal(PieSerie.LabelLineContent(
                             .lineStyle(LineStyle(
                                 .color(.hexColor("#235894"))
                             ))
@@ -254,7 +254,7 @@ public struct SECPieOptions {
                 .data(["直接访问","邮件营销","联盟广告","视频广告","搜索引擎"])
                 )),
             .series([
-                SECPieSerie(
+                PieSerie(
                     .name("访问来源"),
                     .radius(55%),
                     .center([50%, 60%]),
@@ -314,7 +314,7 @@ public struct SECPieOptions {
                     ))
                 )),
             .series([
-                SECPieSerie(
+                PieSerie(
                     .name("半径模式"),
                     .radiusRange([10, 55]),
                     .center([25%, 50%]),
@@ -327,11 +327,11 @@ public struct SECPieOptions {
                             .show(true)
                             ))
                         )),
-                    .labelLine(SECPieSerie.LabelLine(
-                        .normal(SECPieSerie.LabelLineContent(
+                    .labelLine(PieSerie.LabelLine(
+                        .normal(PieSerie.LabelLineContent(
                             .show(false)
                             )),
-                        .emphasis(SECPieSerie.LabelLineContent(
+                        .emphasis(PieSerie.LabelLineContent(
                             .show(true)
                             ))
                         )),
@@ -346,7 +346,7 @@ public struct SECPieOptions {
                         ["value":40, "name":"rose8"]
                         ])
                 ),
-                SECPieSerie(
+                PieSerie(
                     .name("面积模式"),
                     .radiusRange([15, 55]),
                     .center([75%, 50%]),

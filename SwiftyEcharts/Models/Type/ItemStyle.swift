@@ -25,7 +25,7 @@ public struct CommonItemStyleContent: ItemStyleContent {
             validateOpacity()
         }
     }
-    /// 目前只针对 `SECBarSerie`
+    /// 目前只针对 `BarSerie`
     public var barBorderRadius: Float?
     
     public init() { }

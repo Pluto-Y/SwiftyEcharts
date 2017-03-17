@@ -1,5 +1,5 @@
 //
-//  SECLinesSerie.swift
+//  LinesSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 06/03/2017.
@@ -15,7 +15,7 @@
 /// 迁徙示例：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=geo-lines
-public struct SECLinesSerie: SECSeries, Zable, Animatable {
+public struct LinesSerie: Serie, Zable, Animatable {
     
     /// 线特效的配置，见示例 模拟迁徙 和 北京公交路线
     ///
@@ -81,14 +81,14 @@ public struct SECLinesSerie: SECSeries, Zable, Animatable {
     }
     
     /// 类型
-    public var type: SECSerieType {
+    public var type: SerieType {
         return .lines
     }
     
     /// 系列名称，用于tooltip的显示，legend 的图例筛选，在 setOption 更新数据和配置项时用于指定对应的系列。
     public var name: String?
     /// 该系列使用的坐标系，可选：cartesian2d, geo
-    public var coordinateSystem: SECCoordinateSystem?
+    public var coordinateSystem: CoordinateSystem?
     /// 使用的 x 轴的 index，在单个图表实例中存在多个 x 轴的时候有用。
     public var xAxisIndex: UInt8?
     /// 使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用。
@@ -174,9 +174,9 @@ public struct SECLinesSerie: SECSeries, Zable, Animatable {
     public init() { }
 }
 
-public typealias SECLinesSerieData = SECLinesSerie.Data
+public typealias LinesSerieData = LinesSerie.Data
 
-extension SECLinesSerie.Effect: Enumable {
+extension LinesSerie.Effect: Enumable {
     public enum Enums {
         case show(Bool), period(Float), constantSpeed(Float), symbol(Symbol), symbolSize(Float), color(Color), trailLength(Float), loop(Bool)
     }
@@ -207,7 +207,7 @@ extension SECLinesSerie.Effect: Enumable {
     }
 }
 
-extension SECLinesSerie.Effect: Mappable {
+extension LinesSerie.Effect: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["period"] = period
@@ -220,7 +220,7 @@ extension SECLinesSerie.Effect: Mappable {
     }
 }
 
-extension SECLinesSerieData: Enumable {
+extension LinesSerieData: Enumable {
     public enum Enums {
         case name(String), coords([Point]), lineStyle(LineStyle), label(FormattedLabel)
     }
@@ -243,7 +243,7 @@ extension SECLinesSerieData: Enumable {
     }
 }
 
-extension SECLinesSerieData: Mappable {
+extension LinesSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["coords"] = coords
@@ -252,9 +252,9 @@ extension SECLinesSerieData: Mappable {
     }
 }
 
-extension SECLinesSerie: Enumable {
+extension LinesSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(Symbol), symbolSize(Float), lineStyle(LineStyle), label(FormattedLabel), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(Symbol), symbolSize(Float), lineStyle(LineStyle), label(FormattedLabel), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -323,7 +323,7 @@ extension SECLinesSerie: Enumable {
     }
 }
 
-extension SECLinesSerie: Mappable {
+extension LinesSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name

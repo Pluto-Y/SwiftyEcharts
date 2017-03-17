@@ -1,5 +1,5 @@
 //
-//  SECCandlestickSerie.swift
+//  CandlestickSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 14/02/2017.
@@ -24,7 +24,7 @@
 /// - series-candlestick.itemStyle.normal.color0：阴线填充色（即『跌』）
 /// - series-candlestick.itemStyle.normal.borderColor：阳线边框色（即『涨』）
 /// - series-candlestick.itemStyle.normal.borderColor0：阴线边框色（即『跌』）
-public struct SECCandlestickSerie: SECSeries, Zable {
+public struct CandlestickSerie: Serie, Zable {
     
     public struct Data {
         /// 数据项名称。
@@ -40,12 +40,12 @@ public struct SECCandlestickSerie: SECSeries, Zable {
     }
     
     /// 类型
-    public var type: SECSerieType {
+    public var type: SerieType {
         return .candlestick
     }
     
     /// 该系列使用的坐标系。
-    public var coordinateSystem: SECCoordinateSystem?
+    public var coordinateSystem: CoordinateSystem?
     /// 使用的 x 轴的 index，在单个图表实例中存在多个 x 轴的时候有用。
     public var xAxisIndex: UInt8?
     /// 使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用。
@@ -122,9 +122,9 @@ public struct SECCandlestickSerie: SECSeries, Zable {
     public var animationDelay: Float?
 }
 
-public typealias SECCandlestickSerieData = SECCandlestickSerie.Data
+public typealias CandlestickSerieData = CandlestickSerie.Data
 
-extension SECCandlestickSerieData: Enumable {
+extension CandlestickSerieData: Enumable {
     public enum Enums {
         case name(String), value([Jsonable]), itemStyle(ItemStyle)
     }
@@ -145,7 +145,7 @@ extension SECCandlestickSerieData: Enumable {
     }
 }
 
-extension SECCandlestickSerieData: Mappable {
+extension CandlestickSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -153,9 +153,9 @@ extension SECCandlestickSerieData: Mappable {
     }
 }
 
-extension SECCandlestickSerie: Enumable {
+extension CandlestickSerie: Enumable {
     public enum Enums {
-        case coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), barWidth(Float), barMinWidth(Float), barMaxWidth(Float), itemStyle(ItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Float)
+        case coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), barWidth(Float), barMinWidth(Float), barMaxWidth(Float), itemStyle(ItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -210,7 +210,7 @@ extension SECCandlestickSerie: Enumable {
     }
 }
 
-extension SECCandlestickSerie: Mappable {
+extension CandlestickSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["coordinateSystem"] = coordinateSystem

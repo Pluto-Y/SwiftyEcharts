@@ -1,12 +1,12 @@
 //
-//  SECLineSerie.swift
+//  LineSerie.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 03/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-extension SECLineSerie {
+extension LineSerie {
     /// 折线图在数据量远大于像素点时候的降采样策略，开启后可以有效的优化图表的绘制效率，默认关闭，也就是全部绘制不过滤数据点。
     ///
     /// - average: 取过滤点的平均值
@@ -25,7 +25,7 @@ extension SECLineSerie {
     }
 }
 
-extension SECLineSerie {
+extension LineSerie {
     public struct Data: Symbolized {
         
         public var name: String?
@@ -41,9 +41,9 @@ extension SECLineSerie {
     }
 }
 
-public typealias SECLineSerieData = SECLineSerie.Data
+public typealias LineSerieData = LineSerie.Data
 
-extension SECLineSerieData: Enumable {
+extension LineSerieData: Enumable {
     public enum Enums {
         case name(String), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(Label), itemStyle(ItemStyle)
     }
@@ -74,7 +74,7 @@ extension SECLineSerieData: Enumable {
     }
 }
 
-extension SECLineSerieData: Mappable {
+extension LineSerieData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -92,7 +92,7 @@ extension SECLineSerieData: Mappable {
 ///
 /// - Note: 设置 areaStyle 后可以绘制面积图。
 /// - Note: 配合分段型 visualMap 组件可以将折线/面积图通过不同颜色分区间。如下示例
-public struct SECLineSerie: Symbolized, Animatable, Zable {
+public struct LineSerie: Symbolized, Animatable, Zable {
     
     /// 阶梯线图类型。
     ///
@@ -112,7 +112,7 @@ public struct SECLineSerie: Symbolized, Animatable, Zable {
     /// 系列名称，用于tooltip的显示，legend 的图例筛选，在 setOption 更新数据和配置项时用于指定对应的系列。
     public var name: String?
     /// 该系列使用的坐标系
-    public var coordinateSystem: SECCoordinateSystem?
+    public var coordinateSystem: CoordinateSystem?
     /// 使用的 x 轴的 index，在单个图表实例中存在多个 x 轴的时候有用。
     public var xAxisIndex: UInt?
     /// 使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用。
@@ -321,15 +321,15 @@ public struct SECLineSerie: Symbolized, Animatable, Zable {
     
 }
 
-extension SECLineSerie: SECSeries {
-    public var type: SECSerieType {
+extension LineSerie: Serie {
+    public var type: SerieType {
         return .line
     }
 }
 
-extension SECLineSerie: Enumable {
+extension LineSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(SECCoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(Label), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(Label), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -420,7 +420,7 @@ extension SECLineSerie: Enumable {
     }
 }
 
-extension SECLineSerie: Mappable {
+extension LineSerie: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["name"] = name

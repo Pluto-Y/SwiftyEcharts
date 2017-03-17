@@ -7,7 +7,7 @@
 //
 
 /// 分割线
-public struct SECSplitLine: Displayable, SECLine {
+public struct SECSplitLine: Displayable, Line {
     /// 是否显示分隔线。
     public var show: Bool?
     /// 分隔线的显示间隔

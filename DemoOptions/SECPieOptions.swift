@@ -26,7 +26,7 @@ public struct SECPieOptions {
                 .trigger(.item),
                 .formatter(.string("{a} <br/>{b} : {c} ({d}%)"))
                 )),
-            .visualMap(SECContinuousVisualMap(
+            .visualMap(ContinuousVisualMap(
                 .show(false),
                 .min(80),
                 .max(600),

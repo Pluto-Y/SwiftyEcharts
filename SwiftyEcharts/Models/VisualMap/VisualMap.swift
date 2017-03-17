@@ -1,5 +1,5 @@
 //
-//  SECVisualMap.swift
+//  VisualMap.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 23/01/2017.
@@ -54,16 +54,16 @@
 /// ✦ 与 ECharts2 中 dataRange 的关系 ✦
 ///
 /// visualMap 是由 ECharts2 中的 dataRange 组件改名以及扩展而来。ECharts3里 option 中的 dataRange 配置项仍然被兼容，会自动转换成 visualMap 配置项。在option中推荐写 visualMap 而非 dataRange。
-public protocol SECVisualMap: Mappable {
+public protocol VisualMap: Mappable {
     var type: String { get }
 }
 
-public struct SECVMController {
+public struct VisualMapController {
     public var inRange: [String: Jsonable]?
     public var outRange: [String: Jsonable]?
 }
 
-extension SECVMController: Enumable {
+extension VisualMapController: Enumable {
     public enum Enums {
         case inRange([String: Jsonable]), outRange([String: Jsonable])
     }
@@ -82,7 +82,7 @@ extension SECVMController: Enumable {
     }
 }
 
-extension SECVMController: Mappable {
+extension VisualMapController: Mappable {
     public func mapping(map: Mapper) {
         map["inRange"] = inRange
         map["outRange"] = outRange

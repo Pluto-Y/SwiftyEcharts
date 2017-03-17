@@ -51,11 +51,11 @@ public struct BarSerie: Serie, Animatable, Zable {
     /// 数据
     public var data: [Jsonable]?
     /// 图表标注。
-    public var markPoint: SECMarkPoint?
+    public var markPoint: MarkPoint?
     /// 图表标线。
-    public var markLine: SECMarkLine?
+    public var markLine: MarkLine?
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
-    public var markArea: SECMarkArea?
+    public var markArea: MarkArea?
     /// 柱状图所有图形的 zlevel 值。
     /// zlevel用于 Canvas 分层，不同zlevel值的图形会放置在不同的 Canvas 中，Canvas 分层是一种常见的优化手段。我们可以把一些图形变化频繁（例如有动画）的组件设置成一个单独的zlevel。需要注意的是过多的 Canvas 会引起内存开销的增大，在手机端上需要谨慎使用以防崩溃。
     /// zlevel 大的 Canvas 会放在 zlevel 小的 Canvas 的上面。
@@ -108,7 +108,7 @@ public struct BarSerie: Serie, Animatable, Zable {
 
 extension BarSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLine(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(ItemStyle), stack(String), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(Float), barGap(String), barCategoryGap(String), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), legendHoverLine(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(ItemStyle), stack(String), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(Float), barGap(String), barCategoryGap(String), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -216,7 +216,7 @@ extension BarSerie {
         /// 是否显示标签。
         public var show: Bool?
         /// 标签的位置。
-        public var position: SECMarkPosition?
+        public var position: MarkPosition?
         /// 是否对文字进行偏移。默认不偏移。例如：[30, 40] 表示文字在横向上偏移 30，纵向上偏移 40。
         public var offset: [Float]?
         /// 标签内容格式器，支持字符串模板和回调函数两种形式，字符串模板与回调函数返回的字符串均支持用 \n 换行。
@@ -236,7 +236,7 @@ extension BarSerie {
 
 extension BarSerie.LabelContent: Enumable {
     public enum Enums {
-        case show(Bool), position(SECMarkPosition), offset([Float]), formatter(Formatter), textStyle(TextStyle)
+        case show(Bool), position(MarkPosition), offset([Float]), formatter(Formatter), textStyle(TextStyle)
     }
     
     public typealias ContentEnum = Enums

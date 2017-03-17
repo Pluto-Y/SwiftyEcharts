@@ -1,12 +1,12 @@
 //
-//  SECPiecewiseVisualMap.swift
+//  PiecewiseVisualMap.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 20/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECPiecewiseVisualMap: SECVisualMap, Displayable, Borderable, Colorful, Textful, Formatted, Zable {
+public struct PiecewiseVisualMap: VisualMap, Displayable, Borderable, Colorful, Textful, Formatted, Zable {
     /// 类型为分段型。
     public var type: String {
         return "piecewise"
@@ -131,7 +131,7 @@ public struct SECPiecewiseVisualMap: SECVisualMap, Displayable, Borderable, Colo
     public var inRange: [String: Jsonable]?
     public var outRange: [String: Jsonable]?
     /// visualMap 组件中，控制器 的 inRange outOfRange 设置。如果没有这个 controller 设置，控制器 会使用外层的 inRange outOfRange 设置；如果有这个 controller 设置，则会采用这个设置。适用于一些控制器视觉效果需要特殊定制或调整的场景。
-    public var controller: SECVMController?
+    public var controller: VisualMapController?
     /// 所有图形的 zlevel 值。
     /// zlevel用于 Canvas 分层，不同zlevel值的图形会放置在不同的 Canvas 中，Canvas 分层是一种常见的优化手段。我们可以把一些图形变化频繁（例如有动画）的组件设置成一个单独的zlevel。需要注意的是过多的 Canvas 会引起内存开销的增大，在手机端上需要谨慎使用以防崩溃。
     /// zlevel 大的 Canvas 会放在 zlevel 小的 Canvas 的上面。
@@ -185,9 +185,9 @@ public struct SECPiecewiseVisualMap: SECVisualMap, Displayable, Borderable, Colo
     public var formatter: Formatter?
 }
 
-extension SECPiecewiseVisualMap: Enumable {
+extension PiecewiseVisualMap: Enumable {
     public enum Enums {
-        case splitNumber(Int), pieces([Jsonable]), min(Float), max(Float), minOpen(Bool), maxOpen(Bool), selectedMode(SelectedMode), inverse(Bool), precision(UInt), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), showLabel(Bool), itemGap(Float), itemSymbol(Symbol), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(SECVMController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(SECOrient), padding(SECPadding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
+        case splitNumber(Int), pieces([Jsonable]), min(Float), max(Float), minOpen(Bool), maxOpen(Bool), selectedMode(SelectedMode), inverse(Bool), precision(UInt), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), showLabel(Bool), itemGap(Float), itemSymbol(Symbol), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(VisualMapController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(SECOrient), padding(SECPadding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
     }
     
     public typealias ContentEnum = Enums
@@ -276,7 +276,7 @@ extension SECPiecewiseVisualMap: Enumable {
     }
 }
 
-extension SECPiecewiseVisualMap: Mappable {
+extension PiecewiseVisualMap: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["splitNumber"] = splitNumber

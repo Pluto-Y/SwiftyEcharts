@@ -530,7 +530,7 @@ public struct RadarOptions {
                 .show(false), // 由于屏幕太小隐藏
                 .data(list)
                 )),
-            .visualMap(SECContinuousVisualMap(
+            .visualMap(ContinuousVisualMap(
                 .color(.array([.red, .yellow]))
                 )),
             .radar(Radar(

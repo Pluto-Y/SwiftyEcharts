@@ -1,5 +1,5 @@
 //
-//  SECMarkPosition.swift
+//  MarkPosition.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -7,7 +7,7 @@
 //
 
 /// 标签的位置的可选类型
-public enum SECMarkPosition: Jsonable {
+public enum MarkPosition: Jsonable {
     case xy(Float, Float)
     case xyPercent(Float, Float)
     case top, left, right, bottom, inside, insideLeft, insideTop, insideRight, insideBottom, insideTopLeft, insideBottomLeft, insideTopRight, insideBottomRight

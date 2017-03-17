@@ -1,5 +1,5 @@
 //
-//  SECSliderDataZoom.swift
+//  SliderDataZoom.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 17/01/2017.
@@ -7,7 +7,7 @@
 //
 
 /// 滑动条型数据区域缩放组件（dataZoomSlider）
-public struct SECSliderDataZoom: SECDataZoom, Displayable, Zable {
+public struct SliderDataZoom: DataZoom, Displayable, Zable {
     
     /// 数据阴影的样式。
     public struct DataBackground {
@@ -246,7 +246,7 @@ public struct SECSliderDataZoom: SECDataZoom, Displayable, Zable {
     ///
     /// 这时，series.data 中对应于 X 轴的值仍然全部保留不受影响，为 12、90、3、1。那么用户对 dataZoomY 的拖拽操作不会影响到 X 轴的范围。这样的效果，对于离群点（outlier）过滤功能，比较清晰。
     /// 如地址的例子：
-    public var filterMode: SECFilterMode?
+    public var filterMode: FilterMode?
     /// 数据窗口范围的起始百分比。范围是：0 ~ 100。表示 0% ~ 100%。
     public var start: Float?
     /// 数据窗口范围的结束百分比。范围是：0 ~ 100。
@@ -281,7 +281,7 @@ public struct SECSliderDataZoom: SECDataZoom, Displayable, Zable {
     public var bottom: Position?
 }
 
-extension SECSliderDataZoom.DataBackground: Enumable {
+extension SliderDataZoom.DataBackground: Enumable {
     public enum Enums {
         case lineStyle(EmphasisLineStyle), areaStyle(AreaStyle)
     }
@@ -300,14 +300,14 @@ extension SECSliderDataZoom.DataBackground: Enumable {
     }
 }
 
-extension SECSliderDataZoom.DataBackground: Mappable {
+extension SliderDataZoom.DataBackground: Mappable {
     public func mapping(map: Mapper) {
         map["lineStyle"] = lineStyle
         map["areaStyle"] = areaStyle
     }
 }
 
-extension SECSliderDataZoom.HandleStyle: Enumable {
+extension SliderDataZoom.HandleStyle: Enumable {
     public enum Enums {
         case color(Color), borderColor(Color), borderWidth(Float), borderType(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
     }
@@ -340,7 +340,7 @@ extension SECSliderDataZoom.HandleStyle: Enumable {
     }
 }
 
-extension SECSliderDataZoom.HandleStyle: Mappable {
+extension SliderDataZoom.HandleStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["borderColor"] = borderColor
@@ -354,9 +354,9 @@ extension SECSliderDataZoom.HandleStyle: Mappable {
     }
 }
 
-extension SECSliderDataZoom: Enumable {
+extension SliderDataZoom: Enumable {
     public enum Enums {
-        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(Float), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(SECFilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position)
+        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(Float), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(FilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position)
     }
     
     public typealias ContentEnum = Enums
@@ -439,7 +439,7 @@ extension SECSliderDataZoom: Enumable {
     }
 }
 
-extension SECSliderDataZoom: Mappable {
+extension SliderDataZoom: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["show"] = show

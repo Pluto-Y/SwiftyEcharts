@@ -93,9 +93,9 @@ public struct GaugeSerie: Serie, Animatable {
     public var itemStyle: ItemStyle?
     public var title: Title?
     public var detail: Detail?
-    public var markPoint: SECMarkPoint?
-    public var markLine: SECMarkLine?
-    public var markArea: SECMarkArea?
+    public var markPoint: MarkPoint?
+    public var markLine: MarkLine?
+    public var markArea: MarkArea?
     public var data: [Jsonable]?
     public var silent: Bool?
     public var animation: Bool?
@@ -347,7 +347,7 @@ extension SECGSDetail: Mappable {
 
 extension GaugeSerie: Enumable {
     public enum Enums {
-        case name(String), radius(LengthValue), center(Point), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(ItemStyle), title(Title), detail(Detail), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), data([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), radius(LengthValue), center(Point), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(ItemStyle), title(Title), detail(Detail), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), data([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

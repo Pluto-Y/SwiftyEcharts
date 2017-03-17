@@ -140,11 +140,11 @@ public struct PieSerie: Serie, Zable {
     /// 系列中的数据内容数组。数组项可以为单个数值，如：
     public var data: [Jsonable]?
     /// 图表标注。
-    public var markPoint: SECMarkPoint?
+    public var markPoint: MarkPoint?
     /// 图表标线。
-    public var markLine: SECMarkLine?
+    public var markLine: MarkLine?
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
-    public var markArea: SECMarkArea?
+    public var markArea: MarkArea?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     /// 初始动画效果
@@ -228,7 +228,7 @@ extension PieSerie.LabelLine: Mappable {
 
 extension PieSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(RoseType), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(FormattedLabel), labelLine(LabelLine), itemStyle(ItemStyle), zlevel(Float), z(Float), center(Point), radius(LengthValue), radiusRange(Range), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), legendHoverLink(Bool), hoverAnimation(Bool), selectedMode(SelectedMode), selectedOffset(Float), clockwise(Bool), startAngle(Float), minAngle(Float), roseType(RoseType), avoidLabelOverlap(Bool), stillShowZeroSum(Bool), label(FormattedLabel), labelLine(LabelLine), itemStyle(ItemStyle), zlevel(Float), z(Float), center(Point), radius(LengthValue), radiusRange(Range), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), silent(Bool), animationType(AnimationType), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

@@ -1,16 +1,16 @@
 //
-//  SECMarkPoint.swift
+//  MarkPoint.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECMarkPoint: Symbolized, Animatable {
+public struct MarkPoint: Symbolized, Animatable {
     
     public struct Data: Symbolized {
         public var name: String?
-        public var type: SECMarkDataType?
+        public var type: MarkDataType?
         public var valueIndex: UInt8?
         public var valueDim: String?
         public var coord: [Jsonable]?
@@ -88,9 +88,9 @@ public struct SECMarkPoint: Symbolized, Animatable {
     
 }
 
-public typealias SECMarkPointData = SECMarkPoint.Data
+public typealias MarkPointData = MarkPoint.Data
 
-extension SECMarkPoint: Enumable {
+extension MarkPoint: Enumable {
     public enum Enums {
         case symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), silent(Bool), label(FormattedLabel), itemStyle(ItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
@@ -137,7 +137,7 @@ extension SECMarkPoint: Enumable {
     }
 }
 
-extension SECMarkPoint: Mappable {
+extension MarkPoint: Mappable {
     public func mapping(map: Mapper) {
         map["symbol"] = symbol
         map["symbolSize"] = symbolSize
@@ -159,9 +159,9 @@ extension SECMarkPoint: Mappable {
 }
 
 
-extension SECMarkPointData: Enumable {
+extension MarkPointData: Enumable {
     public enum Enums {
-        case name(String), type(SECMarkDataType), valueIndex(UInt8), valueDim(String), coord([Jsonable]), x(LengthValue), y(LengthValue), xAxis(Float), yAxis(Float), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), itemStyle(ItemStyle), label(Label)
+        case name(String), type(MarkDataType), valueIndex(UInt8), valueDim(String), coord([Jsonable]), x(LengthValue), y(LengthValue), xAxis(Float), yAxis(Float), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), itemStyle(ItemStyle), label(Label)
     }
     
     public typealias ContentEnum = Enums
@@ -206,7 +206,7 @@ extension SECMarkPointData: Enumable {
     }
 }
 
-extension SECMarkPointData: Mappable {
+extension MarkPointData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["type"] = type

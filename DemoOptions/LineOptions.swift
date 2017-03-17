@@ -62,13 +62,13 @@ public struct LineOptions {
                 .x(.left)
                 )),
             .dataZoom([
-                SECSliderDataZoom(
+                SliderDataZoom(
                     .show(true),
                     .realtime(true),
                     .start(65),
                     .end(85)
                 ),
-                SECInsideDataZoom(
+                InsideDataZoom(
                     .start(65),
                     .end(85)
                 )
@@ -109,7 +109,7 @@ public struct LineOptions {
                             .width(1)
                             ))
                         )),
-                    .markArea(SECMarkArea(
+                    .markArea(MarkArea(
                         .silent(true),
                         .data(areaData1)
                         )),
@@ -128,7 +128,7 @@ public struct LineOptions {
                             .width(1)
                             ))
                         )),
-                    .markArea(SECMarkArea(
+                    .markArea(MarkArea(
                         .silent(true),
                         .data(areaData2)
                         )),
@@ -291,14 +291,14 @@ public struct LineOptions {
                     ))
                 )),
             .dataZoom([
-                SECSliderDataZoom(
+                SliderDataZoom(
                     .show(true),
                     .realtime(true),
                     .start(30),
                     .end(70),
                     .xAxisIndexes([0, 1])
                 ),
-                SECInsideDataZoom(
+                InsideDataZoom(
                     .start(30),
                     .end(70),
                     .xAxisIndexes([0, 1])
@@ -409,19 +409,19 @@ public struct LineOptions {
                     ))
                 )),
             .dataZoom([
-                SECSliderDataZoom(
+                SliderDataZoom(
                     .xAxisIndex(0),
                     .filterMode(.empty)
                 ),
-                SECSliderDataZoom(
+                SliderDataZoom(
                     .yAxisIndex(0),
                     .filterMode(.empty)
                 ),
-                SECInsideDataZoom(
+                InsideDataZoom(
                     .xAxisIndex(0),
                     .filterMode(.empty)
                 ),
-                SECInsideDataZoom(
+                InsideDataZoom(
                     .yAxisIndex(0),
                     .filterMode(.empty)
                 ),
@@ -542,21 +542,21 @@ public struct LineOptions {
                 LineSerie(
                     .name("最高气温"),
                     .data([11, 11, 15, 13, 12, 13, 10]),
-                    .markPoint(SECMarkPoint(
+                    .markPoint(MarkPoint(
                         .data([
-                            SECMarkPointData(
+                            MarkPointData(
                                 .type(.max),
                                 .name("最大值")
                             ),
-                            SECMarkPointData(
+                            MarkPointData(
                                 .type(.min),
                                 .name("最小值")
                             )
                             ])
                         )),
-                    .markLine(SECMarkLine(
+                    .markLine(MarkLine(
                         .data([
-                            SECMarkLine.Data(
+                            MarkLine.Data(
                                 .type(.average),
                                 .name("平均值")
                             )
@@ -566,9 +566,9 @@ public struct LineOptions {
                 LineSerie(
                     .name("最低气温"),
                     .data([1, -2, 2, 5, 3, 2, 0]),
-                    .markPoint(SECMarkPoint(
+                    .markPoint(MarkPoint(
                         .data([
-                            SECMarkPointData(
+                            MarkPointData(
                                 .name("周最低"),
                                 .value(-2),
                                 .xAxis(1),
@@ -576,20 +576,20 @@ public struct LineOptions {
                             )
                             ])
                         )),
-                    .markLine(SECMarkLine(
+                    .markLine(MarkLine(
                         .data(
                             [
-                                SECMarkLine.Data(
+                                MarkLine.Data(
                                     .type(.average),
                                     .name("平均值")
                                 ),
                                 [
-                                    SECMarkLine.Data(
+                                    MarkLine.Data(
                                         .x(90%),
                                         .symbol(.none),
                                         .yAxis("max")
                                     ),
-                                    SECMarkLine.Data(
+                                    MarkLine.Data(
                                         .symbol(.circle),
                                         .label(FormattedLabel(
                                             .normal(FormattedLabelStyle(
@@ -730,7 +730,7 @@ public struct LineOptions {
                         .formatter(.string("{value} W"))
                         ))
                 )),
-            .visualMap(SECPiecewiseVisualMap(
+            .visualMap(PiecewiseVisualMap(
                 .show(false),
                 .dimension(0),
                 .pieces([
@@ -760,7 +760,7 @@ public struct LineOptions {
                     .name("用电量"),
                     .smooth(true),
                     .data([300, 280, 250, 260, 270, 300, 550, 500, 400, 390, 380, 390, 400, 500, 600, 750, 800, 700, 600, 400]),
-                    .markArea(SECMarkArea(
+                    .markArea(MarkArea(
                         .data([
                             [
                                 [

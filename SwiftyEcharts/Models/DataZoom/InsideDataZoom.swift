@@ -1,5 +1,5 @@
 //
-//  SECInsideDataZoom.swift
+//  InsideDataZoom.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 17/01/2017.
@@ -14,7 +14,7 @@
 /// - 缩放：
 ///    - PC端：鼠标在坐标系范围内滚轮滚动（MAC触控板类同）
 ///    - 移动端：在移动端触屏上，支持两指滑动缩放。
-public struct SECInsideDataZoom: SECDataZoom {
+public struct InsideDataZoom: DataZoom {
     
     /// 类型
     public var type: String {
@@ -172,7 +172,7 @@ public struct SECInsideDataZoom: SECDataZoom {
     ///
     /// 这时，series.data 中对应于 X 轴的值仍然全部保留不受影响，为 12、90、3、1。那么用户对 dataZoomY 的拖拽操作不会影响到 X 轴的范围。这样的效果，对于离群点（outlier）过滤功能，比较清晰。
     /// 如地址的例子：
-    public var filterMode: SECFilterMode?
+    public var filterMode: FilterMode?
     /// 数据窗口范围的起始百分比。范围是：0 ~ 100。表示 0% ~ 100%。
     public var start: Float?
     /// 数据窗口范围的结束百分比。范围是：0 ~ 100。
@@ -198,9 +198,9 @@ public struct SECInsideDataZoom: SECDataZoom {
     public init() {}
 }
 
-extension SECInsideDataZoom: Enumable {
+extension InsideDataZoom: Enumable {
     public enum Enums {
-        case disabled(Bool), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(SECFilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), throttle(Float)
+        case disabled(Bool), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(FilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), throttle(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -247,7 +247,7 @@ extension SECInsideDataZoom: Enumable {
     }
 }
 
-extension SECInsideDataZoom: Mappable {
+extension InsideDataZoom: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["disabled"] = disabled

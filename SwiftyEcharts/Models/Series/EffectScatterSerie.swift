@@ -180,11 +180,11 @@ public struct EffectScatterSerie: Serie, Symbolized, Zable {
     /// 例如，无数据在折线图中可表现为该点是断开的，在其它图中可表示为图形不存在。
     public var data: [Any]?
     /// 图表标注。
-    public var markPoint: SECMarkPoint?
+    public var markPoint: MarkPoint?
     /// 图表标线。
-    public var markLine: SECMarkLine?
+    public var markLine: MarkLine?
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
-    public var markArea: SECMarkArea?
+    public var markArea: MarkArea?
     /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
@@ -234,7 +234,7 @@ extension EffectScatterSerie.RippleEffect: Mappable {
 
 extension EffectScatterSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), data([Any]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), legendHoverLink(Bool), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), data([Any]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

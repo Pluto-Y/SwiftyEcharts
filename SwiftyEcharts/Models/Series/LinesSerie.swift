@@ -149,11 +149,11 @@ public struct LinesSerie: Serie, Zable, Animatable {
     ///     }
     public var data: [Jsonable]?
     /// 图表标注。
-    public var markPoint: SECMarkPoint?
+    public var markPoint: MarkPoint?
     /// 图表标线。
-    public var markLine: SECMarkLine?
+    public var markLine: MarkLine?
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
-    public var markArea: SECMarkArea?
+    public var markArea: MarkArea?
     /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
@@ -254,7 +254,7 @@ extension LinesSerieData: Mappable {
 
 extension LinesSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(Symbol), symbolSize(Float), lineStyle(LineStyle), label(FormattedLabel), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(Symbol), symbolSize(Float), lineStyle(LineStyle), label(FormattedLabel), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

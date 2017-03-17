@@ -153,7 +153,7 @@ public struct SECMapOptions {
                 .left(.left),
                 .data(["iphone3","iphone4","iphone5"])
                 )),
-            .visualMap(SECContinuousVisualMap(
+            .visualMap(ContinuousVisualMap(
                 .min(0),
                 .max(2500),
                 .left(.left),

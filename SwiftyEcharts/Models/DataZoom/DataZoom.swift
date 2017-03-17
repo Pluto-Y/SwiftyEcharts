@@ -1,5 +1,5 @@
 //
-//  SECDataZoom.swift
+//  DataZoom.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 17/01/2017.
@@ -7,7 +7,7 @@
 //
 
 /// DataZoom 控件的接口，如果是 DataZoom控件需要实现这个接口
-public protocol SECDataZoom {
+public protocol DataZoom {
     var xAxisIndex: OneOrMore<UInt8>? { get set }
     var yAxisIndex: OneOrMore<UInt8>? { get set }
 }
@@ -80,7 +80,7 @@ public protocol SECDataZoom {
 /// 如下面的例子：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=doc-example/bar-dataZoom-filterMode
-public enum SECFilterMode: String, Jsonable{
+public enum FilterMode: String, Jsonable{
     case filter = "filter"
     case empty = "empty"
     

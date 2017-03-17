@@ -88,11 +88,11 @@ public struct CandlestickSerie: Serie, Zable {
     ///     [open, close, lowest, highest] （即：[开盘值, 收盘值, 最低值, 最高值]）
     public var data: [Jsonable]?
     /// 图表标注。
-    public var markPoint: SECMarkPoint?
+    public var markPoint: MarkPoint?
     /// 图表标线。
-    public var markLine: SECMarkLine?
+    public var markLine: MarkLine?
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
-    public var markArea: SECMarkArea?
+    public var markArea: MarkArea?
     
     /// MARK: Zable
     public var zlevel: Float?
@@ -155,7 +155,7 @@ extension CandlestickSerieData: Mappable {
 
 extension CandlestickSerie: Enumable {
     public enum Enums {
-        case coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), barWidth(Float), barMinWidth(Float), barMaxWidth(Float), itemStyle(ItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Float)
+        case coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), barWidth(Float), barMinWidth(Float), barMaxWidth(Float), itemStyle(ItemStyle), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Float)
     }
     
     public typealias ContentEnum = Enums

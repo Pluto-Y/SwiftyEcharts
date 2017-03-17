@@ -48,5 +48,5 @@ extension Pair: Jsonable {
 public typealias Point = Pair<LengthValue>
 /// 用于指定范围, eg: [min, max]
 public typealias Range = Pair<LengthValue>
-/// 用来指定两端的文本 , eg: SECContinuousVisualMap.text
+/// 用来指定两端的文本 , eg: ContinuousVisualMap.text
 public typealias PiecewiseText = Pair<String>

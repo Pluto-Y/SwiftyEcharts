@@ -143,7 +143,7 @@ public struct SECBarOptions {
             .grid(Grid(
                 .left(.value(100))
                 )),
-            .visualMap(SECContinuousVisualMap(
+            .visualMap(ContinuousVisualMap(
                 .dimension(1),
                 .text(["Hight", "Low"]),
                 .inverse(true),
@@ -155,7 +155,7 @@ public struct SECBarOptions {
                 .left(.value(10)),
                 .inRange(["colorLightness": [0.4, 0.8]]),
                 .outRange(["color": Color.hexColor("#bbb")]),
-                .controller(SECVMController(
+                .controller(VisualMapController(
                     .inRange(["color": Color.hexColor("#2f4554")])
                     ))
                 )),
@@ -232,7 +232,7 @@ public struct SECBarOptions {
                         ))
                     ))
                 )),
-            .dataZoom([SECInsideDataZoom(
+            .dataZoom([InsideDataZoom(
                 )]),
             .series([
                 BarSerie(
@@ -469,7 +469,7 @@ public struct SECBarOptions {
                 BarSerie(
                     .name("搜索引擎"),
                     .data([820, 932, 901, 934, 1290, 1330, 1320]),
-                    .markLine(SECMarkLine(
+                    .markLine(MarkLine(
                         .lineStyle(EmphasisLineStyle(
                             .normal(LineStyle(
                                 .type(.dashed)
@@ -477,10 +477,10 @@ public struct SECBarOptions {
                             )),
                         .data([
                             // 如果有两个点组成一条线，要将两个点放在一个数组中
-                            [SECMarkLineData(
+                            [MarkLineData(
                                 .type(.min)
                                 ),
-                                SECMarkLineData(
+                                MarkLineData(
                                     .type(.max)
                                 )]
                             ])
@@ -867,21 +867,21 @@ public struct SECBarOptions {
                 BarSerie(
                     .name("蒸发量"),
                     .data([2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]),
-                    .markPoint(SECMarkPoint(
+                    .markPoint(MarkPoint(
                         .data([
-                            SECMarkPointData(
+                            MarkPointData(
                                 .type(.max),
                                 .name("最大值")
                             ),
-                            SECMarkPointData(
+                            MarkPointData(
                                 .type(.min),
                                 .name("最小值")
                             )
                             ])
                         )),
-                    .markLine(SECMarkLine(
+                    .markLine(MarkLine(
                         .data([
-                            SECMarkLineData(
+                            MarkLineData(
                                 .type(.average),
                                 .name("平均值")
                             )
@@ -891,15 +891,15 @@ public struct SECBarOptions {
                 BarSerie(
                     .name("降水量"),
                     .data([2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]),
-                    .markPoint(SECMarkPoint(
+                    .markPoint(MarkPoint(
                         .data([
-                            SECMarkPointData(
+                            MarkPointData(
                                 .name("年最高"),
                                 .value(182.2),
                                 .xAxis(7),
                                 .yAxis(183)
                             ),
-                            SECMarkPointData(
+                            MarkPointData(
                                 .name("年最低"),
                                 .value(2.3),
                                 .xAxis(11),
@@ -907,9 +907,9 @@ public struct SECBarOptions {
                             )
                             ])
                         )),
-                    .markLine(SECMarkLine(
+                    .markLine(MarkLine(
                         .data([
-                            SECMarkLineData(
+                            MarkLineData(
                                 .type(.average),
                                 .name("平均值")
                             )
@@ -959,7 +959,7 @@ public struct SECBarOptions {
                     .saveAsImage(SECTFSaveAsImage())
                     ))
                 )),
-            .dataZoom([SECSliderDataZoom(
+            .dataZoom([SliderDataZoom(
                 .show(false),
                 .start(0),
                 .end(100)

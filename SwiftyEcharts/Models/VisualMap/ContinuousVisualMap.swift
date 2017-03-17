@@ -1,5 +1,5 @@
 //
-//  SECContinuousVisualMap.swift
+//  ContinuousVisualMap.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 20/01/2017.
@@ -12,7 +12,7 @@
 /// http://echarts.baidu.com/gallery/editor.html?c=doc-example/map-visualMap-continuous
 ///
 /// visualMapContinuous中，可以通过 visualMap.calculable 来显示或隐藏手柄（手柄能拖拽改变值域）。
-public struct SECContinuousVisualMap: SECVisualMap, Displayable, Borderable, Colorful, Textful, Formatted, Zable {
+public struct ContinuousVisualMap: VisualMap, Displayable, Borderable, Colorful, Textful, Formatted, Zable {
     
     /// 类型为连续型。
     public var type: String {
@@ -119,7 +119,7 @@ public struct SECContinuousVisualMap: SECVisualMap, Displayable, Borderable, Col
     public var inRange: [String: Jsonable]?
     public var outRange: [String: Jsonable]?
     /// visualMap 组件中，控制器 的 inRange outOfRange 设置。如果没有这个 controller 设置，控制器 会使用外层的 inRange outOfRange 设置；如果有这个 controller 设置，则会采用这个设置。适用于一些控制器视觉效果需要特殊定制或调整的场景。
-    public var controller: SECVMController?
+    public var controller: VisualMapController?
     
     /// MARK: - Zable
     public var zlevel: Float?
@@ -188,9 +188,9 @@ public struct SECContinuousVisualMap: SECVisualMap, Displayable, Borderable, Col
     public init() {}
 }
 
-extension SECContinuousVisualMap: Enumable {
+extension ContinuousVisualMap: Enumable {
     public enum Enums {
-        case min(Float), max(Float), range(Range), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(SECVMController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(SECOrient), padding(SECPadding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
+        case min(Float), max(Float), range(Range), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(VisualMapController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(SECOrient), padding(SECPadding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
     }
     
     public typealias ContentEnum = Enums
@@ -269,7 +269,7 @@ extension SECContinuousVisualMap: Enumable {
     }
 }
 
-extension SECContinuousVisualMap: Mappable {
+extension ContinuousVisualMap: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["min"] = min

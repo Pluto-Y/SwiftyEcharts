@@ -1,12 +1,12 @@
 //
-//  SECMarkArea.swift
+//  MarkArea.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECMarkArea: Animatable {
+public struct MarkArea: Animatable {
 
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
@@ -59,7 +59,7 @@ public struct SECMarkArea: Animatable {
     public init() { }
 }
 
-extension SECMarkArea: Enumable {
+extension MarkArea: Enumable {
     public enum Enums {
         case silent(Bool), label(FormattedLabel), itemStyle(ItemStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
@@ -98,7 +98,7 @@ extension SECMarkArea: Enumable {
     }
 }
 
-extension SECMarkArea: Mappable {
+extension MarkArea: Mappable {
     public func mapping(map: Mapper) {
         map["silent"] = silent
         map["label"] = label

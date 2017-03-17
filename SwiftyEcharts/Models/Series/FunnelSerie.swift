@@ -128,11 +128,11 @@ public struct FunnelSerie: Serie, Animatable {
     ///     }]
     public var data: [Jsonable]?
     /// 图表标注。
-    public var markPoint: SECMarkPoint?
+    public var markPoint: MarkPoint?
     /// 图表标线。
-    public var markLine: SECMarkLine?
+    public var markLine: MarkLine?
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
-    public var markArea: SECMarkArea?
+    public var markArea: MarkArea?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     
@@ -243,7 +243,7 @@ extension FunnelSerieData: Mappable {
 
 extension FunnelSerie: Enumable {
     public enum Enums {
-        case name(String), min(Float), max(Float), minSize(LengthValue), maxSize(LengthValue), sort(Sort), gap(Float), legendHoverLink(Bool), funnelAlign(Align), label(FormattedLabel), labelLine(LabelLine), itemStyle(ItemStyle), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), min(Float), max(Float), minSize(LengthValue), maxSize(LengthValue), sort(Sort), gap(Float), legendHoverLink(Bool), funnelAlign(Align), label(FormattedLabel), labelLine(LabelLine), itemStyle(ItemStyle), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

@@ -1,5 +1,5 @@
 //
-//  SECMarkDataType.swift
+//  MarkDataType.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 16/02/2017.
@@ -11,7 +11,7 @@
 /// - min: 最小值
 /// - max: 最大值
 /// - average: 平均值
-public enum SECMarkDataType: String, Jsonable {
+public enum MarkDataType: String, Jsonable {
     case min = "min"
     case max = "max"
     case average = "average"

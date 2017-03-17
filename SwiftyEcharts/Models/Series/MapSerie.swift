@@ -235,11 +235,11 @@ public struct MapSerie: Serie, Zable {
     ///     }]
     public var data: [Jsonable]?
     /// 图表标注。
-    public var markPoint: SECMarkPoint?
+    public var markPoint: MarkPoint?
     /// 图表标线。
-    public var markLine: SECMarkLine?
+    public var markLine: MarkLine?
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
-    public var markArea: SECMarkArea?
+    public var markArea: MarkArea?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
 }
@@ -309,7 +309,7 @@ extension MapSerie.Data: Mappable {
 
 extension MapSerie: Enumable {
     public enum Enums {
-        case name(String), map(String), roam(Roam), center(Position), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SelectedMode), label(Label), itemStyle(ItemStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), layoutCenter(Position), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), silent(Bool)
+        case name(String), map(String), roam(Roam), center(Position), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SelectedMode), label(Label), itemStyle(ItemStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), layoutCenter(Position), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), silent(Bool)
     }
     
     public typealias ContentEnum = Enums

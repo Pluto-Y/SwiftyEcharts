@@ -148,11 +148,11 @@ public struct HeatmapSerie: Serie, Zable {
     /// 例如，无数据在折线图中可表现为该点是断开的，在其它图中可表示为图形不存在。
     public var data: [Jsonable]?
     /// 图表标注。
-    public var markPoint: SECMarkPoint?
+    public var markPoint: MarkPoint?
     /// 图表标线。
-    public var markLine: SECMarkLine?
+    public var markLine: MarkLine?
     /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
-    public var markArea: SECMarkArea?
+    public var markArea: MarkArea?
     /// MARK: Zable
     public var zlevel: Float?
     public var z: Float?
@@ -198,7 +198,7 @@ extension HeatmapSerieData: Mappable {
 
 extension HeatmapSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), blurSize(Float), minOpacity(Float), maxOpacity(Float), data([Jsonable]), markPoint(SECMarkPoint), markLine(SECMarkLine), markArea(SECMarkArea), zlevel(Float), z(Float), silent(Bool)
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), blurSize(Float), minOpacity(Float), maxOpacity(Float), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool)
     }
     
     public typealias ContentEnum = Enums

@@ -1,18 +1,18 @@
 //
-//  SECMarkLine.swift
+//  MarkLine.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECMarkLine: Animatable {
+public struct MarkLine: Animatable {
     
     public struct Data {
         /// 名称
         public var name: String?
         /// 标注类型
-        public var type: SECMarkDataType?
+        public var type: MarkDataType?
         /// 在使用 type 时有效，用于指定在哪个维度上指定最大值最小值，可以是 0（xAxis, radiusAxis），1（yAxis, angleAxis），默认使用第一个数值轴所在的维度。
         public var valueIndex: UInt?
         /// 在使用 type 时有效，用于指定在哪个维度上指定最大值最小值。这可以是维度的直接名称，例如折线图时可以是x、angle等、candlestick 图时可以是open、close等维度名称。
@@ -54,17 +54,17 @@ public struct SECMarkLine: Animatable {
         /// 标注值，可以不设。
         public var value: Float?
         /// 标记的图形
-        /// - Note: 该属性只在 SECMarkArea 无效
+        /// - Note: 该属性只在 MarkArea 无效
         public var symbol: Symbol?
         /// 标记的大小
-        /// - Note: 该属性只在 SECMarkArea 无效
+        /// - Note: 该属性只在 MarkArea 无效
         public var symbolSize: Float?
         /// 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
-        /// - Note: 该属性只在 SECMarkArea 无效
+        /// - Note: 该属性只在 MarkArea 无效
         public var symbolRotate: Float?
         /// 标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
         /// 例如 [0, '50%'] 就是把自己向上移动了一半的位置，在 symbol 图形是气泡的时候可以让图形下端的箭头对准数据点。
-        /// - Note: 该属性只在 SECMarkArea 无效
+        /// - Note: 该属性只在 MarkArea 无效
         public var symbolOffset: [LengthValue]?
         /// 该数据项线的样式，起点和终点项的 lineStyle会合并到一起。
         public var lineStyle: EmphasisLineStyle?
@@ -188,11 +188,11 @@ public struct SECMarkLine: Animatable {
     public init() { }
 }
 
-public typealias SECMarkLineData = SECMarkLine.Data
+public typealias MarkLineData = MarkLine.Data
 
-extension SECMarkLineData: Enumable {
+extension MarkLineData: Enumable {
     public enum Enums {
-        case name(String), type(SECMarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(LengthValue), y(LengthValue), xAxis(String), yAxis(String), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset([LengthValue]), lineStyle(EmphasisLineStyle), label(FormattedLabel)
+        case name(String), type(MarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(LengthValue), y(LengthValue), xAxis(String), yAxis(String), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset([LengthValue]), lineStyle(EmphasisLineStyle), label(FormattedLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -237,7 +237,7 @@ extension SECMarkLineData: Enumable {
     }
 }
 
-extension SECMarkLineData: Mappable {
+extension MarkLineData: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["type"] = type
@@ -258,7 +258,7 @@ extension SECMarkLineData: Mappable {
     }
 }
 
-extension SECMarkLine: Enumable {
+extension MarkLine: Enumable {
     public enum Enums {
         case silent(Bool), symbol(Symbol), symbolSize(Float), precision(Float), label(Label), lineStyle(EmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
@@ -303,7 +303,7 @@ extension SECMarkLine: Enumable {
     }
 }
 
-extension SECMarkLine: Mappable {
+extension MarkLine: Mappable {
     public func mapping(map: Mapper) {
         map["silent"] = silent
         map["symbol"] = symbol

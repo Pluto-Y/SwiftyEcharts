@@ -26,7 +26,7 @@ public struct Option: Textful, Animatable {
     public var parallelAxis: [SECParallelAxis]?
     public var singleAxis: OneOrMore<SECSingleAxis>?
     public var timeline: Timeline?
-    public var graphic: [SECGraphic]?
+    public var graphic: [Graphic]?
     public var series: [Serie]?
     public var color: [Color]?
     public var backgroundColor: Color?
@@ -77,7 +77,7 @@ public struct Option: Textful, Animatable {
 
 extension Option: Enumable {
     public enum Enums {
-        case title(Title), legend(Legend), grid(Grid), grids([Grid]), xAxis(SECAxis), xAxises([SECAxis]), yAxis(SECAxis), yAxises([SECAxis]), polar(Polar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(Radar), radars([Radar]), dataZoom([DataZoom]), visualMap(VisualMap), tooltip(Tooltip), toolbox(Toolbox), brush(Brush), geo(Geo), parallel(Parallel), parallelAxis([SECParallelAxis]), singleAxis(SECSingleAxis), singleAxises([SECSingleAxis]), timeline(Timeline), graphic([SECGraphic]), series([Serie]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case title(Title), legend(Legend), grid(Grid), grids([Grid]), xAxis(SECAxis), xAxises([SECAxis]), yAxis(SECAxis), yAxises([SECAxis]), polar(Polar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(Radar), radars([Radar]), dataZoom([DataZoom]), visualMap(VisualMap), tooltip(Tooltip), toolbox(Toolbox), brush(Brush), geo(Geo), parallel(Parallel), parallelAxis([SECParallelAxis]), singleAxis(SECSingleAxis), singleAxises([SECSingleAxis]), timeline(Timeline), graphic([Graphic]), series([Serie]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

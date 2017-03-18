@@ -1,5 +1,5 @@
 //
-//  SECGraphicStyle.swift
+//  GraphicStyle.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 11/02/2017.
@@ -7,7 +7,7 @@
 //
 
 /// 通用 `Graphic` 的样式接口
-public protocol SECGraphicStyle: Shadowable {
+public protocol GraphicStyle: Shadowable {
     /// 填充色。
     var fill: Color? { get set }
     /// 笔画颜色。
@@ -17,8 +17,8 @@ public protocol SECGraphicStyle: Shadowable {
 }
 
 /// 通用的 `Graphic` 的样式实现
-public struct SECCommonGraphicStyle: SECGraphicStyle {
-    /// MARK: SECGraphicStyle
+public struct CommonGraphicStyle: GraphicStyle {
+    /// MARK: GraphicStyle
     public var fill: Color?
     public var stroke: Color?
     public var lineWidth: Float?
@@ -30,7 +30,7 @@ public struct SECCommonGraphicStyle: SECGraphicStyle {
     public init() {}
 }
 
-extension SECCommonGraphicStyle: Enumable {
+extension CommonGraphicStyle: Enumable {
     public enum Enums {
         case fill(Color), stroke(Color), lineWidth(Float), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), shadowColor(Color)
     }
@@ -59,7 +59,7 @@ extension SECCommonGraphicStyle: Enumable {
     }
 }
 
-extension SECCommonGraphicStyle: Mappable {
+extension CommonGraphicStyle: Mappable {
     public func mapping(map: Mapper) {
         map["fill"] = fill
         map["stroke"] = stroke

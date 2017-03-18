@@ -1,5 +1,5 @@
 //
-//  SECPictoriaBarOptions.swift
+//  PictoriaBarOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SECPictoriaBarOptions {
+public struct PictoriaBarOptions {
     
     // MARK: 圣诞节儿童愿望清单和山峰高度
     /// 地址: http://echarts.baidu.com/demo.html#pictorialBar-hill

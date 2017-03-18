@@ -1,5 +1,5 @@
 //
-//  SECThemeRiverOptions.swift
+//  ThemeRiverOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SECThemeRiverOptions {
+public struct ThemeRiverOptions {
     
     // MARK: 主题河流图
     /// 地址: http://echarts.baidu.com/demo.html#themeRiver-basic

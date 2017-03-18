@@ -1,5 +1,5 @@
 //
-//  SECGroupGraphic.swift
+//  GroupGraphic.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 10/02/2017.
@@ -7,20 +7,20 @@
 //
 
 /// group 是唯一的可以有子节点的容器。group 可以用来整体定位一组图形元素。
-public struct SECGroupGraphic: SECGraphic {
+public struct GroupGraphic: Graphic {
     
-    /// MARK: SECGraphic
-    public var type: SECGraphicType {
+    /// MARK: Graphic
+    public var type: GraphicType {
         return .group
     }
     
     public var id: String?
-    public var action: SECGraphicAction?
+    public var action: GraphicAction?
     public var left: Position?
     public var right: Position?
     public var top: Position?
     public var bottom: Position?
-    public var bounding: SECGraphicBounding?
+    public var bounding: GraphicBounding?
     public var z: Float?
     public var zlevel: Float?
     public var silent: Bool?
@@ -42,13 +42,13 @@ public struct SECGroupGraphic: SECGraphic {
     /// 即便当高度为零的时候，子节点也可以使用 top: 'middle' 相对于父节点垂直居中。
     public var height: Float?
     /// 子节点列表，其中项都是一个图形元素定义。
-    public var children: [SECGraphic]?
+    public var children: [Graphic]?
     
 }
 
-extension SECGroupGraphic: Enumable {
+extension GroupGraphic: Enumable {
     public enum Enums {
-        case id(String), action(SECGraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), width(Float), height(Float), children([SECGraphic])
+        case id(String), action(GraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(GraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), width(Float), height(Float), children([Graphic])
     }
     
     public typealias ContentEnum = Enums
@@ -95,7 +95,7 @@ extension SECGroupGraphic: Enumable {
     }
 }
 
-extension SECGroupGraphic: Mappable {
+extension GroupGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

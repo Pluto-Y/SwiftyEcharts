@@ -1,5 +1,5 @@
 //
-//  SECTextGraphic.swift
+//  TextGraphic.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 11/02/2017.
@@ -7,10 +7,10 @@
 //
 
 /// 文本类型的 `Graphic`
-public struct SECTextGraphic: SECGraphic {
+public struct TextGraphic: Graphic {
     
     /// 文本样式
-    public struct Style: SECGraphicStyle {
+    public struct Style: GraphicStyle {
         /// 文本块文字。可以使用 \n 来换行。
         public var text: String?
         /// 图形元素的左上角在父节点坐标系（以父节点左上角为原点）中的横坐标值。
@@ -34,7 +34,7 @@ public struct SECTextGraphic: SECGraphic {
         /// 垂直对齐方式，取值：'top', 'middle', 'bottom'。
         public var textVertical: VerticalAlign?
         
-        /// MARK: SECGraphicStyle
+        /// MARK: GraphicStyle
         public var fill: Color?
         public var stroke: Color?
         public var lineWidth: Float?
@@ -46,17 +46,17 @@ public struct SECTextGraphic: SECGraphic {
         public init() {}
     }
     
-    /// MARK: SECGraphic
-    public var type: SECGraphicType {
+    /// MARK: Graphic
+    public var type: GraphicType {
         return .text
     }
     public var id: String?
-    public var action: SECGraphicAction?
+    public var action: GraphicAction?
     public var left: Position?
     public var right: Position?
     public var top: Position?
     public var bottom: Position?
-    public var bounding: SECGraphicBounding?
+    public var bounding: GraphicBounding?
     public var z: Float?
     public var zlevel: Float?
     public var silent: Bool?
@@ -71,7 +71,7 @@ public struct SECTextGraphic: SECGraphic {
     public init() {}
 }
 
-extension SECTextGraphic.Style: Enumable {
+extension TextGraphic.Style: Enumable {
     public enum Enums {
         case text(String), x(Float), y(Float), font(String), textAlign(Align), textVertical(VerticalAlign), fill(Color), stroke(Color), lineWidth(Float), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), shadowColor(Color)
     }
@@ -112,7 +112,7 @@ extension SECTextGraphic.Style: Enumable {
     }
 }
 
-extension SECTextGraphic.Style: Mappable {
+extension TextGraphic.Style: Mappable {
     public func mapping(map: Mapper) {
         map["text"] = text
         map["x"] = x
@@ -130,9 +130,9 @@ extension SECTextGraphic.Style: Mappable {
     }
 }
 
-extension SECTextGraphic: Enumable {
+extension TextGraphic: Enumable {
     public enum Enums {
-        case id(String), action(SECGraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), style(Style)
+        case id(String), action(GraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(GraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), style(Style)
     }
     
     public typealias ContentEnum = Enums
@@ -175,7 +175,7 @@ extension SECTextGraphic: Enumable {
     }
 }
 
-extension SECTextGraphic: Mappable {
+extension TextGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

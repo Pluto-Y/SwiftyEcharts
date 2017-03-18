@@ -17,7 +17,7 @@ class ThemeRiversController: BaseDemoController {
         
         menus = ["主题河流图", "ThemeRiver Lastfm"]
         
-        optionClosures = [SECThemeRiverOptions.themeRiverBasicOption, SECThemeRiverOptions.themeRiverLastfmOption]
+        optionClosures = [ThemeRiverOptions.themeRiverBasicOption, ThemeRiverOptions.themeRiverLastfmOption]
         
         self.title = "主题河流图"
         

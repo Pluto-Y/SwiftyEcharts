@@ -1,5 +1,5 @@
 //
-//  SECBarOptions.swift
+//  BarOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SECBarOptions {
+public struct BarOptions {
     
     // MARK: 柱状图动画延迟
     /// 地址: http://echarts.baidu.com/demo.html#bar-animation-delay

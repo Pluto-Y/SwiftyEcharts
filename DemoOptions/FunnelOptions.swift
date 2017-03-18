@@ -1,5 +1,5 @@
 //
-//  SECFunnelOptions.swift
+//  FunnelOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SECFunnelOptions {
+public struct FunnelOptions {
     
     // MARK: 漏斗图(对比)
     /// 地址: http://echarts.baidu.com/demo.html#funnel-align

@@ -1,5 +1,5 @@
 //
-//  SECCandlestickOptions.swift
+//  CandlestickOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SECCandlestickOptions {
+public struct CandlestickOptions {
     
     // MARK: Candlestick Brush
     /// 地址: http://echarts.baidu.com/demo.html#candlestick-brush

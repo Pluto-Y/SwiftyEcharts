@@ -7,7 +7,7 @@
 //
 
 /// 直线类型的 `Graphic`
-public struct LineGraphic: SECGraphic {
+public struct LineGraphic: Graphic {
     
     /// 直线的位置
     public struct Shape {
@@ -25,17 +25,17 @@ public struct LineGraphic: SECGraphic {
         public init() {}
     }
     
-    /// MARK: SECGraphic
-    public var type: SECGraphicType {
+    /// MARK: Graphic
+    public var type: GraphicType {
         return .line
     }
     public var id: String?
-    public var action: SECGraphicAction?
+    public var action: GraphicAction?
     public var left: Position?
     public var right: Position?
     public var top: Position?
     public var bottom: Position?
-    public var bounding: SECGraphicBounding?
+    public var bounding: GraphicBounding?
     public var z: Float?
     public var zlevel: Float?
     public var silent: Bool?
@@ -47,7 +47,7 @@ public struct LineGraphic: SECGraphic {
     /// 直线的位置
     public var shape: Shape?
     /// 直线的样式
-    public var style: SECCommonGraphicStyle?
+    public var style: CommonGraphicStyle?
     
     public init() {}
 }
@@ -89,7 +89,7 @@ extension LineGraphic.Shape: Mappable {
 
 extension LineGraphic: Enumable {
     public enum Enums {
-        case id(String), action(SECGraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
+        case id(String), action(GraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(GraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(CommonGraphicStyle)
     }
     
     public typealias ContentEnum = Enums

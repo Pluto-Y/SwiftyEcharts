@@ -1,5 +1,5 @@
 //
-//  SECTreemapOptions.swift
+//  TreemapOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SECTreemapOptions {
+public struct TreemapOptions {
     
     // MARK: Disk Usage
     /// 地址: http://echarts.baidu.com/demo.html#treemap-disk

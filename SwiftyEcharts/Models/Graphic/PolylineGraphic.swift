@@ -1,5 +1,5 @@
 //
-//  SECPolylineGraphic.swift
+//  PolylineGraphic.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 12/02/2017.
@@ -7,7 +7,7 @@
 //
 
 /// 折线类型的 `Graphic`
-public struct SECPolylineGraphic: SECGraphic {
+public struct PolylineGraphic: Graphic {
     
     /// 折线的位置节点
     public struct Shape {
@@ -40,17 +40,17 @@ public struct SECPolylineGraphic: SECGraphic {
         public init() {}
     }
     
-    /// MARK: SECGraphic
-    public var type: SECGraphicType {
+    /// MARK: Graphic
+    public var type: GraphicType {
         return .polygon
     }
     public var id: String?
-    public var action: SECGraphicAction?
+    public var action: GraphicAction?
     public var left: Position?
     public var right: Position?
     public var top: Position?
     public var bottom: Position?
-    public var bounding: SECGraphicBounding?
+    public var bounding: GraphicBounding?
     public var z: Float?
     public var zlevel: Float?
     public var silent: Bool?
@@ -62,12 +62,12 @@ public struct SECPolylineGraphic: SECGraphic {
     /// 折线的位置节点
     public var shape: Shape?
     /// 折线的样式
-    public var style: SECCommonGraphicStyle?
+    public var style: CommonGraphicStyle?
     
     public init() {}
 }
 
-extension SECPolylineGraphic.Shape: Enumable {
+extension PolylineGraphic.Shape: Enumable {
     public enum Enums {
         case point([[Float]]), smooth(Smooth), smoothConstraint(Bool)
     }
@@ -88,7 +88,7 @@ extension SECPolylineGraphic.Shape: Enumable {
     }
 }
 
-extension SECPolylineGraphic.Shape: Mappable {
+extension PolylineGraphic.Shape: Mappable {
     public func mapping(map: Mapper) {
         map["point"] = point
         map["smooth"] = smooth
@@ -96,9 +96,9 @@ extension SECPolylineGraphic.Shape: Mappable {
     }
 }
 
-extension SECPolylineGraphic: Enumable {
+extension PolylineGraphic: Enumable {
     public enum Enums {
-        case id(String), action(SECGraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
+        case id(String), action(GraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(GraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(CommonGraphicStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -143,7 +143,7 @@ extension SECPolylineGraphic: Enumable {
     }
 }
 
-extension SECPolylineGraphic: Mappable {
+extension PolylineGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

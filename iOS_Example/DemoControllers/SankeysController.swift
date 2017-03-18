@@ -15,7 +15,7 @@ class SankeysController: BaseDemoController {
         
         menus = ["Sankey Diagram", "Sankey Diagram"]
         
-        optionClosures = [SECSankeyOptions.sankeyEnergyOption, SECSankeyOptions.sankeyProductOption]
+        optionClosures = [SankeyOptions.sankeyEnergyOption, SankeyOptions.sankeyProductOption]
         
         self.title = "桑基图"
         

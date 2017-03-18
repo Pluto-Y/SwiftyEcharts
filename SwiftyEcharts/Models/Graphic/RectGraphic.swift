@@ -1,38 +1,34 @@
 //
-//  SECSectorGraphic.swift
+//  RectGraphic.swift
 //  SwiftyEcharts
 //
-//  Created by Pluto Y on 12/02/2017.
+//  Created by Pluto Y on 11/02/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-/// 扇形类型的 `Graphic`
-public struct SECSectorGraphic: SECGraphic {
+/// 矩形类型的 `Graphic`
+public struct RectGraphic: Graphic {
     
-    /// 扇形的大小和位置
     public struct Shape {
-        public var cx: Float?
-        public var cy: Float?
-        public var r: Float?
-        public var r0: Float?
-        public var startAngle: Float?
-        public var endAngle: Float?
-        public var clockwise: Bool?
+        public var x: Float?
+        public var y: Float?
+        public var width: Float?
+        public var height: Float?
         
         public init() {}
     }
     
-    /// MARK: SECGraphic
-    public var type: SECGraphicType {
-        return .sector
+    /// MARK: Graphic
+    public var type: GraphicType {
+        return .rect
     }
     public var id: String?
-    public var action: SECGraphicAction?
+    public var action: GraphicAction?
     public var left: Position?
     public var right: Position?
     public var top: Position?
     public var bottom: Position?
-    public var bounding: SECGraphicBounding?
+    public var bounding: GraphicBounding?
     public var z: Float?
     public var zlevel: Float?
     public var silent: Bool?
@@ -41,17 +37,17 @@ public struct SECSectorGraphic: SECGraphic {
     public var draggable: Bool?
     public var progressiv: Bool?
     
-    /// 扇形的大小和位置
+    /// 矩形的配置
     public var shape: Shape?
-    /// 扇形的样式
-    public var style: SECCommonGraphicStyle?
+    /// 矩形样式配置
+    public var style: CommonGraphicStyle?
     
     public init() {}
 }
 
-extension SECSectorGraphic.Shape: Enumable {
+extension RectGraphic.Shape: Enumable {
     public enum Enums {
-        case cx(Float), cy(Float), r(Float), r0(Float), startAngle(Float), endAngle(Float), clockwise(Bool)
+        case x(Float), y(Float), width(Float), height(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -59,40 +55,31 @@ extension SECSectorGraphic.Shape: Enumable {
     public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
-            case let .cx(cx):
-                self.cx = cx
-            case let .cy(cy):
-                self.cy = cy
-            case let .r(r):
-                self.r = r
-            case let .r0(r0):
-                self.r0 = r0
-            case let .startAngle(startAngle):
-                self.startAngle = startAngle
-            case let .endAngle(endAngle):
-                self.endAngle = endAngle
-            case let .clockwise(clockwise):
-                self.clockwise = clockwise
+            case let .x(x):
+                self.x = x
+            case let .y(y):
+                self.y = y
+            case let .width(width):
+                self.width = width
+            case let .height(height):
+                self.height = height
             }
         }
     }
 }
 
-extension SECSectorGraphic.Shape: Mappable {
+extension RectGraphic.Shape: Mappable {
     public func mapping(map: Mapper) {
-        map["cx"] = cx
-        map["cy"] = cy
-        map["r"] = r
-        map["r0"] = r0
-        map["startAngle"] = startAngle
-        map["endAngle"] = endAngle
-        map["clockwise"] = clockwise
+        map["x"] = x
+        map["y"] = y
+        map["width"] = width
+        map["height"] = height
     }
 }
 
-extension SECSectorGraphic: Enumable {
+extension RectGraphic: Enumable {
     public enum Enums {
-        case id(String), action(SECGraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
+        case id(String), action(GraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(GraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(CommonGraphicStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -137,7 +124,7 @@ extension SECSectorGraphic: Enumable {
     }
 }
 
-extension SECSectorGraphic: Mappable {
+extension RectGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

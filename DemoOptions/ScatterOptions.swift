@@ -1,5 +1,5 @@
 //
-//  SECScatterOptions.swift
+//  ScatterOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SECScatterOptions {
+public struct ScatterOptions {
     
     // MARK: 气泡图
     /// 地址: http://echarts.baidu.com/demo.html#bubble-gradient

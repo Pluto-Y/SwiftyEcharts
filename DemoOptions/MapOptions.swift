@@ -1,5 +1,5 @@
 //
-//  SECMapOptions.swift
+//  MapOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SECMapOptions {
+public struct MapOptions {
     
     // MARK: 模拟迁徙
     /// 地址: http://echarts.baidu.com/demo.html#geo-lines

@@ -1,5 +1,5 @@
 //
-//  SECBoxplotOptions.swift
+//  BoxplotOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SECBoxplotOptions {
+public struct BoxplotOptions {
     
     // MARK: Boxplot Light Velocity
     /// 地址: http://echarts.baidu.com/demo.html#boxplot-light-velocity

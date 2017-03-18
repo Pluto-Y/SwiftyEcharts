@@ -15,7 +15,7 @@ class PiesController: BaseDemoController {
         
         menus = ["Customized Pie", "环形图", "嵌套环形图", "饼图纹理", "某站点用户访问来源", "南丁格尔玫瑰图"]
         
-        optionClosures = [SECPieOptions.pieCustomOption, SECPieOptions.pieDoughnutOption, SECPieOptions.pieNestOption, SECPieOptions.piePatternOption, SECPieOptions.pieSimpleOption, SECPieOptions.pieRoseTypeOption]
+        optionClosures = [PieOptions.pieCustomOption, PieOptions.pieDoughnutOption, PieOptions.pieNestOption, PieOptions.piePatternOption, PieOptions.pieSimpleOption, PieOptions.pieRoseTypeOption]
 
         self.title = "饼图"
     }

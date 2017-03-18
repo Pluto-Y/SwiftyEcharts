@@ -1,38 +1,35 @@
 //
-//  SECArcGraphic.swift
+//  RingGraphic.swift
 //  SwiftyEcharts
 //
-//  Created by Pluto Y on 12/02/2017.
+//  Created by Pluto Y on 11/02/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-/// 圆弧类型的 `Graphic`
-public struct SECArcGraphic: SECGraphic {
+/// 圆环类型的 `Graphic`
+public struct RingGraphic: Graphic {
     
-    /// 圆弧的大小和位置
+    /// 圆环的位置和大小
     public struct Shape {
         public var cx: Float?
         public var cy: Float?
         public var r: Float?
         public var r0: Float?
-        public var startAngle: Float?
-        public var endAngle: Float?
-        public var clockwise: Float?
         
         public init() {}
     }
     
-    /// MARK: SECGraphic
-    public var type: SECGraphicType {
-        return .arc
+    /// MARK: Graphic
+    public var type: GraphicType {
+        return .ring
     }
     public var id: String?
-    public var action: SECGraphicAction?
+    public var action: GraphicAction?
     public var left: Position?
     public var right: Position?
     public var top: Position?
     public var bottom: Position?
-    public var bounding: SECGraphicBounding?
+    public var bounding: GraphicBounding?
     public var z: Float?
     public var zlevel: Float?
     public var silent: Bool?
@@ -41,17 +38,17 @@ public struct SECArcGraphic: SECGraphic {
     public var draggable: Bool?
     public var progressiv: Bool?
     
-    /// 圆弧的大小和位置
+    /// 圆环的位置和大小
     public var shape: Shape?
-    /// 圆弧的样式
-    public var style: SECCommonGraphicStyle?
+    /// 圆环样式
+    public var style: CommonGraphicStyle?
     
     public init() {}
 }
 
-extension SECArcGraphic.Shape: Enumable {
+extension RingGraphic.Shape: Enumable {
     public enum Enums {
-        case cx(Float), cy(Float), r(Float), r0(Float), startAngle(Float), endAngle(Float), clockwise(Float)
+        case cx(Float), cy(Float), r(Float), r0(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -67,32 +64,23 @@ extension SECArcGraphic.Shape: Enumable {
                 self.r = r
             case let .r0(r0):
                 self.r0 = r0
-            case let .startAngle(startAngle):
-                self.startAngle = startAngle
-            case let .endAngle(endAngle):
-                self.endAngle = endAngle
-            case let .clockwise(clockwise):
-                self.clockwise = clockwise
             }
         }
     }
 }
 
-extension SECArcGraphic.Shape: Mappable {
+extension RingGraphic.Shape: Mappable {
     public func mapping(map: Mapper) {
         map["cx"] = cx
         map["cy"] = cy
         map["r"] = r
         map["r0"] = r0
-        map["startAngle"] = startAngle
-        map["endAngle"] = endAngle
-        map["clockwise"] = clockwise
     }
 }
 
-extension SECArcGraphic: Enumable {
+extension RingGraphic: Enumable {
     public enum Enums {
-        case id(String), action(SECGraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(SECGraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(SECCommonGraphicStyle)
+        case id(String), action(GraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(GraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(CommonGraphicStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -137,7 +125,7 @@ extension SECArcGraphic: Enumable {
     }
 }
 
-extension SECArcGraphic: Mappable {
+extension RingGraphic: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["id"] = id

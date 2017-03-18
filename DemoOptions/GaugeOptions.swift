@@ -27,9 +27,9 @@ public struct GaugeOptions {
                 )),
             .toolbox(Toolbox(
                 .show(true),
-                .feature(SECTFeature(
-                    .restore(SECTFRestore(.show(true))),
-                    .saveAsImage(SECTFSaveAsImage(.show(true)))
+                .feature(ToolboxFeature(
+                    .restore(ToolboxFeatureRestore(.show(true))),
+                    .saveAsImage(ToolboxFeatureSaveAsImage(.show(true)))
                     ))
                 )),
             .series([
@@ -174,15 +174,15 @@ public struct GaugeOptions {
                 .formatter(.string("{a} <br/>{b} : {c}%"))
                 )),
             .toolbox(Toolbox(
-                .feature(SECTFeature(
-                    .restore(SECTFRestore()),
-                    .saveAsImage(SECTFSaveAsImage())
+                .feature(ToolboxFeature(
+                    .restore(ToolboxFeatureRestore()),
+                    .saveAsImage(ToolboxFeatureSaveAsImage())
                     ))
                 )),
             .series([
                 GaugeSerie(
                     .name("业务指标"),
-                    .detail(SECGSDetail(
+                    .detail(GaugeSerieDetail(
                         .formatter(.string("{value}%"))
                         )),
                     .data([["name":"完成率", "value": 50]]) // FIXIM: 封装Data类型？

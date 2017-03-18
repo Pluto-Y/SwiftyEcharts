@@ -175,7 +175,7 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
     }
     
     /// 是否显示提示框组件，包括提示框浮层和 axisPointer。
-    /// - SeeAlso: `SECAxisPointer`
+    /// - SeeAlso: `AxisPointer`
     public var show: Bool?
     /// 是否显示提示框浮层，默认显示。只需tooltip触发事件或显示axisPointer而不需要显示内容时可配置该项为false。
     public var showContent: Bool?
@@ -206,7 +206,7 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
     /// 提示框浮层的边框宽。
     public var borderWidth: Float?
     /// 提示框浮层内边距
-    public var padding: SECPadding?
+    public var padding: Padding?
     /// 提示框浮层的文本样式。
     public var textStyle: TextStyle?
     /// 额外附加到浮层的 css 样式。如下为浮层添加阴影的示例：
@@ -362,7 +362,7 @@ extension Tooltip.AxisPointer: Mappable {
 
 extension Tooltip: Enumable {
     public enum Enums {
-        case show(Bool), showContent(Bool), trigger(Trigger), triggerOn(Trigger.TriggerOn), alwaysShowContent(Bool), showDelay(Float), hideDelay(Float), position(Tooltip.Position), confine(Bool), transitionDuration(Float), formatter(Formatter), backgroundColor(Color), borderColor(Color), borderWidth(Float), padding(SECPadding), textStyle(TextStyle), extraCssText(String), axisPointer(AxisPointer)
+        case show(Bool), showContent(Bool), trigger(Trigger), triggerOn(Trigger.TriggerOn), alwaysShowContent(Bool), showDelay(Float), hideDelay(Float), position(Tooltip.Position), confine(Bool), transitionDuration(Float), formatter(Formatter), backgroundColor(Color), borderColor(Color), borderWidth(Float), padding(Padding), textStyle(TextStyle), extraCssText(String), axisPointer(AxisPointer)
     }
     public typealias ContentEnum = Enums
     

@@ -103,15 +103,15 @@ public struct Radar: Zable {
     ///     }
     public var triggerEvent: Bool?
     /// 坐标轴轴线相关设置。
-    public var axisLine: SECAxisLine?
+    public var axisLine: AxisLine?
     /// 坐标轴刻度相关设置。
-    public var axisTick: SECAxisTick?
+    public var axisTick: AxisTick?
     /// 坐标轴刻度标签的相关设置。
-    public var axisLabel: SECAxisLabel?
+    public var axisLabel: AxisLabel?
     /// 坐标轴在 grid 区域中的分隔线。
-    public var splitLine: SECSplitLine?
+    public var splitLine: SplitLine?
     /// 坐标轴在 grid 区域中的分隔区域，默认不显示。
-    public var splitArea: SECSplitArea?
+    public var splitArea: SplitArea?
     /// 雷达图的指示器，用来指定雷达图中的多个变量（维度），如下示例。
     ///
     ///     indicator: [
@@ -127,7 +127,7 @@ public struct Radar: Zable {
     public init() {}
 }
 
-public typealias SECIndicator = Radar.Indicator
+public typealias RadarIndicator = Radar.Indicator
 
 
 extension Radar.Name: Enumable {
@@ -159,7 +159,7 @@ extension Radar.Name: Mappable {
     }
 }
 
-extension SECIndicator: Enumable {
+extension RadarIndicator: Enumable {
     public enum Enums {
         case text(String), name(String), max(Float), min(Float)
     }
@@ -182,7 +182,7 @@ extension SECIndicator: Enumable {
     }
 }
 
-extension SECIndicator: Mappable {
+extension RadarIndicator: Mappable {
     public func mapping(map: Mapper) {
         map["name"] = name
         map["max"] = max
@@ -192,7 +192,7 @@ extension SECIndicator: Mappable {
 
 extension Radar: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), center(Point), radius(LengthValue), startAngle(Float), name(Name), nameGap(Float), splitNumber(Int), shape(Shape), scale(Bool), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), indicator([Indicator])
+        case zlevel(Float), z(Float), center(Point), radius(LengthValue), startAngle(Float), name(Name), nameGap(Float), splitNumber(Int), shape(Shape), scale(Bool), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), indicator([Indicator])
     }
     
     public typealias ContentEnum = Enums

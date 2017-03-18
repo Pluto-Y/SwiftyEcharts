@@ -42,27 +42,27 @@ public struct RadarOptions {
                 )),
             .radar(Radar(
                 .indicator([
-                    SECIndicator(
+                    RadarIndicator(
                         .name("AQI"),
                         .max(300)
                     ),
-                    SECIndicator(
+                    RadarIndicator(
                         .name("PM2.5"),
                         .max(250)
                     ),
-                    SECIndicator(
+                    RadarIndicator(
                         .name("PM10"),
                         .max(300)
                     ),
-                    SECIndicator(
+                    RadarIndicator(
                         .name("CO"),
                         .max(5)
                     ),
-                    SECIndicator(
+                    RadarIndicator(
                         .name("NO2"),
                         .max(200)
                     ),
-                    SECIndicator(
+                    RadarIndicator(
                         .name("SO2"),
                         .max(100)
                     )
@@ -74,7 +74,7 @@ public struct RadarOptions {
                         .color(.rgb(238, 197, 102))
                         ))
                     )),
-                .splitLine(SECSplitLine(
+                .splitLine(SplitLine(
                     .lineStyle(LineStyle(
                         .color(.array([
                             .rgba(238,197, 102, 0.1), .rgba(238, 197, 102, 0.2),
@@ -83,10 +83,10 @@ public struct RadarOptions {
                             ]))
                         ))
                     )),
-                .splitArea(SECSplitArea(
+                .splitArea(SplitArea(
                     .show(false)
                     )),
-                .axisLine(SECAxisLine(
+                .axisLine(AxisLine(
                     .lineStyle(LineStyle(
                         .color(.rgba(238, 197, 102, 0.5))
                         ))
@@ -254,11 +254,11 @@ public struct RadarOptions {
             .radars([
                 Radar(
                     .indicator([
-                        SECIndicator(.text("指标一")),
-                        SECIndicator(.text("指标二")),
-                        SECIndicator(.text("指标三")),
-                        SECIndicator(.text("指标四")),
-                        SECIndicator(.text("指标五"))
+                        RadarIndicator(.text("指标一")),
+                        RadarIndicator(.text("指标二")),
+                        RadarIndicator(.text("指标三")),
+                        RadarIndicator(.text("指标四")),
+                        RadarIndicator(.text("指标五"))
                         ]),
                     .center([25%, 50%]),
                     .radius(50),  // 根据需要调整了大小
@@ -271,19 +271,19 @@ public struct RadarOptions {
                             .color(.hexColor("#72ACD1"))
                             ))
                         )),
-                    .splitArea(SECSplitArea(
+                    .splitArea(SplitArea(
                         .areaStyle(AreaStyle(
                             .color(.array([.rgba(114, 172, 209, 0.2), .rgba(114, 172, 209, 0.4), .rgba(114, 172, 209, 0.6), .rgba(114, 172, 209, 0.8), .rgba(114, 172, 209, 1)])),
                             .shadowColor(.rgba(0, 0, 0, 0.3)),
                             .shadowBlur(10)
                             ))
                         )),
-                    .axisLine(SECAxisLine(
+                    .axisLine(AxisLine(
                         .lineStyle(LineStyle(
                             .color(.rgba(255, 255, 255, 0.5))
                             ))
                         )),
-                    .splitLine(SECSplitLine(
+                    .splitLine(SplitLine(
                         .lineStyle(LineStyle(
                             .color(.rgba(255, 255, 255, 0.5))
                             ))
@@ -291,12 +291,12 @@ public struct RadarOptions {
                 ),
                 Radar(
                     .indicator([
-                        SECIndicator(.text("语文"), .max(150)),
-                        SECIndicator(.text("数学"), .max(150)),
-                        SECIndicator(.text("英语"), .max(150)),
-                        SECIndicator(.text("物理"), .max(120)),
-                        SECIndicator(.text("化学"), .max(108)),
-                        SECIndicator(.text("生物"), .max(72))
+                        RadarIndicator(.text("语文"), .max(150)),
+                        RadarIndicator(.text("数学"), .max(150)),
+                        RadarIndicator(.text("英语"), .max(150)),
+                        RadarIndicator(.text("物理"), .max(120)),
+                        RadarIndicator(.text("化学"), .max(108)),
+                        RadarIndicator(.text("生物"), .max(72))
                         ]),
                     .center([75%, 50%]),
                     .radius(50)   // 根据需要调整了大小
@@ -367,9 +367,9 @@ public struct RadarOptions {
     // MARK: 多雷达图
     /// 地址: http://echarts.baidu.com/demo.html#radar-multiple
     static func radarMultipleOption() -> Option {
-        var indicator: [SECIndicator] = []
+        var indicator: [RadarIndicator] = []
         for i in 1...12 {
-            indicator.append(SECIndicator(.text("\(i)月"), .max(100)))
+            indicator.append(RadarIndicator(.text("\(i)月"), .max(100)))
         }
         return Option(
             .title(Title(
@@ -385,21 +385,21 @@ public struct RadarOptions {
             .radars([
                 Radar(
                     .indicator([
-                        SECIndicator(.text("品牌"), .max(100)),
-                        SECIndicator(.text("内容"), .max(100)),
-                        SECIndicator(.text("可用性"), .max(100)),
-                        SECIndicator(.text("功能"), .max(100))
+                        RadarIndicator(.text("品牌"), .max(100)),
+                        RadarIndicator(.text("内容"), .max(100)),
+                        RadarIndicator(.text("可用性"), .max(100)),
+                        RadarIndicator(.text("功能"), .max(100))
                         ]),
                     .center([25%, 40%]),
                     .radius(40)
                 ),
                 Radar(
                     .indicator([
-                        SECIndicator(.text("外观"), .max(100)),
-                        SECIndicator(.text("拍照"), .max(100)),
-                        SECIndicator(.text("系统"), .max(100)),
-                        SECIndicator(.text("性能"), .max(100)),
-                        SECIndicator(.text("屏幕"), .max(100))
+                        RadarIndicator(.text("外观"), .max(100)),
+                        RadarIndicator(.text("拍照"), .max(100)),
+                        RadarIndicator(.text("系统"), .max(100)),
+                        RadarIndicator(.text("性能"), .max(100)),
+                        RadarIndicator(.text("屏幕"), .max(100))
                         ]),
                     .center([50%, 60%]),
                     .radius(40)
@@ -462,12 +462,12 @@ public struct RadarOptions {
                 )),
             .radar(Radar(
                 .indicator([
-                    SECIndicator(.name("销售（sales）"), .max(6500)),
-                    SECIndicator(.name("管理（Administration）"), .max(16000)),
-                    SECIndicator(.name("信息技术（Information Techology）"), .max(30000)),
-                    SECIndicator(.name("客服（Customer Support）"), .max(38000)),
-                    SECIndicator(.name("研发（Development）"), .max(52000)),
-                    SECIndicator(.name("市场（Marketing）"), .max(25000))
+                    RadarIndicator(.name("销售（sales）"), .max(6500)),
+                    RadarIndicator(.name("管理（Administration）"), .max(16000)),
+                    RadarIndicator(.name("信息技术（Information Techology）"), .max(30000)),
+                    RadarIndicator(.name("客服（Customer Support）"), .max(38000)),
+                    RadarIndicator(.name("研发（Development）"), .max(52000)),
+                    RadarIndicator(.name("市场（Marketing）"), .max(25000))
                     ])
                 )),
             .series([
@@ -535,11 +535,11 @@ public struct RadarOptions {
                 )),
             .radar(Radar(
                 .indicator([
-                    SECIndicator(.text("IE8-"), .max(400)),
-                    SECIndicator(.text("IE9+"), .max(400)),
-                    SECIndicator(.text("Safari"), .max(400)),
-                    SECIndicator(.text("Firefox"), .max(400)),
-                    SECIndicator(.text("Chrome"), .max(400))
+                    RadarIndicator(.text("IE8-"), .max(400)),
+                    RadarIndicator(.text("IE9+"), .max(400)),
+                    RadarIndicator(.text("Safari"), .max(400)),
+                    RadarIndicator(.text("Firefox"), .max(400)),
+                    RadarIndicator(.text("Chrome"), .max(400))
                     ])
                 )),
             .series(series)

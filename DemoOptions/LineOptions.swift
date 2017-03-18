@@ -43,12 +43,12 @@ public struct LineOptions {
                 .bottom(.value(80))
                 )),
             .toolbox(Toolbox(
-                .feature(SECTFeature(
-                    .dataZoom(SECTFDataZoom(
+                .feature(ToolboxFeature(
+                    .dataZoom(ToolboxFeatureDataZoom(
                         .yAxisIndex(.bool(false))
                         )),
-                    .restore(SECTFRestore()),
-                    .saveAsImage(SECTFSaveAsImage())
+                    .restore(ToolboxFeatureRestore()),
+                    .saveAsImage(ToolboxFeatureSaveAsImage())
                     ))
                 )),
             .tooltip(Tooltip(
@@ -73,21 +73,21 @@ public struct LineOptions {
                     .end(85)
                 )
                 ]),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                     .type(.category),
                     .boundaryGap(false),
-                    .axisLine(SECAxisLine(
+                    .axisLine(AxisLine(
                         .onZero(false)
                         )),
                     .data(xAxisDatas)
                 )),
             .yAxises([
-                SECAxis(
+                Axis(
                     .name("流量(m^3/s)"),
                     .type(.value),
                     .max(500)
                 ),
-                SECAxis(
+                Axis(
                     .name("降雨量(mm)"),
                     .nameLocation("start"),
                     .max(5),
@@ -169,12 +169,12 @@ public struct LineOptions {
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                     .type(.category),
                     .boundaryGap(false),
                     .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                     .type(.value)
                 )),
             .series([
@@ -282,12 +282,12 @@ public struct LineOptions {
                 .x(.left)
                 )),
             .toolbox(Toolbox(
-                .feature(SECTFeature(
-                    .dataZoom(SECTFDataZoom(
+                .feature(ToolboxFeature(
+                    .dataZoom(ToolboxFeatureDataZoom(
                         .yAxisIndex(.bool(false))
                         )),
-                    .restore(SECTFRestore()),
-                    .saveAsImage(SECTFSaveAsImage())
+                    .restore(ToolboxFeatureRestore()),
+                    .saveAsImage(ToolboxFeatureSaveAsImage())
                     ))
                 )),
             .dataZoom([
@@ -318,19 +318,19 @@ public struct LineOptions {
                 )
                 ]),
             .xAxises([
-                SECAxis(
+                Axis(
                     .type(.category),
                     .boundaryGap(false),
-                    .axisLine(SECAxisLine(
+                    .axisLine(AxisLine(
                         .onZero(true)
                         )),
                     .data(xAxisDatas)
                 ),
-                SECAxis(
+                Axis(
                     .gridIndex(1),
                     .type(.category),
                     .boundaryGap(false),
-                    .axisLine(SECAxisLine(
+                    .axisLine(AxisLine(
                         .onZero(true)
                         )),
                     .data(xAxisDatas),
@@ -338,12 +338,12 @@ public struct LineOptions {
                 )
                 ]),
             .yAxises([
-                SECAxis(
+                Axis(
                     .name("流量(m^3/s)"),
                     .type(.value),
                     .max(500)
                 ),
-                SECAxis(
+                Axis(
                     .gridIndex(1),
                     .name("降雨量(mm)"),
                     .type(.value),
@@ -392,19 +392,19 @@ public struct LineOptions {
                 .formatter(.function("function tooltipFormatter(params) { return 'X: ' + params.data[0].toFixed(2) + '<br>Y: ' + params.data[1].toFixed(2);}"))
                 )),
             .grid(Grid()),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .min(-100),
                 .max(80),
                 .type(.value),
-                .axisLine(SECAxisLine(
+                .axisLine(AxisLine(
                     .onZero(false)
                     ))
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .min(-30),
                 .max(60),
                 .type(.value),
-                .axisLine(SECAxisLine(
+                .axisLine(AxisLine(
                     .onZero(false)
                     ))
                 )),
@@ -460,10 +460,10 @@ public struct LineOptions {
                 .left(.left),
                 .data(["2的指数", "3的指数"])
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                     .type(.category),
                     .name("x"),
-                    .splitArea(SECSplitArea(
+                    .splitArea(SplitArea(
                         .show(false)
                         )),
                     .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
@@ -474,7 +474,7 @@ public struct LineOptions {
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                     .type(.log),
                     .name("y")
                 )),
@@ -512,29 +512,29 @@ public struct LineOptions {
             .toolbox(Toolbox(
                 .show(true),
                 .feature(Toolbox.Feature(
-                    .dataZoom(SECTFDataZoom(
+                    .dataZoom(ToolboxFeatureDataZoom(
                         .yAxisIndex(.bool(false))
                         )),
-                    .dataView(SECTFDataView(
+                    .dataView(ToolboxFeatureDataView(
                         .readOnly(false)
                         )),
-                    .magicType(SECTFMagicType(
+                    .magicType(ToolboxFeatureMagicType(
                         .type([.line, .bar])
                         )),
-                    .restore(SECTFRestore(
+                    .restore(ToolboxFeatureRestore(
                         )),
-                    .saveAsImage(SECTFSaveAsImage(
+                    .saveAsImage(ToolboxFeatureSaveAsImage(
                         ))
                     ))
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.category),
                 .boundaryGap(false),
                 .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .type(.value),
-                .axisLabel(SECAxisLabel(
+                .axisLabel(AxisLabel(
                     .formatter(.string("{value} °C"))
                     ))
                 )),
@@ -642,11 +642,11 @@ public struct LineOptions {
                     .type(.cross)
                     ))
                 )),
-            .angleAxis([SECAngleAxis(
+            .angleAxis([AngleAxis(
                 .type(.value),
                 .startAngle(0)
                 )]),
-            .radiusAxis([SECRadiusAxis(
+            .radiusAxis([RadiusAxis(
                 )]),
             .series([
                 LineSerie(
@@ -683,11 +683,11 @@ public struct LineOptions {
                     .type(.cross)
                     ))
                 )),
-            .angleAxis([SECAngleAxis(
+            .angleAxis([AngleAxis(
                 .type(.value),
                 .startAngle(0)
                 )]),
-            .radiusAxis([SECRadiusAxis(
+            .radiusAxis([RadiusAxis(
                 .min(0)
                 )]),
             .series([
@@ -715,18 +715,18 @@ public struct LineOptions {
                 )),
             .toolbox(Toolbox(
                 .show(true),
-                .feature(SECTFeature(
-                    .saveAsImage(SECTFSaveAsImage())
+                .feature(ToolboxFeature(
+                    .saveAsImage(ToolboxFeatureSaveAsImage())
                     ))
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                     .type(.category),
                     .boundaryGap(false),
                     .data(["00:00", "01:15", "02:30", "03:45", "05:00", "06:15", "07:30", "08:45", "10:00", "11:15", "12:30", "13:45", "15:00", "16:15", "17:30", "18:45", "20:00", "21:15", "22:30", "23:45"])
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                     .type(.value),
-                    .axisLabel(SECAxisLabel(
+                    .axisLabel(AxisLabel(
                         .formatter(.string("{value} W"))
                         ))
                 )),
@@ -811,12 +811,12 @@ public struct LineOptions {
                         ))
                     ))
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                     .type(.category),
                     .boundaryGap(false),
                     .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                     .type(.value)
                 )),
             .series([
@@ -866,16 +866,16 @@ public struct LineOptions {
                 .containLabel(true)
                 )),
             .toolbox(Toolbox(
-                .feature(SECTFeature(
-                    .saveAsImage(SECTFSaveAsImage(
+                .feature(ToolboxFeature(
+                    .saveAsImage(ToolboxFeatureSaveAsImage(
                         ))
                     ))
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.category),
                 .data(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .type(.value)
                 )),
             .series([
@@ -916,18 +916,18 @@ public struct LineOptions {
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.value),
-                .axisLabel(SECAxisLabel(
+                .axisLabel(AxisLabel(
                     .formatter(.string("{value} °C"))
                     ))
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .type(.category),
-                .axisLine(SECAxisLine(
+                .axisLine(AxisLine(
                     .onZero(false)
                     )),
-                .axisLabel(SECAxisLabel(
+                .axisLabel(AxisLabel(
                     .formatter(.string("{value} km"))
                     )),
                 .data(["0", "10", "20", "30", "40", "50", "60", "70", "80"])

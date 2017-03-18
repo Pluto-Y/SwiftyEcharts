@@ -35,8 +35,8 @@ public enum Color: Jsonable {
     case hexColor(String)
     case array([Color])
     case image(String, ImageRepeat)
-    case linearGradient(Float, Float, Float, Float, [SECGradientColorElement], Bool)
-    case radialGradient(Float, Float, Float, [SECGradientColorElement], Bool)
+    case linearGradient(Float, Float, Float, Float, [GradientColorElement], Bool)
+    case radialGradient(Float, Float, Float, [GradientColorElement], Bool)
     case auto, red, blue, green, yellow, transparent
     
     
@@ -114,7 +114,7 @@ public enum Color: Jsonable {
     
 }
 
-public struct SECGradientColorElement {
+public struct GradientColorElement {
     private var offset: Float?
     private var color: Color?
     
@@ -126,7 +126,7 @@ public struct SECGradientColorElement {
     }
 }
 
-extension SECGradientColorElement: Jsonable {
+extension GradientColorElement: Jsonable {
     public var jsonString: String {
         if let o = offset, let c = color {
             return "{\"offset\": \(o.jsonString), \"color\": \(c.jsonString)}"
@@ -135,7 +135,7 @@ extension SECGradientColorElement: Jsonable {
     }
 }
 
-extension SECGradientColorElement: DictionaryLiteralConvertible {
+extension GradientColorElement: DictionaryLiteralConvertible {
     public typealias Key = String
     public typealias Value = Jsonable
     
@@ -153,7 +153,7 @@ extension SECGradientColorElement: DictionaryLiteralConvertible {
                 color = v
             }
             if let o = offset, let c = color {
-                self = SECGradientColorElement(o, c)
+                self = GradientColorElement(o, c)
                 break
             }
         }

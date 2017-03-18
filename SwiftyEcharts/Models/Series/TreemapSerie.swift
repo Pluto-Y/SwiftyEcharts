@@ -183,7 +183,7 @@ public struct TreemapSerie: Serie, Zable {
         /// 参见 series-treemap.data.target。
         public var link: String?
         /// 意义同 html <a> 标签中的 target，参见 series-treemap.data.link。可选值为：'blank' 或 'self'。
-        public var target: SECTarget?
+        public var target: Target?
         /// 子节点，递归定义，格式同 series-treemap.data。
         public var children: [Jsonable]?
         
@@ -700,7 +700,7 @@ extension TreemapSerieLevel: Mappable {
 
 extension TreemapSerieSilent: Enumable {
     public enum Enums {
-        case link(String), target(SECTarget), children([Jsonable])
+        case link(String), target(Target), children([Jsonable])
     }
     
     public typealias ContentEnum = Enums

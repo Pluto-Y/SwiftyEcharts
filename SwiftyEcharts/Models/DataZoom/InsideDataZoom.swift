@@ -186,7 +186,7 @@ public struct InsideDataZoom: DataZoom {
     /// 注意，如果轴的类型为 category，则 endValue 即可以设置为 axis.data 数组的 index，也可以设置为数组值本身。 但是如果设置为数组值本身，会在内部自动转化为数组的 index。
     public var endValue: Float?
     /// 布局方式是横还是竖。不仅是布局方式，对于直角坐标系而言，也决定了，缺省情况控制横向数轴还是纵向数轴。
-    public var orient: SECOrient?
+    public var orient: Orient?
     /// 是否锁定选择区域（或叫做数据窗口）的大小。
     /// 如果设置为 true 则锁定选择区域的大小，也就是说，只能平移，不能缩放。
     public var zoomLock: Bool?
@@ -200,7 +200,7 @@ public struct InsideDataZoom: DataZoom {
 
 extension InsideDataZoom: Enumable {
     public enum Enums {
-        case disabled(Bool), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(FilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(SECOrient), zoomLock(Bool), throttle(Float)
+        case disabled(Bool), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(FilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(Orient), zoomLock(Bool), throttle(Float)
     }
     
     public typealias ContentEnum = Enums

@@ -10,7 +10,7 @@
 ///
 /// - horizontal: 水平
 /// - vertical: 垂直
-public enum SECOrient: String, Jsonable {
+public enum Orient: String, Jsonable {
     case horizontal = "horizontal", vertical = "vertical"
 
     public var jsonString: String {
@@ -70,11 +70,11 @@ public struct Legend: Borderable, Displayable, Formatted, Shadowable, Zable {
     /// 图例组件的高度。为空时，为自适应。
     public var height: Float?
     /// 图例列表的布局朝向。
-    public var orient: SECOrient?
+    public var orient: Orient?
     /// 图例标记和文本的对齐。默认自动，根据组件的位置和 orient 决定，当组件的 left 值为 'right' 以及纵向布局（orient 为 'vertical'）的时候为右对齐，及为 'right'。
     public var align: Align?
     /// 图例内边距，单位px，默认各方向内边距为5，接受数组分别设定上右下左边距。
-    public var padding: SECPadding?
+    public var padding: Padding?
     /// 图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
     public var itemGap: Float?
     /// 图例标记的图形宽度。
@@ -164,7 +164,7 @@ extension Legend.Data: Mappable {
 
 extension Legend: Enumable {
     public enum Enums {
-        case show(Bool), zlevel(Float), z(Float), left(Position), x(Position), top(Position), y(Position), right(Position), bottom(Position), width(Float), height(Float), orient(SECOrient), align(Align), padding(SECPadding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(Formatter), selectedMode(SelectedMode), inactiveColor(Color), selected([String: Bool]), textStyle(TextStyle), tooltip(Tooltip), data([Jsonable]), backgroundColor(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), zlevel(Float), z(Float), left(Position), x(Position), top(Position), y(Position), right(Position), bottom(Position), width(Float), height(Float), orient(Orient), align(Align), padding(Padding), itemGap(Float), itemWidth(Float), itemHeight(Float), formatter(Formatter), selectedMode(SelectedMode), inactiveColor(Color), selected([String: Bool]), textStyle(TextStyle), tooltip(Tooltip), data([Jsonable]), backgroundColor(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
     public typealias ContentEnum = Enums

@@ -1,5 +1,5 @@
 //
-//  SECAxisTick.swift
+//  AxisTick.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 06/02/2017.
@@ -7,7 +7,7 @@
 //
 
 /// 坐标轴刻度相关设置。
-public struct SECAxisTick: Line, Displayable {
+public struct AxisTick: Line, Displayable {
     /// 是否显示坐标轴刻度。
     public var show: Bool?
     /// 类目轴中在 boundaryGap 为 true 的时候有效，可以保证刻度线和标签对齐。
@@ -33,7 +33,7 @@ public struct SECAxisTick: Line, Displayable {
     
 }
 
-extension SECAxisTick: Enumable {
+extension AxisTick: Enumable {
     public enum Enums {
         case show(Bool), alignWithLabel(Bool), interval(Int), inside(Bool), length(Float), lineStyle(LineStyle)
     }
@@ -60,7 +60,7 @@ extension SECAxisTick: Enumable {
     }
 }
 
-extension SECAxisTick: Mappable {
+extension AxisTick: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["alignWithLabel"] = alignWithLabel

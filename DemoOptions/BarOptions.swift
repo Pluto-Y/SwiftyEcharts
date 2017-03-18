@@ -37,26 +37,26 @@ public struct BarOptions {
                 .align(.left)
                 )),
             .toolbox(Toolbox(
-                .feature(SECTFeature(
-                    .magicType(SECTFMagicType(
+                .feature(ToolboxFeature(
+                    .magicType(ToolboxFeatureMagicType(
                         .type([.stack, .tiled])
                         )),
-                    .dataView(SECTFDataView(
+                    .dataView(ToolboxFeatureDataView(
                         )),
-                    .saveAsImage(SECTFSaveAsImage(
+                    .saveAsImage(ToolboxFeatureSaveAsImage(
                         .pixelRatio(2)
                         ))
                     ))
                 )),
             .tooltip(Tooltip()),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .data(xAxisData),
                 .silent(false),
-                .splitLine(SECSplitLine(
+                .splitLine(SplitLine(
                     .show(false)
                     ))
                 )),
-            .yAxis(SECAxis()),
+            .yAxis(Axis()),
             .series([
                 BarSerie(
                     .name("bar"),
@@ -112,31 +112,31 @@ public struct BarOptions {
                 .xAxisIndex(.indexes([0]))
                 )),
             .toolbox(Toolbox(
-                .feature(SECTFeature(
-                    .magicType(SECTFMagicType(
+                .feature(ToolboxFeature(
+                    .magicType(ToolboxFeatureMagicType(
                         .type([.stack, .tiled])
                         )),
-                    .dataView(SECTFDataView())
+                    .dataView(ToolboxFeatureDataView())
                     ))
                 )),
             .tooltip(Tooltip()),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .data(xAxisData),
                 .name("X Axis"),
                 .silent(false),
-                .axisLine(SECAxisLine(
+                .axisLine(AxisLine(
                     .onZero(true)
                     )),
-                .splitLine(SECSplitLine(
+                .splitLine(SplitLine(
                     .show(false)
                     )),
-                .splitArea(SECSplitArea(
+                .splitArea(SplitArea(
                     .show(false)
                     ))
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .inverse(true),
-                .splitArea(SECSplitArea(
+                .splitArea(SplitArea(
                     .show(false)
                     ))
                 )),
@@ -203,30 +203,30 @@ public struct BarOptions {
                 .text("特性示例：渐变色 阴影 点击缩放"),
                 .subtext("Feature Sample: Gradient Color, Shadow, Click Zoom")
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .data(dataAxis),
-                .axisLabel(SECAxisLabel(
+                .axisLabel(AxisLabel(
                     .inside(true),
                     .textStyle(TextStyle(
                         .color(.hexColor("#fff"))
                         ))
                     )),
-                .axisTick(SECAxisTick(
+                .axisTick(AxisTick(
                     .show(false)
                     )),
-                .axisLine(SECAxisLine(
+                .axisLine(AxisLine(
                     .show(false)
                     )),
                 .z(10)
                 )),
-            .yAxis(SECAxis(
-                .axisLine(SECAxisLine(
+            .yAxis(Axis(
+                .axisLine(AxisLine(
                     .show(false)
                     )),
-                .axisTick(SECAxisTick(
+                .axisTick(AxisTick(
                     .show(false)
                     )),
-                .axisLabel(SECAxisLabel(
+                .axisLabel(AxisLabel(
                     .textStyle(TextStyle(
                         .color(.hexColor("#999"))
                         ))
@@ -284,12 +284,12 @@ public struct BarOptions {
             .legend(Legend(
                 .data(["利润", "支出", "收入"])
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.value)
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .type(.category),
-                .axisTick(SECAxisTick(
+                .axisTick(AxisTick(
                     .show(false)
                     )),
                 .data(["周一","周二","周三","周四","周五","周六","周日"])
@@ -354,27 +354,27 @@ public struct BarOptions {
                 .top(.value(80)),
                 .bottom(.value(30))
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.value),
                 .position(.top),
-                .splitLine(SECSplitLine(
+                .splitLine(SplitLine(
                     .lineStyle(LineStyle(
                         .type(.dashed)
                         ))
                     ))
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .type(.category),
-                .axisLine(SECAxisLine(
+                .axisLine(AxisLine(
                     .show(false)
                     )),
-                .axisLabel(SECAxisLabel(
+                .axisLabel(AxisLabel(
                     .show(false)
                     )),
-                .axisTick(SECAxisTick(
+                .axisTick(AxisTick(
                     .show(false)
                     )),
-                .splitLine(SECSplitLine(
+                .splitLine(SplitLine(
                     .show(false)
                     )),
                 .data(["ten", "nine", "eight", "seven", "six", "five", "four", "three", "two", "one"])
@@ -439,11 +439,11 @@ public struct BarOptions {
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.category),
                 .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .type(.value)
                 )),
             .series([
@@ -528,14 +528,14 @@ public struct BarOptions {
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.category),
                 .data(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]),
-                .axisTick(SECAxisTick(
+                .axisTick(AxisTick(
                     .alignWithLabel(true)
                     ))
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .type(.value)
                 )),
             .series([
@@ -570,14 +570,14 @@ public struct BarOptions {
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.category),
-                .splitLine(SECSplitLine(
+                .splitLine(SplitLine(
                     .show(false)
                     )),
                 .data(["总费用","房租","水电费","交通费","伙食费","日用品数"])
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .type(.value)
                 )),
             .series([
@@ -640,14 +640,14 @@ public struct BarOptions {
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.category),
-                .splitLine(SECSplitLine(
+                .splitLine(SplitLine(
                     .show(false)
                     )),
                 .data(list)
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .type(.value)
                 )),
             .series([
@@ -711,10 +711,10 @@ public struct BarOptions {
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.value)
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .type(.category),
                 .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
@@ -802,11 +802,11 @@ public struct BarOptions {
                 .bottom(.value(3%)),
                 .containLabel(true)
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.value),
                 .boundaryGap(.notCategory([0, 0.01]))
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .type(.category),
                 .data(["巴西","印尼","美国","印度","中国","世界人口(万)"])
                 )),
@@ -839,28 +839,28 @@ public struct BarOptions {
                 )),
             .toolbox(Toolbox(
                 .show(true),
-                .feature(SECTFeature(
-                    .dataView(SECTFDataView(
+                .feature(ToolboxFeature(
+                    .dataView(ToolboxFeatureDataView(
                         .show(true),
                         .readOnly(false)
                         )),
-                    .magicType(SECTFMagicType(
+                    .magicType(ToolboxFeatureMagicType(
                         .show(true),
                         .type([.line, .bar])
                         )),
-                    .restore(SECTFRestore(
+                    .restore(ToolboxFeatureRestore(
                         .show(true)
                         )),
-                    .saveAsImage(SECTFSaveAsImage(
+                    .saveAsImage(ToolboxFeatureSaveAsImage(
                         .show(true)
                         ))
                     ))
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.category),
                 .data(["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"])
                 )),
-            .yAxis(SECAxis(
+            .yAxis(Axis(
                 .type(.value)
                 )),
             .series([
@@ -953,10 +953,10 @@ public struct BarOptions {
                 )),
             .toolbox(Toolbox(
                 .show(true),
-                .feature(SECTFeature(
-                    .dataView(SECTFDataView(.readOnly(false))),
-                    .restore(SECTFRestore()),
-                    .saveAsImage(SECTFSaveAsImage())
+                .feature(ToolboxFeature(
+                    .dataView(ToolboxFeatureDataView(.readOnly(false))),
+                    .restore(ToolboxFeatureRestore()),
+                    .saveAsImage(ToolboxFeatureSaveAsImage())
                     ))
                 )),
             .dataZoom([SliderDataZoom(
@@ -965,19 +965,19 @@ public struct BarOptions {
                 .end(100)
                 )]),
             .xAxises([
-                SECAxis(
+                Axis(
                     .type(.category),
                     .boundaryGap(true),
                     .data(xAxisData1)
                 ),
-                SECAxis(
+                Axis(
                     .type(.category),
                     .boundaryGap(true),
                     .data(xAxisData2)
                 )
                 ]),
             .yAxises([
-                SECAxis(
+                Axis(
                     .type(.value),
                     .scale(true),
                     .name("价格"),
@@ -985,7 +985,7 @@ public struct BarOptions {
                     .min(0),
                     .boundaryGap(.notCategory([0.2, 0.2]))
                 ),
-                SECAxis(
+                Axis(
                     .type(.value),
                     .scale(true),
                     .name("预购量"),
@@ -1017,19 +1017,19 @@ public struct BarOptions {
                 .trigger(.axis)
                 )),
             .toolbox(Toolbox(
-                .feature(SECTFeature(
-                    .dataView(SECTFDataView(
+                .feature(ToolboxFeature(
+                    .dataView(ToolboxFeatureDataView(
                         .show(true),
                         .readOnly(false)
                         )),
-                    .magicType(SECTFMagicType(
+                    .magicType(ToolboxFeatureMagicType(
                         .show(true),
                         .type([.line, .bar])
                         )),
-                    .restore(SECTFRestore(
+                    .restore(ToolboxFeatureRestore(
                         .show(true)
                         )),
-                    .saveAsImage(SECTFSaveAsImage(
+                    .saveAsImage(ToolboxFeatureSaveAsImage(
                         .show(true)
                         ))
                     ))
@@ -1037,28 +1037,28 @@ public struct BarOptions {
             .legend(Legend(
                 .data(["蒸发量","降水量","平均温度"])
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.category),
                 .data(["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"])
                 )),
             .yAxises([
-                SECAxis(
+                Axis(
                     .type(.value),
                     .name("水量"),
                     .min(0),
                     .max(250),
                     .interval(50),
-                    .axisLabel(SECAxisLabel(
+                    .axisLabel(AxisLabel(
                         .formatter(.string("{value} ml"))
                         ))
                 ),
-                SECAxis(
+                Axis(
                     .type(.value),
                     .name("温度"),
                     .min(0),
                     .max(25),
                     .interval(5),
-                    .axisLabel(SECAxisLabel(
+                    .axisLabel(AxisLabel(
                         .formatter(.string("{value} °C"))
                         ))
                 )
@@ -1110,15 +1110,15 @@ public struct BarOptions {
                 .right(.value(20%))
                 )),
             .toolbox(Toolbox(
-                .feature(SECTFeature(
-                    .dataView(SECTFDataView(
+                .feature(ToolboxFeature(
+                    .dataView(ToolboxFeatureDataView(
                         .show(true),
                         .readOnly(false)
                         )),
-                    .restore(SECTFRestore(
+                    .restore(ToolboxFeatureRestore(
                         .show(true)
                         )),
-                    .saveAsImage(SECTFSaveAsImage(
+                    .saveAsImage(ToolboxFeatureSaveAsImage(
                         .show(true)
                         ))
                     ))
@@ -1126,57 +1126,57 @@ public struct BarOptions {
             .legend(Legend(
                 .data(["蒸发量","降水量","平均温度"])
                 )),
-            .xAxis(SECAxis(
+            .xAxis(Axis(
                 .type(.category),
-                .axisTick(SECAxisTick(
+                .axisTick(AxisTick(
                     .alignWithLabel(true)
                     )),
                 .data(["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"])
                 )),
             .yAxises([
-                SECAxis(
+                Axis(
                     .type(.value),
                     .name("蒸发量"),
                     .min(0),
                     .max(250),
                     .position(.right),
-                    .axisLine(SECAxisLine(
+                    .axisLine(AxisLine(
                         .lineStyle(LineStyle(
                             .color(colors[0])
                             ))
                         )),
-                    .axisLabel(SECAxisLabel(
+                    .axisLabel(AxisLabel(
                         .formatter(.string("{value} ml"))
                         ))
                 ),
-                SECAxis(
+                Axis(
                     .type(.value),
                     .name("降水量"),
                     .min(0),
                     .max(250),
                     .position(.right),
                     .offset(40), // 针对屏幕小进行调整
-                    .axisLine(SECAxisLine(
+                    .axisLine(AxisLine(
                         .lineStyle(LineStyle(
                             .color(colors[1])
                             ))
                         )),
-                    .axisLabel(SECAxisLabel(
+                    .axisLabel(AxisLabel(
                         .formatter(.string("{value} ml"))
                         ))
                 ),
-                SECAxis(
+                Axis(
                     .type(.value),
                     .name("平均温度"),
                     .min(0),
                     .max(25),
                     .position(.left),
-                    .axisLine(SECAxisLine(
+                    .axisLine(AxisLine(
                         .lineStyle(LineStyle(
                             .color(colors[2])
                             ))
                         )),
-                    .axisLabel(SECAxisLabel(
+                    .axisLabel(AxisLabel(
                         .formatter(.string("{value} °C"))
                         ))
                 )

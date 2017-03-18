@@ -141,7 +141,7 @@ public struct Parallel: Zable {
         }
         
         /// 坐标轴类型
-        public var type: SECAxisType?
+        public var type: AxisType?
         /// 坐标轴名称
         public var name: String?
         /// 坐标轴名称显示位置
@@ -218,11 +218,11 @@ public struct Parallel: Zable {
         ///     }
         public var triggerEvent: Bool?
         /// 坐标轴轴线相关设置
-        public var axisLine: SECAxisLine?
+        public var axisLine: AxisLine?
         /// 坐标轴刻度相关设置
-        public var axisTick: SECAxisTick?
+        public var axisTick: AxisTick?
         /// 坐标轴刻度标签的相关设置
-        public var axisLabel: SECAxisLabel?
+        public var axisLabel: AxisLabel?
         /// 类目数据
         public var data: [Any]?
         
@@ -260,7 +260,7 @@ public struct Parallel: Zable {
     /// parallel 组件的高度。默认自适应。
     public var height: Float?
     /// 布局方式
-    public var layout: SECOrient?
+    public var layout: Orient?
     /// 维度比较多时，比如有 50+ 的维度，那么就会有 50+ 个轴。那么可能会页面显示不下。
     ///
     /// 可以通过 parallel.axisExpandable 来改善显示效果，如下例子：
@@ -284,7 +284,7 @@ public struct Parallel: Zable {
 
 extension Parallel: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float), layout(SECOrient), axisExpandable(Bool), axisExpandCenter(Float), axisExpandCount(Float), axisExpandWidth(Float), parallelAxisDefault(ParallelAxisDefault)
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float), layout(Orient), axisExpandable(Bool), axisExpandCenter(Float), axisExpandCount(Float), axisExpandWidth(Float), parallelAxisDefault(ParallelAxisDefault)
     }
     
     public typealias ContentEnum = Enums
@@ -346,7 +346,7 @@ extension Parallel: Mappable {
 
 extension Parallel.ParallelAxisDefault: Enumable {
     public enum Enums {
-        case type(SECAxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(String), max(String), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), data([Any])
+        case type(AxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(String), max(String), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), data([Any])
     }
     
     public typealias ContentEnum = Enums

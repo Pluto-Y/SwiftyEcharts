@@ -1,29 +1,52 @@
 //
-//  SECRadiusAxis.swift
+//  AngleAxis.swift
 //  SwiftyEcharts
 //
-//  Created by Pluto Y on 05/02/2017.
+//  Created by Pluto Y on 06/02/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-/// 极坐标系的径向轴。
-public struct SECRadiusAxis: Zable {
-    /// 径向轴所在的极坐标系的索引，默认使用第一个极坐标系。
+/// 极坐标系的角度轴。
+public struct AngleAxis: Zable {
+    /// 类目数据，在类目轴（type: 'category'）中有效。
+    ///
+    /// 示例：
+    ///
+    ///     // 所有类目名称列表
+    ///         data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+    ///         // 每一项也可以是具体的配置项，此时取配置项中的 `value` 为类目名
+    ///         data: [{
+    ///         value: '周一',
+    ///         // 突出周一
+    ///         textStyle: {
+    ///             fontSize: 20,
+    ///             color: 'red'
+    ///         }
+    ///     }, '周二', '周三', '周四', '周五', '周六', '周日']
+    public struct Data {
+        /// 单个类目名称。
+        public var value: String?
+        /// 类目标签的文字样式。
+        public var textStyle: TextStyle?
+        
+        public init() {}
+    }
+    /// 角度轴所在的极坐标系的索引，默认使用第一个极坐标系。
     public var polarIndex: UInt8?
+    /// 起始刻度的角度，默认为 90 度，即圆心的正上方。0 度为圆心的正右方。
+    ///
+    /// 如下示例是 startAngle 为 45 的效果：
+    ///
+    /// http://echarts.baidu.com/gallery/editor.html?c=doc-example/polar-start-angle
+    public var startAngle: Float?
+    /// 刻度增长是否按顺时针，默认顺时针。
+    ///
+    /// 如下示例是 clockwise 为 false （逆时针）的效果：
+    ///
+    /// http://echarts.baidu.com/gallery/editor.html?c=doc-example/polar-anticlockwise
+    public var clockwise: Bool?
     /// 坐标轴类型。
-    public var type: SECAxisType?
-    /// 坐标轴名称。
-    public var name: String?
-    /// 坐标轴名称显示位置。
-    public var nameLocation: Position?
-    /// 坐标轴名称的文字样式。
-    public var nameTextStyle: TextStyle?
-    /// 坐标轴名称与轴线之间的距离。
-    public var nameGap: Float?
-    /// 坐标轴名字旋转，角度值。
-    public var nameRotate: Float?
-    /// 是否是反向坐标轴。ECharts 3 中新加。
-    public var inverse: Bool?
+    public var type: AxisType?
     /// 坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样。
     ///
     /// 类目轴中 boundaryGap 可以配置为 true 和 false。默认为 true，这时候刻度只是作为分隔线，标签和数据点都会在两个刻度之间的带(band)中间。
@@ -32,11 +55,11 @@ public struct SECRadiusAxis: Zable {
     ///
     /// boundaryGap: ['20%', '20%']
     public var boundaryGap: BoundaryGap?
-    /// 坐标轴刻度最小值。
+    /// 坐标轴刻度最大值。
     ///
-    /// 可以设置成特殊值 'dataMin'，此时取数据在该轴上的最小值作为最小刻度。
+    /// 可以设置成特殊值 'dataMax'，此时取数据在该轴上的最大值作为最大刻度。
     ///
-    /// 不设置时会自动计算最小值保证坐标轴刻度的均匀分布。
+    /// 不设置时会自动计算最大值保证坐标轴刻度的均匀分布。
     ///
     /// 在类目轴中，也可以设置为类目的序数（如类目轴 data: ['类A', '类B', '类C'] 中，序数 2 表示 '类C'。也可以设置为负数，如 -3）。
     public var min: Float?
@@ -48,7 +71,7 @@ public struct SECRadiusAxis: Zable {
     ///
     /// 在类目轴中，也可以设置为类目的序数（如类目轴 data: ['类A', '类B', '类C'] 中，序数 2 表示 '类C'。也可以设置为负数，如 -3）。
     public var max: Float?
-    /// 只在数值轴中（type: 'value'）有效。
+    /// /// 只在数值轴中（type: 'value'）有效。
     ///
     /// 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度。在双数值轴的散点图中比较有用。
     ///
@@ -67,13 +90,13 @@ public struct SECRadiusAxis: Zable {
     ///     }
     ///
     /// 只在数值轴中（type: 'value'）有效。
-    public var minInterval: Float?
+    public var minInterval: UInt8?
     /// 强制设置坐标轴分割间隔。
     ///
     /// 因为 splitNumber 是预估的值，实际根据策略计算出来的刻度可能无法达到想要的效果，这时候可以使用 interval 配合 min、max 强制设定刻度划分，一般不建议使用。
     ///
     /// 无法在类目轴中使用。在时间轴（type: 'time'）中需要传时间戳，在对数轴（type: 'log'）中需要传指数值。
-    public var interval: Float?
+    public var interval: UInt?
     /// 对数轴的底数，只在对数轴中（type: 'log'）有效。
     public var logBase: Float?
     /// 坐标轴是否是静态无法交互。
@@ -91,24 +114,54 @@ public struct SECRadiusAxis: Zable {
     ///     }
     public var triggerEvent: Bool?
     /// 坐标轴轴线相关设置。
-    public var axisLine: SECAxisLine?
+    public var axisLine: AxisLine?
     /// 坐标轴刻度相关设置。
-    public var axisTick: SECAxisTick?
+    public var axisTick: AxisTick?
     /// 坐标轴刻度标签的相关设置。
-    public var axisLabel: SECAxisLabel?
+    public var axisLabel: AxisLabel?
     /// 坐标轴在 grid 区域中的分隔线。
-    public var splitLine: SECSplitLine?
+    public var splitLine: SplitLine?
     /// 坐标轴在 grid 区域中的分隔区域，默认不显示。
-    public var splitArea: SECSplitArea?
+    public var splitArea: SplitArea?
+    /// 数据
+    public var data: [Any]?
     
     /// MARK: - Zable
     public var zlevel: Float?
     public var z: Float?
+    
+    public init() {}
 }
 
-extension SECRadiusAxis: Enumable {
+extension AngleAxis.Data: Enumable {
     public enum Enums {
-        case polarIndex(UInt8), type(SECAxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(Float), interval(Float), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), zlevel(Float), z(Float)
+        case value(String), textStyle(TextStyle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .value(value):
+                self.value = value
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            }
+        }
+    }
+}
+
+extension AngleAxis.Data: Mappable {
+    public func mapping(map: Mapper) {
+        map["value"] = value
+        map["textStyle"] = textStyle
+    }
+}
+
+extension AngleAxis: Enumable {
+    public enum Enums {
+        case polarIndex(UInt8), startAngle(Float), clockwise(Bool), type(AxisType), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Any]), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -118,20 +171,12 @@ extension SECRadiusAxis: Enumable {
             switch ele {
             case let .polarIndex(polarIndex):
                 self.polarIndex = polarIndex
+            case let .startAngle(startAngle):
+                self.startAngle = startAngle
+            case let .clockwise(clockwise):
+                self.clockwise = clockwise
             case let .type(type):
                 self.type = type
-            case let .name(name):
-                self.name = name
-            case let .nameLocation(nameLocation):
-                self.nameLocation = nameLocation
-            case let .nameTextStyle(nameTextStyle):
-                self.nameTextStyle = nameTextStyle
-            case let .nameGap(nameGap):
-                self.nameGap = nameGap
-            case let .nameRotate(nameRotate):
-                self.nameRotate = nameRotate
-            case let .inverse(inverse):
-                self.inverse = inverse
             case let .boundaryGap(boundaryGap):
                 self.boundaryGap = boundaryGap
             case let .min(min):
@@ -162,6 +207,8 @@ extension SECRadiusAxis: Enumable {
                 self.splitLine = splitLine
             case let .splitArea(splitArea):
                 self.splitArea = splitArea
+            case let .data(data):
+                self.data = data
             case let .zlevel(zlevel):
                 self.zlevel = zlevel
             case let .z(z):
@@ -171,16 +218,12 @@ extension SECRadiusAxis: Enumable {
     }
 }
 
-extension SECRadiusAxis: Mappable {
+extension AngleAxis: Mappable {
     public func mapping(map: Mapper) {
         map["polarIndex"] = polarIndex
+        map["startAngle"] = startAngle
+        map["clockwise"] = clockwise
         map["type"] = type
-        map["name"] = name
-        map["nameLocation"] = nameLocation
-        map["nameTextStyle"] = nameTextStyle
-        map["nameGap"] = nameGap
-        map["nameRotate"] = nameRotate
-        map["inverse"] = inverse
         map["boundaryGap"] = boundaryGap
         map["min"] = min
         map["max"] = max
@@ -196,6 +239,7 @@ extension SECRadiusAxis: Mappable {
         map["axisLabel"] = axisLabel
         map["splitLine"] = splitLine
         map["splitArea"] = splitArea
+        map["data"] = data
         map["zlevel"] = zlevel
         map["z"] = z
     }

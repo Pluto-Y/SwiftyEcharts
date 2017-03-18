@@ -1,5 +1,5 @@
 //
-//  SECFont.swift
+//  Font.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 30/11/2016.

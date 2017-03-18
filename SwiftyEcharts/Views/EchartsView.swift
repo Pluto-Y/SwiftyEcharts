@@ -1,5 +1,5 @@
 //
-//  SECUIEchartsViews.swift
+//  EchartsViews.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 25/11/2016.
@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-public class SECEchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
+public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
     
     public var option: Option?
     

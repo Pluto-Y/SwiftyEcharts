@@ -12,7 +12,7 @@ import SwiftyEcharts
 class BaseDemoController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var menuTableView: UITableView!
-    var echartsView: SECEchartsView!
+    var echartsView: EchartsView!
     var option: Option! {
         didSet {
             echartsView.option = option
@@ -40,7 +40,7 @@ class BaseDemoController: UIViewController, UITableViewDelegate, UITableViewData
         line.backgroundColor = UIColor(red: 239/255.0, green: 239/255.0, blue: 245/255.0, alpha: 1.0)
         self.view.addSubview(line)
         
-        echartsView = SECEchartsView(frame: CGRect(x: 0, y: height - 299, width: width, height: 300))
+        echartsView = EchartsView(frame: CGRect(x: 0, y: height - 299, width: width, height: 300))
         self.view.addSubview(echartsView!)
         
         Mapper.ignoreNil = true

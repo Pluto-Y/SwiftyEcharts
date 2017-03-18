@@ -1,5 +1,5 @@
 //
-//  SECSplitArea.swift
+//  SplitArea.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 06/02/2017.
@@ -7,7 +7,7 @@
 //
 
 /// 分割区域
-public struct SECSplitArea: Displayable {
+public struct SplitArea: Displayable {
     
     public var show: Bool?
     public var interval: UInt?
@@ -16,7 +16,7 @@ public struct SECSplitArea: Displayable {
     public init() { }
 }
 
-extension SECSplitArea: Enumable {
+extension SplitArea: Enumable {
     public enum Enums {
         case show(Bool), interval(UInt), areaStyle(AreaStyle)
     }
@@ -37,7 +37,7 @@ extension SECSplitArea: Enumable {
     }
 }
 
-extension SECSplitArea: Mappable {
+extension SplitArea: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["interval"] = interval

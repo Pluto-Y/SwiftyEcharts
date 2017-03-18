@@ -148,7 +148,7 @@ public struct PiecewiseVisualMap: VisualMap, Displayable, Borderable, Colorful, 
     /// visualMap 组件离容器下侧的距离。
     public var bottom: Position?
     /// 如何放置 visualMap 组件，水平（'horizontal'）或者竖直（'vertical'）。
-    public var orient: SECOrient?
+    public var orient: Orient?
     /// visualMap-piecewise内边距，单位px，默认各方向内边距为5，接受数组分别设定上右下左边距。
     /// 使用示例：
     ///
@@ -163,7 +163,7 @@ public struct PiecewiseVisualMap: VisualMap, Displayable, Borderable, Colorful, 
     ///          5,  // 下
     ///          10, // 左
     ///      ]
-    public var padding: SECPadding?
+    public var padding: Padding?
     /// 背景色。
     public var backgroundColor: Color?
     /// 边框颜色。
@@ -187,7 +187,7 @@ public struct PiecewiseVisualMap: VisualMap, Displayable, Borderable, Colorful, 
 
 extension PiecewiseVisualMap: Enumable {
     public enum Enums {
-        case splitNumber(Int), pieces([Jsonable]), min(Float), max(Float), minOpen(Bool), maxOpen(Bool), selectedMode(SelectedMode), inverse(Bool), precision(UInt), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), showLabel(Bool), itemGap(Float), itemSymbol(Symbol), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(VisualMapController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(SECOrient), padding(SECPadding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
+        case splitNumber(Int), pieces([Jsonable]), min(Float), max(Float), minOpen(Bool), maxOpen(Bool), selectedMode(SelectedMode), inverse(Bool), precision(UInt), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), showLabel(Bool), itemGap(Float), itemSymbol(Symbol), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(VisualMapController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(Orient), padding(Padding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
     }
     
     public typealias ContentEnum = Enums

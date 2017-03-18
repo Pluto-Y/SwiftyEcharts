@@ -28,11 +28,11 @@ public struct ThemeRiverOptions {
             .legend(Legend(
                 .data(["DQ", "TY", "SS", "QG", "SY", "DD"])
                 )),
-            .singleAxis(SECSingleAxis(
-                .axisTick(SECAxisTick()),
-                .axisLabel(SECAxisLabel()),
+            .singleAxis(SingleAxis(
+                .axisTick(AxisTick()),
+                .axisLabel(AxisLabel()),
                 .type(.time),
-                .splitLine(SECSplitLine(
+                .splitLine(SplitLine(
                     .show(true),
                     .lineStyle(LineStyle(
                         .type(.dashed),
@@ -158,7 +158,7 @@ public struct ThemeRiverOptions {
             }
         }
         return Option(
-            .singleAxis(SECSingleAxis(
+            .singleAxis(SingleAxis(
                 .max("dataMax")
                 )),
             .series([

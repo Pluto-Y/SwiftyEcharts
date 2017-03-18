@@ -29,12 +29,12 @@ public struct FunnelOptions {
                 .show(true),
                 .orient(.vertical),
                 .top(.center),
-                .feature(SECTFeature(
-                    .dataView(SECTFDataView(
+                .feature(ToolboxFeature(
+                    .dataView(ToolboxFeatureDataView(
                         .readOnly(false)
                         )),
-                    .restore(SECTFRestore()),
-                    .saveAsImage(SECTFSaveAsImage())
+                    .restore(ToolboxFeatureRestore()),
+                    .saveAsImage(ToolboxFeatureSaveAsImage())
                     ))
                 )),
             .legend(Legend(
@@ -107,12 +107,12 @@ public struct FunnelOptions {
                 .formatter(.string("{a} <br/>{b} : {c}%"))
                 )),
             .toolbox(Toolbox(
-                .feature(SECTFeature(
-                    .dataView(SECTFDataView(
+                .feature(ToolboxFeature(
+                    .dataView(ToolboxFeatureDataView(
                         .readOnly(false)
                         )),
-                    .restore(SECTFRestore()),
-                    .saveAsImage(SECTFSaveAsImage())
+                    .restore(ToolboxFeatureRestore()),
+                    .saveAsImage(ToolboxFeatureSaveAsImage())
                     ))
                 )),
             .legend(Legend(
@@ -203,12 +203,12 @@ public struct FunnelOptions {
             .toolbox(Toolbox(
                 .orient(.vertical),
                 .top(.center),
-                .feature(SECTFeature(
-                    .dataView(SECTFDataView(
+                .feature(ToolboxFeature(
+                    .dataView(ToolboxFeatureDataView(
                         .readOnly(false)
                         )),
-                    .restore(SECTFRestore()),
-                    .saveAsImage(SECTFSaveAsImage())
+                    .restore(ToolboxFeatureRestore()),
+                    .saveAsImage(ToolboxFeatureSaveAsImage())
                     ))
                 )),
             .legend(Legend(
@@ -287,12 +287,12 @@ public struct FunnelOptions {
                 .formatter(.string("{a} <br/>{b} : {c}%"))
                 )),
             .toolbox(Toolbox(
-                .feature(SECTFeature(
-                    .dataView(SECTFDataView(
+                .feature(ToolboxFeature(
+                    .dataView(ToolboxFeatureDataView(
                         .readOnly(false)
                         )),
-                    .restore(SECTFRestore()),
-                    .saveAsImage(SECTFSaveAsImage())
+                    .restore(ToolboxFeatureRestore()),
+                    .saveAsImage(ToolboxFeatureSaveAsImage())
                     ))
                 )),
             .legend(Legend(

@@ -110,15 +110,15 @@ public struct GaugeSerie: Serie, Animatable {
     public init() { }
 }
 
-public typealias SECGSAxisLine = GaugeSerie.AxisLine
-public typealias SECGSSplitLine = GaugeSerie.SplitLine
-public typealias SECGSAxisTick = GaugeSerie.AxisTick
-public typealias SECGSAxisLabel = GaugeSerie.AxisLabel
-public typealias SECGSPointer = GaugeSerie.Pointer
-public typealias SECGSTitle = GaugeSerie.Title
-public typealias SECGSDetail = GaugeSerie.Detail
+public typealias GaugeSerieAxisLine = GaugeSerie.AxisLine
+public typealias GaugeSerieSplitLine = GaugeSerie.SplitLine
+public typealias GaugeSerieAxisTick = GaugeSerie.AxisTick
+public typealias GaugeSerieAxisLabel = GaugeSerie.AxisLabel
+public typealias GaugeSeriePointer = GaugeSerie.Pointer
+public typealias GaugeSerieTitle = GaugeSerie.Title
+public typealias GaugeSerieDetail = GaugeSerie.Detail
 
-extension SECGSAxisLine: Enumable {
+extension GaugeSerieAxisLine: Enumable {
     public enum Enums {
         case show(Bool), lineStyle(LineStyle)
     }
@@ -137,14 +137,14 @@ extension SECGSAxisLine: Enumable {
     }
 }
 
-extension SECGSAxisLine: Mappable {
+extension GaugeSerieAxisLine: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["lineStyle"] = lineStyle
     }
 }
 
-extension SECGSSplitLine: Enumable {
+extension GaugeSerieSplitLine: Enumable {
     public enum Enums {
         case show(Bool), length(LengthValue), lineStyle(LineStyle)
     }
@@ -165,7 +165,7 @@ extension SECGSSplitLine: Enumable {
     }
 }
 
-extension SECGSSplitLine: Mappable {
+extension GaugeSerieSplitLine: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["length"] = length
@@ -173,7 +173,7 @@ extension SECGSSplitLine: Mappable {
     }
 }
 
-extension SECGSAxisTick: Enumable {
+extension GaugeSerieAxisTick: Enumable {
     public enum Enums {
         case show(Bool), splitNumber(UInt8), length(LengthValue), lineStyle(LineStyle)
     }
@@ -196,7 +196,7 @@ extension SECGSAxisTick: Enumable {
     }
 }
 
-extension SECGSAxisTick: Mappable {
+extension GaugeSerieAxisTick: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["splitNumber"] = splitNumber
@@ -205,7 +205,7 @@ extension SECGSAxisTick: Mappable {
     }
 }
 
-extension SECGSAxisLabel: Enumable {
+extension GaugeSerieAxisLabel: Enumable {
     public enum Enums {
         case show(Bool), distance(Float), formatter(Formatter), textStyle(TextStyle), color(Color)
     }
@@ -230,7 +230,7 @@ extension SECGSAxisLabel: Enumable {
     }
 }
 
-extension SECGSAxisLabel: Mappable {
+extension GaugeSerieAxisLabel: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["distance"] = distance
@@ -240,7 +240,7 @@ extension SECGSAxisLabel: Mappable {
     }
 }
 
-extension SECGSPointer: Enumable {
+extension GaugeSeriePointer: Enumable {
     public enum Enums {
         case show(Bool), length(LengthValue), width(Float)
     }
@@ -261,7 +261,7 @@ extension SECGSPointer: Enumable {
     }
 }
 
-extension SECGSPointer: Mappable {
+extension GaugeSeriePointer: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["length"] = length
@@ -269,7 +269,7 @@ extension SECGSPointer: Mappable {
     }
 }
 
-extension SECGSTitle: Enumable {
+extension GaugeSerieTitle: Enumable {
     public enum Enums {
         case show(Bool), offsetCenter(Point), textStyle(TextStyle)
     }
@@ -290,7 +290,7 @@ extension SECGSTitle: Enumable {
     }
 }
 
-extension SECGSTitle: Mappable {
+extension GaugeSerieTitle: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["offsetCenter"] = offsetCenter
@@ -298,7 +298,7 @@ extension SECGSTitle: Mappable {
     }
 }
 
-extension SECGSDetail: Enumable {
+extension GaugeSerieDetail: Enumable {
     public enum Enums {
         case show(Bool), width(Float), height(Float), backgroundColor(Color), borderWidth(Float), borderColor(Color), offsetCenter(Point), formatter(Formatter), textStyle(TextStyle)
     }
@@ -331,7 +331,7 @@ extension SECGSDetail: Enumable {
     }
 }
 
-extension SECGSDetail: Mappable {
+extension GaugeSerieDetail: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["width"] = width

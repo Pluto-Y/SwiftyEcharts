@@ -52,7 +52,7 @@ public struct BoxplotSerie: Serie, Zable {
     /// - 'vertical'：竖直排布各个 box。
     ///
     /// 默认值根据当前坐标系状况决定：如果 category 轴为横轴，则水平排布；否则竖直排布；如果没有 category 轴则水平排布。
-    public var layout: SECOrient?
+    public var layout: Orient?
     /// box 的宽度的上下限。数组的意思是：[min, max]。
     ///
     /// 可以是绝对数值，如 [7, 50]，也可以是百分比，如 ['40%', '90%']。百分比的意思是，最大可能宽度（bandWidth）的百分之多少。
@@ -153,7 +153,7 @@ extension BoxplotSerieData: Mappable {
 
 extension BoxplotSerie: Enumable {
     public enum Enums {
-        case coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(SECOrient), boxWidth([Float]), itemStyle(ItemStyle), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Float)
+        case coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(Orient), boxWidth([Float]), itemStyle(ItemStyle), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Float)
     }
     
     public typealias ContentEnum = Enums

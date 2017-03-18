@@ -1,5 +1,5 @@
 //
-//  SECAxisLabel.swift
+//  AxisLabel.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 06/02/2017.
@@ -7,7 +7,7 @@
 //
 
 /// 坐标轴刻度标签的相关设置。
-public struct SECAxisLabel: Textful, Displayable, Formatted {
+public struct AxisLabel: Textful, Displayable, Formatted {
     
     /// 是否显示刻度标签。
     public var show: Bool?
@@ -28,7 +28,7 @@ public struct SECAxisLabel: Textful, Displayable, Formatted {
     public init() { }
 }
 
-extension SECAxisLabel: Enumable {
+extension AxisLabel: Enumable {
     public enum Enums {
         case show(Bool), interval(UInt), inside(Bool), rotate(Float), margin(Float), formatter(Formatter), textStyle(TextStyle)
     }
@@ -57,7 +57,7 @@ extension SECAxisLabel: Enumable {
     }
 }
 
-extension SECAxisLabel: Mappable {
+extension AxisLabel: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
         map["interval"] = interval

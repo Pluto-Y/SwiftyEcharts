@@ -7,7 +7,7 @@
 //
 
 /// 指定窗口打开主标题超链接。
-public enum SECTarget: Jsonable, CustomStringConvertible {
+public enum Target: Jsonable, CustomStringConvertible {
     
     ///  当前窗口打开
     case tself
@@ -29,7 +29,7 @@ public enum SECTarget: Jsonable, CustomStringConvertible {
 /// - all: 所有
 /// - verticalAndHorizontal: 垂直和水平方向
 /// - trbl: 上右下左
-public enum SECPadding: Jsonable, CustomStringConvertible {
+public enum Padding: Jsonable, CustomStringConvertible {
     case all(Float)
     case verticalAndHorizontal(Float, Float)
     case trbl(Float, Float, Float, Float)
@@ -55,7 +55,7 @@ public struct Title: Borderable, Displayable, Textful, Zable {
     /// 主标题文本超链接
     public var link: String?
     /// 指定窗口打开主标题超链接。
-    public var target: SECTarget?
+    public var target: Target?
     /// 主标题文字样式
     public var textStyle: TextStyle?
     /// 标题文本水平对齐
@@ -67,11 +67,11 @@ public struct Title: Borderable, Displayable, Textful, Zable {
     /// 副标题文本超链接
     public var sublink: String?
     /// 指定窗口打开副标题超链接
-    public var subtarget: SECTarget?
+    public var subtarget: Target?
     /// 副标题文字样式
     public var subtextStyle: TextStyle?
     /// 标题内边距
-    public var padding: SECPadding?
+    public var padding: Padding?
     /// 主副标题之间的间距
     public var itemGap: Float?
     /// 所有图形的`zlevel`值
@@ -111,7 +111,7 @@ public struct Title: Borderable, Displayable, Textful, Zable {
 
 extension Title: Enumable {
     public enum Enums {
-        case show(Bool), text(String), link(String), target(SECTarget), textStyle(TextStyle), textAlign(Align), textBaseline(VerticalAlign), subtext(String), sublink(String), subtarget(SECTarget), subtextStyle(TextStyle), padding(SECPadding), itemGap(Float), zlevel(Float), z(Float), left(Position), x(Position), top(Position), y(Position), right(Position), bottom(Position), backgroundColor(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), text(String), link(String), target(Target), textStyle(TextStyle), textAlign(Align), textBaseline(VerticalAlign), subtext(String), sublink(String), subtarget(Target), subtextStyle(TextStyle), padding(Padding), itemGap(Float), zlevel(Float), z(Float), left(Position), x(Position), top(Position), y(Position), right(Position), bottom(Position), backgroundColor(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     
     public typealias ContentEnum = Enums

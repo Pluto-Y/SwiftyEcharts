@@ -166,10 +166,10 @@ public struct MapOptions {
                 .orient(.vertical),
                 .left(.right),
                 .top(.center),
-                .feature(SECTFeature(
-                    .dataView(SECTFDataView(.readOnly(false))),
-                    .restore(SECTFRestore()),
-                    .saveAsImage(SECTFSaveAsImage())
+                .feature(ToolboxFeature(
+                    .dataView(ToolboxFeatureDataView(.readOnly(false))),
+                    .restore(ToolboxFeatureRestore()),
+                    .saveAsImage(ToolboxFeatureSaveAsImage())
                     ))
                 )),
             .series([

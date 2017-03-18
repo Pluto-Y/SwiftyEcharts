@@ -1,25 +1,26 @@
 //
-//  SECAxisLine.swift
+//  SplitLine.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 06/02/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-/// 坐标轴轴线相关设置。
-public struct SECAxisLine: Displayable, Line {
+/// 分割线
+public struct SplitLine: Displayable, Line {
+    /// 是否显示分隔线。
     public var show: Bool?
-    /// X 轴或者 Y 轴的轴线是否在另一个轴的 0 刻度上，只有在另一个轴为数值轴且包含 0 刻度时有效。
-    public var onZero: Bool?
+    /// 分隔线的显示间隔
+    public var interval: UInt?
+    /// 分割线的样式
     public var lineStyle: LineStyle?
     
     public init() { }
-    
 }
 
-extension SECAxisLine: Enumable {
+extension SplitLine: Enumable {
     public enum Enums {
-        case show(Bool), onZero(Bool), lineStyle(LineStyle)
+        case show(Bool), interval(UInt), lineStyle(LineStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -29,8 +30,8 @@ extension SECAxisLine: Enumable {
             switch ele {
             case let .show(show):
                 self.show = show
-            case let .onZero(onZero):
-                self.onZero = onZero
+            case let .interval(interval):
+                self.interval = interval
             case let .lineStyle(lineStyle):
                 self.lineStyle = lineStyle
             }
@@ -38,10 +39,10 @@ extension SECAxisLine: Enumable {
     }
 }
 
-extension SECAxisLine: Mappable {
+extension SplitLine: Mappable {
     public func mapping(map: Mapper) {
         map["show"] = show
-        map["onZero"] = onZero
+        map["interval"] = interval
         map["lineStyle"] = lineStyle
     }
 }

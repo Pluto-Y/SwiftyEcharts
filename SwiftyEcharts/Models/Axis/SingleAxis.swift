@@ -1,12 +1,12 @@
 //
-//  SECSingleAxis.swift
+//  SingleAxis.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 09/02/2017.
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SECSingleAxis: Zable {
+public struct SingleAxis: Zable {
     
     public struct Data {
         public var value: String?
@@ -25,8 +25,8 @@ public struct SECSingleAxis: Zable {
     public var bottom: Position? 
     public var width: Float? 
     public var height: Float? 
-    public var orient: SECOrient? 
-    public var type: SECAxisType? 
+    public var orient: Orient? 
+    public var type: AxisType? 
     public var name: String? 
     public var nameLocation: NameLocation? 
     public var nameTextStyle: TextStyle? 
@@ -43,19 +43,19 @@ public struct SECSingleAxis: Zable {
     public var logBase: Float? 
     public var silent: Bool? 
     public var triggerEvent: Bool? 
-    public var axisLine: SECAxisLine? 
-    public var axisTick: SECAxisTick? 
-    public var axisLabel: SECAxisLabel? 
-    public var splitLine: SECSplitLine? 
-    public var splitArea: SECSplitArea? 
+    public var axisLine: AxisLine? 
+    public var axisTick: AxisTick? 
+    public var axisLabel: AxisLabel? 
+    public var splitLine: SplitLine? 
+    public var splitArea: SplitArea? 
     public var data: [Any]?
     
     public init() {}
 }
 
-extension SECSingleAxis: Enumable {
+extension SingleAxis: Enumable {
 	public enum Enums {
-		case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float), orient(SECOrient), type(SECAxisType), name(String), nameLocation(NameLocation), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Jsonable), max(Jsonable), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Any])
+		case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float), orient(Orient), type(AxisType), name(String), nameLocation(NameLocation), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Jsonable), max(Jsonable), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Any])
 	}
 
 	public typealias ContentEnum = Enums
@@ -132,7 +132,7 @@ extension SECSingleAxis: Enumable {
 	}
 }
 
-extension SECSingleAxis: Mappable {
+extension SingleAxis: Mappable {
 	public func mapping(map: Mapper) {
 		map["zlevel"] = zlevel
 		map["z"] = z
@@ -169,7 +169,7 @@ extension SECSingleAxis: Mappable {
 	}
 }
 
-extension SECSingleAxis.Data: Enumable {
+extension SingleAxis.Data: Enumable {
 	public enum Enums {
 		case value(String), textStyle(TextStyle)
 	}
@@ -188,7 +188,7 @@ extension SECSingleAxis.Data: Enumable {
 	}
 }
 
-extension SECSingleAxis.Data: Mappable {
+extension SingleAxis.Data: Mappable {
 	public func mapping(map: Mapper) {
 		map["value"] = value
 		map["textStyle"] = textStyle

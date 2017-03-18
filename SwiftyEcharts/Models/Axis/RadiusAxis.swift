@@ -1,59 +1,21 @@
 //
-//  SECAxis.swift
+//  RadiusAxis.swift
 //  SwiftyEcharts
 //
-//  Created by Pluto Y on 06/12/2016.
-//  Copyright © 2016 com.pluto-y. All rights reserved.
+//  Created by Pluto Y on 05/02/2017.
+//  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-
-
-/// 坐标轴的定义
-public struct SECAxis: Zable {
-
-    /// 类目数据，在类目轴（type: 'category'）中有效。
-    /// 
-    /// 示例：
-    ///
-    ///     // 所有类目名称列表
-    ///     data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-    ///     // 每一项也可以是具体的配置项，此时取配置项中的 `value` 为类目名
-    ///     data: [{
-    ///         value: '周一',
-    ///         // 突出周一
-    ///         textStyle: {
-    ///             fontSize: 20,
-    ///             color: 'red'
-    ///         }
-    ///     }, '周二', '周三', '周四', '周五', '周六', '周日']
-    public struct Data {
-        /// 单个类目名称。
-        public var value: String?
-        /// 类目标签的文字样式。
-        public var textStyle: TextStyle?
-        
-        public init(_ value: String, _ textStyle: TextStyle? = nil) {
-            self.value = value
-            self.textStyle = textStyle
-        }
-        
-        public init() { }
-        
-    }
-    
-    /// 坐标轴所在的 grid 的索引，默认位于第一个 grid。
-    public var gridIndex: UInt?
-    /// 坐标轴的位置。
-    public var position: Position?
-    /// 坐标轴相对于默认位置的偏移，在相同的 position 上有多个 X 轴的时候有用。
-    public var offset: Float?
+/// 极坐标系的径向轴。
+public struct RadiusAxis: Zable {
+    /// 径向轴所在的极坐标系的索引，默认使用第一个极坐标系。
+    public var polarIndex: UInt8?
     /// 坐标轴类型。
-    public var type: SECAxisType?
-    /// 坐标轴名称显示位置。
+    public var type: AxisType?
+    /// 坐标轴名称。
     public var name: String?
     /// 坐标轴名称显示位置。
-    /// 可选: 'start', 'middle', 'end'
-    public var nameLocation: String? // FIXME: ??? 是否需要添加枚举
+    public var nameLocation: Position?
     /// 坐标轴名称的文字样式。
     public var nameTextStyle: TextStyle?
     /// 坐标轴名称与轴线之间的距离。
@@ -65,42 +27,59 @@ public struct SECAxis: Zable {
     /// 坐标轴两边留白策略，类目轴和非类目轴的设置和表现不一样。
     ///
     /// 类目轴中 boundaryGap 可以配置为 true 和 false。默认为 true，这时候刻度只是作为分隔线，标签和数据点都会在两个刻度之间的带(band)中间。
-    /// 非类目轴，包括时间，数值，对数轴，boundaryGap是一个两个值的数组，分别表示数据最小值和最大值的延伸范围，可以直接设置数值或者相对的百分比，在设置 min 和 max 后无效。
     ///
-    /// 示例:
+    /// 非类目轴，包括时间，数值，对数轴，boundaryGap是一个两个值的数组，分别表示数据最小值和最大值的延伸范围，可以直接设置数值或者相对的百分比，在设置 min 和 max 后无效。 示例：
     ///
-    ///         boundaryGap: ['20%', '20%']
+    /// boundaryGap: ['20%', '20%']
     public var boundaryGap: BoundaryGap?
-    /// 坐标轴刻度最小值，在类目轴中无效。
+    /// 坐标轴刻度最小值。
+    ///
     /// 可以设置成特殊值 'dataMin'，此时取数据在该轴上的最小值作为最小刻度。
+    ///
     /// 不设置时会自动计算最小值保证坐标轴刻度的均匀分布。
+    ///
+    /// 在类目轴中，也可以设置为类目的序数（如类目轴 data: ['类A', '类B', '类C'] 中，序数 2 表示 '类C'。也可以设置为负数，如 -3）。
     public var min: Float?
-    /// 坐标轴刻度最大值，在类目轴中无效。
+    /// 坐标轴刻度最大值。
+    ///
     /// 可以设置成特殊值 'dataMax'，此时取数据在该轴上的最大值作为最大刻度。
+    ///
     /// 不设置时会自动计算最大值保证坐标轴刻度的均匀分布。
+    ///
+    /// 在类目轴中，也可以设置为类目的序数（如类目轴 data: ['类A', '类B', '类C'] 中，序数 2 表示 '类C'。也可以设置为负数，如 -3）。
     public var max: Float?
     /// 只在数值轴中（type: 'value'）有效。
+    ///
     /// 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度。在双数值轴的散点图中比较有用。
+    ///
     /// 在设置 min 和 max 之后该配置项无效。
     public var scale: Bool?
     /// 坐标轴的分割段数，需要注意的是这个分割段数只是个预估值，最后实际显示的段数会在这个基础上根据分割后坐标轴刻度显示的易读程度作调整。
-    /// - Note: 在类目轴中无效。
-    public var spliteNumber: UInt?
+    ///
+    /// 在类目轴中无效。
+    public var splitNumber: UInt8?
     /// 自动计算的坐标轴最小间隔大小。
+    ///
     /// 例如可以设置成1保证坐标轴分割刻度显示成整数。
-    /// - Note: 只在数值轴中（type: 'value'）有效。
-    public var minInterval: UInt?
+    ///
+    ///     {
+    ///         minInterval: 1
+    ///     }
+    ///
+    /// 只在数值轴中（type: 'value'）有效。
+    public var minInterval: Float?
     /// 强制设置坐标轴分割间隔。
+    ///
     /// 因为 splitNumber 是预估的值，实际根据策略计算出来的刻度可能无法达到想要的效果，这时候可以使用 interval 配合 min、max 强制设定刻度划分，一般不建议使用。
+    ///
     /// 无法在类目轴中使用。在时间轴（type: 'time'）中需要传时间戳，在对数轴（type: 'log'）中需要传指数值。
-    public var interval: Int?
+    public var interval: Float?
     /// 对数轴的底数，只在对数轴中（type: 'log'）有效。
     public var logBase: Float?
     /// 坐标轴是否是静态无法交互。
     public var silent: Bool?
     /// 坐标轴的标签是否响应和触发鼠标事件，默认不响应。
     /// 事件参数如下：
-    ///
     ///     {
     ///         // 组件类型，xAxis, yAxis, radiusAxis, angleAxis
     ///         // 对应组件类型都会有一个属性表示组件的 index，例如 xAxis 就是 xAxisIndex
@@ -112,32 +91,24 @@ public struct SECAxis: Zable {
     ///     }
     public var triggerEvent: Bool?
     /// 坐标轴轴线相关设置。
-    public var axisLine: SECAxisLine?
+    public var axisLine: AxisLine?
     /// 坐标轴刻度相关设置。
-    public var axisTick: SECAxisTick?
+    public var axisTick: AxisTick?
     /// 坐标轴刻度标签的相关设置。
-    public var axisLabel: SECAxisLabel?
+    public var axisLabel: AxisLabel?
     /// 坐标轴在 grid 区域中的分隔线。
-    public var splitLine: SECSplitLine?
+    public var splitLine: SplitLine?
     /// 坐标轴在 grid 区域中的分隔区域，默认不显示。
-    public var splitArea: SECSplitArea?
-    /// 类目数据，在类目轴（type: 'category'）中有效。
-    public var data: [Jsonable]?
-    /// X 轴所有图形的 zlevel 值。
-    /// zlevel用于 Canvas 分层，不同zlevel值的图形会放置在不同的 Canvas 中，Canvas 分层是一种常见的优化手段。我们可以把一些图形变化频繁（例如有动画）的组件设置成一个单独的zlevel。需要注意的是过多的 Canvas 会引起内存开销的增大，在手机端上需要谨慎使用以防崩溃。
-    /// zlevel 大的 Canvas 会放在 zlevel 小的 Canvas 的上面。
+    public var splitArea: SplitArea?
+    
+    /// MARK: - Zable
     public var zlevel: Float?
-    /// X 轴组件的所有图形的z值。控制图形的前后顺序。z值小的图形会被z值大的图形覆盖。
-    /// z相比zlevel优先级更低，而且不会创建新的 Canvas。
     public var z: Float?
-    
-    public init() { }
-    
 }
 
-extension SECAxis.Data: Enumable {
+extension RadiusAxis: Enumable {
     public enum Enums {
-        case value(String), textStyle(TextStyle)
+        case polarIndex(UInt8), type(AxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(Float), interval(Float), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -145,44 +116,14 @@ extension SECAxis.Data: Enumable {
     public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
-            case let .value(value):
-                self.value = value
-            case let .textStyle(textStyle):
-                self.textStyle = textStyle
-            }
-        }
-    }
-}
-
-extension SECAxis.Data: Mappable {
-    public func mapping(map: Mapper) {
-        map["value"] = value
-        map["textStyle"] = textStyle
-    }
-}
-
-extension SECAxis: Enumable {
-    public enum Enums {
-        case gridIndex(UInt), position(Position), offset(Float), type(SECAxisType), name(String), nameLocation(String), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(SECAxisLine), axisTick(SECAxisTick), axisLabel(SECAxisLabel), splitLine(SECSplitLine), splitArea(SECSplitArea), data([Jsonable]), zlevel(Float), z(Float)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .gridIndex(gridIndex):
-                self.gridIndex = gridIndex
-            case let .position(position):
-                self.position = position
-            case let .offset(offset):
-                self.offset = offset
+            case let .polarIndex(polarIndex):
+                self.polarIndex = polarIndex
             case let .type(type):
                 self.type = type
             case let .name(name):
                 self.name = name
-            case let .nameLocation(nameLocaltion):
-                self.nameLocation = nameLocaltion
+            case let .nameLocation(nameLocation):
+                self.nameLocation = nameLocation
             case let .nameTextStyle(nameTextStyle):
                 self.nameTextStyle = nameTextStyle
             case let .nameGap(nameGap):
@@ -199,8 +140,8 @@ extension SECAxis: Enumable {
                 self.max = max
             case let .scale(scale):
                 self.scale = scale
-            case let .spliteNumber(spliteNumber):
-                self.spliteNumber = spliteNumber
+            case let .splitNumber(splitNumber):
+                self.splitNumber = splitNumber
             case let .minInterval(minInterval):
                 self.minInterval = minInterval
             case let .interval(interval):
@@ -221,8 +162,6 @@ extension SECAxis: Enumable {
                 self.splitLine = splitLine
             case let .splitArea(splitArea):
                 self.splitArea = splitArea
-            case let .data(data):
-                self.data = data
             case let .zlevel(zlevel):
                 self.zlevel = zlevel
             case let .z(z):
@@ -232,11 +171,9 @@ extension SECAxis: Enumable {
     }
 }
 
-extension SECAxis: Mappable {
+extension RadiusAxis: Mappable {
     public func mapping(map: Mapper) {
-        map["gridIndex"] = gridIndex
-        map["position"] = position
-        map["offset"] = offset
+        map["polarIndex"] = polarIndex
         map["type"] = type
         map["name"] = name
         map["nameLocation"] = nameLocation
@@ -248,7 +185,7 @@ extension SECAxis: Mappable {
         map["min"] = min
         map["max"] = max
         map["scale"] = scale
-        map["spliteNumber"] = spliteNumber
+        map["splitNumber"] = splitNumber
         map["minInterval"] = minInterval
         map["interval"] = interval
         map["logBase"] = logBase
@@ -259,7 +196,6 @@ extension SECAxis: Mappable {
         map["axisLabel"] = axisLabel
         map["splitLine"] = splitLine
         map["splitArea"] = splitArea
-        map["data"] = data
         map["zlevel"] = zlevel
         map["z"] = z
     }

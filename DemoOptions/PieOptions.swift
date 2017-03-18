@@ -298,17 +298,17 @@ public struct PieOptions {
             .toolbox(Toolbox(
                 .show(true),
                 .feature(Toolbox.Feature(
-                    .dataView(SECTFDataView(
+                    .dataView(ToolboxFeatureDataView(
                         .show(true),
                         .readOnly(false)
                         )),
-                    .magicType(SECTFMagicType(
+                    .magicType(ToolboxFeatureMagicType(
                         .show(true)
                         )),
-                    .restore(SECTFRestore(
+                    .restore(ToolboxFeatureRestore(
                         .show(true)
                         )),
-                    .saveAsImage(SECTFSaveAsImage(
+                    .saveAsImage(ToolboxFeatureSaveAsImage(
                         .show(true)
                         ))
                     ))

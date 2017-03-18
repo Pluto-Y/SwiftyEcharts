@@ -10,11 +10,11 @@ public struct Option: Textful, Animatable {
     public var title: Title?
     public var legend: Legend?
     public var grid: OneOrMore<Grid>?
-    public var xAxis: OneOrMore<SECAxis>?
-    public var yAxis: OneOrMore<SECAxis>?
+    public var xAxis: OneOrMore<Axis>?
+    public var yAxis: OneOrMore<Axis>?
     public var polar: Polar?
-    public var radiusAxis: [SECRadiusAxis]?
-    public var angleAxis: [SECAngleAxis]?
+    public var radiusAxis: [RadiusAxis]?
+    public var angleAxis: [AngleAxis]?
     public var radar: OneOrMore<Radar>?
     public var dataZoom: [DataZoom]?
     public var visualMap: VisualMap?
@@ -23,8 +23,8 @@ public struct Option: Textful, Animatable {
     public var brush: Brush?
     public var geo: Geo?
     public var parallel: Parallel?
-    public var parallelAxis: [SECParallelAxis]?
-    public var singleAxis: OneOrMore<SECSingleAxis>?
+    public var parallelAxis: [ParallelAxis]?
+    public var singleAxis: OneOrMore<SingleAxis>?
     public var timeline: Timeline?
     public var graphic: [Graphic]?
     public var series: [Serie]?
@@ -77,7 +77,7 @@ public struct Option: Textful, Animatable {
 
 extension Option: Enumable {
     public enum Enums {
-        case title(Title), legend(Legend), grid(Grid), grids([Grid]), xAxis(SECAxis), xAxises([SECAxis]), yAxis(SECAxis), yAxises([SECAxis]), polar(Polar), radiusAxis([SECRadiusAxis]), angleAxis([SECAngleAxis]), radar(Radar), radars([Radar]), dataZoom([DataZoom]), visualMap(VisualMap), tooltip(Tooltip), toolbox(Toolbox), brush(Brush), geo(Geo), parallel(Parallel), parallelAxis([SECParallelAxis]), singleAxis(SECSingleAxis), singleAxises([SECSingleAxis]), timeline(Timeline), graphic([Graphic]), series([Serie]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case title(Title), legend(Legend), grid(Grid), grids([Grid]), xAxis(Axis), xAxises([Axis]), yAxis(Axis), yAxises([Axis]), polar(Polar), radiusAxis([RadiusAxis]), angleAxis([AngleAxis]), radar(Radar), radars([Radar]), dataZoom([DataZoom]), visualMap(VisualMap), tooltip(Tooltip), toolbox(Toolbox), brush(Brush), geo(Geo), parallel(Parallel), parallelAxis([ParallelAxis]), singleAxis(SingleAxis), singleAxises([SingleAxis]), timeline(Timeline), graphic([Graphic]), series([Serie]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

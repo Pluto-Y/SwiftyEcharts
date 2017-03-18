@@ -58,7 +58,7 @@ public struct Toolbox: Displayable, Zable {
     /// 是否显示工具栏组件。
     public var show: Bool?
     /// 工具栏 icon 的布局朝向。
-    public var orient: SECOrient?
+    public var orient: Orient?
     /// 工具栏 icon 的大小。
     public var itemSize: Float?
     /// 工具栏 icon 每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
@@ -914,18 +914,18 @@ extension Toolbox.Feature.Brush: Mappable {
     }
 }
 
-public typealias SECTFeature = Toolbox.Feature
-public typealias SECTFDataZoom = Toolbox.Feature.DataZoom
-public typealias SECTFDataView = Toolbox.Feature.DataView
-public typealias SECTFMagicType = Toolbox.Feature.MagicType
-public typealias SECTFRestore = Toolbox.Feature.Restore
-public typealias SECTFSaveAsImage = Toolbox.Feature.SaveAsImage
-public typealias SECTFBrush = Toolbox.Feature.Brush
+public typealias ToolboxFeature = Toolbox.Feature
+public typealias ToolboxFeatureDataZoom = Toolbox.Feature.DataZoom
+public typealias ToolboxFeatureDataView = Toolbox.Feature.DataView
+public typealias ToolboxFeatureMagicType = Toolbox.Feature.MagicType
+public typealias ToolboxFeatureRestore = Toolbox.Feature.Restore
+public typealias ToolboxFeatureSaveAsImage = Toolbox.Feature.SaveAsImage
+public typealias ToolboxFeatureBrush = Toolbox.Feature.Brush
 
 
 extension Toolbox.Feature: Enumable {
     public enum Enums {
-        case saveAsImage(SECTFSaveAsImage), restore(SECTFRestore), dataView(SECTFDataView), dataZoom(SECTFDataZoom), magicType(SECTFMagicType), brush(SECTFBrush)
+        case saveAsImage(ToolboxFeatureSaveAsImage), restore(ToolboxFeatureRestore), dataView(ToolboxFeatureDataView), dataZoom(ToolboxFeatureDataZoom), magicType(ToolboxFeatureMagicType), brush(ToolboxFeatureBrush)
     }
     
     public typealias ContentEnum = Enums
@@ -964,7 +964,7 @@ extension Toolbox.Feature: Mappable {
 
 extension Toolbox: Enumable {
     public enum Enums {
-        case show(Bool), orient(SECOrient), itemSize(Float), itemGap(Float), showTitle(Bool), feature(SECTFeature), iconStyle(IconStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float)
+        case show(Bool), orient(Orient), itemSize(Float), itemGap(Float), showTitle(Bool), feature(ToolboxFeature), iconStyle(IconStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float)
     }
     
     public typealias ContentEnum = Enums

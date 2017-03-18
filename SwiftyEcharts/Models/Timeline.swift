@@ -287,9 +287,9 @@ public struct Timeline: Displayable, Symbolized, Zable {
     ///         5,  // 下
     ///         10, // 左
     ///     ]
-    public var padding: SECPadding?
+    public var padding: Padding?
     /// 摆放方式
-    public var orient: SECOrient?
+    public var orient: Orient?
     /// 是否反向放置 timeline，反向则首位颠倒过来。
     public var inverse: Bool?
     /// timeline标记的图形。
@@ -538,7 +538,7 @@ extension Timeline.Data: Mappable {
 
 extension Timeline: Enumable {
     public enum Enums {
-        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), padding(SECPadding), orient(SECOrient), inverse(Bool), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), lineStyle(LineStyle), itemStyle(ItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([Jsonable])
+        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), padding(Padding), orient(Orient), inverse(Bool), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), lineStyle(LineStyle), itemStyle(ItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([Jsonable])
     }
     
     public typealias ContentEnum = Enums

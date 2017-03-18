@@ -146,7 +146,7 @@ public struct ContinuousVisualMap: VisualMap, Displayable, Borderable, Colorful,
     /// bottom 的值可以是像 20 这样的具体像素值，可以是像 '20%' 这样相对于容器高宽的百分比。
     public var bottom: Position?
     /// 如何放置 visualMap 组件，水平（'horizontal'）或者竖直（'vertical'）。
-    public var orient: SECOrient?
+    public var orient: Orient?
     /// visualMap-continuous内边距，单位px，默认各方向内边距为5，接受数组分别设定上右下左边距。
     ///
     /// 使用示例：
@@ -162,7 +162,7 @@ public struct ContinuousVisualMap: VisualMap, Displayable, Borderable, Colorful,
     ///         5,  // 下
     ///         10, // 左
     ///     ]
-    public var padding: SECPadding?
+    public var padding: Padding?
     /// 背景色。
     public var backgroundColor: Color?
     /// 边框颜色。
@@ -190,7 +190,7 @@ public struct ContinuousVisualMap: VisualMap, Displayable, Borderable, Colorful,
 
 extension ContinuousVisualMap: Enumable {
     public enum Enums {
-        case min(Float), max(Float), range(Range), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(VisualMapController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(SECOrient), padding(SECPadding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
+        case min(Float), max(Float), range(Range), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(VisualMapController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(Orient), padding(Padding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
     }
     
     public typealias ContentEnum = Enums

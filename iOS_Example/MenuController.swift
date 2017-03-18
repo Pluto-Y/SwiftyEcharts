@@ -11,7 +11,7 @@ import SwiftyEcharts
 
 class MenuController : UITableViewController {
 
-    var echartsView: SECEchartsView?
+    var echartsView: EchartsView?
     
     override func viewDidLoad() {
         super.viewDidLoad()

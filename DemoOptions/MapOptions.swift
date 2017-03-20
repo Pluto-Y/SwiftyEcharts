@@ -217,9 +217,37 @@ public struct MapOptions {
     
     // MARK: Map Locate
     /// 地址: http://echarts.baidu.com/demo.html#map-locate
-    static func mapLocateOption() -> Option {
-        // TODO: 添加实现
+    static func mapLocateOption() -> Option { // FIXME: 缺少动态效果
+//        let location: [[String: Jsonable]] = [[
+//            "name": "上海",
+//            "coord": [121.472644, 31.231706]
+//            ], [
+//                "name": "北京",
+//                "coord": [116.405285, 39.904989]
+//            ], [
+//                "name": "广东",
+//                "coord": [113.280637, 23.839463714285714]
+//            ]]
         return Option(
+            .tooltip(Tooltip(
+                .trigger(.item),
+                .formatter(.string("{b}"))
+                )),
+            .series([
+                MapSerie(
+                    .name("中国"),
+                    .map("china"),
+                    .selectedMode(.multiple),
+                    .label(Label(
+                        .normal(CommonLabelStyle(
+                            .show(true)
+                            )),
+                        .emphasis(CommonLabelStyle(
+                            .show(true)
+                            ))
+                    ))
+                )
+                ])
         )
     }
     

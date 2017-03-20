@@ -15,7 +15,7 @@
 /// Tip: 在 ECharts 3 中不再建议在地图类型的图表使用 markLine 和 markPoint。如果要实现点数据或者线数据的可视化，可以使用在地理坐标系组件上的散点图和线图。
 ///
 /// 示例： http://echarts.baidu.com/gallery/editor.html?c=doc-example/map-example
-public struct MapSerie: Serie, Zable {
+public struct MapSerie: Serie, Zable, Animatable {
     
     /// 滚轮缩放的极限控制，通过min, max最小和最大的缩放值，默认的缩放为1。
     public struct ScaleLimit {
@@ -242,6 +242,18 @@ public struct MapSerie: Serie, Zable {
     public var markArea: MarkArea?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
+    
+    // MARK: Animatable
+    public var animation: Bool?
+    public var animationThreshold: Float?
+    public var animationDuration: Time?
+    public var animationEasing: EasingFunction?
+    public var animationDelay: Time?
+    public var animationDurationUpdate: Time?
+    public var animationEasingUpdate: EasingFunction?
+    public var animationDelayUpdate: Time?
+    
+    public init() { }
 }
 
 public typealias MapSerieData = MapSerie.Data
@@ -309,7 +321,7 @@ extension MapSerie.Data: Mappable {
 
 extension MapSerie: Enumable {
     public enum Enums {
-        case name(String), map(String), roam(Roam), center(Position), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SelectedMode), label(Label), itemStyle(ItemStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), layoutCenter(Position), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), silent(Bool)
+        case name(String), map(String), roam(Roam), center(Position), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SelectedMode), label(Label), itemStyle(ItemStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), layoutCenter(Position), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -371,6 +383,22 @@ extension MapSerie: Enumable {
                 self.markArea = markArea
             case let .silent(silent):
                 self.silent = silent
+            case let .animation(animation):
+                self.animation = animation
+            case let .animationThreshold(animationThreshold):
+                self.animationThreshold = animationThreshold
+            case let .animationDuration(animationDuration):
+                self.animationDuration = animationDuration
+            case let .animationEasing(animationEasing):
+                self.animationEasing = animationEasing
+            case let .animationDelay(animationDelay):
+                self.animationDelay = animationDelay
+            case let .animationDurationUpdate(animationDurationUpdate):
+                self.animationDurationUpdate = animationDurationUpdate
+            case let .animationEasingUpdate(animationEasingUpdate):
+                self.animationEasingUpdate = animationEasingUpdate
+            case let .animationDelayUpdate(animationDelayUpdate):
+                self.animationDelayUpdate = animationDelayUpdate
             }
         }
     }
@@ -406,5 +434,13 @@ extension MapSerie: Mappable {
         map["markLine"] = markLine
         map["markArea"] = markArea
         map["silent"] = silent
+        map["animation"] = animation
+        map["animationThreshold"] = animationThreshold
+        map["animationDuration"] = animationDuration
+        map["animationEasing"] = animationEasing
+        map["animationDelay"] = animationDelay
+        map["animationDurationUpdate"] = animationDurationUpdate
+        map["animationEasingUpdate"] = animationEasingUpdate
+        map["animationDelayUpdate"] = animationDelayUpdate
     }
 }

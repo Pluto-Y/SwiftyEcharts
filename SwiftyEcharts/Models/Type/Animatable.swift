@@ -34,6 +34,14 @@ public enum Time: Jsonable {
     }
 }
 
+extension Time: FloatLiteralConvertible {
+    
+    public init(floatLiteral value: Float) {
+        self = Time.number(value)
+    }
+    
+}
+
 /// 默认支持的动画执行类型
 /// 具体详情可以查看一下地址进行对比
 /// http://echarts.baidu.com/gallery/editor.html?c=line-easing

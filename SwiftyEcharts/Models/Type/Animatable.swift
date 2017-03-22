@@ -6,6 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+internal let TimeFuncPrefix = "timeFunc"
 /// 动画的时间类型
 ///
 /// - number: 时长，直接传递
@@ -27,7 +28,7 @@ public enum Time: Jsonable {
             return "\(time)"
         case let .function(f):
             let count = JsCache.allJsStrings().count
-            let funcName = "timeFunc\(count)"
+            let funcName = "\(TimeFuncPrefix)\(count)"
             JsCache.add("var \(funcName) = \(f);")
             return "\"\(funcName)\""
         }

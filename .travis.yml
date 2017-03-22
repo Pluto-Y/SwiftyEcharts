@@ -1,5 +1,7 @@
 language: objective-c
 xcode_workspace: SwiftyEcharts.xcworkspace
 xcode_scheme: SwiftyEchartsTest_iOS
-osx_image: xcode8.1
-xcode_sdk: iphonesimulator10.1
+osx_image: xcode8.2
+xcode_sdk: iphonesimulator10.2
+
+script: xctool -workspace SwiftyEcharts.xcworkspace -scheme SwiftyEchartsTest_iOS -sdk iphonesimulator10.2 run-tests

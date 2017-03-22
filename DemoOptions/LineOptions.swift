@@ -698,7 +698,7 @@ public struct LineOptions {
                     .data(data)
                 )
                 ]),
-            .animationDuration(.number(2000))
+            .animationDuration(2000)
         )
     }
     

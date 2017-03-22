@@ -34,12 +34,32 @@ public enum Time: Jsonable {
     }
 }
 
-extension Time: FloatLiteralConvertible {
+extension Time: FloatLiteralConvertible, IntegerLiteralConvertible {
     
     public init(floatLiteral value: Float) {
         self = Time.number(value)
     }
     
+    public init(integerLiteral value: Int) {
+        self = .number(Float(value))
+    }
+    
+}
+
+extension Time: StringLiteralConvertible {
+    
+    public init(stringLiteral value: String) {
+        self = .function(value)
+    }
+    
+    public init(extendedGraphemeClusterLiteral value: String) {
+        self = .function(value)
+    }
+    
+    public init(unicodeScalarLiteral value: String) {
+        self = .function(value)
+    }
+
 }
 
 /// 默认支持的动画执行类型

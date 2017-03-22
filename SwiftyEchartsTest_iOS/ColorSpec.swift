@@ -29,14 +29,14 @@ class ColorSpec: QuickSpec {
             
         }
         
-        describe("For SECGradientColorElement") {
+        describe("For GradientColorElement") {
             let normalPosition: Float = 0
-            let normalElement = SECGradientColorElement(normalPosition, .red)
+            let normalElement = GradientColorElement(normalPosition, .red)
             let dictionaryPosition: Float = 1
-            let dictionaryElement: SECGradientColorElement = ["offset": dictionaryPosition, "color": Color.blue]
-            let offsetOnlyElement: SECGradientColorElement = ["offset": dictionaryPosition, "test": false]
+            let dictionaryElement: GradientColorElement = ["offset": dictionaryPosition, "color": Color.blue]
+            let offsetOnlyElement: GradientColorElement = ["offset": dictionaryPosition, "test": false]
             
-            it (" needs to check the constructor and jsonString for SECGradientColorElement") {
+            it (" needs to check the constructor and jsonString for GradientColorElement") {
                 expect(normalElement.jsonString).to(equal("{\"offset\": \(normalPosition.jsonString), \"color\": \"red\"}"))
                 expect(dictionaryElement.jsonString).to(equal("{\"offset\": \(dictionaryPosition.jsonString), \"color\": \"blue\"}"))
                 expect(offsetOnlyElement.jsonString).to(equal("null"))
@@ -54,8 +54,8 @@ class ColorSpec: QuickSpec {
                 let x0: Float = 0, y0: Float = 0, x2: Float = 0, y2: Float = 1
                 let offset1: Float = 0, offset2: Float = 1
                 let color1 = Color.red, color2 = Color.blue
-                let gradientElement1: SECGradientColorElement = ["offset": offset1, "color": color1]
-                let gradientElement2 = SECGradientColorElement(offset2, color2)
+                let gradientElement1: GradientColorElement = ["offset": offset1, "color": color1]
+                let gradientElement2 = GradientColorElement(offset2, color2)
                 JsCache.removeAll()
                 let linearGradient = Color.linearGradient(x0, y0, x2, y2, [gradientElement1, gradientElement2], false)
                 expect(linearGradient.jsonString).to(equal("\"linearGradient0\""))
@@ -67,9 +67,9 @@ class ColorSpec: QuickSpec {
                 let x: Float = 3.0, y: Float = 9.27, r: Float = 85.3
                 let offset1: Float = 0, offset2: Float = 0.5, offset3: Float = 1
                 let color1 = Color.blue, color2 = Color.transparent, color3 = Color.green
-                let gradientElement1: SECGradientColorElement = ["offset": offset1, "color": color1]
-                let gradientElement2 = SECGradientColorElement(offset2, color2)
-                let gradientElement3 = SECGradientColorElement(offset3, color3)
+                let gradientElement1: GradientColorElement = ["offset": offset1, "color": color1]
+                let gradientElement2 = GradientColorElement(offset2, color2)
+                let gradientElement3 = GradientColorElement(offset3, color3)
                 JsCache.removeAll()
                 let radialGradient = Color.radialGradient(x, y, r, [gradientElement1, gradientElement2, gradientElement3], true)
                 expect(radialGradient.jsonString).to(equal("\"radialGradient0\""))

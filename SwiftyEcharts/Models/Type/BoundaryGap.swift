@@ -23,7 +23,7 @@ public enum BoundaryGap: Jsonable {
         case let .category(enable):
             return "\(enable)"
         case let .notCategory(range):
-            return "[\(range.jsonString)]"
+            return "\(range.jsonString)"
         }
     }
 }

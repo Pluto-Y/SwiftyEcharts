@@ -50,12 +50,12 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
     /// - left: 鼠标所在图形左侧，只在 trigger 为'item'的时候有效。
     /// - right: 鼠标所在图形右侧，只在 trigger 为'item'的时候有效。
     /// - bottom: 鼠标所在图形底侧，只在 trigger 为'item'的时候有效。
-    public enum Position: CustomStringConvertible, Jsonable {
+    public enum Position: Jsonable {
         case intArr(Int, Int)
         case percentArr(Float, Float)
         case function(String)
         case inside, top, left, right, bottom
-        public var description: String {
+        public var jsonString: String {
             switch self {
             case let .intArr(x, y):
                 return "[\(x), \(y)]"

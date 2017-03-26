@@ -81,7 +81,7 @@ public struct SliderDataZoom: DataZoom, Displayable, Zable {
     /// 自定义 icon 见 示例: http://echarts.baidu.com/gallery/editor.html?c=area-simple
     public var handleIcon: String?
     /// 控制手柄的尺寸，可以是像素大小，也可以是相对于 dataZoom 组件宽度的百分比，默认跟 dataZoom 宽度相同。
-    public var handleSize: Float?
+    public var handleSize: LengthValue?
     /// 手柄的样式配置，见 示例: http://echarts.baidu.com/gallery/editor.html?c=area-simple
     public var handleStyle: HandleStyle?
     /// 显示label的小数精度。默认根据数据自动决定。
@@ -356,7 +356,7 @@ extension SliderDataZoom.HandleStyle: Mappable {
 
 extension SliderDataZoom: Enumable {
     public enum Enums {
-        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(Float), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(FilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(Orient), zoomLock(Bool), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position)
+        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(LengthValue), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(FilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(Orient), zoomLock(Bool), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position)
     }
     
     public typealias ContentEnum = Enums

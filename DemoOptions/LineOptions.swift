@@ -141,8 +141,90 @@ public struct LineOptions {
     // MARK: 大数据量面积图
     /// 地址: http://echarts.baidu.com/demo.html#area-simple
     static func areaSimpleOption() -> Option {
-        // TODO: 添加实现
+        let base = NSDate(dateString: "1968-09-03")
+        let dateFormater = NSDateFormatter()
+        dateFormater.dateFormat = "yyyy/M/d"
+        let oneDay: NSTimeInterval = 24 * 3600
+        var date: [Jsonable] = []
+        
+        var data: [Jsonable] = [Float(arc4random_uniform(300))]
+        for i in 1..<2000 {
+            let tmpDate = NSDate(timeInterval: oneDay * Double(i), sinceDate: base)
+            date.append(dateFormater.stringFromDate(tmpDate))
+            let lastObj = data[i-1] as! Float
+            let randomNum: Float = Float(Int(arc4random_uniform(10)) - 5)
+            let tmpData =  Float(randomNum) / 10.0 * 20.0 + lastObj
+            data.append(tmpData)
+        }
+        
         return Option(
+            .tooltip(Tooltip(
+                .trigger(.axis),
+                .position(.function("function (pt) {return [pt[0], '10%'];}"))
+                )),
+            .title(Title(
+                .left(.center),
+                .text("大数据量面积图")
+                )),
+            .toolbox(Toolbox(
+                .feature(Toolbox.Feature(
+                    .dataZoom(Toolbox.Feature.DataZoom(
+                        .yAxisIndex(.bool(false)) // FIXME: 应该有枚举 none 和 all
+                        )),
+                    .restore(Toolbox.Feature.Restore()),
+                    .saveAsImage(Toolbox.Feature.SaveAsImage())
+                    ))
+                )),
+            .xAxis(Axis(
+                .type(.category),
+                .boundaryGap(false),
+                .data(date)
+                )),
+            .yAxis(Axis(
+                .type(.value),
+                .boundaryGap([0, 100%])
+                )),
+            .dataZoom([InsideDataZoom(
+                .start(0),
+                .end(10)
+                ), SliderDataZoom(
+                    .start(0),
+                    .end(10),
+                    .handleIcon("M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z"),
+                    .handleSize(80%),
+                    .handleStyle(SliderDataZoom.HandleStyle(
+                        .color(.hexColor("fff")),
+                        .shadowBlur(3),
+                        .shadowColor(.rgba(0, 0, 0, 0.6)),
+                        .shadowOffsetX(2),
+                        .shadowOffsetY(2)
+                        ))
+                )]),
+            .series([
+                LineSerie(
+                    .name("模拟数据"),
+                    .smooth(true),
+                    .symbol(.none),
+                    .sampling(.average),
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
+                            .color(.rgb(255, 70, 131))
+                            ))
+                        )),
+                    .areaStyle(EmphasisAreaStyle(
+                        .normal(CommonAreaStyleContent(
+                            .color(.linearGradient(0, 0, 0, 1,
+                                [
+                                    GradientColorElement(0, Color.rgb(255, 158, 68)),
+                                    GradientColorElement(1, Color.rgb(255, 70, 131))
+                                ],
+                                false
+                                ))
+                            ))
+                        )),
+                    .data(data)
+                )
+                ])
         )
     }
     
@@ -948,5 +1030,17 @@ public struct LineOptions {
                 )
                 ])
         )
+    }
+}
+
+extension NSDate
+{
+    convenience
+    init(dateString:String) {
+        let dateStringFormatter = NSDateFormatter()
+        dateStringFormatter.dateFormat = "yyyy-MM-dd"
+        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        let d = dateStringFormatter.dateFromString(dateString)!
+        self.init(timeInterval:0, sinceDate:d)
     }
 }

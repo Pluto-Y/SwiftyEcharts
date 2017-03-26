@@ -53,7 +53,7 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
     public enum Position: CustomStringConvertible, Jsonable {
         case intArr(Int, Int)
         case percentArr(Float, Float)
-//        case f() // TODO: 缺少一个Function的形式
+        case function(String)
         case inside, top, left, right, bottom
         public var description: String {
             switch self {
@@ -71,6 +71,11 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
                 return "\"top\""
             case .bottom:
                 return "\"ibottomnside\""
+            case let .function(f):
+                let count = JsCache.allJsStrings().count
+                let funcName = "positionFunc\(count)"
+                JsCache.add("var \(funcName) = \(f);")
+                return "\"\(funcName)\""
             }
 
         }

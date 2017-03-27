@@ -43,7 +43,7 @@ extension CommonLabelStyle: Enumable {
 }
 
 extension CommonLabelStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["position"] = position
         map["textStyle"] = textStyle
@@ -82,7 +82,7 @@ extension Label: Enumable {
 }
 
 extension Label: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
@@ -126,7 +126,7 @@ extension FormattedLabelStyle: Enumable {
 }
 
 extension FormattedLabelStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["position"] = position
         map["formatter"] = formatter
@@ -167,7 +167,7 @@ extension FormattedLabel: Enumable {
 }
 
 extension FormattedLabel: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }

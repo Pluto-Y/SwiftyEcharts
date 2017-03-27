@@ -106,9 +106,9 @@ extension Optional: CustomStringConvertible {
     
     public var description: String {
         switch self {
-        case .None:
+        case .none:
             return "null"
-        case let .Some(value):
+        case let .some(value):
             if value is Jsonable {
                 return (value as! Jsonable).jsonString
             } else {
@@ -146,7 +146,7 @@ extension Array: Jsonable {
             }
             
             // 移除最后一个','与'\n'符号
-            jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
+            jsonStr = jsonStr.substring(to: jsonStr.index(jsonStr.endIndex, offsetBy: -2))
         }
         
         jsonStr += "\n]"
@@ -159,7 +159,7 @@ extension Dictionary: Jsonable {
         var jsonStr = "{\n"
         
         if self.keys.count > 0 {
-            let sortedKeys = Array(self.keys).sort { String($0) < String($1) }
+            let sortedKeys = Array(self.keys).sorted { String(describing: $0) < String(describing: $1) }
             
             for key in sortedKeys {
                 let value = self[key]!
@@ -169,7 +169,7 @@ extension Dictionary: Jsonable {
             }
             
             // 移除最后一个','与'\n'符号
-            jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
+            jsonStr = jsonStr.substring(to: jsonStr.index(jsonStr.endIndex, offsetBy: -2))
         }
         
         jsonStr += "\n}"

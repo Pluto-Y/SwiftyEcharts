@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2377A359C591BD0C20703777 /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */; };
 		529DEFEB1E6EE9F400E70938 /* FunnelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529DEFEA1E6EE9F400E70938 /* FunnelController.swift */; };
 		5408989D1E52EB6500A89BB0 /* LinSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5408989C1E52EB6500A89BB0 /* LinSerieSpec.swift */; };
 		540898A81E53F6F300A89BB0 /* Percent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898A71E53F6F300A89BB0 /* Percent.swift */; };
@@ -164,6 +163,7 @@
 		6FEC7D231E58152F003A88D7 /* AreaRainfallDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */; };
 		6FEF717C1E65B75800E1ED70 /* RadarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEF717B1E65B75800E1ED70 /* RadarsController.swift */; };
 		6FEF717E1E686EB700E1ED70 /* ColorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEF717D1E686EB700E1ED70 /* ColorSpec.swift */; };
+		EE5A039AB804545888456230 /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A278632684D3503CB655D2CD /* Pods_SwiftyEchartsTest_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,8 +198,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0E050E4779F8D6A158AB3CCF /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		1BF7A0380778E442CCDE890E /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		529DEFEA1E6EE9F400E70938 /* FunnelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnelController.swift; sourceTree = "<group>"; };
 		5408989C1E52EB6500A89BB0 /* LinSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinSerieSpec.swift; sourceTree = "<group>"; };
 		540898A71E53F6F300A89BB0 /* Percent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Percent.swift; sourceTree = "<group>"; };
@@ -253,7 +251,7 @@
 		54FEBE8D1E23480D0021CB13 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Map.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		54FEBE8E1E23480D0021CB13 /* Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Mappable.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		54FEBE921E2354B60021CB13 /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Option.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyEchartsTest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D32B0CF062FEBDAA551F7CE /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		6F0E461D1E614A37008DA184 /* LinesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesController.swift; sourceTree = "<group>"; };
 		6F0E46231E61AB10008DA184 /* BarsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarsController.swift; sourceTree = "<group>"; };
 		6F0E46251E61B204008DA184 /* BaseDemoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDemoController.swift; sourceTree = "<group>"; };
@@ -354,6 +352,8 @@
 		6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AreaRainfallDatas.plist; sourceTree = "<group>"; };
 		6FEF717B1E65B75800E1ED70 /* RadarsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarsController.swift; sourceTree = "<group>"; };
 		6FEF717D1E686EB700E1ED70 /* ColorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSpec.swift; sourceTree = "<group>"; };
+		A278632684D3503CB655D2CD /* Pods_SwiftyEchartsTest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyEchartsTest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEBF16C094F85D3818DEBE44 /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,13 +377,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FB48CB31DEE9FF400137D13 /* SwiftyEcharts.framework in Frameworks */,
-				2377A359C591BD0C20703777 /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */,
+				EE5A039AB804545888456230 /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B4C9AA48832F7F37E8881A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AEBF16C094F85D3818DEBE44 /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */,
+				6D32B0CF062FEBDAA551F7CE /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		540898A61E53F6E000A89BB0 /* Type */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +441,14 @@
 				6FEC7D1E1E55EEE0003A88D7 /* MarkDataType.swift */,
 			);
 			path = Mark;
+			sourceTree = "<group>";
+		};
+		542A7A37A9B7DDCA8E170BBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A278632684D3503CB655D2CD /* Pods_SwiftyEchartsTest_iOS.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5447FD921E2DE8B0001D88F3 /* DataZoom */ = {
@@ -535,8 +552,8 @@
 				6F9B70DE1DE808E600406B55 /* iOS_Example */,
 				6FB48CAF1DEE9FF300137D13 /* SwiftyEchartsTest_iOS */,
 				6F13256D1D9312A90006F114 /* Products */,
-				B66151FAADC10CC08D3456D0 /* Pods */,
-				A87694136D03A0BD2519656E /* Frameworks */,
+				1B4C9AA48832F7F37E8881A9 /* Pods */,
+				542A7A37A9B7DDCA8E170BBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -713,23 +730,6 @@
 			path = Graphic;
 			sourceTree = "<group>";
 		};
-		A87694136D03A0BD2519656E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B66151FAADC10CC08D3456D0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0E050E4779F8D6A158AB3CCF /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */,
-				1BF7A0380778E442CCDE890E /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -790,12 +790,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FB48CB61DEE9FF400137D13 /* Build configuration list for PBXNativeTarget "SwiftyEchartsTest_iOS" */;
 			buildPhases = (
-				1963F87E9502C70C1B946682 /* [CP] Check Pods Manifest.lock */,
+				D92C4EEFDFACA18ADF6FF2F0 /* [CP] Check Pods Manifest.lock */,
 				6FB48CAA1DEE9FF300137D13 /* Sources */,
 				6FB48CAB1DEE9FF300137D13 /* Frameworks */,
 				6FB48CAC1DEE9FF300137D13 /* Resources */,
-				2C4000DA3602FEE2576776DE /* [CP] Embed Pods Frameworks */,
-				FAD67B08EEEED81A95C983CA /* [CP] Copy Pods Resources */,
+				E929446EAAC00D75ED6D6EB5 /* [CP] Embed Pods Frameworks */,
+				EC7CF71F57F253654159C039 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -819,7 +819,7 @@
 				TargetAttributes = {
 					6F13256B1D9312A90006F114 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 					};
 					6F9B70DC1DE808E600406B55 = {
 						CreatedOnToolsVersion = 8.1;
@@ -828,7 +828,7 @@
 					};
 					6FB48CAD1DEE9FF300137D13 = {
 						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -885,7 +885,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1963F87E9502C70C1B946682 /* [CP] Check Pods Manifest.lock */ = {
+		D92C4EEFDFACA18ADF6FF2F0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -900,7 +900,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		2C4000DA3602FEE2576776DE /* [CP] Embed Pods Frameworks */ = {
+		E929446EAAC00D75ED6D6EB5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -915,7 +915,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FAD67B08EEEED81A95C983CA /* [CP] Copy Pods Resources */ = {
+		EC7CF71F57F253654159C039 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1241,7 +1241,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1260,7 +1260,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pluto-y.SwiftyEcharts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1304,7 +1304,7 @@
 		};
 		6FB48CB71DEE9FF400137D13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E050E4779F8D6A158AB3CCF /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */;
+			baseConfigurationReference = AEBF16C094F85D3818DEBE44 /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1315,13 +1315,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pluto-y.SwiftyEchartsTest-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		6FB48CB81DEE9FF400137D13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1BF7A0380778E442CCDE890E /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */;
+			baseConfigurationReference = 6D32B0CF062FEBDAA551F7CE /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1331,7 +1331,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pluto-y.SwiftyEchartsTest-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

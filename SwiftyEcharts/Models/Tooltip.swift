@@ -128,7 +128,7 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
         /// - line: 直线指示器
         /// - cross: 十字准星指示器
         /// - shadow: 阴影指示器
-        public enum Type: String, Jsonable {
+        public enum `Type`: String, Jsonable {
             case line = "line", cross = "cross", shadow = "shadow"
             
             public var jsonString: String {
@@ -252,7 +252,7 @@ extension Tooltip.AxisPointer.ShadowStyle: Enumable {
 }
 
 extension Tooltip.AxisPointer.ShadowStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["color"] = color
         map["shadowBlur"] = shadowBlur
         map["shadowColor"] = shadowColor
@@ -294,7 +294,7 @@ extension Tooltip.AxisPointer.CrossStyle: Enumable {
 }
 
 extension Tooltip.AxisPointer.CrossStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["color"] = color
         map["width"] = width
         map["type"] = type
@@ -348,7 +348,7 @@ extension Tooltip.AxisPointer: Enumable {
 }
 
 extension Tooltip.AxisPointer: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["axis"] = axis
         map["animation"] = animation
@@ -416,7 +416,7 @@ extension Tooltip: Enumable {
 }
 
 extension Tooltip: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["showContent"] = showContent
         map["trigger"] = trigger

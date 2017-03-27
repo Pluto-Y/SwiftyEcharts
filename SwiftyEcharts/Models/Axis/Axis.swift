@@ -155,7 +155,7 @@ extension Axis.Data: Enumable {
 }
 
 extension Axis.Data: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["value"] = value
         map["textStyle"] = textStyle
     }
@@ -233,7 +233,7 @@ extension Axis: Enumable {
 }
 
 extension Axis: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["gridIndex"] = gridIndex
         map["position"] = position
         map["offset"] = offset

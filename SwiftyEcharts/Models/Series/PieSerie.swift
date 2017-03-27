@@ -191,7 +191,7 @@ extension PieSerie.LabelLineContent: Enumable {
 }
 
 extension PieSerie.LabelLineContent: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["length"] = length
         map["length2"] = length2
@@ -220,7 +220,7 @@ extension PieSerie.LabelLine: Enumable {
 }
 
 extension PieSerie.LabelLine: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
@@ -337,7 +337,7 @@ extension PieSerieData: Enumable {
 }
 
 extension PieSerieData: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["selected"] = selected
@@ -348,7 +348,7 @@ extension PieSerieData: Mappable {
 }
 
 extension PieSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["legendHoverLink"] = legendHoverLink

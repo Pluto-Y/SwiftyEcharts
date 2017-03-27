@@ -89,7 +89,7 @@ extension PolygonGraphic.Shape: Enumable {
 }
 
 extension PolygonGraphic.Shape: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["point"] = point
         map["smooth"] = smooth
         map["smoothConstraint"] = smoothConstraint
@@ -144,7 +144,7 @@ extension PolygonGraphic: Enumable {
 }
 
 extension PolygonGraphic: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

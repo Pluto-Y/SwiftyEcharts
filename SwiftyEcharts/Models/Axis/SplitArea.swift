@@ -38,7 +38,7 @@ extension SplitArea: Enumable {
 }
 
 extension SplitArea: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["interval"] = interval
         map["areaStyle"] = areaStyle

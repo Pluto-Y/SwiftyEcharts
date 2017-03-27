@@ -172,7 +172,7 @@ extension RadiusAxis: Enumable {
 }
 
 extension RadiusAxis: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["polarIndex"] = polarIndex
         map["type"] = type
         map["name"] = name

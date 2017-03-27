@@ -6,9 +6,9 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct OneOrMore<T>: ArrayLiteralConvertible {
-    private var one: T? = nil
-    private var more: [T]? = nil
+public struct OneOrMore<T>: ExpressibleByArrayLiteral {
+    fileprivate var one: T? = nil
+    fileprivate var more: [T]? = nil
     public init(one: T) {
         self.one = one
     }

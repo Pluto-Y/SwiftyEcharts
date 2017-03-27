@@ -208,7 +208,7 @@ extension LinesSerie.Effect: Enumable {
 }
 
 extension LinesSerie.Effect: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["period"] = period
         map["constantSpeed"] = constantSpeed
@@ -244,7 +244,7 @@ extension LinesSerieData: Enumable {
 }
 
 extension LinesSerieData: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["coords"] = coords
         map["lineStyle"] = lineStyle
@@ -324,7 +324,7 @@ extension LinesSerie: Enumable {
 }
 
 extension LinesSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["coordinateSystem"] = coordinateSystem

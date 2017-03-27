@@ -2,8 +2,8 @@ use_frameworks!
 
 target 'SwiftyEchartsTest_iOS' do
 
-  pod 'Quick', '~> 0.9.3'
-  pod 'Nimble', '~> 4.1.0'
+  pod 'Quick', '~> 1.0.0'
+  pod 'Nimble', '~> 5.0.0'
 
 
 end

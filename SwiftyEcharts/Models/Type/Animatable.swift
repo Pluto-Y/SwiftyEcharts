@@ -35,7 +35,7 @@ public enum Time: Jsonable {
     }
 }
 
-extension Time: FloatLiteralConvertible, IntegerLiteralConvertible {
+extension Time: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
     
     public init(floatLiteral value: Float) {
         self = Time.number(value)
@@ -47,7 +47,7 @@ extension Time: FloatLiteralConvertible, IntegerLiteralConvertible {
     
 }
 
-extension Time: StringLiteralConvertible {
+extension Time: ExpressibleByStringLiteral {
     
     public init(stringLiteral value: String) {
         self = .function(value)

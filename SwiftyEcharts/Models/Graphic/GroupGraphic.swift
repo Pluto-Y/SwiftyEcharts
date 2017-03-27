@@ -96,7 +96,7 @@ extension GroupGraphic: Enumable {
 }
 
 extension GroupGraphic: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

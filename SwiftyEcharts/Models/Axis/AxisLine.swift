@@ -39,7 +39,7 @@ extension AxisLine: Enumable {
 }
 
 extension AxisLine: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["onZero"] = onZero
         map["lineStyle"] = lineStyle

@@ -216,7 +216,7 @@ extension GaugeSerieAxisLine: Enumable {
 }
 
 extension GaugeSerieAxisLine: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["lineStyle"] = lineStyle
     }
@@ -244,7 +244,7 @@ extension GaugeSerieSplitLine: Enumable {
 }
 
 extension GaugeSerieSplitLine: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["length"] = length
         map["lineStyle"] = lineStyle
@@ -275,7 +275,7 @@ extension GaugeSerieAxisTick: Enumable {
 }
 
 extension GaugeSerieAxisTick: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["splitNumber"] = splitNumber
         map["length"] = length
@@ -309,7 +309,7 @@ extension GaugeSerieAxisLabel: Enumable {
 }
 
 extension GaugeSerieAxisLabel: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["distance"] = distance
         map["formatter"] = formatter
@@ -340,7 +340,7 @@ extension GaugeSeriePointer: Enumable {
 }
 
 extension GaugeSeriePointer: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["length"] = length
         map["width"] = width
@@ -369,7 +369,7 @@ extension GaugeSerieTitle: Enumable {
 }
 
 extension GaugeSerieTitle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["offsetCenter"] = offsetCenter
         map["textStyle"] = textStyle
@@ -410,7 +410,7 @@ extension GaugeSerieDetail: Enumable {
 }
 
 extension GaugeSerieDetail: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["width"] = width
         map["height"] = height
@@ -499,7 +499,7 @@ extension GaugeSerie: Enumable {
 }
 
 extension GaugeSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["radius"] = radius

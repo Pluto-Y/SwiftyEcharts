@@ -10,7 +10,7 @@
 /// 并且可以通过 Percent.precision 来进行全局定义
 public struct Percent {
     public static var precision: Int = 2
-    private let value: Double
+    fileprivate let value: Double
     
     public init(_ value: Double) {
         self.value = value
@@ -29,7 +29,7 @@ extension Percent: LengthValue {
 }
 
 // 用自定义操作符 % 将 Int, Float 以及 Double 转换成 Percent 类型
-postfix operator % { }
+postfix operator %
 
 public postfix func %(value: Double) -> Percent {
     let percent: Percent = Percent(value)

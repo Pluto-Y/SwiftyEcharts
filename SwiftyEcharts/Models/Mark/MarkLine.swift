@@ -238,7 +238,7 @@ extension MarkLineData: Enumable {
 }
 
 extension MarkLineData: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["type"] = type
         map["valueIndex"] = valueIndex
@@ -304,7 +304,7 @@ extension MarkLine: Enumable {
 }
 
 extension MarkLine: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["silent"] = silent
         map["symbol"] = symbol
         map["symbolSize"] = symbolSize

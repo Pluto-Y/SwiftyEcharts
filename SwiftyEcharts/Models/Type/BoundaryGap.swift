@@ -29,7 +29,7 @@ public enum BoundaryGap: Jsonable {
 }
 
 /// 保证该类可以通过 Bool 的类型进行创建
-extension BoundaryGap: BooleanLiteralConvertible {
+extension BoundaryGap: ExpressibleByBooleanLiteral {
     public typealias BooleanLiteralType = Bool
     public init(booleanLiteral value: Bool) {
         self = BoundaryGap.category(value)
@@ -37,7 +37,7 @@ extension BoundaryGap: BooleanLiteralConvertible {
 }
 
 /// 保证该类可以通过常量数组进行创建
-extension BoundaryGap: ArrayLiteralConvertible {
+extension BoundaryGap: ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: LengthValue...) {
         let range: Range = Range(elements)
         self = BoundaryGap.notCategory(range)

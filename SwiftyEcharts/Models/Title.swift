@@ -180,7 +180,7 @@ extension Title: Enumable {
     }
 }
 extension Title: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["text"] = text
         map["link"] = link

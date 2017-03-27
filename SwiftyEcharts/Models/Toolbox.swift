@@ -182,7 +182,7 @@ extension Toolbox.IconStyleContent: Enumable {
 }
 
 extension Toolbox.IconStyleContent: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["color"] = color
         map["borderColor"] = borderColor
         map["borderWidth"] = borderWidth
@@ -217,7 +217,7 @@ extension Toolbox.IconStyle: Enumable {
 }
 
 extension Toolbox.IconStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
@@ -227,7 +227,7 @@ extension Toolbox.IconStyle: Mappable {
 extension Toolbox.Feature {
     /// 保存为图片。
     public struct SaveAsImage: Displayable {
-        public enum Type: String, Jsonable {
+        public enum `Type`: String, Jsonable {
             case png = "png"
             case jpeg = "jpeg"
             
@@ -291,7 +291,7 @@ extension Toolbox.Feature.SaveAsImage: Enumable {
 }
 
 extension Toolbox.Feature.SaveAsImage: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["backgroundColor"] = backgroundColor
@@ -343,7 +343,7 @@ extension Toolbox.Feature.Restore: Enumable {
 }
 
 extension Toolbox.Feature.Restore: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["title"] = title
         map["icon"] = icon
@@ -424,7 +424,7 @@ extension Toolbox.Feature.DataView: Enumable {
 }
 
 extension Toolbox.Feature.DataView: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["title"] = title
         map["icon"] = icon
@@ -472,7 +472,7 @@ extension Toolbox.Feature {
                     for i in arr {
                         result = "\(i),"
                     }
-                    result = result.substringToIndex(result.endIndex.predecessor())
+                    result = result.substring(to: result.characters.index(before: result.endIndex))
                     result += "]"
                     return result
                 }
@@ -530,7 +530,7 @@ extension Toolbox.Feature.DataZoom.Title: Enumable {
 }
 
 extension Toolbox.Feature.DataZoom.Title: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["zoom"] = zoom
         map["back"] = back
     }
@@ -556,7 +556,7 @@ extension Toolbox.Feature.DataZoom.Icon: Enumable {
 }
 
 extension Toolbox.Feature.DataZoom.Icon: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["zoom"] = zoom
         map["back"] = back
     }
@@ -590,7 +590,7 @@ extension Toolbox.Feature.DataZoom: Enumable {
 }
 
 extension Toolbox.Feature.DataZoom: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["title"] = title
         map["icon"] = icon
@@ -618,7 +618,7 @@ extension Toolbox.Feature {
         /// - bar: 柱状图
         /// - stack: 堆叠模式
         /// - tiled: 平铺模式
-        public enum Type: String, Jsonable {
+        public enum `Type`: String, Jsonable {
             case line = "line"
             case bar = "bar"
             case stack = "stack"
@@ -682,7 +682,7 @@ extension Toolbox.Feature.MagicType.Title: Enumable {
 }
 
 extension Toolbox.Feature.MagicType.Title: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["line"] = line
         map["bar"] = bar
         map["stack"] = stack
@@ -714,7 +714,7 @@ extension Toolbox.Feature.MagicType.Icon: Enumable {
 }
 
 extension Toolbox.Feature.MagicType.Icon: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["line"] = line
         map["bar"] = bar
         map["stack"] = stack
@@ -746,7 +746,7 @@ extension Toolbox.Feature.MagicType: Enumable {
 }
 
 extension Toolbox.Feature.MagicType: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["type"] = type
         map["title"] = title
@@ -770,7 +770,7 @@ extension Toolbox.Feature {
         /// - lineY: 开启纵向选择功能。
         /// - keep: 切换『单选』和『多选』模式。后者可支持同时画多个选框。前者支持单击清除所有选框。
         /// - clear: 清空所有选框。
-        public enum Type: String, Jsonable {
+        public enum `Type`: String, Jsonable {
             case rect = "rect"
             case polygon = "polygon"
             case lineX = "lineX"
@@ -837,7 +837,7 @@ extension Toolbox.Feature.Brush.Icon: Enumable {
 }
 
 extension Toolbox.Feature.Brush.Icon: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["rect"] = rect
         map["polygon"] = polygon
         map["lineX"] = lineX
@@ -875,7 +875,7 @@ extension Toolbox.Feature.Brush.Title: Enumable {
 }
 
 extension Toolbox.Feature.Brush.Title: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["rect"] = rect
         map["polygon"] = polygon
         map["lineX"] = lineX
@@ -907,7 +907,7 @@ extension Toolbox.Feature.Brush: Enumable {
 }
 
 extension Toolbox.Feature.Brush: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["icon"] = icon
         map["title"] = title
@@ -951,7 +951,7 @@ extension Toolbox.Feature: Enumable {
 }
 
 extension Toolbox.Feature: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["saveAsImage"] = saveAsImage
         map["restore"] = restore
         map["dataView"] = dataView
@@ -1008,7 +1008,7 @@ extension Toolbox: Enumable {
 }
 
 extension Toolbox: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["orient"] = orient
         map["itemSize"] = itemSize

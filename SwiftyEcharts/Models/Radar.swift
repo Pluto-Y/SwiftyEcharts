@@ -152,7 +152,7 @@ extension Radar.Name: Enumable {
 }
 
 extension Radar.Name: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["formatter"] = formatter
         map["textStyle"] = textStyle
@@ -183,7 +183,7 @@ extension RadarIndicator: Enumable {
 }
 
 extension RadarIndicator: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["max"] = max
         map["min"] = min
@@ -242,7 +242,7 @@ extension Radar: Enumable {
 }
 
 extension Radar: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["zlevel"] = zlevel
         map["z"] = z
         map["center"] = center

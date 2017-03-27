@@ -75,7 +75,7 @@ extension LineSerieData: Enumable {
 }
 
 extension LineSerieData: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["symbol"] = symbol
@@ -421,7 +421,7 @@ extension LineSerie: Enumable {
 }
 
 extension LineSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["coordinateSystem"] = coordinateSystem

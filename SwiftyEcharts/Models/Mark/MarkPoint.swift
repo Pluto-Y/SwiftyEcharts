@@ -138,7 +138,7 @@ extension MarkPoint: Enumable {
 }
 
 extension MarkPoint: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["symbol"] = symbol
         map["symbolSize"] = symbolSize
         map["symbolRotate"] = symbolRotate
@@ -207,7 +207,7 @@ extension MarkPointData: Enumable {
 }
 
 extension MarkPointData: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["type"] = type
         map["valueIndex"] = valueIndex

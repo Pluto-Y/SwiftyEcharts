@@ -326,7 +326,7 @@ extension Parallel: Enumable {
 }
 
 extension Parallel: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["zlevel"] = zlevel
         map["z"] = z
         map["left"] = left
@@ -402,7 +402,7 @@ extension Parallel.ParallelAxisDefault: Enumable {
 }
 
 extension Parallel.ParallelAxisDefault: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["nameLocation"] = nameLocation
@@ -447,7 +447,7 @@ extension Parallel.ParallelAxisDefault.Data: Enumable {
 }
 
 extension Parallel.ParallelAxisDefault.Data: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["value"] = value
         map["textStyle"] = textStyle
     }

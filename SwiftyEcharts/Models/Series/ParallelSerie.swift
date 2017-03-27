@@ -225,7 +225,7 @@ extension ParallelSerie: Enumable {
 }
 
 extension ParallelSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["coordinateSystem"] = coordinateSystem
         map["parallelIndex"] = parallelIndex

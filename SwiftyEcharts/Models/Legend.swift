@@ -155,7 +155,7 @@ extension Legend.Data: Enumable {
 }
 
 extension Legend.Data: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["icon"] = icon
         map["textStyle"] = textStyle
@@ -240,7 +240,7 @@ extension Legend: Enumable {
 }
 
 extension Legend: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["zlevel"] = zlevel
         map["z"] = z

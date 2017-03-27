@@ -278,7 +278,7 @@ extension MapSerie.ScaleLimit: Enumable {
 }
 
 extension MapSerie.ScaleLimit: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["min"] = min
         map["max"] = max
     }
@@ -310,7 +310,7 @@ extension MapSerie.Data: Enumable {
 }
 
 extension MapSerie.Data: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["selected"] = selected
@@ -405,7 +405,7 @@ extension MapSerie: Enumable {
 }
 
 extension MapSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["map"] = self.map

@@ -57,7 +57,7 @@ extension AreaStyle: Enumable {
 }
 
 extension AreaStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["color"] = color
         map["shadowBlur"] = shadowBlur
         map["shadowColor"] = shadowColor
@@ -94,7 +94,7 @@ extension EmphasisAreaStyle: Enumable {
 }
 
 extension EmphasisAreaStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }

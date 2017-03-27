@@ -178,7 +178,7 @@ extension BarSerie: Enumable {
 }
 
 extension BarSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["legendHoverLine"] = legendHoverLine
@@ -260,7 +260,7 @@ extension BarSerie.LabelContent: Enumable {
 }
 
 extension BarSerie.LabelContent: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["position"] = position
         map["offset"] = offset
@@ -290,7 +290,7 @@ extension BarSerie.Label: Enumable {
 }
 
 extension BarSerie.Label: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
@@ -335,7 +335,7 @@ extension BarSerieData: Enumable {
 }
 
 extension BarSerieData: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["label"] = label

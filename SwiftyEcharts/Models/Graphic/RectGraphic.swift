@@ -69,7 +69,7 @@ extension RectGraphic.Shape: Enumable {
 }
 
 extension RectGraphic.Shape: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["x"] = x
         map["y"] = y
         map["width"] = width
@@ -125,7 +125,7 @@ extension RectGraphic: Enumable {
 }
 
 extension RectGraphic: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

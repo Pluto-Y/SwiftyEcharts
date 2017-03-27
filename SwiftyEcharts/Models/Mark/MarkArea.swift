@@ -99,7 +99,7 @@ extension MarkArea: Enumable {
 }
 
 extension MarkArea: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["silent"] = silent
         map["label"] = label
         map["itemStyle"] = itemStyle

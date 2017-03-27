@@ -74,7 +74,7 @@ extension LineStyle: Enumable {
 }
 
 extension LineStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["color"] = color
         map["width"] = width
         map["type"] = type
@@ -116,7 +116,7 @@ extension EmphasisLineStyle: Enumable {
 }
 
 extension EmphasisLineStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }

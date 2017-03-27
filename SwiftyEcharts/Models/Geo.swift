@@ -179,7 +179,7 @@ extension Geo.ScaleLimit: Enumable {
 }
 
 extension Geo.ScaleLimit: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["min"] = min
         map["max"] = max
     }
@@ -209,7 +209,7 @@ extension Geo.Region: Enumable {
 }
 
 extension Geo.Region: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["selected"] = selected
         map["itemStyle"] = itemStyle
@@ -275,7 +275,7 @@ extension Geo: Enumable {
 }
 
 extension Geo: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["map"] = self.map
         map["roam"] = roam

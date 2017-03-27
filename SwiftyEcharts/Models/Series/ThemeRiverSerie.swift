@@ -122,7 +122,7 @@ extension ThemeRiverSerie: Enumable {
 }
 
 extension ThemeRiverSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["zlevel"] = zlevel
         map["z"] = z

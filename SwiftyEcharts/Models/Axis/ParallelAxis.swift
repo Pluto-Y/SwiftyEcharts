@@ -202,7 +202,7 @@ extension ParallelAxis.AreaSelectStyle: Enumable {
 }
 
 extension ParallelAxis.AreaSelectStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["width"] = width
         map["borderWidth"] = borderWidth
         map["borderColor"] = borderColor
@@ -277,7 +277,7 @@ extension ParallelAxis: Enumable {
 }
 
 extension ParallelAxis: Mappable {
-	public func mapping(map: Mapper) {
+	public func mapping(_ map: Mapper) {
 		map["dim"] = dim
 		map["parallelIndex"] = parallelIndex
 		map["realtiem"] = realtiem

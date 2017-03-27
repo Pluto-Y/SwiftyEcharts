@@ -94,7 +94,7 @@ extension BezierCurveGraphic.Shape: Enumable {
 }
 
 extension BezierCurveGraphic.Shape: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["x1"] = x1
         map["y1"] = y1
         map["x2"] = x2
@@ -155,7 +155,7 @@ extension BezierCurveGraphic: Enumable {
 }
 
 extension BezierCurveGraphic: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

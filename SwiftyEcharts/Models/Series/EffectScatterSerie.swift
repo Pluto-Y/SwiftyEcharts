@@ -225,7 +225,7 @@ extension EffectScatterSerie.RippleEffect: Enumable {
 }
 
 extension EffectScatterSerie.RippleEffect: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["period"] = period
         map["scale"] = scale
         map["brushType"] = brushType
@@ -308,7 +308,7 @@ extension EffectScatterSerie: Enumable {
 }
 
 extension EffectScatterSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["legendHoverLink"] = legendHoverLink

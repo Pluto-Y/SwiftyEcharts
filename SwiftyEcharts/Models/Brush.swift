@@ -59,7 +59,7 @@ public struct Brush {
     /// - polygon: 任意形状选框
     /// - lineX: 横向选择
     /// - lineY: 纵向选择
-    public enum Type: String, Jsonable {
+    public enum `Type`: String, Jsonable {
         case rect = "rect"
         case polygon = "polygon"
         case lineX = "lineX"
@@ -395,7 +395,7 @@ extension Brush.Style: Enumable {
 }
 
 extension Brush.Style: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["borderWidth"] = borderWidth
         map["color"] = color
         map["borderColor"] = borderColor
@@ -449,7 +449,7 @@ extension Brush: Enumable {
 }
 
 extension Brush: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["toolbox"] = toolbox
         map["brushLink"] = brushLink
         map["seriesIndex"] = seriesIndex

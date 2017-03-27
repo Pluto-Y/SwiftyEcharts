@@ -40,7 +40,7 @@ extension SplitLine: Enumable {
 }
 
 extension SplitLine: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["interval"] = interval
         map["lineStyle"] = lineStyle

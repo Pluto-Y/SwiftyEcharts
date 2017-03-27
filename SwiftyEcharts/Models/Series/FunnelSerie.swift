@@ -173,7 +173,7 @@ extension FunnelSerie.LabelLineContent: Enumable {
 }
 
 extension FunnelSerie.LabelLineContent: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["length"] = length
         map["lineStyle"] = lineStyle
@@ -200,7 +200,7 @@ extension FunnelSerie.LabelLine: Enumable {
 }
 
 extension FunnelSerie.LabelLine: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }
@@ -232,7 +232,7 @@ extension FunnelSerieData: Enumable {
 }
 
 extension FunnelSerieData: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["label"] = label
@@ -307,7 +307,7 @@ extension FunnelSerie: Enumable {
 }
 
 extension FunnelSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["min"] = min

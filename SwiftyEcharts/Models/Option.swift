@@ -165,7 +165,7 @@ extension Option: Enumable {
 }
 
 extension Option: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["title"] = title
         map["legend"] = legend
         map["grid"] = grid

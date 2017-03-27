@@ -146,7 +146,7 @@ extension CandlestickSerieData: Enumable {
 }
 
 extension CandlestickSerieData: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["itemStyle"] = itemStyle
@@ -211,7 +211,7 @@ extension CandlestickSerie: Enumable {
 }
 
 extension CandlestickSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["coordinateSystem"] = coordinateSystem
         map["xAxisIndex"] = xAxisIndex

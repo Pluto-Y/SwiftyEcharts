@@ -277,7 +277,7 @@ extension PiecewiseVisualMap: Enumable {
 }
 
 extension PiecewiseVisualMap: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["splitNumber"] = splitNumber
         map["pieces"] = pieces

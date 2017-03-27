@@ -55,7 +55,7 @@ extension Polar: Enumable {
 }
 
 extension Polar: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["zlevel"] = zlevel
         map["z"] = z
         map["center"] = center

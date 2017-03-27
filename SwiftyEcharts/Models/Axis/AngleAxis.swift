@@ -153,7 +153,7 @@ extension AngleAxis.Data: Enumable {
 }
 
 extension AngleAxis.Data: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["value"] = value
         map["textStyle"] = textStyle
     }
@@ -219,7 +219,7 @@ extension AngleAxis: Enumable {
 }
 
 extension AngleAxis: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["polarIndex"] = polarIndex
         map["startAngle"] = startAngle
         map["clockwise"] = clockwise

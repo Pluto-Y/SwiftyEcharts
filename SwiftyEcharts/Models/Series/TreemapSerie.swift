@@ -683,7 +683,7 @@ extension TreemapSerieLevel: Enumable {
 }
 
 extension TreemapSerieLevel: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["visualDimension"] = visualDimension
         map["visualMin"] = visualMin
         map["visualMax"] = visualMax
@@ -720,7 +720,7 @@ extension TreemapSerieSilent: Enumable {
 }
 
 extension TreemapSerieSilent: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["link"] = link
         map["target"] = target
         map["children"] = children
@@ -759,7 +759,7 @@ extension TreemapSerieBreadcrumb: Enumable {
 }
 
 extension TreemapSerieBreadcrumb: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["left"] = left
         map["top"] = top
@@ -815,7 +815,7 @@ extension TreemapSerieData: Enumable {
 }
 
 extension TreemapSerieData: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["value"] = value
         map["id"] = id
         map["name"] = name
@@ -909,7 +909,7 @@ extension TreemapSerie: Enumable {
 }
 
 extension TreemapSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["zlevel"] = zlevel
         map["z"] = z

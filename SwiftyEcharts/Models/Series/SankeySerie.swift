@@ -186,7 +186,7 @@ extension SankeySerie.Data: Enumable {
 }
 
 extension SankeySerie.Data: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["itemStyle"] = itemStyle
@@ -218,7 +218,7 @@ extension SankeySerie.Link: Enumable {
 }
 
 extension SankeySerie.Link: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["source"] = source
         map["target"] = target
         map["value"] = value
@@ -296,7 +296,7 @@ extension SankeySerie: Enumable {
 }
 
 extension SankeySerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["zlevel"] = zlevel
         map["z"] = z

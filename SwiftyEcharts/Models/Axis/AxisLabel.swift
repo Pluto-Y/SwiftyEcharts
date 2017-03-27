@@ -58,7 +58,7 @@ extension AxisLabel: Enumable {
 }
 
 extension AxisLabel: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["interval"] = interval
         map["inside"] = inside

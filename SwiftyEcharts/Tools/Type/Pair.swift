@@ -11,10 +11,10 @@
 /// 例如一个点, [x, y]
 ///
 /// 例如一个访问， [min, max]
-public struct Pair<T>: ArrayLiteralConvertible {
+public struct Pair<T>: ExpressibleByArrayLiteral {
     
-    private var first: T?
-    private var second: T?
+    fileprivate var first: T?
+    fileprivate var second: T?
     
     public init(arrayLiteral elements: T...) {
         if elements.count != 2 {

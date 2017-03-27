@@ -7,7 +7,7 @@
 //
 
 public protocol Mappable: Jsonable {
-    func mapping(map: Mapper)
+    func mapping(_ map: Mapper)
 }
 
 extension Mappable {

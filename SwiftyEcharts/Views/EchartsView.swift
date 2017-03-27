@@ -8,13 +8,13 @@
 import UIKit
 import WebKit
 
-public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
+open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
     
-    public var option: Option?
+    open var option: Option?
     
     
-    private var htmlContents: String = ""
-    private var bundlePath: String = ""
+    fileprivate var htmlContents: String = ""
+    fileprivate var bundlePath: String = ""
 
     public convenience init() {
         self.init(frame: CGRect.zero, configuration: WKWebViewConfiguration())
@@ -32,8 +32,8 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     }
     
     // MAKR: - Public Functions
-    public func loadEcharts() {
-        self.loadHTMLString(htmlContents, baseURL: NSURL(fileURLWithPath: bundlePath))
+    open func loadEcharts() {
+        self.loadHTMLString(htmlContents, baseURL: URL(fileURLWithPath: bundlePath))
     }
     
     /// 设置图表实例的配置项以及数据，万能接口，所有参数和数据的修改都可以通过setOption完成，ECharts 会合并新的参数和数据，然后刷新图表。如果开启动画的话，ECharts 找到两组数据之间的差异然后通过合适的动画去表现数据的变化。
@@ -43,7 +43,7 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     ///   - notMerge: 可选，是否不跟之前设置的option进行合并，默认为false，即合并。
     ///   - lazyUpdate: 可选，在设置完option后是否不立即更新图表，默认为false，即立即更新。
     ///   - silent: 可选，阻止调用 setOption 时抛出事件，默认为false，即抛出事件。
-    public func refreshEcharts(option: Option, _ notMerge: Bool = false, _ lazyUpdate: Bool = false, _ silent: Bool = false) {
+    open func refreshEcharts(_ option: Option, _ notMerge: Bool = false, _ lazyUpdate: Bool = false, _ silent: Bool = false) {
         
         JsCache.removeAll() // 清空之前缓存的方法，避免出现重复的情况， 在调用 option.jsonString 会重新生成
         let optionJson = option.jsonString
@@ -56,19 +56,19 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
             //            self.callJsMethod("function \(name)(params){ alert(\(name));eval('window.webkit.messageHandlers.\(name).postMessage(' + params + ')'); }")
         }
         
-        let js = "refreshEcharts('\(optionJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))', \(notMerge), \(lazyUpdate), \(silent))"
+        let js = "refreshEcharts('\(optionJson.replacingOccurrences(of: "\\n", with: "<br>"))', \(notMerge), \(lazyUpdate), \(silent))"
 //        print(js)
-        self.callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
+        self.callJsMethod(js.replacingOccurrences(of: "\n", with: "\\n"))
     }
     
     // MARK: - Private Functions
-    private func initViews() {
-        var bundle = NSBundle.mainBundle()
-        if let frameworkPath = NSBundle.mainBundle().pathForResource("SwiftyEcharts", ofType: "framework", inDirectory: "Frameworks"), let frameworkBundle = NSBundle(path: frameworkPath) {
+    fileprivate func initViews() {
+        var bundle = Bundle.main
+        if let frameworkPath = Bundle.main.path(forResource: "SwiftyEcharts", ofType: "framework", inDirectory: "Frameworks"), let frameworkBundle = Bundle(path: frameworkPath) {
             bundle = frameworkBundle
         }
         
-        let urlPath = bundle.pathForResource("echarts", ofType: "html")
+        let urlPath = bundle.path(forResource: "echarts", ofType: "html")
         guard let path = urlPath else {
             printError("ERROR: Can not find the echarts.html, please contact the developer")
             return
@@ -94,24 +94,24 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
             }
         }
         if fitWKUScript == nil {
-            let newScript = WKUserScript(source: js, injectionTime: .AtDocumentEnd, forMainFrameOnly: false)
+            let newScript = WKUserScript(source: js, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
             userContentController.addUserScript(newScript)
         }
         
-        userContentController.addScriptMessageHandler(self, name: "wkechartview")
+        userContentController.add(self, name: "wkechartview")
         
-        scrollView.scrollEnabled = false
+        scrollView.isScrollEnabled = false
         scrollView.bounces = false
-        UIDelegate = self
+        uiDelegate = self
         navigationDelegate = self
         
     }
     
-    private func callJsMethod(jsString: String) {
+    fileprivate func callJsMethod(_ jsString: String) {
         self.evaluateJavaScript(jsString, completionHandler: nil)
     }
     
-    private func resizeDiv() {
+    fileprivate func resizeDiv() {
         let height = frame.size.height
         let width = self.frame.size.width
         let divCss = "'height:\(height)px;width:\(width)px;'"
@@ -121,7 +121,7 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     
     // MARK: - Delegate
     // MARK: UIWebViewDelegate
-    public func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+    open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
         guard let option = option else {
             printWarning("The option is nil")
@@ -142,19 +142,19 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
         }
         
         
-        let js = "loadEcharts('\(optionJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))')"
+        let js = "loadEcharts('\(optionJson.replacingOccurrences(of: "\\n", with: "<br>"))')"
         print(js)
-        callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
+        callJsMethod(js.replacingOccurrences(of: "\n", with: "\\n"))
         
     }
     
-    public func webView(webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: () -> Void) {
+    open func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         print(message)
         completionHandler()
     }
     
     // MARK: WKScriptMessageHandler
-    public func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
+    open func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         print("name:\(message.name), body:\(message.body)")
     }
 }

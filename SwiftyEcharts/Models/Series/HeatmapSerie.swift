@@ -188,7 +188,7 @@ extension HeatmapSerieData: Enumable {
 }
 
 extension HeatmapSerieData: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["label"] = label
@@ -242,7 +242,7 @@ extension HeatmapSerie: Enumable {
 }
 
 extension HeatmapSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name
         map["coordinateSystem"] = coordinateSystem

@@ -107,7 +107,7 @@ extension Grid: Enumable {
 }
 
 extension Grid: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["zlevel"] = zlevel
         map["z"] = z

@@ -248,7 +248,7 @@ extension InsideDataZoom: Enumable {
 }
 
 extension InsideDataZoom: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["disabled"] = disabled
         map["xAxisIndex"] = xAxisIndex

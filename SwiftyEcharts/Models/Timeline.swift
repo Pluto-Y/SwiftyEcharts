@@ -350,7 +350,7 @@ extension Timeline.LineStyle: Enumable {
 }
 
 extension Timeline.LineStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["color"] = color
         map["width"] = width
@@ -399,7 +399,7 @@ extension Timeline.CheckpointStyle: Enumable {
 }
 
 extension Timeline.CheckpointStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["symbol"] = symbol
         map["symbolSize"] = symbolSize
         map["symbolRotate"] = symbolRotate
@@ -436,7 +436,7 @@ extension Timeline.ControlStyle.CStyle: Enumable {
 }
 
 extension Timeline.ControlStyle.CStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["color"] = color
         map["borderWidth"] = borderWidth
         map["borderColor"] = borderColor
@@ -486,7 +486,7 @@ extension Timeline.ControlStyle: Enumable {
 }
 
 extension Timeline.ControlStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["showPlayBtn"] = showPlayBtn
         map["showPrevBtn"] = showPrevBtn
@@ -528,7 +528,7 @@ extension Timeline.Data: Enumable {
 }
 
 extension Timeline.Data: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["value"] = value
         map["tooltip"] = tooltip
         map["symbol"] = symbol
@@ -606,7 +606,7 @@ extension Timeline: Enumable {
 }
 
 extension Timeline: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["show"] = show
         map["type"] = type
         map["axisType"] = axisType

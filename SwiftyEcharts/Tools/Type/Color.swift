@@ -69,7 +69,7 @@ public enum Color: Jsonable {
                         jsStr += "\(color.jsonString),"
                     }
                 }
-                jsStr = jsStr.substringToIndex(jsStr.endIndex.predecessor())
+                jsStr = jsStr.substring(to: jsStr.characters.index(before: jsStr.endIndex))
                 jsStr += "], \(absolute))"
                 let count = JsCache.allJsStrings().count
                 let paramName = "linearGradient\(count)"
@@ -86,7 +86,7 @@ public enum Color: Jsonable {
                         jsStr += "\(color.jsonString),"
                     }
                 }
-                jsStr = jsStr.substringToIndex(jsStr.endIndex.predecessor())
+                jsStr = jsStr.substring(to: jsStr.characters.index(before: jsStr.endIndex))
                 jsStr += "], \(absolute))"
                 let count = JsCache.allJsStrings().count
                 let paramName = "radialGradient\(count)"
@@ -100,7 +100,7 @@ public enum Color: Jsonable {
                 for color in colors {
                     result += "\(color.jsonString)" + ","
                 }
-                result = result.substringToIndex(result.endIndex.predecessor())
+                result = result.substring(to: result.characters.index(before: result.endIndex))
             }
             result += "]"
             return result
@@ -115,8 +115,8 @@ public enum Color: Jsonable {
 }
 
 public struct GradientColorElement {
-    private var offset: Float?
-    private var color: Color?
+    fileprivate var offset: Float?
+    fileprivate var color: Color?
     
     public init() { }
     
@@ -135,7 +135,7 @@ extension GradientColorElement: Jsonable {
     }
 }
 
-extension GradientColorElement: DictionaryLiteralConvertible {
+extension GradientColorElement: ExpressibleByDictionaryLiteral {
     public typealias Key = String
     public typealias Value = Jsonable
     

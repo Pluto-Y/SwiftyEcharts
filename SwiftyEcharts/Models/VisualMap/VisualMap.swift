@@ -83,7 +83,7 @@ extension VisualMapController: Enumable {
 }
 
 extension VisualMapController: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["inRange"] = inRange
         map["outRange"] = outRange
     }

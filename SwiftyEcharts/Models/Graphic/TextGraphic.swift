@@ -113,7 +113,7 @@ extension TextGraphic.Style: Enumable {
 }
 
 extension TextGraphic.Style: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["text"] = text
         map["x"] = x
         map["y"] = y
@@ -176,7 +176,7 @@ extension TextGraphic: Enumable {
 }
 
 extension TextGraphic: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

@@ -82,7 +82,7 @@ extension TextStyle: Enumable {
 }
 
 extension TextStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["color"] = color
         map["fontStyle"] = fontStyle
         map["fontWeight"] = fontWeight

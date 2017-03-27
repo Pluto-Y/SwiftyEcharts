@@ -24,7 +24,7 @@ class SECMappableSpec: QuickSpec {
         var stringVar: String = ""
         var stringOpt: String?
         
-        func mapping(map: Mapper) {
+        func mapping(_ map: Mapper) {
             map["boolVar"] = boolVar
             map["boolOpt"] = boolOpt
             map["intVar"] = intVar
@@ -50,7 +50,7 @@ class SECMappableSpec: QuickSpec {
         var stringVar: String = ""
         var stringOpt: String?
         
-        func mapping(map: Mapper) {
+        func mapping(_ map: Mapper) {
             map["boolVar"] = boolVar
             map["boolOpt"] = boolOpt
             map["intVar"] = intVar

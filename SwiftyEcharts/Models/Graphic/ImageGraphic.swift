@@ -97,7 +97,7 @@ extension ImageGraphic.Style: Enumable {
 }
 
 extension ImageGraphic.Style: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["image"] = image
         map["x"] = x
         map["y"] = y
@@ -159,7 +159,7 @@ extension ImageGraphic: Enumable {
 }
 
 extension ImageGraphic: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

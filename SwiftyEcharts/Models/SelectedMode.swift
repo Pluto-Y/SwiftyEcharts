@@ -26,7 +26,7 @@ public enum SelectedMode: String, Jsonable {
     
 }
 
-extension SelectedMode: BooleanLiteralConvertible {
+extension SelectedMode: ExpressibleByBooleanLiteral {
     public init(booleanLiteral value: Bool) {
         if value {
             self = .enable

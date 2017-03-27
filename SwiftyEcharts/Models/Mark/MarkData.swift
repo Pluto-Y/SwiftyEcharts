@@ -121,7 +121,7 @@ extension MarkData.DataContent: Enumable {
 }
 
 extension MarkData.DataContent: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["valueIndex"] = valueIndex
         map["valueDim"] = valueDim
@@ -158,7 +158,7 @@ extension MarkData: Enumable {
 }
 
 extension MarkData: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["0"] = begin
         map["1"] = end
     }

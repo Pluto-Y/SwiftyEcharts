@@ -33,7 +33,7 @@ extension Mapper: Jsonable {
             let tmpDic = mapDic
             for (key, val) in tmpDic {
                 if val == nil {
-                    mapDic.removeValueForKey(key)
+                    mapDic.removeValue(forKey: key)
                 }
             }
         }

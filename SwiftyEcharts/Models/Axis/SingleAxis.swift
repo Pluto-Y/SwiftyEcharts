@@ -133,7 +133,7 @@ extension SingleAxis: Enumable {
 }
 
 extension SingleAxis: Mappable {
-	public func mapping(map: Mapper) {
+	public func mapping(_ map: Mapper) {
 		map["zlevel"] = zlevel
 		map["z"] = z
 		map["left"] = left
@@ -189,7 +189,7 @@ extension SingleAxis.Data: Enumable {
 }
 
 extension SingleAxis.Data: Mappable {
-	public func mapping(map: Mapper) {
+	public func mapping(_ map: Mapper) {
 		map["value"] = value
 		map["textStyle"] = textStyle
 	}

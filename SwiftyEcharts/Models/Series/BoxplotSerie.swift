@@ -144,7 +144,7 @@ extension BoxplotSerieData: Enumable {
 }
 
 extension BoxplotSerieData: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["name"] = name
         map["value"] = value
         map["itemStyle"] = itemStyle
@@ -205,7 +205,7 @@ extension BoxplotSerie: Enumable {
 }
 
 extension BoxplotSerie: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["coordinateSystem"] = coordinateSystem
         map["xAxisIndex"] = xAxisIndex

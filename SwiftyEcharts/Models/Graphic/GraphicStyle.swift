@@ -60,7 +60,7 @@ extension CommonGraphicStyle: Enumable {
 }
 
 extension CommonGraphicStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["fill"] = fill
         map["stroke"] = stroke
         map["lineWidth"] = lineWidth

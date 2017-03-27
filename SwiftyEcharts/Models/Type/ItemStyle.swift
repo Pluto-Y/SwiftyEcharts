@@ -67,7 +67,7 @@ extension CommonItemStyleContent: Enumable {
 }
 
 extension CommonItemStyleContent: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["color"] = color
         map["borderColor"] = borderColor
         map["borderWidth"] = borderWidth
@@ -112,7 +112,7 @@ extension ItemStyle: Enumable {
 }
 
 extension ItemStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["normal"] = normal
         map["emphasis"] = emphasis
     }

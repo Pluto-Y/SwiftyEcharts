@@ -301,7 +301,7 @@ extension SliderDataZoom.DataBackground: Enumable {
 }
 
 extension SliderDataZoom.DataBackground: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["lineStyle"] = lineStyle
         map["areaStyle"] = areaStyle
     }
@@ -341,7 +341,7 @@ extension SliderDataZoom.HandleStyle: Enumable {
 }
 
 extension SliderDataZoom.HandleStyle: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["color"] = color
         map["borderColor"] = borderColor
         map["borderWidth"] = borderWidth
@@ -440,7 +440,7 @@ extension SliderDataZoom: Enumable {
 }
 
 extension SliderDataZoom: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["show"] = show
         map["backgroundColor"] = backgroundColor

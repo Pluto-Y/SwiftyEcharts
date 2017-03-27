@@ -13,12 +13,16 @@ public protocol Opacitable {
 }
 
 extension Opacitable {
+    @discardableResult
     public mutating func validateOpacity() -> Bool {
-        if opacity < 0.0 {
-            opacity = 0.0
+        guard let opacity = opacity else {
             return false
-        } else if opacity > 1.0 {
-            opacity = 1.0
+        }
+        if opacity < Float(0.0) {
+            self.opacity = 0.0
+            return false
+        } else if opacity > Float(1.0) {
+            self.opacity = 1.0
             return false
         }
         return true

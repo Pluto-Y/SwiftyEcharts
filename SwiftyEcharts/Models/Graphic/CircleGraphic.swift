@@ -69,7 +69,7 @@ extension CircleGraphic.Shape: Enumable {
 }
 
 extension CircleGraphic.Shape: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["cx"] = cx
         map["cy"] = cy
         map["r"] = r
@@ -124,7 +124,7 @@ extension CircleGraphic: Enumable {
 }
 
 extension CircleGraphic: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["id"] = id
         map["$action"] = action

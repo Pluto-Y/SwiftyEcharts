@@ -8,7 +8,7 @@
 
 import Quick
 import Nimble
-import SwiftyEcharts
+@testable import SwiftyEcharts
 
 class ColorSpec: QuickSpec {
     
@@ -44,7 +44,7 @@ class ColorSpec: QuickSpec {
         }
         
         
-        describe("For Color") { 
+        describe("For Color enum") {
             let rgbColor = Color.rgb(120, 0, 255)
             let rgbaColor = Color.rgba(80, 22, 37, 0.5)
             let hexColor = Color.hexColor("#209")
@@ -76,6 +76,20 @@ class ColorSpec: QuickSpec {
                 
                 let radialGradientJs = JsCache.allJsStrings()[0]
                 expect(radialGradientJs).to(equal("var radialGradient0 = new echarts.graphic.RadialGradient(\(x.jsonString), \(y.jsonString), \(r.jsonString), [\(gradientElement1.jsonString),\(gradientElement2.jsonString),\(gradientElement3.jsonString)], true);"))
+            }
+        }
+        
+        describe("For rgb or rgba extension") {
+            
+            it(" needs can check the creation of functions") {
+                for _ in 0..<10 {
+                    let red = Int(arc4random_uniform(300))
+                    let green = Int(arc4random_uniform(300))
+                    let blue = Int(arc4random_uniform(300))
+                    let alpha = Float(arc4random_uniform(300)) / 400
+                    expect(rgb(red, green, blue).jsonString).to(equal(Color.rgb(red, green, blue).jsonString))
+                    expect(rgba(red, green, blue, alpha).jsonString).to(equal(Color.rgba(red, green, blue, alpha).jsonString))
+                }
             }
         }
         

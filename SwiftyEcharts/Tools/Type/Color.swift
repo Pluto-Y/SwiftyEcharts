@@ -39,13 +39,42 @@ public enum Color: Jsonable {
     case radialGradient(Float, Float, Float, [GradientColorElement], Bool)
     case auto, red, blue, green, yellow, transparent
     
+    private func validate(red: Int, _ green: Int, _ blue: Int, _ alpha: Float = 1.0) -> Bool {
+        guard red >= 0 && red <= 255 else {
+            printError("Please check the red element")
+            return false
+        }
+        
+        guard green >= 0 && green <= 255 else {
+            printError("Please check the green element")
+            return false
+        }
+        guard blue >= 0 && blue <= 255 else {
+            printError("Please check the blue element")
+            return false
+        }
+        
+        guard alpha >= 0 && alpha <= 1.0 else {
+            printError("Please check the alpha element")
+            return false
+        }
+        
+        return true
+    }
+    
     
     public var jsonString: String {
         switch self {
         case let .rgba(r, g, b, a):
-            return "\"rgba(\(r), \(g), \(b), \(a))\""
+            if validate(r, g, b, a) {
+                return "\"rgba(\(r), \(g), \(b), \(a))\""
+            }
+            return "\"null\""
         case let .rgb(r, g, b):
-            return "\"rgba(\(r), \(g), \(b), 1.0)\""
+            if validate(r, g, b) {
+                return "\"rgba(\(r), \(g), \(b), 1.0)\""
+            }
+            return "\"null\""
         case let .hexColor(hexColor):
             return "\"\(hexColor)\""
         case .auto:
@@ -114,6 +143,13 @@ public enum Color: Jsonable {
     
 }
 
+public func rgba(red: Int, _ green: Int, _ blue: Int, _ alpha: Float) -> Color {
+    return Color.rgba(red, green, blue, alpha)
+}
+
+public func rgb(red: Int, _ green: Int, _ blue: Int) -> Color {
+    return Color.rgb(red, green, blue)
+}
 public struct GradientColorElement {
     private var offset: Float?
     private var color: Color?

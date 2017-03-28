@@ -13,7 +13,7 @@ public struct BarOptions {
     // MARK: 柱状图动画延迟
     /// 地址: http://echarts.baidu.com/demo.html#bar-animation-delay
     static func barAnimationDelayOption() -> Option {
-        func calculateData(index: Float, function: (Double) -> Double) -> Float {
+        func calculateData(_ index: Float, function: (Double) -> Double) -> Float {
             var tmp: Float = Float(function(Double(index) / 5.0))
             tmp *= (index / 5.0 - 1.0)
             tmp += index / 6.0
@@ -925,13 +925,13 @@ public struct BarOptions {
     static func dynamicDataOption() -> Option {
         var xAxisData1: [Jsonable] = []
         var xAxisData2: [Jsonable] = []
-        var date = NSDate()
-        let dateFormatter = NSDateFormatter()
+        var date = Date()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm:ss a"
         for i in 0..<10 {
-            xAxisData1.append(dateFormatter.stringFromDate(date))
+            xAxisData1.append(dateFormatter.string(from: date))
             xAxisData2.append(i)
-            date = NSDate(timeIntervalSince1970: date.timeIntervalSince1970)
+            date = Date(timeIntervalSince1970: date.timeIntervalSince1970)
         }
         var seriesData1: [Jsonable] = []
         var seriesData2: [Jsonable] = []

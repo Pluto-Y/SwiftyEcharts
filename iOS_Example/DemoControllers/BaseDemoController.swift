@@ -25,7 +25,7 @@ class BaseDemoController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
         let width = self.view.frame.width
         let height = self.view.frame.height
@@ -33,7 +33,7 @@ class BaseDemoController: UIViewController, UITableViewDelegate, UITableViewData
         menuTableView = UITableView(frame: CGRect(x: 0, y: 0, width: width, height: height - 300))
         menuTableView.delegate = self
         menuTableView.dataSource = self
-        menuTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "DemoCell")
+        menuTableView.register(UITableViewCell.self, forCellReuseIdentifier: "DemoCell")
         self.view.addSubview(menuTableView)
         
         let line = UIView(frame: CGRect(x: 0, y: height - 300, width: width, height: 1))
@@ -47,25 +47,25 @@ class BaseDemoController: UIViewController, UITableViewDelegate, UITableViewData
 
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         option = optionClosures[0]()
     }
 
     // MARK: - UITableViewDataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menus.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("DemoCell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DemoCell", for: indexPath)
         cell.textLabel?.text = menus[indexPath.row]
-        cell.selectionStyle = .None
+        cell.selectionStyle = .none
         return cell
     }
     
     // MARK: - UITableViewDelegate
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         option = optionClosures[indexPath.row]()
     }
     

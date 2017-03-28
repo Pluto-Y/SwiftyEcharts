@@ -13,7 +13,7 @@ public struct LineOptions {
     // MARK: 雨量流量关系图
     /// 地址:http://echarts.baidu.com/demo.html#area-rainfall
     static func areaRainfallOption() -> Option {
-        guard let plistUrl = NSBundle.mainBundle().pathForResource("AreaRainfallDatas", ofType: "plist") else {
+        guard let plistUrl = Bundle.main.path(forResource: "AreaRainfallDatas", ofType: "plist") else {
             return Option()
         }
         
@@ -141,16 +141,16 @@ public struct LineOptions {
     // MARK: 大数据量面积图
     /// 地址: http://echarts.baidu.com/demo.html#area-simple
     static func areaSimpleOption() -> Option {
-        let base = NSDate(dateString: "1968-09-03")
-        let dateFormater = NSDateFormatter()
+        let base = Date(dateString: "1968-09-03")
+        let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy/M/d"
-        let oneDay: NSTimeInterval = 24 * 3600
+        let oneDay: TimeInterval = 24 * 3600
         var date: [Jsonable] = []
         
         var data: [Jsonable] = [Float(arc4random_uniform(300))]
         for i in 1..<2000 {
-            let tmpDate = NSDate(timeInterval: oneDay * Double(i), sinceDate: base)
-            date.append(dateFormater.stringFromDate(tmpDate))
+            let tmpDate = Date(timeInterval: oneDay * Double(i), since: base)
+            date.append(dateFormater.string(from: tmpDate))
             let lastObj = data[i-1] as! Float
             let randomNum: Float = Float(Int(arc4random_uniform(10)) - 5)
             let tmpData =  Float(randomNum) / 10.0 * 20.0 + lastObj
@@ -329,7 +329,7 @@ public struct LineOptions {
     // MARK: 雨量流量关系图2
     /// 地址:http://echarts.baidu.com/demo.html#grid-multiple
     static func gridMultipleOption() -> Option {
-        guard let plistUrl = NSBundle.mainBundle().pathForResource("AreaRainfallDatas", ofType: "plist") else {
+        guard let plistUrl = Bundle.main.path(forResource: "AreaRainfallDatas", ofType: "plist") else {
             return Option()
         }
         
@@ -339,7 +339,7 @@ public struct LineOptions {
         
         
         let xAxisDatas = (plistDatas["XAxisDatas"] as! [String]).map({ (ele) -> Jsonable in
-            return ele.stringByReplacingOccurrencesOfString("2009/", withString: "").stringByReplacingOccurrencesOfString("\\n", withString: " ")
+            return ele.replacingOccurrences(of: "2009/", with: "").replacingOccurrences(of: "\\n", with: " ")
         })
         let seriesDatas1 = (plistDatas["SeriesData1"] as! [Float]).map { (ele) -> Jsonable in
             return ele
@@ -1033,14 +1033,12 @@ public struct LineOptions {
     }
 }
 
-extension NSDate
-{
-    convenience
+extension Date {
     init(dateString:String) {
-        let dateStringFormatter = NSDateFormatter()
+        let dateStringFormatter = DateFormatter()
         dateStringFormatter.dateFormat = "yyyy-MM-dd"
-        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        let d = dateStringFormatter.dateFromString(dateString)!
-        self.init(timeInterval:0, sinceDate:d)
+        dateStringFormatter.locale = Locale(identifier: "en_US_POSIX")
+        let d = dateStringFormatter.date(from: dateString)!
+        self = Date(timeInterval: 0, since: d)
     }
 }

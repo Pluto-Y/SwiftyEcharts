@@ -11,7 +11,7 @@ import SwiftyEcharts
 
 class MapsController: BaseDemoController {
     
-    private var timer: NSTimer?
+    fileprivate var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +24,8 @@ class MapsController: BaseDemoController {
         
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
         if timer != nil {
             timer?.invalidate()
             timer = nil
@@ -33,17 +33,17 @@ class MapsController: BaseDemoController {
         switch indexPath.row {
         case 8:
             
-            timer = NSTimer(timeInterval: 2, target: self, selector: #selector(self.mapLocateOption), userInfo: nil , repeats: true)
+            timer = Timer(timeInterval: 2, target: self, selector: #selector(self.mapLocateOption), userInfo: nil , repeats: true)
         default:
             print("Nothing...")
         }
         
         if timer != nil {
-            NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+            RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
         }
     }
     
-    private var currLoc = 0
+    fileprivate var currLoc = 0
     func mapLocateOption() {
         let location: [[String: Jsonable]] = [[
             "name": "上海",
@@ -56,15 +56,15 @@ class MapsController: BaseDemoController {
                 "coord": [113.280637, 23.839463714285714]
             ]]
         var tmpOpt = self.option
-        var serie = tmpOpt.series![0] as! MapSerie
+        var serie = tmpOpt!.series![0] as! MapSerie
         serie.center = location[currLoc]["coord"] as? Position
         serie.zoom = 4
         let data: [String: Jsonable] = ["name": location[currLoc]["name"]!, "selected": true]
         serie.data = [data]
         serie.animationDurationUpdate = 1000.0
         serie.animationEasingUpdate = .cubicInOut
-        tmpOpt.series = [serie]
-        echartsView.refreshEcharts(tmpOpt)
+        tmpOpt!.series = [serie]
+        echartsView.refreshEcharts(tmpOpt!)
         print(serie.jsonString)
         currLoc = (currLoc + 1) % location.count
     }

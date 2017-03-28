@@ -43,6 +43,7 @@
 		5427F09F1E2C984500CE20E5 /* ThemeRiverOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09E1E2C984500CE20E5 /* ThemeRiverOptions.swift */; };
 		5427F0AB1E2CEB8800CE20E5 /* MarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0AA1E2CEB8800CE20E5 /* MarkData.swift */; };
 		5435CCBE1E24990B00D753B2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435CCBD1E24990B00D753B2 /* Utilities.swift */; };
+		54371F0C1E8A3C7C008C3D22 /* ThemeRiverBasicData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54371F0B1E8A3C7C008C3D22 /* ThemeRiverBasicData.plist */; };
 		5446EA0E1E7672E5009BAE71 /* ThemeRiverSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5446EA0D1E7672E5009BAE71 /* ThemeRiverSerie.swift */; };
 		5446EA101E767D69009BAE71 /* ThemeRiversController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5446EA0F1E767D69009BAE71 /* ThemeRiversController.swift */; };
 		5447FD941E2DE8BB001D88F3 /* DataZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447FD931E2DE8BB001D88F3 /* DataZoom.swift */; };
@@ -234,6 +235,7 @@
 		5427F09E1E2C984500CE20E5 /* ThemeRiverOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeRiverOptions.swift; sourceTree = "<group>"; };
 		5427F0AA1E2CEB8800CE20E5 /* MarkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MarkData.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5435CCBD1E24990B00D753B2 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		54371F0B1E8A3C7C008C3D22 /* ThemeRiverBasicData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ThemeRiverBasicData.plist; sourceTree = "<group>"; };
 		5446EA0D1E7672E5009BAE71 /* ThemeRiverSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ThemeRiverSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5446EA0F1E767D69009BAE71 /* ThemeRiversController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeRiversController.swift; sourceTree = "<group>"; };
 		5447FD931E2DE8BB001D88F3 /* DataZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataZoom.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 				5427F09C1E2C983A00CE20E5 /* PictoriaBarOptions.swift */,
 				5427F09E1E2C984500CE20E5 /* ThemeRiverOptions.swift */,
 				6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */,
+				54371F0B1E8A3C7C008C3D22 /* ThemeRiverBasicData.plist */,
 			);
 			path = DemoOptions;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				6F9B70EA1DE808E600406B55 /* LaunchScreen.storyboard in Resources */,
 				6F9B70E71DE808E600406B55 /* Assets.xcassets in Resources */,
 				6F9B70E51DE808E600406B55 /* Main.storyboard in Resources */,
+				54371F0C1E8A3C7C008C3D22 /* ThemeRiverBasicData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1279,7 +1283,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pluto-y.iOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1298,7 +1302,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pluto-y.iOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -11,9 +11,9 @@ import SwiftyEcharts
 
 class BarsController: BaseDemoController {
     
-    private var timer: NSTimer?
-    private var dynamicCount = 11
-    private var newOptionForDynamicData = Option()
+    fileprivate var timer: Timer?
+    fileprivate var dynamicCount = 11
+    fileprivate var newOptionForDynamicData = Option()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,8 @@ class BarsController: BaseDemoController {
         self.title = "柱状图"
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
         if timer != nil {
             timer?.invalidate()
             timer = nil
@@ -34,10 +34,10 @@ class BarsController: BaseDemoController {
         if menus[indexPath.row] == "动态数据" {
             dynamicCount = 11
             newOptionForDynamicData = self.option
-            timer = NSTimer(timeInterval: 2.1, target: self, selector: #selector(self.dynamicData), userInfo: nil, repeats: true)
+            timer = Timer(timeInterval: 2.1, target: self, selector: #selector(self.dynamicData), userInfo: nil, repeats: true)
         }
         if timer != nil {
-            NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+            RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
         }
     }
     
@@ -56,13 +56,14 @@ class BarsController: BaseDemoController {
         var xAxis0 = newOptionForDynamicData.xAxis![0]
         var xAxis1 = newOptionForDynamicData.xAxis![1]
         
-        let date = NSDate()
-        let dateFormatter = NSDateFormatter()
+        let date = Date()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm:ss a"
         xAxis0?.data?.removeFirst()
-        xAxis0?.data?.append(dateFormatter.stringFromDate(date))
+        xAxis0?.data?.append(dateFormatter.string(from: date))
         xAxis1?.data?.removeFirst()
-        xAxis1?.data?.append(dynamicCount++)
+        xAxis1?.data?.append(dynamicCount)
+        dynamicCount += 1
         
         newOptionForDynamicData.xAxis = [xAxis0!, xAxis1!]
         echartsView.refreshEcharts(newOptionForDynamicData)

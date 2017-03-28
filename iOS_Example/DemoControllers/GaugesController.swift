@@ -11,7 +11,7 @@ import SwiftyEcharts
 
 class GaugesController: BaseDemoController {
     
-    private var timer: NSTimer?
+    fileprivate var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,8 @@ class GaugesController: BaseDemoController {
         self.title = "仪表盘"
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
         
         if timer != nil {
             timer?.invalidate()
@@ -35,19 +35,19 @@ class GaugesController: BaseDemoController {
         case 0:
             print("")
         case 1:
-            timer = NSTimer(timeInterval: 2, target: self, selector: #selector(self.randomForGaugeCar), userInfo: nil, repeats: true)
+            timer = Timer(timeInterval: 2, target: self, selector: #selector(self.randomForGaugeCar), userInfo: nil, repeats: true)
         case 2:
-            timer = NSTimer(timeInterval: 2, target: self, selector: #selector(self.randomForGauge), userInfo: nil, repeats: true)
+            timer = Timer(timeInterval: 2, target: self, selector: #selector(self.randomForGauge), userInfo: nil, repeats: true)
         default:
             print("错误输入")
         }
         if let t = timer {
-            NSRunLoop.currentRunLoop().addTimer(t, forMode: NSRunLoopCommonModes)
+            RunLoop.current.add(t, forMode: RunLoopMode.commonModes)
         }
     }
     
     func randomForGauge() {
-        var option = self.option
+        var option = self.option!
         let data: [String: Jsonable] = ["value": Double(arc4random_uniform(100) + 1), "name": "完成率"]
         var serie = option.series![0] as! GaugeSerie
         serie.data = [data]
@@ -56,7 +56,7 @@ class GaugesController: BaseDemoController {
     }
     
     func randomForGaugeCar() {
-        var option = self.option
+        var option = self.option!
         let data1: [String: Jsonable] = ["value": Double(arc4random_uniform(100) + 1), "name": "km/h"]
         var serie1 = option.series![0] as! GaugeSerie
         serie1.data = [data1]

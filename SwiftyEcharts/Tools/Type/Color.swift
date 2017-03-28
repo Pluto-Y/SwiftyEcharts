@@ -62,7 +62,6 @@ public enum Color: Jsonable {
         return true
     }
     
-    
     public var jsonString: String {
         switch self {
         case let .rgba(r, g, b, a):
@@ -143,6 +142,7 @@ public enum Color: Jsonable {
     
 }
 
+// 通过 `rgba` 以及 `rgb`的方法能直接创建出对象
 public func rgba(red: Int, _ green: Int, _ blue: Int, _ alpha: Float) -> Color {
     return Color.rgba(red, green, blue, alpha)
 }
@@ -150,6 +150,23 @@ public func rgba(red: Int, _ green: Int, _ blue: Int, _ alpha: Float) -> Color {
 public func rgb(red: Int, _ green: Int, _ blue: Int) -> Color {
     return Color.rgb(red, green, blue)
 }
+
+// 通过字符串能直接产生颜色
+extension Color : StringLiteralConvertible {
+    public init(stringLiteral value: String) {
+       self = Color.hexColor(value)
+    }
+    
+    public init(unicodeScalarLiteral value: String) {
+       self = Color.hexColor(value)
+    }
+    
+    public init(extendedGraphemeClusterLiteral value: String) {
+       self = Color.hexColor(value)
+    }
+}
+
+/// 渐变颜色的元素
 public struct GradientColorElement {
     private var offset: Float?
     private var color: Color?
@@ -171,6 +188,7 @@ extension GradientColorElement: Jsonable {
     }
 }
 
+// MARK: - 保证渐变颜色的元素能通过Dictionary进行创建
 extension GradientColorElement: DictionaryLiteralConvertible {
     public typealias Key = String
     public typealias Value = Jsonable

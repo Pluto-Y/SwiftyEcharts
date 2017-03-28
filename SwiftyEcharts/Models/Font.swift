@@ -43,3 +43,10 @@ public enum FontWeight: Jsonable, CustomStringConvertible {
         }
     }
 }
+
+// 通过整数创建 `FontWeight`
+extension FontWeight: ExpressibleByIntegerLiteral {
+    public init(integerLiteral value: Int) {
+        self = .weight(value)
+    }
+}

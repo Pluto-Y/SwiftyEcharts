@@ -39,13 +39,41 @@ public enum Color: Jsonable {
     case radialGradient(Float, Float, Float, [GradientColorElement], Bool)
     case auto, red, blue, green, yellow, transparent
     
+    internal func validate(_ red: Int, _ green: Int, _ blue: Int, _ alpha: Float = 1.0) -> Bool {
+        guard red >= 0 && red <= 255 else {
+            printError("Please check the red element")
+            return false
+        }
+        
+        guard green >= 0 && green <= 255 else {
+            printError("Please check the green element")
+            return false
+        }
+        guard blue >= 0 && blue <= 255 else {
+            printError("Please check the blue element")
+            return false
+        }
+        
+        guard alpha >= 0 && alpha <= 1.0 else {
+            printError("Please check the alpha element")
+            return false
+        }
+        
+        return true
+    }
     
     public var jsonString: String {
         switch self {
         case let .rgba(r, g, b, a):
-            return "\"rgba(\(r), \(g), \(b), \(a))\""
+            if validate(r, g, b, a) {
+                return "\"rgba(\(r), \(g), \(b), \(a))\""
+            }
+            return "\"null\""
         case let .rgb(r, g, b):
-            return "\"rgba(\(r), \(g), \(b), 1.0)\""
+            if validate(r, g, b) {
+                return "\"rgba(\(r), \(g), \(b), 1.0)\""
+            }
+            return "\"null\""
         case let .hexColor(hexColor):
             return "\"\(hexColor)\""
         case .auto:
@@ -114,6 +142,31 @@ public enum Color: Jsonable {
     
 }
 
+// 通过 `rgba` 以及 `rgb`的方法能直接创建出对象
+public func rgba(_ red: Int, _ green: Int, _ blue: Int, _ alpha: Float) -> Color {
+    return Color.rgba(red, green, blue, alpha)
+}
+
+public func rgb(_ red: Int, _ green: Int, _ blue: Int) -> Color {
+    return Color.rgb(red, green, blue)
+}
+
+// 通过字符串能直接产生颜色
+extension Color : ExpressibleByStringLiteral {
+    public init(stringLiteral value: String) {
+       self = Color.hexColor(value)
+    }
+    
+    public init(unicodeScalarLiteral value: String) {
+       self = Color.hexColor(value)
+    }
+    
+    public init(extendedGraphemeClusterLiteral value: String) {
+       self = Color.hexColor(value)
+    }
+}
+
+/// 渐变颜色的元素
 public struct GradientColorElement {
     fileprivate var offset: Float?
     fileprivate var color: Color?
@@ -135,6 +188,7 @@ extension GradientColorElement: Jsonable {
     }
 }
 
+// MARK: - 保证渐变颜色的元素能通过Dictionary进行创建
 extension GradientColorElement: ExpressibleByDictionaryLiteral {
     public typealias Key = String
     public typealias Value = Jsonable

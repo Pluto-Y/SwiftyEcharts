@@ -28,18 +28,26 @@ class SECFontSpec: QuickSpec {
         
         describe("For font weight") {
             let weightValue = 100
-            let normalWeight = FontWeight.normal
-            let boldWeight = FontWeight.bold
-            let bolderWeight = FontWeight.bolder
-            let lighterWeight = FontWeight.lighter
             let valueWeight = FontWeight.weight(weightValue)
             
             it("needs to check the description") {
+                let normalWeight = FontWeight.normal
+                let boldWeight = FontWeight.bold
+                let bolderWeight = FontWeight.bolder
+                let lighterWeight = FontWeight.lighter
+                
+                
                 expect(normalWeight.description).to(equal("normal"))
                 expect(boldWeight.description).to(equal("bold"))
                 expect(bolderWeight.description).to(equal("bolder"))
                 expect(lighterWeight.description).to(equal("lighter"))
                 expect(valueWeight.description).to(equal("\(weightValue)"))
+            }
+            
+            it("needs to create from Int") {
+                let intWeight = 100
+                expect(intWeight.description).to(equal(valueWeight.description))
+                
             }
             
         }

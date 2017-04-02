@@ -54,3 +54,144 @@ public struct PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
     
     public init() { }
 }
+
+extension PictorialBarSerie : Enumable {
+    public enum Enums {
+        case name(String), legendHoverLine(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(ItemStyle), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(LengthValue), barGap(LengthValue), barCategoryGap(LengthValue), symbol(Symbol), symbolSize(Float), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(Bool), symbolBoundingData(String), symbolPatternSize(Float), hoverAnimation(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationDelayUpdate(Time), animationDelay(Time), animationEasingUpdate(EasingFunction), tooltip(Tooltip)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .legendHoverLine(legendHoverLine):
+                self.legendHoverLine = legendHoverLine
+            case let .coordinateSystem(coordinateSystem):
+                self.coordinateSystem = coordinateSystem
+            case let .xAxisIndex(xAxisIndex):
+                self.xAxisIndex = xAxisIndex
+            case let .yAxisIndex(yAxisIndex):
+                self.yAxisIndex = yAxisIndex
+            case let .label(label):
+                self.label = label
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            case let .barWidth(barWidth):
+                self.barWidth = barWidth
+            case let .barMaxWidth(barMaxWidth):
+                self.barMaxWidth = barMaxWidth
+            case let .barMinHeight(barMinHeight):
+                self.barMinHeight = barMinHeight
+            case let .barGap(barGap):
+                self.barGap = barGap
+            case let .barCategoryGap(barCategoryGap):
+                self.barCategoryGap = barCategoryGap
+            case let .symbol(symbol):
+                self.symbol = symbol
+            case let .symbolSize(symbolSize):
+                self.symbolSize = symbolSize
+            case let .symbolPosition(symbolPosition):
+                self.symbolPosition = symbolPosition
+            case let .symbolOffset(symbolOffset):
+                self.symbolOffset = symbolOffset
+            case let .symbolRotate(symbolRotate):
+                self.symbolRotate = symbolRotate
+            case let .symbolRepeat(symbolRepeat):
+                self.symbolRepeat = symbolRepeat
+            case let .symbolRepeatDirection(symbolRepeatDirection):
+                self.symbolRepeatDirection = symbolRepeatDirection
+            case let .symbolMargin(symbolMargin):
+                self.symbolMargin = symbolMargin
+            case let .symbolClip(symbolClip):
+                self.symbolClip = symbolClip
+            case let .symbolBoundingData(symbolBoundingData):
+                self.symbolBoundingData = symbolBoundingData
+            case let .symbolPatternSize(symbolPatternSize):
+                self.symbolPatternSize = symbolPatternSize
+            case let .hoverAnimation(hoverAnimation):
+                self.hoverAnimation = hoverAnimation
+            case let .data(data):
+                self.data = data
+            case let .markPoint(markPoint):
+                self.markPoint = markPoint
+            case let .markLine(markLine):
+                self.markLine = markLine
+            case let .markArea(markArea):
+                self.markArea = markArea
+            case let .zlevel(zlevel):
+                self.zlevel = zlevel
+            case let .z(z):
+                self.z = z
+            case let .silent(silent):
+                self.silent = silent
+            case let .animation(animation):
+                self.animation = animation
+            case let .animationThreshold(animationThreshold):
+                self.animationThreshold = animationThreshold
+            case let .animationDuration(animationDuration):
+                self.animationDuration = animationDuration
+            case let .animationEasing(animationEasing):
+                self.animationEasing = animationEasing
+            case let .animationDurationUpdate(animationDurationUpdate):
+                self.animationDurationUpdate = animationDurationUpdate
+            case let .animationDelayUpdate(animationDelayUpdate):
+                self.animationDelayUpdate = animationDelayUpdate
+            case let .animationDelay(animationDelay):
+                self.animationDelay = animationDelay
+            case let .animationEasingUpdate(animationEasingUpdate):
+                self.animationEasingUpdate = animationEasingUpdate
+            case let .tooltip(tooltip):
+                self.tooltip = tooltip
+            }
+        }
+    }
+}
+
+extension PictorialBarSerie : Mappable {
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["name"] = name
+        map["legendHoverLine"] = legendHoverLine
+        map["coordinateSystem"] = coordinateSystem
+        map["xAxisIndex"] = xAxisIndex
+        map["yAxisIndex"] = yAxisIndex
+        map["label"] = label
+        map["itemStyle"] = itemStyle
+        map["barWidth"] = barWidth
+        map["barMaxWidth"] = barMaxWidth
+        map["barMinHeight"] = barMinHeight
+        map["barGap"] = barGap
+        map["barCategoryGap"] = barCategoryGap
+        map["symbol"] = symbol
+        map["symbolSize"] = symbolSize
+        map["symbolPosition"] = symbolPosition
+        map["symbolOffset"] = symbolOffset
+        map["symbolRotate"] = symbolRotate
+        map["symbolRepeat"] = symbolRepeat
+        map["symbolRepeatDirection"] = symbolRepeatDirection
+        map["symbolMargin"] = symbolMargin
+        map["symbolClip"] = symbolClip
+        map["symbolBoundingData"] = symbolBoundingData
+        map["symbolPatternSize"] = symbolPatternSize
+        map["hoverAnimation"] = hoverAnimation
+        map["data"] = data
+        map["markPoint"] = markPoint
+        map["markLine"] = markLine
+        map["markArea"] = markArea
+        map["zlevel"] = zlevel
+        map["z"] = z
+        map["silent"] = silent
+        map["animation"] = animation
+        map["animationThreshold"] = animationThreshold
+        map["animationDuration"] = animationDuration
+        map["animationEasing"] = animationEasing
+        map["animationDurationUpdate"] = animationDurationUpdate
+        map["animationDelayUpdate"] = animationDelayUpdate
+        map["animationDelay"] = animationDelay
+        map["animationEasingUpdate"] = animationEasingUpdate
+        map["tooltip"] = tooltip
+    }
+}

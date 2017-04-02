@@ -102,6 +102,7 @@
 		6F9B70E71DE808E600406B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9B70E61DE808E600406B55 /* Assets.xcassets */; };
 		6F9B70EA1DE808E600406B55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F9B70E81DE808E600406B55 /* LaunchScreen.storyboard */; };
 		6F9B70EF1DE809E700406B55 /* EchartsView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F9B70D71DE8070E00406B55 /* EchartsView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FA0B98A1E916EF5007D2AA2 /* PictorialBarSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0B9891E916EF5007D2AA2 /* PictorialBarSerie.swift */; };
 		6FA24F721E2B7A0100E25002 /* Enumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA24F711E2B7A0100E25002 /* Enumable.swift */; };
 		6FA24F741E2BE0F900E25002 /* Toolbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA24F731E2BE0F900E25002 /* Toolbox.swift */; };
 		6FA9DB241E59EA2000CE5277 /* OneOrMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */; };
@@ -296,6 +297,7 @@
 		6F9B70E61DE808E600406B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F9B70E91DE808E600406B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F9B70EB1DE808E600406B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FA0B9891E916EF5007D2AA2 /* PictorialBarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictorialBarSerie.swift; sourceTree = "<group>"; };
 		6FA24F711E2B7A0100E25002 /* Enumable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumable.swift; sourceTree = "<group>"; };
 		6FA24F731E2BE0F900E25002 /* Toolbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Toolbox.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrMore.swift; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				6F4A151E1E6EFF800059BAD5 /* GaugeSerie.swift */,
 				5446EA0D1E7672E5009BAE71 /* ThemeRiverSerie.swift */,
 				54AAE1761E790BE100DCD829 /* SankeySerie.swift */,
+				6FA0B9891E916EF5007D2AA2 /* PictorialBarSerie.swift */,
 			);
 			path = Series;
 			sourceTree = "<group>";
@@ -1017,6 +1020,7 @@
 				6FC40CFC1E4CB20300F6E62F /* Parallel.swift in Sources */,
 				6FB400401E2FC05E0086BF5B /* BarSerie.swift in Sources */,
 				6F4A15171E69CE770059BAD5 /* ParallelSerie.swift in Sources */,
+				6FA0B98A1E916EF5007D2AA2 /* PictorialBarSerie.swift in Sources */,
 				6F4A151B1E6DB9940059BAD5 /* FunnelSerie.swift in Sources */,
 				6F9B70D81DE8070E00406B55 /* EchartsView.swift in Sources */,
 				6F4ACB361E1BD36100CE5FD5 /* Emphasisable.swift in Sources */,

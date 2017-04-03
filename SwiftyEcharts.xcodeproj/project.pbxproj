@@ -218,7 +218,7 @@
 		541C725B1E4C529000B194A3 /* EffectScatterSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EffectScatterSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		541C725E1E5168D300B194A3 /* RadarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RadarSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		541C72601E516D3900B194A3 /* TreemapSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TreemapSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		5427F07C1E2C8F4000CE20E5 /* LineOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineOptions.swift; sourceTree = "<group>"; };
+		5427F07C1E2C8F4000CE20E5 /* LineOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LineOptions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5427F07E1E2C94FF00CE20E5 /* ScatterOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScatterOptions.swift; sourceTree = "<group>"; };
 		5427F0801E2C953700CE20E5 /* BarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarOptions.swift; sourceTree = "<group>"; };
 		5427F0821E2C95CF00CE20E5 /* MapOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOptions.swift; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 		6F9B70E61DE808E600406B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F9B70E91DE808E600406B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F9B70EB1DE808E600406B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6FA0B9891E916EF5007D2AA2 /* PictorialBarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictorialBarSerie.swift; sourceTree = "<group>"; };
+		6FA0B9891E916EF5007D2AA2 /* PictorialBarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PictorialBarSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FA24F711E2B7A0100E25002 /* Enumable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumable.swift; sourceTree = "<group>"; };
 		6FA24F731E2BE0F900E25002 /* Toolbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Toolbox.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrMore.swift; sourceTree = "<group>"; };

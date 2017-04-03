@@ -23,7 +23,7 @@ public struct RadarSerie: Serie, Symbolized, Zable, Animatable {
         
         /// MARK: Symbolized
         public var symbol: Symbol?
-        public var symbolSize: Float?
+        public var symbolSize: Jsonable?
         public var symbolRotate: Float?
         public var symbolOffset: Point?
         
@@ -51,7 +51,7 @@ public struct RadarSerie: Serie, Symbolized, Zable, Animatable {
     
     /// MARK: Symbolized
     public var symbol: Symbol?
-    public var symbolSize: Float?
+    public var symbolSize: Jsonable?
     public var symbolRotate: Float?
     public var symbolOffset: Point?
     
@@ -95,7 +95,7 @@ public typealias RadarSerieData = RadarSerie.Data
 
 extension RadarSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Jsonable), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle)
+        case name(String), value(Jsonable), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -145,7 +145,7 @@ extension RadarSerieData: Mappable {
 
 extension RadarSerie: Enumable {
 	public enum Enums {
-		case name(String), radarIndex(UInt8), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+		case name(String), radarIndex(UInt8), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
 	}
 
 	public typealias ContentEnum = Enums

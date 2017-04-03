@@ -20,7 +20,7 @@ public struct MarkPoint: Symbolized, Animatable {
         public var yAxis: Float?
         public var value: Float?
         public var symbol: Symbol?
-        public var symbolSize: Float?
+        public var symbolSize: Jsonable?
         public var symbolRotate: Float?
         public var symbolOffset: Point?
         public var itemStyle: ItemStyle?
@@ -30,7 +30,7 @@ public struct MarkPoint: Symbolized, Animatable {
     /// 标记的图形。
     public var symbol: Symbol?
     /// 标记的大小
-    public var symbolSize: Float?
+    public var symbolSize: Jsonable?
     /// 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
     public var symbolRotate: Float?
     /// 标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
@@ -92,7 +92,7 @@ public typealias MarkPointData = MarkPoint.Data
 
 extension MarkPoint: Enumable {
     public enum Enums {
-        case symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), silent(Bool), label(FormattedLabel), itemStyle(ItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), silent(Bool), label(FormattedLabel), itemStyle(ItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -161,7 +161,7 @@ extension MarkPoint: Mappable {
 
 extension MarkPointData: Enumable {
     public enum Enums {
-        case name(String), type(MarkDataType), valueIndex(UInt8), valueDim(String), coord([Jsonable]), x(LengthValue), y(LengthValue), xAxis(Float), yAxis(Float), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), itemStyle(ItemStyle), label(Label)
+        case name(String), type(MarkDataType), valueIndex(UInt8), valueDim(String), coord([Jsonable]), x(LengthValue), y(LengthValue), xAxis(Float), yAxis(Float), value(Float), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), itemStyle(ItemStyle), label(Label)
     }
     
     public typealias ContentEnum = Enums

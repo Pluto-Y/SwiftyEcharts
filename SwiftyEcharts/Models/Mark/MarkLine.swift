@@ -58,7 +58,7 @@ public struct MarkLine: Animatable {
         public var symbol: Symbol?
         /// 标记的大小
         /// - Note: 该属性只在 MarkArea 无效
-        public var symbolSize: Float?
+        public var symbolSize: Jsonable?
         /// 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
         /// - Note: 该属性只在 MarkArea 无效
         public var symbolRotate: Float?
@@ -81,7 +81,7 @@ public struct MarkLine: Animatable {
     /// 标线两端的标记大小，可以是一个数组分别指定两端，也可以是单个统一指定。
     /// 注意： 这里无法像一般的 symbolSize 那样通过数组分别指定高宽。
     // FIXME: 暂不支持两端
-    public var symbolSize: Float?
+    public var symbolSize: Jsonable?
     /// 标线数值的精度，在显示平均值线的时候有用。
     public var precision: Float?
     /// 标线的文本。
@@ -192,7 +192,7 @@ public typealias MarkLineData = MarkLine.Data
 
 extension MarkLineData: Enumable {
     public enum Enums {
-        case name(String), type(MarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(LengthValue), y(LengthValue), xAxis(String), yAxis(String), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset([LengthValue]), lineStyle(EmphasisLineStyle), label(FormattedLabel)
+        case name(String), type(MarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(LengthValue), y(LengthValue), xAxis(String), yAxis(String), value(Float), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset([LengthValue]), lineStyle(EmphasisLineStyle), label(FormattedLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -260,7 +260,7 @@ extension MarkLineData: Mappable {
 
 extension MarkLine: Enumable {
     public enum Enums {
-        case silent(Bool), symbol(Symbol), symbolSize(Float), precision(Float), label(Label), lineStyle(EmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case silent(Bool), symbol(Symbol), symbolSize(Jsonable), precision(Float), label(Label), lineStyle(EmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

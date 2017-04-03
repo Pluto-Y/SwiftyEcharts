@@ -86,6 +86,7 @@
 		6F4ACB461E1C078100CE5FD5 /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4ACB451E1C078100CE5FD5 /* Animatable.swift */; };
 		6F4ACB481E1D258B00CE5FD5 /* JsonableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4ACB471E1D258B00CE5FD5 /* JsonableSpec.swift */; };
 		6F4ACB511E21352600CE5FD5 /* MappableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4ACB501E21352600CE5FD5 /* MappableSpec.swift */; };
+		6F4BA30D1E92C543006A3AB3 /* PictorialBarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BA30C1E92C543006A3AB3 /* PictorialBarsController.swift */; };
 		6F5E2D1E1E4CB2E5009C4DA7 /* SingleAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */; };
 		6F67FCB71E71C85400BE2E4B /* SelectedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FCB61E71C85400BE2E4B /* SelectedMode.swift */; };
 		6F67FCB91E71CA1B00BE2E4B /* SelectedModeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */; };
@@ -280,6 +281,7 @@
 		6F4ACB451E1C078100CE5FD5 /* Animatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Animatable.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F4ACB471E1D258B00CE5FD5 /* JsonableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonableSpec.swift; sourceTree = "<group>"; };
 		6F4ACB501E21352600CE5FD5 /* MappableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappableSpec.swift; sourceTree = "<group>"; };
+		6F4BA30C1E92C543006A3AB3 /* PictorialBarsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictorialBarsController.swift; sourceTree = "<group>"; };
 		6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SingleAxis.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F67FCB61E71C85400BE2E4B /* SelectedMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedMode.swift; sourceTree = "<group>"; };
 		6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedModeSpec.swift; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 				5446EA0F1E767D69009BAE71 /* ThemeRiversController.swift */,
 				6F999F1C1E78498700D2490A /* SankeysController.swift */,
 				6F999F1E1E79984B00D2490A /* MapsController.swift */,
+				6F4BA30C1E92C543006A3AB3 /* PictorialBarsController.swift */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -1050,6 +1053,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5427F0991E2C981F00CE20E5 /* FunnelOptions.swift in Sources */,
+				6F4BA30D1E92C543006A3AB3 /* PictorialBarsController.swift in Sources */,
 				5427F07D1E2C8F4000CE20E5 /* LineOptions.swift in Sources */,
 				5427F0891E2C96D700CE20E5 /* RadarOptions.swift in Sources */,
 				5427F0851E2C95D900CE20E5 /* PieOptions.swift in Sources */,

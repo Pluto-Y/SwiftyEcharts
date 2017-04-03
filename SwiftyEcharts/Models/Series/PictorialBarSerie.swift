@@ -10,7 +10,7 @@ public struct PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
     
     public struct Data: Symbolized, Animatable {
         public var name: String?
-        public var value: Float?
+        public var value: Jsonable?
         public var symbol: Symbol?
         public var symbolSize: Float?
         public var symbolPosition: Position?
@@ -89,7 +89,7 @@ public struct PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
 
 extension PictorialBarSerie.Data : Enumable {
     public enum Enums {
-        case name(String), value(Float), symbol(Symbol), symbolSize(Float), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(String), symbolBoundingData(String), symbolPatterSize(Float), z(Float), hoverAnimation(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelay(Time), animationDelayUpdate(Time), label(FormattedLabel), itemStyle(ItemStyle), tooltip(Tooltip)
+        case name(String), value(Jsonable), symbol(Symbol), symbolSize(Float), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(String), symbolBoundingData(String), symbolPatterSize(Float), z(Float), hoverAnimation(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelay(Time), animationDelayUpdate(Time), label(FormattedLabel), itemStyle(ItemStyle), tooltip(Tooltip)
     }
     
     public typealias ContentEnum = Enums

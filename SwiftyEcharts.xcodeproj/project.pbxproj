@@ -40,7 +40,7 @@
 		5427F0971E2C981500CE20E5 /* SankeyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0961E2C981500CE20E5 /* SankeyOptions.swift */; };
 		5427F0991E2C981F00CE20E5 /* FunnelOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0981E2C981F00CE20E5 /* FunnelOptions.swift */; };
 		5427F09B1E2C982900CE20E5 /* GaugeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09A1E2C982900CE20E5 /* GaugeOptions.swift */; };
-		5427F09D1E2C983A00CE20E5 /* PictoriaBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09C1E2C983A00CE20E5 /* PictoriaBarOptions.swift */; };
+		5427F09D1E2C983A00CE20E5 /* PictorialBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09C1E2C983A00CE20E5 /* PictorialBarOptions.swift */; };
 		5427F09F1E2C984500CE20E5 /* ThemeRiverOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09E1E2C984500CE20E5 /* ThemeRiverOptions.swift */; };
 		5427F0AB1E2CEB8800CE20E5 /* MarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0AA1E2CEB8800CE20E5 /* MarkData.swift */; };
 		5435CCBE1E24990B00D753B2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435CCBD1E24990B00D753B2 /* Utilities.swift */; };
@@ -233,7 +233,7 @@
 		5427F0961E2C981500CE20E5 /* SankeyOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SankeyOptions.swift; sourceTree = "<group>"; };
 		5427F0981E2C981F00CE20E5 /* FunnelOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnelOptions.swift; sourceTree = "<group>"; };
 		5427F09A1E2C982900CE20E5 /* GaugeOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaugeOptions.swift; sourceTree = "<group>"; };
-		5427F09C1E2C983A00CE20E5 /* PictoriaBarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictoriaBarOptions.swift; sourceTree = "<group>"; };
+		5427F09C1E2C983A00CE20E5 /* PictorialBarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictorialBarOptions.swift; sourceTree = "<group>"; };
 		5427F09E1E2C984500CE20E5 /* ThemeRiverOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeRiverOptions.swift; sourceTree = "<group>"; };
 		5427F0AA1E2CEB8800CE20E5 /* MarkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MarkData.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5435CCBD1E24990B00D753B2 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -416,7 +416,7 @@
 				5427F0961E2C981500CE20E5 /* SankeyOptions.swift */,
 				5427F0981E2C981F00CE20E5 /* FunnelOptions.swift */,
 				5427F09A1E2C982900CE20E5 /* GaugeOptions.swift */,
-				5427F09C1E2C983A00CE20E5 /* PictoriaBarOptions.swift */,
+				5427F09C1E2C983A00CE20E5 /* PictorialBarOptions.swift */,
 				5427F09E1E2C984500CE20E5 /* ThemeRiverOptions.swift */,
 				6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */,
 			);
@@ -1069,7 +1069,7 @@
 				6FE45D501E6F092500E9083D /* GaugesController.swift in Sources */,
 				5427F0951E2C980700CE20E5 /* ParalledOptions.swift in Sources */,
 				5427F09F1E2C984500CE20E5 /* ThemeRiverOptions.swift in Sources */,
-				5427F09D1E2C983A00CE20E5 /* PictoriaBarOptions.swift in Sources */,
+				5427F09D1E2C983A00CE20E5 /* PictorialBarOptions.swift in Sources */,
 				6F0E461F1E614A37008DA184 /* LinesController.swift in Sources */,
 				6FEF717C1E65B75800E1ED70 /* RadarsController.swift in Sources */,
 				5427F08D1E2C971900CE20E5 /* BoxplotOptions.swift in Sources */,

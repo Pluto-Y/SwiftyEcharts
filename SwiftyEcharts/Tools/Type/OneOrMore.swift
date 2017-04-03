@@ -6,9 +6,15 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 针对那些可以是一个组件也可以是多个组件组成的属性的抽象
+///
+/// 例如在 Option 中存在许多即可以传递一个也可以传递多个的组件
+///
+/// 并且保证其可以通过数组常量来进行创建
 public struct OneOrMore<T>: ExpressibleByArrayLiteral {
     fileprivate var one: T? = nil
     fileprivate var more: [T]? = nil
+
     public init(one: T) {
         self.one = one
     }
@@ -37,6 +43,7 @@ extension OneOrMore: Jsonable {
     }
 }
 
+// MARK: - 实现下标的拓展
 extension OneOrMore {
     public subscript(index: Int) -> T? {
         if one != nil {

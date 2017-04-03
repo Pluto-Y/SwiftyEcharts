@@ -31,7 +31,7 @@ extension LineSerie {
         public var name: String?
         public var value: Float?
         public var symbol: Symbol?
-        public var symbolSize: Float?
+        public var symbolSize: Jsonable?
         public var symbolRotate: Float?
         public var symbolOffset: Point?
         public var label: Label? // 官方文档显示只有 normal 的模式？
@@ -45,7 +45,7 @@ public typealias LineSerieData = LineSerie.Data
 
 extension LineSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), label(Label), itemStyle(ItemStyle)
+        case name(String), value(Float), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), label(Label), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -121,7 +121,7 @@ public struct LineSerie: Symbolized, Animatable, Zable {
     public var polarIndex: UInt?
     // MARK: Symbolized
     public var symbol: Symbol?
-    public var symbolSize: Float?
+    public var symbolSize: Jsonable?
     public var symbolRotate: Float?
     public var symbolOffset: Point?
     public var showSymbol: Bool?
@@ -329,7 +329,7 @@ extension LineSerie: Serie {
 
 extension LineSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(Label), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), showSymbol(Bool), showAllSymbol(Bool), hoverAnimation(Bool), legendHoverLink(Bool), stack(String), connectNulls(Bool), clipOverflow(Bool), step(Step), label(Label), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), smooth(Bool), smoothMonotone(SmoothMonotone), sampling(Sampling), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

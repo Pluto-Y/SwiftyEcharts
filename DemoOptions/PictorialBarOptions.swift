@@ -24,7 +24,7 @@ public struct PictoriaBarOptions {
                     ))
                 )),
             .xAxis(Axis(
-                .data(["圣诞节儿童愿望清单", "", "珠穆朗玛\nQomolangma", "乞力马扎罗\nKilimanjaro"]),
+                .data(["圣诞节儿童愿望清单", "", "珠穆朗玛\\nQomolangma", "乞力马扎罗\\nKilimanjaro"]),
                 .axisTick(AxisTick(.show(false))),
                 .axisLine(AxisLine(.show(false))),
                 .axisLabel(AxisLabel(
@@ -62,7 +62,7 @@ public struct PictoriaBarOptions {
                             .value(13000),
                             .symbol(.path("image://\(paperDataURI)")),
                             .symbolRepeat("true"),
-//                            .symbolSize()
+                            .symbolSize([130%, 20%]),
                             .symbolOffset([0, 10]),
                             .symbolMargin("-30%"),
                             .animationDelay("function (dataIndex, params) {return params.index * 30;}")
@@ -74,14 +74,14 @@ public struct PictoriaBarOptions {
                         PictorialBarSerie.Data(
                             .value(8844),
                             .symbol(.path("image://http://echarts.baidu.com/data/asset/img/hill-Qomolangma.png")),
-//                            .symbolSize(["200%", "105"]),
+                            .symbolSize(["200%", "105%"]),
                             .symbolPosition(.end),
                             .z(10)
                         ),
                         PictorialBarSerie.Data(
                             .value(5895),
                             .symbol(.path("image://http://echarts.baidu.com/data/asset/img/hill-Kilimanjaro.png")),
-//                            .symbolSize([200%, 105%]),
+                            .symbolSize([200%, 105%]),
                             .symbolPosition(.end)
                         )
                         ]),
@@ -100,6 +100,36 @@ public struct PictoriaBarOptions {
                             )
                             ])
                         ))
+                ),
+                PictorialBarSerie(
+                    .name("all"),
+                    .barGap((-100)%),
+                    .symbol(.circle),
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
+                            .color("#185491")
+                            ))
+                        )),
+                    .silent(true),
+                    .symbolOffset([0, 50%]),
+                    .z(-10),
+                    .data([
+                        PictorialBarSerie.Data(
+                            .value(1),
+                            .symbolSize(["150%", 50])
+                        ),
+                        PictorialBarSerie.Data(
+                            .value("-")
+                        ),
+                        PictorialBarSerie.Data(
+                            .value(1),
+                            .symbolSize(["200%", 50])
+                        ),
+                        PictorialBarSerie.Data(
+                            .value(1),
+                            .symbolSize(["200%", 50])
+                        )
+                        ])
                 )
                 ])
         )

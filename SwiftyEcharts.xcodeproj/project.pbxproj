@@ -39,7 +39,7 @@
 		5427F0971E2C981500CE20E5 /* SankeyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0961E2C981500CE20E5 /* SankeyOptions.swift */; };
 		5427F0991E2C981F00CE20E5 /* FunnelOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0981E2C981F00CE20E5 /* FunnelOptions.swift */; };
 		5427F09B1E2C982900CE20E5 /* GaugeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09A1E2C982900CE20E5 /* GaugeOptions.swift */; };
-		5427F09D1E2C983A00CE20E5 /* PictoriaBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09C1E2C983A00CE20E5 /* PictoriaBarOptions.swift */; };
+		5427F09D1E2C983A00CE20E5 /* PictorialBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09C1E2C983A00CE20E5 /* PictorialBarOptions.swift */; };
 		5427F09F1E2C984500CE20E5 /* ThemeRiverOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09E1E2C984500CE20E5 /* ThemeRiverOptions.swift */; };
 		5427F0AB1E2CEB8800CE20E5 /* MarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0AA1E2CEB8800CE20E5 /* MarkData.swift */; };
 		5435CCBE1E24990B00D753B2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435CCBD1E24990B00D753B2 /* Utilities.swift */; };
@@ -86,6 +86,7 @@
 		6F4ACB461E1C078100CE5FD5 /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4ACB451E1C078100CE5FD5 /* Animatable.swift */; };
 		6F4ACB481E1D258B00CE5FD5 /* JsonableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4ACB471E1D258B00CE5FD5 /* JsonableSpec.swift */; };
 		6F4ACB511E21352600CE5FD5 /* MappableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4ACB501E21352600CE5FD5 /* MappableSpec.swift */; };
+		6F4BA30D1E92C543006A3AB3 /* PictorialBarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BA30C1E92C543006A3AB3 /* PictorialBarsController.swift */; };
 		6F5E2D1E1E4CB2E5009C4DA7 /* SingleAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */; };
 		6F67FCB71E71C85400BE2E4B /* SelectedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FCB61E71C85400BE2E4B /* SelectedMode.swift */; };
 		6F67FCB91E71CA1B00BE2E4B /* SelectedModeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */; };
@@ -217,7 +218,7 @@
 		541C725B1E4C529000B194A3 /* EffectScatterSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EffectScatterSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		541C725E1E5168D300B194A3 /* RadarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RadarSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		541C72601E516D3900B194A3 /* TreemapSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TreemapSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		5427F07C1E2C8F4000CE20E5 /* LineOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineOptions.swift; sourceTree = "<group>"; };
+		5427F07C1E2C8F4000CE20E5 /* LineOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LineOptions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5427F07E1E2C94FF00CE20E5 /* ScatterOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScatterOptions.swift; sourceTree = "<group>"; };
 		5427F0801E2C953700CE20E5 /* BarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarOptions.swift; sourceTree = "<group>"; };
 		5427F0821E2C95CF00CE20E5 /* MapOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOptions.swift; sourceTree = "<group>"; };
@@ -232,7 +233,7 @@
 		5427F0961E2C981500CE20E5 /* SankeyOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SankeyOptions.swift; sourceTree = "<group>"; };
 		5427F0981E2C981F00CE20E5 /* FunnelOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnelOptions.swift; sourceTree = "<group>"; };
 		5427F09A1E2C982900CE20E5 /* GaugeOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaugeOptions.swift; sourceTree = "<group>"; };
-		5427F09C1E2C983A00CE20E5 /* PictoriaBarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictoriaBarOptions.swift; sourceTree = "<group>"; };
+		5427F09C1E2C983A00CE20E5 /* PictorialBarOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictorialBarOptions.swift; sourceTree = "<group>"; };
 		5427F09E1E2C984500CE20E5 /* ThemeRiverOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeRiverOptions.swift; sourceTree = "<group>"; };
 		5427F0AA1E2CEB8800CE20E5 /* MarkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MarkData.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5435CCBD1E24990B00D753B2 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -280,6 +281,7 @@
 		6F4ACB451E1C078100CE5FD5 /* Animatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Animatable.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F4ACB471E1D258B00CE5FD5 /* JsonableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonableSpec.swift; sourceTree = "<group>"; };
 		6F4ACB501E21352600CE5FD5 /* MappableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappableSpec.swift; sourceTree = "<group>"; };
+		6F4BA30C1E92C543006A3AB3 /* PictorialBarsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictorialBarsController.swift; sourceTree = "<group>"; };
 		6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SingleAxis.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F67FCB61E71C85400BE2E4B /* SelectedMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedMode.swift; sourceTree = "<group>"; };
 		6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedModeSpec.swift; sourceTree = "<group>"; };
@@ -297,7 +299,7 @@
 		6F9B70E61DE808E600406B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F9B70E91DE808E600406B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F9B70EB1DE808E600406B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6FA0B9891E916EF5007D2AA2 /* PictorialBarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictorialBarSerie.swift; sourceTree = "<group>"; };
+		6FA0B9891E916EF5007D2AA2 /* PictorialBarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PictorialBarSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FA24F711E2B7A0100E25002 /* Enumable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumable.swift; sourceTree = "<group>"; };
 		6FA24F731E2BE0F900E25002 /* Toolbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Toolbox.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrMore.swift; sourceTree = "<group>"; };
@@ -427,7 +429,7 @@
 				5427F0961E2C981500CE20E5 /* SankeyOptions.swift */,
 				5427F0981E2C981F00CE20E5 /* FunnelOptions.swift */,
 				5427F09A1E2C982900CE20E5 /* GaugeOptions.swift */,
-				5427F09C1E2C983A00CE20E5 /* PictoriaBarOptions.swift */,
+				5427F09C1E2C983A00CE20E5 /* PictorialBarOptions.swift */,
 				5427F09E1E2C984500CE20E5 /* ThemeRiverOptions.swift */,
 				6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */,
 				54371F0B1E8A3C7C008C3D22 /* ThemeRiverBasicData.plist */,
@@ -546,6 +548,7 @@
 				5446EA0F1E767D69009BAE71 /* ThemeRiversController.swift */,
 				6F999F1C1E78498700D2490A /* SankeysController.swift */,
 				6F999F1E1E79984B00D2490A /* MapsController.swift */,
+				6F4BA30C1E92C543006A3AB3 /* PictorialBarsController.swift */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -1054,6 +1057,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5427F0991E2C981F00CE20E5 /* FunnelOptions.swift in Sources */,
+				6F4BA30D1E92C543006A3AB3 /* PictorialBarsController.swift in Sources */,
 				5427F07D1E2C8F4000CE20E5 /* LineOptions.swift in Sources */,
 				5427F0891E2C96D700CE20E5 /* RadarOptions.swift in Sources */,
 				5427F0851E2C95D900CE20E5 /* PieOptions.swift in Sources */,
@@ -1073,7 +1077,7 @@
 				6FE45D501E6F092500E9083D /* GaugesController.swift in Sources */,
 				5427F0951E2C980700CE20E5 /* ParalledOptions.swift in Sources */,
 				5427F09F1E2C984500CE20E5 /* ThemeRiverOptions.swift in Sources */,
-				5427F09D1E2C983A00CE20E5 /* PictoriaBarOptions.swift in Sources */,
+				5427F09D1E2C983A00CE20E5 /* PictorialBarOptions.swift in Sources */,
 				6F0E461F1E614A37008DA184 /* LinesController.swift in Sources */,
 				6FEF717C1E65B75800E1ED70 /* RadarsController.swift in Sources */,
 				5427F08D1E2C971900CE20E5 /* BoxplotOptions.swift in Sources */,

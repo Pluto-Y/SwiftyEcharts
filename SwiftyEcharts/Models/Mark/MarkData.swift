@@ -54,7 +54,7 @@ public struct MarkData {
         public var symbol: Symbol?
         /// 标记的大小
         /// - Note: 该属性只在 MarkArea 无效
-        public var symbolSize: Float?
+        public var symbolSize: Jsonable?
         /// 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
         /// - Note: 该属性只在 MarkArea 无效
         public var symbolRotate: Float?
@@ -81,7 +81,7 @@ public struct MarkData {
 
 extension MarkData.DataContent: Enumable {
     public enum Enums {
-        case type(MarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(Float), y(Float), value(Float), symbol(Symbol), symbolSize(Float), symbolRotate(Float), symbolOffset(Point), lineStyle(EmphasisLineStyle), label(Label)
+        case type(MarkDataType), valueIndex(UInt), valueDim(String), coord(Jsonable), x(Float), y(Float), value(Float), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), lineStyle(EmphasisLineStyle), label(Label)
     }
     
     public typealias ContentEnum = Enums

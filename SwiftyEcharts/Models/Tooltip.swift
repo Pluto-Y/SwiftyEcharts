@@ -129,7 +129,7 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
         /// - cross: 十字准星指示器
         /// - shadow: 阴影指示器
         public enum Type: String, Jsonable {
-            case line = "line", cross = "cross", shadow = "shadow"
+            case line = "line", cross = "cross", shadow = "shadow", none = "none"
             
             public var jsonString: String {
                 return "\"\(self.rawValue)\""

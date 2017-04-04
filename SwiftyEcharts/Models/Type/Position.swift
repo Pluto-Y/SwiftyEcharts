@@ -18,7 +18,7 @@
 /// - value: 绝对位置
 /// - percent: 相对位置
 public enum Position: Jsonable {
-    case auto, left, center, right, top, middle, bottom, start, end, inside, inner
+    case auto, left, center, right, top, middle, bottom, start, end, inside, inner, outside
     case value(LengthValue)
     
     public var jsonString: String {
@@ -45,6 +45,8 @@ public enum Position: Jsonable {
             return "\"inside\""
         case .inner:
             return "\"inner\""
+        case .outside:
+            return "\"outside\""
         case let .value(val):
             return val.jsonString
         }

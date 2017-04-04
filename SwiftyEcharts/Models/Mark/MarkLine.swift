@@ -85,7 +85,7 @@ public struct MarkLine: Animatable {
     /// 标线数值的精度，在显示平均值线的时候有用。
     public var precision: Float?
     /// 标线的文本。
-    public var label: Label?
+    public var label: FormattedLabel?
     /// 标线的样式
     public var lineStyle: EmphasisLineStyle?
     /// 标线的数据数组。每个数组项可以是一个两个值的数组，分别表示线的起点和终点，每一项是一个对象，有下面几种方式指定起点或终点的位置。
@@ -260,7 +260,7 @@ extension MarkLineData: Mappable {
 
 extension MarkLine: Enumable {
     public enum Enums {
-        case silent(Bool), symbol(Symbol), symbolSize(Jsonable), precision(Float), label(Label), lineStyle(EmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case silent(Bool), symbol(Symbol), symbolSize(Jsonable), precision(Float), label(FormattedLabel), lineStyle(EmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

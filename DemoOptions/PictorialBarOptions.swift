@@ -1,5 +1,5 @@
 //
-//  PictoriaBarOptions.swift
+//  PictorialBarOptions.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto-Y on 16/01/2017.
@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct PictoriaBarOptions {
+public struct PictorialBarOptions {
     
     // MARK: 圣诞节儿童愿望清单和山峰高度
     /// 地址: http://echarts.baidu.com/demo.html#pictorialBar-hill
@@ -631,17 +631,200 @@ public struct PictoriaBarOptions {
     // MARK: 虚线柱状图效果
     /// 地址: http://echarts.baidu.com/demo.html#pictorialBar-dotted
     static func pictorialBarDottedOption() -> Option {
-        // TODO: 添加实现
+        var category: [Jsonable] = []
+        var lineData: [Jsonable] = []
+        var barData: [Jsonable] = []
+        var date = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-M-d"
+        for _ in 0..<20 {
+            date = NSDate(timeInterval: 3600 * 24, sinceDate: date)
+            category.append(formatter.stringFromDate(date))
+            let b = arc4random_uniform(200)
+            let d = arc4random_uniform(200)
+            barData.append(b)
+            lineData.append(b+d)
+        }
         return Option(
+            .backgroundColor("#0f375f"),
+            .tooltip(Tooltip(
+                .trigger(.axis),
+                .axisPointer(Tooltip.AxisPointer(
+                    .type(.shadow)
+                    ))
+                )),
+            .legend(Legend(
+                .data(["line", "bar"]),
+                .textStyle(TextStyle(
+                    .color("#ccc")
+                    ))
+                )),
+            .xAxis(Axis(
+                .data(category),
+                .axisLine(AxisLine(
+                    .lineStyle(LineStyle(
+                        .color("#ccc")
+                        ))
+                    ))
+                )),
+            .yAxis(Axis(
+                .splitLine(SplitLine(
+                    .show(false)
+                    )),
+                .axisLine(AxisLine(
+                    .lineStyle(LineStyle(
+                        .color("#ccc")
+                        ))
+                    ))
+                )),
+            .series([
+                LineSerie(
+                    .name("line"),
+                    .smooth(true),
+                    .showAllSymbol(true),
+                    .symbol(.emptyCircle),
+                    .symbolSize(15),
+                    .data(lineData)
+                ),
+                BarSerie(
+                    .name("name"),
+                    .barWidth(10),
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
+                            .barBorderRadius(5),
+                            .color(.linearGradient(0, 0, 0, 1, [
+                                GradientColorElement(0, "#14c8d4"),
+                                GradientColorElement(1, "#43eec6")
+                                ], false))
+                            ))
+                        )),
+                    .data(barData)
+                ),
+                BarSerie(
+                    .name("line"),
+                    .barGap("-100%"),
+                    .barWidth(10),
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
+                            .color(.linearGradient(0, 0, 0, 1, [
+                                GradientColorElement(0, .rgba(20, 200, 212, 0.5)),
+                                GradientColorElement(0.2, .rgba(20, 200, 212, 0.2)),
+                                GradientColorElement(1, .rgba(20, 200, 212, 0))
+                                ], false))
+                            ))
+                        )),
+                    .z(-12),
+                    .data(lineData)
+                ),
+                PictorialBarSerie(
+                    .name("dotted"),
+                    .symbol(.rect),
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
+                            .color("#0f375f")
+                            ))
+                        )),
+                    .symbolRepeat("true"),
+                    .symbolSize([12, 4]),
+                    .symbolMargin("1"),
+                    .z(-10),
+                    .data(lineData)
+                )
+                ])
         )
+
     }
     
     // MARK: 森林的增长
     /// 地址: http://echarts.baidu.com/demo.html#pictorialBar-forest
     static func pictorialBarForestOption() -> Option {
-        // TODO: 添加实现
         return Option(
+            .color(["#e54035"]),
+            .xAxis(Axis(
+                .axisLine(AxisLine(.show(false))),
+                .axisLabel(AxisLabel(.show(false))),
+                .axisTick(AxisTick(.show(false))),
+                .splitLine(SplitLine(.show(false))),
+                .name("\(beginYear)"),
+                .nameLocation("middle"),
+                .nameGap(40),
+                .nameTextStyle(TextStyle(
+                    .color(.green),
+                    .fontSize(30),
+                    .fontFamily("Arial")
+                    )),
+                .min(-2800),
+                .max(2800)
+                )),
+            .yAxis(Axis(
+                .data(makeCategoryData()),
+                .show(false)
+                )),
+            .grid(Grid(
+                .top(.center),
+                .height(160)
+                )),
+            .series([
+                PictorialBarSerie(
+                    .name("all"),
+                    .symbol(.image(treeDataURI)),
+                    .symbolSize([15, 27.5]),
+                    .symbolRepeat("true"),
+                    .data(makeSeriesData(beginYear)),
+                    .animationEasing(.elasticOut)
+                ),
+                PictorialBarSerie(
+                    .name("all"),
+                    .symbol(.image(treeDataURI)),
+                    .symbolSize([15, 27.5]),
+                    .symbolRepeat("true"),
+                    .data(makeSeriesData(beginYear, true)),
+                    .animationEasing(.elasticOut)
+                )
+                ])
         )
     }
-
+    
+    static let treeDataURI = "image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAA2CAYAAADUOvnEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA5tJREFUeNrcWE1oE0EUnp0kbWyUpCiNYEpCFSpIMdpLRTD15s2ePHixnj00N4/GoyfTg2fbiwdvvagHC1UQ66GQUIQKKgn1UAqSSFua38b3prPJZDs7s5ufKn0w7CaZ2W/fe9/73kyMRqNB3Nrj1zdn4RJ6du9T2u1a2iHYSxjP4d41oOHGQwAIwSUHIyh8/RA8XeiXh0kLGFoaXiTecw/hoTG4ZCSAaFkY0+BpsZceLtiAoV2FkepZSDk5EpppczBvpuuQCqx0YnkYcVVoqQYMyeCG+lFdaGkXeVOFNu4aEBalOBk6sbQrQF7gSdK5JXjuHXuYVIVyr0TZ0FjKDeCs6km7JYMUdrWAUVmZUBtmRnVPK+x6nIR2xomH06R35ggwJPeofWphr/W5UjPIxq8B2bKgE8C4HVHWvg+2gZjXj19PkdFztY7bk9TDCH/g6oafDPpaoMvZIRI5WyMB/0Hv++HkpTKE0kM+A+h20cPAfN4GuRyp9G+LMTW+z8rCLI8b46XO9zRcYZTde/j0AZm8WGb3Y2F9KLlE2nqYkjFLJAsDOl/lea0q55mqxXcL7YBc++bsCPMe8mUyU2ZIpnCoblca6TZA/ga2Co8PGg7UGUlEDd0ueptglbrRZLLE7poti6pCaWUo2pu1oaYI1CF9b9cCZPO3F8ikJQ/rPpQT5YETht26ss+uCIL2Y8vHwJGpA96GI5mjOlaKhowUy6BcNcgIhDviTGWCGFaqEuufWz4pgcbCh+w0gEOyOjTlTtYYlIWPYWKEsLDzOs+nhzaO1KEpd+MXpOoTUgKiNyhdy5aSMPNVqxtSsJFgza5EWA4zKtCJ2OGbLn0JSLu8+SL4G86p1Fpr7ABXdGFF/UTD4rfmFYFw4G9VAJ9SM3aF8l3yok4/J6IV9sDVb36ynmtJ2M5+CwxTYBdKNMBaocKGV2nYgkz6r+cHBP30MzAfi4Sy+BebSoPIOi8PW1PpCCvr/KOD4k9Zu0WSH0Y0+SxJ2awp/nlwKtcGyHOJ8vNHtRJzhPlsHr8MogtlVtwUU0tSM1x58upSKbfJnSKUR07GVMKkDNfXpzpv0RTHy3nZMVx5IOWdZIaPabGFvfpwpjnvfmJHXLaEvZUTseu/TeLc+xgAPhEAb/PbjO6PBaOTf6LQRh/dERde23zxLtOXbaKNhfq2L/1fAOPHDUhOpIf5485h7l+GNHHiSYPKE3Myz9sFxoJuAyazvwIMAItferha5LTqAAAAAElFTkSuQmCC"
+    static let beginYear = 2016
+    static let endYear = 2050
+    static let lineCount = 10
+    
+    static func makeCategoryData() -> [Jsonable] {
+        var categoryData: [Jsonable] = []
+        for i in 0..<lineCount {
+            categoryData.append("\(i)a")
+        }
+        return categoryData
+    }
+    
+    static func makeSeriesData(year: Int, _ negative: Bool = false) -> [Jsonable] {
+        let r: Float = (Float(year - beginYear) + 1) * 10
+        var seriesData: [Jsonable] = []
+        
+        for i in 0..<lineCount {
+            let sign = (negative ? -1 * ((i % 3 != 0) ? 0.9 :1): 1 * Float(((i + 1) % 3 != 0) ? 0.9 : 1))
+            var result: Float = 0.0
+            if year <= beginYear + 1 {
+                result = (abs(Float(i - lineCount) / 2.0 + 0.5) < Float(lineCount) / 5.0 ? 5 : 0)
+            } else {
+                result = (Float(lineCount) - abs(Float(i - lineCount) / 2 + 0.5)) * r
+            }
+            result *= sign
+            var data: [String: Jsonable?] = [:]
+            if i % 2 != 0 {
+                data = [
+                    "value": result,
+                    "symbolOffset": ["50%", 0]
+                ]
+            } else {
+                data = [
+                    "value": result,
+                ]
+            }
+            
+            seriesData.append(data)
+        }
+        return seriesData
+    }
 }

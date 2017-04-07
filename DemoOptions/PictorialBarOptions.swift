@@ -631,9 +631,108 @@ public struct PictoriaBarOptions {
     // MARK: 虚线柱状图效果
     /// 地址: http://echarts.baidu.com/demo.html#pictorialBar-dotted
     static func pictorialBarDottedOption() -> Option {
-        // TODO: 添加实现
+        var category: [Jsonable] = []
+        var lineData: [Jsonable] = []
+        var barData: [Jsonable] = []
+        var date = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-M-d"
+        for _ in 0..<20 {
+            date = NSDate(timeInterval: 3600 * 24, sinceDate: date)
+            category.append(formatter.stringFromDate(date))
+            let b = arc4random_uniform(200)
+            let d = arc4random_uniform(200)
+            barData.append(b)
+            lineData.append(b+d)
+        }
         return Option(
+            .backgroundColor("#0f375f"),
+            .tooltip(Tooltip(
+                .trigger(.axis),
+                .axisPointer(Tooltip.AxisPointer(
+                    .type(.shadow)
+                    ))
+                )),
+            .legend(Legend(
+                .data(["line", "bar"]),
+                .textStyle(TextStyle(
+                    .color("#ccc")
+                    ))
+                )),
+            .xAxis(Axis(
+                .data(category),
+                .axisLine(AxisLine(
+                    .lineStyle(LineStyle(
+                        .color("#ccc")
+                        ))
+                    ))
+                )),
+            .yAxis(Axis(
+                .splitLine(SplitLine(
+                    .show(false)
+                    )),
+                .axisLine(AxisLine(
+                    .lineStyle(LineStyle(
+                        .color("#ccc")
+                        ))
+                    ))
+                )),
+            .series([
+                LineSerie(
+                    .name("line"),
+                    .smooth(true),
+                    .showAllSymbol(true),
+                    .symbol(.emptyCircle),
+                    .symbolSize(15),
+                    .data(lineData)
+                ),
+                BarSerie(
+                    .name("name"),
+                    .barWidth(10),
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
+                            .barBorderRadius(5),
+                            .color(.linearGradient(0, 0, 0, 1, [
+                                GradientColorElement(0, "#14c8d4"),
+                                GradientColorElement(1, "#43eec6")
+                                ], false))
+                            ))
+                        )),
+                    .data(barData)
+                ),
+                BarSerie(
+                    .name("line"),
+                    .barGap("-100%"),
+                    .barWidth(10),
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
+                            .color(.linearGradient(0, 0, 0, 1, [
+                                GradientColorElement(0, .rgba(20, 200, 212, 0.5)),
+                                GradientColorElement(0.2, .rgba(20, 200, 212, 0.2)),
+                                GradientColorElement(1, .rgba(20, 200, 212, 0))
+                                ], false))
+                            ))
+                        )),
+                    .z(-12),
+                    .data(lineData)
+                ),
+                PictorialBarSerie(
+                    .name("dotted"),
+                    .symbol(.rect),
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
+                            .color("#0f375f")
+                            ))
+                        )),
+                    .symbolRepeat("true"),
+                    .symbolSize([12, 4]),
+                    .symbolMargin("1"),
+                    .z(-10),
+                    .data(lineData)
+                )
+                ])
         )
+
     }
     
     // MARK: 森林的增长

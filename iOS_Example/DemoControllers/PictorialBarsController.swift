@@ -31,10 +31,11 @@ class PictorialBarsController: BaseDemoController {
             timer = nil
         }
         if indexPath.row == 3 { // 精灵
-            
             timer = NSTimer(timeInterval: 3, target: self, selector: #selector(self.pictorialBarSpirit), userInfo: nil, repeats: true)
             NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
-            
+        } else if indexPath.row == optionClosures.count - 1 { // 森林的增长
+            timer = NSTimer(timeInterval: 0.8, target: self, selector: #selector(self.pictorialBarForest), userInfo: nil, repeats: true)
+            NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
         }
     }
     
@@ -53,6 +54,28 @@ class PictorialBarsController: BaseDemoController {
         tmpOption.series = tmpSeries.map { $0 as! Serie }
         self.echartsView.refreshEcharts(tmpOption)
         
+    }
+    
+    var currentYear = PictoriaBarOptions.beginYear
+    func pictorialBarForest() {
+        currentYear += 1
+        if currentYear > PictoriaBarOptions.endYear {
+            currentYear = PictoriaBarOptions.beginYear
+        }
+        
+        self.echartsView.refreshEcharts(Option(
+            .xAxis(Axis(
+                .name("\(currentYear)")
+                )),
+            .series([
+                PictorialBarSerie(
+                    .data(PictoriaBarOptions.makeSeriesData(currentYear))
+                ),
+                PictorialBarSerie(
+                    .data(PictoriaBarOptions.makeSeriesData(currentYear, true))
+                )
+                ])
+        ))
     }
     
 }

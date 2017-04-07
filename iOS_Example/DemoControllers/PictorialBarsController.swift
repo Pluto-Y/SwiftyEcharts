@@ -16,7 +16,7 @@ class PictorialBarsController: BaseDemoController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menus = ["圣诞节儿童愿望清单和山峰高度", "驯鹿的速度", "交通工具", "精灵", "人体含水量", "虚线柱状图效果", "森林的增长(暂缺)"]
+        menus = ["圣诞节儿童愿望清单和山峰高度", "驯鹿的速度", "交通工具", "精灵", "人体含水量", "虚线柱状图效果", "森林的增长"]
         
         optionClosures = [PictorialBarOptions.pictorialBarHillOption, PictorialBarOptions.pictorialBarVelocityOption, PictorialBarOptions.pictorialBarVehicleOption, PictorialBarOptions.pictorialBarSpiritOption, PictorialBarOptions.pictorialBarBodyFillOption, PictorialBarOptions.pictorialBarDottedOption, PictorialBarOptions.pictorialBarForestOption]
         

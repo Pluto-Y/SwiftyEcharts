@@ -18,7 +18,7 @@ class PictorialBarsController: BaseDemoController {
         
         menus = ["圣诞节儿童愿望清单和山峰高度", "驯鹿的速度", "交通工具", "精灵", "人体含水量", "虚线柱状图效果", "森林的增长(暂缺)"]
         
-        optionClosures = [PictoriaBarOptions.pictorialBarHillOption, PictoriaBarOptions.pictorialBarVelocityOption, PictoriaBarOptions.pictorialBarVehicleOption, PictoriaBarOptions.pictorialBarSpiritOption, PictoriaBarOptions.pictorialBarBodyFillOption, PictoriaBarOptions.pictorialBarDottedOption, PictoriaBarOptions.pictorialBarForestOption]
+        optionClosures = [PictorialBarOptions.pictorialBarHillOption, PictorialBarOptions.pictorialBarVelocityOption, PictorialBarOptions.pictorialBarVehicleOption, PictorialBarOptions.pictorialBarSpiritOption, PictorialBarOptions.pictorialBarBodyFillOption, PictorialBarOptions.pictorialBarDottedOption, PictorialBarOptions.pictorialBarForestOption]
         
         self.title = "折线图"
         
@@ -56,11 +56,11 @@ class PictorialBarsController: BaseDemoController {
         
     }
     
-    var currentYear = PictoriaBarOptions.beginYear
+    var currentYear = PictorialBarOptions.beginYear
     func pictorialBarForest() {
         currentYear += 1
-        if currentYear > PictoriaBarOptions.endYear {
-            currentYear = PictoriaBarOptions.beginYear
+        if currentYear > PictorialBarOptions.endYear {
+            currentYear = PictorialBarOptions.beginYear
         }
         
         self.echartsView.refreshEcharts(Option(
@@ -69,10 +69,10 @@ class PictorialBarsController: BaseDemoController {
                 )),
             .series([
                 PictorialBarSerie(
-                    .data(PictoriaBarOptions.makeSeriesData(currentYear))
+                    .data(PictorialBarOptions.makeSeriesData(currentYear))
                 ),
                 PictorialBarSerie(
-                    .data(PictoriaBarOptions.makeSeriesData(currentYear, true))
+                    .data(PictorialBarOptions.makeSeriesData(currentYear, true))
                 )
                 ])
         ))

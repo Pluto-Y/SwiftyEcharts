@@ -9,7 +9,7 @@
 
 
 /// 坐标轴的定义
-public struct Axis: Zable {
+public struct Axis: Displayable, Zable {
 
     /// 类目数据，在类目轴（type: 'category'）中有效。
     /// 
@@ -41,6 +41,8 @@ public struct Axis: Zable {
         
     }
     
+    /// 是否显示坐标轴
+    public var show: Bool?
     /// 坐标轴所在的 grid 的索引，默认位于第一个 grid。
     public var gridIndex: UInt?
     /// 坐标轴的位置。
@@ -163,7 +165,7 @@ extension Axis.Data: Mappable {
 
 extension Axis: Enumable {
     public enum Enums {
-        case gridIndex(UInt), position(Position), offset(Float), type(AxisType), name(String), nameLocation(String), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable]), zlevel(Float), z(Float)
+        case show(Bool), gridIndex(UInt), position(Position), offset(Float), type(AxisType), name(String), nameLocation(String), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable]), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -171,6 +173,8 @@ extension Axis: Enumable {
     public init(_ elements: Enums...) {
         for ele in elements {
             switch ele {
+            case let .show(show):
+                self.show = show
             case let .gridIndex(gridIndex):
                 self.gridIndex = gridIndex
             case let .position(position):
@@ -234,6 +238,7 @@ extension Axis: Enumable {
 
 extension Axis: Mappable {
     public func mapping(map: Mapper) {
+        map["show"] = show
         map["gridIndex"] = gridIndex
         map["position"] = position
         map["offset"] = offset

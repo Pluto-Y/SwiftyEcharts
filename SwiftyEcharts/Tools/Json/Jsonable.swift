@@ -158,11 +158,8 @@ extension Dictionary: Jsonable {
     public var jsonString: String {
         var jsonStr = "{\n"
         
-        if self.keys.count > 0 {
-            let sortedKeys = Array(self.keys).sort { String($0) < String($1) }
-            
-            for key in sortedKeys {
-                let value = self[key]!
+        if self.keys.count > 0 {    
+            for (key, value) in self {
                 jsonStr += "\"\(key)\":"
                 jsonStr += obtainJsonString(from: value)
                 jsonStr += ",\n"
@@ -175,4 +172,5 @@ extension Dictionary: Jsonable {
         jsonStr += "\n}"
         return jsonStr
     }
+
 }

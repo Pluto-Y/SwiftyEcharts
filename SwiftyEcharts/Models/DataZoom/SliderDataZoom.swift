@@ -254,7 +254,7 @@ public struct SliderDataZoom: DataZoom, Displayable, Zable {
     /// 数据窗口范围的起始数值。如果设置了 dataZoom-inside.start 则 startValue 失效。
     /// dataZoom-inside.startValue 和 dataZoom-inside.endValue 共同用 绝对数值 的形式定义了数据窗口范围。
     /// 注意，如果轴的类型为 category，则 startValue 既可以设置为 axis.data 数组的 index，也可以设置为数组值本身。 但是如果设置为数组值本身，会在内部自动转化为数组的 index。
-    public var startValue: Float?
+    public var startValue: Jsonable?
     /// 数据窗口范围的结束数值。如果设置了 dataZoom-inside.end 则 endValue 失效。
     /// dataZoom-inside.startValue 和 dataZoom-inside.endValue 共同用 绝对数值 的形式定义了数据窗口范围。
     /// 注意，如果轴的类型为 category，则 endValue 即可以设置为 axis.data 数组的 index，也可以设置为数组值本身。 但是如果设置为数组值本身，会在内部自动转化为数组的 index。
@@ -356,7 +356,7 @@ extension SliderDataZoom.HandleStyle: Mappable {
 
 extension SliderDataZoom: Enumable {
     public enum Enums {
-        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(LengthValue), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(FilterMode), start(Float), end(Float), startValue(Float), endValue(Float), orient(Orient), zoomLock(Bool), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position)
+        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(LengthValue), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(FilterMode), start(Float), end(Float), startValue(Jsonable), endValue(Float), orient(Orient), zoomLock(Bool), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position)
     }
     
     public typealias ContentEnum = Enums

@@ -454,8 +454,98 @@ public struct LineOptions {
     // MARK: Beijing AQI
     /// 地址: http://echarts.baidu.com/demo.html#line-aqi
     static func lineApiOption() -> Option {
-        // TODO: 添加实现
+        guard let plistUrl = NSBundle.mainBundle().pathForResource("BeijingAQIDatas", ofType: "plist") else {
+            return Option()
+        }
+        
+        guard let plistDatas = NSDictionary(contentsOfFile: plistUrl) else {
+            return Option()
+        }
+        
+        let datas = (plistDatas["datas"] as! [AnyObject]).map({ (ele) -> [Jsonable] in
+            return [ele[0] as! String, ele[1] as! Int]
+        })
         return Option(
+            .title(Title(
+                .text("Beijing AQI")
+                )),
+            .tooltip(Tooltip(
+                .trigger(.axis)
+                )),
+            .xAxis(Axis(
+                .data(datas.map { $0[0] })
+                )),
+            .yAxis(Axis(
+                .splitLine(SplitLine(.show(false)))
+                )),
+            .toolbox(Toolbox(
+                .left(.center),
+                .feature(Toolbox.Feature(
+                    .dataZoom(Toolbox.Feature.DataZoom(.yAxisIndex(.bool(false)))),
+                    .restore(Toolbox.Feature.Restore()),
+                    .saveAsImage(Toolbox.Feature.SaveAsImage())
+                    ))
+                )),
+            .dataZoom([
+                SliderDataZoom(
+                .startValue("2014-06-01")
+                ),
+                InsideDataZoom()
+                ]),
+            .visualMap(PiecewiseVisualMap(
+                .top(.value(10)),
+                .right(.value(10)),
+                .outRange(
+                    ["color": "#999"]
+                    ),
+                .pieces([
+                    [
+                        "gt": 0,
+                        "lte": 50,
+                        "color": "#096"
+                    ],
+                    [
+                        "gt": 50,
+                        "lte": 100,
+                        "color": "#ffde33"
+                    ],
+                    [
+                        "gt": 100,
+                        "lte": 150,
+                        "color": "#ff9933"
+                    ],
+                    [
+                        "gt": 150,
+                        "lte": 200,
+                        "color": "#cc0033"
+                    ],
+                    [
+                        "gt": 200,
+                        "lte": 300,
+                        "color": "#660099"
+                    ],
+                    [
+                        "gt": 300,
+                        "color": "#7e0023"
+                    ]
+                    ])
+                )),
+            .series([
+                LineSerie(
+                    .name("Beijing AQI"),
+                    .data(datas.map { $0[1] }),
+                    .markLine(MarkLine(
+                        .silent(true),
+                        .data([
+                            ["yAxis": 50],
+                            ["yAxis": 100],
+                            ["yAxis": 150],
+                            ["yAxis": 200],
+                            ["yAxis": 300]
+                            ])
+                        ))
+                )
+                ])
         )
     }
     

@@ -634,12 +634,12 @@ public struct PictorialBarOptions {
         var category: [Jsonable] = []
         var lineData: [Jsonable] = []
         var barData: [Jsonable] = []
-        var date = NSDate()
-        let formatter = NSDateFormatter()
+        var date = Date()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-M-d"
         for _ in 0..<20 {
-            date = NSDate(timeInterval: 3600 * 24, sinceDate: date)
-            category.append(formatter.stringFromDate(date))
+            date = Date(timeInterval: 3600 * 24, since: date)
+            category.append(formatter.string(from: date))
             let b = arc4random_uniform(200)
             let d = arc4random_uniform(200)
             barData.append(b)
@@ -798,19 +798,19 @@ public struct PictorialBarOptions {
         return categoryData
     }
     
-    static func makeSeriesData(year: Int, _ negative: Bool = false) -> [Jsonable] {
+    static func makeSeriesData(_ year: Int, _ negative: Bool = false) -> [Jsonable] {
         let r: Float = (Float(year - beginYear) + 1) * 10
         var seriesData: [Jsonable] = []
         
         for i in 0..<lineCount {
-            let sign = (negative ? -1 * ((i % 3 != 0) ? 0.9 :1): 1 * Float(((i + 1) % 3 != 0) ? 0.9 : 1))
+            let sign = (negative ? -1 * ((i % 3 != 0) ? 0.9 :1) : 1 * Double(((i + 1) % 3 != 0) ? 0.9 : 1))
             var result: Float = 0.0
             if year <= beginYear + 1 {
                 result = (abs(Float(i - lineCount) / 2.0 + 0.5) < Float(lineCount) / 5.0 ? 5 : 0)
             } else {
                 result = (Float(lineCount) - abs(Float(i - lineCount) / 2 + 0.5)) * r
             }
-            result *= sign
+            result *= Float(sign)
             var data: [String: Jsonable?] = [:]
             if i % 2 != 0 {
                 data = [

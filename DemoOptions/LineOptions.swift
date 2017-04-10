@@ -454,7 +454,7 @@ public struct LineOptions {
     // MARK: Beijing AQI
     /// 地址: http://echarts.baidu.com/demo.html#line-aqi
     static func lineApiOption() -> Option {
-        guard let plistUrl = NSBundle.mainBundle().pathForResource("BeijingAQIDatas", ofType: "plist") else {
+        guard let plistUrl = Bundle.main.path(forResource: "BeijingAQIDatas", ofType: "plist") else {
             return Option()
         }
         

@@ -129,6 +129,103 @@
 		6FB48CC41DEF358C00137D13 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB48CC31DEF358C00137D13 /* Displayable.swift */; };
 		6FB48CC61DEF35AF00137D13 /* Tooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB48CC51DEF35AF00137D13 /* Tooltip.swift */; };
 		6FB48CC81DEF3BB100137D13 /* Formatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB48CC71DEF3BB100137D13 /* Formatted.swift */; };
+		6FC28C111E9D37D700B79049 /* Percent.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540898A71E53F6F300A89BB0 /* Percent.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C121E9D37D700B79049 /* LengthValue.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540898A91E53F71E00A89BB0 /* LengthValue.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C131E9D37D700B79049 /* Pair.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FEC7D1A1E549487003A88D7 /* Pair.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C141E9D37D700B79049 /* OneOrMore.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C151E9D37D700B79049 /* JsCache.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540898AF1E54637100A89BB0 /* JsCache.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C161E9D37D700B79049 /* Jsonable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54FEBE8C1E23480D0021CB13 /* Jsonable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C171E9D37D700B79049 /* Map.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54FEBE8D1E23480D0021CB13 /* Map.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C181E9D37D700B79049 /* Mappable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54FEBE8E1E23480D0021CB13 /* Mappable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C191E9D37D700B79049 /* Utilities.swift in Headers */ = {isa = PBXBuildFile; fileRef = 5435CCBD1E24990B00D753B2 /* Utilities.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C1A1E9D37D700B79049 /* Graphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249C31E4E142100FBB2F7 /* Graphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C1B1E9D37D700B79049 /* GraphicType.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249C11E4E121F00FBB2F7 /* GraphicType.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C1C1E9D37D700B79049 /* GroupGraphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249C91E4E186D00FBB2F7 /* GroupGraphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C1D1E9D37D700B79049 /* ImageGraphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249CB1E4F308300FBB2F7 /* ImageGraphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C1E1E9D37D700B79049 /* GraphicStyle.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249CD1E4F3E7E00FBB2F7 /* GraphicStyle.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C1F1E9D37D700B79049 /* TextGraphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249CF1E4F41E600FBB2F7 /* TextGraphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C201E9D37D700B79049 /* RectGraphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249D11E4F52E400FBB2F7 /* RectGraphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C211E9D37D700B79049 /* CircleGraphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249D31E4F625B00FBB2F7 /* CircleGraphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C221E9D37D700B79049 /* RingGraphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249D51E4F665900FBB2F7 /* RingGraphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C231E9D37D700B79049 /* SectorGraphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249D71E50A8DD00FBB2F7 /* SectorGraphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C241E9D37D700B79049 /* PolygonGraphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249DB1E50AEA200FBB2F7 /* PolygonGraphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C251E9D37D700B79049 /* ArcGraphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249E11E50B69A00FBB2F7 /* ArcGraphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C261E9D37D700B79049 /* PolylineGraphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249E31E50B6E000FBB2F7 /* PolylineGraphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C271E9D37D700B79049 /* LineGraphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249E51E50B74400FBB2F7 /* LineGraphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C281E9D37D700B79049 /* BezierCurveGraphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249E71E50B8DC00FBB2F7 /* BezierCurveGraphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C291E9D37D700B79049 /* Axis.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CE51E48BDA800F6E62F /* Axis.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C2A1E9D37D700B79049 /* RadiusAxis.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CE61E48BDA800F6E62F /* RadiusAxis.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C2B1E9D37D700B79049 /* AxisType.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CE91E48BDCF00F6E62F /* AxisType.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C2C1E9D37D700B79049 /* AxisLine.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CEB1E48BF7400F6E62F /* AxisLine.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C2D1E9D37D700B79049 /* AxisTick.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CED1E48BFCB00F6E62F /* AxisTick.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C2E1E9D37D700B79049 /* AxisLabel.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CEF1E48C01500F6E62F /* AxisLabel.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C2F1E9D37D700B79049 /* SplitArea.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CF11E48C06F00F6E62F /* SplitArea.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C301E9D37D700B79049 /* SplitLine.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CF31E48C0C500F6E62F /* SplitLine.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C311E9D37D700B79049 /* AngleAxis.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CF51E48C13200F6E62F /* AngleAxis.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C321E9D37D700B79049 /* ParallelAxis.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CFD1E4CB22900F6E62F /* ParallelAxis.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C331E9D37D700B79049 /* SingleAxis.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C341E9D37D700B79049 /* ContinuousVisualMap.swift in Headers */ = {isa = PBXBuildFile; fileRef = 5469CBF61E320B210063D1C3 /* ContinuousVisualMap.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C351E9D37D700B79049 /* PiecewiseVisualMap.swift in Headers */ = {isa = PBXBuildFile; fileRef = 5469CBF81E3215FD0063D1C3 /* PiecewiseVisualMap.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C361E9D37D700B79049 /* VisualMap.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB400451E3657E00086BF5B /* VisualMap.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C371E9D37D700B79049 /* DataZoom.swift in Headers */ = {isa = PBXBuildFile; fileRef = 5447FD931E2DE8BB001D88F3 /* DataZoom.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C381E9D37D700B79049 /* InsideDataZoom.swift in Headers */ = {isa = PBXBuildFile; fileRef = 5447FD951E2DEA93001D88F3 /* InsideDataZoom.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C391E9D37D700B79049 /* SliderDataZoom.swift in Headers */ = {isa = PBXBuildFile; fileRef = 5447FDA61E2E2AD6001D88F3 /* SliderDataZoom.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C3A1E9D37D700B79049 /* MarkArea.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540DE5FA1E2CF087002F25E3 /* MarkArea.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C3B1E9D37D700B79049 /* MarkLine.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540DE5FB1E2CF087002F25E3 /* MarkLine.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C3C1E9D37D700B79049 /* MarkPoint.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540DE5FC1E2CF087002F25E3 /* MarkPoint.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C3D1E9D37D700B79049 /* MarkPosition.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540DE5F81E2CF05C002F25E3 /* MarkPosition.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C3E1E9D37D700B79049 /* MarkData.swift in Headers */ = {isa = PBXBuildFile; fileRef = 5427F0AA1E2CEB8800CE20E5 /* MarkData.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C3F1E9D37D700B79049 /* MarkDataType.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FEC7D1E1E55EEE0003A88D7 /* MarkDataType.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C401E9D37D700B79049 /* Label.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4ACB3B1E1BF47B00CE5FD5 /* Label.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C411E9D37D700B79049 /* ItemStyle.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4ACB3D1E1BF68F00CE5FD5 /* ItemStyle.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C421E9D37D700B79049 /* LineStyle.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4ACB411E1C00CA00CE5FD5 /* LineStyle.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C431E9D37D700B79049 /* AreaStyle.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4ACB431E1C023900CE5FD5 /* AreaStyle.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C441E9D37D700B79049 /* Animatable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4ACB451E1C078100CE5FD5 /* Animatable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C451E9D37D700B79049 /* Position.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540898AB1E5408B500A89BB0 /* Position.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C461E9D37D700B79049 /* BoundaryGap.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540898AD1E54294700A89BB0 /* BoundaryGap.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C471E9D37D700B79049 /* Serie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54BA6E221E1B76B100CD7AA6 /* Serie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C481E9D37D700B79049 /* LineSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54BA6E241E1B798100CD7AA6 /* LineSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C491E9D37D700B79049 /* BarSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB4003F1E2FC05E0086BF5B /* BarSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C4A1E9D37D700B79049 /* CoordinateSystem.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB400411E2FC1DD0086BF5B /* CoordinateSystem.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C4B1E9D37D700B79049 /* PieSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 5469CBF21E31B8700063D1C3 /* PieSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C4C1E9D37D700B79049 /* ScatterSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB400491E3900A40086BF5B /* ScatterSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C4D1E9D37D700B79049 /* EffectScatterSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 541C725B1E4C529000B194A3 /* EffectScatterSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C4E1E9D37D700B79049 /* RadarSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 541C725E1E5168D300B194A3 /* RadarSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C4F1E9D37D700B79049 /* TreemapSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 541C72601E516D3900B194A3 /* TreemapSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C501E9D37D700B79049 /* BoxplotSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249EB1E5337EC00FBB2F7 /* BoxplotSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C511E9D37D700B79049 /* CandlestickSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249ED1E533DCD00FBB2F7 /* CandlestickSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C521E9D37D700B79049 /* HeatmapSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249EF1E53493C00FBB2F7 /* HeatmapSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C531E9D37D700B79049 /* MapSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4A15101E69C7ED0059BAD5 /* MapSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C541E9D37D700B79049 /* ParallelSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4A15161E69CE770059BAD5 /* ParallelSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C551E9D37D700B79049 /* LinesSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4A15181E6DB5430059BAD5 /* LinesSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C561E9D37D700B79049 /* FunnelSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4A151A1E6DB9940059BAD5 /* FunnelSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C571E9D37D700B79049 /* GaugeSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4A151E1E6EFF800059BAD5 /* GaugeSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C581E9D37D700B79049 /* ThemeRiverSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 5446EA0D1E7672E5009BAE71 /* ThemeRiverSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C591E9D37D700B79049 /* SankeySerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54AAE1761E790BE100DCD829 /* SankeySerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C5A1E9D37D700B79049 /* PictorialBarSerie.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FA0B9891E916EF5007D2AA2 /* PictorialBarSerie.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C5B1E9D37D700B79049 /* Displayable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB48CC31DEF358C00137D13 /* Displayable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C5C1E9D37D700B79049 /* Formatted.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB48CC71DEF3BB100137D13 /* Formatted.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C5D1E9D37D700B79049 /* Line.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F91EB7A1DF08026003EEEC0 /* Line.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C5E1E9D37D700B79049 /* Shadowable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F91EB7C1DF081A2003EEEC0 /* Shadowable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C5F1E9D37D700B79049 /* Emphasisable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4ACB351E1BD36100CE5FD5 /* Emphasisable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C601E9D37D700B79049 /* Borderable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4ACB381E1BDB2600CE5FD5 /* Borderable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C611E9D37D700B79049 /* Opacitable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4ACB3F1E1BFA2500CE5FD5 /* Opacitable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C621E9D37D700B79049 /* Enumable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FA24F711E2B7A0100E25002 /* Enumable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C631E9D37D700B79049 /* Zable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54116AF11E49720A007BB86C /* Zable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C641E9D37D700B79049 /* Tooltip.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB48CC51DEF35AF00137D13 /* Tooltip.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C651E9D37D700B79049 /* Legend.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F91EB7E1DF142E3003EEEC0 /* Legend.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C661E9D37D700B79049 /* Symbol.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F1FDA8C1DF5D286004BC74E /* Symbol.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C671E9D37D700B79049 /* Grid.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F1FDA8E1DF5D6E9004BC74E /* Grid.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C681E9D37D700B79049 /* Toolbox.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FA24F731E2BE0F900E25002 /* Toolbox.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C691E9D37D700B79049 /* Timeline.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB400431E3104B70086BF5B /* Timeline.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C6A1E9D37D700B79049 /* Polar.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FB400471E38FE2E0086BF5B /* Polar.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C6B1E9D37D700B79049 /* Radar.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CF71E48D38F00F6E62F /* Radar.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C6C1E9D37D700B79049 /* Brush.swift in Headers */ = {isa = PBXBuildFile; fileRef = 541C72591E4BF9C300B194A3 /* Brush.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C6D1E9D37D700B79049 /* Geo.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CF91E4CB1DF00F6E62F /* Geo.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C6E1E9D37D700B79049 /* Parallel.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC40CFB1E4CB20300F6E62F /* Parallel.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C6F1E9D37D700B79049 /* Roam.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4A15141E69C8970059BAD5 /* Roam.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C701E9D37D700B79049 /* SelectedMode.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F67FCB61E71C85400BE2E4B /* SelectedMode.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C711E9D37EC00B79049 /* Color.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540898B11E54637600A89BB0 /* Color.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC40CE71E48BDA800F6E62F /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC40CE51E48BDA800F6E62F /* Axis.swift */; };
 		6FC40CE81E48BDA800F6E62F /* RadiusAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC40CE61E48BDA800F6E62F /* RadiusAxis.swift */; };
 		6FC40CEA1E48BDCF00F6E62F /* AxisType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC40CE91E48BDCF00F6E62F /* AxisType.swift */; };
@@ -754,6 +851,103 @@
 				6FB48CA51DEE95B700137D13 /* Text.swift in Headers */,
 				6FB48CA31DEE953000137D13 /* Title.swift in Headers */,
 				6FB48CBB1DEEFC6100137D13 /* Font.swift in Headers */,
+				6FC28C111E9D37D700B79049 /* Percent.swift in Headers */,
+				6FC28C121E9D37D700B79049 /* LengthValue.swift in Headers */,
+				6FC28C131E9D37D700B79049 /* Pair.swift in Headers */,
+				6FC28C141E9D37D700B79049 /* OneOrMore.swift in Headers */,
+				6FC28C151E9D37D700B79049 /* JsCache.swift in Headers */,
+				6FC28C161E9D37D700B79049 /* Jsonable.swift in Headers */,
+				6FC28C171E9D37D700B79049 /* Map.swift in Headers */,
+				6FC28C181E9D37D700B79049 /* Mappable.swift in Headers */,
+				6FC28C191E9D37D700B79049 /* Utilities.swift in Headers */,
+				6FC28C1A1E9D37D700B79049 /* Graphic.swift in Headers */,
+				6FC28C1B1E9D37D700B79049 /* GraphicType.swift in Headers */,
+				6FC28C1C1E9D37D700B79049 /* GroupGraphic.swift in Headers */,
+				6FC28C1D1E9D37D700B79049 /* ImageGraphic.swift in Headers */,
+				6FC28C1E1E9D37D700B79049 /* GraphicStyle.swift in Headers */,
+				6FC28C1F1E9D37D700B79049 /* TextGraphic.swift in Headers */,
+				6FC28C201E9D37D700B79049 /* RectGraphic.swift in Headers */,
+				6FC28C211E9D37D700B79049 /* CircleGraphic.swift in Headers */,
+				6FC28C221E9D37D700B79049 /* RingGraphic.swift in Headers */,
+				6FC28C231E9D37D700B79049 /* SectorGraphic.swift in Headers */,
+				6FC28C241E9D37D700B79049 /* PolygonGraphic.swift in Headers */,
+				6FC28C251E9D37D700B79049 /* ArcGraphic.swift in Headers */,
+				6FC28C261E9D37D700B79049 /* PolylineGraphic.swift in Headers */,
+				6FC28C271E9D37D700B79049 /* LineGraphic.swift in Headers */,
+				6FC28C281E9D37D700B79049 /* BezierCurveGraphic.swift in Headers */,
+				6FC28C291E9D37D700B79049 /* Axis.swift in Headers */,
+				6FC28C2A1E9D37D700B79049 /* RadiusAxis.swift in Headers */,
+				6FC28C2B1E9D37D700B79049 /* AxisType.swift in Headers */,
+				6FC28C2C1E9D37D700B79049 /* AxisLine.swift in Headers */,
+				6FC28C2D1E9D37D700B79049 /* AxisTick.swift in Headers */,
+				6FC28C2E1E9D37D700B79049 /* AxisLabel.swift in Headers */,
+				6FC28C2F1E9D37D700B79049 /* SplitArea.swift in Headers */,
+				6FC28C301E9D37D700B79049 /* SplitLine.swift in Headers */,
+				6FC28C311E9D37D700B79049 /* AngleAxis.swift in Headers */,
+				6FC28C321E9D37D700B79049 /* ParallelAxis.swift in Headers */,
+				6FC28C331E9D37D700B79049 /* SingleAxis.swift in Headers */,
+				6FC28C341E9D37D700B79049 /* ContinuousVisualMap.swift in Headers */,
+				6FC28C351E9D37D700B79049 /* PiecewiseVisualMap.swift in Headers */,
+				6FC28C361E9D37D700B79049 /* VisualMap.swift in Headers */,
+				6FC28C371E9D37D700B79049 /* DataZoom.swift in Headers */,
+				6FC28C381E9D37D700B79049 /* InsideDataZoom.swift in Headers */,
+				6FC28C391E9D37D700B79049 /* SliderDataZoom.swift in Headers */,
+				6FC28C3A1E9D37D700B79049 /* MarkArea.swift in Headers */,
+				6FC28C3B1E9D37D700B79049 /* MarkLine.swift in Headers */,
+				6FC28C3C1E9D37D700B79049 /* MarkPoint.swift in Headers */,
+				6FC28C3D1E9D37D700B79049 /* MarkPosition.swift in Headers */,
+				6FC28C3E1E9D37D700B79049 /* MarkData.swift in Headers */,
+				6FC28C3F1E9D37D700B79049 /* MarkDataType.swift in Headers */,
+				6FC28C401E9D37D700B79049 /* Label.swift in Headers */,
+				6FC28C411E9D37D700B79049 /* ItemStyle.swift in Headers */,
+				6FC28C421E9D37D700B79049 /* LineStyle.swift in Headers */,
+				6FC28C431E9D37D700B79049 /* AreaStyle.swift in Headers */,
+				6FC28C441E9D37D700B79049 /* Animatable.swift in Headers */,
+				6FC28C451E9D37D700B79049 /* Position.swift in Headers */,
+				6FC28C461E9D37D700B79049 /* BoundaryGap.swift in Headers */,
+				6FC28C471E9D37D700B79049 /* Serie.swift in Headers */,
+				6FC28C481E9D37D700B79049 /* LineSerie.swift in Headers */,
+				6FC28C491E9D37D700B79049 /* BarSerie.swift in Headers */,
+				6FC28C4A1E9D37D700B79049 /* CoordinateSystem.swift in Headers */,
+				6FC28C4B1E9D37D700B79049 /* PieSerie.swift in Headers */,
+				6FC28C4C1E9D37D700B79049 /* ScatterSerie.swift in Headers */,
+				6FC28C4D1E9D37D700B79049 /* EffectScatterSerie.swift in Headers */,
+				6FC28C4E1E9D37D700B79049 /* RadarSerie.swift in Headers */,
+				6FC28C4F1E9D37D700B79049 /* TreemapSerie.swift in Headers */,
+				6FC28C501E9D37D700B79049 /* BoxplotSerie.swift in Headers */,
+				6FC28C511E9D37D700B79049 /* CandlestickSerie.swift in Headers */,
+				6FC28C521E9D37D700B79049 /* HeatmapSerie.swift in Headers */,
+				6FC28C531E9D37D700B79049 /* MapSerie.swift in Headers */,
+				6FC28C541E9D37D700B79049 /* ParallelSerie.swift in Headers */,
+				6FC28C551E9D37D700B79049 /* LinesSerie.swift in Headers */,
+				6FC28C561E9D37D700B79049 /* FunnelSerie.swift in Headers */,
+				6FC28C571E9D37D700B79049 /* GaugeSerie.swift in Headers */,
+				6FC28C581E9D37D700B79049 /* ThemeRiverSerie.swift in Headers */,
+				6FC28C591E9D37D700B79049 /* SankeySerie.swift in Headers */,
+				6FC28C5A1E9D37D700B79049 /* PictorialBarSerie.swift in Headers */,
+				6FC28C5B1E9D37D700B79049 /* Displayable.swift in Headers */,
+				6FC28C5C1E9D37D700B79049 /* Formatted.swift in Headers */,
+				6FC28C5D1E9D37D700B79049 /* Line.swift in Headers */,
+				6FC28C5E1E9D37D700B79049 /* Shadowable.swift in Headers */,
+				6FC28C5F1E9D37D700B79049 /* Emphasisable.swift in Headers */,
+				6FC28C601E9D37D700B79049 /* Borderable.swift in Headers */,
+				6FC28C611E9D37D700B79049 /* Opacitable.swift in Headers */,
+				6FC28C621E9D37D700B79049 /* Enumable.swift in Headers */,
+				6FC28C631E9D37D700B79049 /* Zable.swift in Headers */,
+				6FC28C641E9D37D700B79049 /* Tooltip.swift in Headers */,
+				6FC28C651E9D37D700B79049 /* Legend.swift in Headers */,
+				6FC28C661E9D37D700B79049 /* Symbol.swift in Headers */,
+				6FC28C671E9D37D700B79049 /* Grid.swift in Headers */,
+				6FC28C681E9D37D700B79049 /* Toolbox.swift in Headers */,
+				6FC28C691E9D37D700B79049 /* Timeline.swift in Headers */,
+				6FC28C6A1E9D37D700B79049 /* Polar.swift in Headers */,
+				6FC28C6B1E9D37D700B79049 /* Radar.swift in Headers */,
+				6FC28C711E9D37EC00B79049 /* Color.swift in Headers */,
+				6FC28C6C1E9D37D700B79049 /* Brush.swift in Headers */,
+				6FC28C6D1E9D37D700B79049 /* Geo.swift in Headers */,
+				6FC28C6E1E9D37D700B79049 /* Parallel.swift in Headers */,
+				6FC28C6F1E9D37D700B79049 /* Roam.swift in Headers */,
+				6FC28C701E9D37D700B79049 /* SelectedMode.swift in Headers */,
 				6F1325701D9312A90006F114 /* SwiftyEcharts.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

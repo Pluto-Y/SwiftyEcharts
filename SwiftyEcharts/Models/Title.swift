@@ -6,45 +6,6 @@
 //  Copyright © 2016 com.pluto-y. All rights reserved.
 //
 
-/// 指定窗口打开主标题超链接。
-public enum Target: Jsonable, CustomStringConvertible {
-    
-    ///  当前窗口打开
-    case tself
-    /// 新窗口打开
-    case tblank
-    
-    public var description: String {
-        switch self {
-        case .tself:
-            return "self"
-        case .tblank:
-            return "blank"
-        }
-    }
-}
-
-/// 内边距
-///
-/// - all: 所有
-/// - verticalAndHorizontal: 垂直和水平方向
-/// - trbl: 上右下左
-public enum Padding: Jsonable, CustomStringConvertible {
-    case all(Float)
-    case verticalAndHorizontal(Float, Float)
-    case trbl(Float, Float, Float, Float)
-    public var description: String {
-        switch self {
-        case let .all(val):
-            return "\(val)"
-        case let .verticalAndHorizontal(vVal, hVal):
-            return "[\(vVal), \(hVal)]"
-        case let .trbl(tVal, rVal, bVal, lVal):
-            return "[\(tVal), \(rVal), \(bVal), \(lVal)]"
-        }
-    }
-}
-
 /// 标题组件，包含主标题和副标题。
 /// 在 ECharts 2.x 中单个 ECharts 实例最多只能拥有一个标题组件。但是在 ECharts 3 中可以存在任意多个标题组件，这在需要标题进行排版，或者单个实例中的多个图表都需要标题时会比较有用。
 public struct Title: Borderable, Displayable, Textful, Zable {

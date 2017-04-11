@@ -6,18 +6,6 @@
 //  Copyright © 2016 com.pluto-y. All rights reserved.
 //
 
-/// 布局朝向
-///
-/// - horizontal: 水平
-/// - vertical: 垂直
-public enum Orient: String, Jsonable {
-    case horizontal = "horizontal", vertical = "vertical"
-
-    public var jsonString: String {
-        return "\"\(self.rawValue)\""
-    }
-}
-
 /// 图例组件。
 /// 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
 /// ECharts 3 中单个 echarts 实例中可以存在多个图例组件，会方便多个图例的布局。

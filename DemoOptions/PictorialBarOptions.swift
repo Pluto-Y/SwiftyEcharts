@@ -803,12 +803,19 @@ public struct PictorialBarOptions {
         var seriesData: [Jsonable] = []
         
         for i in 0..<lineCount {
-            let sign = (negative ? -1 * ((i % 3 != 0) ? 0.9 :1) : 1 * Double(((i + 1) % 3 != 0) ? 0.9 : 1))
+            let tmp1: Float = (i % 3 != 0) ? 0.9 :1
+            let tmp2: Float = ((i + 1) % 3 != 0) ? 0.9 : 1
+            let sign = negative ? -1 * tmp1: tmp2
             var result: Float = 0.0
+            let tmp3: Float = Float(i - lineCount)
             if year <= beginYear + 1 {
-                result = (abs(Float(i - lineCount) / 2.0 + 0.5) < Float(lineCount) / 5.0 ? 5 : 0)
+                if tmp3 / 2.0 + 0.5 < Float(lineCount) / 5.0 {
+                    result = 5
+                } else {
+                    result = 0
+                }
             } else {
-                result = (Float(lineCount) - abs(Float(i - lineCount) / 2 + 0.5)) * r
+                result = Float(lineCount) - abs(tmp3 / 2.0 + 0.5) * r
             }
             result *= Float(sign)
             var data: [String: Jsonable?] = [:]

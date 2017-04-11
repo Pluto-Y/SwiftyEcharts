@@ -57,7 +57,8 @@ class JsonableSpec: QuickSpec {
                 let childrenNames: [String?] = ["San Zhang", "Wu Zhao", nil]
                 let dic: [String: Any?] = ["age": 5, "childrenNames": childrenNames, "moneyCount": optionalValue, "name": "Si Li", "wifeName": optionalNone, "height": 164.5]
                 
-                expect(dic.jsonString).to(equal("{\n\"age\":5,\n\"childrenNames\":\(childrenNames.jsonString),\n\"height\":164.5,\n\"moneyCount\":6.5,\n\"name\":\"Si Li\",\n\"wifeName\":null\n}"))
+                expect(dic.jsonString).to(equal("{\n\"childrenNames\":\(childrenNames.jsonString),\n\"age\":5,\n\"name\":\"Si Li\",\n\"wifeName\":null,\n\"height\":164.5,\n\"moneyCount\":6.5\n}"))
+//                expect(dic.jsonString).to(equal("{\n\"age\":5,\n\"childrenNames\":\(childrenNames.jsonString),\n\"height\":164.5,\n\"moneyCount\":6.5,\n\"name\":\"Si Li\",\n\"wifeName\":null\n}"))
             }
             
             it("need to check the dictionary when it does no have any key") {

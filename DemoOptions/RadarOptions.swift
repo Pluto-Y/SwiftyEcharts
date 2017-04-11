@@ -125,6 +125,56 @@ public struct RadarOptions {
                 ))
         )
         
+        let serie1: RadarSerie = RadarSerie(
+            .name("北京"),
+            .lineStyle(lineStyle),
+            .data(serieData1),
+            .symbol(.none),
+            .itemStyle(ItemStyle(
+                .normal(CommonItemStyleContent(
+                    .color(.hexColor("#F9713C"))
+                    ))
+                )),
+            .areaStyle(EmphasisAreaStyle(
+                .normal(CommonAreaStyleContent(
+                    .opacity(0.1)
+                    ))
+                ))
+        )
+        let serie2: RadarSerie = RadarSerie(
+        .name("上海"),
+        .lineStyle(lineStyle),
+        .data(serieData2),
+        .symbol(.none),
+        .itemStyle(ItemStyle(
+        .normal(CommonItemStyleContent(
+        .color(.hexColor("#B3E4A1"))
+        ))
+        )),
+        .areaStyle(EmphasisAreaStyle(
+        .normal(CommonAreaStyleContent(
+        .opacity(0.05)
+        ))
+        ))
+        )
+        let serie3: RadarSerie = RadarSerie(
+        .name("广州"),
+        .lineStyle(lineStyle),
+        .data(serieData3),
+        .symbol(.none),
+        .itemStyle(ItemStyle(
+        .normal(CommonItemStyleContent(
+        .color(.rgb(238, 197, 102))
+        ))
+        )),
+        .areaStyle(EmphasisAreaStyle(
+        .normal(CommonAreaStyleContent(
+        .opacity(0.05)
+        ))
+        ))
+        )
+        let series: [Serie] = [serie1, serie2, serie3]
+        
         return Option(
             .backgroundColor(.hexColor("#161627")),
             .title(Title(
@@ -192,56 +242,7 @@ public struct RadarOptions {
                         ))
                     ))
                 )),
-            .series([
-                RadarSerie(
-                    .name("北京"),
-                    .lineStyle(lineStyle),
-                    .data(serieData1),
-                    .symbol(.none),
-                    .itemStyle(ItemStyle(
-                        .normal(CommonItemStyleContent(
-                            .color(.hexColor("#F9713C"))
-                            ))
-                        )),
-                    .areaStyle(EmphasisAreaStyle(
-                        .normal(CommonAreaStyleContent(
-                            .opacity(0.1)
-                            ))
-                        ))
-                ),
-                RadarSerie(
-                    .name("上海"),
-                    .lineStyle(lineStyle),
-                    .data(serieData2),
-                    .symbol(.none),
-                    .itemStyle(ItemStyle(
-                        .normal(CommonItemStyleContent(
-                            .color(.hexColor("#B3E4A1"))
-                            ))
-                        )),
-                    .areaStyle(EmphasisAreaStyle(
-                        .normal(CommonAreaStyleContent(
-                            .opacity(0.05)
-                            ))
-                        ))
-                ),
-                RadarSerie(
-                    .name("广州"),
-                    .lineStyle(lineStyle),
-                    .data(serieData3),
-                    .symbol(.none),
-                    .itemStyle(ItemStyle(
-                        .normal(CommonItemStyleContent(
-                            .color(.rgb(238, 197, 102))
-                            ))
-                        )),
-                    .areaStyle(EmphasisAreaStyle(
-                        .normal(CommonAreaStyleContent(
-                            .opacity(0.05)
-                            ))
-                        ))
-                )
-                ])
+            .series(series)
         )
     }
     

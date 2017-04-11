@@ -82,12 +82,17 @@ public struct BarOptions {
         var data2: [Jsonable] = []
         var data3: [Jsonable] = []
         var data4: [Jsonable] = []
+        var tmp: Double = 0.0
         for i in 0..<10 {
             xAxisData.append("Class\(i)")
-            data1.append(Double((arc4random_uniform(100)+1)) / 100.0 * 2)
-            data2.append(Double((arc4random_uniform(100)+1)) / -100.0)
-            data3.append(Double((arc4random_uniform(100)+1)) / 100.0 * 5)
-            data4.append(Double((arc4random_uniform(100)+1)) / 100.0 + 0.3)
+            tmp = Double((arc4random_uniform(100)+1)) / 100.0 * 2
+            data1.append(tmp)
+            tmp = Double((arc4random_uniform(100)+1)) / -100.0
+            data2.append(tmp)
+            tmp = Double((arc4random_uniform(100)+1)) / 100.0 * 5
+            data3.append(tmp)
+            tmp = Double((arc4random_uniform(100)+1)) / 100.0 + 0.3
+            data4.append(tmp)
         }
         
         let itemStyle = ItemStyle(

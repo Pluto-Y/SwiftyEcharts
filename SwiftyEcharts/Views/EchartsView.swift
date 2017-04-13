@@ -137,24 +137,24 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
         // 必须要在option.jsonString调用过一次之后
         // 并且需要在调用loadEcharts之前，这样才能建立关系
         for function in JsCache.allJsStrings() {
-            print(function)
+            printInfo(function)
             self.callJsMethod(function)
         }
         
         
         let js = "loadEcharts('\(optionJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))')"
-        print(js)
+        printInfo(js)
         callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
         
     }
     
     public func webView(webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: () -> Void) {
-        print(message)
+        printInfo(message)
         completionHandler()
     }
     
     // MARK: WKScriptMessageHandler
     public func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-        print("name:\(message.name), body:\(message.body)")
+        printInfo("name:\(message.name), body:\(message.body)")
     }
 }

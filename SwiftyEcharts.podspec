@@ -7,13 +7,9 @@ Pod::Spec.new do |s|
   s.author              = { "PlutoY" => "kuaileainits@163.com" }
   #s.platform            = :ios, "8.0"
   s.source              = { :git => "https://github.com/Pluto-Y/SwiftyEcharts.git", :tag => s.version}
-  s.source_files        = "SwiftyEcharts/**/*.{swift}"
+  s.source_files        = "SwiftyEcharts/**/*.{h,swift}" 
   s.resource_bundles    = { 'SwiftyEcharts' => 'SwiftyEcharts/Resources/**' }
   s.requires_arc        = true
   s.ios.frameworks          = 'UIKit'
-  #s.osx.frameworks          = 'AppKit', 'WebKit'
-
   s.ios.deployment_target = '8.0'
-  #s.osx.deployment_target = '10.9'
-
 end

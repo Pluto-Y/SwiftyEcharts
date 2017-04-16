@@ -305,10 +305,5 @@ extension ContinuousVisualMap: Mappable {
         map["color"] = color
         map["textStyle"] = textStyle
         map["formatter"] = formatter
-        map["type"] = type
-        map["type"] = type
-        map["type"] = type
-        map["type"] = type
-        map["type"] = type
     }
 }

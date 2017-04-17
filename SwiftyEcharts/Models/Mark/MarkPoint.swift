@@ -8,25 +8,6 @@
 
 public struct MarkPoint: Symbolized, Animatable {
     
-    public struct Data: Symbolized {
-        public var name: String?
-        public var type: MarkDataType?
-        public var valueIndex: UInt8?
-        public var valueDim: String?
-        public var coord: [Jsonable]?
-        public var x: LengthValue?
-        public var y: LengthValue?
-        public var xAxis: Float?
-        public var yAxis: Float?
-        public var value: Float?
-        public var symbol: Symbol?
-        public var symbolSize: Jsonable?
-        public var symbolRotate: Float?
-        public var symbolOffset: Point?
-        public var itemStyle: ItemStyle?
-        public var label: Label?
-    }
-    
     /// 标记的图形。
     public var symbol: Symbol?
     /// 标记的大小
@@ -87,8 +68,6 @@ public struct MarkPoint: Symbolized, Animatable {
     public init() { }
     
 }
-
-public typealias MarkPointData = MarkPoint.Data
 
 extension MarkPoint: Enumable {
     public enum Enums {
@@ -155,74 +134,5 @@ extension MarkPoint: Mappable {
         map["animationDurationUpdate"] = animationDurationUpdate
         map["animationEasingUpdate"] = animationEasingUpdate
         map["animationDelayUpdate"] = animationDelayUpdate
-    }
-}
-
-
-extension MarkPointData: Enumable {
-    public enum Enums {
-        case name(String), type(MarkDataType), valueIndex(UInt8), valueDim(String), coord([Jsonable]), x(LengthValue), y(LengthValue), xAxis(Float), yAxis(Float), value(Float), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), itemStyle(ItemStyle), label(Label)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public init(_ elements: Enums...) {
-        for ele in elements {
-            switch ele {
-            case let .name(name):
-                self.name = name
-            case let .type(type):
-                self.type = type
-            case let .valueIndex(valueIndex):
-                self.valueIndex = valueIndex
-            case let .valueDim(valueDim):
-                self.valueDim = valueDim
-            case let .coord(coord):
-                self.coord = coord
-            case let .x(x):
-                self.x = x
-            case let .y(y):
-                self.y = y
-            case let .xAxis(xAxis):
-                self.xAxis = xAxis
-            case let .yAxis(yAxis):
-                self.yAxis = yAxis
-            case let .value(value):
-                self.value = value
-            case let .symbol(symbol):
-                self.symbol = symbol
-            case let .symbolSize(symbolSize):
-                self.symbolSize = symbolSize
-            case let .symbolRotate(symbolRotate):
-                self.symbolRotate = symbolRotate
-            case let .symbolOffset(symbolOffset):
-                self.symbolOffset = symbolOffset
-            case let .itemStyle(itemStyle):
-                self.itemStyle = itemStyle
-            case let .label(label):
-                self.label = label
-            }
-        }
-    }
-}
-
-extension MarkPointData: Mappable {
-    public func mapping(map: Mapper) {
-        map["name"] = name
-        map["type"] = type
-        map["valueIndex"] = valueIndex
-        map["valueDim"] = valueDim
-        map["coord"] = coord
-        map["x"] = x
-        map["y"] = y
-        map["xAxis"] = xAxis
-        map["yAxis"] = yAxis
-        map["value"] = value
-        map["symbol"] = symbol
-        map["symbolSize"] = symbolSize
-        map["symbolRotate"] = symbolRotate
-        map["symbolOffset"] = symbolOffset
-        map["itemStyle"] = itemStyle
-        map["label"] = label
     }
 }

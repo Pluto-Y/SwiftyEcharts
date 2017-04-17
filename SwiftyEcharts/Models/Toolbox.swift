@@ -232,7 +232,7 @@ extension Toolbox.Feature {
             case jpeg = "jpeg"
             
             public var jsonString: String {
-                return "\"\(self.rawValue)\""
+                return self.rawValue.jsonString
             }
         }
         
@@ -625,7 +625,7 @@ extension Toolbox.Feature {
             case tiled = "tiled"
             
             public var jsonString: String {
-                return "\"\(self.rawValue)\""
+                return self.rawValue.jsonString
             }
         }
         
@@ -779,7 +779,7 @@ extension Toolbox.Feature {
             case clear = "clear"
             
             public var jsonString: String {
-                 return "\"\(self.rawValue)\""
+                 return self.rawValue.jsonString
             }
         }
         

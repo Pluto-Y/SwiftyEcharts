@@ -19,6 +19,6 @@ public enum AxisType: String, Jsonable {
     case log = "log"
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }

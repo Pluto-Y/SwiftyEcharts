@@ -32,7 +32,7 @@ public struct Radar: Zable {
         case circle = "circle"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     

@@ -35,6 +35,6 @@ public enum GraphicType: String, Jsonable {
     case bezierCurve = "bezierCurve"
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }

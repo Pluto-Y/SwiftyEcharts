@@ -15,7 +15,7 @@ public enum LineType: String, Jsonable {
     case solid = "solid", dashed = "dashed", dotted = "dotted"
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }
 

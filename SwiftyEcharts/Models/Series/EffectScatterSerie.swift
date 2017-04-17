@@ -22,7 +22,7 @@ public struct EffectScatterSerie: Serie, Symbolized, Zable {
         case emphasis = "emphasis"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     
@@ -34,7 +34,7 @@ public struct EffectScatterSerie: Serie, Symbolized, Zable {
             case fill = "fill"
             
             public var jsonString: String {
-                return "\"\(self.rawValue)\""
+                return self.rawValue.jsonString
             }
         }
         

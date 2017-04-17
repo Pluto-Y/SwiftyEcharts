@@ -14,6 +14,6 @@ public enum Orient: String, Jsonable {
     case horizontal = "horizontal", vertical = "vertical"
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }

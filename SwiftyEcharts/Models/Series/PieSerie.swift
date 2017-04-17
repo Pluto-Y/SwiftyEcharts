@@ -41,7 +41,7 @@ public struct PieSerie: Serie, Zable {
             case .enable, .dispable:
                 return "\(self.rawValue)"
             default:
-                return "\"\(self.rawValue)\""
+                return self.rawValue.jsonString
             }
         }
     }
@@ -79,7 +79,7 @@ public struct PieSerie: Serie, Zable {
         case scale = "scale"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     

@@ -47,7 +47,7 @@ public struct TreemapSerie: Serie, Zable {
         case link = "link"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     
@@ -68,7 +68,7 @@ public struct TreemapSerie: Serie, Zable {
         case id = "id"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     

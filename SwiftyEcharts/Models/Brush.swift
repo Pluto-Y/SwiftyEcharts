@@ -27,7 +27,7 @@ public struct Brush {
         case clear = "clear"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     
@@ -66,7 +66,7 @@ public struct Brush {
         case lineY = "lineY"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     
@@ -79,7 +79,7 @@ public struct Brush {
         case multiple = "multiple"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     
@@ -99,7 +99,7 @@ public struct Brush {
         case fixRate = "fixRate"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     

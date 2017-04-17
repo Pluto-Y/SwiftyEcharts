@@ -20,7 +20,7 @@ extension LineSerie {
         case sum = "sum"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
 }
@@ -105,7 +105,7 @@ public struct LineSerie: Symbolized, Animatable, Zable {
         case y = "y"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     
@@ -453,7 +453,6 @@ extension LineSerie: Mappable {
         map["zlevel"] = zlevel
         map["z"] = z
         map["silent"] = silent
-        map["markPoint"] = markPoint
         map["animation"] = animation
         map["animationThreshold"] = animationThreshold
         map["animationDuration"] = animationDuration

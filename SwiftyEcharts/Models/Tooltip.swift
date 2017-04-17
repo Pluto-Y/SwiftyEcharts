@@ -20,7 +20,7 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
         case axis = "axis"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
         
         /// 提示框触发的条件
@@ -35,7 +35,7 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
             case none = "none"
             
             public var jsonString: String {
-                return "\"\(self.rawValue)\""
+                return self.rawValue.jsonString
             }
         }
         
@@ -132,7 +132,7 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
             case line = "line", cross = "cross", shadow = "shadow", none = "none"
             
             public var jsonString: String {
-                return "\"\(self.rawValue)\""
+                return self.rawValue.jsonString
             }
         }
         

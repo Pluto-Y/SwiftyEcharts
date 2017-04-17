@@ -100,7 +100,7 @@ public enum EasingFunction: String, Jsonable {
     case bounceInOut = "bounceInOut"
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }
 

@@ -26,7 +26,7 @@ public enum Color: Jsonable {
         case noRepeat = "no-repeat"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     

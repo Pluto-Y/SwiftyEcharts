@@ -98,7 +98,7 @@ public struct Timeline: Displayable, Symbolized, Zable {
         case time = "time"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     

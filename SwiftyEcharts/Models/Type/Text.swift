@@ -19,7 +19,7 @@ public enum Align: String, Jsonable {
     case none = ""
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }
 
@@ -34,7 +34,7 @@ public enum VerticalAlign: String, Jsonable {
     case bottom = "bottom"
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }
 

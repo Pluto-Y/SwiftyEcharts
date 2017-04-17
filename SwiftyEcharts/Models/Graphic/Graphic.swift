@@ -21,7 +21,7 @@ public enum GraphicAction: String, Jsonable {
     case remove = "remove"
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }
 

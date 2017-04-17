@@ -19,7 +19,7 @@ public enum Roam: String, Jsonable {
         case .enable, .disable:
             return "\(self.rawValue)"
         default:
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
 }

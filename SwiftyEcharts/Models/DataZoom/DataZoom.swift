@@ -85,6 +85,6 @@ public enum FilterMode: String, Jsonable{
     case empty = "empty"
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }

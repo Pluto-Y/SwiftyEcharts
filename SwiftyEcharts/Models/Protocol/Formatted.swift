@@ -26,12 +26,11 @@ public enum Formatter: Jsonable {
     public var jsonString: String {
         switch self {
         case let .string(formatter):
-            return "\"\(formatter)\""
+            return formatter.jsonString
         case let .function(f):
-            let count = JsCache.allJsStrings().count
-            let funcName = "formatterFunc\(count)"
+            let funcName = "formatterFunc\(JsCache.allJsStrings().count)"
             JsCache.add("var \(funcName) = \(f);")
-            return "\"\(funcName)\""
+            return funcName.jsonString
         }
     }
 }

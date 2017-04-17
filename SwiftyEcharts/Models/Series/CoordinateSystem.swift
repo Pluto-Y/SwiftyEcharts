@@ -18,6 +18,6 @@ public enum CoordinateSystem: String, Jsonable {
     case parallel = "parallel"
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }

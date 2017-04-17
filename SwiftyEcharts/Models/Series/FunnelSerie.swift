@@ -17,7 +17,7 @@ public struct FunnelSerie: Serie, Animatable {
         case descending = "descending"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     

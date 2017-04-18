@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct GraphOptions {
+public final class GraphOptions {
     
     // MARK: Les Miserables
     /// 地址: http://echarts.baidu.com/demo.html#graph-circular-layout

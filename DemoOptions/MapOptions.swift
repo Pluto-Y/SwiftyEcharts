@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct MapOptions {
+public final class MapOptions {
     
     // MARK: 模拟迁徙
     /// 地址: http://echarts.baidu.com/demo.html#geo-lines
@@ -61,7 +61,7 @@ public struct MapOptions {
                 ))
         )
         
-        var iphone3Data = serieTemplate
+        let iphone3Data = serieTemplate
         iphone3Data.name = "iphone3"
         iphone3Data.roam = .disable
         iphone3Data.data = [
@@ -101,7 +101,7 @@ public struct MapOptions {
             MapSerieData(.name("澳门"), .value(Float(arc4random_uniform(1000))))
         ]
         
-        var iphone4Data = serieTemplate
+        let iphone4Data = serieTemplate
         iphone4Data.name = "iphone4"
         iphone4Data.data = [
             MapSerieData(.name("北京"), .value(Float(arc4random_uniform(1000)))),
@@ -126,7 +126,7 @@ public struct MapOptions {
 
         ]
         
-        var iphone5Data = serieTemplate
+        let iphone5Data = serieTemplate
         iphone5Data.name = "iphone5"
         iphone5Data.data = [
             MapSerieData(.name("北京"), .value(Float(arc4random_uniform(1000)))),

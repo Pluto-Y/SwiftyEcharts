@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct CandlestickOptions {
+public final class CandlestickOptions {
     
     // MARK: Candlestick Brush
     /// 地址: http://echarts.baidu.com/demo.html#candlestick-brush

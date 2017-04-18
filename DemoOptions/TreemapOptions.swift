@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct TreemapOptions {
+public final class TreemapOptions {
     
     // MARK: Disk Usage
     /// 地址: http://echarts.baidu.com/demo.html#treemap-disk

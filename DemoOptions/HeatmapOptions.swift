@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct HeatmapOptions {
+public final class HeatmapOptions {
     
     // MARK: 热力图与百度地图扩展
     /// 地址: http://echarts.baidu.com/demo.html#heatmap-bmap

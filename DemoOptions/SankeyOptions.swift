@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct SankeyOptions {
+public final class SankeyOptions {
     
     // MARK: Sankey Diagram
     /// 地址: http://echarts.baidu.com/demo.html#sankey-energy

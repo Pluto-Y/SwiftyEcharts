@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct LineOptions {
+public final class LineOptions {
     
     // MARK: 雨量流量关系图
     /// 地址:http://echarts.baidu.com/demo.html#area-rainfall
@@ -716,11 +716,11 @@ public struct LineOptions {
                     .data([11, 11, 15, 13, 12, 13, 10]),
                     .markPoint(MarkPoint(
                         .data([
-                            MarkPointData(
+                            MarkData(
                                 .type(.max),
                                 .name("最大值")
                             ),
-                            MarkPointData(
+                            MarkData(
                                 .type(.min),
                                 .name("最小值")
                             )
@@ -728,7 +728,7 @@ public struct LineOptions {
                         )),
                     .markLine(MarkLine(
                         .data([
-                            MarkLine.Data(
+                            MarkData(
                                 .type(.average),
                                 .name("平均值")
                             )
@@ -740,28 +740,28 @@ public struct LineOptions {
                     .data([1, -2, 2, 5, 3, 2, 0]),
                     .markPoint(MarkPoint(
                         .data([
-                            MarkPointData(
+                            MarkData(
                                 .name("周最低"),
                                 .value(-2),
-                                .xAxis(1),
-                                .yAxis(-1.5)
+                                .xAxis("1"),
+                                .yAxis("-1.5")
                             )
                             ])
                         )),
                     .markLine(MarkLine(
                         .data(
                             [
-                                MarkLine.Data(
+                                MarkData(
                                     .type(.average),
                                     .name("平均值")
                                 ),
                                 [
-                                    MarkLine.Data(
+                                    MarkData(
                                         .x(90%),
                                         .symbol(.none),
                                         .yAxis("max")
                                     ),
-                                    MarkLine.Data(
+                                    MarkData(
                                         .symbol(.circle),
                                         .label(FormattedLabel(
                                             .normal(FormattedLabelStyle(

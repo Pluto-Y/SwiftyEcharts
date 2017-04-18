@@ -41,17 +41,17 @@ class PictorialBarsController: BaseDemoController {
     
     func pictorialBarSpirit() {
         let random = {
-            return Float(Float(arc4random_uniform(1000))/1000.0) * 1990 as! Jsonable
+            return Float(Float(arc4random_uniform(1000))/1000.0) * 1990 as Jsonable
         }
         let dynamicData = [random(), random(), random(), random()]
-        var tmpOption = self.option
+        let tmpOption = self.option
         var tmpSeries: [PictorialBarSerie] = []
         for serie in tmpOption.series! {
-            var tmpSerie = serie as! PictorialBarSerie
+            let tmpSerie = serie as! PictorialBarSerie
             tmpSerie.data = dynamicData
             tmpSeries.append(tmpSerie)
         }
-        tmpOption.series = tmpSeries.map { $0 as! Serie }
+        tmpOption.series = tmpSeries.map { $0 as Serie }
         self.echartsView.refreshEcharts(tmpOption)
         
     }

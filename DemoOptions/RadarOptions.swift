@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct RadarOptions {
+public final class RadarOptions {
     
     // MARK: AQI - 雷达图
     /// 地址: http://echarts.baidu.com/demo.html#radar-aqi

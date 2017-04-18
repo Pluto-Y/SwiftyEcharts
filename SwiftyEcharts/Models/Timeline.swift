@@ -86,7 +86,7 @@
 /// 与 ECharts 2 的兼容性：
 /// ECharts 3 中不再支持 timeline.notMerge 参数，也就是不支持 notMerge 模式。如果遇到这种场景需要使用，可在外部进行option管理，并用 setOption(option, true) 这样的notMerge方式设置。
 /// ECharts 3 和 ECharts 2 相比，timeline 属性的定义位置有所不同，移到了 baseOption 中，统一作为一个普通的组件看待。但是，仍然兼容 ECharts2 的 timeline 定义位置，只是不再推荐这样写。
-public struct Timeline: Displayable, Symbolized, Zable {
+public final class Timeline: Displayable, Symbolized, Zable {
     /// 轴的类型。可选值为
     ///
     /// - value: 数值轴，适用于连续数据。
@@ -98,11 +98,11 @@ public struct Timeline: Displayable, Symbolized, Zable {
         case time = "time"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     
-    public struct LineStyle: Displayable, Shadowable, Colorful, Opacitable {
+    public final class LineStyle: Displayable, Shadowable, Colorful, Opacitable {
         /// 是否显示轴线。可以设置为 false 不显示轴线，则可以做出不同的样式效果。
         public var show: Bool?
         /// timeline 线的颜色。
@@ -144,7 +144,7 @@ public struct Timeline: Displayable, Symbolized, Zable {
         public var opacity: Float?
     }
     
-    public struct CheckpointStyle: Symbolized, Colorful, Borderable {
+    public final class CheckpointStyle: Symbolized, Colorful, Borderable {
         /// timeline.checkpointStyle 标记的图形。
         public var symbol: Symbol?
         /// timeline.checkpointStyle 标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
@@ -168,10 +168,10 @@ public struct Timeline: Displayable, Symbolized, Zable {
         public var animationEasing: EasingFunction?
     }
     
-    public struct ControlStyle: Displayable, Emphasisable {
+    public final class ControlStyle: Displayable, Emphasisable {
         
         /// 控制按钮的的样式。
-        public struct CStyle: Colorful, Borderable {
+        public final class CStyle: Colorful, Borderable {
             /// 按钮颜色。
             public var color: Color?
             /// 按钮边框颜色。
@@ -217,7 +217,7 @@ public struct Timeline: Displayable, Symbolized, Zable {
     }
     
     /// 可能的数据对象
-    public struct Data {
+    public final class Data {
         /// 值
         public var value: Jsonable?
         /// tooltip, 主要用来修改里面的 `formatter`
@@ -323,7 +323,8 @@ extension Timeline.LineStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -370,7 +371,8 @@ extension Timeline.CheckpointStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .symbol(symbol):
@@ -420,7 +422,8 @@ extension Timeline.ControlStyle.CStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -451,7 +454,8 @@ extension Timeline.ControlStyle: Enumable {
     
     public typealias ContentsEnums = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -511,7 +515,8 @@ extension Timeline.Data: Enumable {
     
     public typealias ContentEnums = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .value(value):
@@ -543,7 +548,8 @@ extension Timeline: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

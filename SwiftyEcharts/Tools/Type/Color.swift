@@ -26,7 +26,7 @@ public enum Color: Jsonable {
         case noRepeat = "no-repeat"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     
@@ -167,7 +167,7 @@ extension Color : ExpressibleByStringLiteral {
 }
 
 /// 渐变颜色的元素
-public struct GradientColorElement {
+public final class GradientColorElement {
     fileprivate var offset: Float?
     fileprivate var color: Color?
     
@@ -193,10 +193,12 @@ extension GradientColorElement: ExpressibleByDictionaryLiteral {
     public typealias Key = String
     public typealias Value = Jsonable
     
-    public init(dictionaryLiteral elements: (String, Jsonable)...) {
+    public convenience init(dictionaryLiteral elements: (String, Jsonable)...) {
+        
         var offset: Float?
         var color: Color?
         for (key, value) in elements {
+            
             if key == "offset" {
                 if let v = value as? Int{
                     offset = Float(v)
@@ -206,10 +208,11 @@ extension GradientColorElement: ExpressibleByDictionaryLiteral {
             } else if key == "color", let v = value as? Color {
                 color = v
             }
-            if let o = offset, let c = color {
-                self = GradientColorElement(o, c)
-                break
-            }
+        }
+        if let o = offset, let c = color {
+            self.init(o, c)
+        } else {
+            self.init()
         }
     }
 }

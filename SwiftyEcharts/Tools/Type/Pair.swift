@@ -11,7 +11,7 @@
 /// 例如一个点, [x, y]
 ///
 /// 例如一个访问， [min, max]
-public struct Pair<T>: ExpressibleByArrayLiteral {
+public final class Pair<T>: ExpressibleByArrayLiteral {
     
     fileprivate var first: T?
     fileprivate var second: T?

@@ -6,9 +6,9 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct SingleAxis: Zable {
+public final class SingleAxis: Zable {
     
-    public struct Data {
+    public final class Data {
         public var value: String?
         public var textStyle: TextStyle?
         
@@ -60,7 +60,8 @@ extension SingleAxis: Enumable {
 
 	public typealias ContentEnum = Enums
 
-	public init(_ elements: Enums...) {
+	public convenience init(_ elements: Enums...) {
+        self.init()
 		for ele in elements {
 			switch ele {
 				case let .zlevel(zlevel):
@@ -176,7 +177,8 @@ extension SingleAxis.Data: Enumable {
 
 	public typealias ContentEnum = Enums
 
-	public init(_ elements: Enums...) {
+	public convenience init(_ elements: Enums...) {
+        self.init()
 		for ele in elements {
 			switch ele {
 				case let .value(value):

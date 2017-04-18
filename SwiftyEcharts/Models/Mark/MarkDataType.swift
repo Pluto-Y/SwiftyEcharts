@@ -17,6 +17,6 @@ public enum MarkDataType: String, Jsonable {
     case average = "average"
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }

@@ -15,12 +15,12 @@
 /// 迁徙示例：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=geo-lines
-public struct LinesSerie: Serie, Zable, Animatable {
+public final class LinesSerie: Serie, Zable, Animatable {
     
     /// 线特效的配置，见示例 模拟迁徙 和 北京公交路线
     ///
     /// 注意： 所有带有尾迹特效的图表需要单独放在一个层，也就是需要单独设置 zlevel，同时建议关闭该层的动画（animation: false）。不然位于同个层的其它系列的图形，和动画的标签也会产生不必要的残影
-    public struct Effect {
+    public final class Effect {
         /// 是否显示特效。
         public var show: Bool?
         /// 特效动画的时间，单位为 s。
@@ -67,7 +67,7 @@ public struct LinesSerie: Serie, Zable, Animatable {
     ///             normal: {}
     ///         }
     ///     }
-    public struct Data {
+    public final class Data {
         /// 数据名称
         public var name: String?
         /// 一个包含两个到多个二维坐标的数组。在 polyline 设置为 true 时支持多于两个的坐标。
@@ -183,7 +183,8 @@ extension LinesSerie.Effect: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -227,7 +228,8 @@ extension LinesSerieData: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -259,7 +261,8 @@ extension LinesSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):

@@ -7,7 +7,7 @@
 //
 
 /// 分割线
-public struct SplitLine: Displayable, Line {
+public final class SplitLine: Displayable, Line {
     /// 是否显示分隔线。
     public var show: Bool?
     /// 分隔线的显示间隔
@@ -25,7 +25,8 @@ extension SplitLine: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

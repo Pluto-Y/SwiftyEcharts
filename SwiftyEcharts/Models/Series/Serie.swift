@@ -49,7 +49,7 @@ public enum SerieType: String, Jsonable {
     case themeRiver = "themeRiver"
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }
 

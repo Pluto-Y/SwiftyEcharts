@@ -14,7 +14,7 @@
 /// - 缩放：
 ///    - PC端：鼠标在坐标系范围内滚轮滚动（MAC触控板类同）
 ///    - 移动端：在移动端触屏上，支持两指滑动缩放。
-public struct InsideDataZoom: DataZoom {
+public final class InsideDataZoom: DataZoom {
     
     /// 类型
     public var type: String {
@@ -205,7 +205,8 @@ extension InsideDataZoom: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .disabled(disabled):

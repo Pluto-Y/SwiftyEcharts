@@ -13,9 +13,9 @@
 /// http://echarts.baidu.com/gallery/editor.html?c=boxplot-light-velocity
 ///
 /// 也支持多个 series 在同一个坐标系中，参见 例子。
-public struct BoxplotSerie: Serie, Zable {
+public final class BoxplotSerie: Serie, Zable {
     
-    public struct Data {
+    public final class Data {
         /// 数据项名称。
         public var name: String?
         /// 数据值。
@@ -129,7 +129,8 @@ extension BoxplotSerieData: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -158,7 +159,8 @@ extension BoxplotSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .coordinateSystem(coordinateSystem):

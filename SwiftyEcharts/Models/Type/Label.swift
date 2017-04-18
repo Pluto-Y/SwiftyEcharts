@@ -11,7 +11,7 @@ public protocol LabelStyle: Displayable, Textful{
     var position: Position? { get set }
 }
 
-public struct CommonLabelStyle: LabelStyle {
+public final class CommonLabelStyle: LabelStyle {
     
     public var show: Bool?
     public var position: Position?
@@ -28,7 +28,8 @@ extension CommonLabelStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -50,7 +51,7 @@ extension CommonLabelStyle: Mappable {
     }
 }
 
-public struct Label: Emphasisable {
+public final class Label: Emphasisable {
     
     public typealias Style = CommonLabelStyle
     
@@ -69,7 +70,8 @@ extension Label: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .normal(normal):
@@ -88,7 +90,7 @@ extension Label: Mappable {
     }
 }
 
-public struct FormattedLabelStyle: LabelStyle, Formatted {
+public final class FormattedLabelStyle: LabelStyle, Formatted {
     
     public var show: Bool?
     public var position: Position?
@@ -107,7 +109,8 @@ extension FormattedLabelStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -135,7 +138,7 @@ extension FormattedLabelStyle: Mappable {
     }
 }
 
-public struct FormattedLabel: Emphasisable {
+public final class FormattedLabel: Emphasisable {
     public typealias Style = FormattedLabelStyle
     
     public var normal: Style?
@@ -154,7 +157,8 @@ extension FormattedLabel: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .normal(normal):

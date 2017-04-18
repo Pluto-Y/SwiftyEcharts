@@ -9,7 +9,7 @@
 
 
 /// 坐标轴的定义
-public struct Axis: Displayable, Zable {
+public final class Axis: Displayable, Zable {
 
     /// 类目数据，在类目轴（type: 'category'）中有效。
     /// 
@@ -26,7 +26,7 @@ public struct Axis: Displayable, Zable {
     ///             color: 'red'
     ///         }
     ///     }, '周二', '周三', '周四', '周五', '周六', '周日']
-    public struct Data {
+    public final class Data {
         /// 单个类目名称。
         public var value: String?
         /// 类目标签的文字样式。
@@ -144,7 +144,8 @@ extension Axis.Data: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .value(value):
@@ -170,7 +171,8 @@ extension Axis: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

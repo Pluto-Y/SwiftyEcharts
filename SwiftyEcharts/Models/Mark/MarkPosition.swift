@@ -8,16 +8,13 @@
 
 /// 标签的位置的可选类型
 public enum MarkPosition: Jsonable {
-    case xy(Float, Float)
-    case xyPercent(Float, Float)
+    case point(Point)
     case top, left, right, bottom, inside, insideLeft, insideTop, insideRight, insideBottom, insideTopLeft, insideBottomLeft, insideTopRight, insideBottomRight
     
     public var jsonString: String {
         switch self {
-        case let .xy(x, y):
-            return "[\(x), \(y)]"
-        case let .xyPercent(x, y):
-            return "['\(x)%', '\(y)%']"
+        case let .point(point):
+            return point.jsonString
         case .top:
             return "\"top\""
         case .left:

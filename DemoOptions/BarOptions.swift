@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct BarOptions {
+public final class BarOptions {
     
     // MARK: 柱状图动画延迟
     /// 地址: http://echarts.baidu.com/demo.html#bar-animation-delay
@@ -482,10 +482,11 @@ public struct BarOptions {
                             )),
                         .data([
                             // 如果有两个点组成一条线，要将两个点放在一个数组中
-                            [MarkLineData(
-                                .type(.min)
+                            [
+                                MarkData(
+                                    .type(.min)
                                 ),
-                                MarkLineData(
+                                MarkData(
                                     .type(.max)
                                 )]
                             ])
@@ -874,11 +875,11 @@ public struct BarOptions {
                     .data([2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]),
                     .markPoint(MarkPoint(
                         .data([
-                            MarkPointData(
+                            MarkData(
                                 .type(.max),
                                 .name("最大值")
                             ),
-                            MarkPointData(
+                            MarkData(
                                 .type(.min),
                                 .name("最小值")
                             )
@@ -886,7 +887,7 @@ public struct BarOptions {
                         )),
                     .markLine(MarkLine(
                         .data([
-                            MarkLineData(
+                            MarkData(
                                 .type(.average),
                                 .name("平均值")
                             )
@@ -898,23 +899,23 @@ public struct BarOptions {
                     .data([2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]),
                     .markPoint(MarkPoint(
                         .data([
-                            MarkPointData(
+                            MarkData(
                                 .name("年最高"),
                                 .value(182.2),
-                                .xAxis(7),
-                                .yAxis(183)
+                                .xAxis("7"),
+                                .yAxis("183")
                             ),
-                            MarkPointData(
+                            MarkData(
                                 .name("年最低"),
                                 .value(2.3),
-                                .xAxis(11),
-                                .yAxis(3)
+                                .xAxis("11"),
+                                .yAxis("3")
                             )
                             ])
                         )),
                     .markLine(MarkLine(
                         .data([
-                            MarkLineData(
+                            MarkData(
                                 .type(.average),
                                 .name("平均值")
                             )

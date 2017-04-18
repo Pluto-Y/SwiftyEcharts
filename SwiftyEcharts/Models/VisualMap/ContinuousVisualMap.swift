@@ -12,7 +12,7 @@
 /// http://echarts.baidu.com/gallery/editor.html?c=doc-example/map-visualMap-continuous
 ///
 /// visualMapContinuous中，可以通过 visualMap.calculable 来显示或隐藏手柄（手柄能拖拽改变值域）。
-public struct ContinuousVisualMap: VisualMap, Displayable, Borderable, Colorful, Textful, Formatted, Zable {
+public final class ContinuousVisualMap: VisualMap, Displayable, Borderable, Colorful, Textful, Formatted, Zable {
     
     /// 类型为连续型。
     public var type: String {
@@ -195,7 +195,8 @@ extension ContinuousVisualMap: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .min(min):
@@ -305,10 +306,5 @@ extension ContinuousVisualMap: Mappable {
         map["color"] = color
         map["textStyle"] = textStyle
         map["formatter"] = formatter
-        map["type"] = type
-        map["type"] = type
-        map["type"] = type
-        map["type"] = type
-        map["type"] = type
     }
 }

@@ -58,7 +58,7 @@ public protocol VisualMap: Mappable {
     var type: String { get }
 }
 
-public struct VisualMapController {
+public final class VisualMapController {
     public var inRange: [String: Jsonable]?
     public var outRange: [String: Jsonable]?
 }
@@ -70,7 +70,8 @@ extension VisualMapController: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .inRange(inRange):

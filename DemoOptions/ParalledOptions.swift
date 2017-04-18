@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct ParalledOptions {
+public final class ParalledOptions {
     
     // MARK: Parallel Aqi
     /// 地址: http://echarts.baidu.com/demo.html#parallel-aqi

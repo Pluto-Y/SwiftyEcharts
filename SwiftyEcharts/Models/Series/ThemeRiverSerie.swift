@@ -17,7 +17,7 @@
 /// 主题河流中不同颜色的条带状河流分支编码了不同的事件或主题，河流分支的宽度编码了原数据集中的value值。
 ///
 /// 此外，原数据集中的时间属性，映射到单个时间轴上。
-public struct ThemeRiverSerie: Serie, Zable {
+public final class ThemeRiverSerie: Serie, Zable {
     
     /// 类型
     public var type: SerieType {
@@ -81,7 +81,8 @@ extension ThemeRiverSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .zlevel(zlevel):

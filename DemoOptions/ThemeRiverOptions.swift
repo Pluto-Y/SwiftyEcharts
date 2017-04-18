@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct ThemeRiverOptions {
+public final class ThemeRiverOptions {
     
     // MARK: 主题河流图
     /// 地址: http://echarts.baidu.com/demo.html#themeRiver-basic

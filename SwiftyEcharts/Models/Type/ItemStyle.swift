@@ -10,7 +10,7 @@ public protocol ItemStyleContent: Colorful, Borderable, Shadowable, Opacitable {
     var borderType: LineType? { get set }
 }
 
-public struct CommonItemStyleContent: ItemStyleContent {
+public final class CommonItemStyleContent: ItemStyleContent {
     
     public var color: Color?
     public var borderColor: Color?
@@ -38,7 +38,8 @@ extension CommonItemStyleContent: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -81,7 +82,7 @@ extension CommonItemStyleContent: Mappable {
     }
 }
 
-public struct ItemStyle: Emphasisable {
+public final class ItemStyle: Emphasisable {
     public typealias Style = CommonItemStyleContent
     
     public var normal: Style?
@@ -99,7 +100,8 @@ extension ItemStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .normal(normal):

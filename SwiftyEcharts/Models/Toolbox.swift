@@ -7,7 +7,7 @@
 //
 
 /// 工具栏。内置有导出图片，数据视图，动态类型切换，数据区域缩放，重置五个工具。
-public struct Toolbox: Displayable, Zable {
+public final class Toolbox: Displayable, Zable {
     
     /// 各工具配置项。
     /// 除了各个内置的工具按钮外，还可以自定义工具按钮。
@@ -38,7 +38,7 @@ public struct Toolbox: Displayable, Zable {
     ///             }
     ///         }
     ///     }
-    public struct Feature {
+    public final class Feature {
         /// 保存为图片。
         public var saveAsImage: SaveAsImage?
         /// 配置项还原。
@@ -112,7 +112,7 @@ public struct Toolbox: Displayable, Zable {
 
 // MARK: - Toolbox.IconStyle
 extension Toolbox {
-    public struct IconStyleContent: Opacitable {
+    public final class IconStyleContent: Opacitable {
         public var color: Color?
         public var borderColor: Color?
         public var borderWidth: Float?
@@ -134,7 +134,7 @@ extension Toolbox {
         public init() { }
     }
     
-    public struct IconStyle: Emphasisable {
+    public final class IconStyle: Emphasisable {
         public typealias Style = IconStyleContent
         
         public var normal: Style?
@@ -151,7 +151,8 @@ extension Toolbox.IconStyleContent: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -204,7 +205,8 @@ extension Toolbox.IconStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .normal(normal):
@@ -226,13 +228,13 @@ extension Toolbox.IconStyle: Mappable {
 // MARK: - Toolbox.Feature.SaveAsImage
 extension Toolbox.Feature {
     /// 保存为图片。
-    public struct SaveAsImage: Displayable {
+    public final class SaveAsImage: Displayable {
         public enum `Type`: String, Jsonable {
             case png = "png"
             case jpeg = "jpeg"
             
             public var jsonString: String {
-                return "\"\(self.rawValue)\""
+                return self.rawValue.jsonString
             }
         }
         
@@ -264,7 +266,8 @@ extension Toolbox.Feature.SaveAsImage: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .type(type):
@@ -307,7 +310,7 @@ extension Toolbox.Feature.SaveAsImage: Mappable {
 // MARK: - Toolbox.Feature.Restore
 extension Toolbox.Feature {
     /// 配置项还原。
-    public struct Restore: Displayable {
+    public final class Restore: Displayable {
         /// 是否显示该工具。
         public var show: Bool?
         /// 标题
@@ -326,7 +329,8 @@ extension Toolbox.Feature.Restore: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -354,7 +358,7 @@ extension Toolbox.Feature.Restore: Mappable {
 // MARK: - Toolbox.Feature.DataView
 extension Toolbox.Feature {
     /// 数据视图工具，可以展现当前图表所用的数据，编辑后可以动态更新。
-    public struct DataView: Displayable {
+    public final class DataView: Displayable {
         /// 是否显示该工具。
         public var show: Bool?
         /// 标题
@@ -391,7 +395,8 @@ extension Toolbox.Feature.DataView: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -445,7 +450,7 @@ extension Toolbox.Feature.DataView: Mappable {
 // MARK: - Toolbox.Feature.DataZoom
 extension Toolbox.Feature {
     /// 数据区域缩放。目前只支持直角坐标系的缩放。
-    public struct DataZoom: Displayable {
+    public final class DataZoom: Displayable {
         
         /// 指定哪些 Axis 被控制
         ///
@@ -480,7 +485,7 @@ extension Toolbox.Feature {
         }
         
         /// 缩放和还原的标题文本。
-        public struct Title {
+        public final class Title {
             /// 缩放标题
             public var zoom: String?
             /// 还原标题
@@ -488,7 +493,7 @@ extension Toolbox.Feature {
         }
         
         /// 缩放和还原的 icon path。
-        public struct Icon {
+        public final class Icon {
             /// 缩放Icon 的 path 字符串，ECharts 3 中支持使用自定义的 svg path 作为 icon，格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
             public var zoom: String?
             /// 还原Icon 的 path 字符串，ECharts 3 中支持使用自定义的 svg path 作为 icon，格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
@@ -517,7 +522,8 @@ extension Toolbox.Feature.DataZoom.Title: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .zoom(zoom):
@@ -543,7 +549,8 @@ extension Toolbox.Feature.DataZoom.Icon: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .zoom(zoom):
@@ -569,7 +576,8 @@ extension Toolbox.Feature.DataZoom: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -610,7 +618,7 @@ extension Toolbox.Feature {
     ///             type: ['line', 'bar', 'stack', 'tiled']
     ///         }
     ///     }
-    public struct MagicType: Displayable {
+    public final class MagicType: Displayable {
         
         /// 动态类型切换可启用的动态类型
         ///
@@ -625,12 +633,12 @@ extension Toolbox.Feature {
             case tiled = "tiled"
             
             public var jsonString: String {
-                return "\"\(self.rawValue)\""
+                return self.rawValue.jsonString
             }
         }
         
         /// 各个类型的标题文本，可以分别配置。
-        public struct Title {
+        public final class Title {
             public var line: String?
             public var bar: String?
             public var stack: String?
@@ -638,7 +646,7 @@ extension Toolbox.Feature {
         }
         
         /// 各个类型的 icon path，可以分别配置。
-        public struct Icon {
+        public final class Icon {
             public var line: String?
             public var bar: String?
             public var stack: String?
@@ -665,7 +673,8 @@ extension Toolbox.Feature.MagicType.Title: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .line(line):
@@ -697,7 +706,8 @@ extension Toolbox.Feature.MagicType.Icon: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .line(line):
@@ -729,7 +739,8 @@ extension Toolbox.Feature.MagicType: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -761,7 +772,7 @@ extension Toolbox.Feature {
     /// 选框组件的控制按钮。
     ///
     /// 也可以不在这里指定，而是在 brush.toolbox 中指定。
-    public struct Brush {
+    public final class Brush {
         /// 选框组件的控制按钮类型
         ///
         /// - rect: 开启矩形选框选择功能。
@@ -779,12 +790,12 @@ extension Toolbox.Feature {
             case clear = "clear"
             
             public var jsonString: String {
-                 return "\"\(self.rawValue)\""
+                 return self.rawValue.jsonString
             }
         }
         
         /// 每个按钮的 icon path。
-        public struct Icon {
+        public final class Icon {
             public var rect: String?
             public var polygon: String?
             public var lineX: String?
@@ -794,7 +805,7 @@ extension Toolbox.Feature {
         }
         
         /// 标题文本。
-        public struct Title {
+        public final class Title {
             public var rect: String?
             public var polygon: String?
             public var lineX: String?
@@ -816,7 +827,8 @@ extension Toolbox.Feature.Brush.Icon: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .rect(rect):
@@ -854,7 +866,8 @@ extension Toolbox.Feature.Brush.Title: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .rect(rect):
@@ -892,7 +905,8 @@ extension Toolbox.Feature.Brush: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .type(type):
@@ -930,7 +944,8 @@ extension Toolbox.Feature: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .saveAsImage(saveAsImage):
@@ -969,7 +984,8 @@ extension Toolbox: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

@@ -59,6 +59,6 @@ public enum Location: String, Jsonable {
     case end = "end"
     
     public var jsonString: String {
-        return "\"\(self.rawValue)\""
+        return self.rawValue.jsonString
     }
 }

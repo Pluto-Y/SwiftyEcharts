@@ -8,7 +8,7 @@
 
 /// 直角坐标系内绘图网格，单个 grid 内最多可以放置上下两个 X 轴，左右两个 Y 轴。可以在网格上绘制折线图，柱状图，散点图（气泡图）。
 /// 在 ECharts 2.x 里单个 echarts 实例中最多只能存在一个 grid 组件，在 ECharts 3 中可以存在任意个 grid 组件。
-public struct Grid: Borderable, Displayable, Shadowable, Zable {
+public final class Grid: Borderable, Displayable, Shadowable, Zable {
     /// 是否显示直角坐标系网格。
     public var show: Bool?
     /// 所有图形的 zlevel 值。
@@ -64,7 +64,8 @@ extension Grid: Enumable {
     }
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

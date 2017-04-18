@@ -17,9 +17,9 @@
 /// 直角坐标系：http://echarts.baidu.com/gallery/editor.html?c=heatmap-cartesian
 ///
 /// 地理坐标系：http://echarts.baidu.com/gallery/editor.html?c=heatmap-map
-public struct HeatmapSerie: Serie, Zable {
+public final class HeatmapSerie: Serie, Zable {
     
-    public struct Data {
+    public final class Data {
         /// 数据项名称。
         public var name: String?
         /// 数据项值。
@@ -171,7 +171,8 @@ extension HeatmapSerieData: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -203,7 +204,8 @@ extension HeatmapSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):

@@ -17,7 +17,7 @@ public protocol GraphicStyle: Shadowable {
 }
 
 /// 通用的 `Graphic` 的样式实现
-public struct CommonGraphicStyle: GraphicStyle {
+public final class CommonGraphicStyle: GraphicStyle {
     /// MARK: GraphicStyle
     public var fill: Color?
     public var stroke: Color?
@@ -37,7 +37,8 @@ extension CommonGraphicStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .fill(fill):

@@ -11,10 +11,10 @@
 /// 例如在 Option 中存在许多即可以传递一个也可以传递多个的组件
 ///
 /// 并且保证其可以通过数组常量来进行创建
-public struct OneOrMore<T>: ExpressibleByArrayLiteral {
+public final class OneOrMore<T>: ExpressibleByArrayLiteral {
     fileprivate var one: T? = nil
     fileprivate var more: [T]? = nil
-
+    
     public init(one: T) {
         self.one = one
     }

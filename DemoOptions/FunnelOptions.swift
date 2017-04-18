@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct FunnelOptions {
+public final class FunnelOptions {
     
     // MARK: 漏斗图(对比)
     /// 地址: http://echarts.baidu.com/demo.html#funnel-align

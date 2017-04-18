@@ -7,9 +7,9 @@
 //
 
 /// 矩形类型的 `Graphic`
-public struct RectGraphic: Graphic {
+public final class RectGraphic: Graphic {
     
-    public struct Shape {
+    public final class Shape {
         public var x: Float?
         public var y: Float?
         public var width: Float?
@@ -52,7 +52,8 @@ extension RectGraphic.Shape: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .x(x):
@@ -84,7 +85,8 @@ extension RectGraphic: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .id(id):

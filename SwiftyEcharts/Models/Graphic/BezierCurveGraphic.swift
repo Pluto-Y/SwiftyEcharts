@@ -7,10 +7,10 @@
 //
 
 /// 二次或三次贝塞尔曲线类型的 `Graphic`
-public struct BezierCurveGraphic: Graphic {
+public final class BezierCurveGraphic: Graphic {
     
     /// 贝塞尔曲线的参数
-    public struct Shape {
+    public final class Shape {
         /// 开始点的 x 值。
         public var x1: Float?
         /// 开始点的 y 值。
@@ -67,7 +67,8 @@ extension BezierCurveGraphic.Shape: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .x1(x1):
@@ -114,7 +115,8 @@ extension BezierCurveGraphic: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .id(id):

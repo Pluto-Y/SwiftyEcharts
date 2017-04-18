@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct BoxplotOptions {
+public final class BoxplotOptions {
     
     // MARK: Boxplot Light Velocity
     /// 地址: http://echarts.baidu.com/demo.html#boxplot-light-velocity

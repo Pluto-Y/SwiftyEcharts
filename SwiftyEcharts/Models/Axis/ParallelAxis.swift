@@ -6,10 +6,10 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
     
-public struct ParallelAxis {
+public final class ParallelAxis {
 
     /// 在坐标轴上可以进行框选，这里是一些框选的设置。
-    public struct AreaSelectStyle: Colorful, Opacitable {
+    public final class AreaSelectStyle: Colorful, Opacitable {
         /// 框选范围的宽度。
         public var width: Float?
         /// 选框的边框宽度。
@@ -183,7 +183,8 @@ extension ParallelAxis.AreaSelectStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .width(width):
@@ -218,7 +219,8 @@ extension ParallelAxis: Enumable {
 
 	public typealias ContentEnum = Enums
 
-	public init(_ elements: Enums...) {
+	public convenience init(_ elements: Enums...) {
+        self.init()
 		for ele in elements {
 			switch ele {
 				case let .dim(dim):

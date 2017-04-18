@@ -20,7 +20,7 @@ public enum SelectedMode: String, Jsonable {
         case .enable, .disable:
             return "\(self.rawValue)"
         case .single, .multiple:
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     

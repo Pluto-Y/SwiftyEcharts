@@ -42,8 +42,8 @@ class BarsController: BaseDemoController {
     }
     
     func dynamicData() {
-        var serie0 = newOptionForDynamicData.series![0] as! BarSerie
-        var serie1 = newOptionForDynamicData.series![1] as! LineSerie
+        let serie0 = newOptionForDynamicData.series![0] as! BarSerie
+        let serie1 = newOptionForDynamicData.series![1] as! LineSerie
         var data0 = serie0.data
         var data1 = serie1.data
         data0?.removeFirst()
@@ -53,8 +53,8 @@ class BarsController: BaseDemoController {
         serie0.data = data0
         serie1.data = data1
         newOptionForDynamicData.series = [serie0, serie1]
-        var xAxis0 = newOptionForDynamicData.xAxis![0]
-        var xAxis1 = newOptionForDynamicData.xAxis![1]
+        let xAxis0 = newOptionForDynamicData.xAxis![0]
+        let xAxis1 = newOptionForDynamicData.xAxis![1]
         
         let date = Date()
         let dateFormatter = DateFormatter()

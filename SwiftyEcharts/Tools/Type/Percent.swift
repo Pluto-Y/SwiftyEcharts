@@ -8,7 +8,7 @@
 
 /// 用来标示百分比的情况， 通常可以通过用 数值 + % 形式来初始化
 /// 并且可以通过 Percent.precision 来进行全局定义
-public struct Percent {
+public final class Percent {
     public static var precision: Int = 2
     fileprivate let value: Double
     

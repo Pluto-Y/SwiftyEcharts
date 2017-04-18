@@ -11,7 +11,7 @@ import Foundation
 // 自定义输出的方法，保证在打包Release版本的时候不会有输出信息
 func printInfo(_ object: Any) {
     #if DEBUG
-//        Swift.print(object)
+        Swift.print(object)
     #endif
 }
 

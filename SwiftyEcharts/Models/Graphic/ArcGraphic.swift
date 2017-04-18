@@ -7,10 +7,10 @@
 //
 
 /// 圆弧类型的 `Graphic`
-public struct ArcGraphic: Graphic {
+public final class ArcGraphic: Graphic {
     
     /// 圆弧的大小和位置
-    public struct Shape {
+    public final class Shape {
         public var cx: Float?
         public var cy: Float?
         public var r: Float?
@@ -56,7 +56,8 @@ extension ArcGraphic.Shape: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .cx(cx):
@@ -97,7 +98,8 @@ extension ArcGraphic: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .id(id):

@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct PictorialBarOptions {
+public final class PictorialBarOptions {
     
     // MARK: 圣诞节儿童愿望清单和山峰高度
     /// 地址: http://echarts.baidu.com/demo.html#pictorialBar-hill
@@ -95,7 +95,7 @@ public struct PictorialBarOptions {
                                 ))
                             )),
                         .data([
-                            MarkLine.Data(
+                            MarkData(
                                 .yAxis("8844")
                             )
                             ])
@@ -492,7 +492,7 @@ public struct PictorialBarOptions {
                     ))
                 )),
             .data([
-                MarkLine.Data(
+                MarkData(
                     .type(.max),
                     .label(FormattedLabel(
                         .normal(FormattedLabelStyle(
@@ -500,7 +500,7 @@ public struct PictorialBarOptions {
                             ))
                         ))
                 ),
-                MarkLine.Data(
+                MarkData(
                     .type(.min),
                     .label(FormattedLabel(
                         .normal(FormattedLabelStyle(

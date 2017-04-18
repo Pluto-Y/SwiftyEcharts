@@ -13,7 +13,7 @@ public protocol LineStyleContent: Colorful, Shadowable, Opacitable {
 
 
 /// 线条样式
-public struct LineStyle: Shadowable, Colorful, Opacitable, Jsonable {
+public final class LineStyle: Shadowable, Colorful, Opacitable, Jsonable {
     /// 线的颜色。
     public var color: Color?
     /// 线宽。
@@ -47,7 +47,8 @@ extension LineStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -87,7 +88,7 @@ extension LineStyle: Mappable {
     }
 }
 
-public struct EmphasisLineStyle: Emphasisable {
+public final class EmphasisLineStyle: Emphasisable {
     public typealias Style = LineStyle
     
     public var normal: Style?
@@ -103,7 +104,8 @@ extension EmphasisLineStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .normal(normal):

@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct PieOptions {
+public final class PieOptions {
     // MARK: Customized Pie
     /// 地址:http://echarts.baidu.com/demo.html#pie-custom
     static func pieCustomOption() -> Option {

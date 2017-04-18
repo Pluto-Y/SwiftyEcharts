@@ -7,7 +7,7 @@
 //
 
 /// 坐标轴刻度标签的相关设置。
-public struct AxisLabel: Textful, Displayable, Formatted {
+public final class AxisLabel: Textful, Displayable, Formatted {
     
     /// 是否显示刻度标签。
     public var show: Bool?
@@ -35,7 +35,8 @@ extension AxisLabel: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

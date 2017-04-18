@@ -7,7 +7,7 @@
 //
 
 /// 分割区域
-public struct SplitArea: Displayable {
+public final class SplitArea: Displayable {
     
     public var show: Bool?
     public var interval: UInt?
@@ -23,7 +23,8 @@ extension SplitArea: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

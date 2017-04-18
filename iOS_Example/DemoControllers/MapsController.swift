@@ -55,8 +55,8 @@ class MapsController: BaseDemoController {
                 "name": "广东",
                 "coord": [113.280637, 23.839463714285714]
             ]]
-        var tmpOpt = self.option
-        var serie = tmpOpt!.series![0] as! MapSerie
+        let tmpOpt = self.option
+        let serie = tmpOpt?.series![0] as! MapSerie
         serie.center = location[currLoc]["coord"] as? Position
         serie.zoom = 4
         let data: [String: Jsonable] = ["name": location[currLoc]["name"]!, "selected": true]

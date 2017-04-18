@@ -13,9 +13,9 @@
 /// 下面是一个 radar 组件的一个自定义例子。
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=doc-example/radar
-public struct Radar: Zable {
+public final class Radar: Zable {
     /// 雷达图每个指示器名称的配置项。
-    public struct Name: Displayable, Formatted, Textful {
+    public final class Name: Displayable, Formatted, Textful {
         public var show: Bool?
         public var formatter: Formatter?
         public var textStyle: TextStyle?
@@ -32,7 +32,7 @@ public struct Radar: Zable {
         case circle = "circle"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     
@@ -46,7 +46,7 @@ public struct Radar: Zable {
     ///         { name: '研发（Development）', max: 52000},
     ///         { name: '市场（Marketing）', max: 25000}
     ///     ]
-    public struct Indicator {
+    public final class Indicator {
         /// 指示器名称。
         public var name: String?
         /// 指示器的最大值，可选，建议设置
@@ -137,7 +137,8 @@ extension Radar.Name: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -166,7 +167,8 @@ extension RadarIndicator: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .text(name):
@@ -197,7 +199,8 @@ extension Radar: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .zlevel(zlevel):

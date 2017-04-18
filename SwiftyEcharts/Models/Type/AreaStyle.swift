@@ -11,7 +11,7 @@ public protocol AreaStyleContent: Colorful, Shadowable, Opacitable {
 }
 
 /// 分隔区域的样式设置。
-public struct AreaStyle: AreaStyleContent {
+public final class AreaStyle: AreaStyleContent {
     /// 分隔区域颜色。分隔区域会按数组中颜色的顺序依次循环设置颜色。默认是一个深浅的间隔色。
     public var color: Color?
     /// 阴影设置
@@ -36,7 +36,8 @@ extension AreaStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -67,7 +68,7 @@ extension AreaStyle: Mappable {
     }
 }
 
-public struct EmphasisAreaStyle: Emphasisable {
+public final class EmphasisAreaStyle: Emphasisable {
     public typealias Style = CommonAreaStyleContent
     
     public var normal: Style?
@@ -81,7 +82,8 @@ extension EmphasisAreaStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .normal(normal):

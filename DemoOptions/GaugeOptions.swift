@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct GaugeOptions {
+public final class GaugeOptions {
     
     // MARK: Gauge Car Dark
     /// 地址: http://echarts.baidu.com/demo.html#gauge-car-dark

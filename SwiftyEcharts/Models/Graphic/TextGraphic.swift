@@ -7,10 +7,10 @@
 //
 
 /// 文本类型的 `Graphic`
-public struct TextGraphic: Graphic {
+public final class TextGraphic: Graphic {
     
     /// 文本样式
-    public struct Style: GraphicStyle {
+    public final class Style: GraphicStyle {
         /// 文本块文字。可以使用 \n 来换行。
         public var text: String?
         /// 图形元素的左上角在父节点坐标系（以父节点左上角为原点）中的横坐标值。
@@ -78,7 +78,8 @@ extension TextGraphic.Style: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .text(text):
@@ -137,7 +138,8 @@ extension TextGraphic: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .id(id):

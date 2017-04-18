@@ -8,7 +8,7 @@
 
 import SwiftyEcharts
 
-public struct ScatterOptions {
+public final class ScatterOptions {
     
     // MARK: 气泡图
     /// 地址: http://echarts.baidu.com/demo.html#bubble-gradient

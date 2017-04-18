@@ -7,7 +7,7 @@
 //
 
 /// 坐标轴轴线相关设置。
-public struct AxisLine: Displayable, Line {
+public final class AxisLine: Displayable, Line {
     public var show: Bool?
     /// X 轴或者 Y 轴的轴线是否在另一个轴的 0 刻度上，只有在另一个轴为数值轴且包含 0 刻度时有效。
     public var onZero: Bool?
@@ -24,7 +24,8 @@ extension AxisLine: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

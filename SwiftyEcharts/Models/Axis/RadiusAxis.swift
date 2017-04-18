@@ -7,7 +7,7 @@
 //
 
 /// 极坐标系的径向轴。
-public struct RadiusAxis: Zable {
+public final class RadiusAxis: Zable {
     /// 径向轴所在的极坐标系的索引，默认使用第一个极坐标系。
     public var polarIndex: UInt8?
     /// 坐标轴类型。
@@ -113,7 +113,8 @@ extension RadiusAxis: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .polarIndex(polarIndex):

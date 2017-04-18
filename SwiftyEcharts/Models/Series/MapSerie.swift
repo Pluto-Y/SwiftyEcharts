@@ -15,10 +15,10 @@
 /// Tip: 在 ECharts 3 中不再建议在地图类型的图表使用 markLine 和 markPoint。如果要实现点数据或者线数据的可视化，可以使用在地理坐标系组件上的散点图和线图。
 ///
 /// 示例： http://echarts.baidu.com/gallery/editor.html?c=doc-example/map-example
-public struct MapSerie: Serie, Zable, Animatable {
+public final class MapSerie: Serie, Zable, Animatable {
     
     /// 滚轮缩放的极限控制，通过min, max最小和最大的缩放值，默认的缩放为1。
-    public struct ScaleLimit {
+    public final class ScaleLimit {
         /// 最小的缩放值
         public var min: Float?
         /// 最大的缩放值
@@ -61,7 +61,7 @@ public struct MapSerie: Serie, Zable, Animatable {
     ///         //自定义特殊itemStyle，仅对该item有效
     ///         itemStyle:{}
     ///     }]
-    public struct Data {
+    public final class Data {
         /// 数据所对应的地图区域的名称，例如 '广东'，'浙江'。
         public var name: String?
         /// 该区域的数据值。
@@ -265,7 +265,8 @@ extension MapSerie.ScaleLimit: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .min(min):
@@ -291,7 +292,8 @@ extension MapSerie.Data: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -326,7 +328,8 @@ extension MapSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):

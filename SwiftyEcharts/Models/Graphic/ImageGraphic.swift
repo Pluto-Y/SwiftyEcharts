@@ -7,10 +7,10 @@
 //
 
 /// 图片类型的 `Graphic`
-public struct ImageGraphic: Graphic {
+public final class ImageGraphic: Graphic {
     
     /// 图片样式
-    public struct Style: GraphicStyle {
+    public final class Style: GraphicStyle {
         /// 图片的内容，可以是图片的 URL，也可以是 dataURI.
         public var image: String?
         /// 图形元素的左上角在父节点坐标系（以父节点左上角为原点）中的横坐标值。
@@ -64,7 +64,8 @@ extension ImageGraphic.Style: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .image(image):
@@ -120,7 +121,8 @@ extension ImageGraphic: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .id(id):

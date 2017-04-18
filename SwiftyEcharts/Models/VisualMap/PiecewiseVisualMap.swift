@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct PiecewiseVisualMap: VisualMap, Displayable, Borderable, Colorful, Textful, Formatted, Zable {
+public final class PiecewiseVisualMap: VisualMap, Displayable, Borderable, Colorful, Textful, Formatted, Zable {
     /// 类型为分段型。
     public var type: String {
         return "piecewise"
@@ -192,7 +192,8 @@ extension PiecewiseVisualMap: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .splitNumber(splitNumber):

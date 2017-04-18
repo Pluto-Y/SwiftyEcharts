@@ -11,7 +11,7 @@
 /// Tip: ECharts 2.x 中在地图上通过 markPoint 实现地图特效在 ECharts 3 中建议通过地理坐标系上的 effectScatter 实现。
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=effectScatter-map
-public struct EffectScatterSerie: Serie, Symbolized, Zable {
+public final class EffectScatterSerie: Serie, Symbolized, Zable {
     
     /// 何时显示特效
     ///
@@ -22,19 +22,19 @@ public struct EffectScatterSerie: Serie, Symbolized, Zable {
         case emphasis = "emphasis"
         
         public var jsonString: String {
-            return "\"\(self.rawValue)\""
+            return self.rawValue.jsonString
         }
     }
     
     /// 涟漪特效相关配置。
-    public struct RippleEffect {
+    public final class RippleEffect {
         /// 波纹的绘制方式
         public enum BrushType: String, Jsonable {
             case stroke = "stroke"
             case fill = "fill"
             
             public var jsonString: String {
-                return "\"\(self.rawValue)\""
+                return self.rawValue.jsonString
             }
         }
         
@@ -210,7 +210,8 @@ extension EffectScatterSerie.RippleEffect: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .period(period):
@@ -239,7 +240,8 @@ extension EffectScatterSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):

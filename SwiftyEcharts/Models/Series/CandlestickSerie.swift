@@ -24,9 +24,9 @@
 /// - series-candlestick.itemStyle.normal.color0：阴线填充色（即『跌』）
 /// - series-candlestick.itemStyle.normal.borderColor：阳线边框色（即『涨』）
 /// - series-candlestick.itemStyle.normal.borderColor0：阴线边框色（即『跌』）
-public struct CandlestickSerie: Serie, Zable {
+public final class CandlestickSerie: Serie, Zable {
     
-    public struct Data {
+    public final class Data {
         /// 数据项名称。
         public var name: String?
         /// 数据项值。
@@ -131,7 +131,8 @@ extension CandlestickSerieData: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -160,7 +161,8 @@ extension CandlestickSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .coordinateSystem(coordinateSystem):

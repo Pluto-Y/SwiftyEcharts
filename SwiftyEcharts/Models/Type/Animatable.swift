@@ -25,12 +25,11 @@ public enum Time: Jsonable {
     public var jsonString: String {
         switch self {
         case let .number(time):
-            return "\(time)"
+            return time.jsonString
         case let .function(f):
-            let count = JsCache.allJsStrings().count
-            let funcName = "\(TimeFuncPrefix)\(count)"
+            let funcName = "\(TimeFuncPrefix)\(JsCache.allJsStrings().count)"
             JsCache.add("var \(funcName) = \(f);")
-            return "\"\(funcName)\""
+            return funcName.jsonString
         }
     }
 }

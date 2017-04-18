@@ -7,7 +7,7 @@
 //
 
 /// group 是唯一的可以有子节点的容器。group 可以用来整体定位一组图形元素。
-public struct GroupGraphic: Graphic {
+public final class GroupGraphic: Graphic {
     
     /// MARK: Graphic
     public var type: GraphicType {
@@ -53,7 +53,8 @@ extension GroupGraphic: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .id(id):

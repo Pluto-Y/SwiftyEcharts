@@ -6,9 +6,9 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
+public final class PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
     
-    public struct Data: Symbolized, Animatable {
+    public final class Data: Symbolized, Animatable {
         public var name: String?
         public var value: Jsonable?
         public var symbol: Symbol?
@@ -94,7 +94,8 @@ extension PictorialBarSerie.Data : Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -192,7 +193,8 @@ extension PictorialBarSerie : Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):

@@ -7,7 +7,7 @@
 //
 
 /// 柱状/条形图 通过 柱形的高度/条形的宽度 来表现数据的大小，用于有至少一个类目轴或时间轴的直角坐标系上。
-public struct BarSerie: Serie, Animatable, Zable {
+public final class BarSerie: Serie, Animatable, Zable {
     /// 类型
     public var type: SerieType {
         return .bar
@@ -113,7 +113,8 @@ extension BarSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -212,7 +213,7 @@ extension BarSerie: Mappable {
 }
 
 extension BarSerie {
-    public struct LabelContent {
+    public final class LabelContent {
         /// 是否显示标签。
         public var show: Bool?
         /// 标签的位置。
@@ -225,7 +226,7 @@ extension BarSerie {
         public var textStyle: TextStyle?
     }
     
-    public struct Label: Emphasisable {
+    public final class Label: Emphasisable {
         
         public typealias Style = LabelContent
         public var normal: Style?
@@ -241,7 +242,8 @@ extension BarSerie.LabelContent: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -277,7 +279,8 @@ extension BarSerie.Label: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .normal(normal):
@@ -297,7 +300,7 @@ extension BarSerie.Label: Mappable {
 }
 
 extension BarSerie {
-    public struct Data {
+    public final class Data {
         /// 数据项名称。
         public var name: String?
         /// 单个数据项的数值。
@@ -318,7 +321,8 @@ extension BarSerieData: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):

@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct MarkData {
+public final class MarkData {
     /// 名称
     public var name: String?
     /// 标注类型
@@ -45,8 +45,8 @@ public struct MarkData {
     public var x: LengthValue?
     /// 相对容器的屏幕 y 坐标，单位像素。
     public var y: LengthValue?
-    public var xAxis: Float?
-    public var yAxis: Float?
+    public var xAxis: String?
+    public var yAxis: String?
     /// 标注值，可以不设。
     public var value: Float?
     /// 标记的图形
@@ -74,12 +74,13 @@ public struct MarkData {
 
 extension MarkData: Enumable {
     public enum Enums {
-        case name(String), type(MarkDataType), valueIndex(UInt), valueDim(String), coord([Jsonable]), x(LengthValue), y(LengthValue), xAxis(Float), yAxis(Float), value(Float), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), lineStyle(EmphasisLineStyle), label(FormattedLabel)
+        case name(String), type(MarkDataType), valueIndex(UInt), valueDim(String), coord([Jsonable]), x(LengthValue), y(LengthValue), xAxis(String), yAxis(String), value(Float), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), lineStyle(EmphasisLineStyle), label(FormattedLabel)
     }
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):

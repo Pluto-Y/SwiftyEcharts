@@ -9,10 +9,10 @@
 /// 仪表盘
 ///
 /// 示例：http://echarts.baidu.com/demo.html#gauge-car
-public struct GaugeSerie: Serie, Animatable {
+public final class GaugeSerie: Serie, Animatable {
     
     /// 仪表盘轴线相关配置。
-    public struct AxisLine: Displayable, Line {
+    public final class AxisLine: Displayable, Line {
         /// 是否显示仪表盘轴线。
         public var show: Bool?
         /// 仪表盘轴线样式。
@@ -22,7 +22,7 @@ public struct GaugeSerie: Serie, Animatable {
     }
     
     /// 分隔线。
-    public struct SplitLine: Displayable, Line {
+    public final class SplitLine: Displayable, Line {
         /// 是否显示分隔线。
         public var show: Bool?
         /// 分隔线线长。支持相对半径的百分比。
@@ -34,7 +34,7 @@ public struct GaugeSerie: Serie, Animatable {
     }
     
     /// 刻度样式。
-    public struct AxisTick: Displayable, Line {
+    public final class AxisTick: Displayable, Line {
         /// 是否显示刻度。
         public var show: Bool?
         /// 分隔线之间分割的刻度数。
@@ -48,7 +48,7 @@ public struct GaugeSerie: Serie, Animatable {
     }
     
     /// 刻度标签。
-    public struct AxisLabel: Displayable, Formatted, Textful, Colorful {
+    public final class AxisLabel: Displayable, Formatted, Textful, Colorful {
         /// 是否显示标签。
         public var show: Bool?
         /// 标签与刻度线的距离。
@@ -72,7 +72,7 @@ public struct GaugeSerie: Serie, Animatable {
     }
     
     /// 仪表盘指针。
-    public struct Pointer: Displayable {
+    public final class Pointer: Displayable {
         /// 是否显示指针。
         public var show: Bool?
         /// 指针长度，可以是绝对数值，也可以是相对于半径的半分比。
@@ -84,7 +84,7 @@ public struct GaugeSerie: Serie, Animatable {
     }
     
     /// 仪表盘标题。
-    public struct Title: Displayable {
+    public final class Title: Displayable {
         /// 是否显示标题。
         public var show: Bool?
         /// 相对于仪表盘中心的偏移位置，数组第一项是水平方向的偏移，第二项是垂直方向的偏移。可以是绝对的数值，也可以是相对于仪表盘半径的百分比。
@@ -96,7 +96,7 @@ public struct GaugeSerie: Serie, Animatable {
     }
     
     /// 仪表盘详情，用于显示数据。
-    public struct Detail: Displayable, Formatted, Borderable, Textful {
+    public final class Detail: Displayable, Formatted, Borderable, Textful {
         /// 是否显示详情。
         public var show: Bool?
         /// 详情宽度。
@@ -203,7 +203,8 @@ extension GaugeSerieAxisLine: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -229,7 +230,8 @@ extension GaugeSerieSplitLine: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -258,7 +260,8 @@ extension GaugeSerieAxisTick: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -290,7 +293,8 @@ extension GaugeSerieAxisLabel: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -325,7 +329,8 @@ extension GaugeSeriePointer: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -354,7 +359,8 @@ extension GaugeSerieTitle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -383,7 +389,8 @@ extension GaugeSerieDetail: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -430,7 +437,8 @@ extension GaugeSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):

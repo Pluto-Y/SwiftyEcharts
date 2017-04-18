@@ -7,10 +7,10 @@
 //
 
 /// 多边形类型的 `Graphic`
-public struct PolygonGraphic: Graphic {
+public final class PolygonGraphic: Graphic {
     
     /// 多边形的位置和大小定义
-    public struct Shape {
+    public final class Shape {
         
         /// 是否平滑曲线
         ///
@@ -74,7 +74,8 @@ extension PolygonGraphic.Shape: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .point(point):
@@ -103,7 +104,8 @@ extension PolygonGraphic: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .id(id):

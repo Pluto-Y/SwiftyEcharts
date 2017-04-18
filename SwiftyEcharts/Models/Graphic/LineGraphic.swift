@@ -7,10 +7,10 @@
 //
 
 /// 直线类型的 `Graphic`
-public struct LineGraphic: Graphic {
+public final class LineGraphic: Graphic {
     
     /// 直线的位置
-    public struct Shape {
+    public final class Shape {
         /// 开始点的 x 值。
         public var x1: Float?
         /// 开始点的 y 值。
@@ -59,7 +59,8 @@ extension LineGraphic.Shape: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .x1(x1):
@@ -94,7 +95,8 @@ extension LineGraphic: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .id(id):

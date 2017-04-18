@@ -111,12 +111,12 @@
 /// 可以通过 parallel.axisExpandable 来改善显示效果，如下例子：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=map-parallel-prices
-public struct Parallel: Zable {
+public final class Parallel: Zable {
     
     /// 配置多个 parallelAxis 时，有些值一样的属性，如果书写多遍则比较繁琐，那么可以放置在 parallel.parallelAxisDefault 里。在坐标轴初始化前，parallel.parallelAxisDefault 里的配置项，会分别融合进 parallelAxis，形成最终的坐标轴的配置。
     ///
     /// 参见示例: http://echarts.baidu.com/gallery/editor.html?c=doc-example/parallel-all&edit=1&reset=1
-    public struct ParallelAxisDefault {
+    public final class ParallelAxisDefault {
         
         /// 类目数据，在类目轴（type: 'category'）中有效。
         ///
@@ -133,7 +133,7 @@ public struct Parallel: Zable {
         ///         color: 'red'
         ///         }
         ///     }, '周二', '周三', '周四', '周五', '周六', '周日']
-        public struct Data {
+        public final class Data {
             /// 单个类目名称
             public var value: String?
             /// 类目标签的文字样式
@@ -289,7 +289,8 @@ extension Parallel: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .zlevel(zlevel):
@@ -351,7 +352,8 @@ extension Parallel.ParallelAxisDefault: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .type(type):
@@ -434,7 +436,8 @@ extension Parallel.ParallelAxisDefault.Data: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .value(value):

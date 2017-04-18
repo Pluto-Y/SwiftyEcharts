@@ -13,9 +13,9 @@
 /// 下面是 AQI 数据用雷达图表现的示例。
 ///
 /// 地址：http://echarts.baidu.com/gallery/editor.html?c=radar-aqi
-public struct RadarSerie: Serie, Symbolized, Zable, Animatable {
+public final class RadarSerie: Serie, Symbolized, Zable, Animatable {
     
-    public struct Data: Symbolized {
+    public final class Data: Symbolized {
         /// 数据项名称
         public var name: String?
         /// 单个数据项的数值。
@@ -100,7 +100,8 @@ extension RadarSerieData: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -150,7 +151,8 @@ extension RadarSerie: Enumable {
 
 	public typealias ContentEnum = Enums
 
-	public init(_ elements: Enums...) {
+	public convenience init(_ elements: Enums...) {
+        self.init()
 		for ele in elements {
 			switch ele {
 				case let .name(name):

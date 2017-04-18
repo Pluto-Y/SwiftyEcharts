@@ -27,9 +27,9 @@
 ///     }
 ///
 /// - Note: geo 区域的颜色也可以被 map series 所控制，参见 series-map.geoIndex。
-public struct Geo: Displayable, Zable {
+public final class Geo: Displayable, Zable {
     /// 滚轮缩放的极限控制，通过min, max最小和最大的缩放值，默认的缩放为1。
-    public struct ScaleLimit {
+    public final class ScaleLimit {
         /// 最小的缩放值
         public var min: Float?
         /// 最大的缩放值
@@ -49,7 +49,7 @@ public struct Geo: Displayable, Zable {
     ///     }]
     ///
     /// geo 区域的颜色也可以被 map series 所控制，参见 series-map.geoIndex。
-    public struct Region {
+    public final class Region {
         public var name: String?
         public var selected: Bool?
         public var itemStyle: ItemStyle?
@@ -166,7 +166,8 @@ extension Geo.ScaleLimit: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .min(min):
@@ -192,7 +193,8 @@ extension Geo.Region: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -224,7 +226,8 @@ extension Geo: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

@@ -7,13 +7,13 @@
 //
 
 /// 当一个控件支持透明是，则实现此协议即可
-public protocol Opacitable {
+public protocol Opacitable: class {
     /// 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
     var opacity: Float? { get set }
 }
 
 extension Opacitable {
-    public mutating func validateOpacity() -> Bool {
+    public func validateOpacity() -> Bool {
         if opacity < 0.0 {
             opacity = 0.0
             return false

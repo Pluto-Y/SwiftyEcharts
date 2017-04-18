@@ -9,7 +9,7 @@
 /// 漏斗图
 ///
 /// 示例:http://echarts.baidu.com/gallery/editor.html?c=funnel
-public struct FunnelSerie: Serie, Animatable {
+public final class FunnelSerie: Serie, Animatable {
     
     /// 排序，ascending: 升序， descending: 降序
     public enum Sort: String, Jsonable {
@@ -22,7 +22,7 @@ public struct FunnelSerie: Serie, Animatable {
     }
     
     /// 标签的视觉引导线样式，在 label 位置 设置为'left'或者'right'的时候会显示视觉引导线。
-    public struct LabelLineContent {
+    public final class LabelLineContent {
         /// 是否显示视觉引导线。
         public var show: Bool?
         /// 视觉引导线第一段的长度。
@@ -33,7 +33,7 @@ public struct FunnelSerie: Serie, Animatable {
         public init() { }
     }
     
-    public struct LabelLine: Emphasisable {
+    public final class LabelLine: Emphasisable {
         public typealias Style = LabelLineContent
         
         public var normal: Style?
@@ -42,7 +42,7 @@ public struct FunnelSerie: Serie, Animatable {
         public init() { }
     }
     
-    public struct Data {
+    public final class Data {
         /// 数据项名称。
         public var name: String?
         /// 数据值。
@@ -158,7 +158,8 @@ extension FunnelSerie.LabelLineContent: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -187,7 +188,8 @@ extension FunnelSerie.LabelLine: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .normal(normal):
@@ -213,7 +215,8 @@ extension FunnelSerieData: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -248,7 +251,8 @@ extension FunnelSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):

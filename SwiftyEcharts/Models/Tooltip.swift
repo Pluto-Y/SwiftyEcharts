@@ -8,7 +8,7 @@
 
 
 /// 提示框组件
-public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
+public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
     
     /// 触发类型。
     ///
@@ -82,10 +82,10 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
     }
     
     /// 坐标轴指示器配置项
-    public struct AxisPointer: Line {
+    public final class AxisPointer: Line {
         
         /// 十字准星指示器样式
-        public struct CrossStyle: Shadowable, Colorful{
+        public final class CrossStyle: Shadowable, Colorful{
             /// 线的颜色
             public var color: Color?
             /// 线宽
@@ -104,7 +104,7 @@ public struct Tooltip: Borderable, Displayable, Formatted, Jsonable {
         }
         
         /// 阴影提示器样式
-        public struct ShadowStyle: Shadowable, Colorful, Opacitable {
+        public final class ShadowStyle: Shadowable, Colorful, Opacitable {
             
             /// 填充的颜色
             public var color: Color?
@@ -231,7 +231,8 @@ extension Tooltip.AxisPointer.ShadowStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -269,7 +270,8 @@ extension Tooltip.AxisPointer.CrossStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -313,7 +315,8 @@ extension Tooltip.AxisPointer: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .type(type):
@@ -371,7 +374,8 @@ extension Tooltip: Enumable {
     }
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

@@ -39,7 +39,7 @@ public enum VerticalAlign: String, Jsonable {
 }
 
 /// 文字样式
-public struct TextStyle: Colorful {
+public final class TextStyle: Colorful {
     /// 颜色
     public var color: Color?
     /// 文字字体的风格
@@ -63,7 +63,8 @@ extension TextStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .color(color):

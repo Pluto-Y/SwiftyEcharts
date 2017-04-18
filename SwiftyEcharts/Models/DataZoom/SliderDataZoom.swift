@@ -7,10 +7,10 @@
 //
 
 /// 滑动条型数据区域缩放组件（dataZoomSlider）
-public struct SliderDataZoom: DataZoom, Displayable, Zable {
+public final class SliderDataZoom: DataZoom, Displayable, Zable {
     
     /// 数据阴影的样式。
-    public struct DataBackground {
+    public final class DataBackground {
         /// 阴影的线条样式
         public var lineStyle: EmphasisLineStyle?
         /// 阴影的填充样式
@@ -18,7 +18,7 @@ public struct SliderDataZoom: DataZoom, Displayable, Zable {
     }
     
     /// 手柄的样式配置，见 示例: http://echarts.baidu.com/gallery/editor.html?c=area-simple
-    public struct HandleStyle: Colorful, Borderable, Shadowable, Opacitable {
+    public final class HandleStyle: Colorful, Borderable, Shadowable, Opacitable {
         /// 图形的颜色。
         /// > 颜色可以使用 RGB 表示，比如 'rgb(128, 128, 128)'，如果想要加上 alpha 通道表示不透明度，可以使用 RGBA，比如 'rgba(128, 128, 128, 0.5)'，也可以使用十六进制格式，比如 '#ccc'。除了纯色之外颜色也支持渐变色和纹理填充
         ///
@@ -288,7 +288,8 @@ extension SliderDataZoom.DataBackground: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .lineStyle(lineStyle):
@@ -314,7 +315,8 @@ extension SliderDataZoom.HandleStyle: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .color(color):
@@ -361,7 +363,8 @@ extension SliderDataZoom: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

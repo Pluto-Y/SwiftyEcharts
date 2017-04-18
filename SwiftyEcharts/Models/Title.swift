@@ -8,7 +8,7 @@
 
 /// 标题组件，包含主标题和副标题。
 /// 在 ECharts 2.x 中单个 ECharts 实例最多只能拥有一个标题组件。但是在 ECharts 3 中可以存在任意多个标题组件，这在需要标题进行排版，或者单个实例中的多个图表都需要标题时会比较有用。
-public struct Title: Borderable, Displayable, Textful, Zable {
+public final class Title: Borderable, Displayable, Textful, Zable {
     /// 是否显示标题组件
     public var show: Bool?
     /// 主标题文本，支持使用 \n 换。
@@ -77,7 +77,8 @@ extension Title: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

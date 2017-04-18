@@ -19,9 +19,9 @@
 /// 此外，图中每两个小矩形之间的边编码的是原数据中的link，边的粗细编码的是link中的value。
 /// 
 /// 排序： 如果想指定结果的纵向顺序，那么可以把 layoutIterations 设为 0，此时纵向的顺序依照数据在 links 中出现的顺序。
-public struct SankeySerie: Serie, Zable, Animatable {
+public final class SankeySerie: Serie, Zable, Animatable {
     
-    public struct Data {
+    public final class Data {
         /// 数据项名称。
         public var name: String?
         /// 数据项值。
@@ -34,7 +34,7 @@ public struct SankeySerie: Serie, Zable, Animatable {
         public init() { }
     }
     
-    public struct Link {
+    public final class Link {
         /// 边的源节点名称
         public var source: String?
         /// 边的目标节点名称
@@ -169,7 +169,8 @@ extension SankeySerie.Data: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -201,7 +202,8 @@ extension SankeySerie.Link: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .source(source):
@@ -233,7 +235,8 @@ extension SankeySerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .zlevel(zlevel):

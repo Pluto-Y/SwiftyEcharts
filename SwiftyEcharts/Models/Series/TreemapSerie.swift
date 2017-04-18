@@ -34,7 +34,7 @@
 /// - root 的设置暂时不支持。目前可以使用 zoom 的方式来查看树更下层次的细节，或者使用 leafDepth 开启 "drill down" 功能。
 /// - label 的配置被移动到了 itemStyle.normal/itemStyle.emphasis 外部，和 itemStyle 平级。
 /// - itemStyle.normal.childBorderWidth、itemStyle.normal.childBorderColor不再支持（因为这个配置方式只能定义两层的treemap）。统一使用 series-treemap.levels 来进行各层级的定义。
-public struct TreemapSerie: Serie, Zable {
+public final class TreemapSerie: Serie, Zable {
     
     /// 点击节点后的行为。可取值为：
     /// 
@@ -72,7 +72,7 @@ public struct TreemapSerie: Serie, Zable {
         }
     }
     
-    public struct Level {
+    public final class Level {
         /// treemap 中支持对数据其他维度进行视觉映射。
         ///
         /// 首先，treemap的数据格式（参见 series-treemap.data）中，每个节点的 value 都可以是数组。数组每项是一个『维度』（dimension）。visualDimension 指定了额外的『视觉映射』使用的是数组的哪一项。默认为第 0 项。
@@ -178,7 +178,7 @@ public struct TreemapSerie: Serie, Zable {
         public init() {}
     }
     
-    public struct Silent {
+    public final class Silent {
         /// 点击此节点可跳转的超链接。须 series-treemap.nodeClick 值为 'link' 时才生效。
         /// 参见 series-treemap.data.target。
         public var link: String?
@@ -190,7 +190,7 @@ public struct TreemapSerie: Serie, Zable {
         public init() {}
     }
     
-    public struct Breadcrumb: Displayable {
+    public final class Breadcrumb: Displayable {
         /// 是否显示面包屑。
         public var show: Bool?
         /// asdf 组件离容器左侧的距离。
@@ -227,7 +227,7 @@ public struct TreemapSerie: Serie, Zable {
         public init() {}
     }
     
-    public struct Data {
+    public final class Data {
         /// 每个树节点的值，对应到面积大小。可以是number，也可以是数组，如 [2323, 43, 55]，则数组第一项对应到面积大小。
         public var value: Jsonable?
         /// 每个树节点的id。id 不是必须设置的。但是如果想使用 API 来改变某个节点，需要用 id 来定位。
@@ -652,7 +652,8 @@ extension TreemapSerieLevel: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .visualDimension(visualDimension):
@@ -705,7 +706,8 @@ extension TreemapSerieSilent: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .link(link):
@@ -734,7 +736,8 @@ extension TreemapSerieBreadcrumb: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -778,7 +781,8 @@ extension TreemapSerieData: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .value(value):
@@ -840,7 +844,8 @@ extension TreemapSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .zlevel(zlevel):

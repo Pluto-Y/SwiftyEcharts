@@ -7,7 +7,7 @@
 //
 
 /// 坐标轴刻度相关设置。
-public struct AxisTick: Line, Displayable {
+public final class AxisTick: Line, Displayable {
     /// 是否显示坐标轴刻度。
     public var show: Bool?
     /// 类目轴中在 boundaryGap 为 true 的时候有效，可以保证刻度线和标签对齐。
@@ -40,7 +40,8 @@ extension AxisTick: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

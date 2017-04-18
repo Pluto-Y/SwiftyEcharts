@@ -6,10 +6,10 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct ScatterSerie: Serie, Symbolized, Animatable, Zable {
+public final class ScatterSerie: Serie, Symbolized, Animatable, Zable {
     
     /// 数据项目
-    public struct Data: Symbolized {
+    public final class Data: Symbolized {
         /// 数据项名称。
         public var name: String?
         /// 数据项值。
@@ -223,7 +223,8 @@ extension ScatterSerieData: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -267,7 +268,8 @@ extension ScatterSerie: Enumable {
     
     public typealias ContentEnum = Enums
 
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):

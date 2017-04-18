@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct Option: Textful, Animatable {
+public final class Option: Textful, Animatable {
     public var title: Title?
     public var legend: Legend?
     public var grid: OneOrMore<Grid>?
@@ -82,7 +82,8 @@ extension Option: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .title(title):

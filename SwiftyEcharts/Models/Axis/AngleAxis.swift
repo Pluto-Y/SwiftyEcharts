@@ -7,7 +7,7 @@
 //
 
 /// 极坐标系的角度轴。
-public struct AngleAxis: Zable {
+public final class AngleAxis: Zable {
     /// 类目数据，在类目轴（type: 'category'）中有效。
     ///
     /// 示例：
@@ -23,7 +23,7 @@ public struct AngleAxis: Zable {
     ///             color: 'red'
     ///         }
     ///     }, '周二', '周三', '周四', '周五', '周六', '周日']
-    public struct Data {
+    public final class Data {
         /// 单个类目名称。
         public var value: String?
         /// 类目标签的文字样式。
@@ -140,7 +140,8 @@ extension AngleAxis.Data: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .value(value):
@@ -166,7 +167,8 @@ extension AngleAxis: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .polarIndex(polarIndex):

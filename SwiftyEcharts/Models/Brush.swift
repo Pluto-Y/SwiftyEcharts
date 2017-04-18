@@ -6,7 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct Brush {
+public final class Brush {
     
     /// 使用在 toolbox 中的按钮。
     ///
@@ -104,7 +104,7 @@ public struct Brush {
     }
     
     /// 选框的默认样式
-    public struct Style: Colorful {
+    public final class Style: Colorful {
         public var borderWidth: Float?
         public var color: Color?
         public var borderColor: Color?
@@ -378,7 +378,8 @@ extension Brush.Style: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .borderWidth(borderWidth):
@@ -410,7 +411,8 @@ extension Brush: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .toolbox(toolbox):

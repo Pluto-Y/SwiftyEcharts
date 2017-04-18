@@ -7,10 +7,10 @@
 //
 
 /// 扇形类型的 `Graphic`
-public struct SectorGraphic: Graphic {
+public final class SectorGraphic: Graphic {
     
     /// 扇形的大小和位置
-    public struct Shape {
+    public final class Shape {
         public var cx: Float?
         public var cy: Float?
         public var r: Float?
@@ -56,7 +56,8 @@ extension SectorGraphic.Shape: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .cx(cx):
@@ -97,7 +98,8 @@ extension SectorGraphic: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .id(id):

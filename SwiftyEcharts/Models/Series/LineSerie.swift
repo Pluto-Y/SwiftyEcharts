@@ -26,7 +26,7 @@ extension LineSerie {
 }
 
 extension LineSerie {
-    public struct Data: Symbolized {
+    public final class Data: Symbolized {
         
         public var name: String?
         public var value: Float?
@@ -50,7 +50,8 @@ extension LineSerieData: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -92,7 +93,7 @@ extension LineSerieData: Mappable {
 ///
 /// - Note: 设置 areaStyle 后可以绘制面积图。
 /// - Note: 配合分段型 visualMap 组件可以将折线/面积图通过不同颜色分区间。如下示例
-public struct LineSerie: Symbolized, Animatable, Zable {
+public final class LineSerie: Symbolized, Animatable, Zable {
     
     /// 阶梯线图类型。
     ///
@@ -334,7 +335,8 @@ extension LineSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):

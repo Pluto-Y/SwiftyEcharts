@@ -6,9 +6,9 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public struct PieSerie: Serie, Zable {
+public final class PieSerie: Serie, Zable {
     
-    public struct Data {
+    public final class Data {
         /// 数据项名称。
         public var name: String?
         /// 数据值。
@@ -46,7 +46,7 @@ public struct PieSerie: Serie, Zable {
         }
     }
     
-    public struct LabelLineContent: Displayable {
+    public final class LabelLineContent: Displayable {
         /// 是否显示视觉引导线。
         public var show: Bool?
         /// 视觉引导线第一段的长度。
@@ -61,7 +61,7 @@ public struct PieSerie: Serie, Zable {
         public init() { }
     }
     
-    public struct LabelLine: Emphasisable {
+    public final class LabelLine: Emphasisable {
         public typealias Style = LabelLineContent
         
         public var normal: Style?
@@ -172,7 +172,8 @@ extension PieSerie.LabelLineContent: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):
@@ -207,7 +208,8 @@ extension PieSerie.LabelLine: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .normal(normal):
@@ -233,7 +235,8 @@ extension PieSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -315,7 +318,8 @@ extension PieSerieData: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):

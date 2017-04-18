@@ -113,7 +113,7 @@
 /// 可以通过 parallel.axisExpandable 来改善显示效果，如下例子：
 ///
 /// http://echarts.baidu.com/gallery/editor.html?c=map-parallel-prices
-public struct ParallelSerie: Serie, Zable, Animatable {
+public final class ParallelSerie: Serie, Zable, Animatable {
     
     /// 类型
     public var type: SerieType {
@@ -178,7 +178,8 @@ extension ParallelSerie: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .coordinateSystem(coordinateSystem):

@@ -7,10 +7,10 @@
 //
 
 /// 折线类型的 `Graphic`
-public struct PolylineGraphic: Graphic {
+public final class PolylineGraphic: Graphic {
     
     /// 折线的位置节点
-    public struct Shape {
+    public final class Shape {
         
         /// 是否平滑曲线
         ///
@@ -74,7 +74,8 @@ extension PolylineGraphic.Shape: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .point(point):
@@ -103,7 +104,8 @@ extension PolylineGraphic: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .id(id):

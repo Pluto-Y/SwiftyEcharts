@@ -9,7 +9,7 @@
 /// 图例组件。
 /// 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
 /// ECharts 3 中单个 echarts 实例中可以存在多个图例组件，会方便多个图例的布局。
-public struct Legend: Borderable, Displayable, Formatted, Shadowable, Zable {
+public final class Legend: Borderable, Displayable, Formatted, Shadowable, Zable {
     
     /// 图例的数据数组。数组项通常为一个字符串，每一项代表一个系列的 `name`（如果是饼图，也可以是饼图单个数据的 `name`）。图例组件会自动获取对应系列的颜色，图形标记（symbol）作为自己绘制的颜色和标记，特殊字符串 `''`（空字符串）或者 `'\n'`（换行字符串）用于图例的换行。
     ///
@@ -26,7 +26,7 @@ public struct Legend: Borderable, Displayable, Formatted, Shadowable, Zable {
     ///                 color: 'red'
     ///             }
     ///         }]
-    public struct Data {
+    public final class Data {
         /// 图例项的名称，应等于某系列的`name`值（如果是饼图，也可以是饼图单个数据的`name`）。
         public var name: String?
         /// 图例项的 icon。
@@ -128,7 +128,8 @@ extension Legend.Data: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .name(name):
@@ -157,7 +158,8 @@ extension Legend: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .show(show):

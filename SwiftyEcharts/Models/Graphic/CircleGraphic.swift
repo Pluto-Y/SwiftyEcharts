@@ -7,10 +7,10 @@
 //
 
 /// 圆类型的 `Graphic`
-public struct CircleGraphic: Graphic {
+public final class CircleGraphic: Graphic {
     
     /// 圆形的位置和大小
-    public struct Shape {
+    public final class Shape {
         /// 图形元素的中心在父节点坐标系（以父节点左上角为原点）中的横坐标值。
         public var cx: Float?
         /// 图形元素的中心在父节点坐标系（以父节点左上角为原点）中的纵坐标值。
@@ -54,7 +54,8 @@ extension CircleGraphic.Shape: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .cx(cx):
@@ -83,7 +84,8 @@ extension CircleGraphic: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
+        self.init()
         for ele in elements {
             switch ele {
             case let .id(id):

@@ -11,7 +11,7 @@
 /// 例如一个点, [x, y]
 ///
 /// 例如一个访问， [min, max]
-public struct Pair<T>: ArrayLiteralConvertible {
+public final class Pair<T>: ArrayLiteralConvertible {
     
     private var first: T?
     private var second: T?

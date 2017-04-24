@@ -1,5 +1,5 @@
 //
-//  SECFontSpec.swift
+//  FontSpec.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 30/11/2016.
@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class SECFontSpec: QuickSpec {
+class FontSpec: QuickSpec {
     
     override func spec() {
         describe("For font style ") {

@@ -1,5 +1,5 @@
 //
-//  SECMappableSpec.swift
+//  MappableSpec.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 07/01/2017.
@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class SECMappableSpec: QuickSpec {
+class MappableSpec: QuickSpec {
     
     struct MappableStructTest: Mappable {
         var boolVar: Bool = false

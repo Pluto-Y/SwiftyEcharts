@@ -56,7 +56,7 @@
 		54BA6E231E1B76B100CD7AA6 /* Serie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E221E1B76B100CD7AA6 /* Serie.swift */; };
 		54BA6E251E1B798100CD7AA6 /* LineSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BA6E241E1B798100CD7AA6 /* LineSerie.swift */; };
 		54FEBE8F1E23480D0021CB13 /* Jsonable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE8C1E23480D0021CB13 /* Jsonable.swift */; };
-		54FEBE901E23480D0021CB13 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE8D1E23480D0021CB13 /* Map.swift */; };
+		54FEBE901E23480D0021CB13 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE8D1E23480D0021CB13 /* Mapper.swift */; };
 		54FEBE911E23480D0021CB13 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE8E1E23480D0021CB13 /* Mappable.swift */; };
 		54FEBE931E2354B60021CB13 /* Option.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54FEBE921E2354B60021CB13 /* Option.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F0E461F1E614A37008DA184 /* LinesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E461D1E614A37008DA184 /* LinesController.swift */; };
@@ -128,7 +128,7 @@
 		6FC28C141E9D37D700B79049 /* OneOrMore.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC28C151E9D37D700B79049 /* JsCache.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540898AF1E54637100A89BB0 /* JsCache.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC28C161E9D37D700B79049 /* Jsonable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54FEBE8C1E23480D0021CB13 /* Jsonable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		6FC28C171E9D37D700B79049 /* Map.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54FEBE8D1E23480D0021CB13 /* Map.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC28C171E9D37D700B79049 /* Mapper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54FEBE8D1E23480D0021CB13 /* Mapper.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC28C181E9D37D700B79049 /* Mappable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54FEBE8E1E23480D0021CB13 /* Mappable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC28C191E9D37D700B79049 /* Utilities.swift in Headers */ = {isa = PBXBuildFile; fileRef = 5435CCBD1E24990B00D753B2 /* Utilities.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC28C1A1E9D37D700B79049 /* Graphic.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FD249C31E4E142100FBB2F7 /* Graphic.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -356,7 +356,7 @@
 		54BA6E221E1B76B100CD7AA6 /* Serie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serie.swift; sourceTree = "<group>"; };
 		54BA6E241E1B798100CD7AA6 /* LineSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LineSerie.swift; sourceTree = "<group>"; };
 		54FEBE8C1E23480D0021CB13 /* Jsonable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Jsonable.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		54FEBE8D1E23480D0021CB13 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Map.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		54FEBE8D1E23480D0021CB13 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Mapper.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		54FEBE8E1E23480D0021CB13 /* Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Mappable.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		54FEBE921E2354B60021CB13 /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Option.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyEchartsTest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -614,7 +614,7 @@
 			children = (
 				540898AF1E54637100A89BB0 /* JsCache.swift */,
 				54FEBE8C1E23480D0021CB13 /* Jsonable.swift */,
-				54FEBE8D1E23480D0021CB13 /* Map.swift */,
+				54FEBE8D1E23480D0021CB13 /* Mapper.swift */,
 				54FEBE8E1E23480D0021CB13 /* Mappable.swift */,
 			);
 			path = Json;
@@ -870,7 +870,7 @@
 				6FC28C141E9D37D700B79049 /* OneOrMore.swift in Headers */,
 				6FC28C151E9D37D700B79049 /* JsCache.swift in Headers */,
 				6FC28C161E9D37D700B79049 /* Jsonable.swift in Headers */,
-				6FC28C171E9D37D700B79049 /* Map.swift in Headers */,
+				6FC28C171E9D37D700B79049 /* Mapper.swift in Headers */,
 				6FC28C181E9D37D700B79049 /* Mappable.swift in Headers */,
 				6FC28C191E9D37D700B79049 /* Utilities.swift in Headers */,
 				6FC28C1A1E9D37D700B79049 /* Graphic.swift in Headers */,
@@ -1258,7 +1258,7 @@
 				540898B01E54637100A89BB0 /* JsCache.swift in Sources */,
 				6FD249CA1E4E186D00FBB2F7 /* GroupGraphic.swift in Sources */,
 				6FC28C971E9D535400B79049 /* Symbol.swift in Sources */,
-				54FEBE901E23480D0021CB13 /* Map.swift in Sources */,
+				54FEBE901E23480D0021CB13 /* Mapper.swift in Sources */,
 				6FC40CEC1E48BF7400F6E62F /* AxisLine.swift in Sources */,
 				5446EA0E1E7672E5009BAE71 /* ThemeRiverSerie.swift in Sources */,
 				6F91EB7F1DF142E3003EEEC0 /* Legend.swift in Sources */,

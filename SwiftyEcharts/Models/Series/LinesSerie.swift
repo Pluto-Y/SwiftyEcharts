@@ -118,7 +118,7 @@ public final class LinesSerie: Serie, Zable, Animatable {
     /// 线两端的标记大小，可以是一个数组分别指定两端，也可以是单个统一指定。 注意： 这里无法像一般的 symbolSize 那样通过数组分别指定高宽。
     public var symbolSize: Jsonable?
     /// 线条样式。
-    public var lineStyle: LineStyle?
+    public var lineStyle: EmphasisLineStyle?
     /// 标签相关配置。在 polyline 设置为 true 时无效。
     public var label: FormattedLabel?
     /// 线数据集。
@@ -256,7 +256,7 @@ extension LinesSerieData: Mappable {
 
 extension LinesSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(Symbol), symbolSize(Jsonable), lineStyle(LineStyle), label(FormattedLabel), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(Symbol), symbolSize(Jsonable), lineStyle(EmphasisLineStyle), label(FormattedLabel), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

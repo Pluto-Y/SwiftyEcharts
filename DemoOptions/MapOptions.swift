@@ -256,7 +256,7 @@ public final class MapOptions {
                 .data(convertDatas.map { dataItem in
                     let name = dataItem[1]["name"] as! String
                     var value = geoCoordMap[name]!.map { $0 as Jsonable }
-                    value.appendContentsOf([(dataItem[1] as Jsonable)])
+                    value.append(contentsOf: [(dataItem[1] as Jsonable)])
                     let result: [String: Jsonable] = [ "name": name, "value": value ]
                     return  result as Jsonable
                     })

@@ -76,7 +76,7 @@ public final class EffectScatterSerie: Serie, Symbolized, Zable {
     /// 使用的地理坐标系的 index，在单个图表实例中存在多个地理坐标系的时候有用。
     public var geoIndex: UInt8?
     /// MARK: Symbolized
-    public var symbol: Symbol?
+    public var symbol: OneOrMore<Symbol>?
     public var symbolSize: Jsonable?
     public var symbolRotate: Float?
     public var symbolOffset: Point?
@@ -263,7 +263,7 @@ extension EffectScatterSerie: Enumable {
             case let .geoIndex(geoIndex):
                 self.geoIndex = geoIndex
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .symbolRotate(symbolRotate):

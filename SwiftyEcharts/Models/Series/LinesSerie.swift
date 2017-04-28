@@ -28,7 +28,7 @@ public final class LinesSerie: Serie, Zable, Animatable {
         /// 配置特效图形的移动动画是否是固定速度，单位像素/秒，设置为大于 0 的值后会忽略 period 配置项。
         public var constantSpeed: Float?
         /// 特效图形的标记。
-        public var symbol: Symbol?
+        public var symbol: OneOrMore<Symbol>?
         /// 特效标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示高和宽，例如 [20, 10] 表示标记宽为20，高为10。
         public var symbolSize: Jsonable?
         /// 特效标记的颜色，默认取 lineStyle.normal.color。
@@ -114,11 +114,11 @@ public final class LinesSerie: Serie, Zable, Animatable {
     /// 开启绘制优化的阈值。
     public var largeThreshold: Float?
     /// 线两端的标记类型，可以是一个数组分别指定两端，也可以是单个统一指定。 具体支持的格式可以参考 标线的 symbol
-    public var symbol: Symbol?
+    public var symbol: OneOrMore<Symbol>?
     /// 线两端的标记大小，可以是一个数组分别指定两端，也可以是单个统一指定。 注意： 这里无法像一般的 symbolSize 那样通过数组分别指定高宽。
     public var symbolSize: Jsonable?
     /// 线条样式。
-    public var lineStyle: LineStyle?
+    public var lineStyle: EmphasisLineStyle?
     /// 标签相关配置。在 polyline 设置为 true 时无效。
     public var label: FormattedLabel?
     /// 线数据集。
@@ -194,7 +194,7 @@ extension LinesSerie.Effect: Enumable {
             case let .constantSpeed(constantSpeed):
                 self.constantSpeed = constantSpeed
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .color(color):
@@ -256,7 +256,7 @@ extension LinesSerieData: Mappable {
 
 extension LinesSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(Symbol), symbolSize(Jsonable), lineStyle(LineStyle), label(FormattedLabel), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(Symbol), symbols([Symbol]), symbolSize(Jsonable), lineStyle(EmphasisLineStyle), label(FormattedLabel), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -284,7 +284,9 @@ extension LinesSerie: Enumable {
             case let .largeThreshold(largeThreshold):
                 self.largeThreshold = largeThreshold
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
+            case let .symbols(symbols):
+                self.symbol = OneOrMore(more: symbols)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .lineStyle(lineStyle):

@@ -15,7 +15,7 @@ public final class ScatterSerie: Serie, Symbolized, Animatable, Zable {
         /// 数据项值。
         public var value: String?
         // MARK: Symbolized
-        public var symbol: Symbol?
+        public var symbol: OneOrMore<Symbol>?
         public var symbolSize: Jsonable?
         public var symbolRotate: Float?
         public var symbolOffset: Point?
@@ -49,7 +49,7 @@ public final class ScatterSerie: Serie, Symbolized, Animatable, Zable {
     /// 是否启用图例 hover 时的联动高亮。
     public var legendHoverLink: Bool?
     /// 标记的图形。
-    public var symbol: Symbol?
+    public var symbol: OneOrMore<Symbol>?
     /// 标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
     /// 如果需要每个数据的图形大小不一样，可以设置为如下格式的回调函数：
     /// (value: Array|number, params: Object) => number|Array
@@ -232,7 +232,7 @@ extension ScatterSerieData: Enumable {
             case let .value(value):
                 self.value = value
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .symbolRotate(symbolRotate):
@@ -289,7 +289,7 @@ extension ScatterSerie: Enumable {
             case let .legendHoverLink(legendHoverLink):
                 self.legendHoverLink = legendHoverLink
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .symbolRotate(symbolRotate):

@@ -49,7 +49,7 @@ public enum Symbol: CustomStringConvertible, Jsonable {
 }
 
 public protocol Symbolized {
-    var symbol: Symbol? { get set }
+    var symbol: OneOrMore<Symbol>? { get set }
     var symbolSize: Jsonable? { get set }
     var symbolRotate: Float? { get set }
     var symbolOffset: Point? { get set }

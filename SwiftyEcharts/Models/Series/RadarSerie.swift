@@ -22,7 +22,7 @@ public final class RadarSerie: Serie, Symbolized, Zable, Animatable {
         public var value: Jsonable?
         
         /// MARK: Symbolized
-        public var symbol: Symbol?
+        public var symbol: OneOrMore<Symbol>?
         public var symbolSize: Jsonable?
         public var symbolRotate: Float?
         public var symbolOffset: Point?
@@ -50,7 +50,7 @@ public final class RadarSerie: Serie, Symbolized, Zable, Animatable {
     public var radarIndex: UInt8?
     
     /// MARK: Symbolized
-    public var symbol: Symbol?
+    public var symbol: OneOrMore<Symbol>?
     public var symbolSize: Jsonable?
     public var symbolRotate: Float?
     public var symbolOffset: Point?
@@ -109,7 +109,7 @@ extension RadarSerieData: Enumable {
             case let .value(value):
                 self.value = value
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .symbolRotate(symbolRotate):
@@ -160,7 +160,7 @@ extension RadarSerie: Enumable {
 				case let .radarIndex(radarIndex):
 					self.radarIndex = radarIndex
 				case let .symbol(symbol):
-					self.symbol = symbol
+					self.symbol = OneOrMore(one: symbol)
 				case let .symbolSize(symbolSize):
 					self.symbolSize = symbolSize
 				case let .symbolRotate(symbolRotate):

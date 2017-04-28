@@ -9,7 +9,7 @@
 public final class MarkPoint: Symbolized, Animatable {
     
     /// 标记的图形。
-    public var symbol: Symbol?
+    public var symbol: OneOrMore<Symbol>?
     /// 标记的大小
     public var symbolSize: Jsonable?
     /// 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
@@ -81,7 +81,7 @@ extension MarkPoint: Enumable {
         for ele in elements {
             switch ele {
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .symbolRotate(symbolRotate):

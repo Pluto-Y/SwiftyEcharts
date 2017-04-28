@@ -146,7 +146,7 @@ public final class Timeline: Displayable, Symbolized, Zable {
     
     public final class CheckpointStyle: Symbolized, Colorful, Borderable {
         /// timeline.checkpointStyle 标记的图形。
-        public var symbol: Symbol?
+        public var symbol: OneOrMore<Symbol>?
         /// timeline.checkpointStyle 标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
         public var symbolSize: Jsonable?
         /// timeline.checkpointStyle 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
@@ -293,7 +293,7 @@ public final class Timeline: Displayable, Symbolized, Zable {
     /// 是否反向放置 timeline，反向则首位颠倒过来。
     public var inverse: Bool?
     /// timeline标记的图形。
-    public var symbol: Symbol?
+    public var symbol: OneOrMore<Symbol>?
     /// timeline标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
     public var symbolSize: Jsonable?
     /// timeline标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
@@ -376,7 +376,7 @@ extension Timeline.CheckpointStyle: Enumable {
         for ele in elements {
             switch ele {
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .symbolRotate(symbolRotate):
@@ -589,7 +589,7 @@ extension Timeline: Enumable {
             case let .inverse(inverse):
                 self.inverse = inverse
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .symbolRotate(symbolRotate):

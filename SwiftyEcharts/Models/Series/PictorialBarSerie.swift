@@ -11,7 +11,7 @@ public final class PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
     public final class Data: Symbolized, Animatable {
         public var name: String?
         public var value: Jsonable?
-        public var symbol: Symbol?
+        public var symbol: OneOrMore<Symbol>?
         public var symbolSize: Jsonable?
         public var symbolPosition: Position?
         public var symbolOffset: Point?
@@ -55,7 +55,7 @@ public final class PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
     public var barMinHeight: LengthValue?
     public var barGap: LengthValue?
     public var barCategoryGap: LengthValue?
-    public var symbol: Symbol?
+    public var symbol: OneOrMore<Symbol>?
     public var symbolSize: Jsonable?
     public var symbolPosition: Position?
     public var symbolOffset: Point?
@@ -103,7 +103,7 @@ extension PictorialBarSerie.Data : Enumable {
             case let .value(value):
                 self.value = value
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .symbolPosition(symbolPosition):
@@ -222,7 +222,7 @@ extension PictorialBarSerie : Enumable {
             case let .barCategoryGap(barCategoryGap):
                 self.barCategoryGap = barCategoryGap
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .symbolPosition(symbolPosition):

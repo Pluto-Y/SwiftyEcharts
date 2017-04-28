@@ -30,7 +30,7 @@ extension LineSerie {
         
         public var name: String?
         public var value: Float?
-        public var symbol: Symbol?
+        public var symbol: OneOrMore<Symbol>?
         public var symbolSize: Jsonable?
         public var symbolRotate: Float?
         public var symbolOffset: Point?
@@ -59,7 +59,7 @@ extension LineSerieData: Enumable {
             case let .value(value):
                 self.value = value
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .symbolRotate(symbolRotate):
@@ -121,7 +121,7 @@ public final class LineSerie: Symbolized, Animatable, Zable {
     /// 使用的极坐标系的 index，在单个图表实例中存在多个极坐标系的时候有用。
     public var polarIndex: UInt?
     // MARK: Symbolized
-    public var symbol: Symbol?
+    public var symbol: OneOrMore<Symbol>?
     public var symbolSize: Jsonable?
     public var symbolRotate: Float?
     public var symbolOffset: Point?
@@ -350,7 +350,7 @@ extension LineSerie: Enumable {
             case let .polarIndex(polarIndex):
                 self.polarIndex = polarIndex
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .symbolRotate(symbolRotate):

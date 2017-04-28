@@ -13,7 +13,7 @@ public final class MapOptions {
     // MARK: 模拟迁徙
     /// 地址: http://echarts.baidu.com/demo.html#geo-lines
     static func geoLinesOption() -> Option {
-        let geoCoordMap: [String: Jsonable] = ["上海": [121.4648,31.2891],
+        let geoCoordMap: [String: [Double]] = ["上海": [121.4648,31.2891],
                                                "东莞": [113.8953,22.901],
                                                "东营": [118.7073,37.5513],
                                                "中山": [113.4229,22.478],
@@ -176,10 +176,11 @@ public final class MapOptions {
                 let dataItem = data[i]
                 guard let fromCoord = geoCoordMap[(dataItem[0]["name"] as! String)] else { continue }
                 guard let toCoord = geoCoordMap[(dataItem[1]["name"] as! String)] else { continue }
-                res.append(["formName": (dataItem[0]["name"] as! String)])
-                res.append(["toName": (dataItem[1]["name"] as! String)])
-                res.append(["coords": [fromCoord, toCoord]])
-                
+                res.append([
+                    "formName": (dataItem[0]["name"] as! String),
+                    "toName": (dataItem[1]["name"] as! String),
+                    "coords": [fromCoord, toCoord]
+                    ])
             }
             return res
         }
@@ -190,7 +191,7 @@ public final class MapOptions {
         for i in 0..<datas.count {
             let item = datas[i]
             let convertDatas: [[[String: Jsonable]]] = item[1] as! [[[String: Jsonable]]]
-            let serieData: [Jsonable] = convertData(convertDatas).map { $0 as! Jsonable }
+            let serieData: [Jsonable] = convertData(convertDatas).map { $0 as Jsonable }
             series.append(LinesSerie(
                 .name("\(item[0]) Top10"),
                 .zlevel(1),
@@ -213,80 +214,96 @@ public final class MapOptions {
             series.append(LinesSerie(
                 .name("\(item[0]) Top10"),
                 .zlevel(2),
-//                .symbol()
+                .symbols([.none, .arrow]),
+                .symbolSize(10),
                 .effect(LinesSerie.Effect(
                     .show(true),
                     .period(6),
-                    .trailLength(0.7),
-                    .color("#fff"),
-                    .symbolSize(3)
+                    .trailLength(0),
+                    .symbol(.path(planePath)),
+                    .symbolSize(15)
                     )),
                 .lineStyle(EmphasisLineStyle(
                     .normal(LineStyle(
                         .color(color[i]),
-                        .width(0)
+                        .width(0),
+                        .opacity(0.6)
                         //                        .curveness // FIXME: 缺少
                         ))
                     )),
                 .data(serieData)
                 ))
+            series.append(EffectScatterSerie(
+                .name("\(item[0]) Top10"),
+                .coordinateSystem(.geo),
+                .zlevel(2),
+                .rippleEffect(EffectScatterSerie.RippleEffect(
+                    .brushType(.stroke)
+                    )),
+                .label(FormattedLabel(
+                    .normal(FormattedLabelStyle(
+                        .show(true),
+                        .position(.right),
+                        .formatter(.string("{b}"))
+                        ))
+                    )),
+                .symbolSize("function (val) {return val[2] / 8;}"),
+                .itemStyle(ItemStyle(
+                    .normal(CommonItemStyleContent(
+                        .color(color[i])
+                        ))
+                    )),
+                .data(convertDatas.map { dataItem in
+                    let name = dataItem[1]["name"] as! String
+                    var value = geoCoordMap[name]!.map { $0 as Jsonable }
+                    value.appendContentsOf([(dataItem[1] as Jsonable)])
+                    let result: [String: Jsonable] = [ "name": name, "value": value ]
+                    return  result as Jsonable
+                    })
+                ))
         }
-//        [].forEach(function (item, i) {
-//            series.push({
-//                    name: item[0] + " Top10",
-//                    type: "lines",
-//                    zlevel: 2,
-//                    symbol: ["none", "arrow"],
-//                    symbolSize: 10,
-//                    effect: {
-//                        show: true,
-//                        period: 6,
-//                        trailLength: 0,
-//                        symbol: planePath,
-//                        symbolSize: 15
-//                    },
-//                    lineStyle: {
-//                        normal: {
-//                            color: color[i],
-//                            width: 1,
-//                            opacity: 0.6,
-//                            curveness: 0.2
-//                        }
-//                    },
-//                    data: convertData(item[1])
-//                },
-//                {
-//                    name: item[0] + " Top10",
-//                    type: "effectScatter",
-//                    coordinateSystem: "geo",
-//                    zlevel: 2,
-//                    rippleEffect: {
-//                        brushType: "stroke"
-//                    },
-//                    label: {
-//                        normal: {
-//                            show: true,
-//                            position: "right",
-//                            formatter: "{b}"
-//                        }
-//                    },
-//                    symbolSize: function (val) {
-//                        return val[2] / 8;
-//                    },
-//                    itemStyle: {
-//                        normal: {
-//                            color: color[i]
-//                        }
-//                    },
-//                    data: item[1].map(function (dataItem) {
-//                    return {
-//                    name: dataItem[1].name,
-//                    value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
-//                    };
-//                    })
-//            });
-//            });
         return Option(
+            .backgroundColor("#404a59"),
+            .title(Title(
+                .text("模拟迁移"),
+                .subtext("数据纯属虚构"),
+                .left(.center),
+                .textStyle(TextStyle(
+                    .color("#fff")
+                    ))
+                )),
+            .tooltip(Tooltip(
+                .trigger(.item)
+                )),
+            .legend(Legend(
+                .orient(.vertical),
+                .top(.bottom),
+                .left(.right),
+                .data(["北京 Top10", "上海 Top10", "广州 Top10"]),
+                .textStyle(TextStyle(
+                    .color("#fff")
+                    )),
+                .selectedMode(.single)
+                )),
+            .geo(Geo(
+                .map("china"),
+                .label(FormattedLabel(
+                    .emphasis(FormattedLabelStyle(
+                        .show(false)
+                        ))
+                    )),
+                .roam(true),
+                .itemStyle(ItemStyle(
+                    .normal(CommonItemStyleContent(
+                        //                    .areaColor // FIXME: 缺少 areaColor
+                        .borderColor("#404a59")
+                        )),
+                    .emphasis(CommonItemStyleContent(
+                        //                    .areaColor // FIXME: 缺少 areaColor
+                        ))
+                    ))
+                )),
+            .series(series)
         )
     }
     

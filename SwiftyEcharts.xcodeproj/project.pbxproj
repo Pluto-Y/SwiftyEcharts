@@ -266,6 +266,7 @@
 		6FE2DD321EAE56290028037A /* LineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2DD311EAE56290028037A /* LineSpec.swift */; };
 		6FE2DD341EB0F6EE0028037A /* FormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2DD331EB0F6EE0028037A /* FormatterSpec.swift */; };
 		6FE45D501E6F092500E9083D /* GaugesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE45D4F1E6F092500E9083D /* GaugesController.swift */; };
+		6FE8C1D41EB5AB57007BE7F3 /* LineAirline.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FE8C1D31EB5AB57007BE7F3 /* LineAirline.json */; };
 		6FEC7D191E5376F9003A88D7 /* PercentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D181E5376F9003A88D7 /* PercentSpec.swift */; };
 		6FEC7D1B1E549487003A88D7 /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1A1E549487003A88D7 /* Pair.swift */; };
 		6FEC7D1D1E54996B003A88D7 /* PairSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1C1E54996B003A88D7 /* PairSpec.swift */; };
@@ -465,6 +466,7 @@
 		6FE2DD311EAE56290028037A /* LineSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSpec.swift; sourceTree = "<group>"; };
 		6FE2DD331EB0F6EE0028037A /* FormatterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterSpec.swift; sourceTree = "<group>"; };
 		6FE45D4F1E6F092500E9083D /* GaugesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaugesController.swift; sourceTree = "<group>"; };
+		6FE8C1D31EB5AB57007BE7F3 /* LineAirline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LineAirline.json; sourceTree = "<group>"; };
 		6FEC7D181E5376F9003A88D7 /* PercentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentSpec.swift; sourceTree = "<group>"; };
 		6FEC7D1A1E549487003A88D7 /* Pair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
 		6FEC7D1C1E54996B003A88D7 /* PairSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairSpec.swift; sourceTree = "<group>"; };
@@ -531,6 +533,7 @@
 				6F9DF55A1E9BE90C00577899 /* ConfidenceBandData.plist */,
 				5427F07C1E2C8F4000CE20E5 /* LineOptions.swift */,
 				6F9DF5541E9BC37700577899 /* BeijingAQIDatas.plist */,
+				6FE8C1D31EB5AB57007BE7F3 /* LineAirline.json */,
 				5427F07E1E2C94FF00CE20E5 /* ScatterOptions.swift */,
 				5427F0801E2C953700CE20E5 /* BarOptions.swift */,
 				5427F0821E2C95CF00CE20E5 /* MapOptions.swift */,
@@ -1099,6 +1102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F3FA5771E58919E00A84E1D /* AreaRainfallDatas.plist in Resources */,
+				6FE8C1D41EB5AB57007BE7F3 /* LineAirline.json in Resources */,
 				6F9DF55B1E9BE90C00577899 /* ConfidenceBandData.plist in Resources */,
 				6F9DF5551E9BC37700577899 /* BeijingAQIDatas.plist in Resources */,
 				6F9B70EA1DE808E600406B55 /* LaunchScreen.storyboard in Resources */,

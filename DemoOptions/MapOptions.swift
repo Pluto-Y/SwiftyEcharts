@@ -7,6 +7,7 @@
 //
 
 import SwiftyEcharts
+import Foundation
 
 public final class MapOptions {
     
@@ -310,8 +311,74 @@ public final class MapOptions {
     // MARK: 65k+ 飞机航线
     /// 地址: http://echarts.baidu.com/demo.html#lines-airline
     static func linesAirlineOption() -> Option {
-        // TODO: 添加实现
-        return Option(
+        guard let jsonUrl = Bundle.main.url(forResource: "LineAirline", withExtension: "json") else {
+            return Option()
+        }
+        
+        guard let jsonData = try? Data(contentsOf: jsonUrl) else {
+            return Option()
+        }
+        
+        guard let jsonObj = try? JSONSerialization.jsonObject(with: jsonData, options: []) else {
+            return Option()
+        }
+        
+        let data = jsonObj as! [String : Any]
+        let airports = data["airports"] as! [[Any]]
+        let getAirportCoord: (Int) -> [Jsonable] = { idx in
+            let dataObj = airports[idx]
+            return [
+                (dataObj[3] as? Jsonable) ?? ((dataObj[3] as! Float) as Jsonable),
+                (dataObj[4] as? Jsonable) ?? ((dataObj[4] as! Float) as Jsonable)
+            ]
+        }
+        
+        let routeDatas: [[Any]] = data["routes"] as! [[Any]]
+        var routes: [[[Jsonable]]] = []
+        for route in routeDatas {
+            routes.append([getAirportCoord(route[1] as! Int), getAirportCoord(route[2] as! Int)])
+        }
+        
+        return Option( // FIXME: 添加 showLoading 和  hideLoading
+            .title(Title(
+                .text("World Flights"),
+                .left(.center),
+                .textStyle(TextStyle(
+                    .color("#eee")
+                ))
+            )),
+            .backgroundColor("#003"),
+//            .tooltip(Tooltip(
+//                .formatter(.function("var routes = \()")) // FIXME: 缺少 formatter
+//            )),
+            .geo(Geo(
+                .map("world"),
+                .left(.value(0)),
+                .right(.value(0)),
+                .silent(true),
+                .itemStyle(ItemStyle(
+                    .normal(ItemStyle.Style(
+                        .borderColor("#003"),
+                        .color("#005")
+                    ))
+                ))
+            )),
+            .series([
+                LinesSerie(
+                    .coordinateSystem(.geo),
+                    .data(routes),
+                    .large(true),
+                    .largeThreshold(100),
+                    .lineStyle(EmphasisLineStyle(
+                        .normal(EmphasisLineStyle.Style(
+                            .opacity(0.05),
+                            .width(0.5),
+                            .curveness(0.3)
+                        ))
+                    ))
+                )
+                ]),
+            .blendMode(.lighter)
         )
     }
     

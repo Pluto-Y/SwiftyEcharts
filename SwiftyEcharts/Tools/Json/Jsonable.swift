@@ -98,6 +98,12 @@ extension String: Jsonable {
     }
 }
 
+extension NSNull: Jsonable {
+    public var jsonString: String {
+        return "null"
+    }
+}
+
 extension Optional: CustomStringConvertible {
     
     public var jsonString: String {

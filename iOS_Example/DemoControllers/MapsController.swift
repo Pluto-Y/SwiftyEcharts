@@ -25,7 +25,21 @@ class MapsController: BaseDemoController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
+        if indexPath.row == 1 {
+            echartsView.showLoading()
+            DispatchQueue.global().async {
+                
+                let tmpOption = self.optionClosures[indexPath.row]()
+                
+                DispatchQueue.main.sync {
+                    self.option = tmpOption
+                    self.echartsView.hideLoading()
+                }
+            }
+        } else {
+            option = optionClosures[indexPath.row]()
+        }
+        
         if timer != nil {
             timer?.invalidate()
             timer = nil

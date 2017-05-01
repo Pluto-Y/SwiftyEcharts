@@ -12,9 +12,9 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     
     open var option: Option?
     
-    
     fileprivate var htmlContents: String = ""
     fileprivate var bundlePath: String = ""
+    fileprivate var loadFinsih = false
 
     public convenience init() {
         self.init(frame: CGRect.zero, configuration: WKWebViewConfiguration())
@@ -32,8 +32,56 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     }
     
     // MAKR: - Public Functions
+    open func showLoading() {
+        if !loadFinsih { // 如果还没页面加载完则等待 0.05 秒后刷新
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                self.showLoading()
+            }
+            return
+        }
+        
+        self.callJsMethod("showLoading()")
+    }
+    
+    open func hideLoading() {
+        self.callJsMethod("hideLoading()")
+    }
+    
+    open func reset() {
+        loadFinsih = false
+        loadHTMLString(htmlContents, baseURL: URL(fileURLWithPath: bundlePath))
+    }
+    
     open func loadEcharts() {
-        self.loadHTMLString(htmlContents, baseURL: URL(fileURLWithPath: bundlePath))
+        if !loadFinsih { // 如果还没页面加载完则等待 0.05 秒后刷新
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                self.loadEcharts()
+            }
+            return
+        }
+        guard let option = option else {
+            printWarning("The option is nil")
+            return;
+        }
+        JsCache.removeAll() // 清空之前缓存的方法，避免出现重复的情况， 在调用 option.jsonString 会重新生成
+        let optionJson = option.jsonString
+        
+        // 定义Js与Clousure之间的匹配关系
+        // 必须要在option.jsonString调用过一次之后
+        // 并且需要在调用loadEcharts之前，这样才能建立关系
+        for function in JsCache.allJsStrings() {
+            printInfo(function)
+            self.callJsMethod(function)
+        }
+        
+        let js = "loadEcharts('\(optionJson.replacingOccurrences(of: "\\n", with: "<br>"))')"
+        printInfo(js)
+        callJsMethod(js.replacingOccurrences(of: "\n", with: "\\n"))
+    }
+    
+    open func loadEcharts(with option: Option) {
+        self.option = option
+        loadEcharts()
     }
     
     /// 设置图表实例的配置项以及数据，万能接口，所有参数和数据的修改都可以通过setOption完成，ECharts 会合并新的参数和数据，然后刷新图表。如果开启动画的话，ECharts 找到两组数据之间的差异然后通过合适的动画去表现数据的变化。
@@ -104,6 +152,7 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
         scrollView.bounces = false
         uiDelegate = self
         navigationDelegate = self
+        reset()
         
     }
     
@@ -122,29 +171,9 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     // MARK: - Delegate
     // MARK: UIWebViewDelegate
     open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        
-        guard let option = option else {
-            printWarning("The option is nil")
-            self.callJsMethod("initEchartView")
-            return;
-        }
+        self.callJsMethod("initEchartView()")
         resizeDiv()
-        
-        JsCache.removeAll() // 清空之前缓存的方法，避免出现重复的情况， 在调用 option.jsonString 会重新生成
-        let optionJson = option.jsonString
-        
-        // 定义Js与Clousure之间的匹配关系
-        // 必须要在option.jsonString调用过一次之后
-        // 并且需要在调用loadEcharts之前，这样才能建立关系
-        for function in JsCache.allJsStrings() {
-            printInfo(function)
-            self.callJsMethod(function)
-        }
-        
-        let js = "loadEcharts('\(optionJson.replacingOccurrences(of: "\\n", with: "<br>"))')"
-        printInfo(js)
-        callJsMethod(js.replacingOccurrences(of: "\n", with: "\\n"))
-        
+        loadFinsih = true
     }
     
     open func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {

@@ -7,6 +7,20 @@
 //
 
 public final class Option: Textful, Animatable {
+    
+    /// 图形的混合模式，不同的混合模式见 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
+    ///
+    /// - sourceOver: 默认为 'source-over'。 支持每个系列单独设置。
+    /// - lighter: 'lighter' 也是比较常见的一种混合模式，该模式下图形数量集中的区域会颜色叠加成高亮度的颜色（白色）。常常能起到突出该区域的效果。
+    public enum BlendMode: String, Jsonable {
+        case sourceOver = "source-over"
+        case lighter = "lighter"
+        
+        public var jsonString: String {
+            return self.rawValue.jsonString
+        }
+    }
+    
     public var title: Title?
     public var legend: Legend?
     public var grid: OneOrMore<Grid>?
@@ -72,12 +86,15 @@ public final class Option: Textful, Animatable {
     ///     }
     public var animationDelayUpdate: Time?
     
+    /// 图形的混合模式
+    public var blendMode: BlendMode?
+    
     public init() { }
 }
 
 extension Option: Enumable {
     public enum Enums {
-        case title(Title), legend(Legend), grid(Grid), grids([Grid]), xAxis(Axis), xAxises([Axis]), yAxis(Axis), yAxises([Axis]), polar(Polar), radiusAxis([RadiusAxis]), angleAxis([AngleAxis]), radar(Radar), radars([Radar]), dataZoom([DataZoom]), visualMap(VisualMap), tooltip(Tooltip), toolbox(Toolbox), brush(Brush), geo(Geo), parallel(Parallel), parallelAxis([ParallelAxis]), singleAxis(SingleAxis), singleAxises([SingleAxis]), timeline(Timeline), graphic([Graphic]), series([Serie]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case title(Title), legend(Legend), grid(Grid), grids([Grid]), xAxis(Axis), xAxises([Axis]), yAxis(Axis), yAxises([Axis]), polar(Polar), radiusAxis([RadiusAxis]), angleAxis([AngleAxis]), radar(Radar), radars([Radar]), dataZoom([DataZoom]), visualMap(VisualMap), tooltip(Tooltip), toolbox(Toolbox), brush(Brush), geo(Geo), parallel(Parallel), parallelAxis([ParallelAxis]), singleAxis(SingleAxis), singleAxises([SingleAxis]), timeline(Timeline), graphic([Graphic]), series([Serie]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), blendMode(BlendMode)
     }
     
     public typealias ContentEnum = Enums
@@ -160,6 +177,8 @@ extension Option: Enumable {
                 self.animationEasingUpdate = animationEasingUpdate
             case let .animationDelayUpdate(animationDelayUpdate):
                 self.animationDelayUpdate = animationDelayUpdate
+            case let .blendMode(blendMode):
+                self.blendMode = blendMode
             }
         }
     }
@@ -199,5 +218,6 @@ extension Option: Mappable {
         map["animationDurationUpdate"] = animationDurationUpdate
         map["animationEasingUpdate"] = animationEasingUpdate
         map["animationDelayUpdate"] = animationDelayUpdate
+        map["blendMode"] = blendMode
     }
 }

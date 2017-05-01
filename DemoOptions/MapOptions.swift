@@ -205,8 +205,8 @@ public final class MapOptions {
                 .lineStyle(EmphasisLineStyle(
                     .normal(LineStyle(
                         .color(color[i]),
-                        .width(0)
-//                        .curveness // FIXME: 缺少
+                        .width(0),
+                        .curveness(0.2)
                         ))
                     )),
                 .data(serieData)
@@ -227,8 +227,8 @@ public final class MapOptions {
                     .normal(LineStyle(
                         .color(color[i]),
                         .width(0),
-                        .opacity(0.6)
-                        //                        .curveness // FIXME: 缺少
+                        .opacity(0.6),
+                        .curveness(0.2)
                         ))
                     )),
                 .data(serieData)

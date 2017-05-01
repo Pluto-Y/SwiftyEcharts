@@ -66,6 +66,14 @@
                 myChart = echarts.init(document.getElementById('main'), initParams);
             }
         }
+    
+        function showLoading() {
+            myChart.showLoading()
+        }
+    
+        function hideLoading() {
+            myChart.hideLoading()
+        }
 
         // Load the echarts view for the option and initParams
         function loadEcharts(echartJson, initParams) {

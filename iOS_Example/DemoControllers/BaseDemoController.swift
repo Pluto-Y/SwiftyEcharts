@@ -66,6 +66,7 @@ class BaseDemoController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        echartsView.reset()
         option = optionClosures[indexPath.row]()
     }
     

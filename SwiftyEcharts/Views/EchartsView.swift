@@ -12,9 +12,9 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     
     public var option: Option?
     
-    
     private var htmlContents: String = ""
     private var bundlePath: String = ""
+    private var loadFinsih = false
 
     public convenience init() {
         self.init(frame: CGRect.zero, configuration: WKWebViewConfiguration())
@@ -32,8 +32,56 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     }
     
     // MAKR: - Public Functions
+    public func showLoading() {
+        if !loadFinsih { // 如果还没页面加载完则等待 0.05 秒后刷新
+            dispatch_after(UInt64(Double(NSEC_PER_SEC) * 0.05), dispatch_get_main_queue(), { 
+                self.showLoading()
+            })
+            return
+        }
+        
+        self.callJsMethod("showLoading()")
+    }
+    
+    public func hideLoading() {
+        self.callJsMethod("hideLoading()")
+    }
+    
+    public func reset() {
+        loadFinsih = false
+        loadHTMLString(htmlContents, baseURL: NSURL(fileURLWithPath: bundlePath))
+    }
+    
     public func loadEcharts() {
-        self.loadHTMLString(htmlContents, baseURL: NSURL(fileURLWithPath: bundlePath))
+        if !loadFinsih { // 如果还没页面加载完则等待 0.05 秒后刷新
+            dispatch_after(UInt64(Double(NSEC_PER_SEC) * 0.05), dispatch_get_main_queue(), {
+                self.loadEcharts()
+            })
+            return
+        }
+        guard let option = option else {
+            printWarning("The option is nil")
+            return;
+        }
+        JsCache.removeAll() // 清空之前缓存的方法，避免出现重复的情况， 在调用 option.jsonString 会重新生成
+        let optionJson = option.jsonString
+        
+        // 定义Js与Clousure之间的匹配关系
+        // 必须要在option.jsonString调用过一次之后
+        // 并且需要在调用loadEcharts之前，这样才能建立关系
+        for function in JsCache.allJsStrings() {
+            printInfo(function)
+            self.callJsMethod(function)
+        }
+        
+        let js = "loadEcharts('\(optionJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))')"
+        printInfo(js)
+        callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
+    }
+    
+    public func loadEcharts(with option: Option) {
+        self.option = option
+        loadEcharts()
     }
     
     /// 设置图表实例的配置项以及数据，万能接口，所有参数和数据的修改都可以通过setOption完成，ECharts 会合并新的参数和数据，然后刷新图表。如果开启动画的话，ECharts 找到两组数据之间的差异然后通过合适的动画去表现数据的变化。
@@ -104,6 +152,7 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
         scrollView.bounces = false
         UIDelegate = self
         navigationDelegate = self
+        reset()
         
     }
     
@@ -122,32 +171,11 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     // MARK: - Delegate
     // MARK: UIWebViewDelegate
     public func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-        
-        guard let option = option else {
-            printWarning("The option is nil")
-            self.callJsMethod("initEchartView")
-            return;
-        }
+        self.callJsMethod("initEchartView()")
         resizeDiv()
-        
-        JsCache.removeAll() // 清空之前缓存的方法，避免出现重复的情况， 在调用 option.jsonString 会重新生成
-        let optionJson = option.jsonString
-        
-        // 定义Js与Clousure之间的匹配关系
-        // 必须要在option.jsonString调用过一次之后
-        // 并且需要在调用loadEcharts之前，这样才能建立关系
-        for function in JsCache.allJsStrings() {
-            printInfo(function)
-            self.callJsMethod(function)
-        }
-        
-        
-        let js = "loadEcharts('\(optionJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))')"
-        printInfo(js)
-        callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
-        
+        loadFinsih = true
     }
-    
+
     public func webView(webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: () -> Void) {
         printInfo(message)
         completionHandler()
@@ -157,4 +185,5 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     public func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
         printInfo("name:\(message.name), body:\(message.body)")
     }
+
 }

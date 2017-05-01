@@ -16,7 +16,7 @@ class MapsController: BaseDemoController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menus = ["模拟迁徙(暂缺)", "65k+ 飞机航线(暂缺)", "北京公交路线 - 百度地图(暂缺)", "北京公交路线 - 线特效(暂缺)", "杭州热门步行路线 - 百度地图(暂缺)", "iPhone销量", "Map China", "香港18区人口密度 （2011）(暂缺)", "Map Locate(暂缺)", "34 省切换查看(暂缺)", "USA Population Estimates (2012)(暂缺)", "World Population (2010)(暂缺)", "map and scatter share a geo(暂缺)", "Map World"]
+        menus = ["模拟迁徙", "65k+ 飞机航线", "北京公交路线 - 百度地图(暂缺)", "北京公交路线 - 线特效(暂缺)", "杭州热门步行路线 - 百度地图(暂缺)", "iPhone销量", "Map China", "香港18区人口密度 （2011）(暂缺)", "Map Locate(暂缺)", "34 省切换查看(暂缺)", "USA Population Estimates (2012)(暂缺)", "World Population (2010)(暂缺)", "map and scatter share a geo(暂缺)", "Map World"]
         
         optionClosures = [MapOptions.geoLinesOption, MapOptions.linesAirlineOption, MapOptions.linesBmapBusOption, MapOptions.linesBmapEffectOption, MapOptions.linesBmapOption, MapOptions.mapChinaDataRangeOption, MapOptions.mapChinaOption, MapOptions.mapHKOption, MapOptions.mapLocateOption, MapOptions.mapProvinceOption, MapOptions.mapUsaOption, MapOptions.mapWorldDataRangeOption, MapOptions.geoMapScatterOption, MapOptions.mapWorldOption]
         
@@ -25,7 +25,20 @@ class MapsController: BaseDemoController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+        if indexPath.row == 1 {
+            echartsView.showLoading()
+            dispatch_async(dispatch_get_global_queue(0, 0), { 
+                let tmpOption = self.optionClosures[indexPath.row]()
+                
+                dispatch_sync(dispatch_get_main_queue(), { 
+                    self.option = tmpOption
+                    self.echartsView.hideLoading()
+                })
+            })
+        } else {
+            option = optionClosures[indexPath.row]()
+        }
+        
         if timer != nil {
             timer?.invalidate()
             timer = nil
@@ -56,15 +69,15 @@ class MapsController: BaseDemoController {
                 "coord": [113.280637, 23.839463714285714]
             ]]
         let tmpOpt = self.option
-        let serie = tmpOpt.series![0] as! MapSerie
+        let serie = tmpOpt?.series![0] as! MapSerie
         serie.center = location[currLoc]["coord"] as? Position
         serie.zoom = 4
         let data: [String: Jsonable] = ["name": location[currLoc]["name"]!, "selected": true]
         serie.data = [data]
         serie.animationDurationUpdate = 1000.0
         serie.animationEasingUpdate = .cubicInOut
-        tmpOpt.series = [serie]
-        echartsView.refreshEcharts(tmpOpt)
+        tmpOpt!.series = [serie]
+        echartsView.refreshEcharts(tmpOpt!)
         print(serie.jsonString)
         currLoc = (currLoc + 1) % location.count
     }

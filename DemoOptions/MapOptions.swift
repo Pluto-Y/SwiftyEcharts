@@ -7,6 +7,7 @@
 //
 
 import SwiftyEcharts
+import Foundation
 
 public final class MapOptions {
     
@@ -205,8 +206,8 @@ public final class MapOptions {
                 .lineStyle(EmphasisLineStyle(
                     .normal(LineStyle(
                         .color(color[i]),
-                        .width(0)
-//                        .curveness // FIXME: 缺少
+                        .width(0),
+                        .curveness(0.2)
                         ))
                     )),
                 .data(serieData)
@@ -227,8 +228,8 @@ public final class MapOptions {
                     .normal(LineStyle(
                         .color(color[i]),
                         .width(0),
-                        .opacity(0.6)
-                        //                        .curveness // FIXME: 缺少
+                        .opacity(0.6),
+                        .curveness(0.2)
                         ))
                     )),
                 .data(serieData)
@@ -256,7 +257,7 @@ public final class MapOptions {
                 .data(convertDatas.map { dataItem in
                     let name = dataItem[1]["name"] as! String
                     var value = geoCoordMap[name]!.map { $0 as Jsonable }
-                    value.appendContentsOf([(dataItem[1] as Jsonable)])
+                    value.append([(dataItem[1] as Jsonable)])
                     let result: [String: Jsonable] = [ "name": name, "value": value ]
                     return  result as Jsonable
                     })
@@ -310,8 +311,75 @@ public final class MapOptions {
     // MARK: 65k+ 飞机航线
     /// 地址: http://echarts.baidu.com/demo.html#lines-airline
     static func linesAirlineOption() -> Option {
-        // TODO: 添加实现
-        return Option(
+        guard let jsonUrl = NSBundle.mainBundle().URLForResource("LineAirline", withExtension: "json") else {
+            return Option()
+        }
+        
+        guard let jsonData = NSData(contentsOfURL: jsonUrl) else {
+            return Option()
+        }
+        
+        guard let jsonObj = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: []) else {
+            return Option()
+        }
+        
+        let data = jsonObj as! NSDictionary
+        
+        let airports = data["airports"] as! NSArray
+        let getAirportCoord: (Int) -> [Jsonable] = { idx in
+            let dataObj = airports[idx]
+            return [
+                (dataObj[3] as? Jsonable) ?? ((dataObj[3] as! Float) as Jsonable),
+                (dataObj[4] as? Jsonable) ?? ((dataObj[4] as! Float) as Jsonable)
+            ]
+        }
+        
+        let routeDatas: [NSArray] = (data["routes"] as! NSArray).map { return $0 as! NSArray }
+        var routes: [[[Jsonable]]] = []
+        for route in routeDatas {
+            routes.append([getAirportCoord(route[1] as! Int), getAirportCoord(route[2] as! Int)])
+        }
+        
+        return Option( // FIXME: 添加 showLoading 和  hideLoading
+            .title(Title(
+                .text("World Flights"),
+                .left(.center),
+                .textStyle(TextStyle(
+                    .color("#eee")
+                ))
+            )),
+            .backgroundColor("#003"),
+//            .tooltip(Tooltip(
+//                .formatter(.function("var routes = \()")) // FIXME: 缺少 formatter
+//            )),
+            .geo(Geo(
+                .map("world"),
+                .left(.value(0)),
+                .right(.value(0)),
+                .silent(true),
+                .itemStyle(ItemStyle(
+                    .normal(ItemStyle.Style(
+                        .borderColor("#003"),
+                        .color("#005")
+                    ))
+                ))
+            )),
+            .series([
+                LinesSerie(
+                    .coordinateSystem(.geo),
+                    .data(routes.map { return $0 as Jsonable }),
+                    .large(true),
+                    .largeThreshold(100),
+                    .lineStyle(EmphasisLineStyle(
+                        .normal(EmphasisLineStyle.Style(
+                            .opacity(0.05),
+                            .width(0.5),
+                            .curveness(0.3)
+                        ))
+                    ))
+                )
+                ]),
+            .blendMode(.lighter)
         )
     }
     

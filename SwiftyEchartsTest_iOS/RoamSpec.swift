@@ -14,9 +14,9 @@ class RoamSpec: QuickSpec {
     
     override func spec() {
         describe("For Roam jsonString") {
+            let enableRoam = Roam.enable
+            let disableRoam = Roam.disable
             it(" needs to check the jsonString for the Roam") {
-                let enableRoam = Roam.enable
-                let disableRoam = Roam.disable
                 let scaleRoam = Roam.scale
                 let zoomRoam = Roam.zoom
                 let moveRoam = Roam.move
@@ -29,6 +29,14 @@ class RoamSpec: QuickSpec {
                 expect(zoomRoam.jsonString).to(equal("zoom".jsonString))
                 expect(moveRoam.jsonString).to(equal("move".jsonString))
                 expect(panRoam.jsonString).to(equal("pan".jsonString))
+            }
+            
+            it(" needs to check constructor for Bool") {
+                let trueRoam: Roam = true
+                let falseRoam: Roam = false
+                
+                expect(enableRoam.jsonString).to(equal(trueRoam.jsonString))
+                expect(disableRoam.jsonString).to(equal(falseRoam.jsonString))
             }
         }
     }

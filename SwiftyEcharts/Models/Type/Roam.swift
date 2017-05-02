@@ -13,13 +13,26 @@ public enum Roam: String, Jsonable {
     case zoom = "zoom"
     case move = "move"
     case pan = "pan"
+    case null = "null"
     
     public var jsonString: String {
         switch self {
-        case .enable, .disable:
+        case .enable, .disable, .null:
             return "\(self.rawValue)"
         default:
             return self.rawValue.jsonString
         }
     }
+}
+
+extension Roam: BooleanLiteralConvertible {
+    
+    public init(booleanLiteral value: Bool) {
+        if value {
+            self = .enable
+        } else {
+            self = .disable
+        }
+    }
+    
 }

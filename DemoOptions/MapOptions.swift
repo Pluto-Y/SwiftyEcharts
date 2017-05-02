@@ -420,7 +420,7 @@ public final class MapOptions {
         
         let iphone3Data = serieTemplate
         iphone3Data.name = "iphone3"
-        iphone3Data.roam = .disable
+        iphone3Data.roam = false
         iphone3Data.data = [
             MapSerieData(.name("北京"), .value(Float(arc4random_uniform(1000)))),
             MapSerieData(.name("天津"), .value(Float(arc4random_uniform(1000)))),

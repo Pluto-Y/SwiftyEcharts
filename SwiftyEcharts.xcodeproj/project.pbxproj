@@ -532,6 +532,8 @@
 		5427F07B1E2C8F3100CE20E5 /* DemoOptions */ = {
 			isa = PBXGroup;
 			children = (
+				6FE8C1D91EB7806B007BE7F3 /* LineAirline.json */,
+				6FE8C1DA1EB7806B007BE7F3 /* LinesBus.json */,
 				6F9DF55A1E9BE90C00577899 /* ConfidenceBandData.plist */,
 				5427F07C1E2C8F4000CE20E5 /* LineOptions.swift */,
 				6F9DF5541E9BC37700577899 /* BeijingAQIDatas.plist */,
@@ -1107,10 +1109,12 @@
 				6F3FA5771E58919E00A84E1D /* AreaRainfallDatas.plist in Resources */,
 				6FE8C1D41EB5AB57007BE7F3 /* LineAirline.json in Resources */,
 				6F9DF55B1E9BE90C00577899 /* ConfidenceBandData.plist in Resources */,
+				6FE8C1DC1EB7806B007BE7F3 /* LinesBus.json in Resources */,
 				6F9DF5551E9BC37700577899 /* BeijingAQIDatas.plist in Resources */,
 				6FE8C1D61EB6E52D007BE7F3 /* LinesBus.json in Resources */,
 				6F9B70EA1DE808E600406B55 /* LaunchScreen.storyboard in Resources */,
 				6F9B70E71DE808E600406B55 /* Assets.xcassets in Resources */,
+				6FE8C1DB1EB7806B007BE7F3 /* LineAirline.json in Resources */,
 				6F9B70E51DE808E600406B55 /* Main.storyboard in Resources */,
 				54371F0C1E8A3C7C008C3D22 /* ThemeRiverBasicData.plist in Resources */,
 			);

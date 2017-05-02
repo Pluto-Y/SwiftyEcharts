@@ -185,4 +185,5 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     open func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         print("name:\(message.name), body:\(message.body)")
     }
+
 }

@@ -35,7 +35,7 @@ public enum Roam: String, Jsonable {
 }
 
 // 通过 Bool 值能控制是否开启拖拽漫游
-extension Roam: BooleanLiteralConvertible {
+extension Roam: ExpressibleByBooleanLiteral {
     
     public init(booleanLiteral value: Bool) {
         if value {

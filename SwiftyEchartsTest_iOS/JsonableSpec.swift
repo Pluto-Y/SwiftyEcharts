@@ -65,6 +65,12 @@ class JsonableSpec: QuickSpec {
                 expect(dic.jsonString).to(equal("{\n\n}"))
             }
             
+            it("needs to check the NSNull") {
+                let nsnull = NSNull()
+                
+                expect(nsnull.jsonString).to(equal("null"))
+            }
+            
         }
     }
     

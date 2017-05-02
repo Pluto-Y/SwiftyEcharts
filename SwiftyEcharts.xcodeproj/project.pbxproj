@@ -102,6 +102,7 @@
 		6F9B70EF1DE809E700406B55 /* EchartsView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F9B70D71DE8070E00406B55 /* EchartsView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F9DF5551E9BC37700577899 /* BeijingAQIDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F9DF5541E9BC37700577899 /* BeijingAQIDatas.plist */; };
 		6F9DF55B1E9BE90C00577899 /* ConfidenceBandData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F9DF55A1E9BE90C00577899 /* ConfidenceBandData.plist */; };
+		6F9F90D51EB8C6B4005AB9FF /* RoamSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9F90D41EB8C6B4005AB9FF /* RoamSpec.swift */; };
 		6FA0B98A1E916EF5007D2AA2 /* PictorialBarSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA0B9891E916EF5007D2AA2 /* PictorialBarSerie.swift */; };
 		6FA24F721E2B7A0100E25002 /* Enumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA24F711E2B7A0100E25002 /* Enumable.swift */; };
 		6FA24F741E2BE0F900E25002 /* Toolbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA24F731E2BE0F900E25002 /* Toolbox.swift */; };
@@ -407,6 +408,7 @@
 		6F9B70EB1DE808E600406B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F9DF5541E9BC37700577899 /* BeijingAQIDatas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BeijingAQIDatas.plist; sourceTree = "<group>"; };
 		6F9DF55A1E9BE90C00577899 /* ConfidenceBandData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfidenceBandData.plist; sourceTree = "<group>"; };
+		6F9F90D41EB8C6B4005AB9FF /* RoamSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoamSpec.swift; sourceTree = "<group>"; };
 		6FA0B9891E916EF5007D2AA2 /* PictorialBarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PictorialBarSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FA24F711E2B7A0100E25002 /* Enumable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumable.swift; sourceTree = "<group>"; };
 		6FA24F731E2BE0F900E25002 /* Toolbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Toolbox.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -808,6 +810,7 @@
 				6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */,
 				6FE2DD311EAE56290028037A /* LineSpec.swift */,
 				6FE2DD331EB0F6EE0028037A /* FormatterSpec.swift */,
+				6F9F90D41EB8C6B4005AB9FF /* RoamSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1337,6 +1340,7 @@
 				6FE2DD321EAE56290028037A /* LineSpec.swift in Sources */,
 				6F4ACB481E1D258B00CE5FD5 /* JsonableSpec.swift in Sources */,
 				6FEF717E1E686EB700E1ED70 /* ColorSpec.swift in Sources */,
+				6F9F90D51EB8C6B4005AB9FF /* RoamSpec.swift in Sources */,
 				5408989D1E52EB6500A89BB0 /* LinSerieSpec.swift in Sources */,
 				6FEC7D191E5376F9003A88D7 /* PercentSpec.swift in Sources */,
 				6F999F211E82CA5C00D2490A /* AnimatableSpec.swift in Sources */,

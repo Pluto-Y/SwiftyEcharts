@@ -27,7 +27,7 @@ class PairSpec : QuickSpec {
                 let precisionFomatStr = String(format: "\"%%.%df%%%%\"", Percent.precision)
                 let percentJson = String(format: precisionFomatStr, percentValue)
                 
-                expect(twoElements.jsonString).to(equal("[\(floatValue), \(percentJson)]"))
+                expect(twoElements.jsonString).to(equal("[\(floatValue),\(percentJson)]"))
                 
                 let toMuchElements: Pair<LengthValue> = [3, 4, 5, 6%]
                 expect(toMuchElements.jsonString).to(equal("null"))

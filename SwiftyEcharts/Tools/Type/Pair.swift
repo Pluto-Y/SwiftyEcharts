@@ -38,7 +38,7 @@ public final class Pair<T>: ExpressibleByArrayLiteral {
 extension Pair: Jsonable {
     public var jsonString: String {
         if let first = self.first as? Jsonable, let second = self.second as? Jsonable {
-            return "[\(first.jsonString), \(second.jsonString)]"
+            return "[\(first.jsonString),\(second.jsonString)]"
         }
         return "null"
     }

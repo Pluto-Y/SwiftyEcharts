@@ -25,6 +25,23 @@ class BoundaryGapSpec: QuickSpec {
                 expect(rangeBoundaryGap.jsonString).to(equal("[\"20.00%\",\"20.00%\"]"))
             }
             
+            it(" needs to check the Bool Literal Constructor ") {
+                let trueBoundaryGap: BoundaryGap = true
+                let falseBoundaryGap: BoundaryGap = false
+                
+                expect(trueBoundaryGap.jsonString).to(equal(enableBoundaryGap.jsonString))
+                expect(falseBoundaryGap.jsonString).to(equal(disableBoundaryGap.jsonString))
+            }
+            
+            it(" needs to check the Array Literal Constructor ") {
+                let arrayBoundaryGap: BoundaryGap = [20%, 20%]
+                let arrayBoundaryGap2: BoundaryGap = [0.5, 23]
+                let rangeBoundaryGap2 = BoundaryGap.notCategory([0.5, 23])
+                
+                expect(arrayBoundaryGap.jsonString).to(equal(rangeBoundaryGap.jsonString))
+                expect(arrayBoundaryGap2.jsonString).to(equal(rangeBoundaryGap2.jsonString))
+            }
+            
         }
     }
 

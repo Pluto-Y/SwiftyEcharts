@@ -269,6 +269,7 @@
 		6FE2DD321EAE56290028037A /* LineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2DD311EAE56290028037A /* LineSpec.swift */; };
 		6FE2DD341EB0F6EE0028037A /* FormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2DD331EB0F6EE0028037A /* FormatterSpec.swift */; };
 		6FE45D501E6F092500E9083D /* GaugesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE45D4F1E6F092500E9083D /* GaugesController.swift */; };
+		6FE6683D1EBF77C1001B977B /* OrientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE6683C1EBF77C1001B977B /* OrientSpec.swift */; };
 		6FE8C1DB1EB7806B007BE7F3 /* LineAirline.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FE8C1D91EB7806B007BE7F3 /* LineAirline.json */; };
 		6FE8C1DC1EB7806B007BE7F3 /* LinesBus.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FE8C1DA1EB7806B007BE7F3 /* LinesBus.json */; };
 		6FEC7D191E5376F9003A88D7 /* PercentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D181E5376F9003A88D7 /* PercentSpec.swift */; };
@@ -473,6 +474,7 @@
 		6FE2DD311EAE56290028037A /* LineSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSpec.swift; sourceTree = "<group>"; };
 		6FE2DD331EB0F6EE0028037A /* FormatterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterSpec.swift; sourceTree = "<group>"; };
 		6FE45D4F1E6F092500E9083D /* GaugesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaugesController.swift; sourceTree = "<group>"; };
+		6FE6683C1EBF77C1001B977B /* OrientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrientSpec.swift; sourceTree = "<group>"; };
 		6FE8C1D91EB7806B007BE7F3 /* LineAirline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LineAirline.json; sourceTree = "<group>"; };
 		6FE8C1DA1EB7806B007BE7F3 /* LinesBus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LinesBus.json; sourceTree = "<group>"; };
 		6FEC7D181E5376F9003A88D7 /* PercentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentSpec.swift; sourceTree = "<group>"; };
@@ -795,6 +797,7 @@
 				6F9F90D41EB8C6B4005AB9FF /* RoamSpec.swift */,
 				6F9F90D81EBA242B005AB9FF /* SymbolSpec.swift */,
 				6F9F90DC1EBCD641005AB9FF /* BoundaryGapSpec.swift */,
+				6FE6683C1EBF77C1001B977B /* OrientSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1339,6 +1342,7 @@
 				6FE2DD321EAE56290028037A /* LineSpec.swift in Sources */,
 				6F4ACB481E1D258B00CE5FD5 /* JsonableSpec.swift in Sources */,
 				6FEF717E1E686EB700E1ED70 /* ColorSpec.swift in Sources */,
+				6FE6683D1EBF77C1001B977B /* OrientSpec.swift in Sources */,
 				6F9F90D51EB8C6B4005AB9FF /* RoamSpec.swift in Sources */,
 				5408989D1E52EB6500A89BB0 /* LinSerieSpec.swift in Sources */,
 				6FEC7D191E5376F9003A88D7 /* PercentSpec.swift in Sources */,

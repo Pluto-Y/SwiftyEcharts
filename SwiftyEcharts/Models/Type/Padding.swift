@@ -11,18 +11,51 @@
 /// - all: 所有
 /// - verticalAndHorizontal: 垂直和水平方向
 /// - trbl: 上右下左
-public enum Padding: Jsonable, CustomStringConvertible {
+/// - null: 为空的情况
+public enum Padding: Jsonable {
     case all(Float)
     case verticalAndHorizontal(Float, Float)
     case trbl(Float, Float, Float, Float)
-    public var description: String {
+    case null
+    public var jsonString: String {
         switch self {
         case let .all(val):
-            return "\(val)"
+            return "\(val)".jsonString
         case let .verticalAndHorizontal(vVal, hVal):
-            return "[\(vVal), \(hVal)]"
+            return "[\(vVal), \(hVal)]".jsonString
         case let .trbl(tVal, rVal, bVal, lVal):
-            return "[\(tVal), \(rVal), \(bVal), \(lVal)]"
+            return "[\(tVal), \(rVal), \(bVal), \(lVal)]".jsonString
+        case .null:
+            return "null"
+        }
+    }
+}
+
+
+// MARK: - 使其能通过浮点数，整数来创建创建
+extension Padding: FloatLiteralConvertible {
+    public init(floatLiteral value: Float) {
+        self = .all(value)
+    }
+}
+
+extension Padding: IntegerLiteralConvertible {
+    public init(integerLiteral value: Int) {
+        self = .all(Float(value))
+    }
+}
+
+// MARK: - 使其能通过数组来创建
+extension Padding: ArrayLiteralConvertible {
+    public init(arrayLiteral elements: Float...) {
+        if elements.count == 1 {
+            self = .all(elements.first!)
+        } else if elements.count == 2 {
+            self = .verticalAndHorizontal(elements.first!, elements.last!)
+        } else if elements.count == 4 {
+            self = .trbl(elements[0], elements[1], elements[2], elements[3])
+        } else {
+            self = .null
         }
     }
 }

@@ -14,8 +14,8 @@ class FormatterSpec: QuickSpec {
     override func spec() {
         describe("For Formatter") {
             it(" needs to check the jsonString for Formatter ") {
-                let strFormatter: Formatter = .string("{c}%")
-                let funcFormatter: Formatter = .function("function (params) {return params[0];}")
+                let strFormatter: SwiftyEcharts.Formatter = .string("{c}%")
+                let funcFormatter: SwiftyEcharts.Formatter = .function("function (params) {return params[0];}")
                 expect(strFormatter.jsonString).to(equal("{c}%".jsonString))
                 JsCache.removeAll()
                 expect(funcFormatter.jsonString).to(equal("\"\(FormatterFuncPrefix)0\""))

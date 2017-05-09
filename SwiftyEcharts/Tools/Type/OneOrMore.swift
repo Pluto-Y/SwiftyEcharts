@@ -38,7 +38,7 @@ extension OneOrMore: Jsonable {
         } else if let data = self.one {
             return obtainJsonString(from: data)
         }
-        return "\"null\""
+        return "null".jsonString
     }
 }
 

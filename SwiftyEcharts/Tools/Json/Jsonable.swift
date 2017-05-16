@@ -125,14 +125,18 @@ extension Optional: CustomStringConvertible {
 }
 
 internal func obtainJsonString(from value: Any) -> String {
-     if let a = value as? [Jsonable] { // 处理数据
-        return "\(a.jsonString)"
+    if let a = value as? [Jsonable] { // 处理数据
+        return a.jsonString
+    } else if let a = value as? NSArray {
+        return a.jsonString
     } else if let d = value as? [String: Jsonable] {
-        return "\(d.jsonString)"
+        return d.jsonString
+    } else if let d = value as? NSDictionary {
+        return d.jsonString
     } else if let s = value as? String { // 处理字符串常量的情况
-        return "\(s.jsonString)"
+        return s.jsonString
     } else if let i = value as? Jsonable {
-        return "\(i.jsonString)"
+        return i.jsonString
     } else if let d = value as? CustomStringConvertible {
         return "\(d.description)"
     } else {
@@ -142,6 +146,25 @@ internal func obtainJsonString(from value: Any) -> String {
 }
 
 extension Array: Jsonable {
+    public var jsonString: String {
+        var jsonStr = "[\n"
+        
+        if self.count > 0 {
+            for item in self {
+                jsonStr += obtainJsonString(from: item)
+                jsonStr += ",\n"
+            }
+            
+            // 移除最后一个','与'\n'符号
+            jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
+        }
+        
+        jsonStr += "\n]"
+        return jsonStr
+    }
+}
+
+extension NSArray: Jsonable {
     public var jsonString: String {
         var jsonStr = "[\n"
         
@@ -181,4 +204,26 @@ extension Dictionary: Jsonable {
         return jsonStr
     }
 
+}
+
+extension NSDictionary: Jsonable {
+    public var jsonString: String {
+        var jsonStr = "{\n"
+        
+        if self.allKeys.count > 0 {
+            let sortedKeys = Array(self.allKeys).sort {String($0) < String($1)}
+            for key in sortedKeys {
+                let value = self[key as! NSCopying]!
+                jsonStr += "\"\(key)\":"
+                jsonStr += obtainJsonString(from: value)
+                jsonStr += ",\n"
+            }
+            
+            // 移除最后一个','与'\n'符号
+            jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
+        }
+        
+        jsonStr += "\n}"
+        return jsonStr
+    }
 }

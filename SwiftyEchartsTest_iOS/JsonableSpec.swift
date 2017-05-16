@@ -16,7 +16,7 @@ class JsonableSpec: QuickSpec {
     override func spec() {
         describe("For Jsonable") {
             
-            it("needs to check the toJson method") {
+            it(" needs to check the toJson method ") {
                 let b = true
                 let i = 5
                 let d: Double = 3.14
@@ -29,7 +29,7 @@ class JsonableSpec: QuickSpec {
                 expect(s.jsonString).to(equal("\"\(s)\""))
             }
             
-            it("needs to check the optional") {
+            it(" needs to check the optional ") {
                 let bo: Bool? = false
                 let io: Int? = 10
                 let dop: Double? = nil
@@ -42,30 +42,37 @@ class JsonableSpec: QuickSpec {
                 expect(so.jsonString).to(equal("null"))
             }
             
-            it("needs to check the array") {
+            it(" needs to check the array ") {
                 let optionalValue: Float? = 6.5
                 let optionalNone: String? = nil
                 let dic: [String: Any?] = ["name": "Tom", "age": 6, "money": nil]
                 let arr: [Any?] = [1, true, 3.4, "Hello", optionalValue, optionalNone, dic]
                 
+                let nsarray: NSArray = [1, true, 3.4, "Hello", optionalValue!]
+                
                 expect(arr.jsonString).to(equal("[\n1,\ntrue,\n3.4,\n\"Hello\",\n6.5,\nnull,\n\(dic.jsonString)\n]"))
+                expect(nsarray.jsonString).to(equal("[\n1,\n1,\n3.4,\n\"Hello\",\n6.5\n]"))
+                expect(arr.jsonString).notTo(equal(nsarray.jsonString))
             }
             
-            it("needs to check the dictionary") {
+            it(" needs to check the dictionary ") {
                 let optionalValue: Float? = 6.5
                 let optionalNone: String? = nil
                 let childrenNames: [String?] = ["San Zhang", "Wu Zhao", nil]
                 let dic: [String: Any?] = ["age": 5, "childrenNames": childrenNames, "moneyCount": optionalValue, "name": "Si Li", "wifeName": optionalNone, "height": 164.5]
+                let nsdictionary: NSDictionary = ["age": 5, "moneyCount": optionalValue!, "name": "Si Li", "height": 164.5]
                 
                 expect(dic.jsonString).to(equal("{\n\"age\":5,\n\"childrenNames\":\(childrenNames.jsonString),\n\"height\":164.5,\n\"moneyCount\":6.5,\n\"name\":\"Si Li\",\n\"wifeName\":null\n}"))
+                expect(nsdictionary.jsonString).to(equal("{\n\"age\":5,\n\"height\":164.5,\n\"moneyCount\":6.5,\n\"name\":\"Si Li\"\n}"))
+                expect(dic.jsonString).notTo(equal(nsdictionary.jsonString))
             }
             
-            it("need to check the dictionary when it does no have any key") {
+            it(" need to check the dictionary when it does no have any key ") {
                 let dic: [String: Any?] = [:]
                 expect(dic.jsonString).to(equal("{\n\n}"))
             }
             
-            it("needs to check the NSNull") {
+            it(" needs to check the NSNull ") {
                 let nsnull = NSNull()
                 
                 expect(nsnull.jsonString).to(equal("null"))

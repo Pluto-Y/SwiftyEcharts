@@ -175,7 +175,7 @@ extension NSArray: Jsonable {
             }
             
             // 移除最后一个','与'\n'符号
-            jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
+            jsonStr = jsonStr.substring(to: jsonStr.index(jsonStr.endIndex, offsetBy: -2))
         }
         
         jsonStr += "\n]"
@@ -211,7 +211,7 @@ extension NSDictionary: Jsonable {
         var jsonStr = "{\n"
         
         if self.allKeys.count > 0 {
-            let sortedKeys = Array(self.allKeys).sort {String($0) < String($1)}
+            let sortedKeys = Array(self.allKeys).sorted {String(describing: $0) < String(describing: $1)}
             for key in sortedKeys {
                 let value = self[key as! NSCopying]!
                 jsonStr += "\"\(key)\":"
@@ -220,7 +220,7 @@ extension NSDictionary: Jsonable {
             }
             
             // 移除最后一个','与'\n'符号
-            jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor().predecessor())
+            jsonStr = jsonStr.substring(to: jsonStr.index(jsonStr.endIndex, offsetBy: -2))
         }
         
         jsonStr += "\n}"

@@ -74,6 +74,10 @@
         function hideLoading() {
             myChart.hideLoading()
         }
+    
+        function registerMap(name, datas) {
+            echarts.registerMap(name, data)
+        }
 
         // Load the echarts view for the option and initParams
         function loadEcharts(echartJson, initParams) {

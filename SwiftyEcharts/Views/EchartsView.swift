@@ -52,8 +52,10 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     /// - Parameters:
     ///   - name: 地图名称
     ///   - data: 地图数据
-    public func registerMap(name: String, data: [[String: Any]]) {
-        self.callJsMethod("registerMap('\(name)', '\(data.jsonString)')")
+    public func registerMap(name: String, data: NSDictionary) {
+        let dataJson = data.jsonString
+        let js = "registerMap('\(name)', '\(dataJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))')"
+        self.callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
     }
     
     public func reset() {

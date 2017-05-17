@@ -47,7 +47,18 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
         self.callJsMethod("hideLoading()")
     }
     
-    open func reset() {
+    /// 通过给定的数据进行注册地图类型
+    ///
+    /// - Parameters:
+    ///   - name: 地图名称
+    ///   - data: 地图数据
+    public func registerMap(_ name: String, data: NSDictionary) {
+        let dataJson = data.jsonString
+        let js = "registerMap('\(name)', '\(dataJson.replacingOccurrences(of: "\\n", with: "<br>"))')"
+        self.callJsMethod(js.replacingOccurrences(of: "\n", with: "\\n"))
+    }
+    
+    public func reset() {
         loadFinsih = false
         loadHTMLString(htmlContents, baseURL: URL(fileURLWithPath: bundlePath))
     }

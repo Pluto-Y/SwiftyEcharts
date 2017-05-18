@@ -32,6 +32,7 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     }
     
     // MAKR: - Public Functions
+    /// 显示 ECharts 正在加载中的界面
     public func showLoading() {
         if !loadFinsih { // 如果还没页面加载完则等待 0.05 秒后刷新
             dispatch_after(UInt64(Double(NSEC_PER_SEC) * 0.05), dispatch_get_main_queue(), { 
@@ -43,6 +44,7 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
         self.callJsMethod("showLoading()")
     }
     
+    /// 隐藏 ECharts 正在加载中的界面
     public func hideLoading() {
         self.callJsMethod("hideLoading()")
     }
@@ -58,6 +60,7 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
         self.callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
     }
     
+    /// 重置图表
     public func reset() {
         loadFinsih = false
         loadHTMLString(htmlContents, baseURL: NSURL(fileURLWithPath: bundlePath))

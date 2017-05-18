@@ -49,14 +49,19 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
         self.callJsMethod("hideLoading()")
     }
     
-    /// 通过给定的数据进行注册地图类型
+    /// 注册可用的地图，必须在包括 geo 组件或者 map 图表类型的时候才能使用。
+    ///
+    /// 使用方法见 option.geo。
+    ///
+    /// 示例 USA Population Estimates：http://echarts.baidu.com/gallery/editor.html?c=map-usa
     ///
     /// - Parameters:
-    ///   - name: 地图名称
+    ///   - name: 地图名称，在 geo 组件或者 map 图表类型中设置的 map 对应的就是该值。
     ///   - data: 地图数据
-    public func registerMap(name: String, data: NSDictionary) {
+    ///   - specialAreas: 可选。将地图中的部分区域缩放到合适的位置，可以使得整个地图的显示更加好看
+    public func registerMap(name: String, data: NSDictionary, specialAreas: [String: Jsonable] = [:]) {
         let dataJson = data.jsonString
-        let js = "registerMap('\(name)', '\(dataJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))')"
+        let js = "registerMap('\(name)', '\(dataJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))', '\(specialAreas.jsonString)')"
         self.callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
     }
     

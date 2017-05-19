@@ -25,7 +25,7 @@ class MapsController: BaseDemoController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 1 {
+        if indexPath.row == 1 { // 65k+ 飞机航线
             echartsView.showLoading()
             dispatch_async(dispatch_get_global_queue(0, 0), { 
                 let tmpOption = self.optionClosures[indexPath.row]()
@@ -35,7 +35,7 @@ class MapsController: BaseDemoController {
                     self.echartsView.hideLoading()
                 })
             })
-        } else if indexPath.row == 7 {
+        } else if indexPath.row == 7 { // 香港18区人口密度 （2011）
             echartsView.showLoading()
             dispatch_async(dispatch_get_global_queue(0, 0), {
                 guard let jsonUrl = NSBundle.mainBundle().URLForResource("HK", withExtension: "json"), let jsonData = NSData(contentsOfURL: jsonUrl), let jsonObj = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: []) else {
@@ -52,6 +52,27 @@ class MapsController: BaseDemoController {
                     self.echartsView.hideLoading()
                 })
                 
+            })
+        } else if indexPath.row == 10 { // USA Population Estimates (2012)
+            echartsView.showLoading()
+            dispatch_async(dispatch_get_global_queue(0, 0), { 
+                guard let jsonUrl = NSBundle.mainBundle().URLForResource("USA", withExtension: "json"), let jsonData = NSData(contentsOfURL: jsonUrl), let jsonObject = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: []) else {
+                    self.echartsView.hideLoading()
+                    return
+                }
+                
+                let data = jsonObject as! NSDictionary
+                let tmpOption = self.optionClosures[indexPath.row]()
+                
+                dispatch_sync(dispatch_get_main_queue(), { 
+                    self.echartsView.registerMap("USA", data: data, specialAreas: [
+                        "Alaska": ["left": -131, "top": 25, "width": 15],
+                        "Hawaii": ["left": -110, "top": 28, "width": 5],
+                        "Puerto Rio": ["left": -76, "top": 26, "width": 2]
+                        ])
+                    self.option = tmpOption
+                    self.echartsView.hideLoading()
+                })
             })
         } else {
             option = optionClosures[indexPath.row]()

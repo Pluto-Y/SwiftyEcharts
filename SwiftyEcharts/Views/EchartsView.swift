@@ -32,7 +32,8 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     }
     
     // MAKR: - Public Functions
-    open func showLoading() {
+    /// 显示 ECharts 正在加载中的界面
+    public func showLoading() {
         if !loadFinsih { // 如果还没页面加载完则等待 0.05 秒后刷新
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                 self.showLoading()
@@ -43,21 +44,28 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
         self.callJsMethod("showLoading()")
     }
     
-    open func hideLoading() {
+    /// 隐藏 ECharts 正在加载中的界面
+    public func hideLoading() {
         self.callJsMethod("hideLoading()")
     }
     
-    /// 通过给定的数据进行注册地图类型
+    /// 注册可用的地图，必须在包括 geo 组件或者 map 图表类型的时候才能使用。
+    ///
+    /// 使用方法见 option.geo。
+    ///
+    /// 示例 USA Population Estimates：http://echarts.baidu.com/gallery/editor.html?c=map-usa
     ///
     /// - Parameters:
-    ///   - name: 地图名称
+    ///   - name: 地图名称，在 geo 组件或者 map 图表类型中设置的 map 对应的就是该值。
     ///   - data: 地图数据
-    public func registerMap(_ name: String, data: NSDictionary) {
+    ///   - specialAreas: 可选。将地图中的部分区域缩放到合适的位置，可以使得整个地图的显示更加好看
+    public func registerMap(_ name: String, data: NSDictionary, specialAreas: [String: Jsonable] = [:]) {
         let dataJson = data.jsonString
-        let js = "registerMap('\(name)', '\(dataJson.replacingOccurrences(of: "\\n", with: "<br>"))')"
+        let js = "registerMap('\(name)', '\(dataJson.replacingOccurrences(of: "\\n", with: "<br>"))', '\(specialAreas.jsonString)')"
         self.callJsMethod(js.replacingOccurrences(of: "\n", with: "\\n"))
     }
     
+    /// 重置图表
     public func reset() {
         loadFinsih = false
         loadHTMLString(htmlContents, baseURL: URL(fileURLWithPath: bundlePath))

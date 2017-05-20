@@ -75,8 +75,8 @@
             myChart.hideLoading()
         }
     
-        function registerMap(name, datas) {
-            echarts.registerMap(name, JSON.parse(datas.replace(new RegExp("<br>", "gm"), "\\n")))
+        function registerMap(name, datas, specialAreas) {
+            echarts.registerMap(name, JSON.parse(datas.replace(new RegExp("<br>", "gm"), "\\n")), JSON.parse(specialAreas.replace(new RegExp("<br>", "gm"), "\\n")))
         }
 
         // Load the echarts view for the option and initParams

@@ -25,7 +25,7 @@ class MapsController: BaseDemoController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 1 {
+        if indexPath.row == 1 { // 65k+ 飞机航线
             echartsView.showLoading()
             DispatchQueue.global().async {
                 
@@ -36,7 +36,7 @@ class MapsController: BaseDemoController {
                     self.echartsView.hideLoading()
                 }
             }
-        } else if indexPath.row == 7 {
+        } else if indexPath.row == 7 { // 香港18区人口密度 （2011）
             echartsView.showLoading()
             DispatchQueue.global().async {
                 guard let jsonUrl = Bundle.main.url(forResource: "HK", withExtension: "json"), let jsonData = try? Data(contentsOf: jsonUrl), let jsonObj = try? JSONSerialization.jsonObject(with: jsonData, options: []) else {
@@ -53,6 +53,27 @@ class MapsController: BaseDemoController {
                     self.echartsView.hideLoading()
                 }
                 
+            }
+        } else if indexPath.row == 10 { // USA Population Estimates (2012)
+            echartsView.showLoading()
+            DispatchQueue.global().async {
+                guard let jsonUrl = Bundle.main.url(forResource: "USA", withExtension: "json"), let jsonData = try? Data(contentsOf: jsonUrl), let jsonObject = try? JSONSerialization.jsonObject(with: jsonData, options: []) else {
+                    self.echartsView.hideLoading()
+                    return
+                }
+                
+                let data = jsonObject as! NSDictionary
+                let tmpOption = self.optionClosures[indexPath.row]()
+                
+                DispatchQueue.main.sync {
+                    self.echartsView.registerMap("USA", data: data, specialAreas: [
+                        "Alaska": ["left": -131, "top": 25, "width": 15],
+                        "Hawaii": ["left": -110, "top": 28, "width": 5],
+                        "Puerto Rio": ["left": -76, "top": 26, "width": 2]
+                        ])
+                    self.option = tmpOption
+                    self.echartsView.hideLoading()
+                }
             }
         } else {
             option = optionClosures[indexPath.row]()

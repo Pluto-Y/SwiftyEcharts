@@ -85,6 +85,7 @@
 		6F4ACB481E1D258B00CE5FD5 /* JsonableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4ACB471E1D258B00CE5FD5 /* JsonableSpec.swift */; };
 		6F4ACB511E21352600CE5FD5 /* MappableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4ACB501E21352600CE5FD5 /* MappableSpec.swift */; };
 		6F4BA30D1E92C543006A3AB3 /* PictorialBarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BA30C1E92C543006A3AB3 /* PictorialBarsController.swift */; };
+		6F4E6AB01ECDC8CD00E2858B /* USA.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F4E6AAF1ECDC8CD00E2858B /* USA.json */; };
 		6F5E2D1E1E4CB2E5009C4DA7 /* SingleAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */; };
 		6F67FCB91E71CA1B00BE2E4B /* SelectedModeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */; };
 		6F91EB7B1DF08026003EEEC0 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7A1DF08026003EEEC0 /* Line.swift */; };
@@ -397,6 +398,7 @@
 		6F4ACB471E1D258B00CE5FD5 /* JsonableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonableSpec.swift; sourceTree = "<group>"; };
 		6F4ACB501E21352600CE5FD5 /* MappableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappableSpec.swift; sourceTree = "<group>"; };
 		6F4BA30C1E92C543006A3AB3 /* PictorialBarsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictorialBarsController.swift; sourceTree = "<group>"; };
+		6F4E6AAF1ECDC8CD00E2858B /* USA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = USA.json; sourceTree = "<group>"; };
 		6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SingleAxis.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedModeSpec.swift; sourceTree = "<group>"; };
 		6F91EB7A1DF08026003EEEC0 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
@@ -574,6 +576,7 @@
 				54371F0B1E8A3C7C008C3D22 /* ThemeRiverBasicData.plist */,
 				6FE8C1D51EB6E52D007BE7F3 /* LinesBus.json */,
 				6FB9864E1ECBFC8A00D2EFE1 /* HK.json */,
+				6F4E6AAF1ECDC8CD00E2858B /* USA.json */,
 			);
 			path = DemoOptions;
 			sourceTree = "<group>";
@@ -1142,6 +1145,7 @@
 				6FE8C1DB1EB7806B007BE7F3 /* LineAirline.json in Resources */,
 				6F9B70E51DE808E600406B55 /* Main.storyboard in Resources */,
 				54371F0C1E8A3C7C008C3D22 /* ThemeRiverBasicData.plist in Resources */,
+				6F4E6AB01ECDC8CD00E2858B /* USA.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

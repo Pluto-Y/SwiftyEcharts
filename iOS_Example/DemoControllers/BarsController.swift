@@ -25,6 +25,14 @@ class BarsController: BaseDemoController {
         self.title = "柱状图"
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if timer != nil{
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         if timer != nil {

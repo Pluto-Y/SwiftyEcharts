@@ -23,6 +23,14 @@ class GaugesController: BaseDemoController {
         self.title = "仪表盘"
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         

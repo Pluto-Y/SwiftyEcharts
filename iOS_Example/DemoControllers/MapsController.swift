@@ -16,7 +16,7 @@ class MapsController: BaseDemoController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menus = ["模拟迁徙", "65k+ 飞机航线", "北京公交路线 - 百度地图(暂缺)", "北京公交路线 - 线特效(暂缺)", "杭州热门步行路线 - 百度地图(暂缺)", "iPhone销量", "Map China", "香港18区人口密度 （2011）", "Map Locate(暂缺)", "34 省切换查看(暂缺)", "USA Population Estimates (2012)(暂缺)", "World Population (2010)", "map and scatter share a geo", "Map World"]
+        menus = ["模拟迁徙", "65k+ 飞机航线", "北京公交路线 - 百度地图(暂缺)", "北京公交路线 - 线特效(暂缺)", "杭州热门步行路线 - 百度地图(暂缺)", "iPhone销量", "Map China", "香港18区人口密度 （2011）", "Map Locate(暂缺)", "34 省切换查看(暂缺)", "USA Population Estimates (2012)", "World Population (2010)", "map and scatter share a geo", "Map World"]
         
         optionClosures = [MapOptions.geoLinesOption, MapOptions.linesAirlineOption, MapOptions.linesBmapBusOption, MapOptions.linesBmapEffectOption, MapOptions.linesBmapOption, MapOptions.mapChinaDataRangeOption, MapOptions.mapChinaOption, MapOptions.mapHKOption, MapOptions.mapLocateOption, MapOptions.mapProvinceOption, MapOptions.mapUsaOption, MapOptions.mapWorldDataRangeOption, MapOptions.geoMapScatterOption, MapOptions.mapWorldOption]
         
@@ -24,10 +24,18 @@ class MapsController: BaseDemoController {
         
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 1 { // 65k+ 飞机航线
             echartsView.showLoading()
-            dispatch_async(dispatch_get_global_queue(0, 0), { 
+            dispatch_async(dispatch_get_global_queue(0, 0), { [unowned self] in
                 let tmpOption = self.optionClosures[indexPath.row]()
                 
                 dispatch_sync(dispatch_get_main_queue(), { 
@@ -37,7 +45,7 @@ class MapsController: BaseDemoController {
             })
         } else if indexPath.row == 7 { // 香港18区人口密度 （2011）
             echartsView.showLoading()
-            dispatch_async(dispatch_get_global_queue(0, 0), {
+            dispatch_async(dispatch_get_global_queue(0, 0), { [unowned self] in
                 guard let jsonUrl = NSBundle.mainBundle().URLForResource("HK", withExtension: "json"), let jsonData = NSData(contentsOfURL: jsonUrl), let jsonObj = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: []) else {
                     self.echartsView.hideLoading()
                     return
@@ -55,7 +63,7 @@ class MapsController: BaseDemoController {
             })
         } else if indexPath.row == 10 { // USA Population Estimates (2012)
             echartsView.showLoading()
-            dispatch_async(dispatch_get_global_queue(0, 0), { 
+            dispatch_async(dispatch_get_global_queue(0, 0), { [unowned self] in
                 guard let jsonUrl = NSBundle.mainBundle().URLForResource("USA", withExtension: "json"), let jsonData = NSData(contentsOfURL: jsonUrl), let jsonObject = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: []) else {
                     self.echartsView.hideLoading()
                     return
@@ -120,7 +128,5 @@ class MapsController: BaseDemoController {
         print(serie.jsonString)
         currLoc = (currLoc + 1) % location.count
     }
-
-    
 
 }

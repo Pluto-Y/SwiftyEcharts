@@ -35,7 +35,7 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     /// 显示 ECharts 正在加载中的界面
     public func showLoading() {
         if !loadFinsih { // 如果还没页面加载完则等待 0.05 秒后刷新
-            dispatch_after(UInt64(Double(NSEC_PER_SEC) * 0.05), dispatch_get_main_queue(), { 
+            dispatch_after(UInt64(Double(NSEC_PER_SEC) * 0.05), dispatch_get_main_queue(), { [unowned self] in
                 self.showLoading()
             })
             return
@@ -73,7 +73,7 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     
     public func loadEcharts() {
         if !loadFinsih { // 如果还没页面加载完则等待 0.05 秒后刷新
-            dispatch_after(UInt64(Double(NSEC_PER_SEC) * 0.05), dispatch_get_main_queue(), {
+            dispatch_after(UInt64(Double(NSEC_PER_SEC) * 0.05), dispatch_get_main_queue(), { [unowned self] in 
                 self.loadEcharts()
             })
             return

@@ -110,6 +110,39 @@
 		6FA24F721E2B7A0100E25002 /* Enumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA24F711E2B7A0100E25002 /* Enumable.swift */; };
 		6FA24F741E2BE0F900E25002 /* Toolbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA24F731E2BE0F900E25002 /* Toolbox.swift */; };
 		6FA85F051ED333C200C1DA58 /* JsCacheSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA85F041ED333C200C1DA58 /* JsCacheSpec.swift */; };
+		6FA85F281ED336E300C1DA58 /* anhui.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F071ED336E300C1DA58 /* anhui.json */; };
+		6FA85F291ED336E300C1DA58 /* aomen.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F081ED336E300C1DA58 /* aomen.json */; };
+		6FA85F2A1ED336E300C1DA58 /* beijing.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F091ED336E300C1DA58 /* beijing.json */; };
+		6FA85F2B1ED336E300C1DA58 /* chongqing.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F0A1ED336E300C1DA58 /* chongqing.json */; };
+		6FA85F2C1ED336E300C1DA58 /* fujian.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F0B1ED336E300C1DA58 /* fujian.json */; };
+		6FA85F2D1ED336E300C1DA58 /* gansu.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F0C1ED336E300C1DA58 /* gansu.json */; };
+		6FA85F2E1ED336E300C1DA58 /* guangdong.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F0D1ED336E300C1DA58 /* guangdong.json */; };
+		6FA85F2F1ED336E300C1DA58 /* guangxi.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F0E1ED336E300C1DA58 /* guangxi.json */; };
+		6FA85F301ED336E300C1DA58 /* guizhou.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F0F1ED336E300C1DA58 /* guizhou.json */; };
+		6FA85F311ED336E300C1DA58 /* hainan.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F101ED336E300C1DA58 /* hainan.json */; };
+		6FA85F321ED336E300C1DA58 /* hebei.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F111ED336E300C1DA58 /* hebei.json */; };
+		6FA85F331ED336E300C1DA58 /* heilongjiang.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F121ED336E300C1DA58 /* heilongjiang.json */; };
+		6FA85F341ED336E300C1DA58 /* henan.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F131ED336E300C1DA58 /* henan.json */; };
+		6FA85F351ED336E300C1DA58 /* hubei.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F141ED336E300C1DA58 /* hubei.json */; };
+		6FA85F361ED336E300C1DA58 /* hunan.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F151ED336E300C1DA58 /* hunan.json */; };
+		6FA85F371ED336E300C1DA58 /* jiangsu.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F161ED336E300C1DA58 /* jiangsu.json */; };
+		6FA85F381ED336E300C1DA58 /* jiangxi.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F171ED336E300C1DA58 /* jiangxi.json */; };
+		6FA85F391ED336E300C1DA58 /* jilin.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F181ED336E300C1DA58 /* jilin.json */; };
+		6FA85F3A1ED336E300C1DA58 /* liaoning.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F191ED336E300C1DA58 /* liaoning.json */; };
+		6FA85F3B1ED336E300C1DA58 /* neimenggu.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F1A1ED336E300C1DA58 /* neimenggu.json */; };
+		6FA85F3C1ED336E300C1DA58 /* ningxia.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F1B1ED336E300C1DA58 /* ningxia.json */; };
+		6FA85F3D1ED336E300C1DA58 /* qinghai.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F1C1ED336E300C1DA58 /* qinghai.json */; };
+		6FA85F3E1ED336E300C1DA58 /* shandong.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F1D1ED336E300C1DA58 /* shandong.json */; };
+		6FA85F3F1ED336E300C1DA58 /* shanghai.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F1E1ED336E300C1DA58 /* shanghai.json */; };
+		6FA85F401ED336E300C1DA58 /* shanxi.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F1F1ED336E300C1DA58 /* shanxi.json */; };
+		6FA85F411ED336E300C1DA58 /* shanxi1.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F201ED336E300C1DA58 /* shanxi1.json */; };
+		6FA85F421ED336E300C1DA58 /* sichuan.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F211ED336E300C1DA58 /* sichuan.json */; };
+		6FA85F431ED336E300C1DA58 /* tianjin.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F221ED336E300C1DA58 /* tianjin.json */; };
+		6FA85F441ED336E300C1DA58 /* xianggang.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F231ED336E300C1DA58 /* xianggang.json */; };
+		6FA85F451ED336E300C1DA58 /* xinjiang.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F241ED336E300C1DA58 /* xinjiang.json */; };
+		6FA85F461ED336E300C1DA58 /* xizang.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F251ED336E300C1DA58 /* xizang.json */; };
+		6FA85F471ED336E300C1DA58 /* yunnan.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F261ED336E300C1DA58 /* yunnan.json */; };
+		6FA85F481ED336E300C1DA58 /* zhejiang.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F271ED336E300C1DA58 /* zhejiang.json */; };
 		6FA9DB241E59EA2000CE5277 /* OneOrMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */; };
 		6FA9DB261E59FA6A00CE5277 /* OneOrMoreSepc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9DB251E59FA6A00CE5277 /* OneOrMoreSepc.swift */; };
 		6FB400401E2FC05E0086BF5B /* BarSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB4003F1E2FC05E0086BF5B /* BarSerie.swift */; };
@@ -425,6 +458,39 @@
 		6FA24F711E2B7A0100E25002 /* Enumable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumable.swift; sourceTree = "<group>"; };
 		6FA24F731E2BE0F900E25002 /* Toolbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Toolbox.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FA85F041ED333C200C1DA58 /* JsCacheSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsCacheSpec.swift; sourceTree = "<group>"; };
+		6FA85F071ED336E300C1DA58 /* anhui.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anhui.json; sourceTree = "<group>"; };
+		6FA85F081ED336E300C1DA58 /* aomen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = aomen.json; sourceTree = "<group>"; };
+		6FA85F091ED336E300C1DA58 /* beijing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beijing.json; sourceTree = "<group>"; };
+		6FA85F0A1ED336E300C1DA58 /* chongqing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chongqing.json; sourceTree = "<group>"; };
+		6FA85F0B1ED336E300C1DA58 /* fujian.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fujian.json; sourceTree = "<group>"; };
+		6FA85F0C1ED336E300C1DA58 /* gansu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gansu.json; sourceTree = "<group>"; };
+		6FA85F0D1ED336E300C1DA58 /* guangdong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = guangdong.json; sourceTree = "<group>"; };
+		6FA85F0E1ED336E300C1DA58 /* guangxi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = guangxi.json; sourceTree = "<group>"; };
+		6FA85F0F1ED336E300C1DA58 /* guizhou.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = guizhou.json; sourceTree = "<group>"; };
+		6FA85F101ED336E300C1DA58 /* hainan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hainan.json; sourceTree = "<group>"; };
+		6FA85F111ED336E300C1DA58 /* hebei.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hebei.json; sourceTree = "<group>"; };
+		6FA85F121ED336E300C1DA58 /* heilongjiang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heilongjiang.json; sourceTree = "<group>"; };
+		6FA85F131ED336E300C1DA58 /* henan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = henan.json; sourceTree = "<group>"; };
+		6FA85F141ED336E300C1DA58 /* hubei.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hubei.json; sourceTree = "<group>"; };
+		6FA85F151ED336E300C1DA58 /* hunan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hunan.json; sourceTree = "<group>"; };
+		6FA85F161ED336E300C1DA58 /* jiangsu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jiangsu.json; sourceTree = "<group>"; };
+		6FA85F171ED336E300C1DA58 /* jiangxi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jiangxi.json; sourceTree = "<group>"; };
+		6FA85F181ED336E300C1DA58 /* jilin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jilin.json; sourceTree = "<group>"; };
+		6FA85F191ED336E300C1DA58 /* liaoning.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = liaoning.json; sourceTree = "<group>"; };
+		6FA85F1A1ED336E300C1DA58 /* neimenggu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = neimenggu.json; sourceTree = "<group>"; };
+		6FA85F1B1ED336E300C1DA58 /* ningxia.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ningxia.json; sourceTree = "<group>"; };
+		6FA85F1C1ED336E300C1DA58 /* qinghai.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qinghai.json; sourceTree = "<group>"; };
+		6FA85F1D1ED336E300C1DA58 /* shandong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shandong.json; sourceTree = "<group>"; };
+		6FA85F1E1ED336E300C1DA58 /* shanghai.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shanghai.json; sourceTree = "<group>"; };
+		6FA85F1F1ED336E300C1DA58 /* shanxi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shanxi.json; sourceTree = "<group>"; };
+		6FA85F201ED336E300C1DA58 /* shanxi1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shanxi1.json; sourceTree = "<group>"; };
+		6FA85F211ED336E300C1DA58 /* sichuan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sichuan.json; sourceTree = "<group>"; };
+		6FA85F221ED336E300C1DA58 /* tianjin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tianjin.json; sourceTree = "<group>"; };
+		6FA85F231ED336E300C1DA58 /* xianggang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = xianggang.json; sourceTree = "<group>"; };
+		6FA85F241ED336E300C1DA58 /* xinjiang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = xinjiang.json; sourceTree = "<group>"; };
+		6FA85F251ED336E300C1DA58 /* xizang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = xizang.json; sourceTree = "<group>"; };
+		6FA85F261ED336E300C1DA58 /* yunnan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yunnan.json; sourceTree = "<group>"; };
+		6FA85F271ED336E300C1DA58 /* zhejiang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zhejiang.json; sourceTree = "<group>"; };
 		6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrMore.swift; sourceTree = "<group>"; };
 		6FA9DB251E59FA6A00CE5277 /* OneOrMoreSepc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrMoreSepc.swift; sourceTree = "<group>"; };
 		6FB4003F1E2FC05E0086BF5B /* BarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BarSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -541,6 +607,7 @@
 		5427F07B1E2C8F3100CE20E5 /* DemoOptions */ = {
 			isa = PBXGroup;
 			children = (
+				6FA85F061ED336E300C1DA58 /* province */,
 				6FE8C1D91EB7806B007BE7F3 /* LineAirline.json */,
 				6FE8C1DA1EB7806B007BE7F3 /* LinesBus.json */,
 				6F9DF55A1E9BE90C00577899 /* ConfidenceBandData.plist */,
@@ -765,6 +832,46 @@
 			path = iOS_Example;
 			sourceTree = "<group>";
 		};
+		6FA85F061ED336E300C1DA58 /* province */ = {
+			isa = PBXGroup;
+			children = (
+				6FA85F071ED336E300C1DA58 /* anhui.json */,
+				6FA85F081ED336E300C1DA58 /* aomen.json */,
+				6FA85F091ED336E300C1DA58 /* beijing.json */,
+				6FA85F0A1ED336E300C1DA58 /* chongqing.json */,
+				6FA85F0B1ED336E300C1DA58 /* fujian.json */,
+				6FA85F0C1ED336E300C1DA58 /* gansu.json */,
+				6FA85F0D1ED336E300C1DA58 /* guangdong.json */,
+				6FA85F0E1ED336E300C1DA58 /* guangxi.json */,
+				6FA85F0F1ED336E300C1DA58 /* guizhou.json */,
+				6FA85F101ED336E300C1DA58 /* hainan.json */,
+				6FA85F111ED336E300C1DA58 /* hebei.json */,
+				6FA85F121ED336E300C1DA58 /* heilongjiang.json */,
+				6FA85F131ED336E300C1DA58 /* henan.json */,
+				6FA85F141ED336E300C1DA58 /* hubei.json */,
+				6FA85F151ED336E300C1DA58 /* hunan.json */,
+				6FA85F161ED336E300C1DA58 /* jiangsu.json */,
+				6FA85F171ED336E300C1DA58 /* jiangxi.json */,
+				6FA85F181ED336E300C1DA58 /* jilin.json */,
+				6FA85F191ED336E300C1DA58 /* liaoning.json */,
+				6FA85F1A1ED336E300C1DA58 /* neimenggu.json */,
+				6FA85F1B1ED336E300C1DA58 /* ningxia.json */,
+				6FA85F1C1ED336E300C1DA58 /* qinghai.json */,
+				6FA85F1D1ED336E300C1DA58 /* shandong.json */,
+				6FA85F1E1ED336E300C1DA58 /* shanghai.json */,
+				6FA85F1F1ED336E300C1DA58 /* shanxi.json */,
+				6FA85F201ED336E300C1DA58 /* shanxi1.json */,
+				6FA85F211ED336E300C1DA58 /* sichuan.json */,
+				6FA85F221ED336E300C1DA58 /* tianjin.json */,
+				6FA85F231ED336E300C1DA58 /* xianggang.json */,
+				6FA85F241ED336E300C1DA58 /* xinjiang.json */,
+				6FA85F251ED336E300C1DA58 /* xizang.json */,
+				6FA85F261ED336E300C1DA58 /* yunnan.json */,
+				6FA85F271ED336E300C1DA58 /* zhejiang.json */,
+			);
+			path = province;
+			sourceTree = "<group>";
+		};
 		6FB48CA11DEE953000137D13 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,7 +908,9 @@
 				6FB48CB91DEEA30000137D13 /* FontSpec.swift */,
 				6FE2DD331EB0F6EE0028037A /* FormatterSpec.swift */,
 				6FB48CB21DEE9FF400137D13 /* Info.plist */,
+				6FA85F041ED333C200C1DA58 /* JsCacheSpec.swift */,
 				6F4ACB471E1D258B00CE5FD5 /* JsonableSpec.swift */,
+				6FE668421EC0BB3C001B977B /* LengthValueSpec.swift */,
 				6FE2DD311EAE56290028037A /* LineSpec.swift */,
 				5408989C1E52EB6500A89BB0 /* LinSerieSpec.swift */,
 				6F4ACB501E21352600CE5FD5 /* MappableSpec.swift */,
@@ -813,9 +922,7 @@
 				6F9F90D41EB8C6B4005AB9FF /* RoamSpec.swift */,
 				6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */,
 				6F9F90D81EBA242B005AB9FF /* SymbolSpec.swift */,
-				6FE668421EC0BB3C001B977B /* LengthValueSpec.swift */,
 				6FB9862E1EC60B7500D2EFE1 /* TextSpec.swift */,
-				6FA85F041ED333C200C1DA58 /* JsCacheSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1131,16 +1238,49 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FA85F471ED336E300C1DA58 /* yunnan.json in Resources */,
+				6FA85F361ED336E300C1DA58 /* hunan.json in Resources */,
+				6FA85F431ED336E300C1DA58 /* tianjin.json in Resources */,
+				6FA85F401ED336E300C1DA58 /* shanxi.json in Resources */,
+				6FA85F2D1ED336E300C1DA58 /* gansu.json in Resources */,
+				6FA85F2B1ED336E300C1DA58 /* chongqing.json in Resources */,
+				6FA85F461ED336E300C1DA58 /* xizang.json in Resources */,
+				6FA85F451ED336E300C1DA58 /* xinjiang.json in Resources */,
+				6FA85F411ED336E300C1DA58 /* shanxi1.json in Resources */,
 				6FB9864F1ECBFC8A00D2EFE1 /* HK.json in Resources */,
+				6FA85F391ED336E300C1DA58 /* jilin.json in Resources */,
 				6F3FA5771E58919E00A84E1D /* AreaRainfallDatas.plist in Resources */,
+				6FA85F3E1ED336E300C1DA58 /* shandong.json in Resources */,
+				6FA85F301ED336E300C1DA58 /* guizhou.json in Resources */,
 				6F9DF55B1E9BE90C00577899 /* ConfidenceBandData.plist in Resources */,
+				6FA85F421ED336E300C1DA58 /* sichuan.json in Resources */,
+				6FA85F2F1ED336E300C1DA58 /* guangxi.json in Resources */,
+				6FA85F481ED336E300C1DA58 /* zhejiang.json in Resources */,
+				6FA85F3C1ED336E300C1DA58 /* ningxia.json in Resources */,
+				6FA85F381ED336E300C1DA58 /* jiangxi.json in Resources */,
 				6FE8C1DC1EB7806B007BE7F3 /* LinesBus.json in Resources */,
+				6FA85F331ED336E300C1DA58 /* heilongjiang.json in Resources */,
 				6F9DF5551E9BC37700577899 /* BeijingAQIDatas.plist in Resources */,
 				6F9B70EA1DE808E600406B55 /* LaunchScreen.storyboard in Resources */,
+				6FA85F311ED336E300C1DA58 /* hainan.json in Resources */,
+				6FA85F291ED336E300C1DA58 /* aomen.json in Resources */,
 				6F9B70E71DE808E600406B55 /* Assets.xcassets in Resources */,
 				6FE8C1DB1EB7806B007BE7F3 /* LineAirline.json in Resources */,
+				6FA85F321ED336E300C1DA58 /* hebei.json in Resources */,
+				6FA85F441ED336E300C1DA58 /* xianggang.json in Resources */,
+				6FA85F2A1ED336E300C1DA58 /* beijing.json in Resources */,
+				6FA85F3F1ED336E300C1DA58 /* shanghai.json in Resources */,
+				6FA85F3D1ED336E300C1DA58 /* qinghai.json in Resources */,
+				6FA85F281ED336E300C1DA58 /* anhui.json in Resources */,
+				6FA85F3B1ED336E300C1DA58 /* neimenggu.json in Resources */,
 				6F9B70E51DE808E600406B55 /* Main.storyboard in Resources */,
+				6FA85F341ED336E300C1DA58 /* henan.json in Resources */,
 				6F4E6AB01ECDC8CD00E2858B /* USA.json in Resources */,
+				6FA85F2C1ED336E300C1DA58 /* fujian.json in Resources */,
+				6FA85F3A1ED336E300C1DA58 /* liaoning.json in Resources */,
+				6FA85F2E1ED336E300C1DA58 /* guangdong.json in Resources */,
+				6FA85F351ED336E300C1DA58 /* hubei.json in Resources */,
+				6FA85F371ED336E300C1DA58 /* jiangsu.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

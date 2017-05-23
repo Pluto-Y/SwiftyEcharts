@@ -35,7 +35,8 @@
                 try {
                     if(typeof(eval(obj)) == 'function'){
                         return eval(obj);
-                    } else if (eval(obj) instanceof echarts.graphic.LinearGradient) { // 兼容线性渐变颜色的情况
+                    } else if (eval(obj) instanceof echarts.graphic.LinearGradient
+                               || eval(obj) instanceof echarts.graphic.RadialGradient) { // 兼容线性渐变颜色的情况
                         return eval(obj);
                     } else if(eval(obj) instanceof Image) { // 兼容一些转换之后为 Image 的情况
                         return eval(obj);

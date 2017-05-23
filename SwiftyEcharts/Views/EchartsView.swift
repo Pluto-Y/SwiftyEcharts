@@ -35,7 +35,7 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     /// 显示 ECharts 正在加载中的界面
     public func showLoading() {
         if !loadFinsih { // 如果还没页面加载完则等待 0.05 秒后刷新
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { [unowned self] in
                 self.showLoading()
             }
             return
@@ -73,7 +73,7 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     
     open func loadEcharts() {
         if !loadFinsih { // 如果还没页面加载完则等待 0.05 秒后刷新
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { [unowned self] in
                 self.loadEcharts()
             }
             return

@@ -205,8 +205,12 @@ extension GradientColorElement: DictionaryLiteralConvertible {
                 } else if let v = value as? Float {
                     offset = v
                 }
-            } else if key == "color", let v = value as? Color {
-                color = v
+            } else if key == "color" {
+                if let v = value as? Color {
+                    color = v
+                } else if let v = value as? String {
+                    color = Color(stringLiteral: v)
+                }
             }
         }
         if let o = offset, let c = color {

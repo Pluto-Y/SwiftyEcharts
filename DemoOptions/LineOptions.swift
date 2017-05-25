@@ -318,11 +318,68 @@ public final class LineOptions {
         )
     }
     
+    static var data: [Jsonable] = []
+    static var now = NSDate(dateString: "1997-09-03")
+    static let oneDay: NSTimeInterval = 60 * 24 * 60
+    static var value: Int = Int(arc4random_uniform(1000))
+    static let dateFormater = NSDateFormatter()
+    
+    static let randomData: () -> [String: Jsonable] = {
+        now = NSDate(timeInterval: oneDay, sinceDate: now)
+        value = value + Int(arc4random_uniform(21)) - 10
+        let valueArr: [Jsonable] = [
+            dateFormater.stringFromDate(now),
+            value
+        ]
+        return [
+            "name": now.description,
+            "value": valueArr
+        ]
+    }
+    
     // MARK: 动态数据 + 时间坐标轴
     /// 地址: http://echarts.baidu.com/demo.html#dynamic-data2
     static func dynamicData2Option() -> Option {
-        // TODO: 添加实现
+        data = []
+        now = NSDate(dateString: "1997-09-03")
+        dateFormater.dateFormat = "yyyy/M/d"
+        value = Int(arc4random_uniform(1000))
+        
+        for _ in 0 ..< 1000 {
+            data.append(randomData())
+        }
         return Option(
+            .title(Title(
+                .text("动态数据 + 时间坐标轴")
+                )),
+            .tooltip(Tooltip(
+                .trigger(.axis),
+                .formatter(.function("function (params) { params = params[0]; var date = new Date(params.name); return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1]; }")),
+                .axisPointer(Tooltip.AxisPointer(
+                    .animation(false)
+                    ))
+                )),
+            .xAxis(Axis(
+                .type(.time),
+                .splitLine(SplitLine(
+                    .show(false)
+                    ))
+                )),
+            .yAxis(Axis(
+                .type(.value),
+                .boundaryGap([0, 100%]),
+                .splitLine(SplitLine(
+                    .show(false)
+                    ))
+                )),
+            .series([
+                LineSerie(
+                    .name("模拟数据"),
+                    .showSymbol(false),
+                    .hoverAnimation(false),
+                    .data(data)
+                )
+                ])
         )
     }
     

@@ -42,6 +42,13 @@ ___
 
 ## 安装
 
+* 手动导入：
+    * 将项目下的`SwiftyEcharts`目录拷贝到项目中
+    * `Remove References`移除js目录，然后通过`create floder references`的方式添加js目录
+
+⚠️  *** 请确保js目录是蓝色的 *** ⚠️ 
+
+
 ## 教程
 
 ## 系统要求

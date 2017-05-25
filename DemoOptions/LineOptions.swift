@@ -319,16 +319,16 @@ public final class LineOptions {
     }
     
     static var data: [Jsonable] = []
-    static var now = NSDate(dateString: "1997-09-03")
-    static let oneDay: NSTimeInterval = 60 * 24 * 60
+    static var now = Date(dateString: "1997-09-03")
+    static let oneDay: TimeInterval = 60 * 24 * 60
     static var value: Int = Int(arc4random_uniform(1000))
-    static let dateFormater = NSDateFormatter()
+    static let dateFormater = DateFormatter()
     
     static let randomData: () -> [String: Jsonable] = {
-        now = NSDate(timeInterval: oneDay, sinceDate: now)
+        now = Date(timeInterval: oneDay, since: now)
         value = value + Int(arc4random_uniform(21)) - 10
         let valueArr: [Jsonable] = [
-            dateFormater.stringFromDate(now),
+            dateFormater.string(from: now),
             value
         ]
         return [
@@ -341,7 +341,7 @@ public final class LineOptions {
     /// 地址: http://echarts.baidu.com/demo.html#dynamic-data2
     static func dynamicData2Option() -> Option {
         data = []
-        now = NSDate(dateString: "1997-09-03")
+        now = Date(dateString: "1997-09-03")
         dateFormater.dateFormat = "yyyy/M/d"
         value = Int(arc4random_uniform(1000))
         

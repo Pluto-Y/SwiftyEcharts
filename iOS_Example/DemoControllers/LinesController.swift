@@ -11,7 +11,7 @@ import SwiftyEcharts
 
 class LinesController: BaseDemoController {
     
-    private var timer: NSTimer?
+    private var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class LinesController: BaseDemoController {
         self.title = "折线图"
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if timer != nil {
             timer?.invalidate()
@@ -31,16 +31,16 @@ class LinesController: BaseDemoController {
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
         if timer != nil {
             timer?.invalidate()
             timer = nil
         }
         
         if indexPath.row == 4 { // 动态数据 + 时间坐标轴
-            timer = NSTimer(timeInterval: 1.0, target: self, selector: #selector(self.dynamicData), userInfo: nil, repeats: true)
-            NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+            timer = Timer(timeInterval: 1.0, target: self, selector: #selector(self.dynamicData), userInfo: nil, repeats: true)
+            RunLoop.current.add(timer!, forMode: .commonModes)
         }
     }
     

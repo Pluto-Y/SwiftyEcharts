@@ -525,7 +525,7 @@ public final class ScatterOptions {
     // MARK: 全国主要城市空气质量
     /// 地址: http://echarts.baidu.com/demo.html#effectScatter-map
     static func effectScatterMapOption() -> Option {
-        let topFiveData = Array(data.sort { (a, b) -> Bool in
+        let topFiveData = Array(data.sorted { (a, b) -> Bool in
             if let aValue = a["value"] as? Float, let bValue = b["value"] as? Float {
                 return bValue > aValue
             }

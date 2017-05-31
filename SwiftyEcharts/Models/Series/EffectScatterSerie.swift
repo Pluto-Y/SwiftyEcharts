@@ -190,6 +190,8 @@ public final class EffectScatterSerie: Serie, Symbolized, Zable {
     public var z: Float?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
+    /// 是否开启 hover 的提示动画效果。
+    public var hoverAnimation: Bool?
     /// MARK: Animatable
     public var animation: Bool?
     public var animationThreshold: Float?
@@ -235,7 +237,7 @@ extension EffectScatterSerie.RippleEffect: Mappable {
 
 extension EffectScatterSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), data([Any]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), legendHoverLink(Bool), showEffectOn(ShowEffectOn), rippleEffect(RippleEffect), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), data([Any]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), hoverAnimation(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -288,6 +290,8 @@ extension EffectScatterSerie: Enumable {
                 self.z = z
             case let .silent(silent):
                 self.silent = silent
+            case let .hoverAnimation(hoverAnimation):
+                self.hoverAnimation = hoverAnimation
             case let .animation(animation):
                 self.animation = animation
             case let .animationThreshold(animationThreshold):
@@ -335,6 +339,7 @@ extension EffectScatterSerie: Mappable {
         map["zlevel"] = zlevel
         map["z"] = z
         map["silent"] = silent
+        map["hoverAnimation"] = hoverAnimation
         map["animation"] = animation
         map["animationThreshold"] = animationThreshold
         map["animationDuration"] = animationDuration

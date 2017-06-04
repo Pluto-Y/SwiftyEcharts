@@ -61,8 +61,7 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     ///   - specialAreas: 可选。将地图中的部分区域缩放到合适的位置，可以使得整个地图的显示更加好看
     public func registerMap(name: String, data: NSDictionary, specialAreas: [String: Jsonable] = [:]) {
         let dataJson = data.jsonString
-        let js = "registerMap('\(name)', '\(dataJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))', '\(specialAreas.jsonString)')"
-        self.callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
+        self.callJsMethod("registerMap(\("'\(name)', '\(preDealWithParams(dataJson))', '\(specialAreas.jsonString)'"))")
     }
     
     /// 重置图表
@@ -93,9 +92,7 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
             self.callJsMethod(function)
         }
         
-        let js = "loadEcharts('\(optionJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))')"
-        printInfo(js)
-        callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
+        callJsMethod("loadEcharts('\(preDealWithParams("\(optionJson)"))')")
     }
     
     public func loadEcharts(with option: Option) {
@@ -123,9 +120,7 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
             //            self.callJsMethod("function \(name)(params){ alert(\(name));eval('window.webkit.messageHandlers.\(name).postMessage(' + params + ')'); }")
         }
         
-        let js = "refreshEcharts('\(optionJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>"))', \(notMerge), \(lazyUpdate), \(silent))"
-//        print(js)
-        self.callJsMethod(js.stringByReplacingOccurrencesOfString("\n", withString: "\\n"))
+        self.callJsMethod("refreshEcharts('\(preDealWithParams("\(optionJson)"))', \(notMerge), \(lazyUpdate), \(silent))")
     }
     
     // MARK: - Private Functions
@@ -176,7 +171,16 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
     }
     
     private func callJsMethod(jsString: String) {
+//        print(jsString)
         self.evaluateJavaScript(jsString, completionHandler: nil)
+    }
+    
+    private func preDealWithParams(paramsJson: String) -> String {
+        // Pre-deal with the special character when pass parameter to js
+        var js = paramsJson.stringByReplacingOccurrencesOfString("\\n", withString: "<br>")
+        js = js.stringByReplacingOccurrencesOfString("\n", withString: "\\n")
+        js = js.stringByReplacingOccurrencesOfString("'", withString: "\\'")
+        return js
     }
     
     private func resizeDiv() {

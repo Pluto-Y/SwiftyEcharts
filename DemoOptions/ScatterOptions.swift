@@ -625,8 +625,198 @@ public final class ScatterOptions {
     // MARK: Anscombe's quartet
     /// 地址: http://echarts.baidu.com/demo.html#scatter-anscombe-quartet
     static func scatterAnscombeQuartetOption() -> Option {
-        // TODO: 添加实现
+        let dataAll: [[[Float]]] = [
+            [
+                [10.0, 8.04],
+                [8.0, 6.95],
+                [13.0, 7.58],
+                [9.0, 8.81],
+                [11.0, 8.33],
+                [14.0, 9.96],
+                [6.0, 7.24],
+                [4.0, 4.26],
+                [12.0, 10.84],
+                [7.0, 4.82],
+                [5.0, 5.68]
+            ],
+            [
+                [10.0, 9.14],
+                [8.0, 8.14],
+                [13.0, 8.74],
+                [9.0, 8.77],
+                [11.0, 9.26],
+                [14.0, 8.10],
+                [6.0, 6.13],
+                [4.0, 3.10],
+                [12.0, 9.13],
+                [7.0, 7.26],
+                [5.0, 4.74]
+            ],
+            [
+                [10.0, 7.46],
+                [8.0, 6.77],
+                [13.0, 12.74],
+                [9.0, 7.11],
+                [11.0, 7.81],
+                [14.0, 8.84],
+                [6.0, 6.08],
+                [4.0, 5.39],
+                [12.0, 8.15],
+                [7.0, 6.42],
+                [5.0, 5.73]
+            ],
+            [
+                [8.0, 6.58],
+                [8.0, 5.76],
+                [8.0, 7.71],
+                [8.0, 8.84],
+                [8.0, 8.47],
+                [8.0, 7.04],
+                [8.0, 5.25],
+                [19.0, 12.50],
+                [8.0, 5.56],
+                [8.0, 7.91],
+                [8.0, 6.89]
+            ]
+        ]
+        
+        let markLineOpt = MarkLine(
+            .animation(false),
+            .label(FormattedLabel(
+                .normal(FormattedLabel.Style(
+                    .formatter(.string("y = 0.5 * x + 3")),
+                    .textStyle(TextStyle(
+                        .align(.right)
+                        ))
+                    ))
+                )),
+            .lineStyle(EmphasisLineStyle(
+                .normal(LineStyle(
+                    .type(.solid)
+                    ))
+                )),
+            // FIXME: 缺少一个 tooltip
+            .data([[
+                MarkData(
+                    .coord([0, 3]),
+                    .symbol(.none)
+                ),
+                MarkData(
+                    .coord([20, 13]),
+                    .symbol(.none)
+                )
+                ]])
+        )
+        
         return Option(
+            .title(Title(
+                .text("Anscombe's quartet"),
+                .x(.center),
+                .y(.value(0))
+                )),
+            .grids([
+                Grid(
+                    .x(.value(7%)),
+                    .y(.value(7%)),
+                    .width(38%),
+                    .height(38%)
+                ),
+                Grid(
+                    .x2(.value(7%)),
+                    .y(.value(7%)),
+                    .width(38%),
+                    .height(38%)
+                ),
+                Grid(
+                    .x(.value(7%)),
+                    .y2(.value(7%)),
+                    .width(38%),
+                    .height(38%)
+                ),
+                Grid(
+                    .x2(.value(7%)),
+                    .y2(.value(7%)),
+                    .width(38%),
+                    .height(38%)
+                )
+                ]),
+            .tooltip(Tooltip(
+                .formatter(.string("Group {a}: ({c})"))
+                )),
+            .xAxises([
+                Axis(
+                    .gridIndex(0),
+                    .min(0),
+                    .max(20)
+                ),
+                Axis(
+                    .gridIndex(1),
+                    .min(0),
+                    .max(20)
+                ),
+                Axis(
+                    .gridIndex(2),
+                    .min(0),
+                    .max(20)
+                ),
+                Axis(
+                    .gridIndex(3),
+                    .min(0),
+                    .max(20)
+                )
+                ]),
+            .yAxises([
+                Axis(
+                    .gridIndex(0),
+                    .min(0),
+                    .max(15)
+                ),
+                Axis(
+                    .gridIndex(1),
+                    .min(0),
+                    .max(15)
+                ),
+                Axis(
+                    .gridIndex(2),
+                    .min(0),
+                    .max(15)
+                ),
+                Axis(
+                    .gridIndex(3),
+                    .min(0),
+                    .max(15)
+                ),
+                ]),
+            .series([
+                ScatterSerie(
+                    .name("I"),
+                    .xAxisIndex(0),
+                    .yAxisIndex(0),
+                    .data(dataAll[0].map { $0 as Jsonable}),
+                    .markLine(markLineOpt)
+                ),
+                ScatterSerie(
+                    .name("II"),
+                    .xAxisIndex(1),
+                    .yAxisIndex(1),
+                    .data(dataAll[1].map { $0 as Jsonable}),
+                    .markLine(markLineOpt)
+                ),
+                ScatterSerie(
+                    .name("III"),
+                    .xAxisIndex(2),
+                    .yAxisIndex(2),
+                    .data(dataAll[2].map { $0 as Jsonable}),
+                    .markLine(markLineOpt)
+                ),
+                ScatterSerie(
+                    .name("IV"),
+                    .xAxisIndex(3),
+                    .yAxisIndex(3),
+                    .data(dataAll[3].map { $0 as Jsonable}),
+                    .markLine(markLineOpt)
+                )
+                ])
         )
     }
     

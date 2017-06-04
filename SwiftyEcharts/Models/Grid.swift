@@ -60,7 +60,7 @@ public final class Grid: Borderable, Displayable, Shadowable, Zable {
 
 extension Grid: Enumable {
     public enum Enums {
-        case show(Bool), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), containLabel(Bool), background(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
+        case show(Bool), zlevel(Float), z(Float), x(Position), left(Position), y(Position), top(Position), x2(Position), right(Position), y2(Position), bottom(Position), width(LengthValue), height(LengthValue), containLabel(Bool), background(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
     }
     public typealias ContentEnum = Enums
     
@@ -76,11 +76,19 @@ extension Grid: Enumable {
                 self.z = z
             case let .left(left):
                 self.left = left
+            case let .x(left):
+                self.left = left
             case let .top(top):
+                self.top = top
+            case let .y(top):
                 self.top = top
             case let .right(right):
                 self.right = right
+            case let .x2(right):
+                self.right = right
             case let .bottom(bottom):
+                self.bottom = bottom
+            case let .y2(bottom):
                 self.bottom = bottom
             case let .width(width):
                 self.width = width

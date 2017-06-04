@@ -50,15 +50,16 @@ public final class TextStyle: Colorful {
     public var fontFamily: String?
     /// 文字的字体大小
     public var fontSize: UInt?
+    /// 父控件的相对位置的对齐
+    public var align: Position?
     
     public init() { }
-    
-    
 }
+
 extension TextStyle: Enumable {
     
     public enum Enums {
-        case color(Color), fontStyle(FontStyle), fontWeight(FontWeight), fontFamily(String), fontSize(UInt)
+        case color(Color), fontStyle(FontStyle), fontWeight(FontWeight), fontFamily(String), fontSize(UInt), align(Position)
     }
     
     public typealias ContentEnum = Enums
@@ -77,6 +78,8 @@ extension TextStyle: Enumable {
                 self.fontFamily = fontFamily
             case let .fontSize(fontSize):
                 self.fontSize = fontSize
+            case let .align(align):
+                self.align = align
             }
         }
     }
@@ -89,6 +92,7 @@ extension TextStyle: Mappable {
         map["fontWeight"] = fontWeight
         map["fontFamily"] = fontFamily
         map["fontSize"] = fontSize
+        map["align"] = align
     }
 }
 

@@ -61,8 +61,7 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     ///   - specialAreas: 可选。将地图中的部分区域缩放到合适的位置，可以使得整个地图的显示更加好看
     public func registerMap(_ name: String, data: NSDictionary, specialAreas: [String: Jsonable] = [:]) {
         let dataJson = data.jsonString
-        let js = "registerMap('\(name)', '\(dataJson.replacingOccurrences(of: "\\n", with: "<br>"))', '\(specialAreas.jsonString)')"
-        self.callJsMethod(js.replacingOccurrences(of: "\n", with: "\\n"))
+        self.callJsMethod("registerMap(\("'\(name)', '\(preDealWithParams(dataJson))', '\(specialAreas.jsonString)'"))")
     }
     
     /// 重置图表
@@ -93,9 +92,7 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
             self.callJsMethod(function)
         }
         
-        let js = "loadEcharts('\(optionJson.replacingOccurrences(of: "\\n", with: "<br>"))')"
-        printInfo(js)
-        callJsMethod(js.replacingOccurrences(of: "\n", with: "\\n"))
+        callJsMethod("loadEcharts('\(preDealWithParams("\(optionJson)"))')")
     }
     
     open func loadEcharts(with option: Option) {
@@ -123,9 +120,7 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
             //            self.callJsMethod("function \(name)(params){ alert(\(name));eval('window.webkit.messageHandlers.\(name).postMessage(' + params + ')'); }")
         }
         
-        let js = "refreshEcharts('\(optionJson.replacingOccurrences(of: "\\n", with: "<br>"))', \(notMerge), \(lazyUpdate), \(silent))"
-//        print(js)
-        self.callJsMethod(js.replacingOccurrences(of: "\n", with: "\\n"))
+        self.callJsMethod("refreshEcharts('\(preDealWithParams("\(optionJson)"))', \(notMerge), \(lazyUpdate), \(silent))")
     }
     
     // MARK: - Private Functions
@@ -176,7 +171,16 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     }
     
     fileprivate func callJsMethod(_ jsString: String) {
+//        print(jsString)
         self.evaluateJavaScript(jsString, completionHandler: nil)
+    }
+    
+    fileprivate func preDealWithParams(_ paramsJson: String) -> String {
+        // Pre-deal with the special character when pass parameter to js
+        var js = paramsJson.replacingOccurrences(of: "\\n", with: "<br>")
+        js = js.replacingOccurrences(of: "\n", with: "\\n")
+        js = js.replacingOccurrences(of: "'", with: "\\'")
+        return js
     }
     
     fileprivate func resizeDiv() {

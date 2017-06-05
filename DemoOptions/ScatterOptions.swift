@@ -924,11 +924,61 @@ public final class ScatterOptions {
         )
     }
     
-    // MARK: 1981 - 1998 gross domestic product GDP (trillion yuan)
-    /// 地址: http://echarts.baidu.com/demo.html#scatter-exponential-regression
-    static func scatterExponentialRegressionOption() -> Option {
-        
+    // MARK: Scatter Nutrients Matrix
+    /// 地址: http://echarts.baidu.com/demo.html#scatter-nutrients-matrix
+    static func scatterNutrientsMatrixOption() -> Option {
+        // TODO: 添加实现
         return Option(
         )
     }
+    
+    // MARK: Clustering Process
+    /// 地址: http://echarts.baidu.com/demo.html#scatter-clustering-process
+    static func scatterClusteringProcessOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: Linear Regression
+    /// 地址: http://echarts.baidu.com/demo.html#scatter-linear-regression
+    static func scatterLinearRegressionOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: Exponential Regression
+    /// 地址: http://echarts.baidu.com/demo.html#scatter-exponential-regression
+    static func scatterExponentialRegressionOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: Logarithmic Regression
+    /// 地址: http://echarts.baidu.com/demo.html#scatter-logarithmic-regression
+    static func scatterLogarithmicRegressionOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: Polynomial Regression
+    /// 地址: http://echarts.baidu.com/demo.html#scatter-polynomial-regression
+    static func scatterPolynomialRegressionOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: Calendar Effectscatter
+    /// 地址: http://echarts.baidu.com/demo.html#calendar-effectscatter
+    static func calendarEffectscatterOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
 }
+

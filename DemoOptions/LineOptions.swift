@@ -1178,6 +1178,23 @@ public final class LineOptions {
                 ])
         )
     }
+    
+    // MARK: Multiple X Axes
+    /// 地址: http://echarts.baidu.com/demo.html#multiple-x-axis
+    static func multipleXAxisOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: Tooltip and DataZoom on Mobile
+    /// 地址: http://echarts.baidu.com/demo.html#line-tooltip-touch
+    static func lineTooltipTouchOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
 }
 
 extension Date {

@@ -75,7 +75,7 @@ public final class ContinuousVisualMap: VisualMap, Displayable, Borderable, Colo
     /// 当inverse为true时，相反。
     public var inverse: Bool?
     /// 数据展示的小数精度，默认为0，无小数点。
-    public var precision: UInt8?
+    public var precision: Float?
     /// 图形的宽度，即长条的宽度。
     public var itemWidth: Float?
     /// 图形的高度，即长条的高度。
@@ -190,7 +190,7 @@ public final class ContinuousVisualMap: VisualMap, Displayable, Borderable, Colo
 
 extension ContinuousVisualMap: Enumable {
     public enum Enums {
-        case min(Float), max(Float), range(Range), calculable(Bool), realtime(Bool), inverse(Bool), precision(UInt8), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(VisualMapController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(Orient), padding(Padding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
+        case min(Float), max(Float), range(Range), calculable(Bool), realtime(Bool), inverse(Bool), precision(Float), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(VisualMapController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(Orient), padding(Padding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
     }
     
     public typealias ContentEnum = Enums

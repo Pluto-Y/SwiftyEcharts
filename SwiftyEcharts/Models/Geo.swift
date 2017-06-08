@@ -28,6 +28,7 @@
 ///
 /// - Note: geo 区域的颜色也可以被 map series 所控制，参见 series-map.geoIndex。
 public final class Geo: Displayable, Zable {
+    
     /// 滚轮缩放的极限控制，通过min, max最小和最大的缩放值，默认的缩放为1。
     public final class ScaleLimit {
         /// 最小的缩放值
@@ -35,6 +36,7 @@ public final class Geo: Displayable, Zable {
         /// 最大的缩放值
         public var max: Float?
     }
+    
     /// 在地图中对特定的区域配置样式。
     ///
     /// 例如：
@@ -50,11 +52,16 @@ public final class Geo: Displayable, Zable {
     ///
     /// geo 区域的颜色也可以被 map series 所控制，参见 series-map.geoIndex。
     public final class Region {
+        /// 地图区域的名称，例如 '广东'，'浙江'。
         public var name: String?
+        /// 该区域是否选中。
         public var selected: Bool?
+        /// 该区域的多边形样式设置
         public var itemStyle: ItemStyle?
+        /// 该区域的标签样式设置
         public var label: Label?
     }
+    
     /// 是否显示地理坐标系组件。
     public var show: Bool?
     /// 地图类型。

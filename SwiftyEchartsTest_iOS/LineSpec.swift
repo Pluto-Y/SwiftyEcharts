@@ -18,9 +18,9 @@ class LineSpec: QuickSpec {
             let dashType: LineType = .dashed
             let dottedType: LineType = .dotted
             
-            expect(solidType.jsonString).to(equal("\"solid\""))
-            expect(dashType.jsonString).to(equal("\"dashed\""))
-            expect(dottedType.jsonString).to(equal("\"dotted\""))
+            expect(solidType.jsonString).to(equal("solid".jsonString))
+            expect(dashType.jsonString).to(equal("dashed".jsonString))
+            expect(dottedType.jsonString).to(equal("dotted".jsonString))
         }
     }
 }

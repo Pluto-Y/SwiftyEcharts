@@ -146,7 +146,7 @@
 		6FA85F481ED336E300C1DA58 /* zhejiang.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F271ED336E300C1DA58 /* zhejiang.json */; };
 		6FA9DB241E59EA2000CE5277 /* OneOrMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */; };
 		6FA9DB261E59FA6A00CE5277 /* OneOrMoreSepc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9DB251E59FA6A00CE5277 /* OneOrMoreSepc.swift */; };
-		6FACFABD1EE99E43002622CE /* GeoQuick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FACFABC1EE99E43002622CE /* GeoQuick.swift */; };
+		6FACFAC11EEAF62B002622CE /* ItemStyleQuick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FACFAC01EEAF62B002622CE /* ItemStyleQuick.swift */; };
 		6FB400401E2FC05E0086BF5B /* BarSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB4003F1E2FC05E0086BF5B /* BarSerie.swift */; };
 		6FB400421E2FC1DD0086BF5B /* CoordinateSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB400411E2FC1DD0086BF5B /* CoordinateSystem.swift */; };
 		6FB400441E3104B70086BF5B /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB400431E3104B70086BF5B /* Timeline.swift */; };
@@ -497,6 +497,7 @@
 		6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrMore.swift; sourceTree = "<group>"; };
 		6FA9DB251E59FA6A00CE5277 /* OneOrMoreSepc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrMoreSepc.swift; sourceTree = "<group>"; };
 		6FACFABC1EE99E43002622CE /* GeoQuick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoQuick.swift; sourceTree = "<group>"; };
+		6FACFAC01EEAF62B002622CE /* ItemStyleQuick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStyleQuick.swift; sourceTree = "<group>"; };
 		6FB4003F1E2FC05E0086BF5B /* BarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BarSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FB400411E2FC1DD0086BF5B /* CoordinateSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateSystem.swift; sourceTree = "<group>"; };
 		6FB400431E3104B70086BF5B /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Timeline.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -929,6 +930,7 @@
 				6F9F90D81EBA242B005AB9FF /* SymbolSpec.swift */,
 				6FB9862E1EC60B7500D2EFE1 /* TextSpec.swift */,
 				6FACFABC1EE99E43002622CE /* GeoQuick.swift */,
+				6FACFAC01EEAF62B002622CE /* ItemStyleQuick.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1519,6 +1521,7 @@
 				6F999F211E82CA5C00D2490A /* AnimatableSpec.swift in Sources */,
 				6FA9DB261E59FA6A00CE5277 /* OneOrMoreSepc.swift in Sources */,
 				6FB48CBA1DEEA30000137D13 /* FontSpec.swift in Sources */,
+				6FACFAC11EEAF62B002622CE /* ItemStyleQuick.swift in Sources */,
 				6FE6683F1EC0B2C3001B977B /* PaddingSpec.swift in Sources */,
 				6F9F90D91EBA242B005AB9FF /* SymbolSpec.swift in Sources */,
 				6F4ACB511E21352600CE5FD5 /* MappableSpec.swift in Sources */,

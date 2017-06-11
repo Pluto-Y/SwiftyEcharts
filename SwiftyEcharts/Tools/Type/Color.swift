@@ -66,28 +66,28 @@ public enum Color: Jsonable {
         switch self {
         case let .rgba(r, g, b, a):
             if validate(r, g, b, a) {
-                return "\"rgba(\(r), \(g), \(b), \(a))\""
+                return "rgba(\(r), \(g), \(b), \(a))".jsonString
             }
-            return "\"null\""
+            return "null".jsonString
         case let .rgb(r, g, b):
             if validate(r, g, b) {
-                return "\"rgba(\(r), \(g), \(b), 1.0)\""
+                return "rgba(\(r), \(g), \(b), 1.0)".jsonString
             }
-            return "\"null\""
+            return "null".jsonString
         case let .hexColor(hexColor):
             return "\"\(hexColor)\""
         case .auto:
-            return "\"auto\""
+            return "auto".jsonString
         case .red:
-            return "\"red\""
+            return "red".jsonString
         case .blue:
-            return "\"blue\""
+            return "blue".jsonString
         case .yellow:
-            return "\"yellow\""
+            return "yellow".jsonString
         case .green:
-            return "\"green\""
+            return "green".jsonString
         case .transparent:
-            return "\"transparent\""
+            return "transparent".jsonString
         case let .linearGradient(x0, y0, x2, y2, colors, absolute):
             var result = "null"
             if colors.count > 0 {

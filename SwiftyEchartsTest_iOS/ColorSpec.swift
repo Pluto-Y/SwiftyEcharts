@@ -45,8 +45,27 @@ class ColorSpec: QuickSpec {
         
         
         describe("For Color enum") {
-            let rgbColor = Color.rgb(120, 0, 255)
-            let rgbaColor = Color.rgba(80, 22, 37, 0.5)
+            let redValue = Int(arc4random_uniform(256))
+            let greenValue = Int(arc4random_uniform(256))
+            let blueValue = Int(arc4random_uniform(256))
+            let alphaValue = Float(Float(arc4random_uniform(100)) / 100.0)
+            let errorRedValue = 256
+            let errorGreenValue = -1
+            let errorblueValue = -10
+            let errorAlpha: Float = 1.01
+            let errorColorJsonString = "null".jsonString
+            let rgbColor = Color.rgb(redValue, greenValue, blueValue)
+            let rgbaColor = Color.rgba(redValue, greenValue, blueValue, alphaValue)
+            
+            it(" needs to check the rgba and rgb case ") {
+                expect(rgbColor.jsonString).to(equal("rgba(\(redValue), \(greenValue), \(blueValue), 1.0)".jsonString))
+                expect(rgbaColor.jsonString).to(equal("rgba(\(redValue), \(greenValue), \(blueValue), \(alphaValue))".jsonString))
+                expect(Color.rgb(errorRedValue, greenValue, blueValue).jsonString).to(equal(errorColorJsonString))
+                expect(Color.rgb(redValue, errorGreenValue, blueValue).jsonString).to(equal(errorColorJsonString))
+                expect(Color.rgb(redValue, greenValue, errorblueValue).jsonString).to(equal(errorColorJsonString))
+                expect(Color.rgba(redValue, greenValue, blueValue, errorAlpha).jsonString).to(equal(errorColorJsonString))
+            }
+            
             let hexColor = Color.hexColor("#209")
             let hexColor2 = Color.hexColor("#22EE98")
             

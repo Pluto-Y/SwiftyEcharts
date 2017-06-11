@@ -39,7 +39,7 @@ public enum Color: Jsonable {
     case radialGradient(Float, Float, Float, [GradientColorElement], Bool)
     case auto, red, blue, green, yellow, transparent
     
-    private func validate(red: Int, _ green: Int, _ blue: Int, _ alpha: Float = 1.0) -> Bool {
+    internal static func validate(red: Int, _ green: Int, _ blue: Int, _ alpha: Float = 1.0) -> Bool {
         guard red >= 0 && red <= 255 else {
             printError("Please check the red element")
             return false
@@ -65,12 +65,12 @@ public enum Color: Jsonable {
     public var jsonString: String {
         switch self {
         case let .rgba(r, g, b, a):
-            if validate(r, g, b, a) {
+            if Color.validate(r, g, b, a) {
                 return "rgba(\(r), \(g), \(b), \(a))".jsonString
             }
             return "null".jsonString
         case let .rgb(r, g, b):
-            if validate(r, g, b) {
+            if Color.validate(r, g, b) {
                 return "rgba(\(r), \(g), \(b), 1.0)".jsonString
             }
             return "null".jsonString

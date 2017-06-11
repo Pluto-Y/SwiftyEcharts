@@ -50,20 +50,33 @@ class ColorSpec: QuickSpec {
             let blueValue = Int(arc4random_uniform(256))
             let alphaValue = Float(Float(arc4random_uniform(100)) / 100.0)
             let errorRedValue = 256
+            let errorRedColor = Color.rgb(errorRedValue, greenValue, blueValue)
             let errorGreenValue = -1
-            let errorblueValue = -10
-            let errorAlpha: Float = 1.01
+            let errorGreenColor = Color.rgb(redValue, errorGreenValue, blueValue)
+            let errorBlueValue = -10
+            let errorBlueColor = Color.rgb(redValue, greenValue, errorBlueValue)
+            let errorAlphaValue: Float = 1.01
+            let errorAlphaColor = Color.rgba(redValue, greenValue, blueValue, errorAlphaValue)
             let errorColorJsonString = "null".jsonString
             let rgbColor = Color.rgb(redValue, greenValue, blueValue)
             let rgbaColor = Color.rgba(redValue, greenValue, blueValue, alphaValue)
             
+            it(" needs to check the Color.validate function ") {
+                expect(Color.validate(errorRedValue, greenValue, blueValue)).to(equal(false))
+                expect(Color.validate(redValue, errorGreenValue, blueValue)).to(equal(false))
+                expect(Color.validate(redValue, greenValue, errorBlueValue)).to(equal(false))
+                expect(Color.validate(redValue, greenValue, blueValue, errorAlphaValue)).to(equal(false))
+                expect(Color.validate(redValue, greenValue, blueValue)).to(equal(true))
+                expect(Color.validate(redValue, greenValue, blueValue, alphaValue)).to(equal(true))
+            }
+            
             it(" needs to check the rgba and rgb case ") {
                 expect(rgbColor.jsonString).to(equal("rgba(\(redValue), \(greenValue), \(blueValue), 1.0)".jsonString))
                 expect(rgbaColor.jsonString).to(equal("rgba(\(redValue), \(greenValue), \(blueValue), \(alphaValue))".jsonString))
-                expect(Color.rgb(errorRedValue, greenValue, blueValue).jsonString).to(equal(errorColorJsonString))
-                expect(Color.rgb(redValue, errorGreenValue, blueValue).jsonString).to(equal(errorColorJsonString))
-                expect(Color.rgb(redValue, greenValue, errorblueValue).jsonString).to(equal(errorColorJsonString))
-                expect(Color.rgba(redValue, greenValue, blueValue, errorAlpha).jsonString).to(equal(errorColorJsonString))
+                expect(errorRedColor.jsonString).to(equal(errorColorJsonString))
+                expect(errorGreenColor.jsonString).to(equal(errorColorJsonString))
+                expect(errorBlueColor.jsonString).to(equal(errorColorJsonString))
+                expect(errorAlphaColor.jsonString).to(equal(errorColorJsonString))
             }
             
             let hexColor = Color.hexColor("#209")

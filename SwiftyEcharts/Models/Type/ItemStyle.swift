@@ -27,13 +27,14 @@ public final class CommonItemStyleContent: ItemStyleContent {
     }
     /// 目前只针对 `BarSerie`
     public var barBorderRadius: Float?
+    public var areaColor: Color?
     
     public init() { }
 }
 
 extension CommonItemStyleContent: Enumable {
     public enum Enums {
-        case color(Color), borderColor(Color), borderWidth(Float), borderType(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), barBorderRadius(Float)
+        case color(Color), borderColor(Color), borderWidth(Float), borderType(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), barBorderRadius(Float), areaColor(Color)
     }
     
     public typealias ContentEnum = Enums
@@ -62,6 +63,8 @@ extension CommonItemStyleContent: Enumable {
                 self.opacity = opacity
             case let .barBorderRadius(barBorderRadius):
                 self.barBorderRadius = barBorderRadius
+            case let .areaColor(areaColor):
+                self.areaColor = areaColor
             }
         }
     }
@@ -79,6 +82,7 @@ extension CommonItemStyleContent: Mappable {
         map["shadowOffsetY"] = shadowOffsetY
         map["opacity"] = opacity
         map["barBorderRadius"] = barBorderRadius
+        map["areaColor"] = areaColor
     }
 }
 

@@ -16,7 +16,7 @@ public protocol Colorful {
 ///
 /// - rgba: 以RGBA形式创建的颜色
 /// - rgb: 以RGB形式创建的颜色
-/// - hexColor: 以16进制字符串创建的颜色
+/// - hexColor: 以16进制字符串创建的颜色， 并且只能为以 '#' 开头 3位16进制数或者6位16进制数
 public enum Color: Jsonable {
     
     public enum ImageRepeat: String, Jsonable {
@@ -39,6 +39,14 @@ public enum Color: Jsonable {
     case radialGradient(Float, Float, Float, [GradientColorElement], Bool)
     case auto, red, blue, green, yellow, transparent
     
+    /// 用来校验 rgb 或者 rgba 是否符合 Echarts 颜色的限制
+    ///
+    /// - Parameters:
+    ///   - red: 红色的数值
+    ///   - green: 绿色的数值
+    ///   - blue: 蓝色的数值
+    ///   - alpha: 透明度的数值
+    /// - Returns: 如果校验成功则返回 true , 反之返回 false
     internal static func validate(_ red: Int, _ green: Int, _ blue: Int, _ alpha: Float = 1.0) -> Bool {
         guard red >= 0 && red <= 255 else {
             printError("Please check the red element")
@@ -62,6 +70,29 @@ public enum Color: Jsonable {
         return true
     }
     
+    /// 用来校验 hexString 是否符合 ECharts 16进制字符串颜色的限制
+    ///
+    /// - Note: 只有以 '#' 开头，并且后面跟三位或者六位十六进制字符串才可以
+    ///
+    /// - Parameter hexString: 需要校验的16进制颜色字符串
+    /// - returns: 如果校验成功则返回 true , 反之返回 false
+    internal static func validate(_ hexString: String) -> Bool {
+        var cString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
+        
+        guard cString.hasPrefix("#") else {
+            return false
+        }
+        
+        cString.remove(at: cString.startIndex)
+        
+        guard cString.characters.count == 6 || cString.characters.count == 3 else {
+            return false
+        }
+        
+        var rgbValue: Int = 0
+        return Scanner(string: cString).scanInt(&rgbValue)
+    }
+    
     public var jsonString: String {
         switch self {
         case let .rgba(r, g, b, a):
@@ -75,7 +106,10 @@ public enum Color: Jsonable {
             }
             return "null".jsonString
         case let .hexColor(hexColor):
-            return "\"\(hexColor)\""
+            if !Color.validate(hexColor) {
+                return "null".jsonString
+            }
+            return "\(hexColor)".jsonString
         case .auto:
             return "auto".jsonString
         case .red:

@@ -13,6 +13,8 @@ import Nimble
 class ColorSpec: QuickSpec {
     
     override func spec() {
+        // 错误的颜色的 jsontString
+        let errorColorJsonString = "null".jsonString
         
         describe("For Color.ImageRepeat") {
             let repeatAll = Color.ImageRepeat.repeatAll
@@ -57,11 +59,10 @@ class ColorSpec: QuickSpec {
             let errorBlueColor = Color.rgb(redValue, greenValue, errorBlueValue)
             let errorAlphaValue: Float = 1.01
             let errorAlphaColor = Color.rgba(redValue, greenValue, blueValue, errorAlphaValue)
-            let errorColorJsonString = "null".jsonString
             let rgbColor = Color.rgb(redValue, greenValue, blueValue)
             let rgbaColor = Color.rgba(redValue, greenValue, blueValue, alphaValue)
             
-            it(" needs to check the Color.validate function ") {
+            it(" needs to check the Color.validate(_:_:_:_:) function ") {
                 expect(Color.validate(errorRedValue, greenValue, blueValue)).to(equal(false))
                 expect(Color.validate(redValue, errorGreenValue, blueValue)).to(equal(false))
                 expect(Color.validate(redValue, greenValue, errorBlueValue)).to(equal(false))
@@ -79,8 +80,44 @@ class ColorSpec: QuickSpec {
                 expect(errorAlphaColor.jsonString).to(equal(errorColorJsonString))
             }
             
-            let hexColor = Color.hexColor("#209")
-            let hexColor2 = Color.hexColor("#22EE98")
+            let sixCharactersHexString = "#22EE98"
+            let errorSixCharactersHexStringWithoutPound = "22ee98"
+            let threeeCharactersHexString = "#2e8"
+            let errorEightCharactersHexString = "#FF0088C0"
+            let errorFourCharactersHexString = "#F08c"
+            let errorFourCharactersHexStringWihtoutPound = "f08C"
+            let errorCharacterHexString = "#gg08CC"
+            let errorCountsOfCharacterHexString = "#gg088CC"
+            let sixCharacterHexColor = Color.hexColor(sixCharactersHexString)
+            let errorSixCharacterWithoutPoundHexColor = Color.hexColor(errorSixCharactersHexStringWithoutPound)
+            let threeCharacterHexColor = Color.hexColor(threeeCharactersHexString)
+            let errorEightCharacterHexColor = Color.hexColor(errorEightCharactersHexString)
+            let errorFourCharacterHexColor = Color.hexColor(errorFourCharactersHexString)
+            let errorFourCharacterWitoutPoundHexColor = Color.hexColor(errorFourCharactersHexStringWihtoutPound)
+            let errorCharacterHexColor = Color.hexColor(errorCharacterHexString)
+            let errorCountsOfCharacterHexColor = Color.hexColor(errorCountsOfCharacterHexString)
+            
+            it(" needs to check the Color.validate(_:) ") {
+                expect(Color.validate(sixCharactersHexString)).to(equal(true))
+                expect(Color.validate(errorSixCharactersHexStringWithoutPound)).to(equal(false))
+                expect(Color.validate(threeeCharactersHexString)).to(equal(true))
+                expect(Color.validate(errorEightCharactersHexString)).to(equal(false))
+                expect(Color.validate(errorFourCharactersHexString)).to(equal(false))
+                expect(Color.validate(errorFourCharactersHexStringWihtoutPound)).to(equal(false))
+                expect(Color.validate(errorCharacterHexString)).to(equal(false))
+                expect(Color.validate(errorCountsOfCharacterHexString)).to(equal(false))
+            }
+            
+            it(" needs to check the hexColor case ") {
+                expect(sixCharacterHexColor.jsonString).to(equal(sixCharactersHexString.jsonString))
+                expect(errorSixCharacterWithoutPoundHexColor.jsonString).to(equal(errorColorJsonString))
+                expect(threeCharacterHexColor.jsonString).to(equal(threeeCharactersHexString.jsonString))
+                expect(errorEightCharacterHexColor.jsonString).to(equal(errorColorJsonString))
+                expect(errorFourCharacterHexColor.jsonString).to(equal(errorColorJsonString))
+                expect(errorFourCharacterWitoutPoundHexColor.jsonString).to(equal(errorColorJsonString))
+                expect(errorCharacterHexColor.jsonString).to(equal(errorColorJsonString))
+                expect(errorCountsOfCharacterHexColor.jsonString).to(equal(errorColorJsonString))
+            }
             
             it(" needs to check the linearGradient case ") {
                 let x0: Float = 0, y0: Float = 0, x2: Float = 0, y2: Float = 1

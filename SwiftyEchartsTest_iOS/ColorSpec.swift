@@ -61,7 +61,7 @@ class ColorSpec: QuickSpec {
             let rgbColor = Color.rgb(redValue, greenValue, blueValue)
             let rgbaColor = Color.rgba(redValue, greenValue, blueValue, alphaValue)
             
-            it(" needs to check the Color.validate function ") {
+            it(" needs to check the Color.validate(_:_:_:_:) function ") {
                 expect(Color.validate(errorRedValue, greenValue, blueValue)).to(equal(false))
                 expect(Color.validate(redValue, errorGreenValue, blueValue)).to(equal(false))
                 expect(Color.validate(redValue, greenValue, errorBlueValue)).to(equal(false))
@@ -79,8 +79,27 @@ class ColorSpec: QuickSpec {
                 expect(errorAlphaColor.jsonString).to(equal(errorColorJsonString))
             }
             
+            let sixCharactersHexString = "#22EE98"
+            let sixCharactersHexStringWithoutPound = "22ee98"
+            let threeeCharactersHexString = "#2e8"
+            let eightCharactersHexString = "#FF0088C0"
+            let fourCharactersHexString = "#F08c"
+            let fourCharactershexStringWihtoutPound = "f08C"
+            let errorCharacterHexString = "#gg08CC"
+            let errorCountsOfCharacterHexString = "#gg088CC"
             let hexColor = Color.hexColor("#209")
             let hexColor2 = Color.hexColor("#22EE98")
+            
+            it(" needs to check the Color.validate(_:) ") {
+                expect(Color.validate(sixCharactersHexString)).to(equal(true))
+                expect(Color.validate(sixCharactersHexStringWithoutPound)).to(equal(true))
+                expect(Color.validate(threeeCharactersHexString)).to(equal(true))
+                expect(Color.validate(eightCharactersHexString)).to(equal(true))
+                expect(Color.validate(fourCharactersHexString)).to(equal(true))
+                expect(Color.validate(fourCharactershexStringWihtoutPound)).to(equal(true))
+                expect(Color.validate(errorCharacterHexString)).to(equal(false))
+                expect(Color.validate(errorCountsOfCharacterHexString)).to(equal(false))
+            }
             
             it(" needs to check the linearGradient case ") {
                 let x0: Float = 0, y0: Float = 0, x2: Float = 0, y2: Float = 1

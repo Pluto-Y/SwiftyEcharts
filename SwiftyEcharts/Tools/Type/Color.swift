@@ -62,6 +62,21 @@ public enum Color: Jsonable {
         return true
     }
     
+    internal static func validate(hexString: String) -> Bool {
+        var cString:String = hexString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
+        
+        if (cString.hasPrefix("#")) {
+            cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
+        }
+        
+        guard cString.characters.count == 6 || cString.characters.count == 3 || cString.characters.count == 8 || cString.characters.count == 4 else {
+            return false
+        }
+        
+        var rgbValue:UInt32 = 0
+        return NSScanner(string: cString).scanHexInt(&rgbValue)
+    }
+    
     public var jsonString: String {
         switch self {
         case let .rgba(r, g, b, a):
@@ -75,7 +90,10 @@ public enum Color: Jsonable {
             }
             return "null".jsonString
         case let .hexColor(hexColor):
-            return "\"\(hexColor)\""
+            if !Color.validate(hexColor) {
+                return "null".jsonString
+            }
+            return "\(hexColor)".jsonString
         case .auto:
             return "auto".jsonString
         case .red:

@@ -875,8 +875,8 @@ public final class LineOptions {
                 .type(.value),
                 .startAngle(0)
                 )),
-            .radiusAxis([RadiusAxis(
-                )]),
+            .radiusAxis(RadiusAxis(
+                )),
             .series([
                 LineSerie(
                     .coordinateSystem(.polar),
@@ -916,9 +916,9 @@ public final class LineOptions {
                 .type(.value),
                 .startAngle(0)
                 )),
-            .radiusAxis([RadiusAxis(
+            .radiusAxis(RadiusAxis(
                 .min(0)
-                )]),
+                )),
             .series([
                 LineSerie(
                     .coordinateSystem(.polar),

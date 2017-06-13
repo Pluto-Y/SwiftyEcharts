@@ -28,7 +28,7 @@ public final class Option: Textful, Animatable {
     public var yAxis: OneOrMore<Axis>?
     public var polar: Polar?
     public var radiusAxis: [RadiusAxis]?
-    public var angleAxis: [AngleAxis]?
+    public var angleAxis: OneOrMore<AngleAxis>?
     public var radar: OneOrMore<Radar>?
     public var dataZoom: [DataZoom]?
     public var visualMap: OneOrMore<VisualMap>?
@@ -94,7 +94,7 @@ public final class Option: Textful, Animatable {
 
 extension Option: Enumable {
     public enum Enums {
-        case title(Title), legend(Legend), grid(Grid), grids([Grid]), xAxis(Axis), xAxises([Axis]), yAxis(Axis), yAxises([Axis]), polar(Polar), radiusAxis([RadiusAxis]), angleAxis([AngleAxis]), radar(Radar), radars([Radar]), dataZoom([DataZoom]), visualMap(VisualMap), visualMaps([VisualMap]), tooltip(Tooltip), toolbox(Toolbox), brush(Brush), geo(Geo), parallel(Parallel), parallelAxis([ParallelAxis]), singleAxis(SingleAxis), singleAxises([SingleAxis]), timeline(Timeline), graphic([Graphic]), series([Serie]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), blendMode(BlendMode)
+        case title(Title), legend(Legend), grid(Grid), grids([Grid]), xAxis(Axis), xAxises([Axis]), yAxis(Axis), yAxises([Axis]), polar(Polar), radiusAxis([RadiusAxis]), angleAxis(AngleAxis), angleAxises([AngleAxis]), radar(Radar), radars([Radar]), dataZoom([DataZoom]), visualMap(VisualMap), visualMaps([VisualMap]), tooltip(Tooltip), toolbox(Toolbox), brush(Brush), geo(Geo), parallel(Parallel), parallelAxis([ParallelAxis]), singleAxis(SingleAxis), singleAxises([SingleAxis]), timeline(Timeline), graphic([Graphic]), series([Serie]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), blendMode(BlendMode)
     }
     
     public typealias ContentEnum = Enums
@@ -124,7 +124,9 @@ extension Option: Enumable {
             case let .radiusAxis(radiusAxis):
                 self.radiusAxis = radiusAxis
             case let .angleAxis(angleAxis):
-                self.angleAxis = angleAxis
+                self.angleAxis = OneOrMore(one: angleAxis)
+            case let .angleAxises(angleAxises):
+                self.angleAxis = OneOrMore(more: angleAxises)
             case let .radar(radar):
                 self.radar = OneOrMore(one: radar)
             case let .radars(radars):

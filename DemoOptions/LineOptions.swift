@@ -871,10 +871,10 @@ public final class LineOptions {
                     .type(.cross)
                     ))
                 )),
-            .angleAxis([AngleAxis(
+            .angleAxis(AngleAxis(
                 .type(.value),
                 .startAngle(0)
-                )]),
+                )),
             .radiusAxis([RadiusAxis(
                 )]),
             .series([
@@ -912,10 +912,10 @@ public final class LineOptions {
                     .type(.cross)
                     ))
                 )),
-            .angleAxis([AngleAxis(
+            .angleAxis(AngleAxis(
                 .type(.value),
                 .startAngle(0)
-                )]),
+                )),
             .radiusAxis([RadiusAxis(
                 .min(0)
                 )]),

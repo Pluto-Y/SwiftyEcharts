@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class PairSpec : QuickSpec {
+class PairSpec: QuickSpec {
     
     override func spec() {
         

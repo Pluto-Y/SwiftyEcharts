@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyEcharts
 
-class MenuController : UITableViewController {
+class MenuController: UITableViewController {
 
     var echartsView: EchartsView?
     

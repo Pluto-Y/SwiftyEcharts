@@ -186,7 +186,7 @@ public func rgb(_ red: Int, _ green: Int, _ blue: Int) -> Color {
 }
 
 // 通过字符串能直接产生颜色
-extension Color : ExpressibleByStringLiteral {
+extension Color: ExpressibleByStringLiteral {
     public init(stringLiteral value: String) {
        self = Color.hexColor(value)
     }

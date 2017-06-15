@@ -8,6 +8,11 @@
 
 /// 极坐标系的径向轴。
 public final class RadiusAxis: Zable {
+    
+    public final class AxisPointer: Displayable {
+        public var show: Bool?
+    }
+    
     /// 径向轴所在的极坐标系的索引，默认使用第一个极坐标系。
     public var polarIndex: UInt8?
     /// 坐标轴类型。
@@ -100,15 +105,23 @@ public final class RadiusAxis: Zable {
     public var splitLine: SplitLine?
     /// 坐标轴在 grid 区域中的分隔区域，默认不显示。
     public var splitArea: SplitArea?
+    public var data: [Jsonable]?
+    public var axisPointer: AxisPointer?
     
     /// MARK: - Zable
     public var zlevel: Float?
     public var z: Float?
 }
 
+extension RadiusAxis.AxisPointer: Mappable {
+    public func mapping(_ map: Mapper) {
+        
+    }
+}
+
 extension RadiusAxis: Enumable {
     public enum Enums {
-        case polarIndex(UInt8), type(AxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(Float), interval(Float), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), zlevel(Float), z(Float)
+        case polarIndex(UInt8), type(AxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(Float), interval(Float), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable]), axisPointer(AxisPointer), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -163,6 +176,10 @@ extension RadiusAxis: Enumable {
                 self.splitLine = splitLine
             case let .splitArea(splitArea):
                 self.splitArea = splitArea
+            case let .data(data):
+                self.data = data
+            case let .axisPointer(axisPointer):
+                self.axisPointer = axisPointer
             case let .zlevel(zlevel):
                 self.zlevel = zlevel
             case let .z(z):
@@ -197,6 +214,8 @@ extension RadiusAxis: Mappable {
         map["axisLabel"] = axisLabel
         map["splitLine"] = splitLine
         map["splitArea"] = splitArea
+        map["data"] = data
+        map["axisPointer"] = axisPointer
         map["zlevel"] = zlevel
         map["z"] = z
     }

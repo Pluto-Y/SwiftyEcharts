@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class PercentSpec : QuickSpec {
+class PercentSpec: QuickSpec {
     override func spec() {
         describe("Testing for type named 'Percent'") {
             

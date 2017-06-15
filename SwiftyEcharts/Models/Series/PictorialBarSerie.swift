@@ -87,7 +87,7 @@ public final class PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
     public init() { }
 }
 
-extension PictorialBarSerie.Data : Enumable {
+extension PictorialBarSerie.Data: Enumable {
     public enum Enums {
         case name(String), value(Jsonable), symbol(Symbol), symbolSize(Jsonable), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(String), symbolBoundingData(String), symbolPatterSize(Float), z(Float), hoverAnimation(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelay(Time), animationDelayUpdate(Time), label(FormattedLabel), itemStyle(ItemStyle), tooltip(Tooltip)
     }
@@ -155,7 +155,7 @@ extension PictorialBarSerie.Data : Enumable {
     }
 }
 
-extension PictorialBarSerie.Data : Mappable {
+extension PictorialBarSerie.Data: Mappable {
     public func mapping(_ map: Mapper) {
         map["name"] = name
         map["value"] = value
@@ -186,7 +186,7 @@ extension PictorialBarSerie.Data : Mappable {
     }
 }
 
-extension PictorialBarSerie : Enumable {
+extension PictorialBarSerie: Enumable {
     public enum Enums {
         case name(String), legendHoverLine(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(FormattedLabel), itemStyle(ItemStyle), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(LengthValue), barGap(LengthValue), barCategoryGap(LengthValue), symbol(Symbol), symbolSize(Jsonable), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(Bool), symbolBoundingData(String), symbolPatternSize(Float), hoverAnimation(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationDelayUpdate(Time), animationDelay(Time), animationEasingUpdate(EasingFunction), tooltip(Tooltip)
     }
@@ -282,7 +282,7 @@ extension PictorialBarSerie : Enumable {
     }
 }
 
-extension PictorialBarSerie : Mappable {
+extension PictorialBarSerie: Mappable {
     public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name

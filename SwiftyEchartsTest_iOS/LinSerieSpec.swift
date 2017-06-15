@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class LineSerieSpec : QuickSpec {
+class LineSerieSpec: QuickSpec {
     
     override func spec() {
         describe("For LineSerie.AreaStyle") {

@@ -124,7 +124,7 @@ public final class AngleAxis: Zable {
     /// 坐标轴在 grid 区域中的分隔区域，默认不显示。
     public var splitArea: SplitArea?
     /// 数据
-    public var data: [Any]?
+    public var data: [Jsonable]?
     
     /// MARK: - Zable
     public var zlevel: Float?
@@ -162,7 +162,7 @@ extension AngleAxis.Data: Mappable {
 
 extension AngleAxis: Enumable {
     public enum Enums {
-        case polarIndex(UInt8), startAngle(Float), clockwise(Bool), type(AxisType), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Any]), zlevel(Float), z(Float)
+        case polarIndex(UInt8), startAngle(Float), clockwise(Bool), type(AxisType), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable]), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums

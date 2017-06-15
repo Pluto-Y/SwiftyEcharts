@@ -18,35 +18,54 @@
 /// - value: 绝对位置
 /// - percent: 相对位置
 public enum Position: Jsonable {
-    case auto, left, center, right, top, middle, bottom, start, end, inside, inner, outside
+    case auto, left, center, right, top, middle, bottom, start, end, inside, inner, outside, insideLeft, insideTop, insideRight, insideBottom, insideTopLeft, insideBottomLeft, insideTopRight, insideBottomRight
     case value(LengthValue)
+    case point(Point)
     
     public var jsonString: String {
         switch self {
         case .auto:
-            return "\"auto\""
+            return "auto".jsonString
         case .left:
-            return "\"left\""
+            return "left".jsonString
         case .right:
-            return "\"right\""
+            return "right".jsonString
         case .center:
-            return "\"center\""
+            return "center".jsonString
         case .top:
-            return "\"top\""
+            return "top".jsonString
         case .bottom:
-            return "\"bottom\""
+            return "bottom".jsonString
         case .middle:
-            return "\"middle\""
+            return "middle".jsonString
         case .start:
-            return "\"start\""
+            return "start".jsonString
         case .end:
-            return "\"end\""
+            return "end".jsonString
         case .inside:
-            return "\"inside\""
+            return "inside".jsonString
         case .inner:
-            return "\"inner\""
+            return "inner".jsonString
         case .outside:
-            return "\"outside\""
+            return "outside".jsonString
+        case .insideLeft:
+            return "insideLeft".jsonString
+        case .insideRight:
+            return "insideRight".jsonString
+        case .insideTop:
+            return "insideTop".jsonString
+        case .insideBottom:
+            return "insideBottom".jsonString
+        case .insideTopLeft:
+            return "insideTopLeft".jsonString
+        case .insideBottomLeft:
+            return "insideBottomLeft".jsonString
+        case .insideTopRight:
+            return "insideTopRight".jsonString
+        case .insideBottomRight:
+            return "insideBottomRight".jsonString
+        case let .point(point):
+            return point.jsonString
         case let .value(val):
             return val.jsonString
         }

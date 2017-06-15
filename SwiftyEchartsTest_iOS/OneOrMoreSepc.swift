@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class OneOrMoreSepc : QuickSpec {
+class OneOrMoreSepc: QuickSpec {
     
     override func spec() {
         describe("Testing for type named 'OneOrMore' ") {

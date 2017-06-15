@@ -16,7 +16,6 @@
 		540898AE1E54294700A89BB0 /* BoundaryGap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898AD1E54294700A89BB0 /* BoundaryGap.swift */; };
 		540898B01E54637100A89BB0 /* JsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898AF1E54637100A89BB0 /* JsCache.swift */; };
 		540898B21E54637600A89BB0 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898B11E54637600A89BB0 /* Color.swift */; };
-		540DE5F91E2CF05C002F25E3 /* MarkPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DE5F81E2CF05C002F25E3 /* MarkPosition.swift */; };
 		540DE5FD1E2CF087002F25E3 /* MarkArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DE5FA1E2CF087002F25E3 /* MarkArea.swift */; };
 		540DE5FE1E2CF087002F25E3 /* MarkLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DE5FB1E2CF087002F25E3 /* MarkLine.swift */; };
 		540DE5FF1E2CF087002F25E3 /* MarkPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540DE5FC1E2CF087002F25E3 /* MarkPoint.swift */; };
@@ -208,7 +207,6 @@
 		6FC28C3A1E9D37D700B79049 /* MarkArea.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540DE5FA1E2CF087002F25E3 /* MarkArea.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC28C3B1E9D37D700B79049 /* MarkLine.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540DE5FB1E2CF087002F25E3 /* MarkLine.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC28C3C1E9D37D700B79049 /* MarkPoint.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540DE5FC1E2CF087002F25E3 /* MarkPoint.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		6FC28C3D1E9D37D700B79049 /* MarkPosition.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540DE5F81E2CF05C002F25E3 /* MarkPosition.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC28C3E1E9D37D700B79049 /* MarkData.swift in Headers */ = {isa = PBXBuildFile; fileRef = 5427F0AA1E2CEB8800CE20E5 /* MarkData.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC28C3F1E9D37D700B79049 /* MarkDataType.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FEC7D1E1E55EEE0003A88D7 /* MarkDataType.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC28C401E9D37D700B79049 /* Label.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6F4ACB3B1E1BF47B00CE5FD5 /* Label.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -364,7 +362,6 @@
 		540898AD1E54294700A89BB0 /* BoundaryGap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundaryGap.swift; sourceTree = "<group>"; };
 		540898AF1E54637100A89BB0 /* JsCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsCache.swift; sourceTree = "<group>"; };
 		540898B11E54637600A89BB0 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		540DE5F81E2CF05C002F25E3 /* MarkPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkPosition.swift; sourceTree = "<group>"; };
 		540DE5FA1E2CF087002F25E3 /* MarkArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MarkArea.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		540DE5FB1E2CF087002F25E3 /* MarkLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MarkLine.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		540DE5FC1E2CF087002F25E3 /* MarkPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MarkPoint.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -647,7 +644,6 @@
 				540DE5FA1E2CF087002F25E3 /* MarkArea.swift */,
 				540DE5FB1E2CF087002F25E3 /* MarkLine.swift */,
 				540DE5FC1E2CF087002F25E3 /* MarkPoint.swift */,
-				540DE5F81E2CF05C002F25E3 /* MarkPosition.swift */,
 				5427F0AA1E2CEB8800CE20E5 /* MarkData.swift */,
 				6FEC7D1E1E55EEE0003A88D7 /* MarkDataType.swift */,
 			);
@@ -1062,7 +1058,6 @@
 				6FC28C3A1E9D37D700B79049 /* MarkArea.swift in Headers */,
 				6FC28C3B1E9D37D700B79049 /* MarkLine.swift in Headers */,
 				6FC28C3C1E9D37D700B79049 /* MarkPoint.swift in Headers */,
-				6FC28C3D1E9D37D700B79049 /* MarkPosition.swift in Headers */,
 				6FC28C3E1E9D37D700B79049 /* MarkData.swift in Headers */,
 				6FC28C3F1E9D37D700B79049 /* MarkDataType.swift in Headers */,
 				6FC28C401E9D37D700B79049 /* Label.swift in Headers */,
@@ -1439,7 +1434,6 @@
 				6F4A151B1E6DB9940059BAD5 /* FunnelSerie.swift in Sources */,
 				6F9B70D81DE8070E00406B55 /* EchartsView.swift in Sources */,
 				6F4ACB361E1BD36100CE5FD5 /* Emphasisable.swift in Sources */,
-				540DE5F91E2CF05C002F25E3 /* MarkPosition.swift in Sources */,
 				6F1FDA8F1DF5D6E9004BC74E /* Grid.swift in Sources */,
 				5469CBF71E320B210063D1C3 /* ContinuousVisualMap.swift in Sources */,
 				6FEC7D1B1E549487003A88D7 /* Pair.swift in Sources */,

@@ -26,7 +26,7 @@ public final class BarSerie: Serie, Animatable, Zable {
     /// 使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用。
     public var yAxisIndex: UInt8?
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
-    public var label: Label?
+    public var label: FormattedLabel?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: ItemStyle?
     /// 数据堆叠，同个类目轴上系列配置相同的stack值可以堆叠放置。
@@ -108,7 +108,7 @@ public final class BarSerie: Serie, Animatable, Zable {
 
 extension BarSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLine(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(Label), itemStyle(ItemStyle), stack(String), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(Float), barGap(String), barCategoryGap(String), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), legendHoverLine(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(FormattedLabel), itemStyle(ItemStyle), stack(String), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(Float), barGap(String), barCategoryGap(String), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -209,93 +209,6 @@ extension BarSerie: Mappable {
         map["animationDurationUpdate"] = animationDurationUpdate
         map["animationEasingUpdate"] = animationEasingUpdate
         map["animationDelayUpdate"] = animationDelayUpdate
-    }
-}
-
-extension BarSerie {
-    public final class LabelContent {
-        /// 是否显示标签。
-        public var show: Bool?
-        /// 标签的位置。
-        public var position: MarkPosition?
-        /// 是否对文字进行偏移。默认不偏移。例如：[30, 40] 表示文字在横向上偏移 30，纵向上偏移 40。
-        public var offset: [Float]?
-        /// 标签内容格式器，支持字符串模板和回调函数两种形式，字符串模板与回调函数返回的字符串均支持用 \n 换行。
-        public var formatter: Formatter?
-        /// 标签的字体样式。
-        public var textStyle: TextStyle?
-    }
-    
-    public final class Label: Emphasisable {
-        
-        public typealias Style = LabelContent
-        public var normal: Style?
-        public var emphasis: Style?
-        
-    }
-}
-
-extension BarSerie.LabelContent: Enumable {
-    public enum Enums {
-        case show(Bool), position(MarkPosition), offset([Float]), formatter(Formatter), textStyle(TextStyle)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public convenience init(_ elements: Enums...) {
-        self.init()
-        for ele in elements {
-            switch ele {
-            case let .show(show):
-                self.show = show
-             case let .position(position):
-                self.position = position
-            case let .offset(offset):
-                self.offset = offset
-            case let .formatter(formatter):
-                self.formatter = formatter
-            case let .textStyle(textStyle):
-                self.textStyle = textStyle
-            }
-        }
-    }
-}
-
-extension BarSerie.LabelContent: Mappable {
-    public func mapping(map: Mapper) {
-        map["show"] = show
-        map["position"] = position
-        map["offset"] = offset
-        map["formatter"] = formatter
-        map["textStyle"] = textStyle
-    }
-}
-
-
-extension BarSerie.Label: Enumable {
-    public enum Enums {
-        case normal(Style), emphasis(Style)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public convenience init(_ elements: Enums...) {
-        self.init()
-        for ele in elements {
-            switch ele {
-            case let .normal(normal):
-                self.normal = normal
-            case let .emphasis(emphasis):
-                self.emphasis = emphasis
-            }
-        }
-    }
-}
-
-extension BarSerie.Label: Mappable {
-    public func mapping(map: Mapper) {
-        map["normal"] = normal
-        map["emphasis"] = emphasis
     }
 }
 

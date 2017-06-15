@@ -119,6 +119,26 @@ class ColorSpec: QuickSpec {
                 expect(errorCountsOfCharacterHexColor.jsonString).to(equal(errorColorJsonString))
             }
             
+            let sixCharactersLiteralColor: Color = "#22EE98"
+            let errorSixCharactersWithoutPoundLiteralColor: Color = "22ee98"
+            let threeeCharactersLiteralColor: Color = "#2e8"
+            let errorEightCharactersLiteralColor: Color = "#FF0088C0"
+            let errorFourCharactersLiteralColor: Color = "#F08c"
+            let errorFourCharactersLiteralColorWihtoutPound: Color = "f08C"
+            let errorCharacterLiteralColor: Color = "#gg08CC"
+            let errorCountsOfCharacterLiteralColor: Color = "#gg088CC"
+            
+            it(" needs to check the StringLiteralConvertible ") {
+                expect(sixCharactersLiteralColor.jsonString).to(equal(sixCharacterHexColor.jsonString))
+                expect(errorSixCharactersWithoutPoundLiteralColor.jsonString).to(equal(errorSixCharacterWithoutPoundHexColor.jsonString))
+                expect(threeeCharactersLiteralColor.jsonString).to(equal(threeCharacterHexColor.jsonString))
+                expect(errorEightCharactersLiteralColor.jsonString).to(equal(errorEightCharacterHexColor.jsonString))
+                expect(errorFourCharactersLiteralColor.jsonString).to(equal(errorFourCharacterHexColor.jsonString))
+                expect(errorFourCharactersLiteralColorWihtoutPound.jsonString).to(equal(errorFourCharacterWitoutPoundHexColor.jsonString))
+                expect(errorCharacterLiteralColor.jsonString).to(equal(errorCharacterHexColor.jsonString))
+                expect(errorCountsOfCharacterLiteralColor.jsonString).to(equal(errorCountsOfCharacterHexColor.jsonString))
+            }
+            
             it(" needs to check the linearGradient case ") {
                 let x0: Float = 0, y0: Float = 0, x2: Float = 0, y2: Float = 1
                 let offset1: Float = 0, offset2: Float = 1

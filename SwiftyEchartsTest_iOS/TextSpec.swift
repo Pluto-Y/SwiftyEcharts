@@ -42,8 +42,23 @@ class TextSpec: QuickSpec {
         }
         
         describe("For TextStyle") {
+            let color: Color = .red
+            let fontStyle: FontStyle = .italic
+            let fontWeight: FontWeight = .bolder
+            let fontFamily: String = "Arial"
+            let fontSize: UInt = 32
+            let align: Position = .center
+            let textStyleDic: [String: Jsonable] = ["color": color, "fontStyle": fontStyle, "fontWeight": fontWeight, "fontFamily": fontFamily, "fontSize": fontSize, "align": align]
+            
             it(" needs to check the jsonString ") {
-                
+                let textStyle = TextStyle()
+                textStyle.color = color
+                textStyle.fontStyle = fontStyle
+                textStyle.fontWeight = fontWeight
+                textStyle.fontFamily = fontFamily
+                textStyle.fontSize = fontSize
+                textStyle.align = align
+                expect(textStyle.jsonString).to(equal(textStyleDic.jsonString))
             }
         }
     }

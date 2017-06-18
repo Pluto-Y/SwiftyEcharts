@@ -88,6 +88,7 @@
 		6F5E2D1E1E4CB2E5009C4DA7 /* SingleAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */; };
 		6F5E3AB71ED475FD008D4095 /* ScattersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E3AB61ED475FD008D4095 /* ScattersController.swift */; };
 		6F6331491EF6C6B400EC9D24 /* PositionQuick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6331481EF6C6B400EC9D24 /* PositionQuick.swift */; };
+		6F63314B1EF6CBFA00EC9D24 /* FunctionOrValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63314A1EF6CBFA00EC9D24 /* FunctionOrValue.swift */; };
 		6F67FCB91E71CA1B00BE2E4B /* SelectedModeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */; };
 		6F91EB7B1DF08026003EEEC0 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7A1DF08026003EEEC0 /* Line.swift */; };
 		6F91EB7D1DF081A2003EEEC0 /* Shadowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7C1DF081A2003EEEC0 /* Shadowable.swift */; };
@@ -436,6 +437,7 @@
 		6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SingleAxis.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F5E3AB61ED475FD008D4095 /* ScattersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScattersController.swift; sourceTree = "<group>"; };
 		6F6331481EF6C6B400EC9D24 /* PositionQuick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionQuick.swift; sourceTree = "<group>"; };
+		6F63314A1EF6CBFA00EC9D24 /* FunctionOrValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionOrValue.swift; sourceTree = "<group>"; };
 		6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedModeSpec.swift; sourceTree = "<group>"; };
 		6F91EB7A1DF08026003EEEC0 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		6F91EB7C1DF081A2003EEEC0 /* Shadowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shadowable.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 				540898A91E53F71E00A89BB0 /* LengthValue.swift */,
 				6FEC7D1A1E549487003A88D7 /* Pair.swift */,
 				6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */,
+				6F63314A1EF6CBFA00EC9D24 /* FunctionOrValue.swift */,
 			);
 			path = Type;
 			sourceTree = "<group>";
@@ -1379,6 +1382,7 @@
 				6FD249C21E4E121F00FBB2F7 /* GraphicType.swift in Sources */,
 				6FB48CBC1DEEFCE100137D13 /* Title.swift in Sources */,
 				6F4ACB401E1BFA2500CE5FD5 /* Opacitable.swift in Sources */,
+				6F63314B1EF6CBFA00EC9D24 /* FunctionOrValue.swift in Sources */,
 				6F4ACB3C1E1BF47B00CE5FD5 /* Label.swift in Sources */,
 				6F5E2D1E1E4CB2E5009C4DA7 /* SingleAxis.swift in Sources */,
 				6FB400441E3104B70086BF5B /* Timeline.swift in Sources */,

@@ -42,8 +42,38 @@ class TextSpec: QuickSpec {
         }
         
         describe("For TextStyle") {
+            let color: Color = .red
+            let fontStyle: FontStyle = .italic
+            let fontWeight: FontWeight = .bolder
+            let fontFamily: String = "Arial"
+            let fontSize: UInt = 32
+            let align: Position = .center
+            
+            let textStyle = TextStyle()
+            textStyle.color = color
+            textStyle.fontStyle = fontStyle
+            textStyle.fontWeight = fontWeight
+            textStyle.fontFamily = fontFamily
+            textStyle.fontSize = fontSize
+            textStyle.align = align
+            
             it(" needs to check the jsonString ") {
+                let textStyleDic: [String: Jsonable] = ["color": color, "fontStyle": fontStyle, "fontWeight": fontWeight, "fontFamily": fontFamily, "fontSize": fontSize, "align": align]
                 
+                expect(textStyle.jsonString).to(equal(textStyleDic.jsonString))
+            }
+            
+            it(" needs to check the Enumable ") {
+                let textStyleCreatedByEnum = TextStyle(
+                    .color(color),
+                    .fontStyle(fontStyle),
+                    .fontWeight(fontWeight),
+                    .fontFamily(fontFamily),
+                    .fontSize(fontSize),
+                    .align(align)
+                )
+                
+                expect(textStyleCreatedByEnum.jsonString).to(equal(textStyle.jsonString))
             }
         }
     }

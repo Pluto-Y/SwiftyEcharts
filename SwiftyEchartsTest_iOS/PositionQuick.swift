@@ -89,6 +89,22 @@ class PositionQuick: QuickSpec {
             }
         }
         
+        describe("For Location") {
+            let startString = "start"
+            let middleString = "middle"
+            let endString = "end"
+            
+            let startLocation = Location.start
+            let middleLocation = Location.middle
+            let endLocation = Location.end
+            
+            it(" needs to check the jsonString ") {
+                expect(startLocation.jsonString).to(equal(startString.jsonString))
+                expect(middleLocation.jsonString).to(equal(middleString.jsonString))
+                expect(endLocation.jsonString).to(equal(endString.jsonString))
+                
+            }
+        }
     }
     
 }

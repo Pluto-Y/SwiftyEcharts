@@ -27,7 +27,7 @@ public enum FunctionOrFloat: FunctionOrValue {
     }
 }
 
-extension FunctionOrFloat: FloatLiteralConvertible, IntegerLiteralConvertible {
+extension FunctionOrFloat: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
     
     public init(floatLiteral value: Float) {
         self = .value(value)

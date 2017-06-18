@@ -87,6 +87,7 @@
 		6F4E6AB01ECDC8CD00E2858B /* USA.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F4E6AAF1ECDC8CD00E2858B /* USA.json */; };
 		6F5E2D1E1E4CB2E5009C4DA7 /* SingleAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */; };
 		6F5E3AB71ED475FD008D4095 /* ScattersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E3AB61ED475FD008D4095 /* ScattersController.swift */; };
+		6F6331491EF6C6B400EC9D24 /* PositionQuick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6331481EF6C6B400EC9D24 /* PositionQuick.swift */; };
 		6F67FCB91E71CA1B00BE2E4B /* SelectedModeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */; };
 		6F91EB7B1DF08026003EEEC0 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7A1DF08026003EEEC0 /* Line.swift */; };
 		6F91EB7D1DF081A2003EEEC0 /* Shadowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7C1DF081A2003EEEC0 /* Shadowable.swift */; };
@@ -434,6 +435,7 @@
 		6F4E6AAF1ECDC8CD00E2858B /* USA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = USA.json; sourceTree = "<group>"; };
 		6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SingleAxis.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F5E3AB61ED475FD008D4095 /* ScattersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScattersController.swift; sourceTree = "<group>"; };
+		6F6331481EF6C6B400EC9D24 /* PositionQuick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionQuick.swift; sourceTree = "<group>"; };
 		6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedModeSpec.swift; sourceTree = "<group>"; };
 		6F91EB7A1DF08026003EEEC0 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		6F91EB7C1DF081A2003EEEC0 /* Shadowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shadowable.swift; sourceTree = "<group>"; };
@@ -927,6 +929,7 @@
 				6FB9862E1EC60B7500D2EFE1 /* TextSpec.swift */,
 				6FACFABC1EE99E43002622CE /* GeoQuick.swift */,
 				6FACFAC01EEAF62B002622CE /* ItemStyleQuick.swift */,
+				6F6331481EF6C6B400EC9D24 /* PositionQuick.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1512,6 +1515,7 @@
 				6F9F90D51EB8C6B4005AB9FF /* RoamSpec.swift in Sources */,
 				5408989D1E52EB6500A89BB0 /* LinSerieSpec.swift in Sources */,
 				6FEC7D191E5376F9003A88D7 /* PercentSpec.swift in Sources */,
+				6F6331491EF6C6B400EC9D24 /* PositionQuick.swift in Sources */,
 				6F999F211E82CA5C00D2490A /* AnimatableSpec.swift in Sources */,
 				6FA9DB261E59FA6A00CE5277 /* OneOrMoreSepc.swift in Sources */,
 				6FB48CBA1DEEA30000137D13 /* FontSpec.swift in Sources */,

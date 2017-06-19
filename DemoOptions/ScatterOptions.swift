@@ -567,7 +567,7 @@ public final class ScatterOptions {
                     .name("pm2.5"),
                     .coordinateSystem(.geo),
                     .data(convertData(data)),
-//                    .symbolSize() // FIXME: 缺少对 symbolSize 函数的支持
+                    .symbolSize(.function("function (val) {return val[2] / 10;}")),
                     .label(FormattedLabel(
                         .normal(FormattedLabelStyle(
                             .formatter(.string("{b}")),
@@ -588,7 +588,7 @@ public final class ScatterOptions {
                     .name("Top 5"),
                     .coordinateSystem(.geo),
                     .data(topFiveData.map { return $0 as Jsonable}),
-//                    .symbolSize() // FIXME: 缺少对 symbolSize 函数的支持
+                    .symbolSize(.function("function (val) {return val[2] / 10;}")),
                     .showEffectOn(.render),
                     .rippleEffect(EffectScatterSerie.RippleEffect(
                         .brushType(.stroke)
@@ -1451,7 +1451,7 @@ public final class ScatterOptions {
                 ScatterSerie(
                     .name("Punch Card"),
                     .coordinateSystem(.polar),
-//                    .symbolSize() // FIXME: symbolSize 暂不支持函数
+                    .symbolSize(.function("function (val) {return val[2] * 2;}")),
                     .data(data.map { $0 as Jsonable }),
                     .animationDelay(.function("function (idx) {return idx * 5;}"))
                 )

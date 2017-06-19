@@ -53,7 +53,7 @@ public final class ScatterOptions {
                 ScatterSerie(
                     .name("1990"),
                     .data(data[0]),
-                    .symbolSize("function (data) {return Math.sqrt(data[2]) / 5e2;}"),
+                    .symbolSize(.function("function (data) {return Math.sqrt(data[2]) / 5e2;}")),
                     .label(FormattedLabel(
                         .emphasis(FormattedLabelStyle(
                             .show(true),
@@ -81,7 +81,7 @@ public final class ScatterOptions {
                 ScatterSerie(
                     .name("2015"),
                     .data(data[1]),
-                    .symbolSize("function (data) {return Math.sqrt(data[2]) / 5e2;}"),
+                    .symbolSize(.function("function (data) {return Math.sqrt(data[2]) / 5e2;}")),
                     .label(FormattedLabel(
                         .emphasis(FormattedLabelStyle(
                             .show(true),

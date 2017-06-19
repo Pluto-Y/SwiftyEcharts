@@ -11,7 +11,7 @@ public final class MarkPoint: Symbolized, Animatable {
     /// 标记的图形。
     public var symbol: OneOrMore<Symbol>?
     /// 标记的大小
-    public var symbolSize: Jsonable?
+    public var symbolSize: FunctionOrFloatOrPair?
     /// 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
     public var symbolRotate: Float?
     /// 标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
@@ -71,7 +71,7 @@ public final class MarkPoint: Symbolized, Animatable {
 
 extension MarkPoint: Enumable {
     public enum Enums {
-        case symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), silent(Bool), label(FormattedLabel), itemStyle(ItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), silent(Bool), label(FormattedLabel), itemStyle(ItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

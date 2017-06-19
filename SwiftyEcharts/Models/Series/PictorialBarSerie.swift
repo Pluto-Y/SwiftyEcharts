@@ -12,7 +12,7 @@ public final class PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
         public var name: String?
         public var value: Jsonable?
         public var symbol: OneOrMore<Symbol>?
-        public var symbolSize: Jsonable?
+        public var symbolSize: FunctionOrFloatOrPair?
         public var symbolPosition: Position?
         public var symbolOffset: Point?
         public var symbolRotate: Float?
@@ -56,7 +56,7 @@ public final class PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
     public var barGap: LengthValue?
     public var barCategoryGap: LengthValue?
     public var symbol: OneOrMore<Symbol>?
-    public var symbolSize: Jsonable?
+    public var symbolSize: FunctionOrFloatOrPair?
     public var symbolPosition: Position?
     public var symbolOffset: Point?
     public var symbolRotate: Float?
@@ -89,7 +89,7 @@ public final class PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
 
 extension PictorialBarSerie.Data : Enumable {
     public enum Enums {
-        case name(String), value(Jsonable), symbol(Symbol), symbolSize(Jsonable), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(String), symbolBoundingData(String), symbolPatterSize(Float), z(Float), hoverAnimation(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelay(Time), animationDelayUpdate(Time), label(FormattedLabel), itemStyle(ItemStyle), tooltip(Tooltip)
+        case name(String), value(Jsonable), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(String), symbolBoundingData(String), symbolPatterSize(Float), z(Float), hoverAnimation(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelay(Time), animationDelayUpdate(Time), label(FormattedLabel), itemStyle(ItemStyle), tooltip(Tooltip)
     }
     
     public typealias ContentEnum = Enums
@@ -188,7 +188,7 @@ extension PictorialBarSerie.Data : Mappable {
 
 extension PictorialBarSerie : Enumable {
     public enum Enums {
-        case name(String), legendHoverLine(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(FormattedLabel), itemStyle(ItemStyle), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(LengthValue), barGap(LengthValue), barCategoryGap(LengthValue), symbol(Symbol), symbolSize(Jsonable), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(Bool), symbolBoundingData(String), symbolPatternSize(Float), hoverAnimation(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationDelayUpdate(Time), animationDelay(Time), animationEasingUpdate(EasingFunction), tooltip(Tooltip)
+        case name(String), legendHoverLine(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(FormattedLabel), itemStyle(ItemStyle), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(LengthValue), barGap(LengthValue), barCategoryGap(LengthValue), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(Bool), symbolBoundingData(String), symbolPatternSize(Float), hoverAnimation(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationDelayUpdate(Time), animationDelay(Time), animationEasingUpdate(EasingFunction), tooltip(Tooltip)
     }
     
     public typealias ContentEnum = Enums

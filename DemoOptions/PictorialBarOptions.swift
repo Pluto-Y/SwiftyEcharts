@@ -74,7 +74,7 @@ public final class PictorialBarOptions {
                         PictorialBarSerie.Data(
                             .value(8844),
                             .symbol(.path("image://http://echarts.baidu.com/data/asset/img/hill-Qomolangma.png")),
-                            .symbolSize(["200%", "105%"]),
+                            .symbolSize([200%, 105%]),
                             .symbolPosition(.end),
                             .z(10)
                         ),
@@ -116,18 +116,18 @@ public final class PictorialBarOptions {
                     .data([
                         PictorialBarSerie.Data(
                             .value(1),
-                            .symbolSize(["150%", 50])
+                            .symbolSize([150%, 50])
                         ),
                         PictorialBarSerie.Data(
                             .value("-")
                         ),
                         PictorialBarSerie.Data(
                             .value(1),
-                            .symbolSize(["200%", 50])
+                            .symbolSize([200%, 50])
                         ),
                         PictorialBarSerie.Data(
                             .value(1),
-                            .symbolSize(["200%", 50])
+                            .symbolSize([200%, 50])
                         )
                         ])
                 )

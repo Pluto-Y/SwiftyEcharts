@@ -248,7 +248,7 @@ public final class MapOptions {
                         .formatter(.string("{b}"))
                         ))
                     )),
-                .symbolSize("function (val) {return val[2] / 8;}"),
+                .symbolSize(.function("function (val) {return val[2] / 8;}")),
                 .itemStyle(ItemStyle(
                     .normal(CommonItemStyleContent(
                         .color(color[i])

@@ -658,7 +658,7 @@ public final class LineOptions {
             .series([
                 LineSerie(
                     .smooth(false),
-                    .symbolSize(symbolSize),
+                    .symbolSize(.value(symbolSize)),
                     .data(data)
                 )
                 ])

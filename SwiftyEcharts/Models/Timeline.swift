@@ -148,7 +148,7 @@ public final class Timeline: Displayable, Symbolized, Zable {
         /// timeline.checkpointStyle 标记的图形。
         public var symbol: OneOrMore<Symbol>?
         /// timeline.checkpointStyle 标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
-        public var symbolSize: Jsonable?
+        public var symbolSize: FunctionOrFloatOrPair?
         /// timeline.checkpointStyle 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
         public var symbolRotate: Float?
         /// timeline.checkpointStyle 标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
@@ -225,7 +225,7 @@ public final class Timeline: Displayable, Symbolized, Zable {
         /// 标记图形
         public var symbol: Symbol?
         /// 标记图形大小
-        public var symbolSize: Jsonable?
+        public var symbolSize: FunctionOrFloatOrPair?
     }
     
     /// 是否显示 timeline 组件。如果设置为false，不会显示，但是功能还存在。
@@ -295,7 +295,7 @@ public final class Timeline: Displayable, Symbolized, Zable {
     /// timeline标记的图形。
     public var symbol: OneOrMore<Symbol>?
     /// timeline标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10。
-    public var symbolSize: Jsonable?
+    public var symbolSize: FunctionOrFloatOrPair?
     /// timeline标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
     public var symbolRotate: Float?
     /// timeline标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。
@@ -366,7 +366,7 @@ extension Timeline.LineStyle: Mappable {
 
 extension Timeline.CheckpointStyle: Enumable {
     public enum Enums {
-        case symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), color(Color), borderColor(Color), borderWidth(Float), animation(Bool), animationDuration(Float), animationEasing(EasingFunction)
+        case symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), color(Color), borderColor(Color), borderWidth(Float), animation(Bool), animationDuration(Float), animationEasing(EasingFunction)
     }
     
     public typealias ContentEnum = Enums
@@ -510,7 +510,7 @@ extension Timeline.ControlStyle: Mappable {
 
 extension Timeline.Data: Enumable {
     public enum Enums {
-        case value(Jsonable), tooltip(Tooltip), symbol(Symbol), symbolSize(Jsonable)
+        case value(Jsonable), tooltip(Tooltip), symbol(Symbol), symbolSize(FunctionOrFloatOrPair)
     }
     
     public typealias ContentEnums = Enums
@@ -543,7 +543,7 @@ extension Timeline.Data: Mappable {
 
 extension Timeline: Enumable {
     public enum Enums {
-        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), padding(Padding), orient(Orient), inverse(Bool), symbol(Symbol), symbolSize(Jsonable), symbolRotate(Float), symbolOffset(Point), lineStyle(LineStyle), itemStyle(ItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([Jsonable])
+        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), padding(Padding), orient(Orient), inverse(Bool), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), lineStyle(LineStyle), itemStyle(ItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([Jsonable])
     }
     
     public typealias ContentEnum = Enums

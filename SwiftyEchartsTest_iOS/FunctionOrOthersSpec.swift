@@ -13,9 +13,23 @@ import Nimble
 class FunctionOrOthersSpec: QuickSpec {
     
     override func spec() {
+        let errorJsonString = "null"
+        let functionString = "function (idx) {return idx * 0.65;}"
+        describe("For FunctionOrOthers") {
+            it(" needs to check the func which named 'obtainFunctionJsonString' ") {
+                JsCache.removeAll()
+                let functionCase = FunctionOrFloat.function(functionString)
+                expect(functionCase.obtainFunctionJsonString(javascript: functionString)).to(equal("\(FunctionPrefix)0".jsonString))
+                expect(JsCache.allJsStrings().count).to(equal(1))
+                expect(JsCache.allJsStrings().first).to(equal("var \(FunctionPrefix)0 = \(functionString);"))
+                
+                expect(functionCase.obtainFunctionJsonString(javascript: "null")).to(equal(errorJsonString))
+            }
+        }
+        
         describe("For FunctionOrFloat") {
             let floatValue: Float = 3.1415
-            let functionString = "function (idx) {return idx * 0.65;}"
+            
             it(" needs to check the jsonString ") {
                 let floatCase = FunctionOrFloat.value(floatValue)
                 expect(floatCase.jsonString).to(equal(floatValue.jsonString))
@@ -27,7 +41,7 @@ class FunctionOrOthersSpec: QuickSpec {
                 expect(JsCache.allJsStrings().first).to(equal("var \(FunctionPrefix)0 = \(functionString);"))
             }
             
-            it(" needs to check the literal convertiable ") {
+            it(" needs to check the literal convertible ") {
                 let integerValue: Int = 10
                 let floatLiteralCase: FunctionOrFloat = 3.1415
                 let integerLieteralCase: FunctionOrFloat = 10

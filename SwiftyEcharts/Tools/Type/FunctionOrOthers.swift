@@ -11,6 +11,15 @@ internal let FunctionPrefix = "echartsFunc"
 public protocol FunctionOrOthers: Jsonable {
 }
 
+extension FunctionOrOthers {
+    internal func obtainFunctionJsonString(javascript f: String) -> String {
+        guard f != "null" else { return "null" }
+        let funcName = "\(FunctionPrefix)\(JsCache.allJsStrings().count)"
+        JsCache.add("var \(funcName) = \(f);")
+        return funcName.jsonString
+    }
+}
+
 public enum FunctionOrFloat: FunctionOrOthers {
     case value(Float)
     case function(String)
@@ -20,9 +29,7 @@ public enum FunctionOrFloat: FunctionOrOthers {
         case let .value(value):
             return value.jsonString
         case let .function(f):
-            let funcName = "\(FunctionPrefix)\(JsCache.allJsStrings().count)"
-            JsCache.add("var \(funcName) = \(f);")
-            return funcName.jsonString
+            return obtainFunctionJsonString(javascript: f)
         }
     }
 }
@@ -49,9 +56,7 @@ public enum FunctionOrFloatOrPair: FunctionOrOthers {
         case let .value(value):
             return value.jsonString
         case let .function(f):
-            let funcName = "\(FunctionPrefix)\(JsCache.allJsStrings().count)"
-            JsCache.add("var \(funcName) = \(f);")
-            return funcName.jsonString
+            return obtainFunctionJsonString(javascript: f)
         case let .point(point):
             return point.jsonString
         }

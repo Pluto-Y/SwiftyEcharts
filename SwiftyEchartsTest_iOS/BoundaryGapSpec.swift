@@ -22,7 +22,7 @@ class BoundaryGapSpec: QuickSpec {
             it(" needs to check the jsonString for the BoundaryGap ") {
                 expect(enableBoundaryGap.jsonString).to(equal(true.jsonString))
                 expect(disableBoundaryGap.jsonString).to(equal(false.jsonString))
-                expect(rangeBoundaryGap.jsonString).to(equal("[\"20.00%\",\"20.00%\"]"))
+                expect(rangeBoundaryGap.jsonString).to(equal([20%, 20%].jsonString))
             }
             
             it(" needs to check the Bool Literal Constructor ") {

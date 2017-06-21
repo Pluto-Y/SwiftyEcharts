@@ -8,7 +8,7 @@
 
 import Quick
 import Nimble
-import SwiftyEcharts
+@testable import SwiftyEcharts
 
 class PositionSpec: QuickSpec {
     
@@ -37,6 +37,7 @@ class PositionSpec: QuickSpec {
             let lengthValue1 = 10%
             let lengthValue2 = 87.5
             let point: Point = [lengthValue1, lengthValue2]
+            let functionString = "function (pt) {return [pt[0], '10%'];}"
             
             let autoPosition = Position.auto
             let leftPosition = Position.left
@@ -61,6 +62,7 @@ class PositionSpec: QuickSpec {
             let valuePosition1 = Position.value(lengthValue1)
             let valuePosition2 = Position.value(lengthValue2)
             let pointPosition = Position.point(point)
+            let functionPosition = Position.function(functionString)
             
             it(" needs to check the jsonString ") {
                 expect(autoPosition.jsonString).to(equal(autoString.jsonString))
@@ -86,6 +88,11 @@ class PositionSpec: QuickSpec {
                 expect(valuePosition1.jsonString).to(equal(lengthValue1.jsonString))
                 expect(valuePosition2.jsonString).to(equal(lengthValue2.jsonString))
                 expect(pointPosition.jsonString).to(equal(point.jsonString))
+                
+                JsCache.removeAll()
+                expect(functionPosition.jsonString).to(equal("\(FunctionPrefix)0".jsonString))
+                expect(JsCache.allJsStrings().count).to(equal(1))
+                expect(JsCache.allJsStrings().first).to(equal("var \(FunctionPrefix)0 = \(functionString);"))
             }
         }
         

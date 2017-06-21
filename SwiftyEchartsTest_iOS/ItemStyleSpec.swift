@@ -1,5 +1,5 @@
 //
-//  ItemStyleQuick.swift
+//  ItemStyleSpec.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 09/06/2017.
@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class ItemStyleQuick: QuickSpec {
+class ItemStyleSpec: QuickSpec {
     override func spec() {
         describe("For CommonItemStyleContent") {
             let color = Color.rgb(172, 87, 29)

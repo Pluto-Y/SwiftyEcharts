@@ -10,15 +10,15 @@
 public enum Target: Jsonable, CustomStringConvertible {
     
     ///  当前窗口打开
-    case tself
+    case `self`
     /// 新窗口打开
-    case tblank
+    case blank
     
     public var description: String {
         switch self {
-        case .tself:
+        case .`self`:
             return "self"
-        case .tblank:
+        case .blank:
             return "blank"
         }
     }

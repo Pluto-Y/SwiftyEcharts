@@ -7,20 +7,11 @@
 //
 
 /// 位置
-///
-/// - auto: 自动
-/// - left: 水平：左
-/// - center: 水平：中间
-/// - right: 水平：右
-/// - top: 垂直：顶部
-/// - middle: 垂直：中间
-/// - bottom: 垂直：底部
-/// - value: 绝对位置
-/// - percent: 相对位置
-public enum Position: Jsonable {
+public enum Position: FunctionOrOthers {
     case auto, left, center, right, top, middle, bottom, start, end, inside, inner, outside, insideLeft, insideTop, insideRight, insideBottom, insideTopLeft, insideBottomLeft, insideTopRight, insideBottomRight
     case value(LengthValue)
     case point(Point)
+    case function(String)
     
     public var jsonString: String {
         switch self {
@@ -68,6 +59,8 @@ public enum Position: Jsonable {
             return point.jsonString
         case let .value(val):
             return val.jsonString
+        case let .function(f):
+            return obtainFunctionJsonString(javascript: f)
         }
     }
 }

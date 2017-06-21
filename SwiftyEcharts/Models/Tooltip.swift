@@ -41,46 +41,6 @@ public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
         
     }
     
-    /// 提示框浮层的位置
-    ///
-    /// - intArr: 绝对位置
-    /// - percentArray: 相对位置, eg:[0.5, 0.5] => 相对位置，放置在容器正中间
-    /// - inside: 鼠标所在图形的内部中心位置，只在 trigger 为'item'的时候有效。
-    /// - top: 鼠标所在图形上侧，只在 trigger 为'item'的时候有效。
-    /// - left: 鼠标所在图形左侧，只在 trigger 为'item'的时候有效。
-    /// - right: 鼠标所在图形右侧，只在 trigger 为'item'的时候有效。
-    /// - bottom: 鼠标所在图形底侧，只在 trigger 为'item'的时候有效。
-    public enum Position: Jsonable {
-        case intArr(Int, Int)
-        case percentArr(Float, Float)
-        case function(String)
-        case inside, top, left, right, bottom
-        public var jsonString: String {
-            switch self {
-            case let .intArr(x, y):
-                return "[\(x), \(y)]"
-            case let .percentArr(xPer, yPer):
-                return "[\(xPer * 100)%, \(yPer * 100)%]"
-            case .inside:
-                return "\"inside\""
-            case .left:
-                return "\"left\""
-            case .right:
-                return "\"right\""
-            case .top:
-                return "\"top\""
-            case .bottom:
-                return "\"ibottomnside\""
-            case let .function(f):
-                let count = JsCache.allJsStrings().count
-                let funcName = "positionFunc\(count)"
-                JsCache.add("var \(funcName) = \(f);")
-                return "\"\(funcName)\""
-            }
-
-        }
-    }
-    
     /// 坐标轴指示器配置项
     public final class AxisPointer: Line {
         
@@ -196,7 +156,14 @@ public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
     /// 浮层隐藏的延迟，单位为 ms，在 alwaysShowContent 为 true 的时候无效。
     public var hideDelay: Float?
     /// 提示框浮层的位置，默认不设置时位置会跟随鼠标的位置。
-    public var position: Tooltip.Position?
+    ///
+    /// - point: 绝对位置和相对位置, 支持浮点数和百分比, [10, 5%]
+    /// - inside: 鼠标所在图形的内部中心位置，只在 trigger 为'item'的时候有效。
+    /// - top: 鼠标所在图形上侧，只在 trigger 为'item'的时候有效。
+    /// - left: 鼠标所在图形左侧，只在 trigger 为'item'的时候有效。
+    /// - right: 鼠标所在图形右侧，只在 trigger 为'item'的时候有效。
+    /// - bottom: 鼠标所在图形底侧，只在 trigger 为'item'的时候有效。
+    public var position: Position?
     /// 是否将 tooltip 框限制在图表的区域内。
     /// 当图表外层的 dom 被设置为 'overflow: hidden'，或者移动端窄屏，导致 tooltip 超出外界被截断时，此配置比较有用。
     public var confine: Bool?
@@ -370,7 +337,7 @@ extension Tooltip.AxisPointer: Mappable {
 
 extension Tooltip: Enumable {
     public enum Enums {
-        case show(Bool), showContent(Bool), trigger(Trigger), triggerOn(Trigger.TriggerOn), alwaysShowContent(Bool), showDelay(Float), hideDelay(Float), position(Tooltip.Position), confine(Bool), transitionDuration(Float), formatter(Formatter), backgroundColor(Color), borderColor(Color), borderWidth(Float), padding(Padding), textStyle(TextStyle), extraCssText(String), axisPointer(AxisPointer)
+        case show(Bool), showContent(Bool), trigger(Trigger), triggerOn(Trigger.TriggerOn), alwaysShowContent(Bool), showDelay(Float), hideDelay(Float), position(Position), confine(Bool), transitionDuration(Float), formatter(Formatter), backgroundColor(Color), borderColor(Color), borderWidth(Float), padding(Padding), textStyle(TextStyle), extraCssText(String), axisPointer(AxisPointer)
     }
     public typealias ContentEnum = Enums
     

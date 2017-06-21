@@ -1,5 +1,5 @@
 //
-//  PositionQuick.swift
+//  PositionSpec.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 18/06/2017.
@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class PositionQuick: QuickSpec {
+class PositionSpec: QuickSpec {
     
     override func spec() {
         describe("For Position") {

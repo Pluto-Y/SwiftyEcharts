@@ -88,7 +88,7 @@
 		6F4E6AB01ECDC8CD00E2858B /* USA.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F4E6AAF1ECDC8CD00E2858B /* USA.json */; };
 		6F5E2D1E1E4CB2E5009C4DA7 /* SingleAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */; };
 		6F5E3AB71ED475FD008D4095 /* ScattersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E3AB61ED475FD008D4095 /* ScattersController.swift */; };
-		6F6331491EF6C6B400EC9D24 /* PositionQuick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6331481EF6C6B400EC9D24 /* PositionQuick.swift */; };
+		6F6331491EF6C6B400EC9D24 /* PositionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6331481EF6C6B400EC9D24 /* PositionSpec.swift */; };
 		6F63314B1EF6CBFA00EC9D24 /* FunctionOrOthers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63314A1EF6CBFA00EC9D24 /* FunctionOrOthers.swift */; };
 		6F67FCB91E71CA1B00BE2E4B /* SelectedModeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */; };
 		6F91EB7B1DF08026003EEEC0 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7A1DF08026003EEEC0 /* Line.swift */; };
@@ -148,7 +148,7 @@
 		6FA85F481ED336E300C1DA58 /* zhejiang.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F271ED336E300C1DA58 /* zhejiang.json */; };
 		6FA9DB241E59EA2000CE5277 /* OneOrMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */; };
 		6FA9DB261E59FA6A00CE5277 /* OneOrMoreSepc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9DB251E59FA6A00CE5277 /* OneOrMoreSepc.swift */; };
-		6FACFAC11EEAF62B002622CE /* ItemStyleQuick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FACFAC01EEAF62B002622CE /* ItemStyleQuick.swift */; };
+		6FACFAC11EEAF62B002622CE /* ItemStyleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FACFAC01EEAF62B002622CE /* ItemStyleSpec.swift */; };
 		6FB400401E2FC05E0086BF5B /* BarSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB4003F1E2FC05E0086BF5B /* BarSerie.swift */; };
 		6FB400421E2FC1DD0086BF5B /* CoordinateSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB400411E2FC1DD0086BF5B /* CoordinateSystem.swift */; };
 		6FB400441E3104B70086BF5B /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB400431E3104B70086BF5B /* Timeline.swift */; };
@@ -438,7 +438,7 @@
 		6F4E6AAF1ECDC8CD00E2858B /* USA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = USA.json; sourceTree = "<group>"; };
 		6F5E2D1D1E4CB2E5009C4DA7 /* SingleAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SingleAxis.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F5E3AB61ED475FD008D4095 /* ScattersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScattersController.swift; sourceTree = "<group>"; };
-		6F6331481EF6C6B400EC9D24 /* PositionQuick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionQuick.swift; sourceTree = "<group>"; };
+		6F6331481EF6C6B400EC9D24 /* PositionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionSpec.swift; sourceTree = "<group>"; };
 		6F63314A1EF6CBFA00EC9D24 /* FunctionOrOthers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FunctionOrOthers.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedModeSpec.swift; sourceTree = "<group>"; };
 		6F91EB7A1DF08026003EEEC0 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
@@ -499,8 +499,8 @@
 		6FA85F271ED336E300C1DA58 /* zhejiang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zhejiang.json; sourceTree = "<group>"; };
 		6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrMore.swift; sourceTree = "<group>"; };
 		6FA9DB251E59FA6A00CE5277 /* OneOrMoreSepc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrMoreSepc.swift; sourceTree = "<group>"; };
-		6FACFABC1EE99E43002622CE /* GeoQuick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoQuick.swift; sourceTree = "<group>"; };
-		6FACFAC01EEAF62B002622CE /* ItemStyleQuick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStyleQuick.swift; sourceTree = "<group>"; };
+		6FACFABC1EE99E43002622CE /* GeoSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoSpec.swift; sourceTree = "<group>"; };
+		6FACFAC01EEAF62B002622CE /* ItemStyleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStyleSpec.swift; sourceTree = "<group>"; };
 		6FB4003F1E2FC05E0086BF5B /* BarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BarSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FB400411E2FC1DD0086BF5B /* CoordinateSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateSystem.swift; sourceTree = "<group>"; };
 		6FB400431E3104B70086BF5B /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Timeline.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -932,9 +932,9 @@
 				6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */,
 				6F9F90D81EBA242B005AB9FF /* SymbolSpec.swift */,
 				6FB9862E1EC60B7500D2EFE1 /* TextSpec.swift */,
-				6FACFABC1EE99E43002622CE /* GeoQuick.swift */,
-				6FACFAC01EEAF62B002622CE /* ItemStyleQuick.swift */,
-				6F6331481EF6C6B400EC9D24 /* PositionQuick.swift */,
+				6FACFABC1EE99E43002622CE /* GeoSpec.swift */,
+				6FACFAC01EEAF62B002622CE /* ItemStyleSpec.swift */,
+				6F6331481EF6C6B400EC9D24 /* PositionSpec.swift */,
 				6F1649291EF9150500592CE3 /* FunctionOrOthersSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
@@ -1523,11 +1523,11 @@
 				6F9F90D51EB8C6B4005AB9FF /* RoamSpec.swift in Sources */,
 				5408989D1E52EB6500A89BB0 /* LinSerieSpec.swift in Sources */,
 				6FEC7D191E5376F9003A88D7 /* PercentSpec.swift in Sources */,
-				6F6331491EF6C6B400EC9D24 /* PositionQuick.swift in Sources */,
+				6F6331491EF6C6B400EC9D24 /* PositionSpec.swift in Sources */,
 				6F999F211E82CA5C00D2490A /* AnimatableSpec.swift in Sources */,
 				6FA9DB261E59FA6A00CE5277 /* OneOrMoreSepc.swift in Sources */,
 				6FB48CBA1DEEA30000137D13 /* FontSpec.swift in Sources */,
-				6FACFAC11EEAF62B002622CE /* ItemStyleQuick.swift in Sources */,
+				6FACFAC11EEAF62B002622CE /* ItemStyleSpec.swift in Sources */,
 				6FE6683F1EC0B2C3001B977B /* PaddingSpec.swift in Sources */,
 				6F9F90D91EBA242B005AB9FF /* SymbolSpec.swift in Sources */,
 				6F4ACB511E21352600CE5FD5 /* MappableSpec.swift in Sources */,

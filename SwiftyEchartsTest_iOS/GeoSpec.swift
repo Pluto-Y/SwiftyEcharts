@@ -1,5 +1,5 @@
 //
-//  GeoQuick.swift
+//  GeoSpec.swift
 //  SwiftyEcharts
 //
 //  Created by Pluto Y on 08/06/2017.
@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import SwiftyEcharts
 
-class GeoQuick: QuickSpec {
+class GeoSpec: QuickSpec {
     override func spec() {
         describe("For Geo.ScaleLimit") {
             it(" needs to check the Enumable and Mappable") {

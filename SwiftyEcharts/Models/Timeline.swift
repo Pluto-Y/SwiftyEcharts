@@ -87,20 +87,6 @@
 /// ECharts 3 中不再支持 timeline.notMerge 参数，也就是不支持 notMerge 模式。如果遇到这种场景需要使用，可在外部进行option管理，并用 setOption(option, true) 这样的notMerge方式设置。
 /// ECharts 3 和 ECharts 2 相比，timeline 属性的定义位置有所不同，移到了 baseOption 中，统一作为一个普通的组件看待。但是，仍然兼容 ECharts2 的 timeline 定义位置，只是不再推荐这样写。
 public final class Timeline: Displayable, Symbolized, Zable {
-    /// 轴的类型。可选值为
-    ///
-    /// - value: 数值轴，适用于连续数据。
-    /// - category: 类目轴，适用于离散的类目数据。
-    /// - time: 时间轴，适用于连续的时序数据，与数值轴相比时间轴带有时间的格式化，在刻度计算上也有所不同，例如会根据跨度的范围来决定使用月，星期，日还是小时范围的刻度。
-    public enum AxisType: String, Jsonable {
-        case value = "value"
-        case category = "category"
-        case time = "time"
-        
-        public var jsonString: String {
-            return self.rawValue.jsonString
-        }
-    }
     
     public final class LineStyle: Displayable, Shadowable, Colorful, Opacitable {
         /// 是否显示轴线。可以设置为 false 不显示轴线，则可以做出不同的样式效果。

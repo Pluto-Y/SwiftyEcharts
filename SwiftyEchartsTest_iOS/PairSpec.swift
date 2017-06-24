@@ -17,9 +17,10 @@ class PairSpec : QuickSpec {
         describe("Testing for type named 'SECTwoElement'") {
             
             it(" needs to check constructor and jsonString ") {
+                let errorJsonString = "null"
                 let noArgElements = Pair<LengthValue>()
                 
-                expect(noArgElements.jsonString).to(equal("null"))
+                expect(noArgElements.jsonString).to(equal(errorJsonString))
                 
                 let percentValue: Float = 3
                 let floatValue: Float = 2.1
@@ -28,7 +29,10 @@ class PairSpec : QuickSpec {
                 expect(twoElements.jsonString).to(equal([floatValue, percentValue%].jsonString))
                 
                 let toMuchElements: Pair<LengthValue> = [3, 4, 5, 6%]
-                expect(toMuchElements.jsonString).to(equal("null"))
+                expect(toMuchElements.jsonString).to(equal(errorJsonString))
+                
+                let errorElements = Pair([floatValue])
+                expect(errorElements.jsonString).to(equal(errorJsonString))
                 
                 // 如果不是 LengthValue 的话，就会产生编译错误
 //                let errorType: Pair = ["hello", 4]

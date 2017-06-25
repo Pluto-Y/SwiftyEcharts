@@ -19,7 +19,11 @@ public final class OneOrMore<T>: ArrayLiteralConvertible {
     }
     
     public init(more: [T]) {
-        self.more = more
+        if more.count == 1 {
+            self.one = more[0]
+        } else {
+            self.more = more
+        }
     }
     
     public init(arrayLiteral elements: T...) {

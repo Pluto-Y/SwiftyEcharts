@@ -45,7 +45,7 @@ class FontSpec: QuickSpec {
             }
             
             it("needs to create from Int") {
-                let intWeight = 100
+                let intWeight: FontWeight = 100
                 expect(intWeight.description).to(equal(valueWeight.description))
                 
             }

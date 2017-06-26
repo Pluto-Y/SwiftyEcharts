@@ -98,6 +98,7 @@
 		6F86CFCC1EFC184A006099D3 /* LineStyleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F86CFCB1EFC184A006099D3 /* LineStyleSpec.swift */; };
 		6F86CFCE1EFEB0D7006099D3 /* AreaStyleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F86CFCD1EFEB0D7006099D3 /* AreaStyleSpec.swift */; };
 		6F86CFD01EFFDEC6006099D3 /* OpacitableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F86CFCF1EFFDEC6006099D3 /* OpacitableSpec.swift */; };
+		6F86CFD21EFFEF9C006099D3 /* MapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F86CFD11EFFEF9C006099D3 /* MapperSpec.swift */; };
 		6F91EB7B1DF08026003EEEC0 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7A1DF08026003EEEC0 /* Line.swift */; };
 		6F91EB7D1DF081A2003EEEC0 /* Shadowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7C1DF081A2003EEEC0 /* Shadowable.swift */; };
 		6F91EB7F1DF142E3003EEEC0 /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7E1DF142E3003EEEC0 /* Legend.swift */; };
@@ -455,6 +456,7 @@
 		6F86CFCB1EFC184A006099D3 /* LineStyleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineStyleSpec.swift; sourceTree = "<group>"; };
 		6F86CFCD1EFEB0D7006099D3 /* AreaStyleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaStyleSpec.swift; sourceTree = "<group>"; };
 		6F86CFCF1EFFDEC6006099D3 /* OpacitableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpacitableSpec.swift; sourceTree = "<group>"; };
+		6F86CFD11EFFEF9C006099D3 /* MapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapperSpec.swift; sourceTree = "<group>"; };
 		6F91EB7A1DF08026003EEEC0 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		6F91EB7C1DF081A2003EEEC0 /* Shadowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shadowable.swift; sourceTree = "<group>"; };
 		6F91EB7E1DF142E3003EEEC0 /* Legend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Legend.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -957,6 +959,7 @@
 				6F86CFCB1EFC184A006099D3 /* LineStyleSpec.swift */,
 				6F86CFCD1EFEB0D7006099D3 /* AreaStyleSpec.swift */,
 				6F86CFCF1EFFDEC6006099D3 /* OpacitableSpec.swift */,
+				6F86CFD11EFFEF9C006099D3 /* MapperSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1546,6 +1549,7 @@
 				6F86CFD01EFFDEC6006099D3 /* OpacitableSpec.swift in Sources */,
 				6FE6683D1EBF77C1001B977B /* OrientSpec.swift in Sources */,
 				6F86CFCC1EFC184A006099D3 /* LineStyleSpec.swift in Sources */,
+				6F86CFD21EFFEF9C006099D3 /* MapperSpec.swift in Sources */,
 				6F86CFC61EFAD921006099D3 /* SerieSpec.swift in Sources */,
 				6F9F90D51EB8C6B4005AB9FF /* RoamSpec.swift in Sources */,
 				6F86CFC01EFAC26F006099D3 /* TargetSpec.swift in Sources */,

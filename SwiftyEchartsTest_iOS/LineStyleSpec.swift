@@ -13,7 +13,7 @@ import SwiftyEcharts
 class LineStyleSpec: QuickSpec {
     override func spec() {
         
-        let colorValue = Color.array(["red", .blue, .hexColor("#f8f")])
+        let colorValue = Color.array(["red", Color.blue, Color.hexColor("#f8f")])
         let widthValue: Float = 29.5
         let typeValue = LineType.dashed
         let opacityValue: Float = 0.75

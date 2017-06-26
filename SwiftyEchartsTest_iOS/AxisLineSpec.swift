@@ -29,7 +29,13 @@ class AxisLineSpec: QuickSpec {
             axisLine.show = showValue
             axisLine.onZero = onZeroValue
             axisLine.lineStyle = lineStyleValue
+            JsCache.removeAll()
             let axisLineJsonString: String = axisLine.jsonString
+            
+            beforeEach {
+                // 避免重复 lineStyle 中的 `shadowColor` 加入到 JsCache 中
+                JsCache.removeAll()
+            }
             
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
@@ -37,11 +43,8 @@ class AxisLineSpec: QuickSpec {
                     "onZero": onZeroValue,
                     "lineStyle": lineStyleValue
                 ]
-                // 避免重复 lineStyle 中的 `shadowColor` 加入到 JsCache 中
-                JsCache.removeAll()
-                let resultJsonString = resultDic.jsonString
                 
-                expect(axisLineJsonString).to(equal(resultJsonString))
+                expect(axisLineJsonString).to(equal(resultDic.jsonString))
             }
             
             it("needs to check the Enumable") {
@@ -51,11 +54,7 @@ class AxisLineSpec: QuickSpec {
                     .lineStyle(lineStyleValue)
                 )
                 
-                // 避免重复 lineStyle 中的 `shadowColor` 加入到 JsCache 中
-                JsCache.removeAll()
-                let axisLineByEnumsJsonString = axisLineByEnums.jsonString
-                
-                expect(axisLineByEnumsJsonString).to(equal(axisLineJsonString))
+                expect(axisLineByEnums.jsonString).to(equal(axisLineJsonString))
             }
         }
     }

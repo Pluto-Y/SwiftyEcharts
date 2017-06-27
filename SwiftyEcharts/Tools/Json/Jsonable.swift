@@ -6,6 +6,8 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+import Foundation
+
 public protocol Jsonable{
     var jsonString: String { get }
 }

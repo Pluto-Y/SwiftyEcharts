@@ -50,7 +50,7 @@ public final class BezierCurveGraphic: Graphic {
     public var invisible: Bool?
     public var cursor: String?
     public var draggable: Bool?
-    public var progressiv: Bool?
+    public var progressive: Bool?
     
     /// 贝塞尔曲线的参数
     public var shape: Shape?
@@ -110,7 +110,7 @@ extension BezierCurveGraphic.Shape: Mappable {
 
 extension BezierCurveGraphic: Enumable {
     public enum Enums {
-        case id(String), action(GraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(GraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), shape(Shape), style(CommonGraphicStyle)
+        case id(String), action(GraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(GraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressive(Bool), shape(Shape), style(CommonGraphicStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -145,8 +145,8 @@ extension BezierCurveGraphic: Enumable {
                 self.cursor = cursor
             case let .draggable(draggable):
                 self.draggable = draggable
-            case let .progressiv(progressiv):
-                self.progressiv = progressiv
+            case let .progressive(progressive):
+                self.progressive = progressive
             case let .shape(shape):
                 self.shape = shape
             case let .style(style):
@@ -172,7 +172,7 @@ extension BezierCurveGraphic: Mappable {
         map["invisible"] = invisible
         map["cursor"] = cursor
         map["draggable"] = draggable
-        map["progressiv"] = progressiv
+        map["progressive"] = progressive
         map["shape"] = shape
         map["style"] = style
     }

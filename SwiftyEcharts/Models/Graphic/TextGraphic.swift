@@ -63,7 +63,7 @@ public final class TextGraphic: Graphic {
     public var invisible: Bool?
     public var cursor: String?
     public var draggable: Bool?
-    public var progressiv: Bool?
+    public var progressive: Bool?
     
     /// 文本样式
     public var style: Style?
@@ -133,7 +133,7 @@ extension TextGraphic.Style: Mappable {
 
 extension TextGraphic: Enumable {
     public enum Enums {
-        case id(String), action(GraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(GraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), style(Style)
+        case id(String), action(GraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(GraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressive(Bool), style(Style)
     }
     
     public typealias ContentEnum = Enums
@@ -168,8 +168,8 @@ extension TextGraphic: Enumable {
                 self.cursor = cursor
             case let .draggable(draggable):
                 self.draggable = draggable
-            case let .progressiv(progressiv):
-                self.progressiv = progressiv
+            case let .progressive(progressive):
+                self.progressive = progressive
             case let .style(style):
                 self.style = style
             }
@@ -193,7 +193,7 @@ extension TextGraphic: Mappable {
         map["invisible"] = invisible
         map["cursor"] = cursor
         map["draggable"] = draggable
-        map["progressiv"] = progressiv
+        map["progressive"] = progressive
         map["style"] = style
     }
 }

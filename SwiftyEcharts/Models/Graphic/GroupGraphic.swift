@@ -27,7 +27,7 @@ public final class GroupGraphic: Graphic {
     public var invisible: Bool?
     public var cursor: String?
     public var draggable: Bool?
-    public var progressiv: Bool?
+    public var progressive: Bool?
     
     /// 用于描述此 group 的宽。
     ///
@@ -48,7 +48,7 @@ public final class GroupGraphic: Graphic {
 
 extension GroupGraphic: Enumable {
     public enum Enums {
-        case id(String), action(GraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(GraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressiv(Bool), width(Float), height(Float), children([Graphic])
+        case id(String), action(GraphicAction), left(Position), right(Position), top(Position), bottom(Position), bounding(GraphicBounding), z(Float), zlevel(Float), silent(Bool), invisible(Bool), cursor(String), draggable(Bool), progressive(Bool), width(Float), height(Float), children([Graphic])
     }
     
     public typealias ContentEnum = Enums
@@ -83,8 +83,8 @@ extension GroupGraphic: Enumable {
                 self.cursor = cursor
             case let .draggable(draggable):
                 self.draggable = draggable
-            case let .progressiv(progressiv):
-                self.progressiv = progressiv
+            case let .progressive(progressive):
+                self.progressive = progressive
             case let .width(width):
                 self.width = width
             case let .height(height):
@@ -112,7 +112,7 @@ extension GroupGraphic: Mappable {
         map["invisible"] = invisible
         map["cursor"] = cursor
         map["draggable"] = draggable
-        map["progressiv"] = progressiv
+        map["progressive"] = progressive
         map["width"] = width
         map["height"] = height
         map["children"] = children

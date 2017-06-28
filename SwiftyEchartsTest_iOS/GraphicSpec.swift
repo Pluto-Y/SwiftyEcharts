@@ -27,5 +27,16 @@ class GraphicSpec: QuickSpec {
                 expect(removeGraphicAction.jsonString).to(equal(removeString.jsonString))
             }
         }
+        
+        describe("For GraphicBounding") {
+            let allString = "all"
+            let rawString = "raw"
+            
+            let allGraphicBounding = GraphicBounding.all
+            let rawGraphicBounding = GraphicBounding.raw
+            
+            expect(allGraphicBounding.jsonString).to(equal(allString.jsonString))
+            expect(rawGraphicBounding.jsonString).to(equal(rawString.jsonString))
+        }
     }
 }

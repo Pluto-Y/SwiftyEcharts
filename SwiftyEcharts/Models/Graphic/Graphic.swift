@@ -33,6 +33,9 @@ public enum GraphicBounding: String, Jsonable {
     case all = "all"
     case raw = "raw"
     
+    public var jsonString: String {
+        return self.rawValue.jsonString
+    }
 }
 
 /// graphic 是原生图形元素组件。
@@ -406,6 +409,6 @@ public protocol Graphic: Zable, Mappable {
     /// 图形元素是否可以被拖拽。
     var draggable: Bool? { get set }
     /// 是否渐进式渲染。当图形元素过多时才使用。
-    var progressiv: Bool? { get set }
+    var progressive: Bool? { get set }
     // TODO: 添加14个方法， 暂时还没添加
 }

@@ -33,6 +33,9 @@ public enum GraphicBounding: String, Jsonable {
     case all = "all"
     case raw = "raw"
     
+    public var jsonString: String {
+        return self.rawValue.jsonString
+    }
 }
 
 /// graphic 是原生图形元素组件。

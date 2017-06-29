@@ -72,6 +72,7 @@
 		6F201F021F03847400087764 /* AngleAxisSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F201F011F03847400087764 /* AngleAxisSpec.swift */; };
 		6F201F041F04015D00087764 /* GraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F201F031F04015D00087764 /* GraphicSpec.swift */; };
 		6F201F061F0403A900087764 /* SplitAreaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F201F051F0403A900087764 /* SplitAreaSpec.swift */; };
+		6F201F081F0406CC00087764 /* AxisSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F201F071F0406CC00087764 /* AxisSpec.swift */; };
 		6F2F70BC1E96881F009FF1B0 /* echarts.html in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F70B71E96881F009FF1B0 /* echarts.html */; };
 		6F2F70C11E96882F009FF1B0 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F70C01E96882F009FF1B0 /* js */; };
 		6F3FA5771E58919E00A84E1D /* AreaRainfallDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */; };
@@ -442,6 +443,7 @@
 		6F201F011F03847400087764 /* AngleAxisSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngleAxisSpec.swift; sourceTree = "<group>"; };
 		6F201F031F04015D00087764 /* GraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicSpec.swift; sourceTree = "<group>"; };
 		6F201F051F0403A900087764 /* SplitAreaSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitAreaSpec.swift; sourceTree = "<group>"; };
+		6F201F071F0406CC00087764 /* AxisSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisSpec.swift; sourceTree = "<group>"; };
 		6F2F70B71E96881F009FF1B0 /* echarts.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = echarts.html; sourceTree = "<group>"; };
 		6F2F70C01E96882F009FF1B0 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		6F4A15101E69C7ED0059BAD5 /* MapSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MapSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -949,50 +951,51 @@
 		6FB48CAF1DEE9FF300137D13 /* SwiftyEchartsTest_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				6F201F011F03847400087764 /* AngleAxisSpec.swift */,
 				6F999F201E82CA5C00D2490A /* AnimatableSpec.swift */,
+				6F201EDB1F0230C400087764 /* ArcGraphicSpec.swift */,
+				6F86CFCD1EFEB0D7006099D3 /* AreaStyleSpec.swift */,
+				6FDDCFFE1F00F8FF00B89982 /* AxisLabelSpec.swift */,
+				6FDDCFFC1F00F05F00B89982 /* AxisLineSpec.swift */,
+				6FDDCFFA1F00EC6300B89982 /* AxisTickSpec.swift */,
+				6F86CFC11EFAC90A006099D3 /* AxisTypeSpec.swift */,
 				6F9F90DC1EBCD641005AB9FF /* BoundaryGapSpec.swift */,
 				6FEF717D1E686EB700E1ED70 /* ColorSpec.swift */,
 				6FB48CB91DEEA30000137D13 /* FontSpec.swift */,
 				6FE2DD331EB0F6EE0028037A /* FormatterSpec.swift */,
+				6F1649291EF9150500592CE3 /* FunctionOrOthersSpec.swift */,
+				6FACFABC1EE99E43002622CE /* GeoSpec.swift */,
+				6F201F031F04015D00087764 /* GraphicSpec.swift */,
+				6F201ED91F02156100087764 /* GraphicStyleSpec.swift */,
+				6F201ED71F02094B00087764 /* GraphicTypeSpec.swift */,
 				6FB48CB21DEE9FF400137D13 /* Info.plist */,
+				6FACFAC01EEAF62B002622CE /* ItemStyleSpec.swift */,
 				6FA85F041ED333C200C1DA58 /* JsCacheSpec.swift */,
 				6F4ACB471E1D258B00CE5FD5 /* JsonableSpec.swift */,
 				6FE668421EC0BB3C001B977B /* LengthValueSpec.swift */,
 				6FE2DD311EAE56290028037A /* LineSpec.swift */,
+				6F86CFCB1EFC184A006099D3 /* LineStyleSpec.swift */,
 				5408989C1E52EB6500A89BB0 /* LinSerieSpec.swift */,
 				6F4ACB501E21352600CE5FD5 /* MappableSpec.swift */,
+				6F86CFD11EFFEF9C006099D3 /* MapperSpec.swift */,
+				6FDDCFF41F00E4A500B89982 /* MarkDataTypeSpec.swift */,
 				6FA9DB251E59FA6A00CE5277 /* OneOrMoreSepc.swift */,
+				6F86CFCF1EFFDEC6006099D3 /* OpacitableSpec.swift */,
 				6FE6683C1EBF77C1001B977B /* OrientSpec.swift */,
 				6FE6683E1EC0B2C3001B977B /* PaddingSpec.swift */,
 				6FEC7D1C1E54996B003A88D7 /* PairSpec.swift */,
 				6FEC7D181E5376F9003A88D7 /* PercentSpec.swift */,
+				6F6331481EF6C6B400EC9D24 /* PositionSpec.swift */,
 				6F9F90D41EB8C6B4005AB9FF /* RoamSpec.swift */,
 				6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */,
-				6F9F90D81EBA242B005AB9FF /* SymbolSpec.swift */,
-				6FB9862E1EC60B7500D2EFE1 /* TextSpec.swift */,
-				6FACFABC1EE99E43002622CE /* GeoSpec.swift */,
-				6FACFAC01EEAF62B002622CE /* ItemStyleSpec.swift */,
-				6F6331481EF6C6B400EC9D24 /* PositionSpec.swift */,
-				6F1649291EF9150500592CE3 /* FunctionOrOthersSpec.swift */,
-				6F86CFBF1EFAC26F006099D3 /* TargetSpec.swift */,
-				6F86CFC11EFAC90A006099D3 /* AxisTypeSpec.swift */,
 				6F86CFC51EFAD921006099D3 /* SerieSpec.swift */,
-				6F86CFC91EFC17D1006099D3 /* SplitLineSpec.swift */,
-				6F86CFCB1EFC184A006099D3 /* LineStyleSpec.swift */,
-				6F86CFCD1EFEB0D7006099D3 /* AreaStyleSpec.swift */,
-				6F86CFCF1EFFDEC6006099D3 /* OpacitableSpec.swift */,
-				6F86CFD11EFFEF9C006099D3 /* MapperSpec.swift */,
-				6FDDCFF41F00E4A500B89982 /* MarkDataTypeSpec.swift */,
-				6FDDCFF81F00E74E00B89982 /* VisualMapSpec.swift */,
-				6FDDCFFA1F00EC6300B89982 /* AxisTickSpec.swift */,
-				6FDDCFFC1F00F05F00B89982 /* AxisLineSpec.swift */,
-				6FDDCFFE1F00F8FF00B89982 /* AxisLabelSpec.swift */,
-				6F201ED71F02094B00087764 /* GraphicTypeSpec.swift */,
-				6F201ED91F02156100087764 /* GraphicStyleSpec.swift */,
-				6F201EDB1F0230C400087764 /* ArcGraphicSpec.swift */,
-				6F201F011F03847400087764 /* AngleAxisSpec.swift */,
-				6F201F031F04015D00087764 /* GraphicSpec.swift */,
 				6F201F051F0403A900087764 /* SplitAreaSpec.swift */,
+				6F86CFC91EFC17D1006099D3 /* SplitLineSpec.swift */,
+				6F9F90D81EBA242B005AB9FF /* SymbolSpec.swift */,
+				6F86CFBF1EFAC26F006099D3 /* TargetSpec.swift */,
+				6FB9862E1EC60B7500D2EFE1 /* TextSpec.swift */,
+				6FDDCFF81F00E74E00B89982 /* VisualMapSpec.swift */,
+				6F201F071F0406CC00087764 /* AxisSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1569,6 +1572,7 @@
 				6F67FCB91E71CA1B00BE2E4B /* SelectedModeSpec.swift in Sources */,
 				6F86CFCA1EFC17D1006099D3 /* SplitLineSpec.swift in Sources */,
 				6FDDCFF51F00E4A500B89982 /* MarkDataTypeSpec.swift in Sources */,
+				6F201F081F0406CC00087764 /* AxisSpec.swift in Sources */,
 				6F86CFC21EFAC90A006099D3 /* AxisTypeSpec.swift in Sources */,
 				6FE2DD341EB0F6EE0028037A /* FormatterSpec.swift in Sources */,
 				6FEC7D1D1E54996B003A88D7 /* PairSpec.swift in Sources */,

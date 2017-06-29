@@ -1,5 +1,6 @@
 # SwiftyEcharts
 [![Build Status](https://travis-ci.org/Pluto-Y/SwiftyEcharts.svg)](https://travis-ci.org/Pluto-Y/SwiftyEcharts)
+[![codecov](https://codecov.io/gh/Pluto-Y/SwiftyEcharts/branch/master/graph/badge.svg)](https://codecov.io/gh/Pluto-Y/SwiftyEcharts)
 
 ____
 ## 简介

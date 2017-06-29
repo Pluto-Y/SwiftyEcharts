@@ -32,11 +32,6 @@ public final class Axis: Displayable, Zable {
         /// 类目标签的文字样式。
         public var textStyle: TextStyle?
         
-        public init(_ value: String, _ textStyle: TextStyle? = nil) {
-            self.value = value
-            self.textStyle = textStyle
-        }
-        
         public init() { }
         
     }

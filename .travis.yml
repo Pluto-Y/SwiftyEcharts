@@ -4,4 +4,8 @@ xcode_scheme: SwiftyEchartsTest_iOS
 osx_image: xcode8.2
 xcode_sdk: iphonesimulator10.1
 
-script: xcodebuild clean test -workspace SwiftyEcharts.xcworkspace -scheme SwiftyEchartsTest_iOS -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.1'
+script: 
+  - xcodebuild clean test -workspace SwiftyEcharts.xcworkspace -scheme SwiftyEchartsTest_iOS -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.1'
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

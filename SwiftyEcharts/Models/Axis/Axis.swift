@@ -50,7 +50,7 @@ public final class Axis: Displayable, Zable {
     public var name: String?
     /// 坐标轴名称显示位置。
     /// 可选: 'start', 'middle', 'end'
-    public var nameLocation: String? // FIXME: ??? 是否需要添加枚举
+    public var nameLocation: Position?
     /// 坐标轴名称的文字样式。
     public var nameTextStyle: TextStyle?
     /// 坐标轴名称与轴线之间的距离。
@@ -161,7 +161,7 @@ extension Axis.Data: Mappable {
 
 extension Axis: Enumable {
     public enum Enums {
-        case show(Bool), gridIndex(UInt), position(Position), offset(Float), type(AxisType), name(String), nameLocation(String), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable]), zlevel(Float), z(Float)
+        case show(Bool), gridIndex(UInt), position(Position), offset(Float), type(AxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable]), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums

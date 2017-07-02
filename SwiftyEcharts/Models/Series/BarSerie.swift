@@ -44,10 +44,10 @@ public final class BarSerie: Serie, Animatable, Zable {
     /// 在同一坐标系上，此属性会被多个 'bar' 系列共享。此属性应设置于此坐标系中最后一个 'bar' 系列上才会生效，并且是对此坐标系中所有 'bar' 系列生效。
     /// - Note: 目前只支持数值
     /// - See Also: http://echarts.baidu.com/gallery/editor.html?c=doc-example/barGrid-barGap
-    public var barGap: String? // FIXME: ??是否需要新类型
+    public var barGap: LengthValue?
     /// 类目间柱形距离，默认为类目间距的20%，可设固定值
     /// 在同一坐标系上，此属性会被多个 'bar' 系列共享。此属性应设置于此坐标系中最后一个 'bar' 系列上才会生效，并且是对此坐标系中所有 'bar' 系列生效。
-    public var barCategoryGap: String? // FIXME: ??是否需要新类型
+    public var barCategoryGap: LengthValue? // FIXME: ??是否需要新类型
     /// 数据
     public var data: [Jsonable]?
     /// 图表标注。
@@ -108,7 +108,7 @@ public final class BarSerie: Serie, Animatable, Zable {
 
 extension BarSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLine(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(FormattedLabel), itemStyle(ItemStyle), stack(String), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(Float), barGap(String), barCategoryGap(String), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), legendHoverLine(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(FormattedLabel), itemStyle(ItemStyle), stack(String), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(Float), barGap(LengthValue), barCategoryGap(LengthValue), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

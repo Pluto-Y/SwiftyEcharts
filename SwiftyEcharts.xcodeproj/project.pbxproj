@@ -76,6 +76,7 @@
 		6F201F0A1F09247000087764 /* BarSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F201F091F09247000087764 /* BarSerieSpec.swift */; };
 		6F201F0C1F092F0100087764 /* CoordinateSystemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F201F0B1F092F0100087764 /* CoordinateSystemSpec.swift */; };
 		6F201F101F0A587E00087764 /* BezierCurveGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F201F0F1F0A587E00087764 /* BezierCurveGraphicSpec.swift */; };
+		6F201F121F0A665200087764 /* LabelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F201F111F0A665200087764 /* LabelSpec.swift */; };
 		6F2F70BC1E96881F009FF1B0 /* echarts.html in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F70B71E96881F009FF1B0 /* echarts.html */; };
 		6F2F70C11E96882F009FF1B0 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F70C01E96882F009FF1B0 /* js */; };
 		6F3FA5771E58919E00A84E1D /* AreaRainfallDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */; };
@@ -450,6 +451,7 @@
 		6F201F091F09247000087764 /* BarSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarSerieSpec.swift; sourceTree = "<group>"; };
 		6F201F0B1F092F0100087764 /* CoordinateSystemSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateSystemSpec.swift; sourceTree = "<group>"; };
 		6F201F0F1F0A587E00087764 /* BezierCurveGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierCurveGraphicSpec.swift; sourceTree = "<group>"; };
+		6F201F111F0A665200087764 /* LabelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelSpec.swift; sourceTree = "<group>"; };
 		6F2F70B71E96881F009FF1B0 /* echarts.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = echarts.html; sourceTree = "<group>"; };
 		6F2F70C01E96882F009FF1B0 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		6F4A15101E69C7ED0059BAD5 /* MapSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MapSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -1005,6 +1007,7 @@
 				6F201F071F0406CC00087764 /* AxisSpec.swift */,
 				6F201F091F09247000087764 /* BarSerieSpec.swift */,
 				6F201F0B1F092F0100087764 /* CoordinateSystemSpec.swift */,
+				6F201F111F0A665200087764 /* LabelSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1579,6 +1582,7 @@
 			files = (
 				6FA85F051ED333C200C1DA58 /* JsCacheSpec.swift in Sources */,
 				6F201F0A1F09247000087764 /* BarSerieSpec.swift in Sources */,
+				6F201F121F0A665200087764 /* LabelSpec.swift in Sources */,
 				6F67FCB91E71CA1B00BE2E4B /* SelectedModeSpec.swift in Sources */,
 				6F86CFCA1EFC17D1006099D3 /* SplitLineSpec.swift in Sources */,
 				6F201F101F0A587E00087764 /* BezierCurveGraphicSpec.swift in Sources */,

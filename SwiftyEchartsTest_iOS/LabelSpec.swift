@@ -46,5 +46,35 @@ class LabelSpec: QuickSpec {
                 expect(commonLabelStyleByEnums.jsonString).to(equal(normalCommonLabelStyle.jsonString))
             }
         }
+        
+        describe("For Label") { 
+            let normalValue = normalCommonLabelStyle
+            let emphasisValue = CommonLabelStyle(
+                .show(true),
+                .position(Position.end)
+            )
+            
+            let label = Label()
+            label.normal = normalValue
+            label.emphasis = emphasisValue
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "normal": normalValue,
+                    "emphasis": emphasisValue
+                ]
+                
+                expect(label.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let labelByEnums = Label(
+                    .normal(normalValue),
+                    .emphasis(emphasisValue)
+                )
+                
+                expect(labelByEnums.jsonString).to(equal(labelByEnums.jsonString))
+            }
+        }
     }
 }

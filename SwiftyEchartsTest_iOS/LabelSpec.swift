@@ -76,5 +76,46 @@ class LabelSpec: QuickSpec {
                 expect(labelByEnums.jsonString).to(equal(labelByEnums.jsonString))
             }
         }
+        
+        let showValue1 = true
+        let positionValue1 = Position.point([5%, 122])
+        let formatterValue = Formatter.string("{b}")
+        let offsetValue: Point = [5, 100%]
+        let textStyleValue1 = TextStyle(
+            .color("#eee")
+        )
+        
+        let normalFormattedLabelStyle = FormattedLabelStyle()
+        normalFormattedLabelStyle.show = showValue1
+        normalFormattedLabelStyle.position = positionValue1
+        normalFormattedLabelStyle.formatter = formatterValue
+        normalFormattedLabelStyle.offset = offsetValue
+        normalFormattedLabelStyle.textStyle = textStyleValue1
+        
+        describe("For FormattedLabelStyle") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showValue1,
+                    "position": positionValue1,
+                    "formatter": formatterValue,
+                    "offset": offsetValue,
+                    "textStyle": textStyleValue1
+                ]
+                
+                expect(normalFormattedLabelStyle.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let formattedLabelStyle = FormattedLabelStyle(
+                    .show(showValue1),
+                    .position(positionValue1),
+                    .formatter(formatterValue),
+                    .offset(offsetValue),
+                    .textStyle(textStyleValue1)
+                )
+                
+                expect(formattedLabelStyle.jsonString).to(equal(normalFormattedLabelStyle.jsonString))
+            }
+        }
     }
 }

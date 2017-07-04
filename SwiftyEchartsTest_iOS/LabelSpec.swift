@@ -117,5 +117,38 @@ class LabelSpec: QuickSpec {
                 expect(formattedLabelStyle.jsonString).to(equal(normalFormattedLabelStyle.jsonString))
             }
         }
+        
+        describe("") { 
+            let normalValue = normalFormattedLabelStyle
+            let emphasisValue = FormattedLabelStyle(
+                .show(false),
+                .position(Position.bottom),
+                .formatter(.string("{b} $")),
+                .offset([2, 100]),
+                .textStyle(TextStyle(.fontWeight(.bolder)))
+            )
+            
+            let formattedLabel = FormattedLabel()
+            formattedLabel.normal = normalValue
+            formattedLabel.emphasis = emphasisValue
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "normal": normalValue,
+                    "emphasis": emphasisValue
+                ]
+                
+                expect(formattedLabel.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let formattedLabelByEnums = FormattedLabel(
+                    .normal(normalValue),
+                    .emphasis(emphasisValue)
+                )
+                
+                expect(formattedLabelByEnums.jsonString).to(equal(formattedLabel.jsonString))
+            }
+        }
     }
 }

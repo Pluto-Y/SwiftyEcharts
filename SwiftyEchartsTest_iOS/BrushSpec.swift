@@ -154,6 +154,7 @@ class BrushSpec: QuickSpec {
             brush.brushType = brushTypeValue
             brush.brushMode = brushModeValue
             brush.transformable = transformableValue
+            brush.brushStyle = brushStyleValue
             brush.throttleType = throttleTypeValue
             brush.throttleDelay = throttleDelayValue
             brush.removeOnClick = removeOnClickValue
@@ -171,6 +172,7 @@ class BrushSpec: QuickSpec {
                     "brushType": brushTypeValue,
                     "brushMode": brushModeValue,
                     "transformable": transformableValue,
+                    "brushStyle": brushStyleValue,
                     "throttleType": throttleTypeValue,
                     "throttleDelay": throttleDelayValue,
                     "removeOnClick": removeOnClickValue,
@@ -192,6 +194,7 @@ class BrushSpec: QuickSpec {
                     .brushType(brushTypeValue),
                     .brushMode(brushModeValue),
                     .transformable(transformableValue),
+                    .brushStyle(brushStyleValue),
                     .throttleType(throttleTypeValue),
                     .throttleDelay(throttleDelayValue),
                     .removeOnClick(removeOnClickValue),

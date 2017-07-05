@@ -59,7 +59,7 @@ public final class Brush {
     /// - polygon: 任意形状选框
     /// - lineX: 横向选择
     /// - lineY: 纵向选择
-    public enum Type: String, Jsonable {
+    public enum `Type`: String, Jsonable {
         case rect = "rect"
         case polygon = "polygon"
         case lineX = "lineX"

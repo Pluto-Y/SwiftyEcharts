@@ -52,5 +52,22 @@ class BrushSpec: QuickSpec {
                 expect(noneIndexes.jsonString).to(equal(noneString.jsonString))
             }
         }
+        
+        let rectType = SwiftyEcharts.Brush.Type.rect
+        let polygonType = SwiftyEcharts.Brush.Type.polygon
+        let lineXType = SwiftyEcharts.Brush.Type.lineX
+        let lineYType = SwiftyEcharts.Brush.Type.lineY
+        
+        describe("For Brush.Type") {
+            let rectString = "rect"
+            let polygonString = "polygon"
+            let lineXString = "lineX"
+            let lineYString = "lineY"
+            
+            expect(rectType.jsonString).to(equal(rectString.jsonString))
+            expect(polygonType.jsonString).to(equal(polygonString.jsonString))
+            expect(lineXType.jsonString).to(equal(lineXString.jsonString))
+            expect(lineYType.jsonString).to(equal(lineYString.jsonString))
+        }
     }
 }

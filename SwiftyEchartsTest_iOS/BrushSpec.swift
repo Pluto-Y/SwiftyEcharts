@@ -69,5 +69,16 @@ class BrushSpec: QuickSpec {
             expect(lineXType.jsonString).to(equal(lineXString.jsonString))
             expect(lineYType.jsonString).to(equal(lineYString.jsonString))
         }
+        
+        let singleMode = Brush.Mode.single
+        let multipleMode = Brush.Mode.multiple
+        
+        describe("For Brush.Mode") { 
+            let singleString = "single"
+            let multipleString = "multiple"
+            
+            expect(singleMode.jsonString).to(equal(singleString.jsonString))
+            expect(multipleMode.jsonString).to(equal(multipleString.jsonString))
+        }
     }
 }

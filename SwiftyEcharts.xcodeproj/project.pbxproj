@@ -81,6 +81,7 @@
 		6F2F70C11E96882F009FF1B0 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F70C01E96882F009FF1B0 /* js */; };
 		6F3FA5771E58919E00A84E1D /* AreaRainfallDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */; };
 		6F480C581F0BC7870088ECF1 /* BoxplotSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F480C571F0BC7870088ECF1 /* BoxplotSerieSpec.swift */; };
+		6F480C5A1F0D314F0088ECF1 /* BrushSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F480C591F0D314F0088ECF1 /* BrushSpec.swift */; };
 		6F4A15111E69C7ED0059BAD5 /* MapSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A15101E69C7ED0059BAD5 /* MapSerie.swift */; };
 		6F4A15171E69CE770059BAD5 /* ParallelSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A15161E69CE770059BAD5 /* ParallelSerie.swift */; };
 		6F4A15191E6DB5430059BAD5 /* LinesSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A15181E6DB5430059BAD5 /* LinesSerie.swift */; };
@@ -456,6 +457,7 @@
 		6F2F70B71E96881F009FF1B0 /* echarts.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = echarts.html; sourceTree = "<group>"; };
 		6F2F70C01E96882F009FF1B0 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		6F480C571F0BC7870088ECF1 /* BoxplotSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxplotSerieSpec.swift; sourceTree = "<group>"; };
+		6F480C591F0D314F0088ECF1 /* BrushSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushSpec.swift; sourceTree = "<group>"; };
 		6F4A15101E69C7ED0059BAD5 /* MapSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MapSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F4A15161E69CE770059BAD5 /* ParallelSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ParallelSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F4A15181E6DB5430059BAD5 /* LinesSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LinesSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -1011,6 +1013,7 @@
 				6F201F0B1F092F0100087764 /* CoordinateSystemSpec.swift */,
 				6F201F111F0A665200087764 /* LabelSpec.swift */,
 				6F480C571F0BC7870088ECF1 /* BoxplotSerieSpec.swift */,
+				6F480C591F0D314F0088ECF1 /* BrushSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1608,6 +1611,7 @@
 				6F86CFD01EFFDEC6006099D3 /* OpacitableSpec.swift in Sources */,
 				6F201F0C1F092F0100087764 /* CoordinateSystemSpec.swift in Sources */,
 				6FE6683D1EBF77C1001B977B /* OrientSpec.swift in Sources */,
+				6F480C5A1F0D314F0088ECF1 /* BrushSpec.swift in Sources */,
 				6F86CFCC1EFC184A006099D3 /* LineStyleSpec.swift in Sources */,
 				6F201F061F0403A900087764 /* SplitAreaSpec.swift in Sources */,
 				6F86CFD21EFFEF9C006099D3 /* MapperSpec.swift in Sources */,

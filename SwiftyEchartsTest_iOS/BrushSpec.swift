@@ -126,5 +126,81 @@ class BrushSpec: QuickSpec {
                 expect(brushStyleByEnums.jsonString).to(equal(brushStyle.jsonString))
             }
         }
+        
+        describe("For Brush") {
+            let toolboxValue = [rectToolbox, polygonToolbox, lineXToolbox, lineYToolbox, keepToolbox, clearToolbox]
+            let brushLinkValue = Brush.Indexes.indexes([0, 1])
+            let seriesIndexValue = allIndexes
+            let geoIndexValue = noneIndexes
+            let xAxisIndexValue = Brush.Indexes.indexes([0])
+            let yAxisIndexValue = Brush.Indexes.indexes([1])
+            let brushTypeValue = polygonType
+            let brushModeValue = multipleMode
+            let transformableValue = false
+            let brushStyleValue = brushStyle
+            let throttleTypeValue = debounceThrottleType
+            let throttleDelayValue: Float = 0.5
+            let removeOnClickValue: Float = 0.0
+            let inBrushValue = "inBrushValue"
+            let outBrushValue = "outOfBrushValue"
+            
+            let brush = Brush()
+            brush.toolbox = toolboxValue
+            brush.brushLink = brushLinkValue
+            brush.seriesIndex = seriesIndexValue
+            brush.geoIndex = geoIndexValue
+            brush.xAxisIndex = xAxisIndexValue
+            brush.yAxisIndex = yAxisIndexValue
+            brush.brushType = brushTypeValue
+            brush.brushMode = brushModeValue
+            brush.transformable = transformableValue
+            brush.throttleType = throttleTypeValue
+            brush.throttleDelay = throttleDelayValue
+            brush.removeOnClick = removeOnClickValue
+            brush.inBrush = inBrushValue
+            brush.outOfBrush = outBrushValue
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "toolbox": toolboxValue,
+                    "brushLink": brushLinkValue,
+                    "seriesIndex": seriesIndexValue,
+                    "geoIndex": geoIndexValue,
+                    "xAxisIndex": xAxisIndexValue,
+                    "yAxisIndex": yAxisIndexValue,
+                    "brushType": brushTypeValue,
+                    "brushMode": brushModeValue,
+                    "transformable": transformableValue,
+                    "throttleType": throttleTypeValue,
+                    "throttleDelay": throttleDelayValue,
+                    "removeOnClick": removeOnClickValue,
+                    "inBrush": inBrushValue,
+                    "outOfBrush": outBrushValue
+                ]
+
+                expect(brush.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let brushByEnums = Brush(
+                    .toolbox(toolboxValue),
+                    .brushLink(brushLinkValue),
+                    .seriesIndex(seriesIndexValue),
+                    .geoIndex(geoIndexValue),
+                    .xAxisIndex(xAxisIndexValue),
+                    .yAxisIndex(yAxisIndexValue),
+                    .brushType(brushTypeValue),
+                    .brushMode(brushModeValue),
+                    .transformable(transformableValue),
+                    .throttleType(throttleTypeValue),
+                    .throttleDelay(throttleDelayValue),
+                    .removeOnClick(removeOnClickValue),
+                    .inBrush(inBrushValue),
+                    .outOfBrush(outBrushValue)
+                )
+                
+                expect(brushByEnums.jsonString).to(equal(brush.jsonString))
+            }
+        }
     }
 }

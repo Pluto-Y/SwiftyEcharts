@@ -80,5 +80,16 @@ class BrushSpec: QuickSpec {
             expect(singleMode.jsonString).to(equal(singleString.jsonString))
             expect(multipleMode.jsonString).to(equal(multipleString.jsonString))
         }
+        
+        let debounceThrottleType = Brush.ThrottleType.debounce
+        let fixRateThrottleType = Brush.ThrottleType.fixRate
+        
+        describe("For Brush.ThrottleType") { 
+            let debounceString = "debounce"
+            let fixRateString = "fixRate"
+            
+            expect(debounceThrottleType.jsonString).to(equal(debounceString.jsonString))
+            expect(fixRateThrottleType.jsonString).to(equal(fixRateString.jsonString))
+        }
     }
 }

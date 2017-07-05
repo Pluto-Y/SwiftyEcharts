@@ -37,8 +37,20 @@ class BrushSpec: QuickSpec {
             }
         }
         
-        describe("") { 
+        let indexIndexes = Brush.Indexes.indexes([0, 4, 2])
+        let allIndexes = Brush.Indexes.all
+        let noneIndexes = Brush.Indexes.none
+        
+        describe("For Brush.Indexes") {
+            let indexArray = [0, 4, 2]
+            let allString = "all"
+            let noneString = "none"
             
+            it("needs to check the jsonString") {
+                expect(indexIndexes.jsonString).to(equal(indexArray.jsonString))
+                expect(allIndexes.jsonString).to(equal(allString.jsonString))
+                expect(noneIndexes.jsonString).to(equal(noneString.jsonString))
+            }
         }
     }
 }

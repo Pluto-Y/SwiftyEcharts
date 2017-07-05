@@ -84,12 +84,47 @@ class BrushSpec: QuickSpec {
         let debounceThrottleType = Brush.ThrottleType.debounce
         let fixRateThrottleType = Brush.ThrottleType.fixRate
         
-        describe("For Brush.ThrottleType") { 
+        describe("For Brush.ThrottleType") {
             let debounceString = "debounce"
             let fixRateString = "fixRate"
             
             expect(debounceThrottleType.jsonString).to(equal(debounceString.jsonString))
             expect(fixRateThrottleType.jsonString).to(equal(fixRateString.jsonString))
+        }
+        
+        let borderWidthValue: Float = 3.8295
+        let colorValue = Color.hexColor("#ff9924")
+        let borderColorValue = Color.red
+        let widthValue: Float = 7.284
+        
+        let brushStyle = Brush.Style()
+        brushStyle.borderWidth = borderWidthValue
+        brushStyle.color = colorValue
+        brushStyle.borderColor = borderColorValue
+        brushStyle.width = widthValue
+        
+        describe("For Brush.Style") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "borderWidth": borderWidthValue,
+                    "color": colorValue,
+                    "borderColor": borderColorValue,
+                    "width": widthValue
+                ]
+                
+                expect(brushStyle.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let brushStyleByEnums = Brush.Style(
+                    .borderWidth(borderWidthValue),
+                    .color(colorValue),
+                    .borderColor(borderColorValue),
+                    .width(widthValue)
+                )
+                
+                expect(brushStyleByEnums.jsonString).to(equal(brushStyle.jsonString))
+            }
         }
     }
 }

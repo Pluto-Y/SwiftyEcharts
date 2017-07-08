@@ -74,12 +74,12 @@ public final class LineOptions {
                 )
                 ]),
             .xAxis(Axis(
-                    .type(.category),
-                    .boundaryGap(false),
-                    .axisLine(AxisLine(
-                        .onZero(false)
-                        )),
-                    .data(xAxisDatas)
+                .type(.category),
+                .boundaryGap(false),
+                .axisLine(AxisLine(
+                    .onZero(false)
+                    )),
+                .data(xAxisDatas)
                 )),
             .yAxises([
                 Axis(
@@ -252,12 +252,12 @@ public final class LineOptions {
                 .containLabel(true)
                 )),
             .xAxis(Axis(
-                    .type(.category),
-                    .boundaryGap(false),
-                    .data(["周一","周二","周三","周四","周五","周六","周日"])
+                .type(.category),
+                .boundaryGap(false),
+                .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
             .yAxis(Axis(
-                    .type(.value)
+                .type(.value)
                 )),
             .series([
                 LineSerie(
@@ -545,7 +545,7 @@ public final class LineOptions {
                 )),
             .dataZoom([
                 SliderDataZoom(
-                .startValue("2014-06-01")
+                    .startValue("2014-06-01")
                 ),
                 InsideDataZoom()
                 ]),
@@ -554,7 +554,7 @@ public final class LineOptions {
                 .right(.value(10)),
                 .outRange(
                     ["color": "#999"]
-                    ),
+                ),
                 .pieces([
                     [
                         "gt": 0,
@@ -690,12 +690,12 @@ public final class LineOptions {
                 .data(["2的指数", "3的指数"])
                 )),
             .xAxis(Axis(
-                    .type(.category),
-                    .name("x"),
-                    .splitArea(SplitArea(
-                        .show(false)
-                        )),
-                    .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
+                .type(.category),
+                .name("x"),
+                .splitArea(SplitArea(
+                    .show(false)
+                    )),
+                .data(["一", "二", "三", "四", "五", "六", "七", "八", "九"])
                 )),
             .grid(Grid(
                 .left(.value(3%)),
@@ -704,8 +704,8 @@ public final class LineOptions {
                 .containLabel(true)
                 )),
             .yAxis(Axis(
-                    .type(.log),
-                    .name("y")
+                .type(.log),
+                .name("y")
                 )),
             .series([
                 LineSerie(
@@ -949,15 +949,15 @@ public final class LineOptions {
                     ))
                 )),
             .xAxis(Axis(
-                    .type(.category),
-                    .boundaryGap(false),
-                    .data(["00:00", "01:15", "02:30", "03:45", "05:00", "06:15", "07:30", "08:45", "10:00", "11:15", "12:30", "13:45", "15:00", "16:15", "17:30", "18:45", "20:00", "21:15", "22:30", "23:45"])
+                .type(.category),
+                .boundaryGap(false),
+                .data(["00:00", "01:15", "02:30", "03:45", "05:00", "06:15", "07:30", "08:45", "10:00", "11:15", "12:30", "13:45", "15:00", "16:15", "17:30", "18:45", "20:00", "21:15", "22:30", "23:45"])
                 )),
             .yAxis(Axis(
-                    .type(.value),
-                    .axisLabel(AxisLabel(
-                        .formatter(.string("{value} W"))
-                        ))
+                .type(.value),
+                .axisLabel(AxisLabel(
+                    .formatter(.string("{value} W"))
+                    ))
                 )),
             .visualMap(PiecewiseVisualMap(
                 .show(false),
@@ -1041,12 +1041,12 @@ public final class LineOptions {
                     ))
                 )),
             .xAxis(Axis(
-                    .type(.category),
-                    .boundaryGap(false),
-                    .data(["周一","周二","周三","周四","周五","周六","周日"])
+                .type(.category),
+                .boundaryGap(false),
+                .data(["周一","周二","周三","周四","周五","周六","周日"])
                 )),
             .yAxis(Axis(
-                    .type(.value)
+                .type(.value)
                 )),
             .series([
                 LineSerie(

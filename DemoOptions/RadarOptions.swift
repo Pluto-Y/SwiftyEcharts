@@ -142,36 +142,36 @@ public final class RadarOptions {
                 ))
         )
         let serie2: RadarSerie = RadarSerie(
-        .name("上海"),
-        .lineStyle(lineStyle),
-        .data(serieData2),
-        .symbol(.none),
-        .itemStyle(ItemStyle(
-        .normal(CommonItemStyleContent(
-        .color(.hexColor("#B3E4A1"))
-        ))
-        )),
-        .areaStyle(EmphasisAreaStyle(
-        .normal(CommonAreaStyleContent(
-        .opacity(0.05)
-        ))
-        ))
+            .name("上海"),
+            .lineStyle(lineStyle),
+            .data(serieData2),
+            .symbol(.none),
+            .itemStyle(ItemStyle(
+                .normal(CommonItemStyleContent(
+                    .color(.hexColor("#B3E4A1"))
+                    ))
+                )),
+            .areaStyle(EmphasisAreaStyle(
+                .normal(CommonAreaStyleContent(
+                    .opacity(0.05)
+                    ))
+                ))
         )
         let serie3: RadarSerie = RadarSerie(
-        .name("广州"),
-        .lineStyle(lineStyle),
-        .data(serieData3),
-        .symbol(.none),
-        .itemStyle(ItemStyle(
-        .normal(CommonItemStyleContent(
-        .color(.rgb(238, 197, 102))
-        ))
-        )),
-        .areaStyle(EmphasisAreaStyle(
-        .normal(CommonAreaStyleContent(
-        .opacity(0.05)
-        ))
-        ))
+            .name("广州"),
+            .lineStyle(lineStyle),
+            .data(serieData3),
+            .symbol(.none),
+            .itemStyle(ItemStyle(
+                .normal(CommonItemStyleContent(
+                    .color(.rgb(238, 197, 102))
+                    ))
+                )),
+            .areaStyle(EmphasisAreaStyle(
+                .normal(CommonAreaStyleContent(
+                    .opacity(0.05)
+                    ))
+                ))
         )
         let series: [Serie] = [serie1, serie2, serie3]
         
@@ -492,7 +492,7 @@ public final class RadarOptions {
                 ])
         )
     }
-
+    
     // MARK: 浏览器占比变化
     /// 地址: http://echarts.baidu.com/demo.html#radar2
     static func radar2Option() -> Option {
@@ -500,7 +500,7 @@ public final class RadarOptions {
         for i in 1...28 {
             list.append("\(i + 2000)")
         }
-
+        
         var series: [Serie] = []
         for i in 1...28 {
             let datas = [(40 - i) * 10, (38 - i) * 4 + 60, i * 5 + 10, i * 9, i * i / 2]

@@ -59,7 +59,7 @@ public final class PieOptions {
                             .lineStyle(LineStyle(
                                 .color(.rgba(255, 255, 255, 0.3))
                                 )),
-//                            .smooth(0.2), // FIXME: 需要调整类型
+                            //                            .smooth(0.2), // FIXME: 需要调整类型
                             .length(10),
                             .length2(20)
                             ))
@@ -212,16 +212,16 @@ public final class PieOptions {
                             .textStyle(TextStyle(
                                 .fontSize(12),
                                 .color(.hexColor("#235894"))
+                                ))
                             ))
-                        ))
-                    )),
+                        )),
                     .labelLine(PieSerie.LabelLine(
                         .normal(PieSerie.LabelLineContent(
                             .lineStyle(LineStyle(
                                 .color(.hexColor("#235894"))
+                                ))
                             ))
-                        ))
-                    )),
+                        )),
                     .data([
                         ["value":335, "name":"直接访问"],
                         ["value":310, "name":"邮件营销"],

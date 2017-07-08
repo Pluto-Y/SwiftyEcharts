@@ -345,12 +345,12 @@ public final class MapOptions {
                 .left(.center),
                 .textStyle(TextStyle(
                     .color("#eee")
-                ))
-            )),
+                    ))
+                )),
             .backgroundColor("#003"),
-//            .tooltip(Tooltip(
-//                .formatter(.function("var routes = \()")) // FIXME: 缺少 formatter
-//            )),
+            //            .tooltip(Tooltip(
+            //                .formatter(.function("var routes = \()")) // FIXME: 缺少 formatter
+            //            )),
             .geo(Geo(
                 .map("world"),
                 .left(.value(0)),
@@ -360,9 +360,9 @@ public final class MapOptions {
                     .normal(ItemStyle.Style(
                         .borderColor("#003"),
                         .color("#005")
+                        ))
                     ))
-                ))
-            )),
+                )),
             .series([
                 LinesSerie(
                     .coordinateSystem(.geo),
@@ -374,8 +374,8 @@ public final class MapOptions {
                             .opacity(0.05),
                             .width(0.5),
                             .curveness(0.3)
+                            ))
                         ))
-                    ))
                 )
                 ]),
             .blendMode(.lighter)
@@ -787,12 +787,12 @@ public final class MapOptions {
                         [ "name": "Wyoming", "value": 576412 ],
                         [ "name": "Puerto Rico", "value": 3667084 ]
                         ])
-//                    .textFixed // FIXME: 暂时不生效
-//                    .itemStyle(ItemStyle( // ItemStyle 没有 Label , 使用 MapSerie 中的 Label 替换  
-//                        .emphasis(CommonItemStyleContent(
-//                            .label
-//                            ))
-//                        ))
+                    //                    .textFixed // FIXME: 暂时不生效
+                    //                    .itemStyle(ItemStyle( // ItemStyle 没有 Label , 使用 MapSerie 中的 Label 替换
+                    //                        .emphasis(CommonItemStyleContent(
+                    //                            .label
+                    //                            ))
+                    //                        ))
                 )
                 ])
         )
@@ -831,7 +831,7 @@ public final class MapOptions {
                 .realtime(false),
                 .calculable(true),
                 .inRange([
-                        "color": ["lightskyblue","yellow", "orangered"]
+                    "color": ["lightskyblue","yellow", "orangered"]
                     ])
                 )),
             .series([
@@ -841,7 +841,7 @@ public final class MapOptions {
                     .roam(true),
                     .itemStyle(ItemStyle(
                         .emphasis(CommonItemStyleContent(
-//                            .label(Label(.show(true))) // FIXME: 缺少 label？
+                            //                            .label(Label(.show(true))) // FIXME: 缺少 label？
                             ))
                         )),
                     .data([

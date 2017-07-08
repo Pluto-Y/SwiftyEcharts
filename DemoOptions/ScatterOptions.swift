@@ -105,7 +105,15 @@ public final class ScatterOptions {
                             .shadowBlur(10),
                             .shadowColor(.rgba(25, 100, 150, 0.5)),
                             .shadowOffsetY(5),
-                            .color(.radialGradient(0.4, 0.3, 1, serieDataGradient2, false))
+                            .color(.radialGradient(0.4, 0.3, 1, [
+                                [
+                                    "offset": 0,
+                                    "color": Color.rgb(129, 227, 238)
+                                ], [
+                                    "offset": 1,
+                                    "color": Color.rgb(25, 183, 207)
+                                ]
+                                ], false))
                             ))
                         ))
                 )
@@ -530,7 +538,7 @@ public final class ScatterOptions {
                 return bValue > aValue
             }
             return false
-        }[0...5])
+            }[0...5])
         return Option(
             .backgroundColor("#404a59"),
             .title(Title(
@@ -610,7 +618,7 @@ public final class ScatterOptions {
                         )),
                     .zlevel(1)
                 )
-            ])
+                ])
         )
     }
     
@@ -948,7 +956,7 @@ public final class ScatterOptions {
         var formatter = "function (obj) { var value = obj.value; return '<div style=\"border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px\">' + obj.seriesName + ' ' + value[0] + '日：' + value[7] + '</div>'+ " + schema[1]["text"]!
         formatter +=  " + '：' + value[1] + '<br>'+ " + schema[2]["text"]! + " + '：' + value[2] + '<br>'+ " + schema[3]["text"]! + " + '：' + value[3] + '<br>'+ "
         formatter +=  schema[4]["text"]! + " + '：' + value[4] + '<br>'+ " + schema[5]["text"]! + " + '：' + value[5] + '<br>'+ " + schema[6]["text"]! + " + '：' + value[6] + '<br>';}"
-
+        
         return Option(
             .backgroundColor("#404a59"),
             .color(["#dd4444", "#fec42c", "#80F1BE"]),
@@ -1035,10 +1043,10 @@ public final class ScatterOptions {
                     .controller(VisualMapController(
                         .inRange([
                             "color": ["#c23531"]
-                        ]),
+                            ]),
                         .outRange([
                             "color": ["#444"]
-                        ])
+                            ])
                         ))
                 ),
                 ContinuousVisualMap(
@@ -1064,10 +1072,10 @@ public final class ScatterOptions {
                     .controller(VisualMapController(
                         .inRange([
                             "color": ["#c23531"]
-                        ]),
+                            ]),
                         .outRange([
                             "color": ["#444"]
-                        ])
+                            ])
                         ))
                 )
                 ]),
@@ -1087,10 +1095,10 @@ public final class ScatterOptions {
                     .itemStyle(itemStyle),
                     .data(dataGZ.map { $0 as Jsonable })
                 )
-            ])
+                ])
         )
     }
-
+    
     // MARK: 大规模散点图
     /// 地址: http://echarts.baidu.com/demo.html#scatter-large
     static func scatterLargeOption() -> Option {
@@ -1385,7 +1393,7 @@ public final class ScatterOptions {
                 ])
         )
     }
-
+    
     // MARK: Scatter Nutrients
     /// 地址: http://echarts.baidu.com/demo.html#scatter-nutrients
     static func scatterNutrientsOption() -> Option {

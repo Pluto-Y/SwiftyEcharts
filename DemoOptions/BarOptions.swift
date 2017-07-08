@@ -98,7 +98,7 @@ public final class BarOptions {
         let itemStyle = ItemStyle(
             .normal(CommonItemStyleContent()),
             .emphasis(CommonItemStyleContent(
-//                .barBorderWidth(1), // 这个属性在网页上好像没用
+                //                .barBorderWidth(1), // 这个属性在网页上好像没用
                 .shadowBlur(10),
                 .shadowOffsetX(0),
                 .shadowOffsetY(0),

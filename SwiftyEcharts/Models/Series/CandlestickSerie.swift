@@ -106,7 +106,7 @@ public final class CandlestickSerie: Serie, Zable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDuration: Float?
+    public var animationDuration: Time?
     /// 初始动画的缓动效果。不同的缓动效果可以参考 缓动示例。
     public var animationEasing: EasingFunction?
     /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
@@ -119,7 +119,7 @@ public final class CandlestickSerie: Serie, Zable {
     ///     }
     ///
     /// 也可以看该示例
-    public var animationDelay: Float?
+    public var animationDelay: Time?
 }
 
 public typealias CandlestickSerieData = CandlestickSerie.Data
@@ -156,7 +156,7 @@ extension CandlestickSerieData: Mappable {
 
 extension CandlestickSerie: Enumable {
     public enum Enums {
-        case coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(Orient), barWidth(Float), barMinWidth(Float), barMaxWidth(Float), itemStyle(ItemStyle), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Float)
+        case coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(Orient), barWidth(Float), barMinWidth(Float), barMaxWidth(Float), itemStyle(ItemStyle), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time)
     }
     
     public typealias ContentEnum = Enums

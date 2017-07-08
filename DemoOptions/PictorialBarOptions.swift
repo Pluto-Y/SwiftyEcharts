@@ -732,7 +732,7 @@ public final class PictorialBarOptions {
                 )
                 ])
         )
-
+        
     }
     
     // MARK: 森林的增长

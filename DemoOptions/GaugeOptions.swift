@@ -154,13 +154,13 @@ public final class GaugeOptions {
                 )),
             .data(serieData4)
         )
-
+        
         let series: [Serie] = [
             serie1,
             serie2,
             serie3,
             serie4
-            ]
+        ]
         return Option(
             .tooltip(Tooltip(
                 .formatter(.string("{a}<br/>{c} {b}"))

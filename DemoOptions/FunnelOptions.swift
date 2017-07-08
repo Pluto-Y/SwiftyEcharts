@@ -88,7 +88,7 @@ public final class FunnelOptions {
                         ["value":100, "name":"产品A"]
                         ])
                 )
-            ])
+                ])
         )
     }
     
@@ -178,7 +178,7 @@ public final class FunnelOptions {
                         ["value":80, "name":"展现"]
                         ])
                 )
-            ])
+                ])
             
         )
     }
@@ -266,7 +266,7 @@ public final class FunnelOptions {
                         ["value":100, "name":"展现"]
                         ])
                 )
-            ])
+                ])
         )
     }
     
@@ -337,7 +337,7 @@ public final class FunnelOptions {
                         ["value":100, "name":"展现"]
                         ])
                 )
-            ])
+                ])
         )
     }
 }

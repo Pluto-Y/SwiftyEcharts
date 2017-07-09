@@ -22,5 +22,16 @@ class EffectScatterSerieSpec: QuickSpec {
             expect(renderShowEffectOn.jsonString).to(equal(renderString.jsonString))
             expect(emphasisShowEffectOn.jsonString).to(equal(emphasisString.jsonString))
         }
+        
+        let strokeBrushType = EffectScatterSerie.RippleEffect.BrushType.stroke
+        let fillBrushType = EffectScatterSerie.RippleEffect.BrushType.fill
+        
+        describe("For EffectScatterSerie.RippleEffect.BrushType") {
+            let strokeString = "stroke"
+            let fillString = "fill"
+            
+            expect(strokeBrushType.jsonString).to(equal(strokeString.jsonString))
+            expect(fillBrushType.jsonString).to(equal(fillString.jsonString))
+        }
     }
 }

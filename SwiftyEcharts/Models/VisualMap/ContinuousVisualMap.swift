@@ -90,7 +90,7 @@ public final class ContinuousVisualMap: VisualMap, Displayable, Borderable, Colo
     /// 两端的文本，如 ['High', 'Low']。
     ///
     /// text 中的顺序，其实试试就知道。若要看详细的规则，参见 visualMap.inverse。
-    public var text: [String]?
+    public var text: PiecewiseText?
     /// 两端文字主体之间的距离，单位为px。参见 visualMap-continuous.text
     public var textGap: Float?
     /// 是否显示 visualMap-continuous 组件。如果设置为 false，不会显示，但是数据映射的功能还存在。
@@ -190,7 +190,7 @@ public final class ContinuousVisualMap: VisualMap, Displayable, Borderable, Colo
 
 extension ContinuousVisualMap: Enumable {
     public enum Enums {
-        case min(Float), max(Float), range(Range), calculable(Bool), realtime(Bool), inverse(Bool), precision(Float), itemWidth(Float), itemHeight(Float), align(Align), text([String]), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(VisualMapController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(Orient), padding(Padding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
+        case min(Float), max(Float), range(Range), calculable(Bool), realtime(Bool), inverse(Bool), precision(Float), itemWidth(Float), itemHeight(Float), align(Align), text(PiecewiseText), textGap(Float), show(Bool), dimension(Float), seriesIndex([UInt8]), hoverLink(Bool), inRange([String: Jsonable]), outRange([String: Jsonable]), controller(VisualMapController), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), orient(Orient), padding(Padding), backgroundColor(Color), borderColor(Color), borderWidth(Float), color(Color), textStyle(TextStyle), formatter(Formatter)
     }
     
     public typealias ContentEnum = Enums

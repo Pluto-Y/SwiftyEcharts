@@ -36,7 +36,7 @@ class FunnelSerieSpec: QuickSpec {
         normalLabelLineContent.length = labelLineLengthValue
         normalLabelLineContent.lineStyle = labelLineLineStyleValue
         
-        describe("For FunnelSerie.LabelLineContent") { 
+        describe("For FunnelSerie.LabelLineContent") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "show": labelLineShowValue,
@@ -55,6 +55,41 @@ class FunnelSerieSpec: QuickSpec {
                 )
                 
                 expect(labelLineContentByEnums.jsonString).to(equal(normalLabelLineContent.jsonString))
+            }
+        }
+        
+        let normalValue = normalLabelLineContent
+        let emphasisValue = FunnelSerie.LabelLineContent(
+            .show(true),
+            .length(0.0),
+            .lineStyle(LineStyle(
+                .width(2.486),
+                .type(LineType.dotted),
+                .opacity(1.0)
+                ))
+        )
+        
+        let labelLine = FunnelSerie.LabelLine()
+        labelLine.normal = normalValue
+        labelLine.emphasis = emphasisValue
+        
+        describe("For FunnelSerie.LabelLine") {
+            it("needs to check the jsonString") {
+                let resutlDic: [String: Jsonable] = [
+                    "normal": normalValue,
+                    "emphasis": emphasisValue,
+                ]
+                
+                expect(labelLine.jsonString).to(equal(resutlDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let labelLineByEnums = FunnelSerie.LabelLine(
+                    .normal(normalValue),
+                    .emphasis(emphasisValue)
+                )
+                
+                expect(labelLineByEnums.jsonString).to(equal(labelLine.jsonString))
             }
         }
     }

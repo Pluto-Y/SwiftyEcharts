@@ -15,8 +15,7 @@ public final class MarkLine: Animatable {
     public var symbol: Symbol?
     /// 标线两端的标记大小，可以是一个数组分别指定两端，也可以是单个统一指定。
     /// 注意： 这里无法像一般的 symbolSize 那样通过数组分别指定高宽。
-    // FIXME: 暂不支持两端
-    public var symbolSize: Jsonable?
+    public var symbolSize: FunctionOrFloatOrPair?
     /// 标线数值的精度，在显示平均值线的时候有用。
     public var precision: Float?
     /// 标线的文本。
@@ -125,7 +124,7 @@ public final class MarkLine: Animatable {
 
 extension MarkLine: Enumable {
     public enum Enums {
-        case silent(Bool), symbol(Symbol), symbolSize(Jsonable), precision(Float), label(FormattedLabel), lineStyle(EmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case silent(Bool), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), precision(Float), label(FormattedLabel), lineStyle(EmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

@@ -92,5 +92,53 @@ class FunnelSerieSpec: QuickSpec {
                 expect(labelLineByEnums.jsonString).to(equal(labelLine.jsonString))
             }
         }
+        
+        let dataNameValue = "dataNameValue"
+        let dataValueValue: Float = 2
+        let dataLabelValue = Label(
+            .normal(CommonLabelStyle(
+                .show(true),
+                .position(Position.point(Point([20, 30])))
+                ))
+        )
+        let dataLabelLineValue = labelLine
+        let dataItemStyleValue = ItemStyle(
+            .emphasis(CommonItemStyleContent(
+                ))
+        )
+        
+        let funnelSerieData = FunnelSerie.Data()
+        funnelSerieData.name = dataNameValue
+        funnelSerieData.value = dataValueValue
+        funnelSerieData.label = dataLabelValue
+        funnelSerieData.labelLine = dataLabelLineValue
+        funnelSerieData.itemStyle = dataItemStyleValue
+        
+        describe("For FunnelSerie.Data") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "name": dataNameValue,
+                    "value": dataValueValue,
+                    "label": dataLabelValue,
+                    "labelLine": dataLabelLineValue,
+                    "itemStyle": dataItemStyleValue
+                ]
+                
+                expect(funnelSerieData.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let funnelSerieDataByEnums = FunnelSerieData(
+                    .name(dataNameValue),
+                    .value(dataValueValue),
+                    .label(dataLabelValue),
+                    .labelLine(dataLabelLineValue),
+                    .itemStyle(dataItemStyleValue)
+                )
+                
+                expect(funnelSerieDataByEnums.jsonString).to(equal(funnelSerieData.jsonString))
+            }
+        }
+        
     }
 }

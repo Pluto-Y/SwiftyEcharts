@@ -78,7 +78,7 @@ class FunnelSerieSpec: QuickSpec {
                 let resutlDic: [String: Jsonable] = [
                     "normal": normalValue,
                     "emphasis": emphasisValue,
-                ]
+                    ]
                 
                 expect(labelLine.jsonString).to(equal(resutlDic.jsonString))
             }
@@ -140,5 +140,143 @@ class FunnelSerieSpec: QuickSpec {
             }
         }
         
+        
+        describe("For FunnelSerie") {    
+            let nameValue = "funnelSerieName"
+            let minValue: Float = 2.45
+            let maxValue: Float = 7.442
+            let minSizeValue = 80%
+            let maxSizeValue = 10%
+            let sortValue = ascendingSort
+            let gapValue: Float = 7.22
+            let legendHoverLinkValue = false
+            let funnelAlignValue = Align.right
+            let labelValue = FormattedLabel(
+                .normal(FormattedLabelStyle(
+                    .position(.start),
+                    .formatter(.string("最大值"))
+                    ))
+            )
+            let labelLineValue = labelLine
+            let itemStyleValue = ItemStyle()
+            let dataValue: [Jsonable] = [
+                ["name": "数据1", "value": 10],
+                ["name": "数据2", "value": 20]
+            ]
+            let markPointValue = MarkPoint(
+                .silent(false)
+            )
+            let markLineValue = MarkLine(
+                .symbolSize([10, 20%])
+            )
+            let markAreaValue = MarkArea(
+                .animation(false)
+            )
+            let silentValue = true
+            let animationValue = false
+            let animationThresholdValue: Float = 2.5582
+            let animationDurationValue = Time.init(floatLiteral: 2.4)
+            let animationEasingValue = EasingFunction.backIn
+            let animationDelayValue: Time = 0.0
+            let animationDurationUpdateValue: Time = Time.init(integerLiteral: 22)
+            let animationEasingUpdateValue = EasingFunction.sinusoidalOut
+            let animationDelayUpdateValue: Time = 22
+            
+            let funnelSerie = FunnelSerie()
+            funnelSerie.name = nameValue
+            funnelSerie.min = minValue
+            funnelSerie.max = maxValue
+            funnelSerie.minSize = minSizeValue
+            funnelSerie.maxSize = maxSizeValue
+            funnelSerie.sort = sortValue
+            funnelSerie.gap = gapValue
+            funnelSerie.legendHoverLink = legendHoverLinkValue
+            funnelSerie.funnelAlign = funnelAlignValue
+            funnelSerie.label = labelValue
+            funnelSerie.labelLine = labelLineValue
+            funnelSerie.itemStyle = itemStyleValue
+            funnelSerie.data = dataValue
+            funnelSerie.markPoint = markPointValue
+            funnelSerie.markLine = markLineValue
+            funnelSerie.markArea = markAreaValue
+            funnelSerie.silent = silentValue
+            funnelSerie.animation = animationValue
+            funnelSerie.animationThreshold = animationThresholdValue
+            funnelSerie.animationDuration = animationDurationValue
+            funnelSerie.animationEasing = animationEasingValue
+            funnelSerie.animationDelay = animationDelayValue
+            funnelSerie.animationDurationUpdate = animationDurationUpdateValue
+            funnelSerie.animationEasingUpdate = animationEasingUpdateValue
+            funnelSerie.animationDelayUpdate = animationDelayUpdateValue
+            
+            it("needs to check the type value") {
+                expect(funnelSerie.type.jsonString).to(equal(SerieType.funnel.jsonString))
+            }
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": SerieType.funnel,
+                    "name": nameValue,
+                    "min": minValue,
+                    "max": maxValue,
+                    "minSize": minSizeValue,
+                    "maxSize": maxSizeValue,
+                    "sort": sortValue,
+                    "gap": gapValue,
+                    "legendHoverLink": legendHoverLinkValue,
+                    "funnelAlign": funnelAlignValue,
+                    "label": labelValue,
+                    "labelLine": labelLineValue,
+                    "itemStyle": itemStyleValue,
+                    "data": dataValue,
+                    "markPoint": markPointValue,
+                    "markLine": markLineValue,
+                    "markArea": markAreaValue,
+                    "silent": silentValue,
+                    "animation": animationValue,
+                    "animationThreshold": animationThresholdValue,
+                    "animationDuration": animationDurationValue,
+                    "animationEasing": animationEasingValue,
+                    "animationDelay": animationDelayValue,
+                    "animationDurationUpdate": animationDurationUpdateValue,
+                    "animationEasingUpdate": animationEasingUpdateValue,
+                    "animationDelayUpdate": animationDelayUpdateValue
+                ]
+                
+                expect(funnelSerie.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let funnelSerieByEnums = FunnelSerie(
+                    .name(nameValue),
+                    .min(minValue),
+                    .max(maxValue),
+                    .minSize(minSizeValue),
+                    .maxSize(maxSizeValue),
+                    .sort(sortValue),
+                    .gap(gapValue),
+                    .legendHoverLink(legendHoverLinkValue),
+                    .funnelAlign(funnelAlignValue),
+                    .label(labelValue),
+                    .labelLine(labelLineValue),
+                    .itemStyle(itemStyleValue),
+                    .data(dataValue),
+                    .markPoint(markPointValue),
+                    .markLine(markLineValue),
+                    .markArea(markAreaValue),
+                    .silent(silentValue),
+                    .animation(animationValue),
+                    .animationThreshold(animationThresholdValue),
+                    .animationDuration(animationDurationValue),
+                    .animationEasing(animationEasingValue),
+                    .animationDelay(animationDelayValue),
+                    .animationDurationUpdate(animationDurationUpdateValue),
+                    .animationEasingUpdate(animationEasingUpdateValue),
+                    .animationDelayUpdate(animationDelayUpdateValue)
+                )
+                
+                expect(funnelSerieByEnums.jsonString).to(equal(funnelSerie.jsonString))
+            }
+        }
     }
 }

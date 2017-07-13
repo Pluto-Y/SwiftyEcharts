@@ -11,7 +11,7 @@ public final class SplitLine: Displayable, Line {
     /// 是否显示分隔线。
     public var show: Bool?
     /// 分隔线的显示间隔
-    public var interval: UInt?
+    public var interval: LengthValue?
     /// 分割线的样式
     public var lineStyle: LineStyle?
     
@@ -20,7 +20,7 @@ public final class SplitLine: Displayable, Line {
 
 extension SplitLine: Enumable {
     public enum Enums {
-        case show(Bool), interval(UInt), lineStyle(LineStyle)
+        case show(Bool), interval(LengthValue), lineStyle(LineStyle)
     }
     
     public typealias ContentEnum = Enums

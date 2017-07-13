@@ -48,5 +48,47 @@ class GaugeSerieSpec: QuickSpec {
                 expect(axisTickByEnums.jsonString).to(equal(axisTick.jsonString))
             }
         }
+        
+        let showAxisLabelValue = true
+        let distanceAxisLabelValue: Float = 0.5
+        let formatterAxisLabelValue = Formatter.string("{value} ml")
+        let textStyleAxisLabelValue = TextStyle(
+            .color("#fff"),
+            .fontSize(16)
+        )
+        let colorAxisLabelValue = Color.hexColor("#5a5a5a")
+        
+        let axisLabel = GaugeSerie.AxisLabel()
+        axisLabel.show = showAxisLabelValue
+        axisLabel.distance = distanceAxisLabelValue
+        axisLabel.formatter = formatterAxisLabelValue
+        axisLabel.textStyle = textStyleAxisLabelValue
+        axisLabel.color = colorAxisLabelValue
+        
+        describe("For GaugeSerie.AxisLabel") {
+            it("needs to check the jsonString") {
+                let resutlDic: [String: Jsonable] = [
+                    "show": showAxisLabelValue,
+                    "distance": distanceAxisLabelValue,
+                    "formatter": formatterAxisLabelValue,
+                    "textStyle": textStyleAxisLabelValue,
+                    "color": colorAxisLabelValue
+                ]
+                
+                expect(axisLabel.jsonString).to(equal(resutlDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let axisLabelByEnums = GaugeSerie.AxisLabel(
+                    .show(showAxisLabelValue),
+                    .distance(distanceAxisLabelValue),
+                    .formatter(formatterAxisLabelValue),
+                    .textStyle(textStyleAxisLabelValue),
+                    .color(colorAxisLabelValue)
+                )
+                
+                expect(axisLabelByEnums.jsonString).to(equal(axisLabel.jsonString))
+            }
+        }
     }
 }

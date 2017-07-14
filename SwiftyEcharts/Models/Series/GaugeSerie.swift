@@ -11,28 +11,6 @@
 /// 示例：http://echarts.baidu.com/demo.html#gauge-car
 public final class GaugeSerie: Serie, Animatable {
     
-    /// 仪表盘轴线相关配置。
-    public final class AxisLine: Displayable, Line {
-        /// 是否显示仪表盘轴线。
-        public var show: Bool?
-        /// 仪表盘轴线样式。
-        public var lineStyle: LineStyle?
-        
-        public init() { }
-    }
-    
-    /// 分隔线。
-    public final class SplitLine: Displayable, Line {
-        /// 是否显示分隔线。
-        public var show: Bool?
-        /// 分隔线线长。支持相对半径的百分比。
-        public var length: LengthValue?
-        /// 分割线样式
-        public var lineStyle: LineStyle?
-        
-        public init() { }
-    }
-    
     /// 刻度样式。
     public final class AxisTick: Displayable, Line {
         /// 是否显示刻度。
@@ -188,70 +166,11 @@ public final class GaugeSerie: Serie, Animatable {
     public init() { }
 }
 
-public typealias GaugeSerieAxisLine = GaugeSerie.AxisLine
-public typealias GaugeSerieSplitLine = GaugeSerie.SplitLine
 public typealias GaugeSerieAxisTick = GaugeSerie.AxisTick
 public typealias GaugeSerieAxisLabel = GaugeSerie.AxisLabel
 public typealias GaugeSeriePointer = GaugeSerie.Pointer
 public typealias GaugeSerieTitle = GaugeSerie.Title
 public typealias GaugeSerieDetail = GaugeSerie.Detail
-
-extension GaugeSerieAxisLine: Enumable {
-    public enum Enums {
-        case show(Bool), lineStyle(LineStyle)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public convenience init(_ elements: Enums...) {
-        self.init()
-        for ele in elements {
-            switch ele {
-            case let .show(show):
-                self.show = show
-            case let .lineStyle(lineStyle):
-                self.lineStyle = lineStyle
-            }
-        }
-    }
-}
-
-extension GaugeSerieAxisLine: Mappable {
-    public func mapping(_ map: Mapper) {
-        map["show"] = show
-        map["lineStyle"] = lineStyle
-    }
-}
-
-extension GaugeSerieSplitLine: Enumable {
-    public enum Enums {
-        case show(Bool), length(LengthValue), lineStyle(LineStyle)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public convenience init(_ elements: Enums...) {
-        self.init()
-        for ele in elements {
-            switch ele {
-            case let .show(show):
-                self.show = show
-            case let .length(length):
-                self.length = length
-            case let .lineStyle(lineStyle):
-                self.lineStyle = lineStyle
-            }
-        }
-    }
-}
-
-extension GaugeSerieSplitLine: Mappable {
-    public func mapping(_ map: Mapper) {
-        map["show"] = show
-        map["length"] = length
-        map["lineStyle"] = lineStyle
-    }
-}
 
 extension GaugeSerieAxisTick: Enumable {
     public enum Enums {

@@ -15,7 +15,7 @@ class SplitLineSpec: QuickSpec {
         describe("For SplitLine") {
             
             let showValue = false
-            let intervalValue: UInt = 2
+            let intervalValue: LengthValue = 2
             let lineStyleValue = LineStyle(
                 .color(Color.red),
                 .width(30),

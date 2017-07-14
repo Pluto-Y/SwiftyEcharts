@@ -121,5 +121,43 @@ class GaugeSerieSpec: QuickSpec {
                 expect(pointerByEnums.jsonString).to(equal(pointer.jsonString))
             }
         }
+        
+        let showTitleValue = false
+        let offsetCenterTitleValue: Point = [20, 30%]
+        let textStyleTitleValue = TextStyle(
+            .color(Color.hexColor("#f4f4f4")),
+            .fontStyle(FontStyle.normal),
+            .fontWeight(.lighter),
+            .fontFamily("fontFamilyValue"),
+            .fontSize(23),
+            .align(Position.center)
+        )
+        
+        let title = GaugeSerie.Title()
+        title.show = showTitleValue
+        title.offsetCenter = offsetCenterTitleValue
+        title.textStyle = textStyleTitleValue
+        
+        describe("For GaugeSerie.Title") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showTitleValue,
+                    "offsetCenter": offsetCenterTitleValue,
+                    "textStyle": textStyleTitleValue
+                ]
+                
+                expect(title.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let titleByEnums = GaugeSerie.Title(
+                    .show(showTitleValue),
+                    .offsetCenter(offsetCenterTitleValue),
+                    .textStyle(textStyleTitleValue)
+                )
+                
+                expect(titleByEnums.jsonString).to(equal(title.jsonString))
+            }
+        }
     }
 }

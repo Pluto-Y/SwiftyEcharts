@@ -159,5 +159,62 @@ class GaugeSerieSpec: QuickSpec {
                 expect(titleByEnums.jsonString).to(equal(title.jsonString))
             }
         }
+        
+        let showDetailValue = true
+        let widthDetailValue: Float = 28.482
+        let heightDetailValue: Float = 274.23
+        let backgroundColorDetailValue = Color.auto
+        let borderWidthDetailValue: Float = 0.5
+        let borderColorDetailValue = Color.yellow
+        let offsetCenterDetailValue = Point([0, 0%])
+        let formatterDetailValue = Formatter.string("formatterValue")
+        let textStyleDetailValue = TextStyle(
+            .align(Position.auto)
+        )
+        
+        let detail = GaugeSerie.Detail()
+        detail.show = showDetailValue
+        detail.width = widthDetailValue
+        detail.height = heightDetailValue
+        detail.backgroundColor = backgroundColorDetailValue
+        detail.borderWidth = borderWidthDetailValue
+        detail.borderColor = borderColorDetailValue
+        detail.offsetCenter = offsetCenterDetailValue
+        detail.formatter = formatterDetailValue
+        detail.textStyle = textStyleDetailValue
+        
+        describe("For GaugeSerie.Detail") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showDetailValue,
+                    "width": widthDetailValue,
+                    "height": heightDetailValue,
+                    "backgroundColor": backgroundColorDetailValue,
+                    "borderWidth": borderWidthDetailValue,
+                    "borderColor": borderColorDetailValue,
+                    "offsetCenter": offsetCenterDetailValue,
+                    "formatter": formatterDetailValue,
+                    "textStyle": textStyleDetailValue
+                ]
+                
+                expect(detail.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let detailByEnums = GaugeSerie.Detail(
+                    .show(showDetailValue),
+                    .width(widthDetailValue),
+                    .height(heightDetailValue),
+                    .backgroundColor(backgroundColorDetailValue),
+                    .borderWidth(borderWidthDetailValue),
+                    .borderColor(borderColorDetailValue),
+                    .offsetCenter(offsetCenterDetailValue),
+                    .formatter(formatterDetailValue),
+                    .textStyle(textStyleDetailValue)
+                )
+                
+                expect(detailByEnums.jsonString).to(equal(detail.jsonString))
+            }
+        }
     }
 }

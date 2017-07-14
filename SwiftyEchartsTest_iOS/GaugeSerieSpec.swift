@@ -90,5 +90,36 @@ class GaugeSerieSpec: QuickSpec {
                 expect(axisLabelByEnums.jsonString).to(equal(axisLabel.jsonString))
             }
         }
+        
+        let showPointerValue = false
+        let lengthPointerValue: LengthValue = 2.52
+        let widthPointerValue: Float = 2.55
+        
+        let pointer = GaugeSerie.Pointer()
+        pointer.show = showPointerValue
+        pointer.length = lengthPointerValue
+        pointer.width = widthPointerValue
+        
+        describe("For GaugeSerie.Pointer") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showPointerValue,
+                    "length": lengthPointerValue,
+                    "width": widthPointerValue
+                ]
+                
+                expect(pointer.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let pointerByEnums = GaugeSerie.Pointer(
+                    .show(showPointerValue),
+                    .length(lengthPointerValue),
+                    .width(widthPointerValue)
+                )
+                
+                expect(pointerByEnums.jsonString).to(equal(pointer.jsonString))
+            }
+        }
     }
 }

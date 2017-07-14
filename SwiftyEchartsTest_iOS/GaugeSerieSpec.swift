@@ -216,5 +216,197 @@ class GaugeSerieSpec: QuickSpec {
                 expect(detailByEnums.jsonString).to(equal(detail.jsonString))
             }
         }
+        
+        describe("For GaugeSerie") {
+            let nameValue = "gaugeSerieName"
+            let radiusValue = 100%
+            let centerValue: Point = [100%, 20]
+            let startAngleValue: Float = 45
+            let endAngleValue: Float = 135
+            let clockwiseValue = true
+            let minValue: Float = -1.5
+            let maxValue: Float = 10.22
+            let splitNumberValue: Float = 2.0
+            let axisLineValue = AxisLine(
+                .show(false),
+                .onZero(true),
+                .lineStyle(LineStyle(.width(2.0)))
+            )
+            let splitLineValue = SplitLine(
+                .show(false),
+                .interval(2)
+            )
+            let axisTickValue = axisTick
+            let axisLabelValue = axisLabel
+            let pointerValue = pointer
+            let itemStyleValue = ItemStyle(
+                .normal(CommonItemStyleContent(
+                    .opacity(0.224),
+                    .borderType(.dotted)
+                    ))
+            )
+            let titleValue = title
+            let detailValue = detail
+            let markPointValue = MarkPoint(
+                .data([
+                    MarkData(
+                        .name("年最高"),
+                        .value(182.2),
+                        .xAxis("7"),
+                        .yAxis("183")
+                    ),
+                    MarkData(
+                        .name("年最低"),
+                        .value(2.3),
+                        .xAxis("11"),
+                        .yAxis("3")
+                    )
+                    ])
+            )
+            let markLineValue = MarkLine(
+                .symbol(.none),
+                .label(FormattedLabel(
+                    .normal(FormattedLabelStyle(
+                        .formatter(.string("max: {c}")),
+                        .position(.start)
+                        ))
+                    )),
+                .lineStyle(EmphasisLineStyle(
+                    .normal(LineStyle(
+                        .color(.green),
+                        .type(.dotted),
+                        .opacity(0.2),
+                        .width(2)
+                        ))
+                    )),
+                .data([["type": "max"]])
+            )
+            let markAreaValue = MarkArea(
+                .silent(true),
+                .data([[["xAxis": "2009/9/10/\\n7:00"], ["xAxis": "2009/9/20\\n7:00"]]])
+            )
+            let dataValue: [Jsonable] = ["周一"]
+            let silentValue = true
+            let animationValue = false
+            let animationThresholdValue: Float = 2.5245
+            let animationDurationValue = Time.number(3.553)
+            let animationEasingValue = EasingFunction.exponentialOut
+            let animationDelayValue: Time = 2.3552323
+            let animationDurationUpdateValue: Time = 0.0
+            let animationEasingUpdateValue = EasingFunction.quarticInOut
+            let animationDelayUpdateValue: Time = 100.0
+            
+            let gaugeSerie = GaugeSerie()
+            gaugeSerie.name = nameValue
+            gaugeSerie.radius = radiusValue
+            gaugeSerie.center = centerValue
+            gaugeSerie.startAngle = startAngleValue
+            gaugeSerie.endAngle = endAngleValue
+            gaugeSerie.clockwise = clockwiseValue
+            gaugeSerie.min = minValue
+            gaugeSerie.max = maxValue
+            gaugeSerie.splitNumber = splitNumberValue
+            gaugeSerie.axisLine = axisLineValue
+            gaugeSerie.splitLine = splitLineValue
+            gaugeSerie.axisTick = axisTickValue
+            gaugeSerie.axisLabel = axisLabelValue
+            gaugeSerie.pointer = pointerValue
+            gaugeSerie.itemStyle = itemStyleValue
+            gaugeSerie.title = titleValue
+            gaugeSerie.detail = detailValue
+            gaugeSerie.markPoint = markPointValue
+            gaugeSerie.markLine = markLineValue
+            gaugeSerie.markArea = markAreaValue
+            gaugeSerie.data = dataValue
+            gaugeSerie.silent = silentValue
+            gaugeSerie.animation = animationValue
+            gaugeSerie.animationThreshold = animationThresholdValue
+            gaugeSerie.animationDuration = animationDurationValue
+            gaugeSerie.animationEasing = animationEasingValue
+            gaugeSerie.animationDelay = animationDelayValue
+            gaugeSerie.animationDurationUpdate = animationDurationUpdateValue
+            gaugeSerie.animationEasingUpdate = animationEasingUpdateValue
+            gaugeSerie.animationDelayUpdate = animationDelayUpdateValue
+            
+            it("needs to check the type value") {
+                expect(gaugeSerie.type).to(equal(SerieType.gauge))
+            }
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": SerieType.gauge,
+                    "name": nameValue,
+                    "radius": radiusValue,
+                    "center": centerValue,
+                    "startAngle": startAngleValue,
+                    "endAngle": endAngleValue,
+                    "clockwise": clockwiseValue,
+                    "min": minValue,
+                    "max": maxValue,
+                    "splitNumber": splitNumberValue,
+                    "axisLine": axisLineValue,
+                    "splitLine": splitLineValue,
+                    "axisTick": axisTickValue,
+                    "axisLabel": axisLabelValue,
+                    "pointer": pointerValue,
+                    "itemStyle": itemStyleValue,
+                    "title": titleValue,
+                    "detail": detailValue,
+                    "markPoint": markPointValue,
+                    "markLine": markLineValue,
+                    "markArea": markAreaValue,
+                    "data": dataValue,
+                    "silent": silentValue,
+                    "animation": animationValue,
+                    "animationThreshold": animationThresholdValue,
+                    "animationDuration": animationDurationValue,
+                    "animationEasing": animationEasingValue,
+                    "animationDelay": animationDelayValue,
+                    "animationDurationUpdate": animationDurationUpdateValue,
+                    "animationEasingUpdate": animationEasingUpdateValue,
+                    "animationDelayUpdate": animationDelayUpdateValue
+                ]
+                
+                expect(gaugeSerie.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let gaugeSerieByEnums = GaugeSerie(
+                    .name(nameValue),
+                    .radius(radiusValue),
+                    .center(centerValue),
+                    .startAngle(startAngleValue),
+                    .endAngle(endAngleValue),
+                    .clockwise(clockwiseValue),
+                    .min(minValue),
+                    .max(maxValue),
+                    .splitNumber(splitNumberValue),
+                    .axisLine(axisLineValue),
+                    .splitLine(splitLineValue),
+                    .axisTick(axisTickValue),
+                    .axisLabel(axisLabelValue),
+                    .pointer(pointerValue),
+                    .itemStyle(itemStyleValue),
+                    .title(titleValue),
+                    .detail(detailValue),
+                    .markPoint(markPointValue),
+                    .markLine(markLineValue),
+                    .markArea(markAreaValue),
+                    .data(dataValue),
+                    .silent(silentValue),
+                    .animation(animationValue),
+                    .animationThreshold(animationThresholdValue),
+                    .animationDuration(animationDurationValue),
+                    .animationEasing(animationEasingValue),
+                    .animationDelay(animationDelayValue),
+                    .animationDurationUpdate(animationDurationUpdateValue),
+                    .animationEasingUpdate(animationEasingUpdateValue),
+                    .animationDelayUpdate(animationDelayUpdateValue)
+                )
+                
+                expect(gaugeSerieByEnums.jsonString).to(equal(gaugeSerie.jsonString))
+            }
+        }
+        
     }
 }

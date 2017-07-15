@@ -103,7 +103,7 @@ public final class Geo: Displayable, Zable {
     /// 是否开启鼠标缩放和平移漫游。默认不开启。如果只想要开启缩放或者平移，可以设置成 'scale' 或者 'move'。设置成 true 为都开启
     public var roam: Bool?
     /// 当前视角的中心点，用经纬度表示
-    public var center: [Float]?
+    public var center: Point?
     /// 这个参数用于 scale 地图的长宽比。
     ///
     /// 最终的 aspect 的计算方式是：geoBoundingRect.width / geoBoundingRect.height * aspectScale
@@ -228,7 +228,7 @@ extension Geo.Region: Mappable {
 
 extension Geo: Enumable {
     public enum Enums {
-        case show(Bool), map(String), roam(Bool), center([Float]), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap(String), selectedMode(SelectedMode), label(FormattedLabel), itemStyle(ItemStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), layoutCenter(String), layoutSize(String), regions([Region]), silent(Bool)
+        case show(Bool), map(String), roam(Bool), center(Point), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap(String), selectedMode(SelectedMode), label(FormattedLabel), itemStyle(ItemStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), layoutCenter(String), layoutSize(String), regions([Region]), silent(Bool)
     }
     
     public typealias ContentEnum = Enums

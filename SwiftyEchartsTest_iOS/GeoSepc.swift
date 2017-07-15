@@ -39,5 +39,51 @@ class GeoSepc: QuickSpec {
                 expect(scaleLimitByEnums.jsonString).to(equal(scaleLimit.jsonString))
             }
         }
+        
+        let nameRegionValue = "regionNameValue"
+        let selectedRegionValue = false
+        let itemStyleRegionValue = ItemStyle(
+            .normal(CommonItemStyleContent()),
+            .emphasis(CommonItemStyleContent(
+                .shadowBlur(10),
+                .shadowOffsetX(0),
+                .shadowOffsetY(0),
+                .shadowColor(.rgba(0, 0, 0, 0.5))
+                ))
+        )
+        let labelRegionValue = Label(
+            .normal(CommonLabelStyle(.show(true))),
+            .emphasis(CommonLabelStyle(.show(true)))
+        )
+        
+        let region = Geo.Region()
+        region.name = nameRegionValue
+        region.selected = selectedRegionValue
+        region.itemStyle = itemStyleRegionValue
+        region.label = labelRegionValue
+        
+        describe("For Geo.Region") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "name": nameRegionValue,
+                    "selected": selectedRegionValue,
+                    "itemStyle": itemStyleRegionValue,
+                    "label": labelRegionValue
+                ]
+                
+                expect(region.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let regionByEnums = Geo.Region(
+                    .name(nameRegionValue),
+                    .selected(selectedRegionValue),
+                    .itemStyle(itemStyleRegionValue),
+                    .label(labelRegionValue)
+                )
+                
+                expect(regionByEnums.jsonString).to(equal(region.jsonString))
+            }
+        }
     }
 }

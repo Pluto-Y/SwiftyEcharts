@@ -180,6 +180,9 @@
 		6FA9DB241E59EA2000CE5277 /* OneOrMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9DB231E59EA2000CE5277 /* OneOrMore.swift */; };
 		6FA9DB261E59FA6A00CE5277 /* OneOrMoreSepc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA9DB251E59FA6A00CE5277 /* OneOrMoreSepc.swift */; };
 		6FACFAC11EEAF62B002622CE /* ItemStyleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FACFAC01EEAF62B002622CE /* ItemStyleSpec.swift */; };
+		6FAE92891F1A416200CA58A9 /* GridSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE92881F1A416200CA58A9 /* GridSpec.swift */; };
+		6FAE928B1F1B1F1600CA58A9 /* GroupGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE928A1F1B1F1600CA58A9 /* GroupGraphicSpec.swift */; };
+		6FAE928D1F1B257600CA58A9 /* HeatmapSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE928C1F1B257600CA58A9 /* HeatmapSerieSpec.swift */; };
 		6FB400401E2FC05E0086BF5B /* BarSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB4003F1E2FC05E0086BF5B /* BarSerie.swift */; };
 		6FB400421E2FC1DD0086BF5B /* CoordinateSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB400411E2FC1DD0086BF5B /* CoordinateSystem.swift */; };
 		6FB400441E3104B70086BF5B /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB400431E3104B70086BF5B /* Timeline.swift */; };
@@ -567,6 +570,9 @@
 		6FA9DB251E59FA6A00CE5277 /* OneOrMoreSepc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneOrMoreSepc.swift; sourceTree = "<group>"; };
 		6FACFABC1EE99E43002622CE /* GeoSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoSpec.swift; sourceTree = "<group>"; };
 		6FACFAC01EEAF62B002622CE /* ItemStyleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStyleSpec.swift; sourceTree = "<group>"; };
+		6FAE92881F1A416200CA58A9 /* GridSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridSpec.swift; sourceTree = "<group>"; };
+		6FAE928A1F1B1F1600CA58A9 /* GroupGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupGraphicSpec.swift; sourceTree = "<group>"; };
+		6FAE928C1F1B257600CA58A9 /* HeatmapSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapSerieSpec.swift; sourceTree = "<group>"; };
 		6FB4003F1E2FC05E0086BF5B /* BarSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BarSerie.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FB400411E2FC1DD0086BF5B /* CoordinateSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateSystem.swift; sourceTree = "<group>"; };
 		6FB400431E3104B70086BF5B /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Timeline.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -1062,6 +1068,9 @@
 				6F7F98E01F17B90D00A31FF1 /* EnumableSpec.swift */,
 				6F7F98E21F17BA5B00A31FF1 /* GaugeSerieSpec.swift */,
 				6F1256A11F1A2C780051137C /* GeoSepc.swift */,
+				6FAE92881F1A416200CA58A9 /* GridSpec.swift */,
+				6FAE928A1F1B1F1600CA58A9 /* GroupGraphicSpec.swift */,
+				6FAE928C1F1B257600CA58A9 /* HeatmapSerieSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1619,6 +1628,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FA85F051ED333C200C1DA58 /* JsCacheSpec.swift in Sources */,
+				6FAE92891F1A416200CA58A9 /* GridSpec.swift in Sources */,
 				6F201F0A1F09247000087764 /* BarSerieSpec.swift in Sources */,
 				6F201F121F0A665200087764 /* LabelSpec.swift in Sources */,
 				6F67FCB91E71CA1B00BE2E4B /* SelectedModeSpec.swift in Sources */,
@@ -1652,10 +1662,12 @@
 				6F86CFCC1EFC184A006099D3 /* LineStyleSpec.swift in Sources */,
 				6F5469B71F109D0E00C66483 /* CandlestickSerieSpec.swift in Sources */,
 				6F201F061F0403A900087764 /* SplitAreaSpec.swift in Sources */,
+				6FAE928D1F1B257600CA58A9 /* HeatmapSerieSpec.swift in Sources */,
 				6F86CFD21EFFEF9C006099D3 /* MapperSpec.swift in Sources */,
 				6FDDCFFD1F00F05F00B89982 /* AxisLineSpec.swift in Sources */,
 				6F5469B91F10E0E200C66483 /* CircleGraphicSpec.swift in Sources */,
 				6F201ED81F02094B00087764 /* GraphicTypeSpec.swift in Sources */,
+				6FAE928B1F1B1F1600CA58A9 /* GroupGraphicSpec.swift in Sources */,
 				6F86CFC61EFAD921006099D3 /* SerieSpec.swift in Sources */,
 				6FDDCFFB1F00EC6300B89982 /* AxisTickSpec.swift in Sources */,
 				6F9F90D51EB8C6B4005AB9FF /* RoamSpec.swift in Sources */,

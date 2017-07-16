@@ -60,5 +60,104 @@ class HeatmapSerieSpec: QuickSpec {
                 expect(dataByEnums.jsonString).to(equal(data.jsonString))
             }
         }
+        
+        describe("For HeatmapSerie") {
+            let nameValue = "heatmapSerieNameValue"
+            let coordinateSystemValue = CoordinateSystem.polar
+            let xAxisIndexValue: UInt8 = 28
+            let yAxisIndexValue: UInt8 = 255
+            let geoIndexValue: UInt8 = 0
+            let blurSizeValue: Float = 2.423
+            let minOpacityValue: Float = 0.99
+            let maxOpacityValue: Float = 0.01
+            let dataValue: [Jsonable] = [
+                data,
+                12, 34, ["value": 56]
+            ]
+            let markPointValue = MarkPoint(
+                .silent(true),
+                .animation(false),
+                .animationDuration(Time.number(2.835))
+            )
+            let markLineValue = MarkLine(
+                .data([["name": "两个坐标之间的标线", "coord": [10, 20]], ["coord": [20, 30]]])
+            )
+            let markAreaValue = MarkArea(
+                .label(FormattedLabel(
+                    .normal(FormattedLabelStyle(
+                        .position(.right)
+                        ))
+                    ))
+            )
+            let zlevelValue: Float = 28.423
+            let zValue: Float = 8.2323
+            let silentValue = true
+            
+            let heatmapSerie = HeatmapSerie()
+            heatmapSerie.name = nameValue
+            heatmapSerie.coordinateSystem = coordinateSystemValue
+            heatmapSerie.xAxisIndex = xAxisIndexValue
+            heatmapSerie.yAxisIndex = yAxisIndexValue
+            heatmapSerie.geoIndex = geoIndexValue
+            heatmapSerie.blurSize = blurSizeValue
+            heatmapSerie.minOpacity = minOpacityValue
+            heatmapSerie.maxOpacity = maxOpacityValue
+            heatmapSerie.data = dataValue
+            heatmapSerie.markPoint = markPointValue
+            heatmapSerie.markLine = markLineValue
+            heatmapSerie.markArea = markAreaValue
+            heatmapSerie.zlevel = zlevelValue
+            heatmapSerie.z = zValue
+            heatmapSerie.silent = silentValue
+            
+            it("needs to check the type value") {
+                expect(heatmapSerie.type.jsonString).to(equal(SerieType.heatmap.jsonString))
+            }
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": SerieType.heatmap,
+                    "name": nameValue,
+                    "coordinateSystem": coordinateSystemValue,
+                    "xAxisIndex": xAxisIndexValue,
+                    "yAxisIndex": yAxisIndexValue,
+                    "geoIndex": geoIndexValue,
+                    "blurSize": blurSizeValue,
+                    "minOpacity": minOpacityValue,
+                    "maxOpacity": maxOpacityValue,
+                    "data": dataValue,
+                    "markPoint": markPointValue,
+                    "markLine": markLineValue,
+                    "markArea": markAreaValue,
+                    "zlevel": zlevelValue,
+                    "z": zValue,
+                    "silent": silentValue
+                ]
+                
+                expect(heatmapSerie.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let heatmapSerieByEnums = HeatmapSerie(
+                    .name(nameValue),
+                    .coordinateSystem(coordinateSystemValue),
+                    .xAxisIndex(xAxisIndexValue),
+                    .yAxisIndex(yAxisIndexValue),
+                    .geoIndex(geoIndexValue),
+                    .blurSize(blurSizeValue),
+                    .minOpacity(minOpacityValue),
+                    .maxOpacity(maxOpacityValue),
+                    .data(dataValue),
+                    .markPoint(markPointValue),
+                    .markLine(markLineValue),
+                    .markArea(markAreaValue),
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .silent(silentValue)
+                )
+                
+                expect(heatmapSerieByEnums.jsonString).to(equal(heatmapSerie.jsonString))
+            }
+        }
     }
 }

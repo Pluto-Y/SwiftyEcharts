@@ -97,6 +97,30 @@ class GridSpec: QuickSpec {
                 
                 expect(gridByEnums.jsonString).to(equal(grid.jsonString))
             }
+            
+            it("needs to check the x, y, x2, y2 equal to left, top, right, bottom") {
+                let gridByEnums = Grid(
+                    .show(showValue),
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .x(leftValue),
+                    .y(topValue),
+                    .x2(rightValue),
+                    .y2(bottomValue),
+                    .width(widthValue),
+                    .height(heightValue),
+                    .containLabel(containLabelValue),
+                    .background(backgroundValue),
+                    .borderColor(borderColorValue),
+                    .borderWidth(borderWidthValue),
+                    .shadowBlur(shadowBlurValue),
+                    .shadowColor(shadowColorValue),
+                    .shadowOffsetX(shadowOffsetXValue),
+                    .shadowOffsetY(shadowOffsetYValue)
+                )
+                
+                expect(gridByEnums.jsonString).to(equal(grid.jsonString))
+            }
         }
     }
 }

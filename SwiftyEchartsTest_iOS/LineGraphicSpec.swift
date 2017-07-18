@@ -50,5 +50,95 @@ class LineGraphicSpec: QuickSpec {
                 expect(shapeByEnums.jsonString).to(equal(shape.jsonString))
             }
         }
+        
+        describe("For LineGraphic") {
+            let idValue = "lineGraphicIdValue"
+            let actionValue = GraphicAction.remove
+            let leftValue = Position.right
+            let rightValue = Position.insideBottomRight
+            let topValue = Position.end
+            let bottomValue = Position.insideBottomRight
+            let boundingValue = GraphicBounding.all
+            let zValue: Float = 0.284
+            let zlevelValue: Float = 82.83
+            let silentValue = false
+            let invisibleValue = true
+            let cursorValue = "lineGraphicCursorValue"
+            let draggableValue = false
+            let progressiveValue = true
+            let shapeValue = shape
+            let styleValue = CommonGraphicStyle(
+                .shadowColor(rgba(200, 100, 20, 0.832))
+            )
+            
+            let lineGraphic = LineGraphic()
+            lineGraphic.id = idValue
+            lineGraphic.action = actionValue
+            lineGraphic.left = leftValue
+            lineGraphic.right = rightValue
+            lineGraphic.top = topValue
+            lineGraphic.bottom = bottomValue
+            lineGraphic.bounding = boundingValue
+            lineGraphic.z = zValue
+            lineGraphic.zlevel = zlevelValue
+            lineGraphic.silent = silentValue
+            lineGraphic.invisible = invisibleValue
+            lineGraphic.cursor = cursorValue
+            lineGraphic.draggable = draggableValue
+            lineGraphic.progressive = progressiveValue
+            lineGraphic.shape = shapeValue
+            lineGraphic.style = styleValue
+            
+            it("needs to check the type value") {
+                expect(lineGraphic.type).to(equal(GraphicType.line))
+            }
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": GraphicType.line,
+                    "id": idValue,
+                    "$action": actionValue,
+                    "left": leftValue,
+                    "right": rightValue,
+                    "top": topValue,
+                    "bottom": bottomValue,
+                    "bounding": boundingValue,
+                    "z": zValue,
+                    "zlevel": zlevelValue,
+                    "silent": silentValue,
+                    "invisible": invisibleValue,
+                    "cursor": cursorValue,
+                    "draggable": draggableValue,
+                    "progressive": progressiveValue,
+                    "shape": shapeValue,
+                    "style": styleValue
+                ]
+
+                expect(lineGraphic.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let lineGraphicByEnums = LineGraphic(
+                    .id(idValue),
+                    .action(actionValue),
+                    .left(leftValue),
+                    .right(rightValue),
+                    .top(topValue),
+                    .bottom(bottomValue),
+                    .bounding(boundingValue),
+                    .z(zValue),
+                    .zlevel(zlevelValue),
+                    .silent(silentValue),
+                    .invisible(invisibleValue),
+                    .cursor(cursorValue),
+                    .draggable(draggableValue),
+                    .progressive(progressiveValue),
+                    .shape(shapeValue),
+                    .style(styleValue)
+                )
+                
+                expect(lineGraphicByEnums.jsonString).to(equal(lineGraphic.jsonString))
+            }
+        }
     }
 }

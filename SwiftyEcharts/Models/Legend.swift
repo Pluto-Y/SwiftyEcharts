@@ -243,7 +243,7 @@ extension Legend: Mappable {
         map["orient"] = orient
         map["align"] = align
         map["padding"] = padding
-        map["sitemGaphow"] = itemGap
+        map["itemGap"] = itemGap
         map["itemWidth"] = itemWidth
         map["itemHeight"] = itemHeight
         map["formatter"] = formatter

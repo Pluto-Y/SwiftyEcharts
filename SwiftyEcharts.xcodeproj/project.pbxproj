@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		529DEFEB1E6EE9F400E70938 /* FunnelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529DEFEA1E6EE9F400E70938 /* FunnelController.swift */; };
-		5408989D1E52EB6500A89BB0 /* LinSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5408989C1E52EB6500A89BB0 /* LinSerieSpec.swift */; };
 		540898A81E53F6F300A89BB0 /* Percent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898A71E53F6F300A89BB0 /* Percent.swift */; };
 		540898AA1E53F71E00A89BB0 /* LengthValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898A91E53F71E00A89BB0 /* LengthValue.swift */; };
 		540898AC1E5408B500A89BB0 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898AB1E5408B500A89BB0 /* Position.swift */; };
@@ -108,6 +107,11 @@
 		6F6331491EF6C6B400EC9D24 /* PositionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6331481EF6C6B400EC9D24 /* PositionSpec.swift */; };
 		6F63314B1EF6CBFA00EC9D24 /* FunctionOrOthers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63314A1EF6CBFA00EC9D24 /* FunctionOrOthers.swift */; };
 		6F67FCB91E71CA1B00BE2E4B /* SelectedModeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */; };
+		6F715C9D1F1D0375001BA1A9 /* ImageGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715C9C1F1D0375001BA1A9 /* ImageGraphicSpec.swift */; };
+		6F715C9F1F1D0882001BA1A9 /* InsideDataZoomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715C9E1F1D0882001BA1A9 /* InsideDataZoomSpec.swift */; };
+		6F715CA11F1E3E65001BA1A9 /* LegendSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715CA01F1E3E65001BA1A9 /* LegendSpec.swift */; };
+		6F715CA31F1E45F8001BA1A9 /* LineGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715CA21F1E45F8001BA1A9 /* LineGraphicSpec.swift */; };
+		6F715CA51F20AEA9001BA1A9 /* LineSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715CA41F20AEA9001BA1A9 /* LineSerieSpec.swift */; };
 		6F7F98D91F1225D900A31FF1 /* ContinuousVisualMapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98D81F1225D900A31FF1 /* ContinuousVisualMapSpec.swift */; };
 		6F7F98DB1F1226D600A31FF1 /* DataZoomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98DA1F1226D600A31FF1 /* DataZoomSpec.swift */; };
 		6F7F98DD1F12299100A31FF1 /* EffectScatterSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98DC1F12299100A31FF1 /* EffectScatterSerieSpec.swift */; };
@@ -396,7 +400,6 @@
 
 /* Begin PBXFileReference section */
 		529DEFEA1E6EE9F400E70938 /* FunnelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnelController.swift; sourceTree = "<group>"; };
-		5408989C1E52EB6500A89BB0 /* LinSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinSerieSpec.swift; sourceTree = "<group>"; };
 		540898A71E53F6F300A89BB0 /* Percent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Percent.swift; sourceTree = "<group>"; };
 		540898A91E53F71E00A89BB0 /* LengthValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LengthValue.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		540898AB1E5408B500A89BB0 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Position.swift; sourceTree = "<group>"; };
@@ -496,6 +499,11 @@
 		6F6331481EF6C6B400EC9D24 /* PositionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionSpec.swift; sourceTree = "<group>"; };
 		6F63314A1EF6CBFA00EC9D24 /* FunctionOrOthers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FunctionOrOthers.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedModeSpec.swift; sourceTree = "<group>"; };
+		6F715C9C1F1D0375001BA1A9 /* ImageGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGraphicSpec.swift; sourceTree = "<group>"; };
+		6F715C9E1F1D0882001BA1A9 /* InsideDataZoomSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideDataZoomSpec.swift; sourceTree = "<group>"; };
+		6F715CA01F1E3E65001BA1A9 /* LegendSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegendSpec.swift; sourceTree = "<group>"; };
+		6F715CA21F1E45F8001BA1A9 /* LineGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineGraphicSpec.swift; sourceTree = "<group>"; };
+		6F715CA41F20AEA9001BA1A9 /* LineSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSerieSpec.swift; sourceTree = "<group>"; };
 		6F7F98D81F1225D900A31FF1 /* ContinuousVisualMapSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinuousVisualMapSpec.swift; sourceTree = "<group>"; };
 		6F7F98DA1F1226D600A31FF1 /* DataZoomSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataZoomSpec.swift; sourceTree = "<group>"; };
 		6F7F98DC1F12299100A31FF1 /* EffectScatterSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectScatterSerieSpec.swift; sourceTree = "<group>"; };
@@ -1044,7 +1052,6 @@
 				6FE668421EC0BB3C001B977B /* LengthValueSpec.swift */,
 				6FE2DD311EAE56290028037A /* LineSpec.swift */,
 				6F86CFCB1EFC184A006099D3 /* LineStyleSpec.swift */,
-				5408989C1E52EB6500A89BB0 /* LinSerieSpec.swift */,
 				6F4ACB501E21352600CE5FD5 /* MappableSpec.swift */,
 				6F86CFD11EFFEF9C006099D3 /* MapperSpec.swift */,
 				6FDDCFF41F00E4A500B89982 /* MarkDataTypeSpec.swift */,
@@ -1071,6 +1078,11 @@
 				6FAE92881F1A416200CA58A9 /* GridSpec.swift */,
 				6FAE928A1F1B1F1600CA58A9 /* GroupGraphicSpec.swift */,
 				6FAE928C1F1B257600CA58A9 /* HeatmapSerieSpec.swift */,
+				6F715C9C1F1D0375001BA1A9 /* ImageGraphicSpec.swift */,
+				6F715C9E1F1D0882001BA1A9 /* InsideDataZoomSpec.swift */,
+				6F715CA01F1E3E65001BA1A9 /* LegendSpec.swift */,
+				6F715CA21F1E45F8001BA1A9 /* LineGraphicSpec.swift */,
+				6F715CA41F20AEA9001BA1A9 /* LineSerieSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1632,6 +1644,7 @@
 				6F201F0A1F09247000087764 /* BarSerieSpec.swift in Sources */,
 				6F201F121F0A665200087764 /* LabelSpec.swift in Sources */,
 				6F67FCB91E71CA1B00BE2E4B /* SelectedModeSpec.swift in Sources */,
+				6F715CA11F1E3E65001BA1A9 /* LegendSpec.swift in Sources */,
 				6F86CFCA1EFC17D1006099D3 /* SplitLineSpec.swift in Sources */,
 				6F201F101F0A587E00087764 /* BezierCurveGraphicSpec.swift in Sources */,
 				6FDDCFF51F00E4A500B89982 /* MarkDataTypeSpec.swift in Sources */,
@@ -1650,6 +1663,7 @@
 				6F4ACB481E1D258B00CE5FD5 /* JsonableSpec.swift in Sources */,
 				6F201EDC1F0230C400087764 /* ArcGraphicSpec.swift in Sources */,
 				6FEF717E1E686EB700E1ED70 /* ColorSpec.swift in Sources */,
+				6F715CA51F20AEA9001BA1A9 /* LineSerieSpec.swift in Sources */,
 				6F16492A1EF9150500592CE3 /* FunctionOrOthersSpec.swift in Sources */,
 				6F7F98E31F17BA5B00A31FF1 /* GaugeSerieSpec.swift in Sources */,
 				6FB9862F1EC60B7500D2EFE1 /* TextSpec.swift in Sources */,
@@ -1672,15 +1686,17 @@
 				6FDDCFFB1F00EC6300B89982 /* AxisTickSpec.swift in Sources */,
 				6F9F90D51EB8C6B4005AB9FF /* RoamSpec.swift in Sources */,
 				6F86CFC01EFAC26F006099D3 /* TargetSpec.swift in Sources */,
-				5408989D1E52EB6500A89BB0 /* LinSerieSpec.swift in Sources */,
 				6FEC7D191E5376F9003A88D7 /* PercentSpec.swift in Sources */,
 				6F6331491EF6C6B400EC9D24 /* PositionSpec.swift in Sources */,
 				6F201F021F03847400087764 /* AngleAxisSpec.swift in Sources */,
+				6F715C9F1F1D0882001BA1A9 /* InsideDataZoomSpec.swift in Sources */,
 				6F999F211E82CA5C00D2490A /* AnimatableSpec.swift in Sources */,
 				6FA9DB261E59FA6A00CE5277 /* OneOrMoreSepc.swift in Sources */,
+				6F715C9D1F1D0375001BA1A9 /* ImageGraphicSpec.swift in Sources */,
 				6F1256A21F1A2C780051137C /* GeoSepc.swift in Sources */,
 				6F7F98DD1F12299100A31FF1 /* EffectScatterSerieSpec.swift in Sources */,
 				6FB48CBA1DEEA30000137D13 /* FontSpec.swift in Sources */,
+				6F715CA31F1E45F8001BA1A9 /* LineGraphicSpec.swift in Sources */,
 				6FDDCFFF1F00F8FF00B89982 /* AxisLabelSpec.swift in Sources */,
 				6FDDCFF91F00E74E00B89982 /* VisualMapSpec.swift in Sources */,
 				6FACFAC11EEAF62B002622CE /* ItemStyleSpec.swift in Sources */,

@@ -431,6 +431,7 @@ extension LineSerie: Mappable {
         map["yAxisIndex"] = yAxisIndex
         map["polarIndex"] = polarIndex
         map["symbol"] = symbol
+        map["symbolSize"] = symbolSize
         map["symbolRotate"] = symbolRotate
         map["symbolOffset"] = symbolOffset
         map["showSymbol"] = showSymbol

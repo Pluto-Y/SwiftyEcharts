@@ -21,7 +21,7 @@ public final class ImageGraphic: Graphic {
         public var width: Float?
         /// 图形元素的高度。
         public var height: Float?
-        /// MARK: SEGraphicStyle
+        /// MARK: GraphicStyle
         public var fill: Color?
         public var stroke: Color?
         public var lineWidth: Float?

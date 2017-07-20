@@ -95,5 +95,17 @@ class LineSerieSpec: QuickSpec {
                 
             }
         }
+        
+        describe("For LineSerie.SmoothMonotone") {
+            let xString = "x"
+            let yString = "y"
+            let xSmoothMonotone = LineSerie.SmoothMonotone.x
+            let ySmoothMonotone = LineSerie.SmoothMonotone.y
+            
+            it("needs to check the enum case") {
+                expect(xSmoothMonotone.jsonString).to(equal(xString.jsonString))
+                expect(ySmoothMonotone.jsonString).to(equal(yString.jsonString))
+            }
+        }
     }
 }

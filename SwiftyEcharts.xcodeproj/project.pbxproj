@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2377A359C591BD0C20703777 /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */; };
 		529DEFEB1E6EE9F400E70938 /* FunnelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529DEFEA1E6EE9F400E70938 /* FunnelController.swift */; };
-		5408989D1E52EB6500A89BB0 /* LinSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5408989C1E52EB6500A89BB0 /* LinSerieSpec.swift */; };
 		540898A81E53F6F300A89BB0 /* Percent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898A71E53F6F300A89BB0 /* Percent.swift */; };
 		540898AA1E53F71E00A89BB0 /* LengthValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898A91E53F71E00A89BB0 /* LengthValue.swift */; };
 		540898AC1E5408B500A89BB0 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540898AB1E5408B500A89BB0 /* Position.swift */; };
@@ -400,7 +399,6 @@
 		0E050E4779F8D6A158AB3CCF /* Pods-SwiftyEchartsTest_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		1BF7A0380778E442CCDE890E /* Pods-SwiftyEchartsTest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyEchartsTest_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyEchartsTest_iOS/Pods-SwiftyEchartsTest_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		529DEFEA1E6EE9F400E70938 /* FunnelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnelController.swift; sourceTree = "<group>"; };
-		5408989C1E52EB6500A89BB0 /* LinSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinSerieSpec.swift; sourceTree = "<group>"; };
 		540898A71E53F6F300A89BB0 /* Percent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Percent.swift; sourceTree = "<group>"; };
 		540898A91E53F71E00A89BB0 /* LengthValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LengthValue.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		540898AB1E5408B500A89BB0 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Position.swift; sourceTree = "<group>"; };
@@ -1031,7 +1029,6 @@
 				6FE668421EC0BB3C001B977B /* LengthValueSpec.swift */,
 				6FE2DD311EAE56290028037A /* LineSpec.swift */,
 				6F86CFCB1EFC184A006099D3 /* LineStyleSpec.swift */,
-				5408989C1E52EB6500A89BB0 /* LinSerieSpec.swift */,
 				6F4ACB501E21352600CE5FD5 /* MappableSpec.swift */,
 				6F86CFD11EFFEF9C006099D3 /* MapperSpec.swift */,
 				6FDDCFF41F00E4A500B89982 /* MarkDataTypeSpec.swift */,
@@ -1680,7 +1677,6 @@
 				6FDDCFFB1F00EC6300B89982 /* AxisTickSpec.swift in Sources */,
 				6F9F90D51EB8C6B4005AB9FF /* RoamSpec.swift in Sources */,
 				6F86CFC01EFAC26F006099D3 /* TargetSpec.swift in Sources */,
-				5408989D1E52EB6500A89BB0 /* LinSerieSpec.swift in Sources */,
 				6FEC7D191E5376F9003A88D7 /* PercentSpec.swift in Sources */,
 				6F6331491EF6C6B400EC9D24 /* PositionSpec.swift in Sources */,
 				6F201F021F03847400087764 /* AngleAxisSpec.swift in Sources */,

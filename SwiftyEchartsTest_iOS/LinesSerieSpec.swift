@@ -63,6 +63,58 @@ class LinesSerieSpec: QuickSpec {
                 expect(effectByEnums.jsonString).to(equal(effect.jsonString))
             }
         }
+        
+        let nameDataValue = "linesSerieDataNameValue"
+        let coordsDataValue: [Point] = [[120, 66], [122, 67]]
+        let lineStyleDataValue = LineStyle(
+            .color(Color.auto),
+            .width(5.3912),
+            .type(.dotted),
+            .opacity(0.7261)
+        )
+        let labelDataValue = FormattedLabel(
+            .normal(FormattedLabelStyle(
+                .show(false),
+                .position(.center)
+                )),
+            .emphasis(FormattedLabelStyle(
+                .show(true),
+                .textStyle(TextStyle(
+                    .fontSize(30),
+                    .fontWeight(.bold)
+                    ))
+                ))
+        )
+        
+        let data = LinesSerie.Data()
+        data.name = nameDataValue
+        data.coords = coordsDataValue
+        data.lineStyle = lineStyleDataValue
+        data.label = labelDataValue
+        
+        describe("For LinesSerie.Data") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "name": nameDataValue,
+                    "coords": coordsDataValue,
+                    "lineStyle": lineStyleDataValue,
+                    "label": labelDataValue
+                ]
+                
+                expect(data.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let dataByEnums = LinesSerie.Data(
+                    .name(nameDataValue),
+                    .coords(coordsDataValue),
+                    .lineStyle(lineStyleDataValue),
+                    .label(labelDataValue)
+                )
+                
+                expect(dataByEnums.jsonString).to(equal(data.jsonString))
+            }
+        }
     }
 
 }

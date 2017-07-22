@@ -278,6 +278,44 @@ class LinesSerieSpec: QuickSpec {
                 
                 expect(linesSerieByEnums.jsonString).to(equal(linesSerie.jsonString))
             }
+            
+            it("needs to check the symbol enum case") {
+                let symbolOriginValue = Symbol.triangle
+                linesSerie.symbol = OneOrMore(one: symbolOriginValue)
+                
+                let linesSerieByEnums = LinesSerie(
+                    .name(nameValue),
+                    .coordinateSystem(coordinateSystemValue),
+                    .xAxisIndex(xAxisIndexValue),
+                    .yAxisIndex(yAxisIndexValue),
+                    .geoIndex(geoIndexValue),
+                    .polyline(polylineValue),
+                    .effect(effectValue),
+                    .large(largeValue),
+                    .largeThreshold(largeThresholdValue),
+                    .symbol(symbolOriginValue),
+                    .symbolSize(symbolSizeValue),
+                    .lineStyle(lineStyleValue),
+                    .label(labelValue),
+                    .data(dataValue),
+                    .markPoint(markPointValue),
+                    .markLine(markLineValue),
+                    .markArea(markAreaValue),
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .silent(silentValue),
+                    .animation(animationValue),
+                    .animationThreshold(animationThresholdValue),
+                    .animationDuration(animationDurationValue),
+                    .animationEasing(animationEasingValue),
+                    .animationDelay(animationDelayValue),
+                    .animationDurationUpdate(animationDurationUpdateValue),
+                    .animationEasingUpdate(animationEasingUpdateValue),
+                    .animationDelayUpdate(animationDelayUpdateValue)
+                )
+                
+                expect(linesSerieByEnums.jsonString).to(equal(linesSerieByEnums.jsonString))
+            }
         }
         
         

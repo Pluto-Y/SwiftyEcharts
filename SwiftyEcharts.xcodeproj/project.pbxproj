@@ -130,6 +130,7 @@
 		6F91EB7B1DF08026003EEEC0 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7A1DF08026003EEEC0 /* Line.swift */; };
 		6F91EB7D1DF081A2003EEEC0 /* Shadowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7C1DF081A2003EEEC0 /* Shadowable.swift */; };
 		6F91EB7F1DF142E3003EEEC0 /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91EB7E1DF142E3003EEEC0 /* Legend.swift */; };
+		6F98F1B31F279DC6006DC141 /* MarkAreaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F98F1B21F279DC6006DC141 /* MarkAreaSpec.swift */; };
 		6F999F1D1E78498700D2490A /* SankeysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F999F1C1E78498700D2490A /* SankeysController.swift */; };
 		6F999F1F1E79984B00D2490A /* MapsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F999F1E1E79984B00D2490A /* MapsController.swift */; };
 		6F999F211E82CA5C00D2490A /* AnimatableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F999F201E82CA5C00D2490A /* AnimatableSpec.swift */; };
@@ -524,6 +525,7 @@
 		6F91EB7A1DF08026003EEEC0 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		6F91EB7C1DF081A2003EEEC0 /* Shadowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shadowable.swift; sourceTree = "<group>"; };
 		6F91EB7E1DF142E3003EEEC0 /* Legend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Legend.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6F98F1B21F279DC6006DC141 /* MarkAreaSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkAreaSpec.swift; sourceTree = "<group>"; };
 		6F999F1C1E78498700D2490A /* SankeysController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SankeysController.swift; sourceTree = "<group>"; };
 		6F999F1E1E79984B00D2490A /* MapsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsController.swift; sourceTree = "<group>"; };
 		6F999F201E82CA5C00D2490A /* AnimatableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableSpec.swift; sourceTree = "<group>"; };
@@ -1068,6 +1070,7 @@
 				6F715CA41F20AEA9001BA1A9 /* LineSerieSpec.swift */,
 				6F715CA61F220488001BA1A9 /* LinesSerieSpec.swift */,
 				6F715CA81F2327ED001BA1A9 /* MapSerieSpec.swift */,
+				6F98F1B21F279DC6006DC141 /* MarkAreaSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1660,6 +1663,7 @@
 				6F86CFCE1EFEB0D7006099D3 /* AreaStyleSpec.swift in Sources */,
 				6FE668431EC0BB3C001B977B /* LengthValueSpec.swift in Sources */,
 				6FE2DD321EAE56290028037A /* LineSpec.swift in Sources */,
+				6F98F1B31F279DC6006DC141 /* MarkAreaSpec.swift in Sources */,
 				6F201F041F04015D00087764 /* GraphicSpec.swift in Sources */,
 				6F4ACB481E1D258B00CE5FD5 /* JsonableSpec.swift in Sources */,
 				6F201EDC1F0230C400087764 /* ArcGraphicSpec.swift in Sources */,

@@ -9,7 +9,7 @@
 public final class ParallelAxis {
 
     /// 在坐标轴上可以进行框选，这里是一些框选的设置。
-    public final class AreaSelectStyle: Colorful, Opacitable {
+    public final class AreaSelectedStyle: Colorful, Opacitable {
         /// 框选范围的宽度。
         public var width: Float?
         /// 选框的边框宽度。
@@ -68,9 +68,9 @@ public final class ParallelAxis {
     /// 是否坐标轴刷选的时候，实时刷新视图。如果设为 false，则在刷选动作结束时候，才刷新视图。
     ///
     /// 大数据量时，建议设置成 false，从而避免卡顿。
-    public var realtiem: Bool?
+    public var realtime: Bool?
     /// 在坐标轴上可以进行框选，这里是一些框选的设置。
-    public var areaSelectedStyle: AreaSelectStyle?
+    public var areaSelectedStyle: AreaSelectedStyle?
     /// 坐标轴类型。
     public var type: AxisType?
     /// 坐标轴名称。
@@ -92,7 +92,7 @@ public final class ParallelAxis {
     /// 非类目轴，包括时间，数值，对数轴，boundaryGap是一个两个值的数组，分别表示数据最小值和最大值的延伸范围，可以直接设置数值或者相对的百分比，在设置 min 和 max 后无效。 示例：
     ///
     /// boundaryGap: ['20%', '20%']
-    public var boudaryGap: BoundaryGap?
+    public var boundaryGap: BoundaryGap?
     /// 坐标轴刻度最小值。
     ///
     /// 可以设置成特殊值 'dataMin'，此时取数据在该轴上的最小值作为最小刻度。
@@ -118,7 +118,7 @@ public final class ParallelAxis {
     /// 坐标轴的分割段数，需要注意的是这个分割段数只是个预估值，最后实际显示的段数会在这个基础上根据分割后坐标轴刻度显示的易读程度作调整。
     ///
     /// 在类目轴中无效。
-    public var splitName: UInt8?
+    public var splitNumber: UInt8?
     /// 自动计算的坐标轴最小间隔大小。
     ///
     /// 例如可以设置成1保证坐标轴分割刻度显示成整数。
@@ -176,7 +176,7 @@ public final class ParallelAxis {
     public var data: [Jsonable]?
 }
 
-extension ParallelAxis.AreaSelectStyle: Enumable {
+extension ParallelAxis.AreaSelectedStyle: Enumable {
     public enum Enums {
         case width(Float), borderWidth(Float), borderColor(Color), color(Color), opacity(Float)
     }
@@ -202,7 +202,7 @@ extension ParallelAxis.AreaSelectStyle: Enumable {
     }
 }
 
-extension ParallelAxis.AreaSelectStyle: Mappable {
+extension ParallelAxis.AreaSelectedStyle: Mappable {
     public func mapping(map: Mapper) {
         map["width"] = width
         map["borderWidth"] = borderWidth
@@ -214,7 +214,7 @@ extension ParallelAxis.AreaSelectStyle: Mappable {
 
 extension ParallelAxis: Enumable {
 	public enum Enums {
-		case dim(Float), parallelIndex(UInt8), realtiem(Bool), areaSelectedStyle(AreaSelectStyle), type(AxisType), name(String), nameTextStyle(TextStyle), nameLocation(NameLocation), nameGap(Float), nameRotate(Float), inverse(Bool), boudaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitName(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), data([Jsonable])
+		case dim(Float), parallelIndex(UInt8), realtime(Bool), areaSelectedStyle(AreaSelectedStyle), type(AxisType), name(String), nameTextStyle(TextStyle), nameLocation(NameLocation), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), data([Jsonable])
 	}
 
 	public typealias ContentEnum = Enums
@@ -227,8 +227,8 @@ extension ParallelAxis: Enumable {
 					self.dim = dim
 				case let .parallelIndex(parallelIndex):
 					self.parallelIndex = parallelIndex
-				case let .realtiem(realtiem):
-					self.realtiem = realtiem
+				case let .realtime(realtime):
+					self.realtime = realtime
 				case let .areaSelectedStyle(areaSelectedStyle):
 					self.areaSelectedStyle = areaSelectedStyle
 				case let .type(type):
@@ -245,16 +245,16 @@ extension ParallelAxis: Enumable {
 					self.nameRotate = nameRotate
 				case let .inverse(inverse):
 					self.inverse = inverse
-				case let .boudaryGap(boudaryGap):
-					self.boudaryGap = boudaryGap
+				case let .boundaryGap(boundaryGap):
+					self.boundaryGap = boundaryGap
 				case let .min(min):
 					self.min = min
 				case let .max(max):
 					self.max = max
 				case let .scale(scale):
 					self.scale = scale
-				case let .splitName(splitName):
-					self.splitName = splitName
+				case let .splitNumber(splitNumber):
+					self.splitNumber = splitNumber
 				case let .minInterval(minInterval):
 					self.minInterval = minInterval
 				case let .interval(interval):
@@ -282,7 +282,7 @@ extension ParallelAxis: Mappable {
 	public func mapping(map: Mapper) {
 		map["dim"] = dim
 		map["parallelIndex"] = parallelIndex
-		map["realtiem"] = realtiem
+		map["realtime"] = realtime
 		map["areaSelectedStyle"] = areaSelectedStyle
 		map["type"] = type
 		map["name"] = name
@@ -291,11 +291,11 @@ extension ParallelAxis: Mappable {
 		map["nameGap"] = nameGap
 		map["nameRotate"] = nameRotate
 		map["inverse"] = inverse
-		map["boudaryGap"] = boudaryGap
+		map["boundaryGap"] = boundaryGap
 		map["min"] = min
 		map["max"] = max
 		map["scale"] = scale
-		map["splitName"] = splitName
+		map["splitNumber"] = splitNumber
 		map["minInterval"] = minInterval
 		map["interval"] = interval
 		map["logBase"] = logBase

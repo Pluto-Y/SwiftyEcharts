@@ -11,8 +11,7 @@ public final class MarkLine: Animatable {
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     /// 标线两端的标记类型，可以是一个数组分别指定两端，也可以是单个统一指定，具体格式见 data.symbol。 
-    // FIXME: 暂不支持两端
-    public var symbol: Symbol?
+    public var symbol: OneOrMore<Symbol>?
     /// 标线两端的标记大小，可以是一个数组分别指定两端，也可以是单个统一指定。
     /// 注意： 这里无法像一般的 symbolSize 那样通过数组分别指定高宽。
     public var symbolSize: FunctionOrFloatOrPair?
@@ -124,7 +123,7 @@ public final class MarkLine: Animatable {
 
 extension MarkLine: Enumable {
     public enum Enums {
-        case silent(Bool), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), precision(Float), label(FormattedLabel), lineStyle(EmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case silent(Bool), symbol(Symbol), symbols([Symbol]), symbolSize(FunctionOrFloatOrPair), precision(Float), label(FormattedLabel), lineStyle(EmphasisLineStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -136,7 +135,9 @@ extension MarkLine: Enumable {
             case let .silent(silent):
                 self.silent = silent
             case let .symbol(symbol):
-                self.symbol = symbol
+                self.symbol = OneOrMore(one: symbol)
+            case let .symbols(symbols):
+                self.symbol = OneOrMore(more: symbols)
             case let .symbolSize(symbolSize):
                 self.symbolSize = symbolSize
             case let .precision(precision):

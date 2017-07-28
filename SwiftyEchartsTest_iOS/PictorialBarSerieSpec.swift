@@ -14,8 +14,8 @@ class PictorialBarSerieSpec: QuickSpec {
     override func spec() {
         let nameDataValue = "dataNameValue"
         let valueDataValue: Jsonable = 84.23873
-        let symbolOriginValue = Symbol.triangle
-        let symbolDataValue = OneOrMore(one: symbolOriginValue)
+        let symbolOriginDataValue = Symbol.triangle
+        let symbolDataValue = OneOrMore(one: symbolOriginDataValue)
         let symbolSizeDataValue: FunctionOrFloatOrPair = [10, 20%]
         let symbolPositionDataValue = Position.left
         let symbolOffsetDataValue: Point = [0%, 20.1]
@@ -25,7 +25,7 @@ class PictorialBarSerieSpec: QuickSpec {
         let symbolMarginDataValue = "dataSymbolMarginValue"
         let symbolClipDataValue = "dataSymbolClipValue"
         let symbolBoundingDataDataValue = "dataSymbolBoundingDataValue"
-        let symbolPatterSizeDataValue: Float = 20.854
+        let symbolPatternSizeDataValue: Float = 20.854
         let zDataValue: Float = 75.273
         let hoverAnimationDataValue = false
         let animationDataValue = true
@@ -69,7 +69,7 @@ class PictorialBarSerieSpec: QuickSpec {
         pictorialBarSerieData.symbolMargin = symbolMarginDataValue
         pictorialBarSerieData.symbolClip = symbolClipDataValue
         pictorialBarSerieData.symbolBoundingData = symbolBoundingDataDataValue
-        pictorialBarSerieData.symbolPatterSize = symbolPatterSizeDataValue
+        pictorialBarSerieData.symbolPatternSize = symbolPatternSizeDataValue
         pictorialBarSerieData.z = zDataValue
         pictorialBarSerieData.hoverAnimation = hoverAnimationDataValue
         pictorialBarSerieData.animation = animationDataValue
@@ -99,7 +99,7 @@ class PictorialBarSerieSpec: QuickSpec {
                     "symbolMargin": symbolMarginDataValue,
                     "symbolClip": symbolClipDataValue,
                     "symbolBoundingData": symbolBoundingDataDataValue,
-                    "symbolPatterSize": symbolPatterSizeDataValue,
+                    "symbolPatternSize": symbolPatternSizeDataValue,
                     "z": zDataValue,
                     "hoverAnimation": hoverAnimationDataValue,
                     "animation": animationDataValue,
@@ -122,7 +122,7 @@ class PictorialBarSerieSpec: QuickSpec {
                 let pictorialBarSerieDataByEnums = PictorialBarSerie.Data(
                     .name(nameDataValue),
                     .value(valueDataValue),
-                    .symbol(symbolOriginValue),
+                    .symbol(symbolOriginDataValue),
                     .symbolSize(symbolSizeDataValue),
                     .symbolPosition(symbolPositionDataValue),
                     .symbolOffset(symbolOffsetDataValue),
@@ -132,7 +132,7 @@ class PictorialBarSerieSpec: QuickSpec {
                     .symbolMargin(symbolMarginDataValue),
                     .symbolClip(symbolClipDataValue),
                     .symbolBoundingData(symbolBoundingDataDataValue),
-                    .symbolPatterSize(symbolPatterSizeDataValue),
+                    .symbolPatternSize(symbolPatternSizeDataValue),
                     .z(zDataValue),
                     .hoverAnimation(hoverAnimationDataValue),
                     .animation(animationDataValue),

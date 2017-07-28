@@ -121,6 +121,7 @@
 		6F7F98E31F17BA5B00A31FF1 /* GaugeSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98E21F17BA5B00A31FF1 /* GaugeSerieSpec.swift */; };
 		6F824E611F2AE17700876D04 /* ParrallelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F824E601F2AE17700876D04 /* ParrallelSpec.swift */; };
 		6F824E631F2AEC9400876D04 /* ParallelSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F824E621F2AEC9400876D04 /* ParallelSerieSpec.swift */; };
+		6F824E651F2AF2BF00876D04 /* PictorialBarSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F824E641F2AF2BF00876D04 /* PictorialBarSerieSpec.swift */; };
 		6F86CFC01EFAC26F006099D3 /* TargetSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F86CFBF1EFAC26F006099D3 /* TargetSpec.swift */; };
 		6F86CFC21EFAC90A006099D3 /* AxisTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F86CFC11EFAC90A006099D3 /* AxisTypeSpec.swift */; };
 		6F86CFC61EFAD921006099D3 /* SerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F86CFC51EFAD921006099D3 /* SerieSpec.swift */; };
@@ -522,6 +523,7 @@
 		6F7F98E21F17BA5B00A31FF1 /* GaugeSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaugeSerieSpec.swift; sourceTree = "<group>"; };
 		6F824E601F2AE17700876D04 /* ParrallelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParrallelSpec.swift; sourceTree = "<group>"; };
 		6F824E621F2AEC9400876D04 /* ParallelSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallelSerieSpec.swift; sourceTree = "<group>"; };
+		6F824E641F2AF2BF00876D04 /* PictorialBarSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictorialBarSerieSpec.swift; sourceTree = "<group>"; };
 		6F86CFBF1EFAC26F006099D3 /* TargetSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetSpec.swift; sourceTree = "<group>"; };
 		6F86CFC11EFAC90A006099D3 /* AxisTypeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisTypeSpec.swift; sourceTree = "<group>"; };
 		6F86CFC51EFAD921006099D3 /* SerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerieSpec.swift; sourceTree = "<group>"; };
@@ -1089,6 +1091,7 @@
 				6F98F1BA1F28DE6E006DC141 /* ParallelAxisSpec.swift */,
 				6F824E601F2AE17700876D04 /* ParrallelSpec.swift */,
 				6F824E621F2AEC9400876D04 /* ParallelSerieSpec.swift */,
+				6F824E641F2AF2BF00876D04 /* PictorialBarSerieSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1673,6 +1676,7 @@
 				6F201F081F0406CC00087764 /* AxisSpec.swift in Sources */,
 				6F86CFC21EFAC90A006099D3 /* AxisTypeSpec.swift in Sources */,
 				6F7F98DF1F1628DA00A31FF1 /* FunnelSerieSpec.swift in Sources */,
+				6F824E651F2AF2BF00876D04 /* PictorialBarSerieSpec.swift in Sources */,
 				6FE2DD341EB0F6EE0028037A /* FormatterSpec.swift in Sources */,
 				6FEC7D1D1E54996B003A88D7 /* PairSpec.swift in Sources */,
 				6F9F90DD1EBCD641005AB9FF /* BoundaryGapSpec.swift in Sources */,

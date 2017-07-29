@@ -53,5 +53,38 @@ class PieSerieSpec: QuickSpec {
                 expect(labelLineContentByEnums.jsonString).to(equal(labelLineContent.jsonString))
             }
         }
+        
+        let normalLabelLineValue = labelLineContent
+        let emphasisLabelLineValue = PieSerie.LabelLineContent(
+            .show(true),
+            .length(7.472),
+            .length2(47.373),
+            .smooth(false),
+            .lineStyle(LineStyle())
+        )
+        
+        let labelLine = PieSerie.LabelLine()
+        labelLine.normal = normalLabelLineValue
+        labelLine.emphasis = emphasisLabelLineValue
+        
+        describe("For PieSerie.LabelLien") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "normal": normalLabelLineValue,
+                    "emphasis": emphasisLabelLineValue
+                ]
+                
+                expect(labelLine.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let labelLineByEnums = PieSerie.LabelLine(
+                    .normal(normalLabelLineValue),
+                    .emphasis(emphasisLabelLineValue)
+                )
+                
+                expect(labelLineByEnums.jsonString).to(equal(labelLine.jsonString))
+            }
+        }
     }
 }

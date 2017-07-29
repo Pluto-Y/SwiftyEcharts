@@ -151,5 +151,223 @@ class PictorialBarSerieSpec: QuickSpec {
                 expect(pictorialBarSerieDataByEnums.jsonString).to(equal(pictorialBarSerieData.jsonString))
             }
         }
+        
+        describe("For PictorialBarSerie") {
+            let nameValue = "pictorialBarSerieNameValue"
+            let legendHoverLinkValue = false
+            let coordinateSystemValue = CoordinateSystem.geo
+            let xAxisIndexValue: UInt8 = 37
+            let yAxisIndexValue: UInt8 = 88
+            let labelValue = FormattedLabel(
+                .normal(FormattedLabelStyle(
+                    .show(true),
+                    .position(Position.auto),
+                    .offset([100%, 0])
+                    )),
+                .emphasis(FormattedLabelStyle(
+                    .show(false)
+                    ))
+            )
+            let itemStyleValue = ItemStyle(
+                .normal(CommonItemStyleContent(
+                    .opacity(0.74652),
+                    .borderType(LineType.solid),
+                    .shadowBlur(47562.742),
+                    .color(Color.red)
+                    ))
+            )
+            let barWidthValue: LengthValue = 28%
+            let barMaxWidthValue: LengthValue = 70
+            let barMinHeightValue: LengthValue = 20
+            let barGapValue = 55%
+            let barCategoryGapValue = 29%
+            let symbolOriginValue = Symbol.arrow
+            let symbolValue = OneOrMore(one: symbolOriginValue)
+            let symbolSizeValue = FunctionOrFloatOrPair.point([20.35, 3%])
+            let symbolPositionValue = Position.point([2%, 88])
+            let symbolOffsetValue: Point = [2, 77]
+            let symbolRotateValue: Float = 275
+            let symbolRepeatValue = "none"
+            let symbolRepeatDirectionValue = "horizontal"
+            let symbolMarginValue = "marginValue"
+            let symbolClipValue = true
+            let symbolBoundingDataValue = "boudingDataValue"
+            let symbolPatternSizeValue: Float = 84.2
+            let hoverAnimationValue = false
+            let dataValue: [Jsonable] = [
+                false, true, "dataValu", pictorialBarSerieData, 28.58, 5
+            ]
+            let markPointValue = MarkPoint(
+                .silent(true),
+                .symbol(Symbol.triangle),
+                .symbolOffset([50%, 0]),
+                .animationDuration(Time.number(300))
+            )
+            let markLineValue = MarkLine(
+                .symbol(Symbol.emptyCircle),
+                .data(["100", 200, ["name": "hello", "Value": 300.0]])
+            )
+            let markAreaValue = MarkArea(
+                .animationEasing(EasingFunction.sinusoidalInOut),
+                .animationEasingUpdate(.sinusoidalInOut)
+            )
+            let zlevelValue: Float = 7563.2
+            let zValue: Float = 873.321
+            let silentValue = true
+            let animationValue = false
+            let animationThresholdValue: Float = 2874.283
+            let animationDurationValue: Time = Time.number(88888888)
+            let animationEasingValue = EasingFunction.backIn
+            let animationDelayValue: Time = 75348.438
+            let animationDurationUpdateValue: Time = 84.27323
+            let animationEasingUpdateValue: EasingFunction = .exponentialOut
+            let animationDelayUpdateValue: Time = 474
+            let tooltipValue = Tooltip(
+                .trigger(Tooltip.Trigger.item),
+                .alwaysShowContent(false),
+                .borderColor(Color.yellow)
+            )
+            
+            let pictorialBarSerie = PictorialBarSerie()
+            pictorialBarSerie.name = nameValue
+            pictorialBarSerie.legendHoverLink = legendHoverLinkValue
+            pictorialBarSerie.coordinateSystem = coordinateSystemValue
+            pictorialBarSerie.xAxisIndex = xAxisIndexValue
+            pictorialBarSerie.yAxisIndex = yAxisIndexValue
+            pictorialBarSerie.label = labelValue
+            pictorialBarSerie.itemStyle = itemStyleValue
+            pictorialBarSerie.barWidth = barWidthValue
+            pictorialBarSerie.barMaxWidth = barMaxWidthValue
+            pictorialBarSerie.barMinHeight = barMinHeightValue
+            pictorialBarSerie.barGap = barGapValue
+            pictorialBarSerie.barCategoryGap = barCategoryGapValue
+            pictorialBarSerie.symbol = symbolValue
+            pictorialBarSerie.symbolSize = symbolSizeValue
+            pictorialBarSerie.symbolPosition = symbolPositionValue
+            pictorialBarSerie.symbolOffset = symbolOffsetValue
+            pictorialBarSerie.symbolRotate = symbolRotateValue
+            pictorialBarSerie.symbolRepeat = symbolRepeatValue
+            pictorialBarSerie.symbolRepeatDirection = symbolRepeatDirectionValue
+            pictorialBarSerie.symbolMargin = symbolMarginValue
+            pictorialBarSerie.symbolClip = symbolClipValue
+            pictorialBarSerie.symbolBoundingData = symbolBoundingDataValue
+            pictorialBarSerie.symbolPatternSize = symbolPatternSizeValue
+            pictorialBarSerie.hoverAnimation = hoverAnimationValue
+            pictorialBarSerie.data = dataValue
+            pictorialBarSerie.markPoint = markPointValue
+            pictorialBarSerie.markLine = markLineValue
+            pictorialBarSerie.markArea = markAreaValue
+            pictorialBarSerie.zlevel = zlevelValue
+            pictorialBarSerie.z = zValue
+            pictorialBarSerie.silent = silentValue
+            pictorialBarSerie.animation = animationValue
+            pictorialBarSerie.animationThreshold = animationThresholdValue
+            pictorialBarSerie.animationDuration = animationDurationValue
+            pictorialBarSerie.animationEasing = animationEasingValue
+            pictorialBarSerie.animationDurationUpdate = animationDurationUpdateValue
+            pictorialBarSerie.animationDelayUpdate = animationDelayUpdateValue
+            pictorialBarSerie.animationDelay = animationDelayValue
+            pictorialBarSerie.animationEasingUpdate = animationEasingUpdateValue
+            pictorialBarSerie.tooltip = tooltipValue
+            
+            it("needs to check the type value") {
+                expect(pictorialBarSerie.type.jsonString).to(equal(SerieType.pictorialBar.jsonString))
+            }
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": SerieType.pictorialBar,
+                    "name": nameValue,
+                    "legendHoverLink": legendHoverLinkValue,
+                    "coordinateSystem": coordinateSystemValue,
+                    "xAxisIndex": xAxisIndexValue,
+                    "yAxisIndex": yAxisIndexValue,
+                    "label": labelValue,
+                    "itemStyle": itemStyleValue,
+                    "barWidth": barWidthValue,
+                    "barMaxWidth": barMaxWidthValue,
+                    "barMinHeight": barMinHeightValue,
+                    "barGap": barGapValue,
+                    "barCategoryGap": barCategoryGapValue,
+                    "symbol": symbolValue,
+                    "symbolSize": symbolSizeValue,
+                    "symbolPosition": symbolPositionValue,
+                    "symbolOffset": symbolOffsetValue,
+                    "symbolRotate": symbolRotateValue,
+                    "symbolRepeat": symbolRepeatValue,
+                    "symbolRepeatDirection": symbolRepeatDirectionValue,
+                    "symbolMargin": symbolMarginValue,
+                    "symbolClip": symbolClipValue,
+                    "symbolBoundingData": symbolBoundingDataValue,
+                    "symbolPatternSize": symbolPatternSizeValue,
+                    "hoverAnimation": hoverAnimationValue,
+                    "data": dataValue,
+                    "markPoint": markPointValue,
+                    "markLine": markLineValue,
+                    "markArea": markAreaValue,
+                    "zlevel": zlevelValue,
+                    "z": zValue,
+                    "silent": silentValue,
+                    "animation": animationValue,
+                    "animationThreshold": animationThresholdValue,
+                    "animationDuration": animationDurationValue,
+                    "animationEasing": animationEasingValue,
+                    "animationDurationUpdate": animationDurationUpdateValue,
+                    "animationDelayUpdate": animationDelayUpdateValue,
+                    "animationDelay": animationDelayValue,
+                    "animationEasingUpdate": animationEasingUpdateValue,
+                    "tooltip": tooltipValue
+                ]
+                
+                expect(pictorialBarSerie.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let pictorialBarSerieByEnums = PictorialBarSerie(
+                    .name(nameValue),
+                    .legendHoverLink(legendHoverLinkValue),
+                    .coordinateSystem(coordinateSystemValue),
+                    .xAxisIndex(xAxisIndexValue),
+                    .yAxisIndex(yAxisIndexValue),
+                    .label(labelValue),
+                    .itemStyle(itemStyleValue),
+                    .barWidth(barWidthValue),
+                    .barMaxWidth(barMaxWidthValue),
+                    .barMinHeight(barMinHeightValue),
+                    .barGap(barGapValue),
+                    .barCategoryGap(barCategoryGapValue),
+                    .symbol(symbolOriginValue),
+                    .symbolSize(symbolSizeValue),
+                    .symbolPosition(symbolPositionValue),
+                    .symbolOffset(symbolOffsetValue),
+                    .symbolRotate(symbolRotateValue),
+                    .symbolRepeat(symbolRepeatValue),
+                    .symbolRepeatDirection(symbolRepeatDirectionValue),
+                    .symbolMargin(symbolMarginValue),
+                    .symbolClip(symbolClipValue),
+                    .symbolBoundingData(symbolBoundingDataValue),
+                    .symbolPatternSize(symbolPatternSizeValue),
+                    .hoverAnimation(hoverAnimationValue),
+                    .data(dataValue),
+                    .markPoint(markPointValue),
+                    .markLine(markLineValue),
+                    .markArea(markAreaValue),
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .silent(silentValue),
+                    .animation(animationValue),
+                    .animationThreshold(animationThresholdValue),
+                    .animationDuration(animationDurationValue),
+                    .animationEasing(animationEasingValue),
+                    .animationDurationUpdate(animationDurationUpdateValue),
+                    .animationDelayUpdate(animationDelayUpdateValue),
+                    .animationDelay(animationDelayValue),
+                    .animationEasingUpdate(animationEasingUpdateValue),
+                    .tooltip(tooltipValue)
+                )
+                
+                expect(pictorialBarSerieByEnums.jsonString).to(equal(pictorialBarSerie.jsonString))
+            }
+        }
     }
 }

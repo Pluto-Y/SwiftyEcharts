@@ -86,5 +86,18 @@ class PieSerieSpec: QuickSpec {
                 expect(labelLineByEnums.jsonString).to(equal(labelLine.jsonString))
             }
         }
+        
+        describe("For PieSerie.AnimationType") {
+            let expansionString = "expansion"
+            let scaleString = "scale"
+            
+            let expansionAnimationType = PieSerie.AnimationType.expansion
+            let scaleAnimationType = PieSerie.AnimationType.scale
+            
+            it("needs to check the jsonString") {
+                expect(expansionAnimationType.jsonString).to(equal(expansionString.jsonString))
+                expect(scaleAnimationType.jsonString).to(equal(scaleString.jsonString))
+            }
+        }
     }
 }

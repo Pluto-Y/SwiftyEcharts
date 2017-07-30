@@ -99,5 +99,64 @@ class PieSerieSpec: QuickSpec {
                 expect(scaleAnimationType.jsonString).to(equal(scaleString.jsonString))
             }
         }
+        
+        let nameDataValue = "pieSerieDataNameValue"
+        let valueDataValue: Float = 285.75
+        let selectedDataValue = false
+        let labelDataValue = Label(
+            .emphasis(CommonLabelStyle(
+                .show(true),
+                .position(Position.center),
+                .textStyle(TextStyle())
+            )),
+            .normal(CommonLabelStyle(
+                .show(false)
+            ))
+        )
+        let labelLineDataValue = labelLine
+        let itemStyleDataValue = ItemStyle(
+            .emphasis(CommonItemStyleContent(
+                .areaColor(.hexColor("#ffffff"))
+                )),
+            .normal(CommonItemStyleContent(
+                .color(.hexColor("#000000"))
+                ))
+        )
+        
+        let data = PieSerie.Data()
+        data.name = nameDataValue
+        data.value = valueDataValue
+        data.selected = selectedDataValue
+        data.label = labelDataValue
+        data.labelLine = labelLineDataValue
+        data.itemStyle = itemStyleDataValue
+        
+        describe("For PieSerie.Data") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "name": nameDataValue,
+                    "value": valueDataValue,
+                    "selected": selectedDataValue,
+                    "label": labelDataValue,
+                    "labelLine": labelLineDataValue,
+                    "itemStyle": itemStyleDataValue
+                ]
+
+                expect(data.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let dataByEnums = PieSerie.Data(
+                    .name(nameDataValue),
+                    .value(valueDataValue),
+                    .selected(selectedDataValue),
+                    .label(labelDataValue),
+                    .labelLine(labelLineDataValue),
+                    .itemStyle(itemStyleDataValue)
+                )
+                
+                expect(dataByEnums.jsonString).to(equal(data.jsonString))
+            }
+        }
     }
 }

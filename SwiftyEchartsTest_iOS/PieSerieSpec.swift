@@ -158,5 +158,24 @@ class PieSerieSpec: QuickSpec {
                 expect(dataByEnums.jsonString).to(equal(data.jsonString))
             }
         }
+        
+        describe("For PieSerie.RoseType") {
+            let enableString = "true"
+            let disableString = "false"
+            let radiusString = "radius"
+            let areaString = "area"
+            
+            let enableRoseType = PieSerie.RoseType.enable
+            let disableRoseType = PieSerie.RoseType.disable
+            let radiusRoseType = PieSerie.RoseType.radius
+            let areaRoseType = PieSerie.RoseType.area
+            
+            it("needs to check the enum case jsonString") {
+                expect(enableRoseType.jsonString).to(equal(enableString))
+                expect(disableRoseType.jsonString).to(equal(disableString))
+                expect(radiusRoseType.jsonString).to(equal(radiusString.jsonString))
+                expect(areaRoseType.jsonString).to(equal(areaString.jsonString))
+            }
+        }
     }
 }

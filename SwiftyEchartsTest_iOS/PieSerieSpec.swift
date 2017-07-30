@@ -185,5 +185,18 @@ class PieSerieSpec: QuickSpec {
                 expect(falseRoseType.jsonString).to(equal(disableRoseType.jsonString))
             }
         }
+        
+        describe("For PieSerie.AnimationType") { 
+            let expansionString = "expansion"
+            let scaleString = "scale"
+            
+            let expansionAnimationType = PieSerie.AnimationType.expansion
+            let scaleAnimationType = PieSerie.AnimationType.scale
+            
+            it("needs to check the enum case jsonString") {
+                expect(expansionAnimationType.jsonString).to(equal(expansionString.jsonString))
+                expect(scaleAnimationType.jsonString).to(equal(scaleString.jsonString))
+            }
+        }
     }
 }

@@ -27,7 +27,7 @@ public final class PieSerie: Serie, Zable {
     /// 是否展示成南丁格尔图，通过半径区分数据大小
     ///
     /// - enable: 显示为南丁格尔图
-    /// - dispable: 显示为普通饼图
+    /// - disable: 显示为普通饼图
     /// - radius: 面积展现数据的百分比，半径展现数据的大小
     /// - area: 所有扇区面积相同，仅通过半径展现数据大小
     public enum RoseType: String, Jsonable {

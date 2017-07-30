@@ -165,6 +165,16 @@ public final class PieSerie: Serie, Zable {
 
 public typealias PieSerieData = PieSerie.Data
 
+extension PieSerie.RoseType: BooleanLiteralConvertible {
+    public init(booleanLiteral value: Bool) {
+        if value {
+            self = .enable
+        } else {
+            self = .disable
+        }
+    }
+}
+
 extension PieSerie.LabelLineContent: Enumable {
     public enum Enums {
         case show(Bool), length(Float), length2(Float), smooth(Bool), lineStyle(LineStyle)

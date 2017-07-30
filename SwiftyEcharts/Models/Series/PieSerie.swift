@@ -32,13 +32,13 @@ public final class PieSerie: Serie, Zable {
     /// - area: 所有扇区面积相同，仅通过半径展现数据大小
     public enum RoseType: String, Jsonable {
         case enable = "true"
-        case dispable = "false"
+        case disable = "false"
         case radius = "radius"
         case area = "area"
         
         public var jsonString: String {
             switch self {
-            case .enable, .dispable:
+            case .enable, .disable:
                 return "\(self.rawValue)"
             default:
                 return self.rawValue.jsonString

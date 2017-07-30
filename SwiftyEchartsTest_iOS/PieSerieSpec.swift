@@ -176,6 +176,14 @@ class PieSerieSpec: QuickSpec {
                 expect(radiusRoseType.jsonString).to(equal(radiusString.jsonString))
                 expect(areaRoseType.jsonString).to(equal(areaString.jsonString))
             }
+            
+            it("needs to check the BooleanLiteralConvertible") {
+                let trueRoseType: PieSerie.RoseType = true
+                let falseRoseType: PieSerie.RoseType = false
+                
+                expect(trueRoseType.jsonString).to(equal(enableRoseType.jsonString))
+                expect(falseRoseType.jsonString).to(equal(disableRoseType.jsonString))
+            }
         }
     }
 }

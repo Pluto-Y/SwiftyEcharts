@@ -21,7 +21,7 @@ public final class PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
         public var symbolMargin: String?
         public var symbolClip: String?
         public var symbolBoundingData: String?
-        public var symbolPatterSize: Float?
+        public var symbolPatternSize: Float?
         public var z: Float?
         public var hoverAnimation: Bool?
         public var animation: Bool?
@@ -44,7 +44,7 @@ public final class PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
     }
     
     public var name: String?
-    public var legendHoverLine: Bool?
+    public var legendHoverLink: Bool?
     public var coordinateSystem: CoordinateSystem?
     public var xAxisIndex: UInt8?
     public var yAxisIndex: UInt8?
@@ -89,7 +89,7 @@ public final class PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
 
 extension PictorialBarSerie.Data: Enumable {
     public enum Enums {
-        case name(String), value(Jsonable), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(String), symbolBoundingData(String), symbolPatterSize(Float), z(Float), hoverAnimation(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelay(Time), animationDelayUpdate(Time), label(FormattedLabel), itemStyle(ItemStyle), tooltip(Tooltip)
+        case name(String), value(Jsonable), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(String), symbolBoundingData(String), symbolPatternSize(Float), z(Float), hoverAnimation(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelay(Time), animationDelayUpdate(Time), label(FormattedLabel), itemStyle(ItemStyle), tooltip(Tooltip)
     }
     
     public typealias ContentEnum = Enums
@@ -122,8 +122,8 @@ extension PictorialBarSerie.Data: Enumable {
                 self.symbolClip = symbolClip
             case let .symbolBoundingData(symbolBoundingData):
                 self.symbolBoundingData = symbolBoundingData
-            case let .symbolPatterSize(symbolPatterSize):
-                self.symbolPatterSize = symbolPatterSize
+            case let .symbolPatternSize(symbolPatternSize):
+                self.symbolPatternSize = symbolPatternSize
             case let .z(z):
                 self.z = z
             case let .hoverAnimation(hoverAnimation):
@@ -169,7 +169,7 @@ extension PictorialBarSerie.Data: Mappable {
         map["symbolMargin"] = symbolMargin
         map["symbolClip"] = symbolClip
         map["symbolBoundingData"] = symbolBoundingData
-        map["symbolPatterSize"] = symbolPatterSize
+        map["symbolPatternSize"] = symbolPatternSize
         map["z"] = z
         map["hoverAnimation"] = hoverAnimation
         map["animation"] = animation
@@ -188,7 +188,7 @@ extension PictorialBarSerie.Data: Mappable {
 
 extension PictorialBarSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLine(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(FormattedLabel), itemStyle(ItemStyle), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(LengthValue), barGap(LengthValue), barCategoryGap(LengthValue), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(Bool), symbolBoundingData(String), symbolPatternSize(Float), hoverAnimation(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationDelayUpdate(Time), animationDelay(Time), animationEasingUpdate(EasingFunction), tooltip(Tooltip)
+        case name(String), legendHoverLink(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), label(FormattedLabel), itemStyle(ItemStyle), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(LengthValue), barGap(LengthValue), barCategoryGap(LengthValue), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(Bool), symbolBoundingData(String), symbolPatternSize(Float), hoverAnimation(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationDelayUpdate(Time), animationDelay(Time), animationEasingUpdate(EasingFunction), tooltip(Tooltip)
     }
     
     public typealias ContentEnum = Enums
@@ -199,8 +199,8 @@ extension PictorialBarSerie: Enumable {
             switch ele {
             case let .name(name):
                 self.name = name
-            case let .legendHoverLine(legendHoverLine):
-                self.legendHoverLine = legendHoverLine
+            case let .legendHoverLink(legendHoverLink):
+                self.legendHoverLink = legendHoverLink
             case let .coordinateSystem(coordinateSystem):
                 self.coordinateSystem = coordinateSystem
             case let .xAxisIndex(xAxisIndex):
@@ -286,7 +286,7 @@ extension PictorialBarSerie: Mappable {
     public func mapping(_ map: Mapper) {
         map["type"] = type
         map["name"] = name
-        map["legendHoverLine"] = legendHoverLine
+        map["legendHoverLink"] = legendHoverLink
         map["coordinateSystem"] = coordinateSystem
         map["xAxisIndex"] = xAxisIndex
         map["yAxisIndex"] = yAxisIndex

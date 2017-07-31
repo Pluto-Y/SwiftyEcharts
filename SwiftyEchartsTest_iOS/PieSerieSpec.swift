@@ -12,6 +12,8 @@ import Nimble
 
 class PieSerieSpec: QuickSpec {
     override func spec() {
+        Mapper.ignoreNil = true
+        
         let showLabelLineContentValue = false
         let lengthLabelLineContentValue: Float = 7.77777
         let length2LabelLineContentValue: Float = 65.374
@@ -196,6 +198,222 @@ class PieSerieSpec: QuickSpec {
             it("needs to check the enum case jsonString") {
                 expect(expansionAnimationType.jsonString).to(equal(expansionString.jsonString))
                 expect(scaleAnimationType.jsonString).to(equal(scaleString.jsonString))
+            }
+        }
+        
+        describe("For PieSerie") {
+            let nameValue = "pieSerieNameValue"
+            let legendHoverLinkValue = false
+            let hoverAnimationValue = true
+            let selectedModeValue  = SelectedMode.multiple
+            let selectedOffsetValue: Float = 5.27572
+            let clockwiseValue = false
+            let startAngleValue: Float = 527.46237
+            let minAngleValue: Float = 576463.274
+            let roseTypeValue: PieSerie.RoseType = false
+            let avoidLabelOverlapValue = true
+            let stillShowZeroSumValue = false
+            let labelValue = FormattedLabel(
+                .emphasis(FormattedLabelStyle(
+                    .position(.center),
+                    .show(true),
+                    .offset([0, 100%])
+                    ))
+            )
+            let labelLineValue = labelLine
+            let itemStyleValue = ItemStyle(
+                .emphasis(CommonItemStyleContent(
+                    .opacity(0.3857),
+                    .areaColor(Color.hexColor("#75fa72")),
+                    .shadowColor(rgb(200, 188, 232))
+                    ))
+            )
+            let zlevelValue: Float = 7.2472
+            let zValue: Float = 8888.274
+            let centerValue: Point = [20%, 20%]
+            let radiusValue: SwiftyEcharts.Range = [10, 20%]
+            let dataValue: [Jsonable] = [
+            ]
+            let markPointValue = MarkPoint(
+                .animation(false),
+                .animationEasing(EasingFunction.backOut)
+            )
+            let markLineValue = MarkLine(
+                .animation(false),
+                .animationEasing(EasingFunction.backOut)
+            )
+            let markAreaValue = MarkArea(
+                .animation(false),
+                .animationEasing(EasingFunction.backOut)
+            )
+            let silentValue = false
+            let animationTypeValue: PieSerie.AnimationType = .scale
+            let animationValue = true
+            let animationThresholdValue: Float = 285.7
+            let animationDurationValue: Time = 8000
+            let animationEasingValue: EasingFunction = .elasticInOut
+            let animationDelayValue: Time = 0.0
+            let animationDurationUpdateValue: Time = Time.init(integerLiteral: Int.max)
+            let animationEasingUpdateValue: EasingFunction = .elasticInOut
+            let animationDelayUpdateValue = Time.number(17562.7582)
+            
+            let pieSerie = PieSerie()
+            pieSerie.name = nameValue
+            pieSerie.legendHoverLink = legendHoverLinkValue
+            pieSerie.hoverAnimation = hoverAnimationValue
+            pieSerie.selectedMode = selectedModeValue
+            pieSerie.selectedOffset = selectedOffsetValue
+            pieSerie.clockwise = clockwiseValue
+            pieSerie.startAngle = startAngleValue
+            pieSerie.minAngle = minAngleValue
+            pieSerie.roseType = roseTypeValue
+            pieSerie.avoidLabelOverlap = avoidLabelOverlapValue
+            pieSerie.stillShowZeroSum = stillShowZeroSumValue
+            pieSerie.label = labelValue
+            pieSerie.labelLine = labelLineValue
+            pieSerie.itemStyle = itemStyleValue
+            pieSerie.zlevel = zlevelValue
+            pieSerie.z = zValue
+            pieSerie.center = centerValue
+            pieSerie.radius = radiusValue
+            pieSerie.data = dataValue
+            pieSerie.markPoint = markPointValue
+            pieSerie.markLine = markLineValue
+            pieSerie.markArea = markAreaValue
+            pieSerie.silent = silentValue
+            pieSerie.animationType = animationTypeValue
+            pieSerie.animation = animationValue
+            pieSerie.animationThreshold = animationThresholdValue
+            pieSerie.animationDuration = animationDurationValue
+            pieSerie.animationEasing = animationEasingValue
+            pieSerie.animationDelay = animationDelayValue
+            pieSerie.animationDurationUpdate = animationDurationUpdateValue
+            pieSerie.animationEasingUpdate = animationEasingUpdateValue
+            pieSerie.animationDelayUpdate = animationDelayUpdateValue
+            
+            it("needs to check the type value") {
+                expect(pieSerie.type.jsonString).to(equal(SerieType.pie.jsonString))
+            }
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": pieSerie.type,
+                    "name": nameValue,
+                    "legendHoverLink": legendHoverLinkValue,
+                    "hoverAnimation": hoverAnimationValue,
+                    "selectedMode": selectedModeValue,
+                    "selectedOffset": selectedOffsetValue,
+                    "clockwise": clockwiseValue,
+                    "startAngle": startAngleValue,
+                    "minAngle": minAngleValue,
+                    "roseType": roseTypeValue,
+                    "avoidLabelOverlap": avoidLabelOverlapValue,
+                    "stillShowZeroSum": stillShowZeroSumValue,
+                    "label": labelValue,
+                    "labelLine": labelLineValue,
+                    "itemStyle": itemStyleValue,
+                    "zlevel": zlevelValue,
+                    "z": zValue,
+                    "center": centerValue,
+                    "radius": radiusValue,
+                    "data": dataValue,
+                    "markPoint": markPointValue,
+                    "markLine": markLineValue,
+                    "markArea": markAreaValue,
+                    "silent": silentValue,
+                    "animationType": animationTypeValue,
+                    "animation": animationValue,
+                    "animationThreshold": animationThresholdValue,
+                    "animationDuration": animationDurationValue,
+                    "animationEasing": animationEasingValue,
+                    "animationDelay": animationDelayValue,
+                    "animationDurationUpdate": animationDurationUpdateValue,
+                    "animationEasingUpdate": animationEasingUpdateValue,
+                    "animationDelayUpdate": animationDelayUpdateValue
+                ]
+                
+                expect(pieSerie.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let pieSerieByEnums = PieSerie(
+                    .name(nameValue),
+                    .legendHoverLink(legendHoverLinkValue),
+                    .hoverAnimation(hoverAnimationValue),
+                    .selectedMode(selectedModeValue),
+                    .selectedOffset(selectedOffsetValue),
+                    .clockwise(clockwiseValue),
+                    .startAngle(startAngleValue),
+                    .minAngle(minAngleValue),
+                    .roseType(roseTypeValue),
+                    .avoidLabelOverlap(avoidLabelOverlapValue),
+                    .stillShowZeroSum(stillShowZeroSumValue),
+                    .label(labelValue),
+                    .labelLine(labelLineValue),
+                    .itemStyle(itemStyleValue),
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .center(centerValue),
+                    .radiusRange(radiusValue),
+                    .data(dataValue),
+                    .markPoint(markPointValue),
+                    .markLine(markLineValue),
+                    .markArea(markAreaValue),
+                    .silent(silentValue),
+                    .animationType(animationTypeValue),
+                    .animation(animationValue),
+                    .animationThreshold(animationThresholdValue),
+                    .animationDuration(animationDurationValue),
+                    .animationEasing(animationEasingValue),
+                    .animationDelay(animationDelayValue),
+                    .animationDurationUpdate(animationDurationUpdateValue),
+                    .animationEasingUpdate(animationEasingUpdateValue),
+                    .animationDelayUpdate(animationDelayUpdateValue)
+                )
+                
+                expect(pieSerieByEnums.jsonString).to(equal(pieSerie.jsonString))
+            }
+            
+            it("needs to check the radius enum case") {
+                let radius = 20%
+                pieSerie.radius = [0, radius]
+                
+                let pieSerieByEnums = PieSerie(
+                    .name(nameValue),
+                    .legendHoverLink(legendHoverLinkValue),
+                    .hoverAnimation(hoverAnimationValue),
+                    .selectedMode(selectedModeValue),
+                    .selectedOffset(selectedOffsetValue),
+                    .clockwise(clockwiseValue),
+                    .startAngle(startAngleValue),
+                    .minAngle(minAngleValue),
+                    .roseType(roseTypeValue),
+                    .avoidLabelOverlap(avoidLabelOverlapValue),
+                    .stillShowZeroSum(stillShowZeroSumValue),
+                    .label(labelValue),
+                    .labelLine(labelLineValue),
+                    .itemStyle(itemStyleValue),
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .center(centerValue),
+                    .radius(radius),
+                    .data(dataValue),
+                    .markPoint(markPointValue),
+                    .markLine(markLineValue),
+                    .markArea(markAreaValue),
+                    .silent(silentValue),
+                    .animationType(animationTypeValue),
+                    .animation(animationValue),
+                    .animationThreshold(animationThresholdValue),
+                    .animationDuration(animationDurationValue),
+                    .animationEasing(animationEasingValue),
+                    .animationDelay(animationDelayValue),
+                    .animationDurationUpdate(animationDurationUpdateValue),
+                    .animationEasingUpdate(animationEasingUpdateValue),
+                    .animationDelayUpdate(animationDelayUpdateValue)
+                )
+                
+                expect(pieSerieByEnums.jsonString).to(equal(pieSerie.jsonString))
             }
         }
     }

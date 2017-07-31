@@ -28,12 +28,12 @@ public final class Polar: Zable {
     public var center: Point?
     /// 极坐标系的半径，数组的第一项是内半径，第二项是外半径。
     /// 支持设置成百分比，相对于容器高宽中较小的一项的一半。
-    public var radius: [Float]?
+    public var radius: Range?
 }
 
 extension Polar: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), center(Point), radius([Float])
+        case zlevel(Float), z(Float), center(Point), radius(Range)
     }
     
     public typealias ContentEnum = Enums

@@ -366,6 +366,7 @@ extension PieSerie: Mappable {
         map["type"] = type
         map["name"] = name
         map["legendHoverLink"] = legendHoverLink
+        map["hoverAnimation"] = hoverAnimation
         map["selectedMode"] = selectedMode
         map["selectedOffset"] = selectedOffset
         map["clockwise"] = clockwise

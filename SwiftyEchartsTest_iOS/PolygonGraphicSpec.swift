@@ -24,5 +24,36 @@ class PolygonGraphicSpec: QuickSpec {
                 expect(splineSmooth.jsonString).to(equal(splineString.jsonString))
             }
         }
+        
+        let pointShapeValue: [Point] = [[22, 44], [44, 55], [11, 44]]
+        let smoothShapeValue = PolygonGraphic.Shape.Smooth.spline
+        let smoothConstraintShapeValue = true
+        
+        let shape = PolygonGraphic.Shape()
+        shape.point = pointShapeValue
+        shape.smooth = smoothShapeValue
+        shape.smoothConstraint = smoothConstraintShapeValue
+        
+        describe("For PolygonGraphic.Shape") {
+            it("needs to check the jsonStrin") {
+                let resultDic: [String: Jsonable] = [
+                    "point": pointShapeValue,
+                    "smooth": smoothShapeValue,
+                    "smoothConstraint": smoothConstraintShapeValue
+                ]
+                
+                expect(shape.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let shapeByEnums = PolygonGraphic.Shape(
+                    .point(pointShapeValue),
+                    .smooth(smoothShapeValue),
+                    .smoothConstraint(smoothConstraintShapeValue)
+                )
+                
+                expect(shapeByEnums.jsonString).to(equal(shape.jsonString))
+            }
+        }
     }
 }

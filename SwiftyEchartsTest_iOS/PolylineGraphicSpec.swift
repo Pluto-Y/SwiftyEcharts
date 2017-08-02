@@ -55,5 +55,99 @@ class PolylineGraphicSpec: QuickSpec {
                 expect(shapeByEnums.jsonString).to(equal(shape.jsonString))
             }
         }
+        
+        describe("For PolylineGraphic") {
+            let typeValue = GraphicType.polyline
+            let idValue = "polylineGraphicIdValue"
+            let actionValue = GraphicAction.remove
+            let leftValue = Position.start
+            let rightValue = Position.middle
+            let bottomValue = Position.right
+            let topValue = Position.insideBottom
+            let boundingValue = GraphicBounding.raw
+            let zValue: Float = 49575375
+            let zlevelValue: Float = 0.3746324823
+            let silentValue = true
+            let invisibleValue = true
+            let cursorValue = "polylineGraphicCursorValue"
+            let draggableValue = false
+            let progressiveValue = false
+            let shapeValue = shape
+            let styleValue = CommonGraphicStyle(
+                .lineWidth(5.0),
+                .shadowColor(Color.red),
+                .shadowOffsetY(5.7364),
+                .stroke(Color.green)
+            )
+            
+            let polylineGraphic = PolylineGraphic()
+            polylineGraphic.id = idValue
+            polylineGraphic.action = actionValue
+            polylineGraphic.left = leftValue
+            polylineGraphic.right = rightValue
+            polylineGraphic.top = topValue
+            polylineGraphic.bottom = bottomValue
+            polylineGraphic.bounding = boundingValue
+            polylineGraphic.z = zValue
+            polylineGraphic.zlevel = zlevelValue
+            polylineGraphic.silent = silentValue
+            polylineGraphic.invisible = invisibleValue
+            polylineGraphic.cursor = cursorValue
+            polylineGraphic.draggable = draggableValue
+            polylineGraphic.progressive = progressiveValue
+            polylineGraphic.shape = shapeValue
+            polylineGraphic.style = styleValue
+            
+            it("needs to check the typeValue") {
+                expect(polylineGraphic.type.jsonString).to(equal(typeValue.jsonString))
+            }
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": typeValue,
+                    "id": idValue,
+                    "$action": actionValue,
+                    "left": leftValue,
+                    "right": rightValue,
+                    "top": topValue,
+                    "bottom": bottomValue,
+                    "bounding": boundingValue,
+                    "z": zValue,
+                    "zlevel": zlevelValue,
+                    "silent": silentValue,
+                    "invisible": invisibleValue,
+                    "cursor": cursorValue,
+                    "draggable": draggableValue,
+                    "progressive": progressiveValue,
+                    "shape": shapeValue,
+                    "style": styleValue
+                ]
+                
+                expect(polylineGraphic.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let polylineGraphicByEnums = PolylineGraphic(
+                    .id(idValue),
+                    .action(actionValue),
+                    .left(leftValue),
+                    .right(rightValue),
+                    .top(topValue),
+                    .bottom(bottomValue),
+                    .bounding(boundingValue),
+                    .z(zValue),
+                    .zlevel(zlevelValue),
+                    .silent(silentValue),
+                    .invisible(invisibleValue),
+                    .cursor(cursorValue),
+                    .draggable(draggableValue),
+                    .progressive(progressiveValue),
+                    .shape(shapeValue),
+                    .style(styleValue)
+                )
+                
+                expect(polylineGraphicByEnums.jsonString).to(equal(polylineGraphicByEnums.jsonString))
+            }
+        }
     }
 }

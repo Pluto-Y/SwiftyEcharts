@@ -59,5 +59,36 @@ class RadarSpec: QuickSpec {
                 expect(circleShape.jsonString).to(equal(circleString.jsonString))
             }
         }
+        
+        let nameIndicatorValue = "销售（sales）"
+        let maxIndicatorValue: Float = 6500
+        let minIndicatorValue: Float = 1005
+        
+        let indicator = Radar.Indicator()
+        indicator.name = nameIndicatorValue
+        indicator.max = maxIndicatorValue
+        indicator.min = minIndicatorValue
+        
+        describe("For Radar.Indicator") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "name": nameIndicatorValue,
+                    "max": maxIndicatorValue,
+                    "min": minIndicatorValue
+                ]
+                
+                expect(indicator.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let indicatorByEnums = Radar.Indicator(
+                    .name(nameIndicatorValue),
+                    .max(maxIndicatorValue),
+                    .min(minIndicatorValue)
+                )
+                
+                expect(indicatorByEnums.jsonString).to(equal(indicator.jsonString))
+            }
+        }
     }
 }

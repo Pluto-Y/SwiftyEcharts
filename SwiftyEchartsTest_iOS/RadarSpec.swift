@@ -89,6 +89,18 @@ class RadarSpec: QuickSpec {
                 
                 expect(indicatorByEnums.jsonString).to(equal(indicator.jsonString))
             }
+            
+            it("needs to check the text enum case") {
+                let textValue = "indicatorTextValue"
+                indicator.name = textValue
+                let indicatorByEnums = Radar.Indicator(
+                    .text(textValue),
+                    .max(maxIndicatorValue),
+                    .min(minIndicatorValue)
+                )
+                
+                expect(indicatorByEnums.jsonString).to(equal(indicator.jsonString))
+            }
         }
         
         describe("For Radar") {

@@ -46,5 +46,18 @@ class RadarSpec: QuickSpec {
                 expect(nameByEnums.jsonString).to(equal(name.jsonString))
             }
         }
+        
+        describe("For Radar.Shape") {
+            let polygonString = "polygon"
+            let circleString = "circle"
+            
+            let polygonShape = Radar.Shape.polygon
+            let circleShape = Radar.Shape.circle
+            
+            it("needs to check the enum case jsonString") {
+                expect(polygonShape.jsonString).to(equal(polygonString.jsonString))
+                expect(circleShape.jsonString).to(equal(circleString.jsonString))
+            }
+        }
     }
 }

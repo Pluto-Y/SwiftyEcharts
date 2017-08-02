@@ -58,6 +58,7 @@
 		54FEBE911E23480D0021CB13 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE8E1E23480D0021CB13 /* Mappable.swift */; };
 		54FEBE931E2354B60021CB13 /* Option.swift in Headers */ = {isa = PBXBuildFile; fileRef = 54FEBE921E2354B60021CB13 /* Option.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F0AB1BF1F3010B700A71D9A /* PolygonGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */; };
+		6F0AB1C11F318B7700A71D9A /* PolylineGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1C01F318B7700A71D9A /* PolylineGraphicSpec.swift */; };
 		6F0E461F1E614A37008DA184 /* LinesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E461D1E614A37008DA184 /* LinesController.swift */; };
 		6F0E46241E61AB10008DA184 /* BarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E46231E61AB10008DA184 /* BarsController.swift */; };
 		6F0E46261E61B204008DA184 /* BaseDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E46251E61B204008DA184 /* BaseDemoController.swift */; };
@@ -464,6 +465,7 @@
 		54FEBE921E2354B60021CB13 /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Option.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		696BE5C28327E91E69CEEFC8 /* Pods_SwiftyEchartsTest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyEchartsTest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonGraphicSpec.swift; sourceTree = "<group>"; };
+		6F0AB1C01F318B7700A71D9A /* PolylineGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolylineGraphicSpec.swift; sourceTree = "<group>"; };
 		6F0E461D1E614A37008DA184 /* LinesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesController.swift; sourceTree = "<group>"; };
 		6F0E46231E61AB10008DA184 /* BarsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarsController.swift; sourceTree = "<group>"; };
 		6F0E46251E61B204008DA184 /* BaseDemoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDemoController.swift; sourceTree = "<group>"; };
@@ -1104,6 +1106,7 @@
 				6F824E681F2C806F00876D04 /* PieSerieSpec.swift */,
 				6F824E6A1F2F8DBF00876D04 /* PolarSpec.swift */,
 				6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */,
+				6F0AB1C01F318B7700A71D9A /* PolylineGraphicSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1701,6 +1704,7 @@
 				6F98F1B31F279DC6006DC141 /* MarkAreaSpec.swift in Sources */,
 				6F201F041F04015D00087764 /* GraphicSpec.swift in Sources */,
 				6F4ACB481E1D258B00CE5FD5 /* JsonableSpec.swift in Sources */,
+				6F0AB1C11F318B7700A71D9A /* PolylineGraphicSpec.swift in Sources */,
 				6F201EDC1F0230C400087764 /* ArcGraphicSpec.swift in Sources */,
 				6FEF717E1E686EB700E1ED70 /* ColorSpec.swift in Sources */,
 				6F715CA51F20AEA9001BA1A9 /* LineSerieSpec.swift in Sources */,

@@ -42,7 +42,7 @@ public final class PolylineGraphic: Graphic {
     
     /// MARK: Graphic
     public var type: GraphicType {
-        return .polygon
+        return .polyline
     }
     public var id: String?
     public var action: GraphicAction?

@@ -31,7 +31,7 @@ public final class PolylineGraphic: Graphic {
         }
         
         /// 点列表，用于定义形状，如 [[22, 44], [44, 55], [11, 44], ...]
-        public var point: [[Float]]?
+        public var point: [Point]?
         /// 是否平滑曲线
         public var smooth: Smooth?
         /// 是否将平滑曲线约束在包围盒中。smooth 为 number（bezier）时生效。
@@ -69,7 +69,7 @@ public final class PolylineGraphic: Graphic {
 
 extension PolylineGraphic.Shape: Enumable {
     public enum Enums {
-        case point([[Float]]), smooth(Smooth), smoothConstraint(Bool)
+        case point([Point]), smooth(Smooth), smoothConstraint(Bool)
     }
     
     public typealias ContentEnum = Enums

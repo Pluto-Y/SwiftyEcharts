@@ -90,5 +90,138 @@ class RadarSpec: QuickSpec {
                 expect(indicatorByEnums.jsonString).to(equal(indicator.jsonString))
             }
         }
+        
+        describe("For Radar") {
+            let zlevelValue: Float = 95.7364
+            let zValue: Float = 0.37462
+            let centerValue: Point = [50%, 50%]
+            let radiusValue = 20%
+            let startAngleValue: Float = 135
+            let nameValue = name
+            let nameGapValue: Float = 8.5
+            let splitNumberValue = 6
+            let shapeValue = Radar.Shape.circle
+            let scaleValue = false
+            let silentValue = false
+            let triggerEventValue = true
+            let axisLineValue = AxisLine(
+                .show(false),
+                .onZero(true),
+                .lineStyle(LineStyle(
+                    .type(LineType.dotted)
+                    ))
+            )
+            let axisTickValue = AxisTick(
+                .alignWithLabel(true),
+                .interval(50),
+                .length(5.0)
+            )
+            let axisLabelValue = AxisLabel(
+                .inside(true)
+            )
+            let splitLineValue = SplitLine(
+                .show(true),
+                .interval(20%)
+            )
+            let splitAreaValue = SplitArea(
+                .areaStyle(AreaStyle(
+                    .color(Color.red),
+                    .opacity(0.03725)
+                    ))
+            )
+            let indicatorValue: [Radar.Indicator] = [
+                indicator,
+                Radar.Indicator(
+                    .name("管理（Administration）"),
+                    .max(16000)
+                ),
+                Radar.Indicator(
+                    .name("信息技术（Information Techology）"),
+                    .max(30000)
+                ),
+                Radar.Indicator(
+                    .name("客服（Customer Support）"),
+                    .max(38000)
+                ),
+                Radar.Indicator(
+                    .name("研发（Development）"),
+                    .max(52000)
+                ),
+                Radar.Indicator(
+                    .name("市场（Marketing）"),
+                    .max(25000)
+                )
+            ]
+            
+            let radar = Radar()
+            radar.zlevel = zlevelValue
+            radar.z = zValue
+            radar.center = centerValue
+            radar.radius = radiusValue
+            radar.startAngle = startAngleValue
+            radar.name = nameValue
+            radar.nameGap = nameGapValue
+            radar.splitNumber = splitNumberValue
+            radar.shape = shapeValue
+            radar.scale = scaleValue
+            radar.silent = silentValue
+            radar.triggerEvent = triggerEventValue
+            radar.axisLine = axisLineValue
+            radar.axisTick = axisTickValue
+            radar.axisLabel = axisLabelValue
+            radar.splitLine = splitLineValue
+            radar.splitArea = splitAreaValue
+            radar.indicator = indicatorValue
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "zlevel": zlevelValue,
+                    "z": zValue,
+                    "center": centerValue,
+                    "radius": radiusValue,
+                    "startAngle": startAngleValue,
+                    "name": nameValue,
+                    "nameGap": nameGapValue,
+                    "splitNumber": splitNumberValue,
+                    "shape": shapeValue,
+                    "scale": scaleValue,
+                    "silent": silentValue,
+                    "triggerEvent": triggerEventValue,
+                    "axisLine": axisLineValue,
+                    "axisTick": axisTickValue,
+                    "axisLabel": axisLabelValue,
+                    "splitLine": splitLineValue,
+                    "splitArea": splitAreaValue,
+                    "indicator": indicatorValue
+                ]
+                
+                expect(radar.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let radarByEnums = Radar(
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .center(centerValue),
+                    .radius(radiusValue),
+                    .startAngle(startAngleValue),
+                    .name(nameValue),
+                    .nameGap(nameGapValue),
+                    .splitNumber(splitNumberValue),
+                    .shape(shapeValue),
+                    .scale(scaleValue),
+                    .silent(silentValue),
+                    .triggerEvent(triggerEventValue),
+                    .axisLine(axisLineValue),
+                    .axisTick(axisTickValue),
+                    .axisLabel(axisLabelValue),
+                    .splitLine(splitLineValue),
+                    .splitArea(splitAreaValue),
+                    .indicator(indicatorValue)
+                )
+                
+                expect(radarByEnums.jsonString).to(equal(radar.jsonString))
+            }
+        }
     }
 }

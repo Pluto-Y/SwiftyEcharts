@@ -99,5 +99,153 @@ class RadarSerieSpec: QuickSpec {
                 expect(dataByEnums.jsonString).to(equal(data.jsonString))
             }
         }
+        
+        describe("For RadarSerie") {
+            let typeValue = SerieType.radar
+            let nameValue = "radarSerieNameValue"
+            let radarIndexValue: UInt8 = 255
+            let symbolOriginValue = Symbol.pin
+            let symbolValue = OneOrMore(one: symbolOriginValue)
+            let symbolSizeValue = FunctionOrFloatOrPair.init(floatLiteral: 0.00000)
+            let symbolRotateValue: Float = 0.028111111
+            let symbolOffsetValue: Point = [0, 100%]
+            let labelValue = FormattedLabel(
+                .emphasis(FormattedLabelStyle(
+                    .formatter(.string("radarSerieFromatterValue")),
+                    .show(true)
+                    ))
+            )
+            let itemStyleValue = ItemStyle(
+                .emphasis(CommonItemStyleContent(
+                    .shadowBlur(0.8375),
+                    .barBorderRadius(2999),
+                    .color(rgba(200, 200, 200, 0.5))
+                    ))
+            )
+            let lineStyleValue = EmphasisLineStyle(
+                .emphasis(LineStyle(
+                    .curveness(9.999999),
+                    .opacity(8.888888),
+                    .width(7.7777777)
+                    ))
+            )
+            let areaStyleValue = EmphasisAreaStyle(
+                .emphasis(AreaStyle(
+                    .shadowBlur(0.97457),
+                    .shadowColor(Color.hexColor("#887722")),
+                    .shadowOffsetX(0.3757),
+                    .shadowOffsetY(84723.75)
+                    ))
+            )
+            let dataValue: [Jsonable] = [
+                data,
+                RadarSerie.Data(
+                    .value([4300, 10000, 28000, 35000, 50000, 19000]),
+                    .name("预算分配（Allocated Budget）")
+                ),
+                RadarSerie.Data(
+                    .value([5000, 14000, 28000, 31000, 42000, 21000]),
+                    .name("实际开销（Actual Spending）")
+                )
+            ]
+            let zlevelValue: Float = 0.57364
+            let zValue: Float = 200.002
+            let silentValue = true
+            let animationValue = true
+            let animationThresholdValue: Float = 85.322222
+            let animationDurationValue: Time = Time.number(0.927562)
+            let animationEasingValue = EasingFunction.circularInOut
+            let animationDelayValue: Time = 9000
+            let animationDurationUpdateValue: Time = 0.20847
+            let animationEasingUpdateValue: EasingFunction = .exponentialInOut
+            let animationDelayUpdateValue: Time = 0.0909090909
+            
+            let radarSerie = RadarSerie()
+            radarSerie.name = nameValue
+            radarSerie.radarIndex = radarIndexValue
+            radarSerie.symbol = symbolValue
+            radarSerie.symbolSize = symbolSizeValue
+            radarSerie.symbolRotate = symbolRotateValue
+            radarSerie.symbolOffset = symbolOffsetValue
+            radarSerie.label = labelValue
+            radarSerie.itemStyle = itemStyleValue
+            radarSerie.lineStyle = lineStyleValue
+            radarSerie.areaStyle = areaStyleValue
+            radarSerie.data = dataValue
+            radarSerie.zlevel = zlevelValue
+            radarSerie.z = zValue
+            radarSerie.silent = silentValue
+            radarSerie.animation = animationValue
+            radarSerie.animationThreshold = animationThresholdValue
+            radarSerie.animationDuration = animationDurationValue
+            radarSerie.animationEasing = animationEasingValue
+            radarSerie.animationDelay = animationDelayValue
+            radarSerie.animationDurationUpdate = animationDurationUpdateValue
+            radarSerie.animationEasingUpdate = animationEasingUpdateValue
+            radarSerie.animationDelayUpdate = animationDelayUpdateValue
+            
+            it("needs to check the Enumable") {
+                expect(radarSerie.type.jsonString).to(equal(typeValue.jsonString))
+            }
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": radarSerie.type,
+                    "name": nameValue,
+                    "radarIndex": radarIndexValue,
+                    "symbol": symbolValue,
+                    "symbolSize": symbolSizeValue,
+                    "symbolRotate": symbolRotateValue,
+                    "symbolOffset": symbolOffsetValue,
+                    "label": labelValue,
+                    "itemStyle": itemStyleValue,
+                    "lineStyle": lineStyleValue,
+                    "areaStyle": areaStyleValue,
+                    "data": dataValue,
+                    "zlevel": zlevelValue,
+                    "z": zValue,
+                    "silent": silentValue,
+                    "animation": animationValue,
+                    "animationThreshold": animationThresholdValue,
+                    "animationDuration": animationDurationValue,
+                    "animationEasing": animationEasingValue,
+                    "animationDelay": animationDelayValue,
+                    "animationDurationUpdate": animationDurationUpdateValue,
+                    "animationEasingUpdate": animationEasingUpdateValue,
+                    "animationDelayUpdate": animationDelayUpdateValue
+                ]
+                
+                expect(radarSerie.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let radarSerieByEnums = RadarSerie(
+                    .name(nameValue),
+                    .radarIndex(radarIndexValue),
+                    .symbol(symbolOriginValue),
+                    .symbolSize(symbolSizeValue),
+                    .symbolRotate(symbolRotateValue),
+                    .symbolOffset(symbolOffsetValue),
+                    .label(labelValue),
+                    .itemStyle(itemStyleValue),
+                    .lineStyle(lineStyleValue),
+                    .areaStyle(areaStyleValue),
+                    .data(dataValue),
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .silent(silentValue),
+                    .animation(animationValue),
+                    .animationThreshold(animationThresholdValue),
+                    .animationDuration(animationDurationValue),
+                    .animationEasing(animationEasingValue),
+                    .animationDelay(animationDelayValue),
+                    .animationDurationUpdate(animationDurationUpdateValue),
+                    .animationEasingUpdate(animationEasingUpdateValue),
+                    .animationDelayUpdate(animationDelayUpdateValue)
+                )
+                
+                expect(radarSerieByEnums.jsonString).to(equal(radarSerie.jsonString))
+            }
+        }
     }
 }

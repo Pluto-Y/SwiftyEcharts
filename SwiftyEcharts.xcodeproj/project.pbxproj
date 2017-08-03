@@ -61,6 +61,7 @@
 		6F0AB1C11F318B7700A71D9A /* PolylineGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1C01F318B7700A71D9A /* PolylineGraphicSpec.swift */; };
 		6F0AB1C51F31C43200A71D9A /* RadarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1C41F31C43200A71D9A /* RadarSpec.swift */; };
 		6F0AB1C71F32B1F800A71D9A /* RadarSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1C61F32B1F800A71D9A /* RadarSerieSpec.swift */; };
+		6F0AB1CD1F32F74800A71D9A /* ShadowStyleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1CC1F32F74800A71D9A /* ShadowStyleSpec.swift */; };
 		6F0E461F1E614A37008DA184 /* LinesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E461D1E614A37008DA184 /* LinesController.swift */; };
 		6F0E46241E61AB10008DA184 /* BarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E46231E61AB10008DA184 /* BarsController.swift */; };
 		6F0E46261E61B204008DA184 /* BaseDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E46251E61B204008DA184 /* BaseDemoController.swift */; };
@@ -470,6 +471,7 @@
 		6F0AB1C01F318B7700A71D9A /* PolylineGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolylineGraphicSpec.swift; sourceTree = "<group>"; };
 		6F0AB1C41F31C43200A71D9A /* RadarSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarSpec.swift; sourceTree = "<group>"; };
 		6F0AB1C61F32B1F800A71D9A /* RadarSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarSerieSpec.swift; sourceTree = "<group>"; };
+		6F0AB1CC1F32F74800A71D9A /* ShadowStyleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowStyleSpec.swift; sourceTree = "<group>"; };
 		6F0E461D1E614A37008DA184 /* LinesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesController.swift; sourceTree = "<group>"; };
 		6F0E46231E61AB10008DA184 /* BarsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarsController.swift; sourceTree = "<group>"; };
 		6F0E46251E61B204008DA184 /* BaseDemoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDemoController.swift; sourceTree = "<group>"; };
@@ -1113,6 +1115,7 @@
 				6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */,
 				6F0AB1C01F318B7700A71D9A /* PolylineGraphicSpec.swift */,
 				6F0AB1C61F32B1F800A71D9A /* RadarSerieSpec.swift */,
+				6F0AB1CC1F32F74800A71D9A /* ShadowStyleSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1703,6 +1706,7 @@
 				6FE2DD341EB0F6EE0028037A /* FormatterSpec.swift in Sources */,
 				6FEC7D1D1E54996B003A88D7 /* PairSpec.swift in Sources */,
 				6F9F90DD1EBCD641005AB9FF /* BoundaryGapSpec.swift in Sources */,
+				6F0AB1CD1F32F74800A71D9A /* ShadowStyleSpec.swift in Sources */,
 				6F7F98DB1F1226D600A31FF1 /* DataZoomSpec.swift in Sources */,
 				6F480C581F0BC7870088ECF1 /* BoxplotSerieSpec.swift in Sources */,
 				6F86CFCE1EFEB0D7006099D3 /* AreaStyleSpec.swift in Sources */,

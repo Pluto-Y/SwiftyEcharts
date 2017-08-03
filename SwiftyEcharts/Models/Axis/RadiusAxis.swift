@@ -10,7 +10,62 @@
 public final class RadiusAxis: Zable {
     
     public final class AxisPointer: Displayable {
+        
+        public enum Type: String, Jsonable {
+            case line = "line"
+            case shadow = "shadow"
+            
+            public var jsonString: String {
+                return self.rawValue.jsonString
+            }
+        }
+        
+        public final class Label: Displayable, Shadowable, Formatted {
+            public var show: Bool?
+            public var precision: Float?
+            public var formatter: Formatter?
+            public var margin: [Float]?
+            public var textStyle: TextStyle?
+            public var padding: Padding?
+            public var backgroundColor: Color?
+            public var borderColor: Color?
+            public var borderWidth: Float?
+            public var shadowBlur: Float?
+            public var shadowColor: Color?
+            public var shadowOffsetX: Float?
+            public var shadowOffsetY: Float?
+            
+            public init() { }
+        }
+        
+        public final class Handle: Displayable, Shadowable {
+            public var show: Bool?
+            public var icon: String?
+            public var size: Float?
+            public var margin: [Float]?
+            public var color: Color?
+            public var throttle: Float?
+            public var shadowBlur: Float?
+            public var shadowColor: Color?
+            public var shadowOffsetX: Float?
+            public var shadowOffsetY: Float?
+            
+            public  init() {}
+        }
+        
         public var show: Bool?
+        public var type: Type?
+        public var snpa: Bool?
+        public var z: Float?
+        public var label: Label?
+        public var lineStyle: LineStyle?
+        public var shadowStyle: ShadowStyle?
+        public var triggerTooltip: Bool?
+        public var value: Float?
+        public var state: Bool?
+        public var handle: Handle?
+        
+        public init() { }
     }
     
     /// 径向轴所在的极坐标系的索引，默认使用第一个极坐标系。
@@ -113,9 +168,168 @@ public final class RadiusAxis: Zable {
     public var z: Float?
 }
 
+extension RadiusAxis.AxisPointer.Label: Enumable {
+    public enum Enums {
+        case show(Bool), precision(Float), formatter(Formatter), margin([Float]), textStyle(TextStyle), padding(Padding), backgroundColor(Color), borderColor(Color), borderWidth(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: RadiusAxis.AxisPointer.Label.Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+                case let .show(show):
+                    self.show = show
+                case let .precision(precision):
+                    self.precision = precision
+                case let .formatter(formatter):
+                    self.formatter = formatter
+                case let .margin(margin):
+                    self.margin = margin
+                case let .textStyle(textStyle):
+                    self.textStyle = textStyle
+                case let .padding(padding):
+                    self.padding = padding
+                case let .backgroundColor(backgroundColor):
+                    self.backgroundColor = backgroundColor
+                case let .borderColor(borderColor):
+                    self.borderColor = borderColor
+                case let .borderWidth(borderWidth):
+                    self.borderWidth = borderWidth
+                case let .shadowBlur(shadowBlur):
+                    self.shadowBlur = shadowBlur
+                case let .shadowColor(shadowColor):
+                    self.shadowColor = shadowColor
+                case let .shadowOffsetX(shadowOffsetX):
+                    self.shadowOffsetX = shadowOffsetX
+                case let .shadowOffsetY(shadowOffsetY):
+                    self.shadowOffsetY = shadowOffsetY
+            }
+        }
+    }
+}
+
+extension RadiusAxis.AxisPointer.Label: Mappable {
+    public func mapping(map: Mapper) {
+        map["show"] = show
+        map["precision"] = precision
+        map["formatter"] = formatter
+        map["margin"] = margin
+        map["textStyle"] = textStyle
+        map["padding"] = padding
+        map["backgroundColor"] = backgroundColor
+        map["borderColor"] = borderColor
+        map["borderWidth"] = borderWidth
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
+    }
+}
+
+extension RadiusAxis.AxisPointer.Handle: Enumable {
+    public enum Enums {
+        case show(Bool), icon(String), size(Float), margin([Float]), color(Color), throttle(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .icon(icon):
+                self.icon = icon
+            case let .size(size):
+                self.size = size
+            case let .margin(margin):
+                self.margin = margin
+            case let .color(color):
+                self.color = color
+            case let .throttle(throttle):
+                self.throttle = throttle
+            case let .shadowBlur(shadowBlur):
+                self.shadowBlur = shadowBlur
+            case let .shadowColor(shadowColor):
+                self.shadowColor = shadowColor
+            case let .shadowOffsetX(shadowOffsetX):
+                self.shadowOffsetX = shadowOffsetX
+            case let .shadowOffsetY(shadowOffsetY):
+                self.shadowOffsetY = shadowOffsetY
+            }
+        }
+    }
+}
+
+extension RadiusAxis.AxisPointer.Handle: Mappable {
+    public func mapping(map: Mapper) {
+        map["show"] = show
+        map["icon"] = icon
+        map["size"] = size
+        map["margin"] = margin
+        map["color"] = color
+        map["throttle"] = throttle
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
+    }
+}
+
+extension RadiusAxis.AxisPointer: Enumable {
+    public enum Enums {
+        case show(Bool), type(Type), snpa(Bool), z(Float), label(Label), lineStyle(LineStyle), shadowStyle(ShadowStyle), triggerTooltip(Bool), value(Float), state(Bool), handle(Handle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+                case let .show(show):
+                    self.show = show
+                case let .type(type):
+                    self.type = type
+                case let .snpa(snpa):
+                    self.snpa = snpa
+                case let .z(z):
+                    self.z = z
+                case let .label(label):
+                    self.label = label
+                case let .lineStyle(lineStyle):
+                    self.lineStyle = lineStyle
+                case let .shadowStyle(shadowStyle):
+                    self.shadowStyle = shadowStyle
+                case let .triggerTooltip(triggerTooltip):
+                    self.triggerTooltip = triggerTooltip
+                case let .value(value):
+                    self.value = value
+                case let .state(state):
+                    self.state = state
+                case let .handle(handle):
+                    self.handle = handle
+            }
+        }
+    }
+}
+
 extension RadiusAxis.AxisPointer: Mappable {
     public func mapping(map: Mapper) {
-        
+        map["show"] = show
+        map["type"] = type
+        map["snpa"] = snpa
+        map["z"] = z
+        map["label"] = label
+        map["lineStyle"] = lineStyle
+        map["shadowStyle"] = shadowStyle
+        map["triggerTooltip"] = triggerTooltip
+        map["value"] = value
+        map["state"] = state
+        map["handle"] = handle
     }
 }
 

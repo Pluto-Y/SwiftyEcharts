@@ -63,26 +63,6 @@ public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
             public init() { }
         }
         
-        /// 阴影提示器样式
-        public final class ShadowStyle: Shadowable, Colorful, Opacitable {
-            
-            /// 填充的颜色
-            public var color: Color?
-            
-            public var shadowBlur: Float?
-            public var shadowColor: Color?
-            public var shadowOffsetX: Float?
-            public var shadowOffsetY: Float?
-            
-            public var opacity: Float? {
-                didSet {
-                    validateOpacity()
-                }
-            }
-            
-            public init() { }
-        }
-        
         /// 指示器类型
         ///
         /// - line: 直线指示器
@@ -189,45 +169,6 @@ public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
     public var axisPointer: AxisPointer?
     
     public init() { }
-}
-
-extension Tooltip.AxisPointer.ShadowStyle: Enumable {
-    public enum Enums {
-        case color(Color), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public convenience init(_ elements: Enums...) {
-        self.init()
-        for ele in elements {
-            switch ele {
-            case let .color(color):
-                self.color = color
-            case let .shadowBlur(blur):
-                self.shadowBlur = blur
-            case let .shadowColor(color):
-                self.shadowColor = color
-            case let .shadowOffsetX(x):
-                self.shadowOffsetX = x
-            case let .shadowOffsetY(y):
-                self.shadowOffsetY = y
-            case let .opacity(opacity):
-                self.opacity = opacity
-            }
-        }
-    }
-}
-
-extension Tooltip.AxisPointer.ShadowStyle: Mappable {
-    public func mapping(map: Mapper) {
-        map["color"] = color
-        map["shadowBlur"] = shadowBlur
-        map["shadowColor"] = shadowColor
-        map["shadowOffsetX"] = shadowOffsetX
-        map["shadowOffsetY"] = shadowOffsetY
-        map["opacity"] = opacity
-    }
 }
 
 extension Tooltip.AxisPointer.CrossStyle: Enumable {

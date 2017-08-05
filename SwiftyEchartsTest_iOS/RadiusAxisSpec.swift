@@ -95,5 +95,64 @@ class RadiusAxisSpec: QuickSpec {
                 expect(labelByEnums.jsonString).to(equal(label.jsonString))
             }
         }
+        
+        let showHandleValue = false
+        let iconHandleValue = "path://handleIconValue"
+        let sizeHandleValue: Pair<Float> = [20.5, 50.2]
+        let marginHandleValue: Float = 45
+        let colorHandleValue = Color.hexColor("#88ffaa")
+        let throttleHandleValue: Float = 5.555555
+        let shadowBlurHandleValue: Float = 20.20
+        let shadowColorHandleValue = Color.transparent
+        let shadowOffsetXHandleValue: Float = 0.5737
+        let shadowOffsetYHandleValue: Float = 85723.7234
+        
+        let handle = RadiusAxis.AxisPointer.Handle()
+        handle.show = showHandleValue
+        handle.icon = iconHandleValue
+        handle.size = sizeHandleValue
+        handle.margin = marginHandleValue
+        handle.color = colorHandleValue
+        handle.throttle = throttleHandleValue
+        handle.shadowBlur = shadowBlurHandleValue
+        handle.shadowColor = shadowColorHandleValue
+        handle.shadowOffsetX = shadowOffsetXHandleValue
+        handle.shadowOffsetY = shadowOffsetYHandleValue
+        
+        describe("For RadiusAxis.AxisPointer.Handle") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showHandleValue,
+                    "icon": iconHandleValue,
+                    "size": sizeHandleValue,
+                    "margin": marginHandleValue,
+                    "color": colorHandleValue,
+                    "throttle": throttleHandleValue,
+                    "shadowBlur": shadowBlurHandleValue,
+                    "shadowColor": shadowColorHandleValue,
+                    "shadowOffsetX": shadowOffsetXHandleValue,
+                    "shadowOffsetY": shadowOffsetYHandleValue
+                ]
+                
+                expect(handle.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let handleByEnums = RadiusAxis.AxisPointer.Handle(
+                    .show(showHandleValue),
+                    .icon(iconHandleValue),
+                    .size(sizeHandleValue),
+                    .margin(marginHandleValue),
+                    .color(colorHandleValue),
+                    .throttle(throttleHandleValue),
+                    .shadowBlur(shadowBlurHandleValue),
+                    .shadowColor(shadowColorHandleValue),
+                    .shadowOffsetX(shadowOffsetXHandleValue),
+                    .shadowOffsetY(shadowOffsetYHandleValue)
+                )
+                
+                expect(handleByEnums.jsonString).to(equal(handle.jsonString))
+            }
+        }
     }
 }

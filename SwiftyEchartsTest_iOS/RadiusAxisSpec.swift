@@ -225,5 +225,153 @@ class RadiusAxisSpec: QuickSpec {
                 expect(axisPointerByEnums.jsonString).to(equal(axisPointer.jsonString))
             }
         }
+        
+        describe("For RadiusAxis") {
+            let polarIndexValue: UInt8 = 0
+            let typeValue = AxisType.time
+            let nameValue = "radiusAxisNameValue"
+            let nameLocationValue = Position.bottom
+            let nameTextStyleValue = TextStyle(
+                .color(Color.green),
+                .fontStyle(.italic),
+                .align(Position.right)
+            )
+            let nameGapValue: Float = 20
+            let nameRotateValue: Float = 90
+            let inverseValue = false
+            let boundaryGapValue: BoundaryGap = [9.2873, 200]
+            let minValue: Float = 0.47236
+            let maxValue: Float = 2000.47346
+            let scaleValue = true
+            let splitNumberValue: UInt8 = 99
+            let minIntervalValue: Float = 1
+            let intervalValue: Float = 1000
+            let logBaseValue: Float = 0.0000009
+            let silentValue = false
+            let triggerEventValue = false
+            let axisLineValue = AxisLine(
+               .show(false)
+            )
+            let axisLabelValue = AxisLabel(
+                .formatter(.string("994.238")),
+                .margin(29),
+                .rotate(-90)
+            )
+            let axisTickValue = AxisTick(
+                .alignWithLabel(false),
+                .length(400),
+                .interval(0)
+            )
+            let splitLineValue = SplitLine(
+                .interval(20%)
+            )
+            let splitAreaValue = SplitArea(
+                .show(true),
+                .interval(200)
+            )
+            let dataValue: [Jsonable] = [
+                false, "value", 20.57, 20
+            ]
+            let axisPointerValue = axisPointer
+            let zlevelValue: Float = 255.552
+            let zValue: Float = 0.58274
+            
+            let radiusAxis = RadiusAxis()
+            radiusAxis.polarIndex = polarIndexValue
+            radiusAxis.type = typeValue
+            radiusAxis.name = nameValue
+            radiusAxis.nameLocation = nameLocationValue
+            radiusAxis.nameTextStyle = nameTextStyleValue
+            radiusAxis.nameGap = nameGapValue
+            radiusAxis.nameRotate = nameRotateValue
+            radiusAxis.inverse = inverseValue
+            radiusAxis.boundaryGap = boundaryGapValue
+            radiusAxis.min = minValue
+            radiusAxis.max = maxValue
+            radiusAxis.scale = scaleValue
+            radiusAxis.splitNumber = splitNumberValue
+            radiusAxis.minInterval = minIntervalValue
+            radiusAxis.interval = intervalValue
+            radiusAxis.logBase = logBaseValue
+            radiusAxis.silent = silentValue
+            radiusAxis.triggerEvent = triggerEventValue
+            radiusAxis.axisLine = axisLineValue
+            radiusAxis.axisTick = axisTickValue
+            radiusAxis.axisLabel = axisLabelValue
+            radiusAxis.splitLine = splitLineValue
+            radiusAxis.splitArea = splitAreaValue
+            radiusAxis.data = dataValue
+            radiusAxis.axisPointer = axisPointerValue
+            radiusAxis.zlevel = zlevelValue
+            radiusAxis.z = zValue
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "polarIndex": polarIndexValue,
+                    "type": typeValue,
+                    "name": nameValue,
+                    "nameLocation": nameLocationValue,
+                    "nameTextStyle": nameTextStyleValue,
+                    "nameGap": nameGapValue,
+                    "nameRotate": nameRotateValue,
+                    "inverse": inverseValue,
+                    "boundaryGap": boundaryGapValue,
+                    "min": minValue,
+                    "max": maxValue,
+                    "scale": scaleValue,
+                    "splitNumber": splitNumberValue,
+                    "minInterval": minIntervalValue,
+                    "interval": intervalValue,
+                    "logBase": logBaseValue,
+                    "silent": silentValue,
+                    "triggerEvent": triggerEventValue,
+                    "axisLine": axisLineValue,
+                    "axisTick": axisTickValue,
+                    "axisLabel": axisLabelValue,
+                    "splitLine": splitLineValue,
+                    "splitArea": splitAreaValue,
+                    "data": dataValue,
+                    "axisPointer": axisPointerValue,
+                    "zlevel": zlevelValue,
+                    "z": zValue
+                ]
+                
+                expect(radiusAxis.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let radiusAxisByEnums = RadiusAxis(
+                    .polarIndex(polarIndexValue),
+                    .type(typeValue),
+                    .name(nameValue),
+                    .nameLocation(nameLocationValue),
+                    .nameTextStyle(nameTextStyleValue),
+                    .nameGap(nameGapValue),
+                    .nameRotate(nameRotateValue),
+                    .inverse(inverseValue),
+                    .boundaryGap(boundaryGapValue),
+                    .min(minValue),
+                    .max(maxValue),
+                    .scale(scaleValue),
+                    .splitNumber(splitNumberValue),
+                    .minInterval(minIntervalValue),
+                    .interval(intervalValue),
+                    .logBase(logBaseValue),
+                    .silent(silentValue),
+                    .triggerEvent(triggerEventValue),
+                    .axisLine(axisLineValue),
+                    .axisTick(axisTickValue),
+                    .axisLabel(axisLabelValue),
+                    .splitLine(splitLineValue),
+                    .splitArea(splitAreaValue),
+                    .data(dataValue),
+                    .axisPointer(axisPointerValue),
+                    .zlevel(zlevelValue),
+                    .z(zValue)
+                )
+                
+                expect(radiusAxisByEnums.jsonString).to(equal(radiusAxis.jsonString))
+            }
+        }
     }
 }

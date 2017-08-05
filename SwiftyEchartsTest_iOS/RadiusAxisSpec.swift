@@ -119,7 +119,7 @@ class RadiusAxisSpec: QuickSpec {
         handle.shadowOffsetX = shadowOffsetXHandleValue
         handle.shadowOffsetY = shadowOffsetYHandleValue
         
-        describe("For RadiusAxis.AxisPointer.Handle") { 
+        describe("For RadiusAxis.AxisPointer.Handle") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "show": showHandleValue,
@@ -152,6 +152,77 @@ class RadiusAxisSpec: QuickSpec {
                 )
                 
                 expect(handleByEnums.jsonString).to(equal(handle.jsonString))
+            }
+        }
+        
+        let showAxisPointerValue = true
+        let typeAxisPointerValue = RadiusAxis.AxisPointer.Type.line
+        let snapAxisPointerValue = true
+        let zAxisPointerValue: Float = 0.58364
+        let labelAxisPointerValue = label
+        let lineStyleAxisPointerValue = LineStyle(
+            .opacity(0.8573),
+            .shadowBlur(20.57),
+            .curveness(200)
+        )
+        let shadowStyleAxisPointerValue = ShadowStyle(
+            .color(Color.rgb(0, 0, 200)),
+            .shadowColor(Color.rgba(200, 0, 0, 0.01)),
+            .shadowOffsetX(200.0)
+        )
+        let triggerTooltipAxisPointerValue = false
+        let valueAxisPointerValue: Float = 0.8576
+        let stateAxisPointerValue = false
+        let handleAxisPointerValue = handle
+        
+        let axisPointer = RadiusAxis.AxisPointer()
+        axisPointer.show = showAxisPointerValue
+        axisPointer.type = typeAxisPointerValue
+        axisPointer.snap = snapAxisPointerValue
+        axisPointer.z = zAxisPointerValue
+        axisPointer.label = labelAxisPointerValue
+        axisPointer.lineStyle = lineStyleAxisPointerValue
+        axisPointer.shadowStyle = shadowStyleAxisPointerValue
+        axisPointer.triggerTooltip = triggerTooltipAxisPointerValue
+        axisPointer.value = valueAxisPointerValue
+        axisPointer.state = stateAxisPointerValue
+        axisPointer.handle = handleAxisPointerValue
+        
+        describe("For RadiusAxis.AxisPointer") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showAxisPointerValue,
+                    "type": typeAxisPointerValue,
+                    "snap": snapAxisPointerValue,
+                    "z": zAxisPointerValue,
+                    "label": labelAxisPointerValue,
+                    "lineStyle": lineStyleAxisPointerValue,
+                    "shadowStyle": shadowStyleAxisPointerValue,
+                    "triggerTooltip": triggerTooltipAxisPointerValue,
+                    "value": valueAxisPointerValue,
+                    "state": stateAxisPointerValue,
+                    "handle": handleAxisPointerValue
+                ]
+                
+                expect(axisPointer.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let axisPointerByEnums = RadiusAxis.AxisPointer(
+                    .show(showAxisPointerValue),
+                    .type(typeAxisPointerValue),
+                    .snap(snapAxisPointerValue),
+                    .z(zAxisPointerValue),
+                    .label(labelAxisPointerValue),
+                    .lineStyle(lineStyleAxisPointerValue),
+                    .shadowStyle(shadowStyleAxisPointerValue),
+                    .triggerTooltip(triggerTooltipAxisPointerValue),
+                    .value(valueAxisPointerValue),
+                    .state(stateAxisPointerValue),
+                    .handle(handleAxisPointerValue)
+                )
+                
+                expect(axisPointerByEnums.jsonString).to(equal(axisPointer.jsonString))
             }
         }
     }

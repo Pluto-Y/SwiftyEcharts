@@ -54,7 +54,7 @@ public final class ScatterSerie: Serie, Symbolized, Animatable, Zable {
     /// 如果需要每个数据的图形大小不一样，可以设置为如下格式的回调函数：
     /// (value: Array|number, params: Object) => number|Array
     /// 其中第一个参数 value 为 data 中的数据值。第二个参数params 是其它的数据项参数。
-    public var symbolSize: FunctionOrFloatOrPair? // FIXME: 暂不支持方法
+    public var symbolSize: FunctionOrFloatOrPair?
     /// 标记的旋转角度。注意在 markLine 中当 symbol 为 'arrow' 时会忽略 symbolRotate 强制设置为切线的角度。
     public var symbolRotate: Float?
     /// 标记相对于原本位置的偏移。默认情况下，标记会居中置放在数据对应的位置，但是如果 symbol 是自定义的矢量路径或者图片，就有可能不希望 symbol 居中。这时候可以使用该配置项配置 symbol 相对于原本居中的偏移，可以是绝对的像素值，也可以是相对的百分比。

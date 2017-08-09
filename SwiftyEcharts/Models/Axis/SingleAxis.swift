@@ -193,14 +193,41 @@ public final class SingleAxis: Zable {
     ///             color: 'red'
     ///         }
     ///     }, '周二', '周三', '周四', '周五', '周六', '周日']
-    public var data: [Any]?
+    public var data: [Jsonable]?
     
     public init() {}
 }
 
+extension SingleAxis.Data: Enumable {
+    public enum Enums {
+        case value(String), textStyle(TextStyle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .value(value):
+                self.value = value
+            case let .textStyle(textStyle):
+                self.textStyle = textStyle
+            }
+        }
+    }
+}
+
+extension SingleAxis.Data: Mappable {
+    public func mapping(map: Mapper) {
+        map["value"] = value
+        map["textStyle"] = textStyle
+    }
+}
+
 extension SingleAxis: Enumable {
 	public enum Enums {
-		case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float), orient(Orient), type(AxisType), name(String), nameLocation(NameLocation), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Jsonable), max(Jsonable), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Any])
+		case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float), orient(Orient), type(AxisType), name(String), nameLocation(NameLocation), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Jsonable), max(Jsonable), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable])
 	}
 
 	public typealias ContentEnum = Enums
@@ -312,32 +339,5 @@ extension SingleAxis: Mappable {
 		map["splitLine"] = splitLine
 		map["splitArea"] = splitArea
 		map["data"] = data
-	}
-}
-
-extension SingleAxis.Data: Enumable {
-	public enum Enums {
-		case value(String), textStyle(TextStyle)
-	}
-
-	public typealias ContentEnum = Enums
-
-	public convenience init(_ elements: Enums...) {
-        self.init()
-		for ele in elements {
-			switch ele {
-				case let .value(value):
-					self.value = value
-				case let .textStyle(textStyle):
-					self.textStyle = textStyle
-			}
-		}
-	}
-}
-
-extension SingleAxis.Data: Mappable {
-	public func mapping(map: Mapper) {
-		map["value"] = value
-		map["textStyle"] = textStyle
 	}
 }

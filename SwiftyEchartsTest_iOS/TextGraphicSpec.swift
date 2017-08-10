@@ -41,7 +41,7 @@ class TextGraphicSpec: QuickSpec {
         style.shadowOffsetY = shadowOffsetYStyleValue
         style.shadowColor = shadowColorStyleValue
         
-        describe("For TextGraphic.Style") { 
+        describe("For TextGraphic.Style") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "text": textStyleValue,
@@ -80,6 +80,91 @@ class TextGraphicSpec: QuickSpec {
                 )
                 
                 expect(styleByEnums.jsonString).to(equal(style.jsonString))
+            }
+        }
+        
+        describe("For TextGraphic") {
+            let typeValue = GraphicType.text
+            let idValue = "textGraphicIdValue"
+            let actionValue = GraphicAction.replace
+            let leftValue = Position.insideLeft
+            let topValue = Position.insideTop
+            let rightValue = Position.insideRight
+            let bottomValue = Position.insideBottom
+            let boundingValue = GraphicBounding.all
+            let zValue: Float = -0.5
+            let zlevelValue: Float = 875723.3247
+            let silentValue = true
+            let invisibleValue = false
+            let cursorValue = "textGraphicCursorValue"
+            let draggableValue = false
+            let progressiveValue = true
+            let styleValue = style
+            
+            let textGraphic = TextGraphic()
+            textGraphic.id = idValue
+            textGraphic.action = actionValue
+            textGraphic.left = leftValue
+            textGraphic.right = rightValue
+            textGraphic.top = topValue
+            textGraphic.bottom = bottomValue
+            textGraphic.bounding = boundingValue
+            textGraphic.z = zValue
+            textGraphic.zlevel = zlevelValue
+            textGraphic.silent = silentValue
+            textGraphic.invisible = invisibleValue
+            textGraphic.cursor = cursorValue
+            textGraphic.draggable = draggableValue
+            textGraphic.progressive = progressiveValue
+            textGraphic.style = styleValue
+            
+            it("needs to check the type value") {
+                expect(textGraphic.type.jsonString).to(equal(typeValue.jsonString))
+            }
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": typeValue,
+                    "id": idValue,
+                    "$action": actionValue,
+                    "left": leftValue,
+                    "right": rightValue,
+                    "top": topValue,
+                    "bottom": bottomValue,
+                    "bounding": boundingValue,
+                    "z": zValue,
+                    "zlevel": zlevelValue,
+                    "silent": silentValue,
+                    "invisible": invisibleValue,
+                    "cursor": cursorValue,
+                    "draggable": draggableValue,
+                    "progressive": progressiveValue,
+                    "style": styleValue
+                ]
+                
+                expect(textGraphic.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let textGraphicByEnums = TextGraphic(
+                    .id(idValue),
+                    .action(actionValue),
+                    .left(leftValue),
+                    .right(rightValue),
+                    .top(topValue),
+                    .bottom(bottomValue),
+                    .bounding(boundingValue),
+                    .z(zValue),
+                    .zlevel(zlevelValue),
+                    .silent(silentValue),
+                    .invisible(invisibleValue),
+                    .cursor(cursorValue),
+                    .draggable(draggableValue),
+                    .progressive(progressiveValue),
+                    .style(styleValue)
+                )
+                
+                expect(textGraphicByEnums.jsonString).to(equal(textGraphic.jsonString))
             }
         }
     }

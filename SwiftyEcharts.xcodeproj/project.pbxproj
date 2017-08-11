@@ -60,6 +60,7 @@
 		6F015AC71F3ACB7100A2576F /* SliderDataZoomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F015AC61F3ACB7100A2576F /* SliderDataZoomSpec.swift */; };
 		6F015AC91F3C6ECA00A2576F /* TextGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F015AC81F3C6ECA00A2576F /* TextGraphicSpec.swift */; };
 		6F015ACB1F3DD70100A2576F /* ThemeRiverSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F015ACA1F3DD70100A2576F /* ThemeRiverSerieSpec.swift */; };
+		6F015ACD1F3DE02700A2576F /* TimelineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F015ACC1F3DE02700A2576F /* TimelineSpec.swift */; };
 		6F0AB1BF1F3010B700A71D9A /* PolygonGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */; };
 		6F0AB1C11F318B7700A71D9A /* PolylineGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1C01F318B7700A71D9A /* PolylineGraphicSpec.swift */; };
 		6F0AB1C51F31C43200A71D9A /* RadarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1C41F31C43200A71D9A /* RadarSpec.swift */; };
@@ -480,6 +481,7 @@
 		6F015AC61F3ACB7100A2576F /* SliderDataZoomSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderDataZoomSpec.swift; sourceTree = "<group>"; };
 		6F015AC81F3C6ECA00A2576F /* TextGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextGraphicSpec.swift; sourceTree = "<group>"; };
 		6F015ACA1F3DD70100A2576F /* ThemeRiverSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeRiverSerieSpec.swift; sourceTree = "<group>"; };
+		6F015ACC1F3DE02700A2576F /* TimelineSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineSpec.swift; sourceTree = "<group>"; };
 		6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonGraphicSpec.swift; sourceTree = "<group>"; };
 		6F0AB1C01F318B7700A71D9A /* PolylineGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolylineGraphicSpec.swift; sourceTree = "<group>"; };
 		6F0AB1C41F31C43200A71D9A /* RadarSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarSpec.swift; sourceTree = "<group>"; };
@@ -1146,6 +1148,7 @@
 				6F015AC61F3ACB7100A2576F /* SliderDataZoomSpec.swift */,
 				6F015AC81F3C6ECA00A2576F /* TextGraphicSpec.swift */,
 				6F015ACA1F3DD70100A2576F /* ThemeRiverSerieSpec.swift */,
+				6F015ACC1F3DE02700A2576F /* TimelineSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1787,6 +1790,7 @@
 				6F0AB1D81F38EE7900A71D9A /* SectorGraphicSpec.swift in Sources */,
 				6F98F1B71F289271006DC141 /* MarkLineSpec.swift in Sources */,
 				6F0AB1BF1F3010B700A71D9A /* PolygonGraphicSpec.swift in Sources */,
+				6F015ACD1F3DE02700A2576F /* TimelineSpec.swift in Sources */,
 				6F015AC71F3ACB7100A2576F /* SliderDataZoomSpec.swift in Sources */,
 				6F6331491EF6C6B400EC9D24 /* PositionSpec.swift in Sources */,
 				6F201F021F03847400087764 /* AngleAxisSpec.swift in Sources */,

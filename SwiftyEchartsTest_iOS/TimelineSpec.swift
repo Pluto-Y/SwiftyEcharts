@@ -71,5 +71,36 @@ class TimelineSpec: QuickSpec {
                 expect(checkpointStyleByEnums.jsonString).to(equal(checkpointStyle.jsonString))
             }
         }
+        
+        let colorCStyleValue = Color.transparent
+        let borderWidthCStyleValue: Float = 85.347
+        let borderColorCSstyleValue = Color.hexColor("#11ffaa")
+        
+        let cStyle = Timeline.ControlStyle.CStyle()
+        cStyle.color = colorCStyleValue
+        cStyle.borderWidth = borderWidthCStyleValue
+        cStyle.borderColor = borderColorCSstyleValue
+        
+        describe("For Timeline.ControlStyle.CStyle") { 
+            it("needs to chek the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "color": colorCStyleValue,
+                    "borderWidth": borderWidthCStyleValue,
+                    "borderColor": borderColorCSstyleValue
+                ]
+                
+                expect(cStyle.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let cStyleByEnums = Timeline.ControlStyle.CStyle(
+                    .color(colorCStyleValue),
+                    .borderWidth(borderWidthCStyleValue),
+                    .borderColor(borderColorCSstyleValue)
+                )
+                
+                expect(cStyleByEnums.jsonString).to(equal(cStyle.jsonString))
+            }
+        }
     }
 }

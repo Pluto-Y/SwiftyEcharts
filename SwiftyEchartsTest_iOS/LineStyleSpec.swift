@@ -13,6 +13,7 @@ import SwiftyEcharts
 class LineStyleSpec: QuickSpec {
     override func spec() {
         
+        let showValue = true
         let colorValue = Color.array(["red", .blue, .hexColor("#f8f")])
         let widthValue: Float = 29.5
         let typeValue = LineType.dashed
@@ -24,6 +25,7 @@ class LineStyleSpec: QuickSpec {
         let curvenessValue: Float = 33
         
         let lineStyleNormal = LineStyle()
+        lineStyleNormal.show = showValue
         lineStyleNormal.color = colorValue
         lineStyleNormal.width = widthValue
         lineStyleNormal.type = typeValue
@@ -35,6 +37,7 @@ class LineStyleSpec: QuickSpec {
         lineStyleNormal.curveness = curvenessValue
         
         let lineStyleEmphasis = LineStyle(
+            .show(false),
             .color(Color.red),
             .width(30),
             .type(.dotted),
@@ -49,6 +52,7 @@ class LineStyleSpec: QuickSpec {
         describe("For LineStyle") {
             
             let resultDic: [String: Jsonable] = [
+                "show": showValue,
                 "color": colorValue,
                 "width": widthValue,
                 "type": typeValue,
@@ -66,6 +70,7 @@ class LineStyleSpec: QuickSpec {
             
             it("needs to check Enumable") {
                 let lineStyleByEnums = LineStyle(
+                    .show(showValue),
                     .color(colorValue),
                     .width(widthValue),
                     .type(typeValue),

@@ -88,47 +88,6 @@
 /// ECharts 3 和 ECharts 2 相比，timeline 属性的定义位置有所不同，移到了 baseOption 中，统一作为一个普通的组件看待。但是，仍然兼容 ECharts2 的 timeline 定义位置，只是不再推荐这样写。
 public final class Timeline: Displayable, Symbolized, Zable {
     
-    public final class LineStyle: Displayable, Shadowable, Colorful, Opacitable {
-        /// 是否显示轴线。可以设置为 false 不显示轴线，则可以做出不同的样式效果。
-        public var show: Bool?
-        /// timeline 线的颜色。
-        /// 颜色可以使用 RGB 表示，比如 'rgb(128, 128, 128)'，如果想要加上 alpha 通道表示不透明度，可以使用 RGBA，比如 'rgba(128, 128, 128, 0.5)'，也可以使用十六进制格式，比如 '#ccc'。除了纯色之外颜色也支持渐变色和纹理填充
-        ///
-        ///     // 线性渐变，前四个参数分别是 x0, y0, x2, y2, 范围从 0 - 1，相当于在图形包围盒中的百分比，如果最后一个参数传 `true`，则该四个值是绝对的像素位置
-        ///     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-        ///         offset: 0, color: 'red' // 0% 处的颜色
-        ///     }, {
-        ///         offset: 1, color: 'blue' // 100% 处的颜色
-        ///     }], false)
-        ///     // 径向渐变，前三个参数分别是圆心 x, y 和半径，取值同线性渐变
-        ///     color: new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [...], false)
-        ///     // 纹理填充
-        ///     color: new echarts.graphic.Pattern(
-        ///         imageDom, // 支持为 HTMLImageElement, HTMLCanvasElement，不支持路径字符串
-        ///         'repeat' // 是否平铺, 可以是 repeat-x, repeat-y, no-repeat
-        ///     )
-        public var color: Color?
-        /// timeline 线宽。
-        public var width: Float?
-        /// timeline 线的类型。
-        public var type: LineType?
-        /// 图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果。
-        /// 示例：
-        ///
-        ///     {
-        ///         shadowColor: 'rgba(0, 0, 0, 0.5)',
-        ///         shadowBlur: 10
-        ///     }
-        public var shadowBlur: Float?
-        /// 阴影颜色。支持的格式同color。
-        public var shadowColor: Color?
-        /// 阴影水平方向上的偏移距离。
-        public var shadowOffsetX: Float?
-        /// 阴影垂直方向上的偏移距离。
-        public var shadowOffsetY: Float?
-        /// 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
-        public var opacity: Float?
-    }
     
     public final class CheckpointStyle: Symbolized, Colorful, Borderable {
         /// timeline.checkpointStyle 标记的图形。
@@ -300,54 +259,6 @@ public final class Timeline: Displayable, Symbolized, Zable {
     /// 数据
     public var data: [Jsonable]?
     
-}
-
-extension Timeline.LineStyle: Enumable {
-    public enum Enums {
-        case show(Bool), color(Color), width(Float), type(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public convenience init(_ elements: Enums...) {
-        self.init()
-        for ele in elements {
-            switch ele {
-            case let .show(show):
-                self.show = show
-            case let .color(color):
-                self.color = color
-            case let .width(width):
-                self.width = width
-            case let .type(type):
-                self.type = type
-            case let .shadowBlur(blur):
-                self.shadowBlur = blur
-            case let .shadowColor(color):
-                self.shadowColor = color
-            case let .shadowOffsetX(x):
-                self.shadowOffsetX = x
-            case let .shadowOffsetY(y):
-                self.shadowOffsetY = y
-            case let .opacity(opacity):
-                self.opacity = opacity
-            }
-        }
-    }
-}
-
-extension Timeline.LineStyle: Mappable {
-    public func mapping(map: Mapper) {
-        map["show"] = show
-        map["color"] = color
-        map["width"] = width
-        map["type"] = type
-        map["shadowBlur"] = shadowBlur
-        map["shadowColor"] = shadowColor
-        map["shadowOffsetX"] = shadowOffsetX
-        map["shadowOffsetY"] = shadowOffsetY
-        map["opacity"] = opacity
-    }
 }
 
 extension Timeline.CheckpointStyle: Enumable {

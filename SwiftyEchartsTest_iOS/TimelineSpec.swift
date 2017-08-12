@@ -190,7 +190,7 @@ class TimelineSpec: QuickSpec {
         data.symbol = symbolDataValue
         data.symbolSize = symbolSizeDataValue
         
-        describe("For Timeline.Data") { 
+        describe("For Timeline.Data") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "value": valueDataValue,
@@ -211,6 +211,148 @@ class TimelineSpec: QuickSpec {
                 )
                 
                 expect(dataByEnums.jsonString).to(equal(data.jsonString))
+            }
+        }
+        
+        describe("For Timeline") {
+            let showValue = false
+            let typeValue = "slider"
+            let axisTypeValue = AxisType.category
+            let currentValue: UInt = UInt.max
+            let autoPlayValue = true
+            let rewindValue = false
+            let loopValue = false
+            let playIntervalValue: Float = 85.348
+            let realtimeValue = true
+            let controlPositionValue = "right"
+            let zlevelValue: Float = 85.347
+            let zValue: Float = 586845
+            let leftValue = Position.bottom
+            let rightValue = Position.center
+            let topValue = Position.end
+            let bottomValue = Position.inner
+            let paddingValue = Padding.all(58)
+            let orientValue = Orient.horizontal
+            let inverseValue = false
+            let symbolOriginValue = Symbol.arrow
+            let symbolValue = OneOrMore(one: symbolOriginValue)
+            let symbolSizeValue: FunctionOrFloatOrPair = [20, 10]
+            let symbolRotateValue: Float = 573.74
+            let symbolOffsetValue: Point = [0, 50%]
+            let lineStyleValue = LineStyle(
+                .show(true),
+                .type(LineType.dotted),
+                .shadowBlur(75.37)
+            )
+            let itemStyleValue = ItemStyle(
+                .emphasis(CommonItemStyleContent(
+                    .color(Color.yellow),
+                    .opacity(0.3476),
+                    .shadowBlur(7437843.823784)
+                    ))
+            )
+            let checkpointStyleValue = checkpointStyle
+            let controlStyleValue = controlStyle
+            let dataValue: [Jsonable] = [
+                "周二", 85.73, 74, false, "Friday"
+            ]
+            
+            let timeline = Timeline()
+            timeline.show = showValue
+            timeline.axisType = axisTypeValue
+            timeline.current = currentValue
+            timeline.autoPlay = autoPlayValue
+            timeline.rewind = rewindValue
+            timeline.loop = loopValue
+            timeline.playInterval = playIntervalValue
+            timeline.realtime = realtimeValue
+            timeline.controlPosition = controlPositionValue
+            timeline.zlevel = zlevelValue
+            timeline.z = zValue
+            timeline.left = leftValue
+            timeline.top = topValue
+            timeline.right = rightValue
+            timeline.bottom = bottomValue
+            timeline.padding = paddingValue
+            timeline.orient = orientValue
+            timeline.inverse = inverseValue
+            timeline.symbol = symbolValue
+            timeline.symbolSize = symbolSizeValue
+            timeline.symbolRotate = symbolRotateValue
+            timeline.symbolOffset = symbolOffsetValue
+            timeline.lineStyle = lineStyleValue
+            timeline.itemStyle = itemStyleValue
+            timeline.checkpointStyle = checkpointStyleValue
+            timeline.controlStyle = controlStyleValue
+            timeline.data = dataValue
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showValue,
+                    "type": typeValue,
+                    "axisType": axisTypeValue,
+                    "current": currentValue,
+                    "autoPlay": autoPlayValue,
+                    "rewind": rewindValue,
+                    "loop": loopValue,
+                    "playInterval": playIntervalValue,
+                    "realtime": realtimeValue,
+                    "controlPosition": controlPositionValue,
+                    "zlevel": zlevelValue,
+                    "z": zValue,
+                    "left": leftValue,
+                    "top": topValue,
+                    "right": rightValue,
+                    "bottom": bottomValue,
+                    "padding": paddingValue,
+                    "orient": orientValue,
+                    "inverse": inverseValue,
+                    "symbol": symbolValue,
+                    "symbolSize": symbolSizeValue,
+                    "symbolRotate": symbolRotateValue,
+                    "symbolOffset": symbolOffsetValue,
+                    "lineStyle": lineStyleValue,
+                    "itemStyle": itemStyleValue,
+                    "checkpointStyle": checkpointStyleValue,
+                    "controlStyle": controlStyleValue,
+                    "data": dataValue
+                ]
+                
+                expect(timeline.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let timelineByEnums = Timeline(
+                    .show(showValue),
+                    .axisType(axisTypeValue),
+                    .current(currentValue),
+                    .autoPlay(autoPlayValue),
+                    .rewind(rewindValue),
+                    .loop(loopValue),
+                    .playInterval(playIntervalValue),
+                    .realtime(realtimeValue),
+                    .controlPosition(controlPositionValue),
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .left(leftValue),
+                    .top(topValue),
+                    .right(rightValue),
+                    .bottom(bottomValue),
+                    .padding(paddingValue),
+                    .orient(orientValue),
+                    .inverse(inverseValue),
+                    .symbol(symbolOriginValue),
+                    .symbolSize(symbolSizeValue),
+                    .symbolRotate(symbolRotateValue),
+                    .symbolOffset(symbolOffsetValue),
+                    .lineStyle(lineStyleValue),
+                    .itemStyle(itemStyleValue),
+                    .checkpointStyle(checkpointStyleValue),
+                    .controlStyle(controlStyleValue),
+                    .data(dataValue)
+                )
+                
+                expect(timelineByEnums.jsonString).to(equal(timeline.jsonString))
             }
         }
     }

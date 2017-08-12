@@ -13,7 +13,10 @@ public protocol LineStyleContent: Colorful, Shadowable, Opacitable {
 
 
 /// 线条样式
-public final class LineStyle: Shadowable, Colorful, Opacitable, Jsonable {
+public final class LineStyle: Displayable, Shadowable, Colorful, Opacitable, Jsonable {
+    
+    /// 是否显示
+    public var show: Bool?
     /// 线的颜色。
     public var color: Color?
     /// 线宽。
@@ -42,7 +45,7 @@ public final class LineStyle: Shadowable, Colorful, Opacitable, Jsonable {
 
 extension LineStyle: Enumable {
     public enum Enums {
-        case color(Color), width(Float), type(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), curveness(Float)
+        case show(Bool), color(Color), width(Float), type(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), curveness(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -51,6 +54,8 @@ extension LineStyle: Enumable {
         self.init()
         for ele in elements {
             switch ele {
+            case let .show(show):
+                self.show = show
             case let .color(color):
                 self.color = color
             case let .width(width):
@@ -76,6 +81,7 @@ extension LineStyle: Enumable {
 
 extension LineStyle: Mappable {
     public func mapping(_ map: Mapper) {
+        map["show"] = show
         map["color"] = color
         map["width"] = width
         map["type"] = type

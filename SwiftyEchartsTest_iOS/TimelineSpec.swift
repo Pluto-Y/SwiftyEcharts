@@ -173,5 +173,45 @@ class TimelineSpec: QuickSpec {
                 expect(controlStyleByEnums.jsonString).to(equal(controlStyle.jsonString))
             }
         }
+        
+        let valueDataValue: Jsonable = 5.7346
+        let tooltipDataValue = Tooltip(
+            .trigger(.axis),
+            .axisPointer(Tooltip.AxisPointer(
+                .type(.shadow)
+                ))
+        )
+        let symbolDataValue = Symbol.roundRect
+        let symbolSizeDataValue = FunctionOrFloatOrPair.value(58.347)
+        
+        let data = Timeline.Data()
+        data.value = valueDataValue
+        data.tooltip = tooltipDataValue
+        data.symbol = symbolDataValue
+        data.symbolSize = symbolSizeDataValue
+        
+        describe("For Timeline.Data") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "value": valueDataValue,
+                    "tooltip": tooltipDataValue,
+                    "symbol": symbolDataValue,
+                    "symbolSize": symbolSizeDataValue
+                ]
+                
+                expect(data.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let dataByEnums = Timeline.Data(
+                    .value(valueDataValue),
+                    .tooltip(tooltipDataValue),
+                    .symbol(symbolDataValue),
+                    .symbolSize(symbolSizeDataValue)
+                )
+                
+                expect(dataByEnums.jsonString).to(equal(data.jsonString))
+            }
+        }
     }
 }

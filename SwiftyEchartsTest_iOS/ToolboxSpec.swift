@@ -87,5 +87,38 @@ class ToolboxSpec: QuickSpec {
                 expect(iconStyleContentByEnums.jsonString).to(equal(iconStyleContentByEnums.jsonString))
             }
         }
+        
+        let normalIconStyleValue = iconStyleContent
+        let emphasisIconStyleValue = Toolbox.IconStyleContent(
+            .opacity(0.47623),
+            .color(Color.yellow),
+            .borderWidth(8745.28374),
+            .textAlign(Align.left),
+            .textPosition(Position.left)
+        )
+        
+        let iconStyle = Toolbox.IconStyle()
+        iconStyle.normal = normalIconStyleValue
+        iconStyle.emphasis = emphasisIconStyleValue
+        
+        describe("For IconStyle") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "normal": normalIconStyleValue,
+                    "emphasis": emphasisIconStyleValue
+                ]
+                
+                expect(iconStyle.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let iconStyleByEnums = Toolbox.IconStyle(
+                    .normal(normalIconStyleValue),
+                    .emphasis(emphasisIconStyleValue)
+                )
+                
+                expect(iconStyleByEnums.jsonString).to(equal(iconStyle.jsonString))
+            }
+        }
     }
 }

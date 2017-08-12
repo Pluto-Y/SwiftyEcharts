@@ -102,5 +102,76 @@ class TimelineSpec: QuickSpec {
                 expect(cStyleByEnums.jsonString).to(equal(cStyle.jsonString))
             }
         }
+        
+        let showControlStyleValue = false
+        let showPlayBtnControlStyleValue = false
+        let showPrevBtnControlStyleValue = false
+        let showNextBtnControlStyleValue = false
+        let itemSizeControlStyleValue: Float = 0.857
+        let itemGapControlStyleValue: Float = 5734
+        let positionControlStyleValue = Position.left
+        let playIconControlStyleValue = "timelineControlStylePlayIcon"
+        let stopIconControlStyleValue = "timelineControlStyleStopIcon"
+        let prevIconControlStyleValue = "timelineControlStylePrevIcon"
+        let nextIconControlStyleValue = "timelineControlStyleNextIcon"
+        let normalControlStyleValue = cStyle
+        let emphasisControlStyleValue = cStyle
+        
+        let controlStyle = Timeline.ControlStyle()
+        controlStyle.show = showControlStyleValue
+        controlStyle.showPlayBtn = showPlayBtnControlStyleValue
+        controlStyle.showPrevBtn = showPrevBtnControlStyleValue
+        controlStyle.showNextBtn = showNextBtnControlStyleValue
+        controlStyle.itemSize = itemSizeControlStyleValue
+        controlStyle.itemGap = itemGapControlStyleValue
+        controlStyle.position = positionControlStyleValue
+        controlStyle.playIcon = playIconControlStyleValue
+        controlStyle.stopIcon = stopIconControlStyleValue
+        controlStyle.prevIcon = prevIconControlStyleValue
+        controlStyle.nextIcon = nextIconControlStyleValue
+        controlStyle.normal = normalControlStyleValue
+        controlStyle.emphasis = emphasisControlStyleValue
+        
+        describe("For Timeline.ControlStyle") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showControlStyleValue,
+                    "showPlayBtn": showPlayBtnControlStyleValue,
+                    "showPrevBtn": showPrevBtnControlStyleValue,
+                    "showNextBtn": showNextBtnControlStyleValue,
+                    "itemSize": itemSizeControlStyleValue,
+                    "itemGap": itemGapControlStyleValue,
+                    "position": positionControlStyleValue,
+                    "playIcon": playIconControlStyleValue,
+                    "stopIcon": stopIconControlStyleValue,
+                    "prevIcon": prevIconControlStyleValue,
+                    "nextIcon": nextIconControlStyleValue,
+                    "normal": normalControlStyleValue,
+                    "emphasis": emphasisControlStyleValue
+                ]
+                
+                expect(controlStyle.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let controlStyleByEnums = Timeline.ControlStyle(
+                    .show(showControlStyleValue),
+                    .showPlayBtn(showPlayBtnControlStyleValue),
+                    .showPrevBtn(showPrevBtnControlStyleValue),
+                    .showNextBtn(showNextBtnControlStyleValue),
+                    .itemSize(itemSizeControlStyleValue),
+                    .itemGap(itemGapControlStyleValue),
+                    .position(positionControlStyleValue),
+                    .playIcon(playIconControlStyleValue),
+                    .stopIcon(stopIconControlStyleValue),
+                    .prevIcon(prevIconControlStyleValue),
+                    .nextIcon(nextIconControlStyleValue),
+                    .normal(normalControlStyleValue),
+                    .emphasis(emphasisControlStyleValue)
+                )
+                
+                expect(controlStyleByEnums.jsonString).to(equal(controlStyle.jsonString))
+            }
+        }
     }
 }

@@ -120,5 +120,60 @@ class ToolboxSpec: QuickSpec {
                 expect(iconStyleByEnums.jsonString).to(equal(iconStyle.jsonString))
             }
         }
+        
+        let typeSaveAsImageValue = Toolbox.Feature.SaveAsImage.Type.jpeg
+        let nameSaveAsImageValue = "saveAsImageNameValue"
+        let backgroundColorSaveAsImageValue = Color.hexColor("#873abc")
+        let excludeComponentsSaveAsImageValue: [String] = ["excludeComponent1", "excludeComponent2"]
+        let showSaveAsImageValue = false
+        let titleSaveAsImageValue = "saveAsImageTitleValue"
+        let iconSaveAsImageValue = "saveAsImageIconValue"
+        let iconStyleSaveAsImageValue = iconStyle
+        let pixelRatioSaveAsImageValue: Float = 2
+        
+        let saveAsImage = Toolbox.Feature.SaveAsImage()
+        saveAsImage.type = typeSaveAsImageValue
+        saveAsImage.name = nameSaveAsImageValue
+        saveAsImage.backgroundColor = backgroundColorSaveAsImageValue
+        saveAsImage.excludeComponents = excludeComponentsSaveAsImageValue
+        saveAsImage.show = showSaveAsImageValue
+        saveAsImage.title = titleSaveAsImageValue
+        saveAsImage.icon = iconSaveAsImageValue
+        saveAsImage.iconStyle = iconStyleSaveAsImageValue
+        saveAsImage.pixelRatio = pixelRatioSaveAsImageValue
+        
+        describe("For Toolbox.Feature.SaveAsImage") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": typeSaveAsImageValue,
+                    "name": nameSaveAsImageValue,
+                    "backgroundColor": backgroundColorSaveAsImageValue,
+                    "excludeComponents": excludeComponentsSaveAsImageValue,
+                    "show": showSaveAsImageValue,
+                    "title": titleSaveAsImageValue,
+                    "icon": iconSaveAsImageValue,
+                    "iconStyle": iconStyleSaveAsImageValue,
+                    "pixelRatio": pixelRatioSaveAsImageValue
+                ]
+                
+                expect(saveAsImage.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let saveAsImageByEnums = Toolbox.Feature.SaveAsImage(
+                    .type(typeSaveAsImageValue),
+                    .name(nameSaveAsImageValue),
+                    .backgroundColor(backgroundColorSaveAsImageValue),
+                    .excludeComponents(excludeComponentsSaveAsImageValue),
+                    .show(showSaveAsImageValue),
+                    .title(titleSaveAsImageValue),
+                    .icon(iconSaveAsImageValue),
+                    .iconStyle(iconStyleSaveAsImageValue),
+                    .pixelRatio(pixelRatioSaveAsImageValue)
+                )
+                
+                expect(saveAsImageByEnums.jsonString).to(equal(saveAsImage.jsonString))
+            }
+        }
     }
 }

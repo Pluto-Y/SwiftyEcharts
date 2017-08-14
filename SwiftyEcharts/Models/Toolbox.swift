@@ -466,20 +466,14 @@ extension Toolbox.Feature {
                 switch self {
                 case let .bool(b):
                     if b {
-                        return "\"all\""
+                        return "all".jsonString
                     } else {
-                        return "\"none\""
+                        return "none".jsonString
                     }
                 case let .int(i):
                     return "\(i)"
                 case let .array(arr):
-                    var result = "["
-                    for i in arr {
-                        result = "\(i),"
-                    }
-                    result = result.substring(to: result.characters.index(before: result.endIndex))
-                    result += "]"
-                    return result
+                    return arr.jsonString
                 }
             }
         }
@@ -513,6 +507,22 @@ extension Toolbox.Feature {
         /// 指定哪些 yAxis 被控制。如果缺省则控制所有的y轴。如果设置为 false 则不控制任何y轴。如果设置成 3 则控制 axisIndex 为 3 的y轴。如果设置为 [0, 3] 则控制 axisIndex 为 0 和 3 的y轴。
         public var yAxisIndex: AxisIndexSelector?
     }
+}
+
+extension Toolbox.Feature.DataZoom.AxisIndexSelector: ExpressibleByBooleanLiteral, ExpressibleByIntegerLiteral, ExpressibleByArrayLiteral {
+    
+    public init(booleanLiteral value: Bool) {
+        self = .bool(value)
+    }
+
+    public init(integerLiteral value: UInt) {
+        self = .int(value)
+    }
+
+    public init(arrayLiteral elements: UInt...) {
+        self = .array(elements)
+    }
+    
 }
 
 extension Toolbox.Feature.DataZoom.Title: Enumable {

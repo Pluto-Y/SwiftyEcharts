@@ -194,7 +194,7 @@ class ToolboxSpec: QuickSpec {
         restore.icon = iconRestoreValue
         restore.iconStyle = iconStyleRestoreValue
         
-        describe("For Toolbox.Feature.Restore") { 
+        describe("For Toolbox.Feature.Restore") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "show": showRestoreValue,
@@ -215,6 +215,80 @@ class ToolboxSpec: QuickSpec {
                 )
                 
                 expect(restoreByEnums.jsonString).to(equal(restore.jsonString))
+            }
+        }
+        
+        let showDataViewValue = true
+        let titleDataViewValue = "dataViewTitleValue"
+        let iconDataViewValue = "dataViewIconValue"
+        let iconStyleDataViewValue = Toolbox.IconStyle(
+            .normal(Toolbox.IconStyleContent(
+                .borderWidth(0.00001),
+                .opacity(0.99999999),
+                .shadowOffsetY(100.01),
+                .shadowOffsetX(999.0001)
+                ))
+        )
+        let readOnlyDataViewValue = false
+        let langDataViewValue: [String] = ["数据视图", "关闭", "刷新"]
+        let backgroundColorDataViewValue = Color.array([Color.hexColor("#123abc"), Color.red, rgba(200, 19, 67, 0.888888)])
+        let textareaColorDataViewValue = Color.hexColor("#667788")
+        let textareaBorderColorDataViewValue = Color.rgb(99, 100, 101)
+        let textColorDataViewValue = Color.red
+        let buttonColorDataViewValue = Color.auto
+        let buttonTextColorDataViewValue = rgba(0, 0, 0, 0)
+        
+        let dataView = Toolbox.Feature.DataView()
+        dataView.show = showDataViewValue
+        dataView.title = titleDataViewValue
+        dataView.icon = iconDataViewValue
+        dataView.iconStyle = iconStyleDataViewValue
+        dataView.readOnly = readOnlyDataViewValue
+        dataView.lang = langDataViewValue
+        dataView.backgroundColor = backgroundColorDataViewValue
+        dataView.textareaColor = textareaColorDataViewValue
+        dataView.textareaBorderColor = textareaBorderColorDataViewValue
+        dataView.textColor = textColorDataViewValue
+        dataView.buttonColor = buttonColorDataViewValue
+        dataView.buttonTextColor = buttonTextColorDataViewValue
+        
+        describe("For ToolboxFeature.DataView") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showDataViewValue,
+                    "title": titleDataViewValue,
+                    "icon": iconDataViewValue,
+                    "iconStyle": iconStyleDataViewValue,
+                    "readOnly": readOnlyDataViewValue,
+                    "lang": langDataViewValue,
+                    "backgroundColor": backgroundColorDataViewValue,
+                    "textareaColor": textareaColorDataViewValue,
+                    "textareaBorderColor": textareaBorderColorDataViewValue,
+                    "textColor": textColorDataViewValue,
+                    "buttonColor": buttonColorDataViewValue,
+                    "buttonTextColor": buttonTextColorDataViewValue
+                ]
+                
+                expect(dataView.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let dataViewByEnums = Toolbox.Feature.DataView(
+                    .show(showDataViewValue),
+                    .title(titleDataViewValue),
+                    .icon(iconDataViewValue),
+                    .iconStyle(iconStyleDataViewValue),
+                    .readOnly(readOnlyDataViewValue),
+                    .lang(langDataViewValue),
+                    .backgroundColor(backgroundColorDataViewValue),
+                    .textareaColor(textareaColorDataViewValue),
+                    .textareaBorderColor(textareaBorderColorDataViewValue),
+                    .textColor(textColorDataViewValue),
+                    .buttonColor(buttonColorDataViewValue),
+                    .buttonTextColor(buttonTextColorDataViewValue)
+                )
+                
+                expect(dataViewByEnums.jsonString).to(equal(dataView.jsonString))
             }
         }
     }

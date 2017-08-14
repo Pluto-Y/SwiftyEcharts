@@ -466,20 +466,14 @@ extension Toolbox.Feature {
                 switch self {
                 case let .bool(b):
                     if b {
-                        return "\"all\""
+                        return "all".jsonString
                     } else {
-                        return "\"none\""
+                        return "none".jsonString
                     }
                 case let .int(i):
                     return "\(i)"
                 case let .array(arr):
-                    var result = "["
-                    for i in arr {
-                        result = "\(i),"
-                    }
-                    result = result.substringToIndex(result.endIndex.predecessor())
-                    result += "]"
-                    return result
+                    return arr.jsonString
                 }
             }
         }

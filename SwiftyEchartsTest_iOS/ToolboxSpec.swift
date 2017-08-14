@@ -175,5 +175,47 @@ class ToolboxSpec: QuickSpec {
                 expect(saveAsImageByEnums.jsonString).to(equal(saveAsImage.jsonString))
             }
         }
+        
+        
+        let showRestoreValue = false
+        let titleRestoreValue = "restoreTitleValue"
+        let iconRestoreValue = "restoreIconValue"
+        let iconStyleRestoreValue = Toolbox.IconStyle(
+            .emphasis(Toolbox.IconStyleContent(
+                .color(Color.hexColor("#77fba7")),
+                .textPosition(Position.top),
+                .shadowBlur(7.2736)
+                ))
+        )
+        
+        let restore = Toolbox.Feature.Restore()
+        restore.show = showRestoreValue
+        restore.title = titleRestoreValue
+        restore.icon = iconRestoreValue
+        restore.iconStyle = iconStyleRestoreValue
+        
+        describe("For Toolbox.Feature.Restore") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showRestoreValue,
+                    "title": titleRestoreValue,
+                    "icon": iconRestoreValue,
+                    "iconStyle": iconStyleRestoreValue
+                ]
+                
+                expect(restore.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let restoreByEnums = Toolbox.Feature.Restore(
+                    .show(showRestoreValue),
+                    .title(titleRestoreValue),
+                    .icon(iconRestoreValue),
+                    .iconStyle(iconStyleRestoreValue)
+                )
+                
+                expect(restoreByEnums.jsonString).to(equal(restore.jsonString))
+            }
+        }
     }
 }

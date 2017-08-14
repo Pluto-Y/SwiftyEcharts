@@ -312,6 +312,19 @@ class ToolboxSpec: QuickSpec {
                 expect(intAxisIndexSelector.jsonString).to(equal(intValue.jsonString))
                 expect(arrayAxisIndexSelector.jsonString).to(equal(arrayValue.jsonString))
             }
+            
+            it("needs to check the BooleanLiteralConvertible, IntegerLiteralConvertible, ArrayLiteralConvertible") {
+                let trueLiteral: Toolbox.Feature.DataZoom.AxisIndexSelector = true
+                let falseLiteral: Toolbox.Feature.DataZoom.AxisIndexSelector = false
+                let intLiteral: Toolbox.Feature.DataZoom.AxisIndexSelector = 18446744073709551615
+                let arrayLiteral: Toolbox.Feature.DataZoom.AxisIndexSelector = [UInt.min, UInt(0), UInt(255), UInt(8), UInt(89)]
+                
+                expect(trueLiteral.jsonString).to(equal(trueAxisIndexSelector.jsonString))
+                expect(falseLiteral.jsonString).to(equal(falseAxisIndexSelector.jsonString))
+                expect(intLiteral.jsonString).to(equal(intAxisIndexSelector.jsonString))
+                expect(arrayLiteral.jsonString).to(equal(arrayAxisIndexSelector.jsonString))
+                
+            }
         }
         
         

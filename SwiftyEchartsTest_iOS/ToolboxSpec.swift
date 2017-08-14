@@ -252,7 +252,7 @@ class ToolboxSpec: QuickSpec {
         dataView.buttonColor = buttonColorDataViewValue
         dataView.buttonTextColor = buttonTextColorDataViewValue
         
-        describe("For ToolboxFeature.DataView") { 
+        describe("For ToolboxFeature.DataView") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "show": showDataViewValue,
@@ -291,5 +291,29 @@ class ToolboxSpec: QuickSpec {
                 expect(dataViewByEnums.jsonString).to(equal(dataView.jsonString))
             }
         }
+        
+        describe("For Toolbox.Feature.DataZoom.AxisIndexSelector") {
+            
+            let trueValue = true
+            let falseValue = false
+            let allString = "all"
+            let noneString = "none"
+            let intValue: UInt = UInt.max
+            let arrayValue: [UInt] = [UInt.min, 0, 255, 8, 89]
+            
+            let trueAxisIndexSelector = Toolbox.Feature.DataZoom.AxisIndexSelector.bool(trueValue)
+            let falseAxisIndexSelector = Toolbox.Feature.DataZoom.AxisIndexSelector.bool(falseValue)
+            let intAxisIndexSelector = Toolbox.Feature.DataZoom.AxisIndexSelector.int(intValue)
+            let arrayAxisIndexSelector = Toolbox.Feature.DataZoom.AxisIndexSelector.array(arrayValue)
+            
+            it("needs to check the enum case jsonString") {
+                expect(trueAxisIndexSelector.jsonString).to(equal(allString.jsonString))
+                expect(falseAxisIndexSelector.jsonString).to(equal(noneString.jsonString))
+                expect(intAxisIndexSelector.jsonString).to(equal(intValue.jsonString))
+                expect(arrayAxisIndexSelector.jsonString).to(equal(arrayValue.jsonString))
+            }
+        }
+        
+        
     }
 }

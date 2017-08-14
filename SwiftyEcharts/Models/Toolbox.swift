@@ -509,6 +509,22 @@ extension Toolbox.Feature {
     }
 }
 
+extension Toolbox.Feature.DataZoom.AxisIndexSelector: BooleanLiteralConvertible, IntegerLiteralConvertible, ArrayLiteralConvertible {
+    
+    public init(booleanLiteral value: Bool) {
+        self = .bool(value)
+    }
+
+    public init(integerLiteral value: UInt) {
+        self = .int(value)
+    }
+
+    public init(arrayLiteral elements: UInt...) {
+        self = .array(elements)
+    }
+    
+}
+
 extension Toolbox.Feature.DataZoom.Title: Enumable {
     public enum Enums {
         case zoom(String), back(String)

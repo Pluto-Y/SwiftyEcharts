@@ -354,5 +354,32 @@ class ToolboxSpec: QuickSpec {
                 expect(titleByEnums.jsonString).to(equal(title.jsonString))
             }
         }
+        
+        let zoomIconValue = "dataZoomIconZoomValue"
+        let backIconValue = "dataZoomIconBackValue"
+        
+        let icon = Toolbox.Feature.DataZoom.Icon()
+        icon.zoom = zoomIconValue
+        icon.back = backIconValue
+        
+        describe("For Toolbox.Feature.DataZoom.Icon") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "zoom": zoomIconValue,
+                    "back": backIconValue
+                ]
+                
+                expect(icon.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let iconByEnums = Toolbox.Feature.DataZoom.Icon(
+                    .zoom(zoomIconValue),
+                    .back(backIconValue)
+                )
+                
+                expect(iconByEnums.jsonString).to(equal(icon.jsonString))
+            }
+        }
     }
 }

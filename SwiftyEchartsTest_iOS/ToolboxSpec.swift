@@ -381,5 +381,54 @@ class ToolboxSpec: QuickSpec {
                 expect(iconByEnums.jsonString).to(equal(icon.jsonString))
             }
         }
+        
+        let showDataZoomValue = false
+        let titleDataZoomValue = title
+        let iconDataZoomValue = icon
+        let iconStyleDataZoomValue = Toolbox.IconStyle(
+            .emphasis(Toolbox.IconStyleContent(
+                .opacity(0.576),
+                .color(Color.auto),
+                .borderType(LineType.dashed)
+            ))
+        )
+        let xAxisIndexDataZoomValue = Toolbox.Feature.DataZoom.AxisIndexSelector.bool(false)
+        let yAxisIndexDataZoomValue = Toolbox.Feature.DataZoom.AxisIndexSelector.int(77)
+        
+        let dataZoom = Toolbox.Feature.DataZoom()
+        dataZoom.show = showDataZoomValue
+        dataZoom.title = titleDataZoomValue
+        dataZoom.icon = iconDataZoomValue
+        dataZoom.iconStyle = iconStyleDataZoomValue
+        dataZoom.xAxisIndex = xAxisIndexDataZoomValue
+        dataZoom.yAxisIndex = yAxisIndexDataZoomValue
+        
+        describe("For Toolbox.Feature.DataZoom") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showDataZoomValue,
+                    "title": titleDataZoomValue,
+                    "icon": iconDataZoomValue,
+                    "iconStyle": iconStyleDataZoomValue,
+                    "xAxisIndex": xAxisIndexDataZoomValue,
+                    "yAxisIndex": yAxisIndexDataZoomValue
+                ]
+                
+                expect(dataZoom.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let dataZoomByEnums = Toolbox.Feature.DataZoom(
+                    .show(showDataZoomValue),
+                    .title(titleDataZoomValue),
+                    .icon(iconDataZoomValue),
+                    .iconStyle(iconStyleDataZoomValue),
+                    .xAxisIndex(xAxisIndexDataZoomValue),
+                    .yAxisIndex(yAxisIndexDataZoomValue)
+                )
+                
+                expect(dataZoomByEnums.jsonString).to(equal(dataZoom.jsonString))
+            }
+        }
     }
 }

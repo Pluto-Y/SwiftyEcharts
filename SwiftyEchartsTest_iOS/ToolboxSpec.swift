@@ -327,6 +327,32 @@ class ToolboxSpec: QuickSpec {
             }
         }
         
+     
+        let zoomTitleValue = "dataZoomTitleZoomValue"
+        let backTitleValue = "dataZoomTitleBackValue"
         
+        let title = Toolbox.Feature.DataZoom.Title()
+        title.zoom = zoomTitleValue
+        title.back = backTitleValue
+        
+        describe("For Toolbox.Feature.DataZoom.Title") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "zoom": zoomTitleValue,
+                    "back": backTitleValue
+                ]
+                
+                expect(title.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let titleByEnums = Toolbox.Feature.DataZoom.Title(
+                    .zoom(zoomTitleValue),
+                    .back(backTitleValue)
+                )
+                
+                expect(titleByEnums.jsonString).to(equal(title.jsonString))
+            }
+        }
     }
 }

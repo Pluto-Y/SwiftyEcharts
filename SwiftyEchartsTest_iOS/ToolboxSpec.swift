@@ -403,7 +403,7 @@ class ToolboxSpec: QuickSpec {
         dataZoom.xAxisIndex = xAxisIndexDataZoomValue
         dataZoom.yAxisIndex = yAxisIndexDataZoomValue
         
-        describe("For Toolbox.Feature.DataZoom") { 
+        describe("For Toolbox.Feature.DataZoom") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "show": showDataZoomValue,
@@ -428,6 +428,25 @@ class ToolboxSpec: QuickSpec {
                 )
                 
                 expect(dataZoomByEnums.jsonString).to(equal(dataZoom.jsonString))
+            }
+        }
+        
+        describe("For Toolbox.Feature.MagicType.Type") {
+            let lineString = "line"
+            let barString = "bar"
+            let stackString = "stack"
+            let tiledString = "tiled"
+            
+            let lineType = Toolbox.Feature.MagicType.Type.line
+            let barType = Toolbox.Feature.MagicType.Type.bar
+            let stackType = Toolbox.Feature.MagicType.Type.stack
+            let tiledType = Toolbox.Feature.MagicType.Type.tiled
+            
+            it("needs to check the enum case jsonString") {
+                expect(lineType.jsonString).to(equal(lineString.jsonString))
+                expect(barType.jsonString).to(equal(barString.jsonString))
+                expect(stackType.jsonString).to(equal(stackString.jsonString))
+                expect(tiledType.jsonString).to(equal(tiledString.jsonString))
             }
         }
     }

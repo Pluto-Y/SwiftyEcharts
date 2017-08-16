@@ -519,5 +519,40 @@ class ToolboxSpec: QuickSpec {
                 expect(magicTypeIconByEnums.jsonString).to(equal(magicTypeIcon.jsonString))
             }
         }
+        
+        let showMagicTypeValue = true
+        let typeMagicTypeValue = [Toolbox.Feature.MagicType.Type.line, Toolbox.Feature.MagicType.Type.bar, Toolbox.Feature.MagicType.Type.stack, Toolbox.Feature.MagicType.Type.tiled]
+        let titleMagicTypeValue = magicTypeTitle
+        let iconMaigcTypeValue = magicTypeIcon
+        
+        let magicType = Toolbox.Feature.MagicType()
+        magicType.show = showMagicTypeValue
+        magicType.type = typeMagicTypeValue
+        magicType.title = titleMagicTypeValue
+        magicType.icon = iconMaigcTypeValue
+        
+        describe("For Toolbox.Feature.MagicType") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showMagicTypeValue,
+                    "type": typeMagicTypeValue,
+                    "title": titleMagicTypeValue,
+                    "icon": iconMaigcTypeValue
+                ]
+                
+                expect(magicType.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let magicTypeByEnums = Toolbox.Feature.MagicType(
+                    .show(showMagicTypeValue),
+                    .type(typeMagicTypeValue),
+                    .title(titleMagicTypeValue),
+                    .icon(iconMaigcTypeValue)
+                )
+                
+                expect(magicTypeByEnums.jsonString).to(equal(magicType.jsonString))
+            }
+        }
     }
 }

@@ -622,5 +622,48 @@ class ToolboxSpec: QuickSpec {
                 expect(brushIconByEnums.jsonString).to(equal(brushIcon.jsonString))
             }
         }
+        
+        let rectBrushTitleValue = "brushTitleRectValue"
+        let polygonBrushTitleValue = "brushTitlePolygonValue"
+        let lineXBrushTitleValue = "brushTitleLineXValue"
+        let lineYBrushTitleValue = "brushTitleLineYValue"
+        let keepBrushTitleValue = "brushTitleKeepValue"
+        let clearBrushTitleValue = "brushTitleClearValue"
+        
+        let brushTitle = Toolbox.Feature.Brush.Title()
+        brushTitle.rect = rectBrushTitleValue
+        brushTitle.polygon = polygonBrushTitleValue
+        brushTitle.lineX = lineXBrushTitleValue
+        brushTitle.lineY = lineYBrushTitleValue
+        brushTitle.keep = keepBrushTitleValue
+        brushTitle.clear = clearBrushTitleValue
+        
+        describe("For Toolbox.Feature.Brush.Title") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "rect": rectBrushTitleValue,
+                    "polygon": polygonBrushTitleValue,
+                    "lineX": lineXBrushTitleValue,
+                    "lineY": lineYBrushTitleValue,
+                    "keep": keepBrushTitleValue,
+                    "clear": clearBrushTitleValue
+                ]
+                
+                expect(brushTitle.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let brushTitleByEnums = Toolbox.Feature.Brush.Title(
+                    .rect(rectBrushTitleValue),
+                    .polygon(polygonBrushTitleValue),
+                    .lineX(lineXBrushTitleValue),
+                    .lineY(lineYBrushTitleValue),
+                    .keep(keepBrushTitleValue),
+                    .clear(clearBrushTitleValue)
+                )
+                
+                expect(brushTitleByEnums.jsonString).to(equal(brushTitle.jsonString))
+            }
+        }
     }
 }

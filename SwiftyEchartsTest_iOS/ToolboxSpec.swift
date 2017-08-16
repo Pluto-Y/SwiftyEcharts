@@ -554,5 +554,30 @@ class ToolboxSpec: QuickSpec {
                 expect(magicTypeByEnums.jsonString).to(equal(magicType.jsonString))
             }
         }
+        
+        describe("For Toolbox.Feature.Brush.Type") {
+            let rectString = "rect"
+            let polygonString = "polygon"
+            let lineXString = "lineX"
+            let lineYString = "lineY"
+            let keepString = "keep"
+            let clearString = "clear"
+            
+            let rectBrush = Toolbox.Feature.Brush.Type.rect
+            let polygonBrush = Toolbox.Feature.Brush.Type.polygon
+            let lineXBrush = Toolbox.Feature.Brush.Type.lineX
+            let lineYBrush = Toolbox.Feature.Brush.Type.lineY
+            let keepBrush = Toolbox.Feature.Brush.Type.keep
+            let clearBrush = Toolbox.Feature.Brush.Type.clear
+            
+            it("needs to check enum case jsonString") {
+                expect(rectBrush.jsonString).to(equal(rectString.jsonString))
+                expect(polygonBrush.jsonString).to(equal(polygonString.jsonString))
+                expect(lineXBrush.jsonString).to(equal(lineXString.jsonString))
+                expect(lineYBrush.jsonString).to(equal(lineYString.jsonString))
+                expect(keepBrush.jsonString).to(equal(keepString.jsonString))
+                expect(clearBrush.jsonString).to(equal(clearString.jsonString))
+            }
+        }
     }
 }

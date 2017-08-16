@@ -579,5 +579,48 @@ class ToolboxSpec: QuickSpec {
                 expect(clearBrush.jsonString).to(equal(clearString.jsonString))
             }
         }
+        
+        let rectBrushIconValue = "brushIconRectValue"
+        let polygonBrushIconValue = "brushIconPolygonValue"
+        let lineXBrushIconValue = "brushIconLineXValue"
+        let lineYBrushIconValue = "brushIconLineYValue"
+        let keepBrushIconValue = "brushIconKeepValue"
+        let clearBrushIconValue = "brushIconClearValue"
+        
+        let brushIcon = Toolbox.Feature.Brush.Icon()
+        brushIcon.rect = rectBrushIconValue
+        brushIcon.polygon = polygonBrushIconValue
+        brushIcon.lineX = lineXBrushIconValue
+        brushIcon.lineY = lineYBrushIconValue
+        brushIcon.keep = keepBrushIconValue
+        brushIcon.clear = clearBrushIconValue
+        
+        describe("For Toolbox.Feature.Brush.Icon") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "rect": rectBrushIconValue,
+                    "polygon": polygonBrushIconValue,
+                    "lineX": lineXBrushIconValue,
+                    "lineY": lineYBrushIconValue,
+                    "keep": keepBrushIconValue,
+                    "clear": clearBrushIconValue
+                ]
+                
+                expect(brushIcon.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let brushIconByEnums = Toolbox.Feature.Brush.Icon(
+                    .rect(rectBrushIconValue),
+                    .polygon(polygonBrushIconValue),
+                    .lineX(lineXBrushIconValue),
+                    .lineY(lineYBrushIconValue),
+                    .keep(keepBrushIconValue),
+                    .clear(clearBrushIconValue)
+                )
+                
+                expect(brushIconByEnums.jsonString).to(equal(brushIcon.jsonString))
+            }
+        }
     }
 }

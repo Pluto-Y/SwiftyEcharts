@@ -665,5 +665,38 @@ class ToolboxSpec: QuickSpec {
                 expect(brushTitleByEnums.jsonString).to(equal(brushTitle.jsonString))
             }
         }
+        
+        
+        
+        let typeBrushValue = [Toolbox.Feature.Brush.Type.rect, Toolbox.Feature.Brush.Type.polygon, Toolbox.Feature.Brush.Type.lineX, Toolbox.Feature.Brush.Type.lineY, Toolbox.Feature.Brush.Type.keep, Toolbox.Feature.Brush.Type.clear]
+        let iconBrushValue = brushIcon
+        let titleBrushValue = brushTitle
+        
+        let brush = Toolbox.Feature.Brush()
+        brush.type = typeBrushValue
+        brush.icon = iconBrushValue
+        brush.title = titleBrushValue
+        
+        describe("For Toolbox.Feature.Brush") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": typeBrushValue,
+                    "icon": iconBrushValue,
+                    "title": titleBrushValue
+                ]
+                
+                expect(brush.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let brushByEnums = Toolbox.Feature.Brush(
+                    .type(typeBrushValue),
+                    .icon(iconBrushValue),
+                    .title(titleBrushValue)
+                )
+                
+                expect(brushByEnums.jsonString).to(equal(brush.jsonString))
+            }
+        }
     }
 }

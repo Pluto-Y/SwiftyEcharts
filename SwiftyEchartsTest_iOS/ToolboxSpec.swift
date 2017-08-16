@@ -449,5 +449,40 @@ class ToolboxSpec: QuickSpec {
                 expect(tiledType.jsonString).to(equal(tiledString.jsonString))
             }
         }
+        
+        let lineTitleValue = "magicTypeTitleLineValue"
+        let barTitleValue = "magicTypeTitleBarValue"
+        let stackTitleValue = "magicTypeTitleStatckValue"
+        let tiledTitleValue = "magicTypeTitleTiledValue"
+        
+        let magicTypeTitle = Toolbox.Feature.MagicType.Title()
+        magicTypeTitle.line = lineTitleValue
+        magicTypeTitle.bar = barTitleValue
+        magicTypeTitle.stack = stackTitleValue
+        magicTypeTitle.tiled = tiledTitleValue
+        
+        describe("For Toolbox.Feature.MagicType.Title") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "line": lineTitleValue,
+                    "bar": barTitleValue,
+                    "stack": stackTitleValue,
+                    "tiled": tiledTitleValue
+                ]
+                
+                expect(magicTypeTitle.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let magicTypeTitleByEnums = Toolbox.Feature.MagicType.Title(
+                    .line(lineTitleValue),
+                    .bar(barTitleValue),
+                    .stack(stackTitleValue),
+                    .tiled(tiledTitleValue)
+                )
+                
+                expect(magicTypeTitleByEnums.jsonString).to(equal(magicTypeTitle.jsonString))
+            }
+        }
     }
 }

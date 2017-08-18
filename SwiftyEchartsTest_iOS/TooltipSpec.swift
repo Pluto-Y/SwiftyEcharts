@@ -27,5 +27,18 @@ class TooltipSpec: QuickSpec {
                 expect(noneTriggerOn.jsonString).to(equal(noneString.jsonString))
             }
         }
+        
+        describe("For Tooltip.Trigger") {
+            let itemString = "item"
+            let axisString = "axis"
+            
+            let itemTrigger = Tooltip.Trigger.item
+            let axisTrigger = Tooltip.Trigger.axis
+            
+            it("needs to check the enum case jsonString") {
+                expect(itemTrigger.jsonString).to(equal(itemString.jsonString))
+                expect(axisTrigger.jsonString).to(equal(axisString.jsonString))
+            }
+        }
     }
 }

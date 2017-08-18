@@ -698,5 +698,48 @@ class ToolboxSpec: QuickSpec {
                 expect(brushByEnums.jsonString).to(equal(brush.jsonString))
             }
         }
+        
+        let saveAsImageFeatureValue = saveAsImage
+        let restoreFeatureValue = restore
+        let dataViewFeatureValue = dataView
+        let dataZoomFeatureValue = dataZoom
+        let magicTypeFeatureValue = magicType
+        let brushFeatureValue = brush
+        
+        let feature = Toolbox.Feature()
+        feature.saveAsImage = saveAsImageFeatureValue
+        feature.restore = restoreFeatureValue
+        feature.dataView = dataViewFeatureValue
+        feature.dataZoom = dataZoomFeatureValue
+        feature.magicType = magicTypeFeatureValue
+        feature.brush = brushFeatureValue
+        
+        describe("For Toolbox.Feature") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "saveAsImage": saveAsImageFeatureValue,
+                    "restore": restoreFeatureValue,
+                    "dataView": dataViewFeatureValue,
+                    "dataZoom": dataZoomFeatureValue,
+                    "magicType": magicTypeFeatureValue,
+                    "brush": brushFeatureValue
+                ]
+                
+                expect(feature.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let featureByEnums = Toolbox.Feature(
+                    .saveAsImage(saveAsImageFeatureValue),
+                    .restore(restoreFeatureValue),
+                    .dataView(dataViewFeatureValue),
+                    .dataZoom(dataZoomFeatureValue),
+                    .magicType(magicTypeFeatureValue),
+                    .brush(brushFeatureValue)
+                )
+                
+                expect(featureByEnums.jsonString).to(equal(feature.jsonString))
+            }
+        }
     }
 }

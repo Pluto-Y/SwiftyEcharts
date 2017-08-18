@@ -379,6 +379,7 @@
 		6FDDCFFB1F00EC6300B89982 /* AxisTickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDCFFA1F00EC6300B89982 /* AxisTickSpec.swift */; };
 		6FDDCFFD1F00F05F00B89982 /* AxisLineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDCFFC1F00F05F00B89982 /* AxisLineSpec.swift */; };
 		6FDDCFFF1F00F8FF00B89982 /* AxisLabelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDCFFE1F00F8FF00B89982 /* AxisLabelSpec.swift */; };
+		6FE1EE171F51453200DB0F1F /* TooltipSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1EE161F51453100DB0F1F /* TooltipSpec.swift */; };
 		6FE2DD321EAE56290028037A /* LineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2DD311EAE56290028037A /* LineSpec.swift */; };
 		6FE2DD341EB0F6EE0028037A /* FormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2DD331EB0F6EE0028037A /* FormatterSpec.swift */; };
 		6FE45D501E6F092500E9083D /* GaugesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE45D4F1E6F092500E9083D /* GaugesController.swift */; };
@@ -701,6 +702,7 @@
 		6FDDCFFA1F00EC6300B89982 /* AxisTickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisTickSpec.swift; sourceTree = "<group>"; };
 		6FDDCFFC1F00F05F00B89982 /* AxisLineSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisLineSpec.swift; sourceTree = "<group>"; };
 		6FDDCFFE1F00F8FF00B89982 /* AxisLabelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisLabelSpec.swift; sourceTree = "<group>"; };
+		6FE1EE161F51453100DB0F1F /* TooltipSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TooltipSpec.swift; sourceTree = "<group>"; };
 		6FE2DD311EAE56290028037A /* LineSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSpec.swift; sourceTree = "<group>"; };
 		6FE2DD331EB0F6EE0028037A /* FormatterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterSpec.swift; sourceTree = "<group>"; };
 		6FE45D4F1E6F092500E9083D /* GaugesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaugesController.swift; sourceTree = "<group>"; };
@@ -1155,6 +1157,7 @@
 				6F015ACC1F3DE02700A2576F /* TimelineSpec.swift */,
 				6F015ACE1F3EFD2C00A2576F /* TitleSpec.swift */,
 				6F015AD01F3F7A5E00A2576F /* ToolboxSpec.swift */,
+				6FE1EE161F51453100DB0F1F /* TooltipSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1814,6 +1817,7 @@
 				6FDDCFFF1F00F8FF00B89982 /* AxisLabelSpec.swift in Sources */,
 				6FDDCFF91F00E74E00B89982 /* VisualMapSpec.swift in Sources */,
 				6F0AB1CF1F36D52400A71D9A /* RectGraphicSpec.swift in Sources */,
+				6FE1EE171F51453200DB0F1F /* TooltipSpec.swift in Sources */,
 				6F0AB1D11F36DAC700A71D9A /* RingGraphicSpec.swift in Sources */,
 				6FACFAC11EEAF62B002622CE /* ItemStyleSpec.swift in Sources */,
 				6F0AB1D61F38EE7900A71D9A /* ScatterSerieSpec.swift in Sources */,

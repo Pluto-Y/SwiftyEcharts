@@ -40,5 +40,24 @@ class TooltipSpec: QuickSpec {
                 expect(axisTrigger.jsonString).to(equal(axisString.jsonString))
             }
         }
+        
+        describe("For Tooltip.AxisPointer.Type") {
+            let lineString = "line"
+            let crossString = "cross"
+            let shadowString = "shadow"
+            let noneString = "none"
+            
+            let lineType = Tooltip.AxisPointer.Type.line
+            let crossType = Tooltip.AxisPointer.Type.cross
+            let shadowType = Tooltip.AxisPointer.Type.shadow
+            let noneType = Tooltip.AxisPointer.Type.none
+            
+            it("needs to check the enum case jsonString") {
+                expect(lineType.jsonString).to(equal(lineString.jsonString))
+                expect(crossType.jsonString).to(equal(crossString.jsonString))
+                expect(shadowType.jsonString).to(equal(shadowString.jsonString))
+                expect(noneType.jsonString).to(equal(noneString.jsonString))
+            }
+        }
     }
 }

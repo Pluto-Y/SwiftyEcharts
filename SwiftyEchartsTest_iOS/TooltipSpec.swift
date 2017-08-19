@@ -8,7 +8,7 @@
 
 import Quick
 import Nimble
-import SwiftyEcharts
+@testable import SwiftyEcharts
 
 class TooltipSpec: QuickSpec {
     override func spec() {
@@ -57,6 +57,61 @@ class TooltipSpec: QuickSpec {
                 expect(crossType.jsonString).to(equal(crossString.jsonString))
                 expect(shadowType.jsonString).to(equal(shadowString.jsonString))
                 expect(noneType.jsonString).to(equal(noneString.jsonString))
+            }
+        }
+        
+        let colorCrossStyleValue = Color.hexColor("#87fabe")
+        let widthCrossStyleValue: Float = 85.347
+        let typeCrossStyleValue = LineType.dashed
+        let shadowBlurCrossStyleValue: Float = 985479
+        let shadowColorCrossStyleValue = Color.auto
+        let shadowOffsetXCrossStyleValue: Float = 0
+        let shadowOffsetYCrossStyleValue: Float = 0.0000038747238
+        let textStyleCrossStyleValue = TextStyle(
+            .color(Color.blue),
+            .fontStyle(FontStyle.italic),
+            .fontSize(75)
+        )
+        
+        let crossStyle = Tooltip.AxisPointer.CrossStyle()
+        crossStyle.color = colorCrossStyleValue
+        crossStyle.width = widthCrossStyleValue
+        crossStyle.type = typeCrossStyleValue
+        crossStyle.shadowBlur = shadowBlurCrossStyleValue
+        crossStyle.shadowColor = shadowColorCrossStyleValue
+        crossStyle.shadowOffsetX = shadowOffsetXCrossStyleValue
+        crossStyle.shadowOffsetY = shadowOffsetYCrossStyleValue
+        crossStyle.textStyle = textStyleCrossStyleValue
+        
+        describe("For Tooltip.AxisPointer.CrossStyle") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "color": colorCrossStyleValue,
+                    "width": widthCrossStyleValue,
+                    "type": typeCrossStyleValue,
+                    "shadowBlur": shadowBlurCrossStyleValue,
+                    "shadowColor": shadowColorCrossStyleValue,
+                    "shadowOffsetX": shadowOffsetXCrossStyleValue,
+                    "shadowOffsetY": shadowOffsetYCrossStyleValue,
+                    "textStyle": textStyleCrossStyleValue
+                ]
+                
+                expect(crossStyle.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let crossStyleByEnums = Tooltip.AxisPointer.CrossStyle(
+                    .color(colorCrossStyleValue),
+                    .width(widthCrossStyleValue),
+                    .type(typeCrossStyleValue),
+                    .shadowBlur(shadowBlurCrossStyleValue),
+                    .shadowColor(shadowColorCrossStyleValue),
+                    .shadowOffsetX(shadowOffsetXCrossStyleValue),
+                    .shadowOffsetY(shadowOffsetYCrossStyleValue),
+                    .textStyle(textStyleCrossStyleValue)
+                )
+                
+                expect(crossStyleByEnums.jsonString).to(equal(crossStyle.jsonString))
             }
         }
     }

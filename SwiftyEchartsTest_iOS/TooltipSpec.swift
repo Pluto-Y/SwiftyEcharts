@@ -136,5 +136,84 @@ class TooltipSpec: QuickSpec {
                 expect(crossStyleByEnums.jsonString).to(equal(crossStyle.jsonString))
             }
         }
+        
+        let typeAxisPointerValue = Tooltip.AxisPointer.Type.cross
+        let axisAxisPointerValue = Tooltip.AxisPointer.Axis.angle
+        let animationAxisPointerValue = false
+        let animationThresholdAxisPointerValue: Float = 0.000000
+        let animationDurationAxisPointerValue = Time.number(764.7777)
+        let animationEasingAxisPointerValue = EasingFunction.quarticInOut
+        let animationDelayAxisPointerValue: Time = 88
+        let animationDurationUpdateAxisPointerValue: Time = 75.37
+        let animationEasingUpdateAxisPointerValue: EasingFunction = .cubicInOut
+        let animationDelayUpdateAxisPointerValue = Time.init(integerLiteral: 84723)
+        let lineStyleAxisPointerValue = LineStyle(
+            .width(7.247),
+            .color(rgb(88, 102, 200)),
+            .curveness(888.8888),
+            .type(LineType.solid)
+        )
+        let crossStyleAxisPointerValue = crossStyle
+        let shadowStyleAxisPointerValue = ShadowStyle(
+            .shadowBlur(10),
+            .shadowColor(rgba(0, 0, 0, 0.5))
+        )
+        
+        let axisPointer = Tooltip.AxisPointer()
+        axisPointer.type = typeAxisPointerValue
+        axisPointer.axis = axisAxisPointerValue
+        axisPointer.animation = animationAxisPointerValue
+        axisPointer.animationThreshold = animationThresholdAxisPointerValue
+        axisPointer.animationDuration = animationDurationAxisPointerValue
+        axisPointer.animationEasing = animationEasingAxisPointerValue
+        axisPointer.animationDelay = animationDelayAxisPointerValue
+        axisPointer.animationDurationUpdate = animationDurationUpdateAxisPointerValue
+        axisPointer.animationEasingUpdate = animationEasingUpdateAxisPointerValue
+        axisPointer.animationDelayUpdate = animationDelayUpdateAxisPointerValue
+        axisPointer.lineStyle = lineStyleAxisPointerValue
+        axisPointer.crossStyle = crossStyleAxisPointerValue
+        axisPointer.shadowStyle = shadowStyleAxisPointerValue
+        
+        describe("For Tooltip.AxisPointer") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": typeAxisPointerValue,
+                    "axis": axisAxisPointerValue,
+                    "animation": animationAxisPointerValue,
+                    "animationThreshold": animationThresholdAxisPointerValue,
+                    "animationDuration": animationDurationAxisPointerValue,
+                    "animationEasing": animationEasingAxisPointerValue,
+                    "animationDelay": animationDelayAxisPointerValue,
+                    "animationDurationUpdate": animationDurationUpdateAxisPointerValue,
+                    "animationEasingUpdate": animationEasingUpdateAxisPointerValue,
+                    "animationDelayUpdate": animationDelayUpdateAxisPointerValue,
+                    "lineStyle": lineStyleAxisPointerValue,
+                    "crossStyle": crossStyleAxisPointerValue,
+                    "shadowStyle": shadowStyleAxisPointerValue
+                ]
+                
+                expect(axisPointer.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let axisPointerByEnums = Tooltip.AxisPointer(
+                    .type(typeAxisPointerValue),
+                    .axis(axisAxisPointerValue),
+                    .animation(animationAxisPointerValue),
+                    .animationThreshold(animationThresholdAxisPointerValue),
+                    .animationDuration(animationDurationAxisPointerValue),
+                    .animationEasing(animationEasingAxisPointerValue),
+                    .animationDelay(animationDelayAxisPointerValue),
+                    .animationDurationUpdate(animationDurationUpdateAxisPointerValue),
+                    .animationEasingUpdate(animationEasingUpdateAxisPointerValue),
+                    .animationDelayUpdate(animationDelayUpdateAxisPointerValue),
+                    .lineStyle(lineStyleAxisPointerValue),
+                    .crossStyle(crossStyleAxisPointerValue),
+                    .shadowStyle(shadowStyleAxisPointerValue)
+                )
+                
+                expect(axisPointerByEnums.jsonString).to(equal(axisPointer.jsonString))
+            }
+        }
     }
 }

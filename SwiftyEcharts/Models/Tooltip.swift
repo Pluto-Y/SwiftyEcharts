@@ -42,7 +42,7 @@ public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
     }
     
     /// 坐标轴指示器配置项
-    public final class AxisPointer: Line {
+    public final class AxisPointer: Line, Animatable {
         
         /// 十字准星指示器样式
         public final class CrossStyle: Shadowable, Colorful{
@@ -102,9 +102,9 @@ public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
         /// 是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
         public var animationThreshold: Float?
         /// 初始动画的时长。
-        public var animationDuration: UInt32?
+        public var animationDuration: Time?
         /// 初始动画的缓动效果。
-        public var animationEasing: String?// FIXME: ??? 是否需要添加枚举
+        public var animationEasing: EasingFunction?
         /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
         /// 如下示例：
         ///
@@ -112,11 +112,11 @@ public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
         ///         // 越往后的数据延迟越大
         ///         return idx * 100;
         ///     }
-        public var animationDelay: Float?
+        public var animationDelay: Time?
         /// 数据更新动画的时长。
-        public var animationDurationUpdate: UInt32?
+        public var animationDurationUpdate: Time?
         /// 数据更新动画的缓动效果。
-        public var animationEasingUpdate: String? // FIXME: ??? 是否需要添加枚举
+        public var animationEasingUpdate: EasingFunction?
         /// 数据更新动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果。
         /// 如下示例：
         ///
@@ -124,7 +124,7 @@ public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
         ///             // 越往后的数据延迟越大
         ///             return idx * 100;
         ///         }
-        public var animationDelayUpdate: Float?
+        public var animationDelayUpdate: Time?
         /// axisPointer.type 为 'line' 时有效。
         public var lineStyle: LineStyle?
         /// axisPointer.type 为 'cross' 时有效。
@@ -234,7 +234,7 @@ extension Tooltip.AxisPointer.CrossStyle: Mappable {
 
 extension Tooltip.AxisPointer: Enumable {
     public enum Enums {
-        case type(Type), axis(Axis), animation(Bool), animationThreshold(Float), animationDuration(UInt32), animationEasing(String), animationDelay(Float), animationDurationUpdate(UInt32), animationEasingUpdate(String), animationDelayUpdate(Float), lineStyle(LineStyle), crossStyle(CrossStyle), shadowStyle(ShadowStyle)
+        case type(Type), axis(Axis), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), lineStyle(LineStyle), crossStyle(CrossStyle), shadowStyle(ShadowStyle)
     }
     
     public typealias ContentEnum = Enums

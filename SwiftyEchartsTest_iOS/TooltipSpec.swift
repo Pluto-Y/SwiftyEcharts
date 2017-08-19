@@ -60,6 +60,28 @@ class TooltipSpec: QuickSpec {
             }
         }
         
+        describe("For Tooltip.AxisPointer.Axis") {
+            let xString = "x"
+            let yString = "y"
+            let radiusString = "radius"
+            let angleString = "angle"
+            let autoString = "auto"
+            
+            let xAxis = Tooltip.AxisPointer.Axis.x
+            let yAxis = Tooltip.AxisPointer.Axis.y
+            let radiusAxis = Tooltip.AxisPointer.Axis.radius
+            let angleAxis = Tooltip.AxisPointer.Axis.angle
+            let autoAxis = Tooltip.AxisPointer.Axis.auto
+            
+            it("needs to check the enum case jsonString") {
+                expect(xAxis.jsonString).to(equal(xString.jsonString))
+                expect(yAxis.jsonString).to(equal(yString.jsonString))
+                expect(radiusAxis.jsonString).to(equal(radiusString.jsonString))
+                expect(angleAxis.jsonString).to(equal(angleString.jsonString))
+                expect(autoAxis.jsonString).to(equal(autoString.jsonString))
+            }
+        }
+        
         let colorCrossStyleValue = Color.hexColor("#87fabe")
         let widthCrossStyleValue: Float = 85.347
         let typeCrossStyleValue = LineType.dashed

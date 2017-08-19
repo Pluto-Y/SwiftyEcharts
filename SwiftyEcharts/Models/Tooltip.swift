@@ -76,11 +76,27 @@ public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
             }
         }
         
+        /// 指示器的坐标轴
+        public enum Axis: String, Jsonable {
+            case x = "x"
+            case y = "y"
+            case radius = "radius"
+            case angle = "angle"
+            case auto = "auto"
+            
+            public var jsonString: String {
+                return self.rawValue.jsonString
+            }
+        }
         
         /// 指示器类型
         public var type: Type?
-        /// 指示器的坐标轴。可以是 'x', 'y', 'radius', 'angle'。默认取类目轴或者时间轴。
-        public var axis: String? // FIXME: ??? 是否需要添加枚举
+        /// 指示器的坐标轴。
+        ///
+        /// 默认情况，坐标系会自动选择显示哪个轴的 axisPointer（默认取类目轴或者时间轴）。
+        ///
+        /// 可以是 'x', 'y', 'radius', 'angle'。默认取类目轴或者时间轴。
+        public var axis: Axis?
         /// 是否开启动画，默认开启。
         public var animation: Bool?
         /// 是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
@@ -218,7 +234,7 @@ extension Tooltip.AxisPointer.CrossStyle: Mappable {
 
 extension Tooltip.AxisPointer: Enumable {
     public enum Enums {
-        case type(Type), axis(String), animation(Bool), animationThreshold(Float), animationDuration(UInt32), animationEasing(String), animationDelay(Float), animationDurationUpdate(UInt32), animationEasingUpdate(String), animationDelayUpdate(Float), lineStyle(LineStyle), crossStyle(CrossStyle), shadowStyle(ShadowStyle)
+        case type(Type), axis(Axis), animation(Bool), animationThreshold(Float), animationDuration(UInt32), animationEasing(String), animationDelay(Float), animationDurationUpdate(UInt32), animationEasingUpdate(String), animationDelayUpdate(Float), lineStyle(LineStyle), crossStyle(CrossStyle), shadowStyle(ShadowStyle)
     }
     
     public typealias ContentEnum = Enums

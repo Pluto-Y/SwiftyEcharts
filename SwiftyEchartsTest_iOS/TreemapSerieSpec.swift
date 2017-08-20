@@ -43,5 +43,78 @@ class TreemapSerieSpec: QuickSpec {
                 expect(idColorMappingBy.jsonString).to(equal(idString.jsonString))
             }
         }
+        
+        let visualDimensionLevelValue: Float = 85734.74
+        let visualMinLevelValue: Float = 2.238
+        let visualMaxLevelValue: Float = 999999
+        let colorLevelValue: [Color] = [Color.auto, Color.red, Color.yellow, Color.blue, Color.red]
+        let colorAlphaLevelValue: SwiftyEcharts.Range = [0.3, 1]
+        let colorSaturationLevelValue: SwiftyEcharts.Range = [0.9, 0.999]
+        let colorMappingByLevelValue = TreemapSerie.ColorMappingBy.id
+        let visibleMinLevelValue: Float = 0.0
+        let childrenVisibleMinLevelValue: Float = 1.04823
+        let labelLevelValue = Label(
+            .emphasis(CommonLabelStyle(
+                .show(false),
+                .position(Position.right)
+                ))
+        )
+        let itemStyleLevelValue = ItemStyle(
+            .normal(CommonItemStyleContent(
+                .opacity(0.8237),
+                .borderType(LineType.dashed)
+                ))
+        )
+        
+        let level = TreemapSerie.Level()
+        level.visualDimension = visualDimensionLevelValue
+        level.visualMin = visualMinLevelValue
+        level.visualMax = visualMaxLevelValue
+        level.color = colorLevelValue
+        level.colorAlpha = colorAlphaLevelValue
+        level.colorSaturation = colorSaturationLevelValue
+        level.colorMappingBy = colorMappingByLevelValue
+        level.visibleMin = visibleMinLevelValue
+        level.childrenVisibleMin = childrenVisibleMinLevelValue
+        level.label = labelLevelValue
+        level.itemStyle = itemStyleLevelValue
+        
+        describe("For TreemapSerie.Level") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "visualDimension": visualDimensionLevelValue,
+                    "visualMin": visualMinLevelValue,
+                    "visualMax": visualMaxLevelValue,
+                    "color": colorLevelValue,
+                    "colorAlpha": colorAlphaLevelValue,
+                    "colorSaturation": colorSaturationLevelValue,
+                    "colorMappingBy": colorMappingByLevelValue,
+                    "visibleMin": visibleMinLevelValue,
+                    "childrenVisibleMin": childrenVisibleMinLevelValue,
+                    "label": labelLevelValue,
+                    "itemStyle": itemStyleLevelValue
+                ]
+                
+                expect(level.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let levelByEnums = TreemapSerie.Level(
+                    .visualDimension(visualDimensionLevelValue),
+                    .visualMin(visualMinLevelValue),
+                    .visualMax(visualMaxLevelValue),
+                    .color(colorLevelValue),
+                    .colorAlpha(colorAlphaLevelValue),
+                    .colorSaturation(colorSaturationLevelValue),
+                    .colorMappingBy(colorMappingByLevelValue),
+                    .visibleMin(visibleMinLevelValue),
+                    .childrenVisibleMin(childrenVisibleMinLevelValue),
+                    .label(labelLevelValue),
+                    .itemStyle(itemStyleLevelValue)
+                )
+                
+                expect(levelByEnums.jsonString).to(equal(level.jsonString))
+            }
+        }
     }
 }

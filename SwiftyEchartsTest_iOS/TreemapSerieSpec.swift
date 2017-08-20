@@ -116,5 +116,38 @@ class TreemapSerieSpec: QuickSpec {
                 expect(levelByEnums.jsonString).to(equal(level.jsonString))
             }
         }
+        
+        let linkSilentValue = "silentLinkValue"
+        let targetSilentValue = Target.blank
+        let childrenSilent: [Jsonable] = [
+            "silentChildrenValue", false, 8572.8, 8, Int.max, "null"
+        ]
+        
+        let silent = TreemapSerie.Silent()
+        silent.link = linkSilentValue
+        silent.target = targetSilentValue
+        silent.children = childrenSilent
+        
+        describe("For TreemapSerie.Silent") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "link": linkSilentValue,
+                    "target": targetSilentValue,
+                    "children": childrenSilent
+                ]
+                
+                expect(silent.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the jsonString") {
+                let silentByEnums = TreemapSerie.Silent(
+                    .link(linkSilentValue),
+                    .target(targetSilentValue),
+                    .children(childrenSilent)
+                )
+                
+                expect(silentByEnums.jsonString).to(equal(silent.jsonString))
+            }
+        }
     }
 }

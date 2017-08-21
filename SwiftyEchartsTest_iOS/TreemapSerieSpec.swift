@@ -300,5 +300,171 @@ class TreemapSerieSpec: QuickSpec {
                 expect(dataByEnums.jsonString).to(equal(data.jsonString))
             }
         }
+        
+        describe("For TreemapSerie") {
+            let typeValue = SerieType.treemap
+            let zlevelValue: Float = 74.75734
+            let zValue: Float = 0.85734
+            let leftValue = Position.center
+            let topValue = Position.left
+            let rightValue = Position.auto
+            let bottomValue = Position.value(75%)
+            let widthValue = 0%
+            let heightValue: LengthValue = 757.37
+            let squareRotioValue: Float = 9573
+            let leafDepthValue: Float = 8
+            let roamValue = Roam.move
+            let nodeClickValue = TreemapSerie.NodeClick.disable
+            let zoomToNodeRatioValue: Float = 8573.347
+            let levelValue: [TreemapSerie.Level] = [level,
+                TreemapSerie.Level(
+                    .color([]),
+                    .colorAlpha([1.0, 0.3]),
+                    .visualMax(4774.2387)
+                )]
+            let silentValue = silent
+            let visualDimensionValue: Float = 856234.02473
+            let visualMaxValue: Float = 5734
+            let visualMinValue: Float = 0.000034737
+            let colorAlphaValue: SwiftyEcharts.Range = [0.000238, 57348]
+            let colorSaturationValue: SwiftyEcharts.Range = [8888.0000, 9999.02837]
+            let colorMappingByValue = TreemapSerie.ColorMappingBy.value
+            let visibleMinValue: Float = 7437429.239847
+            let childrenVisibleMinValue: Float = 0.0237
+            let labelValue = Label(
+                .emphasis(CommonLabelStyle(
+                    .textStyle(TextStyle(
+                        .color(Color.yellow),
+                        .fontSize(220)
+                        ))
+                    ))
+            )
+            let itemStyleValue = ItemStyle(
+                .normal(CommonItemStyleContent(
+                    .borderColor(Color.hexColor("#4488ff")),
+                    .opacity(0.8237),
+                    .shadowOffsetY(75723.7234),
+                    .shadowBlur(7347)
+                    ))
+            )
+            let breadcrumbValue = breadcrumb
+            let dataValue: [Jsonable] = [
+                data, 23, 59, 12
+            ]
+            let animationDurationValue = Time.number(743.47)
+            let animationEasingValue = EasingFunction.backIn
+            let animationDelayValue = Time.number(0.00000)
+            
+            let treemapSerie = TreemapSerie()
+            treemapSerie.zlevel = zlevelValue
+            treemapSerie.z = zValue
+            treemapSerie.left = leftValue
+            treemapSerie.top = topValue
+            treemapSerie.right = rightValue
+            treemapSerie.bottom = bottomValue
+            treemapSerie.width = widthValue
+            treemapSerie.height = heightValue
+            treemapSerie.squareRotio = squareRotioValue
+            treemapSerie.leafDepth = leafDepthValue
+            treemapSerie.roam = roamValue
+            treemapSerie.nodeClick = nodeClickValue
+            treemapSerie.zoomToNodeRatio = zoomToNodeRatioValue
+            treemapSerie.level = levelValue
+            treemapSerie.silent = silentValue
+            treemapSerie.visualDimension = visualDimensionValue
+            treemapSerie.visualMin = visualMinValue
+            treemapSerie.visualMax = visualMaxValue
+            treemapSerie.colorAlpha = colorAlphaValue
+            treemapSerie.colorSaturation = colorSaturationValue
+            treemapSerie.colorMappingBy = colorMappingByValue
+            treemapSerie.visibleMin = visibleMinValue
+            treemapSerie.childrenVisibleMin = childrenVisibleMinValue
+            treemapSerie.label = labelValue
+            treemapSerie.itemStyle = itemStyleValue
+            treemapSerie.breadcrumb = breadcrumbValue
+            treemapSerie.data = dataValue
+            treemapSerie.animationDuration = animationDurationValue
+            treemapSerie.animationEasing = animationEasingValue
+            treemapSerie.animationDelay = animationDelayValue
+            
+            it("needs to check the type value") {
+                expect(treemapSerie.type.jsonString).to(equal(typeValue.jsonString))
+            }
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "type": typeValue,
+                    "zlevel": zlevelValue,
+                    "z": zValue,
+                    "left": leftValue,
+                    "top": topValue,
+                    "right": rightValue,
+                    "bottom": bottomValue,
+                    "width": widthValue,
+                    "height": heightValue,
+                    "squareRotio": squareRotioValue,
+                    "leafDepth": leafDepthValue,
+                    "roam": roamValue,
+                    "nodeClick": nodeClickValue,
+                    "zoomToNodeRatio": zoomToNodeRatioValue,
+                    "level": levelValue,
+                    "silent": silentValue,
+                    "visualDimension": visualDimensionValue,
+                    "visualMin": visualMinValue,
+                    "visualMax": visualMaxValue,
+                    "colorAlpha": colorAlphaValue,
+                    "colorSaturation": colorSaturationValue,
+                    "colorMappingBy": colorMappingByValue,
+                    "visibleMin": visibleMinValue,
+                    "childrenVisibleMin": childrenVisibleMinValue,
+                    "label": labelValue,
+                    "itemStyle": itemStyleValue,
+                    "breadcrumb": breadcrumbValue,
+                    "data": dataValue,
+                    "animationDuration": animationDurationValue,
+                    "animationEasing": animationEasingValue,
+                    "animationDelay": animationDelayValue
+                ]
+                
+                expect(treemapSerie.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let treemapSerieByEnums = TreemapSerie(
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .left(leftValue),
+                    .top(topValue),
+                    .right(rightValue),
+                    .bottom(bottomValue),
+                    .width(widthValue),
+                    .height(heightValue),
+                    .squareRotio(squareRotioValue),
+                    .leafDepth(leafDepthValue),
+                    .roam(roamValue),
+                    .nodeClick(nodeClickValue),
+                    .zoomToNodeRatio(zoomToNodeRatioValue),
+                    .level(levelValue),
+                    .silent(silentValue),
+                    .visualDimension(visualDimensionValue),
+                    .visualMin(visualMinValue),
+                    .visualMax(visualMaxValue),
+                    .colorAlpha(colorAlphaValue),
+                    .colorSaturation(colorSaturationValue),
+                    .colorMappingBy(colorMappingByValue),
+                    .visibleMin(visibleMinValue),
+                    .childrenVisibleMin(childrenVisibleMinValue),
+                    .label(labelValue),
+                    .itemStyle(itemStyleValue),
+                    .breadcrumb(breadcrumbValue),
+                    .data(dataValue),
+                    .animationDuration(animationDurationValue),
+                    .animationEasing(animationEasingValue),
+                    .animationDelay(animationDelayValue)
+                )
+                
+                expect(treemapSerieByEnums.jsonString).to(equal(treemapSerie.jsonString))
+            }
+        }
     }
 }

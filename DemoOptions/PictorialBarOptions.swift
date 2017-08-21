@@ -702,7 +702,7 @@ public final class PictorialBarOptions {
                 ),
                 BarSerie(
                     .name("line"),
-                    .barGap("-100%"),
+                    .barGap("-100%" as! LengthValue),
                     .barWidth(10),
                     .itemStyle(ItemStyle(
                         .normal(CommonItemStyleContent(
@@ -746,7 +746,7 @@ public final class PictorialBarOptions {
                 .axisTick(AxisTick(.show(false))),
                 .splitLine(SplitLine(.show(false))),
                 .name("\(beginYear)"),
-                .nameLocation("middle"),
+                .nameLocation(.middle),
                 .nameGap(40),
                 .nameTextStyle(TextStyle(
                     .color(.green),

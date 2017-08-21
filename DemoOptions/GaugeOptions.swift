@@ -31,7 +31,7 @@ public final class GaugeOptions {
             .max(220),
             .splitNumber(11),
             .radius(50%),
-            .axisLine(GaugeSerie.AxisLine(
+            .axisLine(AxisLine(
                 .lineStyle(LineStyle(
                     .width(10)
                     ))
@@ -39,8 +39,8 @@ public final class GaugeOptions {
             .axisTick(GaugeSerie.AxisTick(
                 .length(15) // FIXME: 缺少lineStyle
                 )),
-            .splitLine(GaugeSerie.SplitLine(
-                .length(20) // FIXME: 缺少lineStyle
+            .splitLine(SplitLine(
+                .lineStyle(LineStyle.init()) // FIXME: 缺少lineStyle
                 )),
             .title(GaugeSerie.Title(
                 .textStyle(TextStyle(
@@ -64,7 +64,7 @@ public final class GaugeOptions {
             .max(7),
             .endAngle(45),
             .splitNumber(7),
-            .axisLine(GaugeSerie.AxisLine(
+            .axisLine(AxisLine(
                 .lineStyle(LineStyle(
                     .width(8)
                     ))
@@ -72,8 +72,8 @@ public final class GaugeOptions {
             .axisTick(GaugeSerie.AxisTick(
                 .length(12) // FIXME: 缺少lineStyle
                 )),
-            .splitLine(GaugeSerie.SplitLine(
-                .length(20) // FIXME: 缺少lineStyle
+            .splitLine(SplitLine(
+                .lineStyle(LineStyle.init()) // FIXME: 缺少lineStyle
                 )),
             .pointer(GaugeSerie.Pointer(
                 .width(5)
@@ -97,7 +97,7 @@ public final class GaugeOptions {
             .startAngle(135),
             .endAngle(45),
             .splitNumber(2),
-            .axisLine(GaugeSerie.AxisLine(
+            .axisLine(AxisLine(
                 .lineStyle(LineStyle(
                     .width(8)
                     ))
@@ -109,8 +109,8 @@ public final class GaugeOptions {
             .axisLabel(GaugeSerie.AxisLabel(
                 .formatter(.function("function axisLabelFormattter(v){ switch (v + '') { case '0' : return 'E'; case '1' : return 'Gas'; case '2' : return 'F'; }}"))
                 )),
-            .splitLine(GaugeSerie.SplitLine(
-                .length(15) // FIXME: 缺少lineStyle
+            .splitLine(SplitLine(
+                .lineStyle(LineStyle.init()) // FIXME: 缺少lineStyle
                 )),
             .pointer(GaugeSerie.Pointer(
                 .width(2)
@@ -132,7 +132,7 @@ public final class GaugeOptions {
             .startAngle(315),
             .endAngle(225),
             .splitNumber(2),
-            .axisLine(GaugeSerie.AxisLine(
+            .axisLine(AxisLine(
                 .lineStyle(LineStyle(
                     .width(8)
                     ))
@@ -140,8 +140,8 @@ public final class GaugeOptions {
             .axisLabel(GaugeSerie.AxisLabel(
                 .formatter(.function("function axisLabelFomatter2(v){ switch (v + '') { case '0' : return 'H'; case '1' : return 'Water'; case '2' : return 'C'; } }"))
                 )),
-            .splitLine(GaugeSerie.SplitLine(
-                .length(15) // FIXME: 缺少lineStyle
+            .splitLine(SplitLine(
+                .lineStyle(LineStyle.init()) // FIXME: 缺少lineStyle
                 )),
             .pointer(GaugeSerie.Pointer(
                 .width(2)

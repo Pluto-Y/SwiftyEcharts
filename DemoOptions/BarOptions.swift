@@ -246,8 +246,8 @@ public final class BarOptions {
                             .color(.rgba(0, 0, 0, 0.05))
                             ))
                         )),
-                    .barGap("-100%"),
-                    .barCategoryGap("40%"),
+                    .barGap("-100%" as! LengthValue),
+                    .barCategoryGap("40%" as! LengthValue),
                     .data(dataShadow),
                     .animation(false)
                 ),

@@ -208,5 +208,97 @@ class TreemapSerieSpec: QuickSpec {
                 expect(breadcrumbByEnums.jsonString).to(equal(breadcrumb.jsonString))
             }
         }
+        
+        let valueDataValue: Jsonable = 88.5726
+        let idDataValue = "dataIdValue"
+        let nameDataValue = "dataNameValue"
+        let visualDimensionDataValue: Float = 85.347
+        let visualMinDataValue: Float = 00.0037475738
+        let visualMaxDataValue: Float = 99999999
+        let colorDataValue: [Color] = [Color.rgb(200, 100, 50), Color.hexColor("#ffffff")]
+        let colorAlphaDataValue: SwiftyEcharts.Range = [0.23, 0.77]
+        let colorSaturationDataValue: SwiftyEcharts.Range = [0.5, 0.5]
+        let colorMappingByDataValue = TreemapSerie.ColorMappingBy.index
+        let visibleMinDataValue: Float = 66666.666666
+        let childrenVisibleMinDataValue: Float = 74565.555834
+        let labelDataValue = Label(
+            .normal(CommonLabelStyle(
+                .show(false),
+                .position(Position.right)
+                )),
+            .emphasis(CommonLabelStyle(
+                .textStyle(TextStyle(
+                    .color(Color.red),
+                    .fontWeight(FontWeight.bolder),
+                    .fontStyle(FontStyle.italic)
+                    ))
+                ))
+        )
+        let itemStyleDataValue = ItemStyle(
+            .emphasis(CommonItemStyleContent(
+                .borderType(LineType.dashed),
+                .barBorderRadius(75462.47347)
+                ))
+        )
+        
+        let data = TreemapSerie.Data()
+        data.value = valueDataValue
+        data.id = idDataValue
+        data.name = nameDataValue
+        data.visualDimension = visualDimensionDataValue
+        data.visualMin = visualMinDataValue
+        data.visualMax = visualMaxDataValue
+        data.color = colorDataValue
+        data.colorAlpha = colorAlphaDataValue
+        data.colorSaturation = colorSaturationDataValue
+        data.colorMappingBy = colorMappingByDataValue
+        data.visibleMin = visibleMinDataValue
+        data.childrenVisibleMin = childrenVisibleMinDataValue
+        data.label = labelDataValue
+        data.itemStyle = itemStyleDataValue
+        
+        describe("For TreemapSerie.Data") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "value": valueDataValue,
+                    "id": idDataValue,
+                    "name": nameDataValue,
+                    "visualDimension": visualDimensionDataValue,
+                    "visualMin": visualMinDataValue,
+                    "visualMax": visualMaxDataValue,
+                    "color": colorDataValue,
+                    "colorAlpha": colorAlphaDataValue,
+                    "colorSaturation": colorSaturationDataValue,
+                    "colorMappingBy": colorMappingByDataValue,
+                    "visibleMin": visibleMinDataValue,
+                    "childrenVisibleMin": childrenVisibleMinDataValue,
+                    "label": labelDataValue,
+                    "itemStyle": itemStyleDataValue
+                ]
+                
+                expect(data.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let dataByEnums = TreemapSerie.Data(
+                    .value(valueDataValue),
+                    .id(idDataValue),
+                    .name(nameDataValue),
+                    .visualDimension(visualDimensionDataValue),
+                    .visualMin(visualMinDataValue),
+                    .visualMax(visualMaxDataValue),
+                    .color(colorDataValue),
+                    .colorAlpha(colorAlphaDataValue),
+                    .colorSaturation(colorSaturationDataValue),
+                    .colorMappingBy(colorMappingByDataValue),
+                    .visibleMin(visibleMinDataValue),
+                    .childrenVisibleMin(childrenVisibleMinDataValue),
+                    .label(labelDataValue),
+                    .itemStyle(itemStyleDataValue)
+                )
+                
+                expect(dataByEnums.jsonString).to(equal(data.jsonString))
+            }
+        }
     }
 }

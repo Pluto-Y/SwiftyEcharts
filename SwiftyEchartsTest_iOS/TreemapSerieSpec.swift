@@ -149,5 +149,64 @@ class TreemapSerieSpec: QuickSpec {
                 expect(silentByEnums.jsonString).to(equal(silent.jsonString))
             }
         }
+        
+        let showBreadcrumbValue = false
+        let leftBreadcrumbValue = Position.value(20)
+        let rightBreadcrumbValue = Position.right
+        let topBreadcrumbValue = Position.center
+        let bottomBreadcrumbValue = Position.point([20, 50])
+        let heightBreadcrumbValue: Float = 80
+        let emptyItemWidthBreadcrumbValue: Float = 0.0001
+        let itemStyleBreadcrumbValue = ItemStyle(
+            .normal(CommonItemStyleContent(
+                .color(Color.red),
+                .shadowBlur(8.87),
+                .opacity(0.5),
+                .areaColor(Color.hexColor("#87ffab"))
+                )),
+            .emphasis(CommonItemStyleContent())
+        )
+        
+        let breadcrumb = TreemapSerie.Breadcrumb()
+        breadcrumb.show = showBreadcrumbValue
+        breadcrumb.left = leftBreadcrumbValue
+        breadcrumb.top = topBreadcrumbValue
+        breadcrumb.right = rightBreadcrumbValue
+        breadcrumb.bottom = bottomBreadcrumbValue
+        breadcrumb.height = heightBreadcrumbValue
+        breadcrumb.emptyItemWidth = emptyItemWidthBreadcrumbValue
+        breadcrumb.itemStyle = itemStyleBreadcrumbValue
+        
+        describe("For TreemapSerie.Breadcrumb") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showBreadcrumbValue,
+                    "left": leftBreadcrumbValue,
+                    "top": topBreadcrumbValue,
+                    "right": rightBreadcrumbValue,
+                    "bottom": bottomBreadcrumbValue,
+                    "height": heightBreadcrumbValue,
+                    "emptyItemWidth": emptyItemWidthBreadcrumbValue,
+                    "itemStyle": itemStyleBreadcrumbValue
+                ]
+                
+                expect(breadcrumb.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let breadcrumbByEnums = TreemapSerie.Breadcrumb(
+                    .show(showBreadcrumbValue),
+                    .left(leftBreadcrumbValue),
+                    .top(topBreadcrumbValue),
+                    .right(rightBreadcrumbValue),
+                    .bottom(bottomBreadcrumbValue),
+                    .height(heightBreadcrumbValue),
+                    .emptyItemWidth(emptyItemWidthBreadcrumbValue),
+                    .itemStyle(itemStyleBreadcrumbValue)
+                )
+                
+                expect(breadcrumbByEnums.jsonString).to(equal(breadcrumb.jsonString))
+            }
+        }
     }
 }

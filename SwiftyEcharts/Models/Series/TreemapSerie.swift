@@ -622,7 +622,7 @@ public final class TreemapSerie: Serie, Zable {
     ///         // 越往后的数据延迟越大
     ///         return idx * 100;
     ///     }
-    public var animationDuration: Float?
+    public var animationDuration: Time?
     /// 初始动画的缓动效果。不同的缓动效果可以参考 缓动示例。http://echarts.baidu.com/gallery/editor.html?c=line-easing
     public var animationEasing: EasingFunction?
     /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
@@ -839,7 +839,7 @@ extension TreemapSerieData: Mappable {
 
 extension TreemapSerie: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(Float), height(Float), squareRotio(Float), leafDepth(Float), roam(Roam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(Range), colorSaturation(Range), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle), breadcrumb(Breadcrumb), data([Jsonable]), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Time)
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), squareRotio(Float), leafDepth(Float), roam(Roam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(Range), colorSaturation(Range), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle), breadcrumb(Breadcrumb), data([Jsonable]), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time)
     }
     
     public typealias ContentEnum = Enums

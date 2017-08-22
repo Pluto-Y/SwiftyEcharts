@@ -12,9 +12,23 @@ import Nimble
 
 class JsonableSpec: QuickSpec {
     
+    private struct StructExtension: Jsonable {
+        
+    }
+    
+    private class ClassExtension: Jsonable {
+        
+    }
     
     override func spec() {
         describe("For Jsonable") {
+            it("needs to check the default extension of Jsonable") {
+                let structExtension = StructExtension()
+                let classExtension = ClassExtension()
+                
+                expect(structExtension.jsonString).to(equal("\(structExtension)"))
+                expect(classExtension.jsonString).to(equal("\(classExtension)"))
+            }
             
             it("needs to check the basic type of jsonString property") {
                 let b = true

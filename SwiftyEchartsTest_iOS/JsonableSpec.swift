@@ -20,6 +20,12 @@ class JsonableSpec: QuickSpec {
         
     }
     
+    private class SomeClass {
+    }
+    
+    private struct SomeStruct {
+    }
+    
     override func spec() {
         describe("For Jsonable") {
             it("needs to check the default extension of Jsonable") {
@@ -72,6 +78,12 @@ class JsonableSpec: QuickSpec {
                 expect(dop.jsonString).to(equal("null"))
                 expect(fo.jsonString).to(equal("\(fo!)"))
                 expect(so.jsonString).to(equal("null"))
+                
+                let someClass: SomeClass? = SomeClass()
+                let someStruct: SomeStruct? = SomeStruct()
+                
+                expect(someClass.jsonString).to(equal("\(someClass!)"))
+                expect(someStruct.jsonString).to(equal("\(someStruct!)"))
             }
             
             it("needs to check the array") {

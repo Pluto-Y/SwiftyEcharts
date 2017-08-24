@@ -994,7 +994,7 @@ public final class ScatterOptions {
             .yAxis(Axis(
                 .type(.value),
                 .name("AQI指数"),
-                .nameLocation("end"),
+                .nameLocation(Position.end),
                 .nameGap(20),
                 .nameTextStyle(TextStyle(
                     .color("#fff"),

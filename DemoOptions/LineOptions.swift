@@ -89,7 +89,7 @@ public final class LineOptions {
                 ),
                 Axis(
                     .name("降雨量(mm)"),
-                    .nameLocation("start"),
+                    .nameLocation(Position.start),
                     .max(5),
                     .type(.value),
                     .inverse(true)

@@ -296,11 +296,11 @@ public final class MapOptions {
                 .roam(true),
                 .itemStyle(ItemStyle(
                     .normal(CommonItemStyleContent(
-                        //                    .areaColor // FIXME: 缺少 areaColor
+                        .areaColor(.hexColor("#323c48")),
                         .borderColor("#404a59")
                         )),
                     .emphasis(CommonItemStyleContent(
-                        //                    .areaColor // FIXME: 缺少 areaColor
+                        .areaColor(.hexColor("#2a333d"))
                         ))
                     ))
                 )),

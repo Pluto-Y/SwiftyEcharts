@@ -117,7 +117,7 @@ public final class Timeline: Displayable, Symbolized, Zable {
         public var textShadowColor: Color?
         public var textShadowBlur: Float?
         public var textShadowOffsetX: Float?
-        public var textShdaowOffsetY: Float?
+        public var textShadowOffsetY: Float?
         public var rich: [String: Jsonable]?
     }
     
@@ -288,7 +288,7 @@ public final class Timeline: Displayable, Symbolized, Zable {
     /// 线条样式
     public var lineStyle: LineStyle?
     /// 轴的文本标签。有 normal 和 emphasis 两个状态，normal 是文本正常的样式，emphasis 是文本高亮的样式，比如鼠标悬浮或者图例联动高亮的时候会使用 emphasis 作为文本的样式。
-    //    public var label: // FIXME?
+    public var label: Label?
     /// timeline 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: ItemStyle?
     /// 『当前项』（checkpoint）的图形样式。
@@ -302,7 +302,7 @@ public final class Timeline: Displayable, Symbolized, Zable {
 
 extension Timeline.LabelContent: Enumable {
     public enum Enums {
-        case position(Position), show(Bool), interval(UInt8), rotate(Float), formatter(Formatter), color(Color), fontStyle(FontStyle), fontWeight(FontWeight), fontSize(UInt), align(Align), verticalAlign(VerticalAlign), lineHeight(Float), backgroundColor(Color), borderColor(Color), borderWidth(Float), borderRadius(Float), padding(Padding), shadowColor(Color), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), width(LengthValue), height(LengthValue), textBorderColor(Color), textBorderWidth(Float), textShadowColor(Color), textShadowBlur(Float), textShadowOffsetX(Float), textShdaowOffsetY(Float), rich([String: Jsonable])
+        case position(Position), show(Bool), interval(UInt8), rotate(Float), formatter(Formatter), color(Color), fontStyle(FontStyle), fontWeight(FontWeight), fontSize(UInt), align(Align), verticalAlign(VerticalAlign), lineHeight(Float), backgroundColor(Color), borderColor(Color), borderWidth(Float), borderRadius(Float), padding(Padding), shadowColor(Color), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), width(LengthValue), height(LengthValue), textBorderColor(Color), textBorderWidth(Float), textShadowColor(Color), textShadowBlur(Float), textShadowOffsetX(Float), textShadowOffsetY(Float), rich([String: Jsonable])
     }
     
     public typealias ContentEnum = Enums
@@ -367,8 +367,8 @@ extension Timeline.LabelContent: Enumable {
                 self.textShadowBlur = textShadowBlur
             case let .textShadowOffsetX(textShadowOffsetX):
                 self.textShadowOffsetX = textShadowOffsetX
-            case let .textShdaowOffsetY(textShdaowOffsetY):
-                self.textShdaowOffsetY = textShdaowOffsetY
+            case let .textShadowOffsetY(textShadowOffsetY):
+                self.textShadowOffsetY = textShadowOffsetY
             case let .rich(rich):
                 self.rich = rich
             }
@@ -406,7 +406,7 @@ extension Timeline.LabelContent: Mappable {
         map["textShadowColor"] = textShadowColor
         map["textShadowBlur"] = textShadowBlur
         map["textShadowOffsetX"] = textShadowOffsetX
-        map["textShdaowOffsetY"] = textShdaowOffsetY
+        map["textShadowOffsetY"] = textShadowOffsetY
         map["rich"] = rich
     }
 }
@@ -617,7 +617,7 @@ extension Timeline.Data: Mappable {
 
 extension Timeline: Enumable {
     public enum Enums {
-        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), padding(Padding), orient(Orient), inverse(Bool), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), lineStyle(LineStyle), itemStyle(ItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([Jsonable])
+        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), padding(Padding), orient(Orient), inverse(Bool), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), lineStyle(LineStyle), label(Label), itemStyle(ItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([Jsonable])
     }
     
     public typealias ContentEnum = Enums
@@ -672,6 +672,8 @@ extension Timeline: Enumable {
                 self.symbolOffset = symbolOffset
             case let .lineStyle(lineStyle):
                 self.lineStyle = lineStyle
+            case let .label(label):
+                self.label = label
             case let .itemStyle(itemStyle):
                 self.itemStyle = itemStyle
             case let .checkpointStyle(checkpointStyle):
@@ -711,6 +713,7 @@ extension Timeline: Mappable {
         map["symbolRotate"] = symbolRotate
         map["symbolOffset"] = symbolOffset
         map["lineStyle"] = lineStyle
+        map["label"] = label
         map["itemStyle"] = itemStyle
         map["checkpointStyle"] = checkpointStyle
         map["controlStyle"] = controlStyle

@@ -25,6 +25,7 @@ class TimelineSpec: QuickSpec {
         let colorLabelContentValue = Color.hexColor("876543")
         let fontStyleLabelContentValue = FontStyle.oblique
         let fontWeightLabelContentValue = FontWeight.lighter
+        let fontFamilyLabelContentValue = "Arial"
         let fontSizeLabelContentValue: UInt = 18
         let alignLabelContentValue = Align.none
         let verticalAlignLabelContentValue = VerticalAlign.bottom
@@ -57,6 +58,7 @@ class TimelineSpec: QuickSpec {
         labelContent.color = colorLabelContentValue
         labelContent.fontStyle = fontStyleLabelContentValue
         labelContent.fontWeight = fontWeightLabelContentValue
+        labelContent.fontFamily = fontFamilyLabelContentValue
         labelContent.fontSize = fontSizeLabelContentValue
         labelContent.align = alignLabelContentValue
         labelContent.verticalAlign = verticalAlignLabelContentValue
@@ -91,6 +93,7 @@ class TimelineSpec: QuickSpec {
                     "color": colorLabelContentValue,
                     "fontStyle": fontStyleLabelContentValue,
                     "fontWeight": fontWeightLabelContentValue,
+                    "fontFamily": fontFamilyLabelContentValue,
                     "fontSize": fontSizeLabelContentValue,
                     "align": alignLabelContentValue,
                     "verticalAlign": verticalAlignLabelContentValue,
@@ -128,6 +131,7 @@ class TimelineSpec: QuickSpec {
                     .color(colorLabelContentValue),
                     .fontStyle(fontStyleLabelContentValue),
                     .fontWeight(fontWeightLabelContentValue),
+                    .fontFamily(fontFamilyLabelContentValue),
                     .fontSize(fontSizeLabelContentValue),
                     .align(alignLabelContentValue),
                     .verticalAlign(verticalAlignLabelContentValue),

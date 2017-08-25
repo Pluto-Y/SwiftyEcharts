@@ -88,6 +88,45 @@
 /// ECharts 3 和 ECharts 2 相比，timeline 属性的定义位置有所不同，移到了 baseOption 中，统一作为一个普通的组件看待。但是，仍然兼容 ECharts2 的 timeline 定义位置，只是不再推荐这样写。
 public final class Timeline: Displayable, Symbolized, Zable {
     
+    public final class LabelContent: Displayable, Shadowable, Borderable {
+        public var position: Position?
+        public var show: Bool?
+        public var interval: UInt8?
+        public var rotate: Float?
+        public var formatter: Formatter?
+        public var color: Color?
+        public var fontStyle: FontStyle?
+        public var fontWeight: FontWeight?
+        public var fontSize: UInt?
+        public var align: Align?
+        public var verticalAlign: VerticalAlign?
+        public var lineHeight: Float?
+        public var backgroundColor: Color?
+        public var borderColor: Color?
+        public var borderWidth: Float?
+        public var borderRadius: Float?
+        public var padding: Padding?
+        public var shadowColor: Color?
+        public var shadowBlur: Float?
+        public var shadowOffsetX: Float?
+        public var shadowOffsetY: Float?
+        public var width: LengthValue?
+        public var height: LengthValue?
+        public var textBorderColor: Color?
+        public var textBorderWidth: Float?
+        public var textShadowColor: Color?
+        public var textShadowBlur: Float?
+        public var textShadowOffsetX: Float?
+        public var textShdaowOffsetY: Float?
+        public var rich: [String: Jsonable]?
+    }
+    
+    public final class Label: Emphasisable {
+        public typealias Style = LabelContent
+        
+        public var normal: Style?
+        public var emphasis: Style?
+    }
     
     public final class CheckpointStyle: Symbolized, Colorful, Borderable {
         /// timeline.checkpointStyle 标记的图形。
@@ -259,6 +298,144 @@ public final class Timeline: Displayable, Symbolized, Zable {
     /// 数据
     public var data: [Jsonable]?
     
+}
+
+extension Timeline.LabelContent: Enumable {
+    public enum Enums {
+        case position(Position), show(Bool), interval(UInt8), rotate(Float), formatter(Formatter), color(Color), fontStyle(FontStyle), fontWeight(FontWeight), fontSize(UInt), align(Align), verticalAlign(VerticalAlign), lineHeight(Float), backgroundColor(Color), borderColor(Color), borderWidth(Float), borderRadius(Float), padding(Padding), shadowColor(Color), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), width(LengthValue), height(LengthValue), textBorderColor(Color), textBorderWidth(Float), textShadowColor(Color), textShadowBlur(Float), textShadowOffsetX(Float), textShdaowOffsetY(Float), rich([String: Jsonable])
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .position(position):
+                self.position = position
+            case let .show(show):
+                self.show = show
+            case let .interval(interval):
+                self.interval = interval
+            case let .rotate(rotate):
+                self.rotate = rotate
+            case let .formatter(formatter):
+                self.formatter = formatter
+            case let .color(color):
+                self.color = color
+            case let .fontStyle(fontStyle):
+                self.fontStyle = fontStyle
+            case let .fontWeight(fontWeight):
+                self.fontWeight = fontWeight
+            case let .fontSize(fontSize):
+                self.fontSize = fontSize
+            case let .align(align):
+                self.align = align
+            case let .verticalAlign(verticalAlign):
+                self.verticalAlign = verticalAlign
+            case let .lineHeight(lineHeight):
+                self.lineHeight = lineHeight
+            case let .backgroundColor(backgroundColor):
+                self.backgroundColor = backgroundColor
+            case let .borderColor(borderColor):
+                self.borderColor = borderColor
+            case let .borderWidth(borderWidth):
+                self.borderWidth = borderWidth
+            case let .borderRadius(borderRadius):
+                self.borderRadius = borderRadius
+            case let .padding(padding):
+                self.padding = padding
+            case let .shadowColor(shadowColor):
+                self.shadowColor = shadowColor
+            case let .shadowBlur(shadowBlur):
+                self.shadowBlur = shadowBlur
+            case let .shadowOffsetX(shadowOffsetX):
+                self.shadowOffsetX = shadowOffsetX
+            case let .shadowOffsetY(shadowOffsetY):
+                self.shadowOffsetY = shadowOffsetY
+            case let .width(width):
+                self.width = width
+            case let .height(height):
+                self.height = height
+            case let .textBorderColor(textBorderColor):
+                self.textBorderColor = textBorderColor
+            case let .textBorderWidth(textBorderWidth):
+                self.textBorderWidth = textBorderWidth
+            case let .textShadowColor(textShadowColor):
+                self.textShadowColor = textShadowColor
+            case let .textShadowBlur(textShadowBlur):
+                self.textShadowBlur = textShadowBlur
+            case let .textShadowOffsetX(textShadowOffsetX):
+                self.textShadowOffsetX = textShadowOffsetX
+            case let .textShdaowOffsetY(textShdaowOffsetY):
+                self.textShdaowOffsetY = textShdaowOffsetY
+            case let .rich(rich):
+                self.rich = rich
+            }
+        }
+    }
+}
+
+extension Timeline.LabelContent: Mappable {
+    public func mapping(map: Mapper) {
+        map["position"] = position
+        map["show"] = show
+        map["interval"] = interval
+        map["rotate"] = rotate
+        map["formatter"] = formatter
+        map["color"] = color
+        map["fontStyle"] = fontStyle
+        map["fontWeight"] = fontWeight
+        map["fontSize"] = fontSize
+        map["align"] = align
+        map["verticalAlign"] = verticalAlign
+        map["lineHeight"] = lineHeight
+        map["backgroundColor"] = backgroundColor
+        map["borderColor"] = borderColor
+        map["borderWidth"] = borderWidth
+        map["borderRadius"] = borderRadius
+        map["padding"] = padding
+        map["shadowColor"] = shadowColor
+        map["shadowBlur"] = shadowBlur
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
+        map["width"] = width
+        map["height"] = height
+        map["textBorderColor"] = textBorderColor
+        map["textBorderWidth"] = textBorderWidth
+        map["textShadowColor"] = textShadowColor
+        map["textShadowBlur"] = textShadowBlur
+        map["textShadowOffsetX"] = textShadowOffsetX
+        map["textShdaowOffsetY"] = textShdaowOffsetY
+        map["rich"] = rich
+    }
+}
+
+extension Timeline.Label: Enumable {
+    public enum Enums {
+        case normal(Style), emphasis(Style)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .normal(normal):
+                self.normal = normal
+            case let .emphasis(emphasis):
+                self.emphasis = emphasis
+            }
+        }
+    }
+}
+
+extension Timeline.Label: Mappable {
+    public func mapping(map: Mapper) {
+        map["normal"] = normal
+        map["emphasis"] = emphasis
+    }
 }
 
 extension Timeline.CheckpointStyle: Enumable {

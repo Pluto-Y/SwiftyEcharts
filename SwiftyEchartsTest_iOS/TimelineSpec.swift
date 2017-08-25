@@ -13,7 +13,7 @@ import Nimble
 class TimelineSpec: QuickSpec {
     override func spec() {
         
-        beforeEach { 
+        beforeEach {
             Mapper.ignoreNil = true
         }
         
@@ -153,6 +153,40 @@ class TimelineSpec: QuickSpec {
                 )
                 
                 expect(labelContentByEnums.jsonString).to(equal(labelContent.jsonString))
+            }
+        }
+        
+        let normalLabelValue = labelContent
+        let emphasisLabelValue = Timeline.LabelContent(
+            .show(false),
+            .position(Position.auto),
+            .fontStyle(FontStyle.oblique),
+            .fontWeight(FontWeight.bold),
+            .borderColor(Color.hexColor("#fedcba")),
+            .backgroundColor(Color.transparent)
+        )
+        
+        let label = Timeline.Label()
+        label.normal = normalLabelValue
+        label.emphasis = emphasisLabelValue
+        
+        describe("For Timeline.Label") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "normal": normalLabelValue,
+                    "emphasis": emphasisLabelValue
+                ]
+                
+                expect(label.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let labelByEnums = Timeline.Label(
+                    .normal(normalLabelValue),
+                    .emphasis(emphasisLabelValue)
+                )
+                
+                expect(labelByEnums.jsonString).to(equal(label.jsonString))
             }
         }
         
@@ -388,6 +422,7 @@ class TimelineSpec: QuickSpec {
                 .type(LineType.dotted),
                 .shadowBlur(75.37)
             )
+            let labelValue = label
             let itemStyleValue = ItemStyle(
                 .emphasis(CommonItemStyleContent(
                     .color(Color.yellow),
@@ -425,6 +460,7 @@ class TimelineSpec: QuickSpec {
             timeline.symbolRotate = symbolRotateValue
             timeline.symbolOffset = symbolOffsetValue
             timeline.lineStyle = lineStyleValue
+            timeline.label = labelValue
             timeline.itemStyle = itemStyleValue
             timeline.checkpointStyle = checkpointStyleValue
             timeline.controlStyle = controlStyleValue
@@ -456,6 +492,7 @@ class TimelineSpec: QuickSpec {
                     "symbolRotate": symbolRotateValue,
                     "symbolOffset": symbolOffsetValue,
                     "lineStyle": lineStyleValue,
+                    "label": labelValue,
                     "itemStyle": itemStyleValue,
                     "checkpointStyle": checkpointStyleValue,
                     "controlStyle": controlStyleValue,
@@ -490,6 +527,7 @@ class TimelineSpec: QuickSpec {
                     .symbolRotate(symbolRotateValue),
                     .symbolOffset(symbolOffsetValue),
                     .lineStyle(lineStyleValue),
+                    .label(labelValue),
                     .itemStyle(itemStyleValue),
                     .checkpointStyle(checkpointStyleValue),
                     .controlStyle(controlStyleValue),

@@ -151,7 +151,7 @@ public final class PictorialBarOptions {
         return Option(
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(Tooltip.AxisPointer(
+                .axisPointer(AxisPointer(
                     .type(.none)
                     )),
                 .formatter(.function("function (params) {return params[0].name + ': ' + params[0].value;}"))
@@ -272,7 +272,7 @@ public final class PictorialBarOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(Tooltip.AxisPointer(
+                .axisPointer(AxisPointer(
                     .type(.shadow)
                     ))
                 )),
@@ -649,7 +649,7 @@ public final class PictorialBarOptions {
             .backgroundColor("#0f375f"),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(Tooltip.AxisPointer(
+                .axisPointer(AxisPointer(
                     .type(.shadow)
                     ))
                 )),

@@ -33,7 +33,7 @@ public final class AxisPointer: Line, Animatable {
     /// - line: 直线指示器
     /// - cross: 十字准星指示器
     /// - shadow: 阴影指示器
-    public enum Type: String, Jsonable {
+    public enum `Type`: String, Jsonable {
         case line = "line", cross = "cross", shadow = "shadow", none = "none"
         
         public var jsonString: String {

@@ -18,6 +18,7 @@ public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
     public enum Trigger: String, Jsonable {
         case item = "item"
         case axis = "axis"
+        case none = "none"
         
         public var jsonString: String {
             return self.rawValue.jsonString

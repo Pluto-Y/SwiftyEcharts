@@ -44,47 +44,6 @@ class TooltipSpec: QuickSpec {
             }
         }
         
-        describe("For Tooltip.AxisPointer.Type") {
-            let lineString = "line"
-            let crossString = "cross"
-            let shadowString = "shadow"
-            let noneString = "none"
-            
-            let lineType = Tooltip.AxisPointer.Type.line
-            let crossType = Tooltip.AxisPointer.Type.cross
-            let shadowType = Tooltip.AxisPointer.Type.shadow
-            let noneType = Tooltip.AxisPointer.Type.none
-            
-            it("needs to check the enum case jsonString") {
-                expect(lineType.jsonString).to(equal(lineString.jsonString))
-                expect(crossType.jsonString).to(equal(crossString.jsonString))
-                expect(shadowType.jsonString).to(equal(shadowString.jsonString))
-                expect(noneType.jsonString).to(equal(noneString.jsonString))
-            }
-        }
-        
-        describe("For Tooltip.AxisPointer.Axis") {
-            let xString = "x"
-            let yString = "y"
-            let radiusString = "radius"
-            let angleString = "angle"
-            let autoString = "auto"
-            
-            let xAxis = Tooltip.AxisPointer.Axis.x
-            let yAxis = Tooltip.AxisPointer.Axis.y
-            let radiusAxis = Tooltip.AxisPointer.Axis.radius
-            let angleAxis = Tooltip.AxisPointer.Axis.angle
-            let autoAxis = Tooltip.AxisPointer.Axis.auto
-            
-            it("needs to check the enum case jsonString") {
-                expect(xAxis.jsonString).to(equal(xString.jsonString))
-                expect(yAxis.jsonString).to(equal(yString.jsonString))
-                expect(radiusAxis.jsonString).to(equal(radiusString.jsonString))
-                expect(angleAxis.jsonString).to(equal(angleString.jsonString))
-                expect(autoAxis.jsonString).to(equal(autoString.jsonString))
-            }
-        }
-        
         let colorCrossStyleValue = Color.hexColor("#87fabe")
         let widthCrossStyleValue: Float = 85.347
         let typeCrossStyleValue = LineType.dashed
@@ -98,7 +57,7 @@ class TooltipSpec: QuickSpec {
             .fontSize(75)
         )
         
-        let crossStyle = Tooltip.AxisPointer.CrossStyle()
+        let crossStyle = AxisPointer.CrossStyle()
         crossStyle.color = colorCrossStyleValue
         crossStyle.width = widthCrossStyleValue
         crossStyle.type = typeCrossStyleValue
@@ -108,40 +67,8 @@ class TooltipSpec: QuickSpec {
         crossStyle.shadowOffsetY = shadowOffsetYCrossStyleValue
         crossStyle.textStyle = textStyleCrossStyleValue
         
-        describe("For Tooltip.AxisPointer.CrossStyle") {
-            it("needs to check the jsonString") {
-                let resultDic: [String: Jsonable] = [
-                    "color": colorCrossStyleValue,
-                    "width": widthCrossStyleValue,
-                    "type": typeCrossStyleValue,
-                    "shadowBlur": shadowBlurCrossStyleValue,
-                    "shadowColor": shadowColorCrossStyleValue,
-                    "shadowOffsetX": shadowOffsetXCrossStyleValue,
-                    "shadowOffsetY": shadowOffsetYCrossStyleValue,
-                    "textStyle": textStyleCrossStyleValue
-                ]
-                
-                expect(crossStyle.jsonString).to(equal(resultDic.jsonString))
-            }
-            
-            it("needs to check the Enumable") {
-                let crossStyleByEnums = Tooltip.AxisPointer.CrossStyle(
-                    .color(colorCrossStyleValue),
-                    .width(widthCrossStyleValue),
-                    .type(typeCrossStyleValue),
-                    .shadowBlur(shadowBlurCrossStyleValue),
-                    .shadowColor(shadowColorCrossStyleValue),
-                    .shadowOffsetX(shadowOffsetXCrossStyleValue),
-                    .shadowOffsetY(shadowOffsetYCrossStyleValue),
-                    .textStyle(textStyleCrossStyleValue)
-                )
-                
-                expect(crossStyleByEnums.jsonString).to(equal(crossStyle.jsonString))
-            }
-        }
-        
-        let typeAxisPointerValue = Tooltip.AxisPointer.Type.cross
-        let axisAxisPointerValue = Tooltip.AxisPointer.Axis.angle
+        let typeAxisPointerValue = SwiftyEcharts.AxisPointer.Type.cross
+        let axisAxisPointerValue = AxisPointer.Axis.angle
         let animationAxisPointerValue = false
         let animationThresholdAxisPointerValue: Float = 0.000000
         let animationDurationAxisPointerValue = Time.number(764.7777)
@@ -162,7 +89,7 @@ class TooltipSpec: QuickSpec {
             .shadowColor(rgba(0, 0, 0, 0.5))
         )
         
-        let axisPointer = Tooltip.AxisPointer()
+        let axisPointer = AxisPointer()
         axisPointer.type = typeAxisPointerValue
         axisPointer.axis = axisAxisPointerValue
         axisPointer.animation = animationAxisPointerValue
@@ -177,49 +104,7 @@ class TooltipSpec: QuickSpec {
         axisPointer.crossStyle = crossStyleAxisPointerValue
         axisPointer.shadowStyle = shadowStyleAxisPointerValue
         
-        describe("For Tooltip.AxisPointer") {
-            it("needs to check the jsonString") {
-                let resultDic: [String: Jsonable] = [
-                    "type": typeAxisPointerValue,
-                    "axis": axisAxisPointerValue,
-                    "animation": animationAxisPointerValue,
-                    "animationThreshold": animationThresholdAxisPointerValue,
-                    "animationDuration": animationDurationAxisPointerValue,
-                    "animationEasing": animationEasingAxisPointerValue,
-                    "animationDelay": animationDelayAxisPointerValue,
-                    "animationDurationUpdate": animationDurationUpdateAxisPointerValue,
-                    "animationEasingUpdate": animationEasingUpdateAxisPointerValue,
-                    "animationDelayUpdate": animationDelayUpdateAxisPointerValue,
-                    "lineStyle": lineStyleAxisPointerValue,
-                    "crossStyle": crossStyleAxisPointerValue,
-                    "shadowStyle": shadowStyleAxisPointerValue
-                ]
-                
-                expect(axisPointer.jsonString).to(equal(resultDic.jsonString))
-            }
-            
-            it("needs to check the Enumable") {
-                let axisPointerByEnums = Tooltip.AxisPointer(
-                    .type(typeAxisPointerValue),
-                    .axis(axisAxisPointerValue),
-                    .animation(animationAxisPointerValue),
-                    .animationThreshold(animationThresholdAxisPointerValue),
-                    .animationDuration(animationDurationAxisPointerValue),
-                    .animationEasing(animationEasingAxisPointerValue),
-                    .animationDelay(animationDelayAxisPointerValue),
-                    .animationDurationUpdate(animationDurationUpdateAxisPointerValue),
-                    .animationEasingUpdate(animationEasingUpdateAxisPointerValue),
-                    .animationDelayUpdate(animationDelayUpdateAxisPointerValue),
-                    .lineStyle(lineStyleAxisPointerValue),
-                    .crossStyle(crossStyleAxisPointerValue),
-                    .shadowStyle(shadowStyleAxisPointerValue)
-                )
-                
-                expect(axisPointerByEnums.jsonString).to(equal(axisPointer.jsonString))
-            }
-        }
-        
-        describe("For Tooltip") { 
+        describe("For Tooltip") {
             let showValue = true
             let showContentValue = true
             let triggerValue = Tooltip.Trigger.axis

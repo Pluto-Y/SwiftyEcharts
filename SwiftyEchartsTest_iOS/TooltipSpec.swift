@@ -57,7 +57,7 @@ class TooltipSpec: QuickSpec {
             .fontSize(75)
         )
         
-        let crossStyle = AxisPointer.CrossStyle()
+        let crossStyle = AxisPointerForTooltip.CrossStyle()
         crossStyle.color = colorCrossStyleValue
         crossStyle.width = widthCrossStyleValue
         crossStyle.type = typeCrossStyleValue
@@ -67,42 +67,42 @@ class TooltipSpec: QuickSpec {
         crossStyle.shadowOffsetY = shadowOffsetYCrossStyleValue
         crossStyle.textStyle = textStyleCrossStyleValue
         
-        let typeAxisPointerValue = SwiftyEcharts.AxisPointer.Type.cross
-        let axisAxisPointerValue = AxisPointer.Axis.angle
-        let animationAxisPointerValue = false
-        let animationThresholdAxisPointerValue: Float = 0.000000
-        let animationDurationAxisPointerValue = Time.number(764.7777)
-        let animationEasingAxisPointerValue = EasingFunction.quarticInOut
-        let animationDelayAxisPointerValue: Time = 88
-        let animationDurationUpdateAxisPointerValue: Time = 75.37
-        let animationEasingUpdateAxisPointerValue: EasingFunction = .cubicInOut
-        let animationDelayUpdateAxisPointerValue = Time.init(integerLiteral: 84723)
-        let lineStyleAxisPointerValue = LineStyle(
+        let typeAxisPointerForTooltipValue = SwiftyEcharts.AxisPointerForTooltip.Type.cross
+        let axisAxisPointerForTooltipValue = AxisPointerForTooltip.Axis.angle
+        let animationAxisPointerForTooltipValue = false
+        let animationThresholdAxisPointerForTooltipValue: Float = 0.000000
+        let animationDurationAxisPointerForTooltipValue = Time.number(764.7777)
+        let animationEasingAxisPointerForTooltipValue = EasingFunction.quarticInOut
+        let animationDelayAxisPointerForTooltipValue: Time = 88
+        let animationDurationUpdateAxisPointerForTooltipValue: Time = 75.37
+        let animationEasingUpdateAxisPointerForTooltipValue: EasingFunction = .cubicInOut
+        let animationDelayUpdateAxisPointerForTooltipValue = Time.init(integerLiteral: 84723)
+        let lineStyleAxisPointerForTooltipValue = LineStyle(
             .width(7.247),
             .color(rgb(88, 102, 200)),
             .curveness(888.8888),
             .type(LineType.solid)
         )
-        let crossStyleAxisPointerValue = crossStyle
-        let shadowStyleAxisPointerValue = ShadowStyle(
+        let crossStyleAxisPointerForTooltipValue = crossStyle
+        let shadowStyleAxisPointerForTooltipValue = ShadowStyle(
             .shadowBlur(10),
             .shadowColor(rgba(0, 0, 0, 0.5))
         )
         
-        let axisPointer = AxisPointer()
-        axisPointer.type = typeAxisPointerValue
-        axisPointer.axis = axisAxisPointerValue
-        axisPointer.animation = animationAxisPointerValue
-        axisPointer.animationThreshold = animationThresholdAxisPointerValue
-        axisPointer.animationDuration = animationDurationAxisPointerValue
-        axisPointer.animationEasing = animationEasingAxisPointerValue
-        axisPointer.animationDelay = animationDelayAxisPointerValue
-        axisPointer.animationDurationUpdate = animationDurationUpdateAxisPointerValue
-        axisPointer.animationEasingUpdate = animationEasingUpdateAxisPointerValue
-        axisPointer.animationDelayUpdate = animationDelayUpdateAxisPointerValue
-        axisPointer.lineStyle = lineStyleAxisPointerValue
-        axisPointer.crossStyle = crossStyleAxisPointerValue
-        axisPointer.shadowStyle = shadowStyleAxisPointerValue
+        let axisPointer = AxisPointerForTooltip()
+        axisPointer.type = typeAxisPointerForTooltipValue
+        axisPointer.axis = axisAxisPointerForTooltipValue
+        axisPointer.animation = animationAxisPointerForTooltipValue
+        axisPointer.animationThreshold = animationThresholdAxisPointerForTooltipValue
+        axisPointer.animationDuration = animationDurationAxisPointerForTooltipValue
+        axisPointer.animationEasing = animationEasingAxisPointerForTooltipValue
+        axisPointer.animationDelay = animationDelayAxisPointerForTooltipValue
+        axisPointer.animationDurationUpdate = animationDurationUpdateAxisPointerForTooltipValue
+        axisPointer.animationEasingUpdate = animationEasingUpdateAxisPointerForTooltipValue
+        axisPointer.animationDelayUpdate = animationDelayUpdateAxisPointerForTooltipValue
+        axisPointer.lineStyle = lineStyleAxisPointerForTooltipValue
+        axisPointer.crossStyle = crossStyleAxisPointerForTooltipValue
+        axisPointer.shadowStyle = shadowStyleAxisPointerForTooltipValue
         
         describe("For Tooltip") {
             let showValue = true

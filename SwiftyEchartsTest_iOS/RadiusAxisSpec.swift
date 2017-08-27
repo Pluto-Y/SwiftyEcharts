@@ -170,7 +170,7 @@ class RadiusAxisSpec: QuickSpec {
             .shadowColor(Color.rgba(200, 0, 0, 0.01)),
             .shadowOffsetX(200.0)
         )
-        let triggerTooltipAxisPointerValue = false
+        let triggerAxisPointerForTooltipValue = false
         let valueAxisPointerValue: Float = 0.8576
         let stateAxisPointerValue = false
         let handleAxisPointerValue = handle
@@ -183,7 +183,7 @@ class RadiusAxisSpec: QuickSpec {
         axisPointer.label = labelAxisPointerValue
         axisPointer.lineStyle = lineStyleAxisPointerValue
         axisPointer.shadowStyle = shadowStyleAxisPointerValue
-        axisPointer.triggerTooltip = triggerTooltipAxisPointerValue
+        axisPointer.triggerTooltip = triggerAxisPointerForTooltipValue
         axisPointer.value = valueAxisPointerValue
         axisPointer.state = stateAxisPointerValue
         axisPointer.handle = handleAxisPointerValue
@@ -198,7 +198,7 @@ class RadiusAxisSpec: QuickSpec {
                     "label": labelAxisPointerValue,
                     "lineStyle": lineStyleAxisPointerValue,
                     "shadowStyle": shadowStyleAxisPointerValue,
-                    "triggerTooltip": triggerTooltipAxisPointerValue,
+                    "triggerTooltip": triggerAxisPointerForTooltipValue,
                     "value": valueAxisPointerValue,
                     "state": stateAxisPointerValue,
                     "handle": handleAxisPointerValue
@@ -216,7 +216,7 @@ class RadiusAxisSpec: QuickSpec {
                     .label(labelAxisPointerValue),
                     .lineStyle(lineStyleAxisPointerValue),
                     .shadowStyle(shadowStyleAxisPointerValue),
-                    .triggerTooltip(triggerTooltipAxisPointerValue),
+                    .triggerTooltip(triggerAxisPointerForTooltipValue),
                     .value(valueAxisPointerValue),
                     .state(stateAxisPointerValue),
                     .handle(handleAxisPointerValue)

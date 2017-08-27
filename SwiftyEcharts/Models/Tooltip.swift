@@ -89,7 +89,7 @@ public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
     ///     extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);'
     public var extraCssText: String?
     /// 坐标轴指示器配置项，在 trigger 为 'axis' 时有效。
-    public var axisPointer: AxisPointer?
+    public var axisPointer: AxisPointerForTooltip?
     
     public init() { }
 }
@@ -98,7 +98,7 @@ public final class Tooltip: Borderable, Displayable, Formatted, Jsonable {
 
 extension Tooltip: Enumable {
     public enum Enums {
-        case show(Bool), showContent(Bool), trigger(Trigger), triggerOn(Trigger.TriggerOn), alwaysShowContent(Bool), showDelay(Float), hideDelay(Float), position(Position), confine(Bool), transitionDuration(Float), formatter(Formatter), backgroundColor(Color), borderColor(Color), borderWidth(Float), padding(Padding), textStyle(TextStyle), extraCssText(String), axisPointer(AxisPointer)
+        case show(Bool), showContent(Bool), trigger(Trigger), triggerOn(Trigger.TriggerOn), alwaysShowContent(Bool), showDelay(Float), hideDelay(Float), position(Position), confine(Bool), transitionDuration(Float), formatter(Formatter), backgroundColor(Color), borderColor(Color), borderWidth(Float), padding(Padding), textStyle(TextStyle), extraCssText(String), axisPointer(AxisPointerForTooltip)
     }
     public typealias ContentEnum = Enums
     

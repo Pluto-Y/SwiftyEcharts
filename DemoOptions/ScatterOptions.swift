@@ -1550,7 +1550,7 @@ public final class ScatterOptions {
             .tooltip(Tooltip(
                 .showDelay(0),
                 .formatter(.function("function (params) { if (params.value.length > 1) { return params.seriesName + ' :<br/>' + params.value[0] + 'cm ' + params.value[1] + 'kg '; } else { return params.seriesName + ' :<br/>' + params.name + ' : ' + params.value + 'kg ';}}")),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.cross),
                     .lineStyle(LineStyle(
                         .type(.dashed),

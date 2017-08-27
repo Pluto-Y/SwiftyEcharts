@@ -6,8 +6,18 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+public final class AxisPointerForAxis {
+    
+}
+
+extension AxisPointerForAxis: Mappable {
+    public func mapping(map: Mapper) {
+        
+    }
+}
+
 /// 坐标轴指示器配置项
-public final class AxisPointer: Line, Animatable {
+public final class AxisPointerForTooltip: Line, Animatable {
     
     /// 十字准星指示器样式
     public final class CrossStyle: Shadowable, Colorful{
@@ -100,7 +110,7 @@ public final class AxisPointer: Line, Animatable {
     public init() { }
 }
 
-extension AxisPointer.CrossStyle: Enumable {
+extension AxisPointerForTooltip.CrossStyle: Enumable {
     public enum Enums {
         case color(Color), width(Float), type(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), textStyle(TextStyle)
     }
@@ -132,7 +142,7 @@ extension AxisPointer.CrossStyle: Enumable {
     }
 }
 
-extension AxisPointer.CrossStyle: Mappable {
+extension AxisPointerForTooltip.CrossStyle: Mappable {
     public func mapping(map: Mapper) {
         map["color"] = color
         map["width"] = width
@@ -145,7 +155,7 @@ extension AxisPointer.CrossStyle: Mappable {
     }
 }
 
-extension AxisPointer: Enumable {
+extension AxisPointerForTooltip: Enumable {
     public enum Enums {
         case type(Type), axis(Axis), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), lineStyle(LineStyle), crossStyle(CrossStyle), shadowStyle(ShadowStyle)
     }
@@ -187,7 +197,7 @@ extension AxisPointer: Enumable {
     }
 }
 
-extension AxisPointer: Mappable {
+extension AxisPointerForTooltip: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["axis"] = axis

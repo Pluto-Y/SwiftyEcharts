@@ -58,7 +58,7 @@ public final class ThemeRiverOptions {
         return Option(
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.line),
                     .lineStyle(LineStyle(
                         .color(.rgba(0, 0, 0, 0.2)),

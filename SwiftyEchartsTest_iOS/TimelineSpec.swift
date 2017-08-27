@@ -359,7 +359,7 @@ class TimelineSpec: QuickSpec {
         let valueDataValue: Jsonable = 5.7346
         let tooltipDataValue = Tooltip(
             .trigger(.axis),
-            .axisPointer(AxisPointer(
+            .axisPointer(AxisPointerForTooltip(
                 .type(.shadow)
                 ))
         )

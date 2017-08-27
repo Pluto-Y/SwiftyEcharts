@@ -282,7 +282,7 @@ public final class BarOptions {
         return Option(
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.shadow)
                     ))
                 )),
@@ -351,7 +351,7 @@ public final class BarOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.shadow)
                     ))
                 )),
@@ -431,7 +431,7 @@ public final class BarOptions {
         return Option(
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.shadow)
                     ))
                 )),
@@ -524,7 +524,7 @@ public final class BarOptions {
             .color([.hexColor("#3398DB")]),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.shadow)
                     ))
                 )),
@@ -565,7 +565,7 @@ public final class BarOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.shadow)
                     )),
                 .formatter(.function("function tooltipFomatter(params) { var tar = params[1]; return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;}"))
@@ -632,10 +632,10 @@ public final class BarOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.shadow)
                     )),
-                .formatter(.function("function tooltipAxisPointer(params){ var tar; if(params[1].value != '-') { tar = params[1]; } else { tar = param[0]; } return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value}"))
+                .formatter(.function("function axisPointer(params){ var tar; if(params[1].value != '-') { tar = params[1]; } else { tar = param[0]; } return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value}"))
                 )),
             .legend(Legend(
                 .data(["支出","收入"])
@@ -704,7 +704,7 @@ public final class BarOptions {
         return Option(
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.shadow)
                     ))
                 )),
@@ -795,7 +795,7 @@ public final class BarOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.shadow)
                     ))
                 )),

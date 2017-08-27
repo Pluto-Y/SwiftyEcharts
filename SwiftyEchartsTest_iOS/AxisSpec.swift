@@ -85,7 +85,7 @@ class AxisSpec: QuickSpec {
                     .color(.hexColor("#fff"))
                     ))
             )
-            let axisPointerValue = AxisPointer(
+            let axisPointerValue = AxisPointerForTooltip(
                 .type(.cross),
                 .axis(.angle),
                 .animation(false)

@@ -183,7 +183,7 @@ public final class RadiusAxis: Zable {
         /// 坐标轴指示器的 z 值。控制图形的前后顺序。z值小的图形会被z值大的图形覆盖。
         public var z: Float?
         /// 坐标轴指示器的文本标签。
-        public var label: FormattedLabel?
+        public var label: Label?
         /// axisPointer.type 为 'line' 时有效。
         public var lineStyle: LineStyle?
         /// axisPointer.type 为 'shadow' 时有效。
@@ -413,7 +413,7 @@ extension RadiusAxis.AxisPointer.Handle: Mappable {
 
 extension RadiusAxis.AxisPointer: Enumable {
     public enum Enums {
-        case show(Bool), type(Type), snap(Bool), z(Float), label(FormattedLabel), lineStyle(LineStyle), shadowStyle(ShadowStyle), triggerTooltip(Bool), value(Float), state(Bool), handle(Handle)
+        case show(Bool), type(Type), snap(Bool), z(Float), label(Label), lineStyle(LineStyle), shadowStyle(ShadowStyle), triggerTooltip(Bool), value(Float), state(Bool), handle(Handle)
     }
     
     public typealias ContentEnum = Enums

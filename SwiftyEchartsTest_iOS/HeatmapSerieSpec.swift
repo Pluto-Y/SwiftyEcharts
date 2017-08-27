@@ -15,7 +15,7 @@ class HeatmapSerieSpec: QuickSpec {
         
         let nameDataValue = "dataNameValue"
         let valueDataValue: [Jsonable] = ["周一", "周二", "周三"]
-        let labelDataValue = Label(
+        let labelDataValue = FormattedLabel(
             .normal(FormattedLabelStyle(
                 .show(true),
                 .position(.top)

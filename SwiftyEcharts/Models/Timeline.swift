@@ -458,7 +458,7 @@ public final class Timeline: Displayable, Symbolized, Zable {
     /// 线条样式
     public var lineStyle: LineStyle?
     /// 轴的文本标签。有 normal 和 emphasis 两个状态，normal 是文本正常的样式，emphasis 是文本高亮的样式，比如鼠标悬浮或者图例联动高亮的时候会使用 emphasis 作为文本的样式。
-    public var label: FormattedLabel?
+    public var label: Label?
     /// timeline 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: ItemStyle?
     /// 『当前项』（checkpoint）的图形样式。
@@ -790,7 +790,7 @@ extension Timeline.Data: Mappable {
 
 extension Timeline: Enumable {
     public enum Enums {
-        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), padding(Padding), orient(Orient), inverse(Bool), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), lineStyle(LineStyle), label(FormattedLabel), itemStyle(ItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([Jsonable])
+        case show(Bool), axisType(AxisType), current(UInt), autoPlay(Bool), rewind(Bool), loop(Bool), playInterval(Float), realtime(Bool), controlPosition(String), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), padding(Padding), orient(Orient), inverse(Bool), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), lineStyle(LineStyle), label(Label), itemStyle(ItemStyle), checkpointStyle(CheckpointStyle), controlStyle(ControlStyle), data([Jsonable])
     }
     
     public typealias ContentEnum = Enums

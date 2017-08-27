@@ -49,7 +49,7 @@ class GeoSpec: QuickSpec {
                 .borderWidth(15)
                 ))
         )
-        let labelRegionValue = Label(
+        let labelRegionValue = FormattedLabel(
             .normal(FormattedLabelStyle(
                 .show(false)
                 ))

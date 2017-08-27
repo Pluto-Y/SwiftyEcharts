@@ -106,12 +106,12 @@ class PieSerieSpec: QuickSpec {
         let valueDataValue: Float = 285.75
         let selectedDataValue = false
         let labelDataValue = Label(
-            .emphasis(CommonLabelStyle(
+            .emphasis(FormattedLabelStyle(
                 .show(true),
                 .position(Position.center),
                 .textStyle(TextStyle())
             )),
-            .normal(CommonLabelStyle(
+            .normal(FormattedLabelStyle(
                 .show(false)
             ))
         )

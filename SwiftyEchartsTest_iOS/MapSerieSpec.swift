@@ -53,7 +53,7 @@ class MapSerieSpec: QuickSpec {
                 ))
         )
         let labelDataValue = Label(
-            .emphasis(CommonLabelStyle(.show(false)))
+            .emphasis(FormattedLabelStyle(.show(false)))
         )
         
         let data = MapSerie.Data()
@@ -100,7 +100,7 @@ class MapSerieSpec: QuickSpec {
             let nameMapValue: [String: Jsonable] = ["China": "中国"]
             let selectedModeValue: SelectedMode = SelectedMode.single
             let labelValue = Label(
-                .emphasis(CommonLabelStyle(
+                .emphasis(FormattedLabelStyle(
                     .position(.inside)
                     ))
             )

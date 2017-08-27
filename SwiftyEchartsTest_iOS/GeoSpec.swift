@@ -50,7 +50,7 @@ class GeoSpec: QuickSpec {
                 ))
         )
         let labelRegionValue = Label(
-            .normal(CommonLabelStyle(
+            .normal(FormattedLabelStyle(
                 .show(false)
                 ))
         )

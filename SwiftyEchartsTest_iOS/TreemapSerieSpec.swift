@@ -54,7 +54,7 @@ class TreemapSerieSpec: QuickSpec {
         let visibleMinLevelValue: Float = 0.0
         let childrenVisibleMinLevelValue: Float = 1.04823
         let labelLevelValue = Label(
-            .emphasis(CommonLabelStyle(
+            .emphasis(FormattedLabelStyle(
                 .show(false),
                 .position(Position.right)
                 ))
@@ -222,11 +222,11 @@ class TreemapSerieSpec: QuickSpec {
         let visibleMinDataValue: Float = 66666.666666
         let childrenVisibleMinDataValue: Float = 74565.555834
         let labelDataValue = Label(
-            .normal(CommonLabelStyle(
+            .normal(FormattedLabelStyle(
                 .show(false),
                 .position(Position.right)
                 )),
-            .emphasis(CommonLabelStyle(
+            .emphasis(FormattedLabelStyle(
                 .textStyle(TextStyle(
                     .color(Color.red),
                     .fontWeight(FontWeight.bolder),
@@ -332,7 +332,7 @@ class TreemapSerieSpec: QuickSpec {
             let visibleMinValue: Float = 7437429.239847
             let childrenVisibleMinValue: Float = 0.0237
             let labelValue = Label(
-                .emphasis(CommonLabelStyle(
+                .emphasis(FormattedLabelStyle(
                     .textStyle(TextStyle(
                         .color(Color.yellow),
                         .fontSize(220)

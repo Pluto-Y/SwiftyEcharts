@@ -39,7 +39,7 @@ class LineSerieSpec: QuickSpec {
         let symbolRotateDataValue: Float = 999.2832
         let symbolOffsetDataValue: Point = [28%, 0.0]
         let labelDataValue = Label(
-            .normal(CommonLabelStyle(
+            .normal(FormattedLabelStyle(
                 .position(.end),
                 .show(false)
             ))
@@ -128,7 +128,7 @@ class LineSerieSpec: QuickSpec {
             let clipOverflowValue = true
             let stepValue = LineSerie.Step.middle
             let labelValue = Label(
-                .emphasis(CommonLabelStyle(
+                .emphasis(FormattedLabelStyle(
                     .textStyle(TextStyle(
                         .fontStyle(.italic),
                         .fontWeight(.bold)

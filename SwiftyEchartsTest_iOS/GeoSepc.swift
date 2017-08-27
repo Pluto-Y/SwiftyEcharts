@@ -51,8 +51,8 @@ class GeoSepc: QuickSpec {
                 ))
         )
         let labelRegionValue = Label(
-            .normal(CommonLabelStyle(.show(true))),
-            .emphasis(CommonLabelStyle(.show(true)))
+            .normal(FormattedLabelStyle(.show(true))),
+            .emphasis(FormattedLabelStyle(.show(true)))
         )
         
         let region = Geo.Region()

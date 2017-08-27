@@ -20,7 +20,7 @@ class ScatterSerieSpec: QuickSpec {
         let symbolRotateDataValue: Float = 7.75634
         let symbolOffsetDataValue: Point = [20.57, 57246]
         let labelDataValue = Label(
-            .emphasis(CommonLabelStyle(
+            .emphasis(FormattedLabelStyle(
                 .position(Position.point([0.0, 100%])),
                 .textStyle(TextStyle(
                     .fontWeight(FontWeight.bold)

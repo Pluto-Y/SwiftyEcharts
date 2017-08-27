@@ -413,8 +413,8 @@ public final class MapOptions {
         let serieTemplate = MapSerie(
             .map("china"),
             .label(FormattedLabel(
-                .normal(CommonLabelStyle(.show(true))),
-                .emphasis(CommonLabelStyle(.show(true)))
+                .normal(FormattedLabelStyle(.show(true))),
+                .emphasis(FormattedLabelStyle(.show(true)))
                 ))
         )
         
@@ -551,8 +551,8 @@ public final class MapOptions {
                     .map("china2"),
                     .selectedMode(.multiple),
                     .label(FormattedLabel(
-                        .normal(CommonLabelStyle(.show(true))),
-                        .emphasis(CommonLabelStyle(.show(true)))
+                        .normal(FormattedLabelStyle(.show(true))),
+                        .emphasis(FormattedLabelStyle(.show(true)))
                         )),
                     .data([
                         MapSerieData(
@@ -605,8 +605,8 @@ public final class MapOptions {
                     .name("香港18区人口密度"),
                     .map("HK"), // 自定义扩展图表类型
                     .label(FormattedLabel( // 由ItemStyle中直接抽象出来即可用
-                        .normal(CommonLabelStyle(.show(true))),
-                        .emphasis(CommonLabelStyle(.show(true)))
+                        .normal(FormattedLabelStyle(.show(true))),
+                        .emphasis(FormattedLabelStyle(.show(true)))
                         )),
                     .data([
                         [ "name": "中西区", "value": 20057.34 ],
@@ -668,10 +668,10 @@ public final class MapOptions {
                     .map("china"),
                     .selectedMode(.multiple),
                     .label(FormattedLabel(
-                        .normal(CommonLabelStyle(
+                        .normal(FormattedLabelStyle(
                             .show(true)
                             )),
-                        .emphasis(CommonLabelStyle(
+                        .emphasis(FormattedLabelStyle(
                             .show(true)
                             ))
                         ))
@@ -730,7 +730,7 @@ public final class MapOptions {
                     .roam(true),
                     .map("USA"),
                     .label(FormattedLabel(
-                        .emphasis(CommonLabelStyle(
+                        .emphasis(FormattedLabelStyle(
                             .show(true)
                             ))
                         )),

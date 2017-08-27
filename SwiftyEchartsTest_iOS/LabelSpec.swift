@@ -12,70 +12,82 @@ import Nimble
 
 class LabelSpec: QuickSpec {
     override func spec() {
-//        let showValue = false
-//        let positionValue = Position.value(8%)
-//        let textStyleValue = TextStyle(
-//            .align(Position.center),
-//            .fontSize(8),
-//            .fontStyle(.normal),
-//            .color(Color.red)
-//        )
-//        
-//        let normalFormattedLabelStyle = FormattedLabelStyle()
-//        normalFormattedLabelStyle.show = showValue
-//        normalFormattedLabelStyle.position = positionValue
-//        normalFormattedLabelStyle.textStyle = textStyleValue
-//        
-//        describe("For FormattedLabelStyle") {
-//            it("needs to check the jsonString") {
-//                let resultDic: [String: Jsonable] = [
-//                    "show": showValue,
-//                    "position": positionValue,
-//                    "textStyle": textStyleValue
-//                ]
-//                expect(normalFormattedLabelStyle.jsonString).to(equal(resultDic.jsonString))
-//            }
-//            
-//            it("needs to check the Enumable") {
-//                let commonLabelStyleByEnums = FormattedLabelStyle(
-//                    .show(showValue),
-//                    .position(positionValue),
-//                    .textStyle(textStyleValue)
-//                )
-//                
-//                expect(commonLabelStyleByEnums.jsonString).to(equal(normalFormattedLabelStyle.jsonString))
-//            }
-//        }
-//        
-//        describe("For Label") { 
-//            let normalValue = normalFormattedLabelStyle
-//            let emphasisValue = FormattedLabelStyle(
-//                .show(true),
-//                .position(Position.end)
-//            )
-//            
-//            let label = Label()
-//            label.normal = normalValue
-//            label.emphasis = emphasisValue
-//            
-//            it("needs to check the jsonString") {
-//                let resultDic: [String: Jsonable] = [
-//                    "normal": normalValue,
-//                    "emphasis": emphasisValue
-//                ]
-//                
-//                expect(label.jsonString).to(equal(resultDic.jsonString))
-//            }
-//            
-//            it("needs to check the Enumable") {
-//                let labelByEnums = Label(
-//                    .normal(normalValue),
-//                    .emphasis(emphasisValue)
-//                )
-//                
-//                expect(labelByEnums.jsonString).to(equal(labelByEnums.jsonString))
-//            }
-//        }
+        describe("For Label") {
+            let showValue = false
+            let precisionValue: UInt8 = 255
+            let formatterValue = Formatter.string("labelFormatterValue")
+            let marginValue: Float = 7462.238
+            let textStyleValue = TextStyle(
+                .align(Position.center),
+                .fontSize(8),
+                .fontStyle(.normal),
+                .color(Color.red)
+            )
+            let paddingValue = Padding.all(10)
+            let backgroundColorValue = Color.hexColor("#f829ba")
+            let borderColorValue = Color.rgb(0, 76, 99)
+            let borderWidthValue: Float = 8573.237
+            let shadowBlurValue: Float = 837.2783
+            let shadowColorValue = rgba(76, 127, 44, 0.8888)
+            let shadowOffsetXValue: Float = 0.0000023874823
+            let shadowOffsetYValue: Float = 4763.2398
+            
+            let label = Label()
+            label.show = showValue
+            label.precision = precisionValue
+            label.formatter = formatterValue
+            label.margin = marginValue
+            label.textStyle = textStyleValue
+            label.padding = paddingValue
+            label.backgroundColor = backgroundColorValue
+            label.borderColor = borderColorValue
+            label.borderWidth = borderWidthValue
+            label.shadowBlur = shadowBlurValue
+            label.shadowColor = shadowColorValue
+            label.shadowOffsetX = shadowOffsetXValue
+            label.shadowOffsetY = shadowOffsetYValue
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showValue,
+                    "precision": precisionValue,
+                    "formatter": formatterValue,
+                    "margin": marginValue,
+                    "textStyle": textStyleValue,
+                    "padding": paddingValue,
+                    "backgroundColor": backgroundColorValue,
+                    "borderColor": borderColorValue,
+                    "borderWidth": borderWidthValue,
+                    "shadowBlur": shadowBlurValue,
+                    "shadowColor": shadowColorValue,
+                    "shadowOffsetX": shadowOffsetXValue,
+                    "shadowOffsetY": shadowOffsetYValue
+                ]
+                
+                expect(label.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let labelByEnums = Label(
+                    .show(showValue),
+                    .precision(precisionValue),
+                    .formatter(formatterValue),
+                    .margin(marginValue),
+                    .textStyle(textStyleValue),
+                    .padding(paddingValue),
+                    .backgroundColor(backgroundColorValue),
+                    .borderColor(borderColorValue),
+                    .borderWidth(borderWidthValue),
+                    .shadowBlur(shadowBlurValue),
+                    .shadowColor(shadowColorValue),
+                    .shadowOffsetX(shadowOffsetXValue),
+                    .shadowOffsetY(shadowOffsetYValue)
+                )
+                
+                expect(labelByEnums.jsonString).to(equal(label.jsonString))
+            }
+        }
+        
         
         let showValue1 = true
         let positionValue1 = Position.point([5%, 122])

@@ -34,7 +34,7 @@ extension LineSerie {
         public var symbolSize: FunctionOrFloatOrPair?
         public var symbolRotate: Float?
         public var symbolOffset: Point?
-        public var label: Label? // 官方文档显示只有 normal 的模式？
+        public var label: FormattedLabel? // 官方文档显示只有 normal 的模式？
         public var itemStyle: ItemStyle?
         
         public init() { }
@@ -149,7 +149,7 @@ public final class LineSerie: Symbolized, Animatable, Zable {
     /// http://echarts.baidu.com/gallery/editor.html?c=line-step
     public var step: Step?
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
-    public var label: Label?
+    public var label: FormattedLabel?
     /// 折线拐点标志的样式。
     public var itemStyle: ItemStyle?
     /// 线条样式。

@@ -183,7 +183,7 @@ public final class RadiusAxis: Zable {
         /// 坐标轴指示器的 z 值。控制图形的前后顺序。z值小的图形会被z值大的图形覆盖。
         public var z: Float?
         /// 坐标轴指示器的文本标签。
-        public var label: Label?
+        public var label: FormattedLabel?
         /// axisPointer.type 为 'line' 时有效。
         public var lineStyle: LineStyle?
         /// axisPointer.type 为 'shadow' 时有效。

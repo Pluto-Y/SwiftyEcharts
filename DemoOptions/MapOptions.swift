@@ -412,7 +412,7 @@ public final class MapOptions {
     static func mapChinaDataRangeOption() -> Option {
         let serieTemplate = MapSerie(
             .map("china"),
-            .label(Label(
+            .label(FormattedLabel(
                 .normal(CommonLabelStyle(.show(true))),
                 .emphasis(CommonLabelStyle(.show(true)))
                 ))
@@ -550,7 +550,7 @@ public final class MapOptions {
                     .name("中国"),
                     .map("china2"),
                     .selectedMode(.multiple),
-                    .label(Label(
+                    .label(FormattedLabel(
                         .normal(CommonLabelStyle(.show(true))),
                         .emphasis(CommonLabelStyle(.show(true)))
                         )),
@@ -604,7 +604,7 @@ public final class MapOptions {
                 MapSerie(
                     .name("香港18区人口密度"),
                     .map("HK"), // 自定义扩展图表类型
-                    .label(Label( // 由ItemStyle中直接抽象出来即可用
+                    .label(FormattedLabel( // 由ItemStyle中直接抽象出来即可用
                         .normal(CommonLabelStyle(.show(true))),
                         .emphasis(CommonLabelStyle(.show(true)))
                         )),
@@ -667,7 +667,7 @@ public final class MapOptions {
                     .name("中国"),
                     .map("china"),
                     .selectedMode(.multiple),
-                    .label(Label(
+                    .label(FormattedLabel(
                         .normal(CommonLabelStyle(
                             .show(true)
                             )),
@@ -729,7 +729,7 @@ public final class MapOptions {
                     .name("USA PopEstimates"),
                     .roam(true),
                     .map("USA"),
-                    .label(Label(
+                    .label(FormattedLabel(
                         .emphasis(CommonLabelStyle(
                             .show(true)
                             ))
@@ -842,7 +842,7 @@ public final class MapOptions {
                     .roam(true),
                     .itemStyle(ItemStyle(
                         .emphasis(CommonItemStyleContent(
-                            //                            .label(Label(.show(true))) // FIXME: 缺少 label？
+                            //                            .label(FormattedLabel(.show(true))) // FIXME: 缺少 label？
                             ))
                         )),
                     .data([

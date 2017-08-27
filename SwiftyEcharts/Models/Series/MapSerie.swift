@@ -71,7 +71,7 @@ public final class MapSerie: Serie, Zable, Animatable {
         /// 该数据所在区域的多边形样式设置
         public var itemStyle: ItemStyle?
         /// 该数据所在区域的标签样式设置
-        public var label: Label?
+        public var label: FormattedLabel?
     }
     
     public var type: SerieType {
@@ -141,7 +141,7 @@ public final class MapSerie: Serie, Zable, Animatable {
     /// 选中模式，表示是否支持多个选中，默认关闭，支持布尔值和字符串，字符串取值可选'single'表示单选，或者'multiple'表示多选。
     public var selectedMode: SelectedMode?
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
-    public var label: Label?
+    public var label: FormattedLabel?
     /// 地图区域的多边形 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: ItemStyle?
     

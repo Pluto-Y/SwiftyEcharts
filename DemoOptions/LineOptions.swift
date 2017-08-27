@@ -295,7 +295,7 @@ public final class LineOptions {
                 LineSerie(
                     .name("搜索引擎"),
                     .stack("总量"),
-                    .label(Label(
+                    .label(FormattedLabel(
                         .normal(CommonLabelStyle(
                             .show(true),
                             .position(.top)

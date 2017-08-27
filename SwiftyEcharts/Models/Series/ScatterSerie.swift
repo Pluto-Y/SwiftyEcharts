@@ -20,7 +20,7 @@ public final class ScatterSerie: Serie, Symbolized, Animatable, Zable {
         public var symbolRotate: Float?
         public var symbolOffset: Point?
         /// 数据项文字样式
-        public var label: Label?
+        public var label: FormattedLabel?
         /// 单个数据点（气泡）的样式设置。
         public var itemStyle: ItemStyle?
     }

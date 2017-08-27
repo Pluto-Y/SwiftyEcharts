@@ -413,7 +413,7 @@ extension RadiusAxis.AxisPointer.Handle: Mappable {
 
 extension RadiusAxis.AxisPointer: Enumable {
     public enum Enums {
-        case show(Bool), type(Type), snap(Bool), z(Float), label(Label), lineStyle(LineStyle), shadowStyle(ShadowStyle), triggerTooltip(Bool), value(Float), state(Bool), handle(Handle)
+        case show(Bool), type(Type), snap(Bool), z(Float), label(FormattedLabel), lineStyle(LineStyle), shadowStyle(ShadowStyle), triggerTooltip(Bool), value(Float), state(Bool), handle(Handle)
     }
     
     public typealias ContentEnum = Enums

@@ -287,7 +287,7 @@ extension MapSerie.ScaleLimit: Mappable {
 
 extension MapSerie.Data: Enumable {
     public enum Enums {
-        case name(String), value(Float), selected(Bool), itemStyle(ItemStyle), label(Label)
+        case name(String), value(Float), selected(Bool), itemStyle(ItemStyle), label(FormattedLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -323,7 +323,7 @@ extension MapSerie.Data: Mappable {
 
 extension MapSerie: Enumable {
     public enum Enums {
-        case name(String), map(String), roam(Roam), center(Point), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SelectedMode), label(Label), itemStyle(ItemStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), layoutCenter(Position), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), map(String), roam(Roam), center(Point), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SelectedMode), label(FormattedLabel), itemStyle(ItemStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), layoutCenter(Position), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

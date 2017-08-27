@@ -323,7 +323,7 @@ extension PieSerie: Enumable {
 extension PieSerieData: Enumable {
     
     public enum Enums {
-        case name(String), value(Float), selected(Bool), label(Label), labelLine(PieSerie.LabelLine), itemStyle(ItemStyle)
+        case name(String), value(Float), selected(Bool), label(FormattedLabel), labelLine(PieSerie.LabelLine), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums

@@ -210,7 +210,7 @@ extension FunnelSerie.LabelLine: Mappable {
 
 extension FunnelSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Float), label(Label), labelLine(FunnelSerie.LabelLine), itemStyle(ItemStyle)
+        case name(String), value(Float), label(FormattedLabel), labelLine(FunnelSerie.LabelLine), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums

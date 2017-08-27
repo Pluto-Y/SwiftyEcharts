@@ -647,7 +647,7 @@ public typealias TreemapSerieData = TreemapSerie.Data
 
 extension TreemapSerieLevel: Enumable {
     public enum Enums {
-        case visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(TreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle)
+        case visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(TreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(FormattedLabel), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -776,7 +776,7 @@ extension TreemapSerieBreadcrumb: Mappable {
 
 extension TreemapSerieData: Enumable {
     public enum Enums {
-        case value(Jsonable), id(String), name(String), visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(TreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle)
+        case value(Jsonable), id(String), name(String), visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(TreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(FormattedLabel), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -839,7 +839,7 @@ extension TreemapSerieData: Mappable {
 
 extension TreemapSerie: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), squareRotio(Float), leafDepth(Float), roam(Roam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(Range), colorSaturation(Range), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(Label), itemStyle(ItemStyle), breadcrumb(Breadcrumb), data([Jsonable]), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time)
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), squareRotio(Float), leafDepth(Float), roam(Roam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(Range), colorSaturation(Range), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(FormattedLabel), itemStyle(ItemStyle), breadcrumb(Breadcrumb), data([Jsonable]), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time)
     }
     
     public typealias ContentEnum = Enums

@@ -218,7 +218,7 @@ public typealias ScatterSerieData = ScatterSerie.Data
 
 extension ScatterSerieData: Enumable {
     public enum Enums {
-        case name(String), value(String), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), label(Label), itemStyle(ItemStyle)
+        case name(String), value(String), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums

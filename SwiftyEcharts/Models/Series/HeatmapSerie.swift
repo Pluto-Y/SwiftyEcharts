@@ -166,7 +166,7 @@ public typealias HeatmapSerieData = HeatmapSerie.Data
 
 extension HeatmapSerieData: Enumable {
     public enum Enums {
-        case name(String), value([Jsonable]), label(Label), itemStyle(ItemStyle)
+        case name(String), value([Jsonable]), label(FormattedLabel), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums

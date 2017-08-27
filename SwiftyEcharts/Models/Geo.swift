@@ -195,7 +195,7 @@ extension Geo.ScaleLimit: Mappable {
 
 extension Geo.Region: Enumable {
     public enum Enums {
-        case name(String), selected(Bool), itemStyle(ItemStyle), label(Label)
+        case name(String), selected(Bool), itemStyle(ItemStyle), label(FormattedLabel)
     }
     
     public typealias ContentEnum = Enums

@@ -125,6 +125,8 @@ public final class AngleAxis: Zable {
     public var splitArea: SplitArea?
     /// 数据
     public var data: [Jsonable]?
+    /// 指示器
+    public var axisPointer: AxisPointerForAxis?
     
     /// MARK: - Zable
     public var zlevel: Float?
@@ -162,7 +164,7 @@ extension AngleAxis.Data: Mappable {
 
 extension AngleAxis: Enumable {
     public enum Enums {
-        case polarIndex(UInt8), startAngle(Float), clockwise(Bool), type(AxisType), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable]), zlevel(Float), z(Float)
+        case polarIndex(UInt8), startAngle(Float), clockwise(Bool), type(AxisType), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), splitNumber(UInt8), minInterval(UInt8), interval(UInt), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable]), axisPointer(AxisPointerForAxis), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -211,6 +213,8 @@ extension AngleAxis: Enumable {
                 self.splitArea = splitArea
             case let .data(data):
                 self.data = data
+            case let .axisPointer(axisPointer):
+                self.axisPointer = axisPointer
             case let .zlevel(zlevel):
                 self.zlevel = zlevel
             case let .z(z):

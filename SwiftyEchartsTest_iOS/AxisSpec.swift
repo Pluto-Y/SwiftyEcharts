@@ -85,10 +85,8 @@ class AxisSpec: QuickSpec {
                     .color(.hexColor("#fff"))
                     ))
             )
-            let axisPointerValue = AxisPointerForTooltip(
-                .type(.cross),
-                .axis(.angle),
-                .animation(false)
+            let axisPointerValue = AxisPointerForAxis(
+                .type(.shadow)
             )
             let splitLineValue = SplitLine(
                 .lineStyle(LineStyle(

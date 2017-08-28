@@ -16,7 +16,7 @@ public final class PieSerie: Serie, Zable {
         /// 该数据项是否被选中。
         public var selected: Bool?
         /// 单个扇区的标签配置。
-        public var label: Label?
+        public var label: FormattedLabel?
         public var labelLine: LabelLine?
         /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
         public var itemStyle: ItemStyle?
@@ -323,7 +323,7 @@ extension PieSerie: Enumable {
 extension PieSerieData: Enumable {
     
     public enum Enums {
-        case name(String), value(Float), selected(Bool), label(Label), labelLine(PieSerie.LabelLine), itemStyle(ItemStyle)
+        case name(String), value(Float), selected(Bool), label(FormattedLabel), labelLine(PieSerie.LabelLine), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums

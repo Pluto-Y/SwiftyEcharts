@@ -12,6 +12,188 @@ import Nimble
 
 class TimelineSpec: QuickSpec {
     override func spec() {
+        
+        beforeEach {
+            Mapper.ignoreNil = true
+        }
+        
+        let positionLabelContentValue = Position.center
+        let showLabelContentValue = false
+        let intervalLabelContentValue: UInt8 = 44
+        let rotateLabelContentValue: Float = 3874.92
+        let formatterLabelContentValue = Formatter.string("labelContentFormatterValue")
+        let colorLabelContentValue = Color.hexColor("876543")
+        let fontStyleLabelContentValue = FontStyle.oblique
+        let fontWeightLabelContentValue = FontWeight.lighter
+        let fontFamilyLabelContentValue = "Arial"
+        let fontSizeLabelContentValue: UInt = 18
+        let alignLabelContentValue = Align.none
+        let verticalAlignLabelContentValue = VerticalAlign.bottom
+        let lineHeightLabelContentValue: Float = 85723.1
+        let backgroundColorLabelContentValue = Color.rgb(76, 12, 45)
+        let borderColorLabelContentValue = Color.yellow
+        let borderWidthLabelContentValue: Float = 0
+        let borderRadiusLabelContentValue: Float = 2.0
+        let paddingLabelContentValue = Padding.trbl(0, 0, 20, 10)
+        let shadowColorLabelContentValue = Color.transparent
+        let shadowBlurLabelContentValue: Float = 2.0
+        let shadowOffsetXLabelContentValue: Float = 10.0
+        let shadowOffsetYLabelContentValue: Float = 857234.4
+        let widthLabelContentValue = 20%
+        let heightLabelContentValue = 80%
+        let textBorderColorLabelContentValue = Color.auto
+        let textBorderWidthLabelContentValue: Float = 5.0
+        let textShadowColorLabelContentValue = Color.blue
+        let textShadowBlurLabelContentValue: Float = 8572
+        let textShadowOffsetXLabelContentValue: Float = 4444444
+        let textShadowOffsetYLabelContentValue: Float = 0.11111111111
+        let richLabelContentValue: [String: Jsonable] = ["key": "value1", "intkey": 28, "doubleKey": 84.28, "boolKey": false]
+        
+        let labelContent = Timeline.LabelContent()
+        labelContent.position = positionLabelContentValue
+        labelContent.show = showLabelContentValue
+        labelContent.interval = intervalLabelContentValue
+        labelContent.rotate = rotateLabelContentValue
+        labelContent.formatter = formatterLabelContentValue
+        labelContent.color = colorLabelContentValue
+        labelContent.fontStyle = fontStyleLabelContentValue
+        labelContent.fontWeight = fontWeightLabelContentValue
+        labelContent.fontFamily = fontFamilyLabelContentValue
+        labelContent.fontSize = fontSizeLabelContentValue
+        labelContent.align = alignLabelContentValue
+        labelContent.verticalAlign = verticalAlignLabelContentValue
+        labelContent.lineHeight = lineHeightLabelContentValue
+        labelContent.backgroundColor = backgroundColorLabelContentValue
+        labelContent.borderColor = borderColorLabelContentValue
+        labelContent.borderWidth = borderWidthLabelContentValue
+        labelContent.borderRadius = borderRadiusLabelContentValue
+        labelContent.padding = paddingLabelContentValue
+        labelContent.shadowColor = shadowColorLabelContentValue
+        labelContent.shadowBlur = shadowBlurLabelContentValue
+        labelContent.shadowOffsetX = shadowOffsetXLabelContentValue
+        labelContent.shadowOffsetY = shadowOffsetYLabelContentValue
+        labelContent.width = widthLabelContentValue
+        labelContent.height = heightLabelContentValue
+        labelContent.textBorderColor = textBorderColorLabelContentValue
+        labelContent.textBorderWidth = textBorderWidthLabelContentValue
+        labelContent.textShadowColor = textShadowColorLabelContentValue
+        labelContent.textShadowBlur = textShadowBlurLabelContentValue
+        labelContent.textShadowOffsetX = textShadowOffsetXLabelContentValue
+        labelContent.textShadowOffsetY = textShadowOffsetYLabelContentValue
+        labelContent.rich = richLabelContentValue
+        
+        describe("For Timeline.LabelContent") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "position": positionLabelContentValue,
+                    "show": showLabelContentValue,
+                    "interval": intervalLabelContentValue,
+                    "rotate": rotateLabelContentValue,
+                    "formatter": formatterLabelContentValue,
+                    "color": colorLabelContentValue,
+                    "fontStyle": fontStyleLabelContentValue,
+                    "fontWeight": fontWeightLabelContentValue,
+                    "fontFamily": fontFamilyLabelContentValue,
+                    "fontSize": fontSizeLabelContentValue,
+                    "align": alignLabelContentValue,
+                    "verticalAlign": verticalAlignLabelContentValue,
+                    "lineHeight": lineHeightLabelContentValue,
+                    "backgroundColor": backgroundColorLabelContentValue,
+                    "borderColor": borderColorLabelContentValue,
+                    "borderWidth": borderWidthLabelContentValue,
+                    "borderRadius": borderRadiusLabelContentValue,
+                    "padding": paddingLabelContentValue,
+                    "shadowColor": shadowColorLabelContentValue,
+                    "shadowBlur": shadowBlurLabelContentValue,
+                    "shadowOffsetX": shadowOffsetXLabelContentValue,
+                    "shadowOffsetY": shadowOffsetYLabelContentValue,
+                    "width": widthLabelContentValue,
+                    "height": heightLabelContentValue,
+                    "textBorderColor": textBorderColorLabelContentValue,
+                    "textBorderWidth": textBorderWidthLabelContentValue,
+                    "textShadowColor": textShadowColorLabelContentValue,
+                    "textShadowBlur": textShadowBlurLabelContentValue,
+                    "textShadowOffsetX": textShadowOffsetXLabelContentValue,
+                    "textShadowOffsetY": textShadowOffsetYLabelContentValue,
+                    "rich": richLabelContentValue
+                ]
+                
+                expect(labelContent.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let labelContentByEnums = Timeline.LabelContent(
+                    .position(positionLabelContentValue),
+                    .show(showLabelContentValue),
+                    .interval(intervalLabelContentValue),
+                    .rotate(rotateLabelContentValue),
+                    .formatter(formatterLabelContentValue),
+                    .color(colorLabelContentValue),
+                    .fontStyle(fontStyleLabelContentValue),
+                    .fontWeight(fontWeightLabelContentValue),
+                    .fontFamily(fontFamilyLabelContentValue),
+                    .fontSize(fontSizeLabelContentValue),
+                    .align(alignLabelContentValue),
+                    .verticalAlign(verticalAlignLabelContentValue),
+                    .lineHeight(lineHeightLabelContentValue),
+                    .backgroundColor(backgroundColorLabelContentValue),
+                    .borderColor(borderColorLabelContentValue),
+                    .borderWidth(borderWidthLabelContentValue),
+                    .borderRadius(borderRadiusLabelContentValue),
+                    .padding(paddingLabelContentValue),
+                    .shadowColor(shadowColorLabelContentValue),
+                    .shadowBlur(shadowBlurLabelContentValue),
+                    .shadowOffsetX(shadowOffsetXLabelContentValue),
+                    .shadowOffsetY(shadowOffsetYLabelContentValue),
+                    .width(widthLabelContentValue),
+                    .height(heightLabelContentValue),
+                    .textBorderColor(textBorderColorLabelContentValue),
+                    .textBorderWidth(textBorderWidthLabelContentValue),
+                    .textShadowColor(textShadowColorLabelContentValue),
+                    .textShadowBlur(textShadowBlurLabelContentValue),
+                    .textShadowOffsetX(textShadowOffsetXLabelContentValue),
+                    .textShadowOffsetY(textShadowOffsetYLabelContentValue),
+                    .rich(richLabelContentValue)
+                )
+                
+                expect(labelContentByEnums.jsonString).to(equal(labelContent.jsonString))
+            }
+        }
+        
+        let normalLabelValue = labelContent
+        let emphasisLabelValue = Timeline.LabelContent(
+            .show(false),
+            .position(Position.auto),
+            .fontStyle(FontStyle.oblique),
+            .fontWeight(FontWeight.bold),
+            .borderColor(Color.hexColor("#fedcba")),
+            .backgroundColor(Color.transparent)
+        )
+        
+        let label = Timeline.Label()
+        label.normal = normalLabelValue
+        label.emphasis = emphasisLabelValue
+        
+        describe("For Timeline.Label") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "normal": normalLabelValue,
+                    "emphasis": emphasisLabelValue
+                ]
+                
+                expect(label.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let labelByEnums = Timeline.Label(
+                    .normal(normalLabelValue),
+                    .emphasis(emphasisLabelValue)
+                )
+                
+                expect(labelByEnums.jsonString).to(equal(label.jsonString))
+            }
+        }
+        
         let symbolCheckpointStyleOriginValue = Symbol.arrow
         let symbolCheckpointStyleValue = OneOrMore(one: symbolCheckpointStyleOriginValue)
         let symbolSizeCheckpointStyleValue = FunctionOrFloatOrPair.point([20, 20%])
@@ -177,7 +359,7 @@ class TimelineSpec: QuickSpec {
         let valueDataValue: Jsonable = 5.7346
         let tooltipDataValue = Tooltip(
             .trigger(.axis),
-            .axisPointer(Tooltip.AxisPointer(
+            .axisPointer(AxisPointerForTooltip(
                 .type(.shadow)
                 ))
         )
@@ -244,6 +426,7 @@ class TimelineSpec: QuickSpec {
                 .type(LineType.dotted),
                 .shadowBlur(75.37)
             )
+            let labelValue = label
             let itemStyleValue = ItemStyle(
                 .emphasis(CommonItemStyleContent(
                     .color(Color.yellow),
@@ -281,6 +464,7 @@ class TimelineSpec: QuickSpec {
             timeline.symbolRotate = symbolRotateValue
             timeline.symbolOffset = symbolOffsetValue
             timeline.lineStyle = lineStyleValue
+            timeline.label = labelValue
             timeline.itemStyle = itemStyleValue
             timeline.checkpointStyle = checkpointStyleValue
             timeline.controlStyle = controlStyleValue
@@ -312,6 +496,7 @@ class TimelineSpec: QuickSpec {
                     "symbolRotate": symbolRotateValue,
                     "symbolOffset": symbolOffsetValue,
                     "lineStyle": lineStyleValue,
+                    "label": labelValue,
                     "itemStyle": itemStyleValue,
                     "checkpointStyle": checkpointStyleValue,
                     "controlStyle": controlStyleValue,
@@ -346,6 +531,7 @@ class TimelineSpec: QuickSpec {
                     .symbolRotate(symbolRotateValue),
                     .symbolOffset(symbolOffsetValue),
                     .lineStyle(lineStyleValue),
+                    .label(labelValue),
                     .itemStyle(itemStyleValue),
                     .checkpointStyle(checkpointStyleValue),
                     .controlStyle(controlStyleValue),

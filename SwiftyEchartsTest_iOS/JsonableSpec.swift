@@ -8,28 +8,66 @@
 
 import Quick
 import Nimble
-import SwiftyEcharts
+@testable import SwiftyEcharts
 
 class JsonableSpec: QuickSpec {
     
+    private struct StructExtension: Jsonable {
+        
+    }
+    
+    private class ClassExtension: Jsonable {
+        
+    }
+    
+    private class SomeClass {
+    }
+    
+    private struct SomeStruct {
+    }
     
     override func spec() {
         describe("For Jsonable") {
+            it("needs to check the default extension of Jsonable") {
+                let structExtension = StructExtension()
+                let classExtension = ClassExtension()
+                
+                expect(structExtension.jsonString).to(equal("\(structExtension)"))
+                expect(classExtension.jsonString).to(equal("\(classExtension)"))
+            }
             
-            it(" needs to check the toJson method ") {
+            it("needs to check the basic type of jsonString property") {
                 let b = true
                 let i = 5
+                let i8: Int8 = Int8.max
+                let i16: Int16 = Int16.min
+                let i32: Int32 = 12387123
+                let i64: Int64 = Int64.max
+                let ui: UInt = UInt.max
+                let ui8: UInt8 = 0
+                let ui16: UInt16 = 857
+                let ui32: UInt32 = 7777
+                let ui64: UInt64 = 85734
                 let d: Double = 3.14
                 let f: Float = 1.141421
                 let s = "Test Jsonable"
                 expect(b.jsonString).to(equal("\(b)"))
                 expect(i.jsonString).to(equal("\(i)"))
+                expect(i8.jsonString).to(equal("\(i8)"))
+                expect(i16.jsonString).to(equal("\(i16)"))
+                expect(i32.jsonString).to(equal("\(i32)"))
+                expect(i64.jsonString).to(equal("\(i64)"))
+                expect(ui.jsonString).to(equal("\(ui)"))
+                expect(ui8.jsonString).to(equal("\(ui8)"))
+                expect(ui16.jsonString).to(equal("\(ui16)"))
+                expect(ui32.jsonString).to(equal("\(ui32)"))
+                expect(ui64.jsonString).to(equal("\(ui64)"))
                 expect(d.jsonString).to(equal("\(d)"))
                 expect(f.jsonString).to(equal("\(f)"))
                 expect(s.jsonString).to(equal("\"\(s)\""))
             }
             
-            it(" needs to check the optional ") {
+            it("needs to check the optional") {
                 let bo: Bool? = false
                 let io: Int? = 10
                 let dop: Double? = nil
@@ -40,9 +78,15 @@ class JsonableSpec: QuickSpec {
                 expect(dop.jsonString).to(equal("null"))
                 expect(fo.jsonString).to(equal("\(fo!)"))
                 expect(so.jsonString).to(equal("null"))
+                
+                let someClass: SomeClass? = SomeClass()
+                let someStruct: SomeStruct? = SomeStruct()
+                
+                expect(someClass.jsonString).to(equal("\(someClass!)"))
+                expect(someStruct.jsonString).to(equal("\(someStruct!)"))
             }
             
-            it(" needs to check the array ") {
+            it("needs to check the array") {
                 let optionalValue: Float? = 6.5
                 let optionalNone: String? = nil
                 let dic: [String: Any?] = ["name": "Tom", "age": 6, "money": nil]
@@ -55,7 +99,7 @@ class JsonableSpec: QuickSpec {
                 expect(arr.jsonString).notTo(equal(nsarray.jsonString))
             }
             
-            it(" needs to check the dictionary ") {
+            it("needs to check the dictionary") {
                 let optionalValue: Float? = 6.5
                 let optionalNone: String? = nil
                 let childrenNames: [String?] = ["San Zhang", "Wu Zhao", nil]
@@ -67,12 +111,12 @@ class JsonableSpec: QuickSpec {
                 expect(dic.jsonString).notTo(equal(nsdictionary.jsonString))
             }
             
-            it(" need to check the dictionary when it does no have any key ") {
+            it("need to check the dictionary when it does no have any key") {
                 let dic: [String: Any?] = [:]
                 expect(dic.jsonString).to(equal("{\n\n}"))
             }
             
-            it(" needs to check the NSNull ") {
+            it("needs to check the NSNull") {
                 let nsnull = NSNull()
                 
                 expect(nsnull.jsonString).to(equal("null"))

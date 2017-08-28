@@ -16,6 +16,7 @@ class SplitLineSpec: QuickSpec {
             
             let showValue = false
             let intervalValue: LengthValue = 2
+            let lengthValue = 20%
             let lineStyleValue = LineStyle(
                 .color(Color.red),
                 .width(30),
@@ -28,25 +29,28 @@ class SplitLineSpec: QuickSpec {
                 .curveness(0.72)
             )
             
-            let dic: [String: Jsonable] = [
-                "show": showValue,
-                "interval": intervalValue,
-                "lineStyle": lineStyleValue
-            ]
-            
             let splitLine = SplitLine()
             splitLine.show = showValue
             splitLine.interval = intervalValue
+            splitLine.length = lengthValue
             splitLine.lineStyle = lineStyleValue
             
-            it(" needs to check the jsonString ") {
-                expect(splitLine.jsonString).to(equal(dic.jsonString))
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showValue,
+                    "interval": intervalValue,
+                    "length": lengthValue,
+                    "lineStyle": lineStyleValue
+                ]
+                
+                expect(splitLine.jsonString).to(equal(resultDic.jsonString))
             }
             
-            it(" needs to check the Enumable ") {
+            it("needs to check the Enumable") {
                 let splitLineByEnums = SplitLine(
                     .show(showValue),
                     .interval(intervalValue),
+                    .length(lengthValue),
                     .lineStyle(lineStyleValue)
                 )
                 

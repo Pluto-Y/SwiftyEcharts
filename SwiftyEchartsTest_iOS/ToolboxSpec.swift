@@ -101,7 +101,7 @@ class ToolboxSpec: QuickSpec {
         iconStyle.normal = normalIconStyleValue
         iconStyle.emphasis = emphasisIconStyleValue
         
-        describe("For IconStyle") { 
+        describe("For IconStyle") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "normal": normalIconStyleValue,
@@ -142,7 +142,7 @@ class ToolboxSpec: QuickSpec {
         saveAsImage.iconStyle = iconStyleSaveAsImageValue
         saveAsImage.pixelRatio = pixelRatioSaveAsImageValue
         
-        describe("For Toolbox.Feature.SaveAsImage") { 
+        describe("For Toolbox.Feature.SaveAsImage") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "type": typeSaveAsImageValue,
@@ -327,7 +327,7 @@ class ToolboxSpec: QuickSpec {
             }
         }
         
-     
+        
         let zoomTitleValue = "dataZoomTitleZoomValue"
         let backTitleValue = "dataZoomTitleBackValue"
         
@@ -390,7 +390,7 @@ class ToolboxSpec: QuickSpec {
                 .opacity(0.576),
                 .color(Color.auto),
                 .borderType(LineType.dashed)
-            ))
+                ))
         )
         let xAxisIndexDataZoomValue = Toolbox.Feature.DataZoom.AxisIndexSelector.bool(false)
         let yAxisIndexDataZoomValue = Toolbox.Feature.DataZoom.AxisIndexSelector.int(77)
@@ -461,7 +461,7 @@ class ToolboxSpec: QuickSpec {
         magicTypeTitle.stack = stackTitleValue
         magicTypeTitle.tiled = tiledTitleValue
         
-        describe("For Toolbox.Feature.MagicType.Title") { 
+        describe("For Toolbox.Feature.MagicType.Title") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "line": lineTitleValue,
@@ -595,7 +595,7 @@ class ToolboxSpec: QuickSpec {
         brushIcon.keep = keepBrushIconValue
         brushIcon.clear = clearBrushIconValue
         
-        describe("For Toolbox.Feature.Brush.Icon") { 
+        describe("For Toolbox.Feature.Brush.Icon") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "rect": rectBrushIconValue,
@@ -677,7 +677,7 @@ class ToolboxSpec: QuickSpec {
         brush.icon = iconBrushValue
         brush.title = titleBrushValue
         
-        describe("For Toolbox.Feature.Brush") { 
+        describe("For Toolbox.Feature.Brush") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "type": typeBrushValue,
@@ -696,6 +696,128 @@ class ToolboxSpec: QuickSpec {
                 )
                 
                 expect(brushByEnums.jsonString).to(equal(brush.jsonString))
+            }
+        }
+        
+        let saveAsImageFeatureValue = saveAsImage
+        let restoreFeatureValue = restore
+        let dataViewFeatureValue = dataView
+        let dataZoomFeatureValue = dataZoom
+        let magicTypeFeatureValue = magicType
+        let brushFeatureValue = brush
+        
+        let feature = Toolbox.Feature()
+        feature.saveAsImage = saveAsImageFeatureValue
+        feature.restore = restoreFeatureValue
+        feature.dataView = dataViewFeatureValue
+        feature.dataZoom = dataZoomFeatureValue
+        feature.magicType = magicTypeFeatureValue
+        feature.brush = brushFeatureValue
+        
+        describe("For Toolbox.Feature") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "saveAsImage": saveAsImageFeatureValue,
+                    "restore": restoreFeatureValue,
+                    "dataView": dataViewFeatureValue,
+                    "dataZoom": dataZoomFeatureValue,
+                    "magicType": magicTypeFeatureValue,
+                    "brush": brushFeatureValue
+                ]
+                
+                expect(feature.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let featureByEnums = Toolbox.Feature(
+                    .saveAsImage(saveAsImageFeatureValue),
+                    .restore(restoreFeatureValue),
+                    .dataView(dataViewFeatureValue),
+                    .dataZoom(dataZoomFeatureValue),
+                    .magicType(magicTypeFeatureValue),
+                    .brush(brushFeatureValue)
+                )
+                
+                expect(featureByEnums.jsonString).to(equal(feature.jsonString))
+            }
+        }
+        
+        describe("For Toolbox") {
+            let showValue = false
+            let orientValue = Orient.vertical
+            let itemSizeValue: Float = 0.57236
+            let itemGapValue: Float = 85.347
+            let showTitleValue = true
+            let featureValue = feature
+            let iconStyleValue = Toolbox.IconStyle()
+            let zlevelValue: Float = 10
+            let zValue: Float = -1
+            let leftValue = Position.right
+            let rightValue = Position.left
+            let topValue = Position.bottom
+            let bottomValue = Position.top
+            let widthValue: Float = 100
+            let heightValue: Float = 8.34764
+            
+            let toolbox = Toolbox()
+            toolbox.show = showValue
+            toolbox.orient = orientValue
+            toolbox.itemSize = itemSizeValue
+            toolbox.itemGap = itemGapValue
+            toolbox.showTitle = showTitleValue
+            toolbox.feature = featureValue
+            toolbox.iconStyle = iconStyleValue
+            toolbox.zlevel = zlevelValue
+            toolbox.z = zValue
+            toolbox.left = leftValue
+            toolbox.top = topValue
+            toolbox.right = rightValue
+            toolbox.bottom = bottomValue
+            toolbox.width = widthValue
+            toolbox.height = heightValue
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "show": showValue,
+                    "orient": orientValue,
+                    "itemSize": itemSizeValue,
+                    "itemGap": itemGapValue,
+                    "showTitle": showTitleValue,
+                    "feature": featureValue,
+                    "iconStyle": iconStyleValue,
+                    "zlevel": zlevelValue,
+                    "z": zValue,
+                    "left": leftValue,
+                    "top": topValue,
+                    "right": rightValue,
+                    "bottom": bottomValue,
+                    "width": widthValue,
+                    "height": heightValue
+                ]
+                
+                expect(toolbox.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let toolboxByEnums = Toolbox(
+                    .show(showValue),
+                    .orient(orientValue),
+                    .itemSize(itemSizeValue),
+                    .itemGap(itemGapValue),
+                    .showTitle(showTitleValue),
+                    .feature(featureValue),
+                    .iconStyle(iconStyleValue),
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .left(leftValue),
+                    .top(topValue),
+                    .right(rightValue),
+                    .bottom(bottomValue),
+                    .width(widthValue),
+                    .height(heightValue)
+                )
+                
+                expect(toolboxByEnums.jsonString).to(equal(toolbox.jsonString))
             }
         }
     }

@@ -85,6 +85,9 @@ class AxisSpec: QuickSpec {
                     .color(.hexColor("#fff"))
                     ))
             )
+            let axisPointerValue = AxisPointerForAxis(
+                .type(.shadow)
+            )
             let splitLineValue = SplitLine(
                 .lineStyle(LineStyle(
                     .type(.dashed)
@@ -125,6 +128,7 @@ class AxisSpec: QuickSpec {
             axis.axisLine = axisLineValue
             axis.axisTick = axisTickValue
             axis.axisLabel = axisLabelValue
+            axis.axisPointer = axisPointerValue
             axis.splitLine = splitLineValue
             axis.splitArea = splitAreaValue
             axis.data = dataValue
@@ -157,6 +161,7 @@ class AxisSpec: QuickSpec {
                     "axisLine": axisLineValue,
                     "axisTick": axisTickValue,
                     "axisLabel": axisLabelValue,
+                    "axisPointer": axisPointerValue,
                     "splitLine": splitLineValue,
                     "splitArea": splitAreaValue,
                     "data": dataValue,
@@ -193,6 +198,7 @@ class AxisSpec: QuickSpec {
                     .axisLine(axisLineValue),
                     .axisTick(axisTickValue),
                     .axisLabel(axisLabelValue),
+                    .axisPointer(axisPointerValue),
                     .splitLine(splitLineValue),
                     .splitArea(splitAreaValue),
                     .data(dataValue),

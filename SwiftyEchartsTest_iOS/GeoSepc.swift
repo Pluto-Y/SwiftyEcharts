@@ -50,9 +50,9 @@ class GeoSepc: QuickSpec {
                 .shadowColor(.rgba(0, 0, 0, 0.5))
                 ))
         )
-        let labelRegionValue = Label(
-            .normal(CommonLabelStyle(.show(true))),
-            .emphasis(CommonLabelStyle(.show(true)))
+        let labelRegionValue = FormattedLabel(
+            .normal(FormattedLabelStyle(.show(true))),
+            .emphasis(FormattedLabelStyle(.show(true)))
         )
         
         let region = Geo.Region()

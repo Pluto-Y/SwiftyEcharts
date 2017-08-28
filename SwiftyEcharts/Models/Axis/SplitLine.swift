@@ -12,6 +12,8 @@ public final class SplitLine: Displayable, Line {
     public var show: Bool?
     /// 分隔线的显示间隔
     public var interval: LengthValue?
+    /// 分隔线的长度
+    public var length: LengthValue?
     /// 分割线的样式
     public var lineStyle: LineStyle?
     
@@ -20,7 +22,7 @@ public final class SplitLine: Displayable, Line {
 
 extension SplitLine: Enumable {
     public enum Enums {
-        case show(Bool), interval(LengthValue), lineStyle(LineStyle)
+        case show(Bool), interval(LengthValue), length(LengthValue), lineStyle(LineStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -33,6 +35,8 @@ extension SplitLine: Enumable {
                 self.show = show
             case let .interval(interval):
                 self.interval = interval
+            case let .length(length):
+                self.length = length
             case let .lineStyle(lineStyle):
                 self.lineStyle = lineStyle
             }
@@ -44,6 +48,7 @@ extension SplitLine: Mappable {
     public func mapping(_ map: Mapper) {
         map["show"] = show
         map["interval"] = interval
+        map["length"] = length
         map["lineStyle"] = lineStyle
     }
 }

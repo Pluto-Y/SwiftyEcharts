@@ -25,7 +25,7 @@ public final class HeatmapSerie: Serie, Zable {
         /// 数据项值。
         public var value: [Jsonable]?
         /// 在直角坐标系(coordinateSystem: 'cartesian2d')上有效。
-        public var label: Label?
+        public var label: FormattedLabel?
         /// 单个数据点的样式设置，在直角坐标系(coordinateSystem: 'cartesian2d')上有效。
         public var itemStyle: ItemStyle?
         
@@ -166,7 +166,7 @@ public typealias HeatmapSerieData = HeatmapSerie.Data
 
 extension HeatmapSerieData: Enumable {
     public enum Enums {
-        case name(String), value([Jsonable]), label(Label), itemStyle(ItemStyle)
+        case name(String), value([Jsonable]), label(FormattedLabel), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums

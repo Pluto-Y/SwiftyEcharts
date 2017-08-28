@@ -95,8 +95,8 @@ class FunnelSerieSpec: QuickSpec {
         
         let dataNameValue = "dataNameValue"
         let dataValueValue: Float = 2
-        let dataLabelValue = Label(
-            .normal(CommonLabelStyle(
+        let dataLabelValue = FormattedLabel(
+            .normal(FormattedLabelStyle(
                 .show(true),
                 .position(Position.point(Point([20, 30])))
                 ))

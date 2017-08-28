@@ -53,7 +53,7 @@ public final class LineOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(Tooltip.AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .animation(false)
                     ))
                 )),
@@ -89,7 +89,7 @@ public final class LineOptions {
                 ),
                 Axis(
                     .name("降雨量(mm)"),
-                    .nameLocation("start"),
+                    .nameLocation(Position.start),
                     .max(5),
                     .type(.value),
                     .inverse(true)
@@ -295,8 +295,8 @@ public final class LineOptions {
                 LineSerie(
                     .name("搜索引擎"),
                     .stack("总量"),
-                    .label(Label(
-                        .normal(CommonLabelStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
                             .show(true),
                             .position(.top)
                             ))
@@ -355,7 +355,7 @@ public final class LineOptions {
             .tooltip(Tooltip(
                 .trigger(.axis),
                 .formatter(.function("function (params) { params = params[0]; var date = new Date(params.name); return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1]; }")),
-                .axisPointer(Tooltip.AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .animation(false)
                     ))
                 )),
@@ -412,7 +412,7 @@ public final class LineOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(Tooltip.AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .animation(false)
                     ))
                 )),
@@ -867,7 +867,7 @@ public final class LineOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(Tooltip.AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.cross)
                     ))
                 )),
@@ -908,7 +908,7 @@ public final class LineOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(Tooltip.AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.cross)
                     ))
                 )),
@@ -1182,8 +1182,76 @@ public final class LineOptions {
     // MARK: Multiple X Axes
     /// 地址: http://echarts.baidu.com/demo.html#multiple-x-axis
     static func multipleXAxisOption() -> Option {
-        // TODO: 添加实现
+        let colors: [Color] = [Color.hexColor("#5793f3"), Color.hexColor("#d14a61"), Color.hexColor("#675bba")]
         return Option(
+            .color(colors),
+            .tooltip(Tooltip(
+                .trigger(.none),
+                .axisPointer(AxisPointerForTooltip(
+                    .type(.cross)
+                    ))
+                )),
+            .legend(Legend(
+                .data(["2015 降水量", "2016 降水量"])
+                )),
+            .grid(Grid(
+                .top(.value(70)),
+                .left(.value(50))
+                )),
+            .xAxises([
+                Axis(
+                    .type(.category),
+                    .axisTick(AxisTick(
+                        .alignWithLabel(true)
+                        )),
+                    .axisLine(AxisLine(
+                        .onZero(false),
+                        .lineStyle(LineStyle(
+                            .color(colors[1])
+                            ))
+                        )),
+                    .axisPointer(AxisPointerForAxis(
+                        .label(Label(
+                            .formatter(.function("function (params) { return '降水量  ' + params.value + (params.seriesData.length ? '：' + params.seriesData[0].data : ''); }"))
+                            ))
+                        )),
+                    .data(["2016-1", "2016-2", "2016-3", "2016-4", "2016-5", "2016-6", "2016-7", "2016-8", "2016-9", "2016-10", "2016-11", "2016-12"])
+                ),
+                Axis(
+                    .type(.category),
+                    .axisTick(AxisTick(
+                        .alignWithLabel(true)
+                        )),
+                    .axisLine(AxisLine(
+                        .onZero(false),
+                        .lineStyle(LineStyle(
+                            .color(colors[1])
+                            ))
+                        )),
+                    .axisPointer(AxisPointerForAxis(
+                        .label(Label(
+                            .formatter(.function("function (params) { return '降水量  ' + params.value + (params.seriesData.length ? '：' + params.seriesData[0].data : ''); }"))
+                            ))
+                        )),
+                    .data(["2015-1", "2015-2", "2015-3", "2015-4", "2015-5", "2015-6", "2015-7", "2015-8", "2015-9", "2015-10", "2015-11", "2015-12"])
+                )
+                ]),
+            .yAxis(Axis(
+                .type(.value)
+                )),
+            .series([
+                LineSerie(
+                    .name("2015 降水量"),
+                    .xAxisIndex(1),
+                    .smooth(true),
+                    .data([2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3])
+                ),
+                LineSerie(
+                    .name("2016 降水量"),
+                    .smooth(true),
+                    .data([3.9, 5.9, 11.1, 18.7, 48.3, 69.2, 231.6, 46.6, 55.4, 18.4, 10.3, 0.7])
+                )
+                ])
         )
     }
     

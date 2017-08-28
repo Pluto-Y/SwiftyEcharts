@@ -151,7 +151,7 @@ public final class PictorialBarOptions {
         return Option(
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(Tooltip.AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.none)
                     )),
                 .formatter(.function("function (params) {return params[0].name + ': ' + params[0].value;}"))
@@ -272,7 +272,7 @@ public final class PictorialBarOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(Tooltip.AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.shadow)
                     ))
                 )),
@@ -290,7 +290,7 @@ public final class PictorialBarOptions {
                     .textStyle(TextStyle(
                         .fontSize(14)
                         ))
-                    )) // AxisPointer好像没有什么效果
+                    )) // AxisPointerForTooltip好像没有什么效果
                 )),
             .xAxis(Axis(
                 .splitLine(SplitLine(.show(false))),
@@ -649,7 +649,7 @@ public final class PictorialBarOptions {
             .backgroundColor("#0f375f"),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(Tooltip.AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.shadow)
                     ))
                 )),
@@ -702,7 +702,7 @@ public final class PictorialBarOptions {
                 ),
                 BarSerie(
                     .name("line"),
-                    .barGap("-100%"),
+                    .barGap((-100)%),
                     .barWidth(10),
                     .itemStyle(ItemStyle(
                         .normal(CommonItemStyleContent(
@@ -746,7 +746,7 @@ public final class PictorialBarOptions {
                 .axisTick(AxisTick(.show(false))),
                 .splitLine(SplitLine(.show(false))),
                 .name("\(beginYear)"),
-                .nameLocation("middle"),
+                .nameLocation(Position.middle),
                 .nameGap(40),
                 .nameTextStyle(TextStyle(
                     .color(.green),

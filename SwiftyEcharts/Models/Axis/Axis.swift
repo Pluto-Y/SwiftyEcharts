@@ -114,6 +114,8 @@ public final class Axis: Displayable, Zable {
     public var axisTick: AxisTick?
     /// 坐标轴刻度标签的相关设置。
     public var axisLabel: AxisLabel?
+    /// 坐标轴指示器
+    public var axisPointer: AxisPointerForAxis?
     /// 坐标轴在 grid 区域中的分隔线。
     public var splitLine: SplitLine?
     /// 坐标轴在 grid 区域中的分隔区域，默认不显示。
@@ -161,7 +163,7 @@ extension Axis.Data: Mappable {
 
 extension Axis: Enumable {
     public enum Enums {
-        case show(Bool), gridIndex(UInt), position(Position), offset(Float), type(AxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable]), zlevel(Float), z(Float)
+        case show(Bool), gridIndex(UInt), position(Position), offset(Float), type(AxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), axisPointer(AxisPointerForAxis), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable]), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -218,6 +220,8 @@ extension Axis: Enumable {
                 self.axisTick = axisTick
             case let .axisLabel(axisLabel):
                 self.axisLabel = axisLabel
+            case let .axisPointer(axisPointer):
+                self.axisPointer = axisPointer;
             case let .splitLine(splitLine):
                 self.splitLine = splitLine
             case let .splitArea(splitArea):
@@ -259,6 +263,7 @@ extension Axis: Mappable {
         map["axisLine"] = axisLine
         map["axisTick"] = axisTick
         map["axisLabel"] = axisLabel
+        map["axisPointer"] = axisPointer
         map["splitLine"] = splitLine
         map["splitArea"] = splitArea
         map["data"] = data

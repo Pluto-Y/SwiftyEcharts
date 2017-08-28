@@ -47,7 +47,7 @@ public final class BarSerie: Serie, Animatable, Zable {
     public var barGap: LengthValue?
     /// 类目间柱形距离，默认为类目间距的20%，可设固定值
     /// 在同一坐标系上，此属性会被多个 'bar' 系列共享。此属性应设置于此坐标系中最后一个 'bar' 系列上才会生效，并且是对此坐标系中所有 'bar' 系列生效。
-    public var barCategoryGap: LengthValue? // FIXME: ??是否需要新类型
+    public var barCategoryGap: LengthValue?
     /// 数据
     public var data: [Jsonable]?
     /// 图表标注。

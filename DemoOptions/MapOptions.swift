@@ -296,11 +296,11 @@ public final class MapOptions {
                 .roam(true),
                 .itemStyle(ItemStyle(
                     .normal(CommonItemStyleContent(
-                        //                    .areaColor // FIXME: 缺少 areaColor
+                        .areaColor(.hexColor("#323c48")),
                         .borderColor("#404a59")
                         )),
                     .emphasis(CommonItemStyleContent(
-                        //                    .areaColor // FIXME: 缺少 areaColor
+                        .areaColor(.hexColor("#2a333d"))
                         ))
                     ))
                 )),
@@ -411,9 +411,9 @@ public final class MapOptions {
     static func mapChinaDataRangeOption() -> Option {
         let serieTemplate = MapSerie(
             .map("china"),
-            .label(Label(
-                .normal(CommonLabelStyle(.show(true))),
-                .emphasis(CommonLabelStyle(.show(true)))
+            .label(FormattedLabel(
+                .normal(FormattedLabelStyle(.show(true))),
+                .emphasis(FormattedLabelStyle(.show(true)))
                 ))
         )
         
@@ -549,9 +549,9 @@ public final class MapOptions {
                     .name("中国"),
                     .map("china2"),
                     .selectedMode(.multiple),
-                    .label(Label(
-                        .normal(CommonLabelStyle(.show(true))),
-                        .emphasis(CommonLabelStyle(.show(true)))
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(.show(true))),
+                        .emphasis(FormattedLabelStyle(.show(true)))
                         )),
                     .data([
                         MapSerieData(
@@ -603,9 +603,9 @@ public final class MapOptions {
                 MapSerie(
                     .name("香港18区人口密度"),
                     .map("HK"), // 自定义扩展图表类型
-                    .label(Label( // 由ItemStyle中直接抽象出来即可用
-                        .normal(CommonLabelStyle(.show(true))),
-                        .emphasis(CommonLabelStyle(.show(true)))
+                    .label(FormattedLabel( // 由ItemStyle中直接抽象出来即可用
+                        .normal(FormattedLabelStyle(.show(true))),
+                        .emphasis(FormattedLabelStyle(.show(true)))
                         )),
                     .data([
                         [ "name": "中西区", "value": 20057.34 ],
@@ -666,11 +666,11 @@ public final class MapOptions {
                     .name("中国"),
                     .map("china"),
                     .selectedMode(.multiple),
-                    .label(Label(
-                        .normal(CommonLabelStyle(
+                    .label(FormattedLabel(
+                        .normal(FormattedLabelStyle(
                             .show(true)
                             )),
-                        .emphasis(CommonLabelStyle(
+                        .emphasis(FormattedLabelStyle(
                             .show(true)
                             ))
                         ))
@@ -728,8 +728,8 @@ public final class MapOptions {
                     .name("USA PopEstimates"),
                     .roam(true),
                     .map("USA"),
-                    .label(Label(
-                        .emphasis(CommonLabelStyle(
+                    .label(FormattedLabel(
+                        .emphasis(FormattedLabelStyle(
                             .show(true)
                             ))
                         )),
@@ -841,7 +841,7 @@ public final class MapOptions {
                     .roam(true),
                     .itemStyle(ItemStyle(
                         .emphasis(CommonItemStyleContent(
-                            //                            .label(Label(.show(true))) // FIXME: 缺少 label？
+                            //                            .label(FormattedLabel(.show(true))) // FIXME: 缺少 label？
                             ))
                         )),
                     .data([

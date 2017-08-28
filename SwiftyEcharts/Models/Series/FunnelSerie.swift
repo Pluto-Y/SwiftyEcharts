@@ -48,7 +48,7 @@ public final class FunnelSerie: Serie, Animatable {
         /// 数据值。
         public var value: Float?
         /// 单个数据的标签配置。
-        public var label: Label?
+        public var label: FormattedLabel?
         /// 标签的视觉引导线样式
         public var labelLine: LabelLine?
         /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
@@ -210,7 +210,7 @@ extension FunnelSerie.LabelLine: Mappable {
 
 extension FunnelSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Float), label(Label), labelLine(FunnelSerie.LabelLine), itemStyle(ItemStyle)
+        case name(String), value(Float), label(FormattedLabel), labelLine(FunnelSerie.LabelLine), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums

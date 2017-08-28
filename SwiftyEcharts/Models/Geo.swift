@@ -59,7 +59,7 @@ public final class Geo: Displayable, Zable {
         /// 该区域的多边形样式设置
         public var itemStyle: ItemStyle?
         /// 该区域的标签样式设置
-        public var label: Label?
+        public var label: FormattedLabel?
     }
     
     /// 是否显示地理坐标系组件。
@@ -195,7 +195,7 @@ extension Geo.ScaleLimit: Mappable {
 
 extension Geo.Region: Enumable {
     public enum Enums {
-        case name(String), selected(Bool), itemStyle(ItemStyle), label(Label)
+        case name(String), selected(Bool), itemStyle(ItemStyle), label(FormattedLabel)
     }
     
     public typealias ContentEnum = Enums

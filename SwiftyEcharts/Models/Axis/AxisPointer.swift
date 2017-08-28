@@ -6,13 +6,193 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-public final class AxisPointerForAxis {
+public final class AxisPointerForAxis: Displayable {
     
+    /// 指示器类型。
+    ///
+    /// - line: 直线指示器
+    /// - shadow: 阴影指示器
+    public enum `Type`: String, Jsonable {
+        case line = "line"
+        case shadow = "shadow"
+        
+        public var jsonString: String {
+            return self.rawValue.jsonString
+        }
+    }
+    
+    /// 拖拽手柄，适用于触屏的环境。参见: http://echarts.baidu.com/gallery/editor.html?c=line-tooltip-touch&edit=1&reset=1
+    public final class Handle: Displayable, Shadowable {
+        /// 当 show 设为 true 时开启，这时显示手柄，并且 axisPointer 会一直显示。
+        public var show: Bool?
+        /// 手柄的图标。
+        ///
+        /// 在 ECharts 3 里可以通过 'path://' 将图标设置为任意的矢量路径。这种方式相比于使用图片的方式，不用担心因为缩放而产生锯齿或模糊，而且可以设置为任意颜色。路径图形会自适应调整为合适（如果是 symbol 的话就是 symbolSize）的大小。路径的格式参见 SVG PathData。可以从 Adobe Illustrator 等工具编辑导出。
+        ///
+        /// 也可以通过 'image://url' 设置为图片，其中 url 为图片的链接。
+        ///
+        /// 参见 使用图片的例子: http://echarts.baidu.com/gallery/editor.html?c=doc-example/axisPointer-handle-image&edit=1&reset=1
+        public var icon: String?
+        /// 手柄的尺寸，可以设置单值，如 45，也可以设置为数组：[width, height]。
+        public var size: Pair<Float>?
+        /// 手柄与轴的距离。注意，这是手柄中心点和轴的距离。
+        public var margin: Float?
+        /// 手柄颜色。
+        public var color: Color?
+        /// 手柄拖拽时触发视图更新周期，单位毫秒，调大这个数值可以改善性能，但是降低体验。
+        public var throttle: Float?
+        /// 图形阴影的模糊大小。该属性配合 shadowColor,shadowOffsetX, shadowOffsetY 一起设置图形的阴影效果。
+        ///
+        /// 示例：
+        ///
+        ///     {
+        ///         shadowColor: 'rgba(0, 0, 0, 0.5)',
+        ///         shadowBlur: 10
+        ///     }
+        public var shadowBlur: Float?
+        /// 阴影颜色。支持的格式同color。
+        public var shadowColor: Color?
+        /// 阴影水平方向上的偏移距离。
+        public var shadowOffsetX: Float?
+        /// 阴影垂直方向上的偏移距离。
+        public var shadowOffsetY: Float?
+        
+        public  init() {}
+    }
+    
+    /// 默认不显示。但是如果 tooltip.trigger 设置为 'axis' 或者 tooltip.axisPointer.type 设置为 'cross'，则自动显示 axisPointer。坐标系会自动选择显示显示哪个轴的 axisPointer，也可以使用 tooltip.axisPointer.axis 改变这种选择。
+    public var show: Bool?
+    /// 指示器类型。
+    ///
+    /// 可选
+    ///
+    /// - 'line' 直线指示器
+    /// - 'shadow' 阴影指示器
+    public var type: Type?
+    /// 坐标轴指示器是否自动吸附到点上。默认自动判断。
+    ///
+    /// 这个功能在数值轴和时间轴上比较有意义，可以自动寻找细小的数值点。
+    public var snap: Bool?
+    /// 坐标轴指示器的 z 值。控制图形的前后顺序。z值小的图形会被z值大的图形覆盖。
+    public var z: Float?
+    /// 坐标轴指示器的文本标签。
+    public var label: Label?
+    /// axisPointer.type 为 'line' 时有效。
+    public var lineStyle: LineStyle?
+    /// axisPointer.type 为 'shadow' 时有效。
+    public var shadowStyle: ShadowStyle?
+    /// 是否触发 tooltip。如果不想触发 tooltip 可以关掉。
+    public var triggerTooltip: Bool?
+    /// 当前的 value。在使用 axisPointer.handle 时，可以设置此值进行初始值设定，从而决定 axisPointer 的初始位置。
+    public var value: Float?
+    /// 当前的状态
+    public var state: Bool?
+    /// 拖拽手柄，适用于触屏的环境。参见: http://echarts.baidu.com/gallery/editor.html?c=line-tooltip-touch&edit=1&reset=1
+    public var handle: Handle?
+}
+
+extension AxisPointerForAxis.Handle: Enumable {
+    public enum Enums {
+        case show(Bool), icon(String), size(Pair<Float>), margin(Float), color(Color), throttle(Float), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .icon(icon):
+                self.icon = icon
+            case let .size(size):
+                self.size = size
+            case let .margin(margin):
+                self.margin = margin
+            case let .color(color):
+                self.color = color
+            case let .throttle(throttle):
+                self.throttle = throttle
+            case let .shadowBlur(shadowBlur):
+                self.shadowBlur = shadowBlur
+            case let .shadowColor(shadowColor):
+                self.shadowColor = shadowColor
+            case let .shadowOffsetX(shadowOffsetX):
+                self.shadowOffsetX = shadowOffsetX
+            case let .shadowOffsetY(shadowOffsetY):
+                self.shadowOffsetY = shadowOffsetY
+            }
+        }
+    }
+}
+
+extension AxisPointerForAxis.Handle: Mappable {
+    public func mapping(map: Mapper) {
+        map["show"] = show
+        map["icon"] = icon
+        map["size"] = size
+        map["margin"] = margin
+        map["color"] = color
+        map["throttle"] = throttle
+        map["shadowBlur"] = shadowBlur
+        map["shadowColor"] = shadowColor
+        map["shadowOffsetX"] = shadowOffsetX
+        map["shadowOffsetY"] = shadowOffsetY
+    }
+}
+
+extension AxisPointerForAxis: Enumable {
+    public enum Enums {
+        case show(Bool), type(Type), snap(Bool), z(Float), label(Label), lineStyle(LineStyle), shadowStyle(ShadowStyle), triggerTooltip(Bool), value(Float), state(Bool), handle(Handle)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .show(show):
+                self.show = show
+            case let .type(type):
+                self.type = type
+            case let .snap(snap):
+                self.snap = snap
+            case let .z(z):
+                self.z = z
+            case let .label(label):
+                self.label = label
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            case let .shadowStyle(shadowStyle):
+                self.shadowStyle = shadowStyle
+            case let .triggerTooltip(triggerTooltip):
+                self.triggerTooltip = triggerTooltip
+            case let .value(value):
+                self.value = value
+            case let .state(state):
+                self.state = state
+            case let .handle(handle):
+                self.handle = handle
+            }
+        }
+    }
 }
 
 extension AxisPointerForAxis: Mappable {
     public func mapping(map: Mapper) {
-        
+        map["show"] = show
+        map["type"] = type
+        map["snap"] = snap
+        map["z"] = z
+        map["label"] = label
+        map["lineStyle"] = lineStyle
+        map["shadowStyle"] = shadowStyle
+        map["triggerTooltip"] = triggerTooltip
+        map["value"] = value
+        map["state"] = state
+        map["handle"] = handle
     }
 }
 

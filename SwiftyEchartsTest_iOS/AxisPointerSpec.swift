@@ -12,6 +12,181 @@ import Nimble
 
 class AxisPointerSpec: QuickSpec {
     override func spec() {
+        
+        context("For AxisPointerForAxis") {
+            describe("For AxisPointerForAxis.Type") {
+                let lineString = "line"
+                let shadowString = "shadow"
+                
+                let lineType = SwiftyEcharts.AxisPointerForAxis.Type.line
+                let shadowType = SwiftyEcharts.AxisPointerForAxis.Type.shadow
+                
+                it("needs to check the jsonString") {
+                    expect(lineType.jsonString).to(equal(lineString.jsonString))
+                    expect(shadowType.jsonString).to(equal(shadowString.jsonString))
+                }
+            }
+            
+            let showLabelValue = false
+            let precisionLabelValue: UInt8 = 4
+            let formatterLabelValue = Formatter.string("labelFormatterValue")
+            let marginLabelValue: Float = 0.0
+            let textStyleLabelValue = TextStyle()
+            let paddingLabelValue = Padding.verticalAndHorizontal(5, 10)
+            let backgroundColorLabelValue = Color.hexColor("#029573")
+            let borderColorLabelValue = Color.red
+            let borderWidthLabelValue: Float = 0.8572
+            let shadowBlurLabelValue: Float = 10
+            let shadowColorLabelValue = rgb(100, 0, 38)
+            let shadowOffsetXLabelValue: Float = 0.8572
+            let shadowOffsetYLabelValue: Float = 8937462.7623467
+            
+            let label = Label()
+            label.show = showLabelValue
+            label.precision = precisionLabelValue
+            label.formatter = formatterLabelValue
+            label.margin = marginLabelValue
+            label.textStyle = textStyleLabelValue
+            label.padding = paddingLabelValue
+            label.backgroundColor = backgroundColorLabelValue
+            label.borderColor = borderColorLabelValue
+            label.borderWidth = borderWidthLabelValue
+            label.shadowBlur = shadowBlurLabelValue
+            label.shadowColor = shadowColorLabelValue
+            label.shadowOffsetX = shadowOffsetXLabelValue
+            label.shadowOffsetY = shadowOffsetYLabelValue
+            
+            let showHandleValue = false
+            let iconHandleValue = "path://handleIconValue"
+            let sizeHandleValue: Pair<Float> = [20.5, 50.2]
+            let marginHandleValue: Float = 45
+            let colorHandleValue = Color.hexColor("#88ffaa")
+            let throttleHandleValue: Float = 5.555555
+            let shadowBlurHandleValue: Float = 20.20
+            let shadowColorHandleValue = Color.transparent
+            let shadowOffsetXHandleValue: Float = 0.5737
+            let shadowOffsetYHandleValue: Float = 85723.7234
+            
+            let handle = AxisPointerForAxis.Handle()
+            handle.show = showHandleValue
+            handle.icon = iconHandleValue
+            handle.size = sizeHandleValue
+            handle.margin = marginHandleValue
+            handle.color = colorHandleValue
+            handle.throttle = throttleHandleValue
+            handle.shadowBlur = shadowBlurHandleValue
+            handle.shadowColor = shadowColorHandleValue
+            handle.shadowOffsetX = shadowOffsetXHandleValue
+            handle.shadowOffsetY = shadowOffsetYHandleValue
+            
+            describe("For AxisPointerForAxis.Handle") {
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "show": showHandleValue,
+                        "icon": iconHandleValue,
+                        "size": sizeHandleValue,
+                        "margin": marginHandleValue,
+                        "color": colorHandleValue,
+                        "throttle": throttleHandleValue,
+                        "shadowBlur": shadowBlurHandleValue,
+                        "shadowColor": shadowColorHandleValue,
+                        "shadowOffsetX": shadowOffsetXHandleValue,
+                        "shadowOffsetY": shadowOffsetYHandleValue
+                    ]
+                    
+                    expect(handle.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let handleByEnums = AxisPointerForAxis.Handle(
+                        .show(showHandleValue),
+                        .icon(iconHandleValue),
+                        .size(sizeHandleValue),
+                        .margin(marginHandleValue),
+                        .color(colorHandleValue),
+                        .throttle(throttleHandleValue),
+                        .shadowBlur(shadowBlurHandleValue),
+                        .shadowColor(shadowColorHandleValue),
+                        .shadowOffsetX(shadowOffsetXHandleValue),
+                        .shadowOffsetY(shadowOffsetYHandleValue)
+                    )
+                    
+                    expect(handleByEnums.jsonString).to(equal(handle.jsonString))
+                }
+            }
+            
+            let showAxisPointerValue = true
+            let typeAxisPointerValue = SwiftyEcharts.AxisPointerForAxis.Type.line
+            let snapAxisPointerValue = true
+            let zAxisPointerValue: Float = 0.58364
+            let labelAxisPointerValue = label
+            let lineStyleAxisPointerValue = LineStyle(
+                .opacity(0.8573),
+                .shadowBlur(20.57),
+                .curveness(200)
+            )
+            let shadowStyleAxisPointerValue = ShadowStyle(
+                .color(Color.rgb(0, 0, 200)),
+                .shadowColor(Color.rgba(200, 0, 0, 0.01)),
+                .shadowOffsetX(200.0)
+            )
+            let triggerAxisPointerForTooltipValue = false
+            let valueAxisPointerValue: Float = 0.8576
+            let stateAxisPointerValue = false
+            let handleAxisPointerValue = handle
+            
+            let axisPointer = AxisPointerForAxis()
+            axisPointer.show = showAxisPointerValue
+            axisPointer.type = typeAxisPointerValue
+            axisPointer.snap = snapAxisPointerValue
+            axisPointer.z = zAxisPointerValue
+            axisPointer.label = labelAxisPointerValue
+            axisPointer.lineStyle = lineStyleAxisPointerValue
+            axisPointer.shadowStyle = shadowStyleAxisPointerValue
+            axisPointer.triggerTooltip = triggerAxisPointerForTooltipValue
+            axisPointer.value = valueAxisPointerValue
+            axisPointer.state = stateAxisPointerValue
+            axisPointer.handle = handleAxisPointerValue
+            
+            describe("For AxisPointerForAxis") {
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "show": showAxisPointerValue,
+                        "type": typeAxisPointerValue,
+                        "snap": snapAxisPointerValue,
+                        "z": zAxisPointerValue,
+                        "label": labelAxisPointerValue,
+                        "lineStyle": lineStyleAxisPointerValue,
+                        "shadowStyle": shadowStyleAxisPointerValue,
+                        "triggerTooltip": triggerAxisPointerForTooltipValue,
+                        "value": valueAxisPointerValue,
+                        "state": stateAxisPointerValue,
+                        "handle": handleAxisPointerValue
+                    ]
+                    
+                    expect(axisPointer.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let axisPointerByEnums = AxisPointerForAxis(
+                        .show(showAxisPointerValue),
+                        .type(typeAxisPointerValue),
+                        .snap(snapAxisPointerValue),
+                        .z(zAxisPointerValue),
+                        .label(labelAxisPointerValue),
+                        .lineStyle(lineStyleAxisPointerValue),
+                        .shadowStyle(shadowStyleAxisPointerValue),
+                        .triggerTooltip(triggerAxisPointerForTooltipValue),
+                        .value(valueAxisPointerValue),
+                        .state(stateAxisPointerValue),
+                        .handle(handleAxisPointerValue)
+                    )
+                    
+                    expect(axisPointerByEnums.jsonString).to(equal(axisPointer.jsonString))
+                }
+            }
+            
+        }
         describe("For AxisPointerForTooltip.Type") {
             let lineString = "line"
             let crossString = "cross"

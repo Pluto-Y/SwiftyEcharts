@@ -53,7 +53,7 @@ public final class LineOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .animation(false)
                     ))
                 )),
@@ -355,7 +355,7 @@ public final class LineOptions {
             .tooltip(Tooltip(
                 .trigger(.axis),
                 .formatter(.function("function (params) { params = params[0]; var date = new Date(params.name); return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1]; }")),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .animation(false)
                     ))
                 )),
@@ -412,7 +412,7 @@ public final class LineOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .animation(false)
                     ))
                 )),
@@ -867,7 +867,7 @@ public final class LineOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.cross)
                     ))
                 )),
@@ -908,7 +908,7 @@ public final class LineOptions {
                 )),
             .tooltip(Tooltip(
                 .trigger(.axis),
-                .axisPointer(AxisPointer(
+                .axisPointer(AxisPointerForTooltip(
                     .type(.cross)
                     ))
                 )),

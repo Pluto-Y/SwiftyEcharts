@@ -302,8 +302,8 @@ public final class BarOptions {
             .series([
                 BarSerie(
                     .name("利润"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true),
                             .position(.inside)
                             ))
@@ -313,8 +313,8 @@ public final class BarOptions {
                 BarSerie(
                     .name("收入"),
                     .stack("总量"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true)
                             ))
                         )),
@@ -323,8 +323,8 @@ public final class BarOptions {
                 BarSerie(
                     .name("支出"),
                     .stack("总量"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true),
                             .position(.left)
                             ))
@@ -388,8 +388,8 @@ public final class BarOptions {
                 BarSerie(
                     .name("生活费"),
                     .stack("总量"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true),
                             .formatter(.string("{b}"))
                             ))
@@ -605,8 +605,8 @@ public final class BarOptions {
                 BarSerie(
                     .name("生活费"),
                     .stack("总量"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true),
                             .position(.inside)
                             ))
@@ -675,8 +675,8 @@ public final class BarOptions {
                 BarSerie(
                     .name("收入"),
                     .stack("总量"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true),
                             .position(.top)
                             ))
@@ -686,8 +686,8 @@ public final class BarOptions {
                 BarSerie(
                     .name("支出"),
                     .stack("总量"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true),
                             .position(.bottom)
                             ))
@@ -728,8 +728,8 @@ public final class BarOptions {
                 BarSerie(
                     .name("直接访问"),
                     .stack("总量"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true),
                             .position(.insideRight)
                             ))
@@ -739,8 +739,8 @@ public final class BarOptions {
                 BarSerie(
                     .name("邮件营销"),
                     .stack("总量"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true),
                             .position(.insideRight)
                             ))
@@ -750,8 +750,8 @@ public final class BarOptions {
                 BarSerie(
                     .name("联盟广告"),
                     .stack("总量"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true),
                             .position(.insideRight)
                             ))
@@ -761,8 +761,8 @@ public final class BarOptions {
                 BarSerie(
                     .name("视频广告"),
                     .stack("总量"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true),
                             .position(.insideRight)
                             ))
@@ -773,8 +773,8 @@ public final class BarOptions {
                 BarSerie(
                     .name("搜索引擎"),
                     .stack("总量"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true),
                             .position(.insideRight)
                             ))

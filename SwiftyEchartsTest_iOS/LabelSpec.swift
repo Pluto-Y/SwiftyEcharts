@@ -309,7 +309,7 @@ class LabelSpec: QuickSpec {
             }
         }
         
-        describe("") { 
+        describe("For FormattedLabel") { 
             let normalValue = normalFormattedLabelStyle
             let emphasisValue = FormattedLabelStyle(
                 .show(false),

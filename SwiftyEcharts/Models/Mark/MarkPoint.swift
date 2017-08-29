@@ -20,7 +20,7 @@ public final class MarkPoint: Symbolized, Animatable {
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     /// 标注的文本。
-    public var label: FormattedLabel?
+    public var label: EmphasisLabel?
     /// 标注的样式。
     public var itemStyle: ItemStyle?
     /// 标注的数据数组
@@ -71,7 +71,7 @@ public final class MarkPoint: Symbolized, Animatable {
 
 extension MarkPoint: Enumable {
     public enum Enums {
-        case symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), silent(Bool), label(FormattedLabel), itemStyle(ItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), silent(Bool), label(EmphasisLabel), itemStyle(ItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

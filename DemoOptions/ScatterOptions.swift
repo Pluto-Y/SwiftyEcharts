@@ -556,8 +556,8 @@ public final class ScatterOptions {
                 )),
             .geo(Geo(
                 .map("china"),
-                .label(FormattedLabel(
-                    .emphasis(FormattedLabelStyle(
+                .label(EmphasisLabel(
+                    .emphasis(LabelStyle(
                         .show(false)
                         ))
                     ))
@@ -1155,8 +1155,8 @@ public final class ScatterOptions {
                 )),
             .geo(Geo(
                 .map("china"),
-                .label(FormattedLabel(
-                    .emphasis(FormattedLabelStyle(
+                .label(EmphasisLabel(
+                    .emphasis(LabelStyle(
                         .show(false)
                         ))
                     )),

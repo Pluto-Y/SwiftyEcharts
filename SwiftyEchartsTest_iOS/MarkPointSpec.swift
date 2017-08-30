@@ -19,14 +19,13 @@ class MarkPointSpec: QuickSpec {
             let symbolRotateValue: Float = 743.2
             let symbolOffsetValue: Point = [100, 200%]
             let silentValue = false
-            let labelValue = FormattedLabel(
-                .emphasis(FormattedLabelStyle(
+            let labelValue = EmphasisLabel(
+                .emphasis(LabelStyle(
                     .show(false),
-                    .textStyle(TextStyle(
-                        .color(Color.yellow),
-                        .fontStyle(FontStyle.oblique),
-                        .fontWeight(FontWeight.normal)
-                        ))
+                    .color(Color.yellow),
+                    .fontStyle(FontStyle.oblique),
+                    .fontWeight(FontWeight.normal),
+                    .backgroundColor(Color.hexColor("#ffbbaa"))
                     ))
             )
             let itemStyleValue = ItemStyle(

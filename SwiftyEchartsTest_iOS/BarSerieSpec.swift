@@ -73,11 +73,14 @@ class BarSerieSpec: QuickSpec {
             let coordinateSystemValue = CoordinateSystem.cartesian2d
             let xAxisIndexValue: UInt8 = 5
             let yAxisIndexValue: UInt8 = 12
-            let labelValue = FormattedLabel(
-                .emphasis(FormattedLabelStyle(
+            let labelValue = EmphasisLabel(
+                .emphasis(LabelStyle(
                     .show(true),
                     .formatter(.string("function (param) {return param.data[3];}")),
-                    .position(.top)
+                    .position(.top),
+                    .width(20%),
+                    .verticalAlign(VerticalAlign.bottom),
+                    .fontStyle(FontStyle.oblique)
                     ))
             )
             let itemStyleValue = ItemStyle(

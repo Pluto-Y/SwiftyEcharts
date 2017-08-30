@@ -105,13 +105,15 @@ class PieSerieSpec: QuickSpec {
         let nameDataValue = "pieSerieDataNameValue"
         let valueDataValue: Float = 285.75
         let selectedDataValue = false
-        let labelDataValue = FormattedLabel(
-            .emphasis(FormattedLabelStyle(
+        let labelDataValue = EmphasisLabel(
+            .emphasis(LabelStyle(
                 .show(true),
                 .position(Position.center),
-                .textStyle(TextStyle())
+                .textShadowColor(Color.transparent),
+                .shadowBlur(200.002)
+                
             )),
-            .normal(FormattedLabelStyle(
+            .normal(LabelStyle(
                 .show(false)
             ))
         )
@@ -213,11 +215,11 @@ class PieSerieSpec: QuickSpec {
             let roseTypeValue: PieSerie.RoseType = false
             let avoidLabelOverlapValue = true
             let stillShowZeroSumValue = false
-            let labelValue = FormattedLabel(
-                .emphasis(FormattedLabelStyle(
+            let labelValue = EmphasisLabel(
+                .emphasis(LabelStyle(
                     .position(.center),
                     .show(true),
-                    .offset([0, 100%])
+                    .fontWeight(200)
                     ))
             )
             let labelLineValue = labelLine

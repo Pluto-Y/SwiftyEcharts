@@ -73,8 +73,8 @@ public final class ScatterOptions {
                     .name("1990"),
                     .data(data[0]),
                     .symbolSize(.function("function (data) {return Math.sqrt(data[2]) / 5e2;}")),
-                    .label(FormattedLabel(
-                        .emphasis(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .emphasis(LabelStyle(
                             .show(true),
                             .formatter(.string("function (param) {return param.data[3];}")),
                             .position(.top)
@@ -93,8 +93,8 @@ public final class ScatterOptions {
                     .name("2015"),
                     .data(data[1]),
                     .symbolSize(.function("function (data) {return Math.sqrt(data[2]) / 5e2;}")),
-                    .label(FormattedLabel(
-                        .emphasis(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .emphasis(LabelStyle(
                             .show(true),
                             .formatter(.string("function (param) {return param.data[3];}")),
                             .position(.top)
@@ -564,8 +564,8 @@ public final class ScatterOptions {
                 )),
             .geo(Geo(
                 .map("china"),
-                .label(FormattedLabel(
-                    .emphasis(FormattedLabelStyle(
+                .label(EmphasisLabel(
+                    .emphasis(LabelStyle(
                         .show(false)
                         ))
                     ))
@@ -576,13 +576,13 @@ public final class ScatterOptions {
                     .coordinateSystem(.geo),
                     .data(convertData(data)),
                     .symbolSize(.function("function (val) {return val[2] / 10;}")),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .formatter(.string("{b}")),
                             .position(.right),
                             .show(false)
                             )),
-                        .emphasis(FormattedLabelStyle(
+                        .emphasis(LabelStyle(
                             .show(true)
                             ))
                         )),
@@ -602,8 +602,8 @@ public final class ScatterOptions {
                         .brushType(.stroke)
                         )),
                     .hoverAnimation(true),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .formatter(.string("{b}")),
                             .position(.right),
                             .show(true)
@@ -1163,8 +1163,8 @@ public final class ScatterOptions {
                 )),
             .geo(Geo(
                 .map("china"),
-                .label(FormattedLabel(
-                    .emphasis(FormattedLabelStyle(
+                .label(EmphasisLabel(
+                    .emphasis(LabelStyle(
                         .show(false)
                         ))
                     )),
@@ -1375,11 +1375,11 @@ public final class ScatterOptions {
                         [ "name": "大庆", "value": 279 ]
                         ])),
                     .symbolSize(12),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(false)
                             )),
-                        .emphasis(FormattedLabelStyle(
+                        .emphasis(LabelStyle(
                             .show(false)
                             ))
                         )),

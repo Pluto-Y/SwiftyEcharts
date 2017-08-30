@@ -19,13 +19,14 @@ class RadarSerieSpec: QuickSpec {
         let symbolSizeDataValue: FunctionOrFloatOrPair = [20, 30]
         let symbolRotateDataValue: Float = 75.364
         let symbolOffsetDataValue: Point = [10%, 50%]
-        let labelDataValue = FormattedLabel(
-            .emphasis(FormattedLabelStyle(
+        let labelDataValue = EmphasisLabel(
+            .emphasis(LabelStyle(
                 .show(false),
                 .position(Position.point([20, 100])),
-                .offset([10%, 5])
+                .interval(2),
+                .rotate(75)
                 )),
-            .normal(FormattedLabelStyle(
+            .normal(LabelStyle(
                 .show(true)
                 ))
         )
@@ -109,8 +110,8 @@ class RadarSerieSpec: QuickSpec {
             let symbolSizeValue = FunctionOrFloatOrPair.init(floatLiteral: 0.00000)
             let symbolRotateValue: Float = 0.028111111
             let symbolOffsetValue: Point = [0, 100%]
-            let labelValue = FormattedLabel(
-                .emphasis(FormattedLabelStyle(
+            let labelValue = EmphasisLabel(
+                .emphasis(LabelStyle(
                     .formatter(.string("radarSerieFromatterValue")),
                     .show(true)
                     ))

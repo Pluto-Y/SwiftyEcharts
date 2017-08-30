@@ -38,10 +38,11 @@ class LineSerieSpec: QuickSpec {
         let symbolSizeDataValue = FunctionOrFloatOrPair.init(floatLiteral: 28.48)
         let symbolRotateDataValue: Float = 999.2832
         let symbolOffsetDataValue: Point = [28%, 0.0]
-        let labelDataValue = FormattedLabel(
-            .normal(FormattedLabelStyle(
+        let labelDataValue = EmphasisLabel(
+            .normal(LabelStyle(
                 .position(.end),
-                .show(false)
+                .show(false),
+                .fontFamily("dataLabelFontFamily")
             ))
         )
         let itemStyleDataValue = ItemStyle(
@@ -127,12 +128,13 @@ class LineSerieSpec: QuickSpec {
             let connectNullsValue = false
             let clipOverflowValue = true
             let stepValue = LineSerie.Step.middle
-            let labelValue = FormattedLabel(
-                .emphasis(FormattedLabelStyle(
-                    .textStyle(TextStyle(
-                        .fontStyle(.italic),
-                        .fontWeight(.bold)
-                        ))
+            let labelValue = EmphasisLabel(
+                .emphasis(LabelStyle(
+                    .fontStyle(.italic),
+                    .fontWeight(.bold),
+                    .height(20000),
+                    .fontSize(200),
+                    .align(Align.auto)
                     ))
             )
             let itemStyleValue = ItemStyle(

@@ -99,8 +99,8 @@ class MapSerieSpec: QuickSpec {
             let scaleLimitValue = scaleLimit
             let nameMapValue: [String: Jsonable] = ["China": "中国"]
             let selectedModeValue: SelectedMode = SelectedMode.single
-            let labelValue = FormattedLabel(
-                .emphasis(FormattedLabelStyle(
+            let labelValue = EmphasisLabel(
+                .emphasis(LabelStyle(
                     .position(.inside)
                     ))
             )

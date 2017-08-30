@@ -84,10 +84,13 @@ class EffectScatterSerieSpec: QuickSpec {
             let symbolSizeValue = FunctionOrFloatOrPair.value(28.5)
             let symbolRotateValue: Float = 7.421
             let symbolOffsetValue: Point = [20, 50%]
-            let labelValue = FormattedLabel(
-                .normal(FormattedLabelStyle(
+            let labelValue = EmphasisLabel(
+                .normal(LabelStyle(
                     .show(true),
-                    .position(.top)
+                    .position(.top),
+                    .textShadowBlur(2.0002),
+                    .textShadowOffsetY(10),
+                    .color(Color.red)
                     ))
             )
             let itemStyleValue = ItemStyle(

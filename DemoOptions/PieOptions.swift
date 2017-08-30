@@ -47,11 +47,9 @@ public final class PieOptions {
                         ["value":400, "name":"搜索引擎"]
                         ]),
                     .roseType(.enable),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
-                            .textStyle(TextStyle(
-                                .color(.rgba(255, 255, 255, 0.3))
-                                ))
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(// PS: 这里直接用属性就可以了
+                            .color(.rgba(255, 255, 255, 0.3))
                             ))
                         )),
                     .labelLine(PieSerie.LabelLine(
@@ -97,17 +95,15 @@ public final class PieOptions {
                     .name("访问来源"),
                     .radiusRange([50%, 70%]),
                     .avoidLabelOverlap(false),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(false),
                             .position(.center)
                             )),
-                        .emphasis(FormattedLabelStyle(
-                            .show(true),
-                            .textStyle(TextStyle(
-                                .fontSize(30),
-                                .fontWeight(.bold)
-                                ))
+                        .emphasis(LabelStyle(
+                            .show(true), // PS: 这里直接用属性就可以了
+                            .fontSize(30),
+                            .fontWeight(.bold)
                             ))
                         )),
                     .labelLine(PieSerie.LabelLine(
@@ -145,8 +141,8 @@ public final class PieOptions {
                     .name("访问来源"),
                     .selectedMode(.single),
                     .radiusRange([0, 30%]),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .position(.inner)
                             ))
                         )),
@@ -207,12 +203,10 @@ public final class PieOptions {
                     .selectedMode(.single),
                     .selectedOffset(30),
                     .clockwise(true),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
-                            .textStyle(TextStyle(
-                                .fontSize(12),
-                                .color(.hexColor("#235894"))
-                                ))
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle( // PS: 这里直接用属性就好了
+                            .fontSize(12),
+                            .color(.hexColor("#235894"))
                             ))
                         )),
                     .labelLine(PieSerie.LabelLine(
@@ -319,11 +313,11 @@ public final class PieOptions {
                     .radiusRange([10, 55]),
                     .center([25%, 50%]),
                     .roseType(.enable),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(false)
                             )),
-                        .emphasis(FormattedLabelStyle(
+                        .emphasis(LabelStyle(
                             .show(true)
                             ))
                         )),

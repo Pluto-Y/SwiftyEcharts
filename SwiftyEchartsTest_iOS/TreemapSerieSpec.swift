@@ -53,8 +53,8 @@ class TreemapSerieSpec: QuickSpec {
         let colorMappingByLevelValue = TreemapSerie.ColorMappingBy.id
         let visibleMinLevelValue: Float = 0.0
         let childrenVisibleMinLevelValue: Float = 1.04823
-        let labelLevelValue = FormattedLabel(
-            .emphasis(FormattedLabelStyle(
+        let labelLevelValue = EmphasisLabel(
+            .emphasis(LabelStyle(
                 .show(false),
                 .position(Position.right)
                 ))
@@ -221,17 +221,15 @@ class TreemapSerieSpec: QuickSpec {
         let colorMappingByDataValue = TreemapSerie.ColorMappingBy.index
         let visibleMinDataValue: Float = 66666.666666
         let childrenVisibleMinDataValue: Float = 74565.555834
-        let labelDataValue = FormattedLabel(
-            .normal(FormattedLabelStyle(
+        let labelDataValue = EmphasisLabel(
+            .normal(LabelStyle(
                 .show(false),
                 .position(Position.right)
                 )),
-            .emphasis(FormattedLabelStyle(
-                .textStyle(TextStyle(
-                    .color(Color.red),
-                    .fontWeight(FontWeight.bolder),
-                    .fontStyle(FontStyle.italic)
-                    ))
+            .emphasis(LabelStyle(
+                .color(Color.red),
+                .fontWeight(FontWeight.bolder),
+                .fontStyle(FontStyle.italic)
                 ))
         )
         let itemStyleDataValue = ItemStyle(
@@ -331,12 +329,10 @@ class TreemapSerieSpec: QuickSpec {
             let colorMappingByValue = TreemapSerie.ColorMappingBy.value
             let visibleMinValue: Float = 7437429.239847
             let childrenVisibleMinValue: Float = 0.0237
-            let labelValue = FormattedLabel(
-                .emphasis(FormattedLabelStyle(
-                    .textStyle(TextStyle(
-                        .color(Color.yellow),
-                        .fontSize(220)
-                        ))
+            let labelValue = EmphasisLabel(
+                .emphasis(LabelStyle(
+                    .color(Color.yellow),
+                    .fontSize(220)
                     ))
             )
             let itemStyleValue = ItemStyle(

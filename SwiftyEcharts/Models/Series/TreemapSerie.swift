@@ -167,7 +167,7 @@ public final class TreemapSerie: Serie, Zable {
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
         ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
         ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-        public var label: FormattedLabel?
+        public var label: EmphasisLabel?
         ///     注：treemap中 itemStyle 属性可能在多处地方存在：
         ///
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
@@ -325,7 +325,7 @@ public final class TreemapSerie: Serie, Zable {
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
         ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
         ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-        public var label: FormattedLabel?
+        public var label: EmphasisLabel?
         ///     注：treemap中 itemStyle 属性可能在多处地方存在：
         ///
         ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
@@ -563,7 +563,7 @@ public final class TreemapSerie: Serie, Zable {
     ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
     ///     - 可以存在于 series-treemap.levels 的每个数组元素中，表示树每个层级的统一设置。
     ///     - 存在于 series-treemap.data 的每个节点中，表示每个节点的特定设置。
-    public var label: FormattedLabel?
+    public var label: EmphasisLabel?
     ///     注：treemap中 itemStyle 属性可能在多处地方存在：
     ///
     ///     - 可以存在于 sereis-treemap 根下，表示本系列全局的统一设置。
@@ -647,7 +647,7 @@ public typealias TreemapSerieData = TreemapSerie.Data
 
 extension TreemapSerieLevel: Enumable {
     public enum Enums {
-        case visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(TreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(FormattedLabel), itemStyle(ItemStyle)
+        case visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(TreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(EmphasisLabel), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -776,7 +776,7 @@ extension TreemapSerieBreadcrumb: Mappable {
 
 extension TreemapSerieData: Enumable {
     public enum Enums {
-        case value(Jsonable), id(String), name(String), visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(TreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(FormattedLabel), itemStyle(ItemStyle)
+        case value(Jsonable), id(String), name(String), visualDimension(Float), visualMin(Float), visualMax(Float), color([Color]), colorAlpha(Range), colorSaturation(Range), colorMappingBy(TreemapSerie.ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(EmphasisLabel), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -839,7 +839,7 @@ extension TreemapSerieData: Mappable {
 
 extension TreemapSerie: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), squareRotio(Float), leafDepth(Float), roam(Roam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(Range), colorSaturation(Range), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(FormattedLabel), itemStyle(ItemStyle), breadcrumb(Breadcrumb), data([Jsonable]), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time)
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), squareRotio(Float), leafDepth(Float), roam(Roam), nodeClick(NodeClick), zoomToNodeRatio(Float), level([Level]), silent(Silent), visualDimension(Float), visualMin(Float), visualMax(Float), colorAlpha(Range), colorSaturation(Range), colorMappingBy(ColorMappingBy), visibleMin(Float), childrenVisibleMin(Float), label(EmphasisLabel), itemStyle(ItemStyle), breadcrumb(Breadcrumb), data([Jsonable]), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time)
     }
     
     public typealias ContentEnum = Enums

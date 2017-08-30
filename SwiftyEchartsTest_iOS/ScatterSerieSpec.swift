@@ -19,12 +19,10 @@ class ScatterSerieSpec: QuickSpec {
         let symbolSizeDataValue = FunctionOrFloatOrPair.value(20.582)
         let symbolRotateDataValue: Float = 7.75634
         let symbolOffsetDataValue: Point = [20.57, 57246]
-        let labelDataValue = FormattedLabel(
-            .emphasis(FormattedLabelStyle(
+        let labelDataValue = EmphasisLabel(
+            .emphasis(LabelStyle(
                 .position(Position.point([0.0, 100%])),
-                .textStyle(TextStyle(
-                    .fontWeight(FontWeight.bold)
-                    ))
+                .fontWeight(FontWeight.bold)
                 ))
         )
         let itemStyleDataValue = ItemStyle(
@@ -94,8 +92,8 @@ class ScatterSerieSpec: QuickSpec {
         let symbolOffsetValue: Point = [0.0, 0]
         let largeValue = false
         let largeThresholdValue: Float = 463.93
-        let labelValue = FormattedLabel(
-            .normal(FormattedLabelStyle(
+        let labelValue = EmphasisLabel(
+            .normal(LabelStyle(
                 .show(false),
                 .formatter(.string("formatterValue"))
                 ))

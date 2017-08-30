@@ -20,7 +20,7 @@ public final class ScatterSerie: Serie, Symbolized, Animatable, Zable {
         public var symbolRotate: Float?
         public var symbolOffset: Point?
         /// 数据项文字样式
-        public var label: FormattedLabel?
+        public var label: EmphasisLabel?
         /// 单个数据点（气泡）的样式设置。
         public var itemStyle: ItemStyle?
     }
@@ -67,7 +67,7 @@ public final class ScatterSerie: Serie, Symbolized, Animatable, Zable {
     /// 开启绘制优化的阈值。
     public var largeThreshold: Float?
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
-    public var label: FormattedLabel?
+    public var label: EmphasisLabel?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: ItemStyle?
     /// 系列中的数据内容数组。数组项通常为具体的数据项。
@@ -218,7 +218,7 @@ public typealias ScatterSerieData = ScatterSerie.Data
 
 extension ScatterSerieData: Enumable {
     public enum Enums {
-        case name(String), value(String), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle)
+        case name(String), value(String), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), label(EmphasisLabel), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -263,7 +263,7 @@ extension ScatterSerieData: Mappable {
 
 extension ScatterSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), hoverAnimation(Bool), legendHoverLink(Bool), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), large(Bool), largeThreshold(Float), label(FormattedLabel), itemStyle(ItemStyle), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), hoverAnimation(Bool), legendHoverLink(Bool), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), large(Bool), largeThreshold(Float), label(EmphasisLabel), itemStyle(ItemStyle), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

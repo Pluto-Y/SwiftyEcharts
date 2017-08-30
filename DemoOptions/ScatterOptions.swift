@@ -594,8 +594,8 @@ public final class ScatterOptions {
                         .brushType(.stroke)
                         )),
                     .hoverAnimation(true),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .formatter(.string("{b}")),
                             .position(.right),
                             .show(true)

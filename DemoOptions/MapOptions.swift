@@ -241,8 +241,8 @@ public final class MapOptions {
                 .rippleEffect(EffectScatterSerie.RippleEffect(
                     .brushType(.stroke)
                     )),
-                .label(FormattedLabel(
-                    .normal(FormattedLabelStyle(
+                .label(EmphasisLabel(
+                    .normal(LabelStyle(
                         .show(true),
                         .position(.right),
                         .formatter(.string("{b}"))

@@ -345,8 +345,8 @@ public final class RadarOptions {
                         RadarSerieData(
                             .value([120, 118, 130, 100, 99, 70]),
                             .name("张三"),
-                            .label(FormattedLabel(
-                                .normal(FormattedLabelStyle(
+                            .label(EmphasisLabel(
+                                .normal(LabelStyle(
                                     .show(true),
                                     .formatter(.function("function labelFormatter(params){ return params.value; }"))
                                     ))

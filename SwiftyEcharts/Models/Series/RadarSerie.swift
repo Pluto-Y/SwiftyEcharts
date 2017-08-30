@@ -28,7 +28,7 @@ public final class RadarSerie: Serie, Symbolized, Zable, Animatable {
         public var symbolOffset: Point?
         
         /// 单个拐点文本的样式设置。
-        public var label: FormattedLabel?
+        public var label: EmphasisLabel?
         /// 单个拐点标志的样式设置。
         public var itemStyle: ItemStyle?
         /// 单项线条样式。
@@ -56,7 +56,7 @@ public final class RadarSerie: Serie, Symbolized, Zable, Animatable {
     public var symbolOffset: Point?
     
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
-    public var label: FormattedLabel?
+    public var label: EmphasisLabel?
     /// 折线拐点标志的样式。
     public var itemStyle: ItemStyle?
     /// 线条样式。
@@ -95,7 +95,7 @@ public typealias RadarSerieData = RadarSerie.Data
 
 extension RadarSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Jsonable), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle)
+        case name(String), value(Jsonable), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), label(EmphasisLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -146,7 +146,7 @@ extension RadarSerieData: Mappable {
 
 extension RadarSerie: Enumable {
 	public enum Enums {
-		case name(String), radarIndex(UInt8), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+		case name(String), radarIndex(UInt8), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), label(EmphasisLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
 	}
 
 	public typealias ContentEnum = Enums

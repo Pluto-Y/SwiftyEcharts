@@ -36,12 +36,12 @@ class PictorialBarSerieSpec: QuickSpec {
         let animationDurationUpdateDataValue: Time = 8.27464
         let animationEasingUpdateDataValue: EasingFunction = .exponentialOut
         let animationDelayUpdateDataValue: Time = 1000.3820
-        let labelDataValue = FormattedLabel(
-            .normal(FormattedLabelStyle(
+        let labelDataValue = EmphasisLabel(
+            .normal(LabelStyle(
                 .show(false),
                 .position(Position.center),
                 .formatter(.string("12345")),
-                .offset([20, 40])
+                .interval(255)
                 ))
         )
         let itemStyleDataValue = ItemStyle(
@@ -158,13 +158,13 @@ class PictorialBarSerieSpec: QuickSpec {
             let coordinateSystemValue = CoordinateSystem.geo
             let xAxisIndexValue: UInt8 = 37
             let yAxisIndexValue: UInt8 = 88
-            let labelValue = FormattedLabel(
-                .normal(FormattedLabelStyle(
+            let labelValue = EmphasisLabel(
+                .normal(LabelStyle(
                     .show(true),
                     .position(Position.auto),
-                    .offset([100%, 0])
+                    .align(Align.center)
                     )),
-                .emphasis(FormattedLabelStyle(
+                .emphasis(LabelStyle(
                     .show(false)
                     ))
             )

@@ -72,17 +72,15 @@ class LinesSerieSpec: QuickSpec {
             .type(.dotted),
             .opacity(0.7261)
         )
-        let labelDataValue = FormattedLabel(
-            .normal(FormattedLabelStyle(
+        let labelDataValue = EmphasisLabel(
+            .normal(LabelStyle(
                 .show(false),
                 .position(.center)
                 )),
-            .emphasis(FormattedLabelStyle(
+            .emphasis(LabelStyle(
                 .show(true),
-                .textStyle(TextStyle(
-                    .fontSize(30),
-                    .fontWeight(.bold)
-                    ))
+                .fontSize(30),
+                .fontWeight(.bold)
                 ))
         )
         
@@ -136,10 +134,10 @@ class LinesSerieSpec: QuickSpec {
                     .shadowOffsetX(0.293)
                     ))
             )
-            let labelValue = FormattedLabel(
-                .emphasis(FormattedLabelStyle(
+            let labelValue = EmphasisLabel(
+                .emphasis(LabelStyle(
                     .show(false),
-                    .offset([0, 73%]),
+                    .position(Position.point([0, 73%])),
                     .formatter(.string("{c$}"))
                     ))
             )

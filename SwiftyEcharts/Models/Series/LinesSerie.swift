@@ -75,7 +75,7 @@ public final class LinesSerie: Serie, Zable, Animatable {
         /// 单个数据（单条线）的样式设置。
         public var lineStyle: LineStyle?
         /// 单个数据（单条线）的标签设置。在 polyline 设置为 true 时无效。
-        public var label: FormattedLabel?
+        public var label: EmphasisLabel?
         
         public init() { }
     }
@@ -120,7 +120,7 @@ public final class LinesSerie: Serie, Zable, Animatable {
     /// 线条样式。
     public var lineStyle: EmphasisLineStyle?
     /// 标签相关配置。在 polyline 设置为 true 时无效。
-    public var label: FormattedLabel?
+    public var label: EmphasisLabel?
     /// 线数据集。
     ///
     /// 注： 为了更好点支持多段线的配置，线数据的格式在 3.2.0 做了一定调整，如下：
@@ -223,7 +223,7 @@ extension LinesSerie.Effect: Mappable {
 
 extension LinesSerieData: Enumable {
     public enum Enums {
-        case name(String), coords([Point]), lineStyle(LineStyle), label(FormattedLabel)
+        case name(String), coords([Point]), lineStyle(LineStyle), label(EmphasisLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -256,7 +256,7 @@ extension LinesSerieData: Mappable {
 
 extension LinesSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(Symbol), symbols([Symbol]), symbolSize(FunctionOrFloatOrPair), lineStyle(EmphasisLineStyle), label(FormattedLabel), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), polyline(Bool), effect(Effect), large(Bool), largeThreshold(Float), symbol(Symbol), symbols([Symbol]), symbolSize(FunctionOrFloatOrPair), lineStyle(EmphasisLineStyle), label(EmphasisLabel), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

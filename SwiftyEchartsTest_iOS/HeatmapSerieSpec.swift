@@ -85,8 +85,8 @@ class HeatmapSerieSpec: QuickSpec {
                 .data([["name": "两个坐标之间的标线", "coord": [10, 20]], ["coord": [20, 30]]])
             )
             let markAreaValue = MarkArea(
-                .label(FormattedLabel(
-                    .normal(FormattedLabelStyle(
+                .label(EmphasisLabel(
+                .normal(LabelStyle(
                         .position(.right)
                         ))
                     ))

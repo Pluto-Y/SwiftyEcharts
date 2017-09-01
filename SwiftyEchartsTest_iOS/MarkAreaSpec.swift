@@ -14,11 +14,10 @@ class MarkAreaSpec: QuickSpec {
     override func spec() {
         describe("For MarkArea") {
             let silentValue = true
-            let labelValue = FormattedLabel(
-                .emphasis(FormattedLabelStyle(
+            let labelValue = EmphasisLabel(
+                .emphasis(LabelStyle(
                     .show(false),
-                    .position(Position.insideBottomLeft),
-                    .offset([20, 90])
+                    .position(Position.insideBottomLeft)
                     ))
             )
             let itemStyleValue = ItemStyle(

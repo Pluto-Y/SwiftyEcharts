@@ -11,7 +11,7 @@ public final class MarkArea: Animatable {
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
     /// 标域文本配置。
-    public var label: FormattedLabel?
+    public var label: EmphasisLabel?
     /// 该标域的样式。
     public var itemStyle: ItemStyle?
     /// 标域的数据数组。
@@ -61,7 +61,7 @@ public final class MarkArea: Animatable {
 
 extension MarkArea: Enumable {
     public enum Enums {
-        case silent(Bool), label(FormattedLabel), itemStyle(ItemStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case silent(Bool), label(EmphasisLabel), itemStyle(ItemStyle), data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

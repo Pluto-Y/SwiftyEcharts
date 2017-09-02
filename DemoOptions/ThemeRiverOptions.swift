@@ -165,8 +165,8 @@ public final class ThemeRiverOptions {
             .series([
                 ThemeRiverSerie(
                     .data(data),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(false)
                             ))
                         ))

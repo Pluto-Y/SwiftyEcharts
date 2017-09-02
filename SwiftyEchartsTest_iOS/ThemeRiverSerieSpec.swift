@@ -25,17 +25,16 @@ class ThemeRiverSerieSpec: QuickSpec {
             let coordinateSystemValue = CoordinateSystem.polar
             let boundaryGapValue: BoundaryGap = true
             let singleAxisIndexValue: UInt8 = 46
-            let labelValue = FormattedLabel(
-                .emphasis(FormattedLabelStyle(
+            let labelValue = EmphasisLabel(
+                .emphasis(LabelStyle(
                     .show(true),
                     .position(Position.insideBottom),
-                    .offset([20, 50])
+                    .lineHeight(205.238),
+                    .borderColor(Color.hexColor("#88ffbb"))
                     )),
-                .normal(FormattedLabelStyle(
-                    .textStyle(TextStyle(
-                        .color(Color.red),
-                        .align(Position.auto)
-                        ))
+                .normal(LabelStyle(
+                    .color(Color.red),
+                    .align(Align.center)
                     ))
             )
             let itemStyleValue = ItemStyle(

@@ -1097,7 +1097,7 @@ public final class PictorialBarSerie: Serie, Symbolized, Zable, Animatable {
     ///         },
     ///         data: [ ... ]
     ///     }
-    public var encode: [Jsonable]?
+    public var encode: [String: Jsonable]?
     /// 数据，详情可以见: PictorialBarSerie.Data
     public var data: [Jsonable]?
     /// 图表标注。
@@ -1264,7 +1264,7 @@ extension PictorialBarSerie.Data : Mappable {
 
 extension PictorialBarSerie : Enumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), cursor(String), label(EmphasisLabel), itemStyle(ItemStyle), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(LengthValue), barGap(LengthValue), barCategoryGap(LengthValue), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(Bool), symbolBoundingData(String), symbolPatternSize(Float), hoverAnimation(Bool), dimenssions([Jsonable]), encode([Jsonable]), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationDelayUpdate(Time), animationDelay(Time), animationEasingUpdate(EasingFunction), tooltip(Tooltip)
+        case name(String), legendHoverLink(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), cursor(String), label(EmphasisLabel), itemStyle(ItemStyle), barWidth(LengthValue), barMaxWidth(LengthValue), barMinHeight(LengthValue), barGap(LengthValue), barCategoryGap(LengthValue), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolPosition(Position), symbolOffset(Point), symbolRotate(Float), symbolRepeat(String), symbolRepeatDirection(String), symbolMargin(String), symbolClip(Bool), symbolBoundingData(String), symbolPatternSize(Float), hoverAnimation(Bool), dimensions([Jsonable]), encode([String: Jsonable]), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDurationUpdate(Time), animationDelayUpdate(Time), animationDelay(Time), animationEasingUpdate(EasingFunction), tooltip(Tooltip)
     }
     
     public typealias ContentEnum = Enums
@@ -1323,7 +1323,7 @@ extension PictorialBarSerie : Enumable {
                 self.symbolPatternSize = symbolPatternSize
             case let .hoverAnimation(hoverAnimation):
                 self.hoverAnimation = hoverAnimation
-            case let .dimenssions(dimensions):
+            case let .dimensions(dimensions):
                 self.dimensions = dimensions
             case let .encode(encode):
                 self.encode = encode
@@ -1372,6 +1372,7 @@ extension PictorialBarSerie : Mappable {
         map["coordinateSystem"] = coordinateSystem
         map["xAxisIndex"] = xAxisIndex
         map["yAxisIndex"] = yAxisIndex
+        map["cursor"] = cursor
         map["label"] = label
         map["itemStyle"] = itemStyle
         map["barWidth"] = barWidth
@@ -1391,6 +1392,8 @@ extension PictorialBarSerie : Mappable {
         map["symbolBoundingData"] = symbolBoundingData
         map["symbolPatternSize"] = symbolPatternSize
         map["hoverAnimation"] = hoverAnimation
+        map["dimensions"] = dimensions
+        map["encode"] = encode
         map["data"] = data
         map["markPoint"] = markPoint
         map["markLine"] = markLine

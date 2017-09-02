@@ -18,7 +18,7 @@ class BarsController: BaseDemoController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menus = ["柱状图动画延迟", "柱状图框选", "特性示例：渐变色 阴影 点击缩放", "正负条形图", "交错正负轴标签", "堆叠柱状图", "坐标轴刻度与标签对齐", "深圳月最低生活费组成（单位:元）", "阶梯瀑布图", "堆叠条形图", "世界人口总量 - 条形图", "某地区蒸发量和降水量", "Stacked Bar in Polar System(暂缺)", "Stacked Bar in Polar System(暂缺)", "在中国租个房子有多贵(暂缺)", "标签旋转(暂缺)", "富文本标签(暂缺)", "动态数据", "折柱混合", "全国宏观经济(暂缺)", "Budge(暂缺)", "多 Y 轴示例", "水印 - ECharts 下载统计(暂缺)", "Histogram(暂缺)"]
+        menus = ["柱状图动画延迟", "柱状图框选", "特性示例：渐变色 阴影 点击缩放", "正负条形图", "交错正负轴标签", "堆叠柱状图", "坐标轴刻度与标签对齐", "深圳月最低生活费组成（单位:元）", "阶梯瀑布图", "堆叠条形图", "世界人口总量 - 条形图", "某地区蒸发量和降水量", "Stacked Bar in Polar System", "Stacked Bar in Polar System(暂缺)", "在中国租个房子有多贵(暂缺)", "标签旋转(暂缺)", "富文本标签(暂缺)", "动态数据", "折柱混合", "全国宏观经济(暂缺)", "Budge(暂缺)", "多 Y 轴示例", "水印 - ECharts 下载统计(暂缺)", "Histogram(暂缺)"]
         
        optionClosures = [BarOptions.barAnimationDelayOption, BarOptions.barBrushOption, BarOptions.barGradientOption, BarOptions.barNegativeOption, BarOptions.barNegative2Option, BarOptions.barStackOption, BarOptions.barTickAlignOption, BarOptions.barWaterfallOption, BarOptions.barWaterfall2Option, BarOptions.barYCategoryStackOption, BarOptions.barYCategoryOption, BarOptions.bar1Option, BarOptions.barPolarStackOption, BarOptions.barPolarStackRadialOption, BarOptions.barPolarRealEstateOption, BarOptions.barLabelRotationOption, BarOptions.barRichTextOption, BarOptions.dynamicDataOption, BarOptions.mixLineBarOption, BarOptions.mixTimelineFinanceOption, BarOptions.mixZoomOnValueOption, BarOptions.multipleYAxisOption, BarOptions.watermarkOption, BarOptions.barHistogramOption]
         

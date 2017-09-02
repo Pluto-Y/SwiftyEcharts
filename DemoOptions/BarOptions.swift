@@ -926,6 +926,46 @@ public final class BarOptions {
         )
     }
     
+    // MARK: Stacked Bar in Polar System
+    /// 地址: http://echarts.baidu.com/demo.html#bar-polar-stack
+    static func barPolarStackOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: Stacked Bar in Polar System
+    /// 地址: http://echarts.baidu.com/demo.html#bar-polar-stack-radial
+    static func barPolarStackRadialOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: 在中国租个房子有多贵
+    /// 地址: http://echarts.baidu.com/demo.html#bar-polar-real-estate
+    static func barPolarRealEstateOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: 标签旋转
+    /// 地址: http://echarts.baidu.com/demo.html#bar-label-rotation
+    static func barLabelRotationOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: 富文本标签
+    /// 地址: http://echarts.baidu.com/demo.html#bar-rich-text
+    static func barRichTextOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
     // MARK: 动态数据
     /// 地址: http://echarts.baidu.com/demo.html#dynamic-data
     static func dynamicDataOption() -> Option {
@@ -1209,6 +1249,14 @@ public final class BarOptions {
     // MARK: 水印 - ECharts 下载统计
     /// 地址: http://echarts.baidu.com/demo.html#watermark
     static func watermarkOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: Histogram
+    /// 地址: http://echarts.baidu.com/demo.html#bar-histogram
+    static func barHistogramOption() -> Option {
         // TODO: 添加实现
         return Option(
         )

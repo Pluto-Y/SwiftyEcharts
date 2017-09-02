@@ -29,7 +29,7 @@ public final class SankeySerie: Serie, Zable, Animatable {
         /// 该节点的样式。
         public var itemStyle: ItemStyle?
         /// 该节点标签的样式。
-        public var label: FormattedLabel?
+        public var label: EmphasisLabel?
         
         public init() { }
     }
@@ -90,7 +90,7 @@ public final class SankeySerie: Serie, Zable, Animatable {
     /// 经测试，布局迭代次数不要低于默认值。
     public var layoutIterations: Float?
     /// label 描述了每个矩形节点中文本标签的样式。
-    public var label: FormattedLabel?
+    public var label: EmphasisLabel?
     /// 桑基图节点矩形的样式。
     public var itemStyle: ItemStyle?
     /// 桑基图边的样式，其中 lineStyle.normal.color 支持设置为'source'或者'target'特殊值，此时边会自动取源节点或目标节点的颜色作为自己的颜色。
@@ -164,7 +164,7 @@ public final class SankeySerie: Serie, Zable, Animatable {
 
 extension SankeySerie.Data: Enumable {
     public enum Enums {
-        case name(String), value(Float), itemStyle(ItemStyle), label(FormattedLabel)
+        case name(String), value(Float), itemStyle(ItemStyle), label(EmphasisLabel)
     }
     
     public typealias ContentEnum = Enums
@@ -230,7 +230,7 @@ extension SankeySerie.Link: Mappable {
 
 extension SankeySerie: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), nodeWidth(Float), nodeGap(Float), layoutIterations(Float), label(FormattedLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), data([Jsonable]), nodes([Jsonable]), links([Jsonable]), edges([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), nodeWidth(Float), nodeGap(Float), layoutIterations(Float), label(EmphasisLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), data([Jsonable]), nodes([Jsonable]), links([Jsonable]), edges([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

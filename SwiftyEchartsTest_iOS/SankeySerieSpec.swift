@@ -24,8 +24,8 @@ class SankeySerieSpec: QuickSpec {
                 .opacity(0.500000)
                 ))
         )
-        let labelDataValue = FormattedLabel(
-            .normal(FormattedLabelStyle(
+        let labelDataValue = EmphasisLabel(
+            .normal(LabelStyle(
                 .show(false),
                 .position(Position.inside)
                 ))
@@ -115,11 +115,11 @@ class SankeySerieSpec: QuickSpec {
             let nodeWidthValue: Float = 85.2764
             let nodeGapValue: Float = 8.5837
             let layoutIterationsValue: Float = 32
-            let labelValue = FormattedLabel(
-                .normal(FormattedLabelStyle(
+            let labelValue = EmphasisLabel(
+                .normal(LabelStyle(
                     .show(true),
                     .formatter(.string("{value} $")),
-                    .offset([20%, 50])
+                    .verticalAlign(VerticalAlign.bottom)
                     ))
             )
             let itemStyleValue = ItemStyle(

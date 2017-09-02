@@ -23,7 +23,7 @@ class PictorialBarSerieSpec: QuickSpec {
         let symbolRepeatDataValue = "dataSymbolRepeatValue"
         let symbolRepeatDirectionDataValue = "vertical"
         let symbolMarginDataValue = "dataSymbolMarginValue"
-        let symbolClipDataValue = "dataSymbolClipValue"
+        let symbolClipDataValue = true
         let symbolBoundingDataDataValue = "dataSymbolBoundingDataValue"
         let symbolPatternSizeDataValue: Float = 20.854
         let zDataValue: Float = 75.273

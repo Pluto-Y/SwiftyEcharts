@@ -967,8 +967,38 @@ public final class BarOptions {
     // MARK: Stacked Bar in Polar System
     /// 地址: http://echarts.baidu.com/demo.html#bar-polar-stack-radial
     static func barPolarStackRadialOption() -> Option {
-        // TODO: 添加实现
         return Option(
+            .angleAxis(AngleAxis(
+                .type(.category),
+                .data(["周一", "周二", "周三", "周四", "周五", "周六", "周日"]),
+                .z(10)
+                )),
+            .radiusAxis(RadiusAxis()),
+            .polar(Polar()),
+            .series([
+                BarSerie(
+                    .data([1, 2, 3, 4, 3, 5, 1]),
+                    .coordinateSystem(.polar),
+                    .name("A"),
+                    .stack("a")
+                ),
+                BarSerie(
+                    .data([2, 4, 6, 1, 3, 2, 1]),
+                    .coordinateSystem(.polar),
+                    .name("B"),
+                    .stack("a")
+                ),
+                BarSerie(
+                    .data([1, 2, 3, 4, 1, 2, 5]),
+                    .coordinateSystem(.polar),
+                    .name("C"),
+                    .stack("a")
+                )
+                ]),
+            .legend(Legend(
+                .show(true),
+                .data(["A", "B", "C"])
+                ))
         )
     }
     

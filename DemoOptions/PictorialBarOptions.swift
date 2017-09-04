@@ -29,10 +29,8 @@ public final class PictorialBarOptions {
                 .axisLine(AxisLine(.show(false))),
                 .axisLabel(AxisLabel(
                     .margin(20),
-                    .textStyle(TextStyle(
-                        .color("#ddd"),
-                        .fontSize(14)
-                        ))
+                    .color("#ddd"),
+                    .fontSize(14)
                     ))
                 )),
             .yAxis(Axis(
@@ -159,9 +157,7 @@ public final class PictorialBarOptions {
                 .axisTick(AxisTick(.show(false))),
                 .axisLine(AxisLine(.show(false))),
                 .axisLabel(AxisLabel(
-                    .textStyle(TextStyle(
-                        .color("#e54035")
-                        ))
+                    .color("#e54035")
                     ))
                 )),
             .yAxis(Axis(
@@ -282,9 +278,7 @@ public final class PictorialBarOptions {
                 .axisTick(AxisTick(.show(false))),
                 .axisLabel(AxisLabel(
                     .margin(30),
-                    .textStyle(TextStyle(
-                        .fontSize(14)
-                        ))
+                    .fontSize(14)
                     )) // AxisPointerForTooltip好像没有什么效果
                 )),
             .xAxis(Axis(
@@ -384,10 +378,8 @@ public final class PictorialBarOptions {
                 .axisLine(AxisLine(.show(false))),
                 .axisLabel(AxisLabel(
                     .margin(10),
-                    .textStyle(TextStyle(
-                        .color("#999"),
-                        .fontSize(16)
-                        ))
+                    .color("#999"),
+                    .fontSize(16)
                     ))
                 )),
             .grid(Grid(

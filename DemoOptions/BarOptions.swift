@@ -212,9 +212,7 @@ public final class BarOptions {
                 .data(dataAxis),
                 .axisLabel(AxisLabel(
                     .inside(true),
-                    .textStyle(TextStyle(
-                        .color(.hexColor("#fff"))
-                        ))
+                    .color(.hexColor("#fff"))
                     )),
                 .axisTick(AxisTick(
                     .show(false)
@@ -232,9 +230,7 @@ public final class BarOptions {
                     .show(false)
                     )),
                 .axisLabel(AxisLabel(
-                    .textStyle(TextStyle(
-                        .color(.hexColor("#999"))
-                        ))
+                    .color(.hexColor("#999"))
                     ))
                 )),
             .dataZoom([InsideDataZoom(

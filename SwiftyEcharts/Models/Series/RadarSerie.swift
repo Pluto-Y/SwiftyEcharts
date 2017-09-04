@@ -35,6 +35,8 @@ public final class RadarSerie: Serie, Symbolized, Zable, Animatable {
         public var lineStyle: EmphasisLineStyle?
         /// 单项区域填充样式。
         public var areaStyle: EmphasisAreaStyle?
+        /// 本系列每个数据项中特定的 tooltip 设定。
+        public var tooltip: Tooltip?
         
         public init() {}
     }
@@ -87,6 +89,8 @@ public final class RadarSerie: Serie, Symbolized, Zable, Animatable {
     public var animationDurationUpdate: Time?
     public var animationEasingUpdate: EasingFunction?
     public var animationDelayUpdate: Time?
+    /// 本系列特定的 tooltip 设定。
+    public var tooltip: Tooltip?
     
     public init() {}
 }
@@ -95,7 +99,7 @@ public typealias RadarSerieData = RadarSerie.Data
 
 extension RadarSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Jsonable), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), label(EmphasisLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle)
+        case name(String), value(Jsonable), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), label(EmphasisLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), tooltip(Tooltip)
     }
     
     public typealias ContentEnum = Enums
@@ -124,6 +128,8 @@ extension RadarSerieData: Enumable {
                 self.lineStyle = lineStyle
             case let .areaStyle(areaStyle):
                 self.areaStyle = areaStyle
+            case let .tooltip(tooltip):
+                self.tooltip = tooltip
             }
         }
     }
@@ -141,93 +147,97 @@ extension RadarSerieData: Mappable {
         map["itemStyle"] = itemStyle
         map["lineStyle"] = lineStyle
         map["areaStyle"] = areaStyle
+        map["tooltip"] = tooltip
     }
 }
 
 extension RadarSerie: Enumable {
-	public enum Enums {
-		case name(String), radarIndex(UInt8), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), label(EmphasisLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
-	}
-
-	public typealias ContentEnum = Enums
-
-	public convenience init(_ elements: Enums...) {
+    public enum Enums {
+        case name(String), radarIndex(UInt8), symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), label(EmphasisLabel), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), areaStyle(EmphasisAreaStyle), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), tooltip(Tooltip)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
         self.init()
-		for ele in elements {
-			switch ele {
-				case let .name(name):
-					self.name = name
-				case let .radarIndex(radarIndex):
-					self.radarIndex = radarIndex
-				case let .symbol(symbol):
-					self.symbol = OneOrMore(one: symbol)
-				case let .symbolSize(symbolSize):
-					self.symbolSize = symbolSize
-				case let .symbolRotate(symbolRotate):
-					self.symbolRotate = symbolRotate
-				case let .symbolOffset(symbolOffset):
-					self.symbolOffset = symbolOffset
-				case let .label(label):
-					self.label = label
-				case let .itemStyle(itemStyle):
-					self.itemStyle = itemStyle
-				case let .lineStyle(lineStyle):
-					self.lineStyle = lineStyle
-				case let .areaStyle(areaStyle):
-					self.areaStyle = areaStyle
-				case let .data(data):
-					self.data = data
-				case let .zlevel(zlevel):
-					self.zlevel = zlevel
-				case let .z(z):
-					self.z = z
-				case let .silent(silent):
-					self.silent = silent
-				case let .animation(animation):
-					self.animation = animation
-				case let .animationThreshold(animationThreshold):
-					self.animationThreshold = animationThreshold
-				case let .animationDuration(animationDuration):
-					self.animationDuration = animationDuration
-				case let .animationEasing(animationEasing):
-					self.animationEasing = animationEasing
-				case let .animationDelay(animationDelay):
-					self.animationDelay = animationDelay
-				case let .animationDurationUpdate(animationDurationUpdate):
-					self.animationDurationUpdate = animationDurationUpdate
-				case let .animationEasingUpdate(animationEasingUpdate):
-					self.animationEasingUpdate = animationEasingUpdate
-				case let .animationDelayUpdate(animationDelayUpdate):
-					self.animationDelayUpdate = animationDelayUpdate
-			}
-		}
-	}
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .radarIndex(radarIndex):
+                self.radarIndex = radarIndex
+            case let .symbol(symbol):
+                self.symbol = OneOrMore(one: symbol)
+            case let .symbolSize(symbolSize):
+                self.symbolSize = symbolSize
+            case let .symbolRotate(symbolRotate):
+                self.symbolRotate = symbolRotate
+            case let .symbolOffset(symbolOffset):
+                self.symbolOffset = symbolOffset
+            case let .label(label):
+                self.label = label
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            case let .lineStyle(lineStyle):
+                self.lineStyle = lineStyle
+            case let .areaStyle(areaStyle):
+                self.areaStyle = areaStyle
+            case let .data(data):
+                self.data = data
+            case let .zlevel(zlevel):
+                self.zlevel = zlevel
+            case let .z(z):
+                self.z = z
+            case let .silent(silent):
+                self.silent = silent
+            case let .animation(animation):
+                self.animation = animation
+            case let .animationThreshold(animationThreshold):
+                self.animationThreshold = animationThreshold
+            case let .animationDuration(animationDuration):
+                self.animationDuration = animationDuration
+            case let .animationEasing(animationEasing):
+                self.animationEasing = animationEasing
+            case let .animationDelay(animationDelay):
+                self.animationDelay = animationDelay
+            case let .animationDurationUpdate(animationDurationUpdate):
+                self.animationDurationUpdate = animationDurationUpdate
+            case let .animationEasingUpdate(animationEasingUpdate):
+                self.animationEasingUpdate = animationEasingUpdate
+            case let .animationDelayUpdate(animationDelayUpdate):
+                self.animationDelayUpdate = animationDelayUpdate
+            case let .tooltip(tooltip):
+                self.tooltip = tooltip
+            }
+        }
+    }
 }
 
 extension RadarSerie: Mappable {
-	public func mapping(map: Mapper) {
-		map["type"] = type
-		map["name"] = name
-		map["radarIndex"] = radarIndex
-		map["symbol"] = symbol
-		map["symbolSize"] = symbolSize
-		map["symbolRotate"] = symbolRotate
-		map["symbolOffset"] = symbolOffset
-		map["label"] = label
-		map["itemStyle"] = itemStyle
-		map["lineStyle"] = lineStyle
-		map["areaStyle"] = areaStyle
-		map["data"] = data
-		map["zlevel"] = zlevel
-		map["z"] = z
-		map["silent"] = silent
-		map["animation"] = animation
-		map["animationThreshold"] = animationThreshold
-		map["animationDuration"] = animationDuration
-		map["animationEasing"] = animationEasing
-		map["animationDelay"] = animationDelay
-		map["animationDurationUpdate"] = animationDurationUpdate
-		map["animationEasingUpdate"] = animationEasingUpdate
-		map["animationDelayUpdate"] = animationDelayUpdate
-	}
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["name"] = name
+        map["radarIndex"] = radarIndex
+        map["symbol"] = symbol
+        map["symbolSize"] = symbolSize
+        map["symbolRotate"] = symbolRotate
+        map["symbolOffset"] = symbolOffset
+        map["label"] = label
+        map["itemStyle"] = itemStyle
+        map["lineStyle"] = lineStyle
+        map["areaStyle"] = areaStyle
+        map["data"] = data
+        map["zlevel"] = zlevel
+        map["z"] = z
+        map["silent"] = silent
+        map["animation"] = animation
+        map["animationThreshold"] = animationThreshold
+        map["animationDuration"] = animationDuration
+        map["animationEasing"] = animationEasing
+        map["animationDelay"] = animationDelay
+        map["animationDurationUpdate"] = animationDurationUpdate
+        map["animationEasingUpdate"] = animationEasingUpdate
+        map["animationDelayUpdate"] = animationDelayUpdate
+        map["tooltip"] = tooltip
+    }
 }

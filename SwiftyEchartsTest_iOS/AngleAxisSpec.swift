@@ -81,10 +81,8 @@ class AngleAxisSpec: QuickSpec {
             )
             let axisLabelValue = AxisLabel(
                 .margin(20),
-                .textStyle(TextStyle(
-                    .color("#ddd"),
-                    .fontSize(14)
-                    ))
+                .color("#ddd"),
+                .fontSize(14)
             )
             let splitLineValue = SplitLine(
                 .lineStyle(LineStyle(

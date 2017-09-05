@@ -30,7 +30,7 @@ public final class AxisLabel: Displayable, Formatted, Shadowable {
     public var fontFamily: String?
     public var fontSize: UInt8?
     public var align: Align?
-    public var verticalAlign: Align?
+    public var verticalAlign: VerticalAlign?
     public var lineHeight: Float?
     public var backgroundColor: Color?
     public var borderColor: Color?
@@ -56,7 +56,7 @@ public final class AxisLabel: Displayable, Formatted, Shadowable {
 
 extension AxisLabel: Enumable {
     public enum Enums {
-        case show(Bool), interval(UInt), inside(Bool), rotate(Float), margin(Float), formatter(Formatter), showMinLabel(Bool), showMaxLabel(Bool), color(Color), fontStyle(FontStyle), fontWeight(FontWeight), fontFamily(String), fontSize(UInt8), align(Align), verticalAlign(Align), lineHeight(Float), backgroundColor(Color), borderColor(Color), borderWidth(Float), borderRadius(Float), padding(Padding), shadowColor(Color), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), width(LengthValue), height(LengthValue), textBorderColor(Color), textBorderWidth(Float), textShadowColor(Color), textShadowBlur(Float), textShadowOffsetX(Float), textShadowOffsetY(Float), rich([String: Jsonable])
+        case show(Bool), interval(UInt), inside(Bool), rotate(Float), margin(Float), formatter(Formatter), showMinLabel(Bool), showMaxLabel(Bool), color(Color), fontStyle(FontStyle), fontWeight(FontWeight), fontFamily(String), fontSize(UInt8), align(Align), verticalAlign(VerticalAlign), lineHeight(Float), backgroundColor(Color), borderColor(Color), borderWidth(Float), borderRadius(Float), padding(Padding), shadowColor(Color), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), width(LengthValue), height(LengthValue), textBorderColor(Color), textBorderWidth(Float), textShadowColor(Color), textShadowBlur(Float), textShadowOffsetX(Float), textShadowOffsetY(Float), rich([String: Jsonable])
     }
     
     public typealias ContentEnum = Enums

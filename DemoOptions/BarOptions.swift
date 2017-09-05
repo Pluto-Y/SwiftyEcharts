@@ -1106,8 +1106,138 @@ public final class BarOptions {
     // MARK: 富文本标签
     /// 地址: http://echarts.baidu.com/demo.html#bar-rich-text
     static func barRichTextOption() -> Option {
-        // TODO: 添加实现
+        let weatherIcons: [String: Jsonable] = [
+            "Sunny": "http://echarts.baidu.com/data/asset/img/weather/sunny_128.png",
+            "Cloudy": "http://echarts.baidu.com/data/asset/img/weather/cloudy_128.png",
+            "Showers": "http://echarts.baidu.com/data/asset/img/weather/showers_128.png"
+        ]
+        
+        let seriesLabel = EmphasisLabel(
+            .normal(LabelStyle(
+                .show(true),
+                .textBorderColor(.hexColor("#333")),
+                .textBorderWidth(2)
+                ))
+        )
+        
         return Option(
+            .title(Title(
+                .text("Wheater Statistics")
+                )),
+            .tooltip(Tooltip(
+                .trigger(.axis),
+                .axisPointer(AxisPointerForTooltip(
+                    .type(.shadow)
+                    ))
+                )),
+            .legend(Legend(
+                .data(["City Alpha", "City Beta", "City Gamma"])
+                )),
+            .grid(Grid(
+                .left(Position.value(100))
+                )),
+            .toolbox(Toolbox(
+                .show(true),
+                .feature(ToolboxFeature(
+                    .saveAsImage(ToolboxFeatureSaveAsImage())
+                    ))
+                )),
+            .xAxis(Axis(
+                .type(.value),
+                .name("Days"),
+                .axisLabel(AxisLabel(
+                    .formatter(.string("{value}"))
+                    ))
+                )),
+            .yAxis(Axis(
+                .type(.category),
+                .inverse(true),
+                .data(["Sunny", "Cloudy", "Showers"]),
+                .axisLabel(AxisLabel(
+                    .formatter(.function("function (value) { return '{' + value + '| }\\n{value|' + value + '}'; }")),
+                    .margin(20),
+                    .rich([
+                        "value": [
+                            "lineHeight": 30,
+                            "align": "center"
+                        ],
+                        "Sunny": [
+                            "height": 40,
+                            "align": "center",
+                            "backgroundColor": (["image": weatherIcons["Sunny"]] as Jsonable)
+                        ],
+                        "Cloudy": [
+                            "height": 40,
+                            "width": 40,
+                            "align": "center",
+                            "backgroundColor": (["image": weatherIcons["Cloudy"]] as Jsonable)
+                        ],
+                        "Showers": [
+                            "height": 40,
+                            "align": "center",
+                            "backgroundColor": (["image": weatherIcons["Showers"]] as Jsonable)
+                        ]
+                        ])
+                    ))
+                )),
+            .series([
+                BarSerie(
+                    .name("City Alpha"),
+                    .data([165, 170, 30]),
+                    .label(seriesLabel),
+                    .markPoint(MarkPoint(
+                        .symbolSize(1),
+                        .symbolOffset([0, 50%]),
+                        .label(EmphasisLabel(
+                            .normal(LabelStyle(
+                                .formatter(.string("{a|{a}\\n}{b|{b} }{c|{c}}")),
+                                .backgroundColor(rgb(242, 242, 242)),
+                                .borderColor("#aaa"),
+                                .borderWidth(1),
+                                .borderRadius(4),
+                                .padding([4, 10]),
+                                .lineHeight(13),
+                                .position(.right),
+//                                .distance(20),
+                                .rich([
+                                    "a": [
+                                        "align": "center",
+                                        "color": "#fff",
+                                        "fontSize": 9,
+                                        "textShadowBlur": 2,
+                                        "textShadowColor": "#000",
+                                        "textShadowOffsetX": 0,
+                                        "textShadowOffsetY": 1,
+                                        "textBorderColor": "#333",
+                                        "textBorderWidth": 2
+                                    ],
+                                    "b": ["color": "#333"],
+                                    "c": [
+                                        "color": "#ff8811",
+                                        "textBorderColor": "#000",
+                                        "textBorderWidth": 1,
+                                        "fontSize": 11
+                                    ]
+                                    ])
+                                ))
+                            )),
+                        .data([
+                            ["type": "max","name": "max days: "],
+                            ["type": "min","name": "min days: "]
+                            ])
+                        ))
+                ),
+                BarSerie(
+                    .name("City Beta"),
+                    .label(seriesLabel),
+                    .data([150, 105, 110])
+                ),
+                BarSerie(
+                    .name("City Gamma"),
+                    .label(seriesLabel),
+                    .data([220, 82, 63])
+                )
+                ])
         )
     }
     

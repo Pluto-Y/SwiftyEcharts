@@ -15,8 +15,10 @@ class HeatmapSerieSpec: QuickSpec {
         
         let nameDataValue = "dataNameValue"
         let valueDataValue: [Jsonable] = ["周一", "周二", "周三"]
-        let labelDataValue = FormattedLabel(
-            .normal(FormattedLabelStyle(
+        let labelDataValue = EmphasisLabel(
+            .normal(LabelStyle(
+                .align(Align.auto),
+                .verticalAlign(VerticalAlign.top),
                 .show(true),
                 .position(.top)
                 ))
@@ -83,8 +85,8 @@ class HeatmapSerieSpec: QuickSpec {
                 .data([["name": "两个坐标之间的标线", "coord": [10, 20]], ["coord": [20, 30]]])
             )
             let markAreaValue = MarkArea(
-                .label(FormattedLabel(
-                    .normal(FormattedLabelStyle(
+                .label(EmphasisLabel(
+                .normal(LabelStyle(
                         .position(.right)
                         ))
                     ))

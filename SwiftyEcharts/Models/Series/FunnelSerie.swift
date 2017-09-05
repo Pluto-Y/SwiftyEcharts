@@ -48,7 +48,7 @@ public final class FunnelSerie: Serie, Animatable {
         /// 数据值。
         public var value: Float?
         /// 单个数据的标签配置。
-        public var label: FormattedLabel?
+        public var label: EmphasisLabel?
         /// 标签的视觉引导线样式
         public var labelLine: LabelLine?
         /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
@@ -85,7 +85,7 @@ public final class FunnelSerie: Serie, Animatable {
     /// 水平方向对齐布局类型，默认居中对齐，可用选项还有：'left' | 'right' | 'center'
     public var funnelAlign: Align?
     /// 漏斗图图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
-    public var label: FormattedLabel?
+    public var label: EmphasisLabel?
     /// 标签的视觉引导线样式，在 label 位置 设置为'left'或者'right'的时候会显示视觉引导线。
     public var labelLine: LabelLine?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
@@ -210,7 +210,7 @@ extension FunnelSerie.LabelLine: Mappable {
 
 extension FunnelSerieData: Enumable {
     public enum Enums {
-        case name(String), value(Float), label(FormattedLabel), labelLine(FunnelSerie.LabelLine), itemStyle(ItemStyle)
+        case name(String), value(Float), label(EmphasisLabel), labelLine(FunnelSerie.LabelLine), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -246,7 +246,7 @@ extension FunnelSerieData: Mappable {
 
 extension FunnelSerie: Enumable {
     public enum Enums {
-        case name(String), min(Float), max(Float), minSize(LengthValue), maxSize(LengthValue), sort(Sort), gap(Float), legendHoverLink(Bool), funnelAlign(Align), label(FormattedLabel), labelLine(LabelLine), itemStyle(ItemStyle), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), min(Float), max(Float), minSize(LengthValue), maxSize(LengthValue), sort(Sort), gap(Float), legendHoverLink(Bool), funnelAlign(Align), label(EmphasisLabel), labelLine(LabelLine), itemStyle(ItemStyle), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

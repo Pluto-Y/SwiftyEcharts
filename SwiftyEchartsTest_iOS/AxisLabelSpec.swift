@@ -8,7 +8,7 @@
 
 import Quick
 import Nimble
-import SwiftyEcharts
+@testable import SwiftyEcharts
 
 class AxisLabelSpec: QuickSpec {
     override func spec() {
@@ -18,14 +18,39 @@ class AxisLabelSpec: QuickSpec {
             let insideValue = true
             let rotateValue: Float = 89
             let marginValue: Float = 105
-            let formatterValue = Formatter.function("function tooltipAxisPointer(params){ var tar; if(params[1].value != '-') { tar = params[1]; } else { tar = param[0]; } return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value}")
-            let textStyleValue = TextStyle(
-                .fontStyle(.oblique),
-                .fontWeight(.bold),
-                .fontFamily("PingFang"),
-                .fontSize(48),
-                .align(.center)
-            )
+            let formatterValue = Formatter.string("function tooltipAxisPointer(params){ var tar; if(params[1].value != '-') { tar = params[1]; } else { tar = param[0]; } return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value}")
+            let showMinLabelValue = false
+            let showMaxLabelValue = true
+            let colorValue = Color.hexColor("#5a6d88")
+            let fontStyleValue = FontStyle.italic
+            let fontWeightValue = FontWeight.weight(20)
+            let fontFamilyValue = "axisLabelFontFamilyValue"
+            let fontSizeValue: UInt8 = UInt8.max
+            let alignValue = Align.auto
+            let verticalAlignValue = VerticalAlign.top
+            let lineHeightValue: Float = 120.0
+            let backgroundColorValue = Color.rgb(200, 100, 2)
+            let borderColorValue = Color.blue
+            let borderWidthValue: Float = 5.0
+            let borderRadiusValue: Float = 2.0
+            let paddingValue: Padding = [20, 100]
+            let shadowColorValue = rgba(200, 200, 200, 0.5)
+            let shadowBlurValue: Float = 10.0
+            let shadowOffsetXValue: Float = 0.55
+            let shadowOffsetYValue: Float = 100.0
+            let widthValue = 80%
+            let heightValue = 100
+            let textBorderColorValue = Color.auto
+            let textBorderWidthValue: Float = 48.0
+            let textShadowColorValue = Color.transparent
+            let textShadowBlurValue: Float = 10.0
+            let textShadowOffsetXValue: Float = 0.0
+            let textShadowOffsetYValue: Float = 0.0
+            let richValue: [String: Jsonable] = [
+                "a": ["color": "red", "lineHeight": 10],
+                "b": ["backgroundColor": ["image": "xxx/xx.jpg"]],
+                "c": ["fontSize": 18, "fontFamily": "Microsoft YaHei", "borderColor": "#449933", "borderRadius": 4]
+            ]
             
             let axisLabel = AxisLabel()
             axisLabel.show = showValue
@@ -34,9 +59,35 @@ class AxisLabelSpec: QuickSpec {
             axisLabel.rotate = rotateValue
             axisLabel.margin = marginValue
             axisLabel.formatter = formatterValue
-            axisLabel.textStyle = textStyleValue
+            axisLabel.showMinLabel = showMinLabelValue
+            axisLabel.showMaxLabel = showMaxLabelValue
+            axisLabel.color = colorValue
+            axisLabel.fontStyle = fontStyleValue
+            axisLabel.fontWeight = fontWeightValue
+            axisLabel.fontFamily = fontFamilyValue
+            axisLabel.fontSize = fontSizeValue
+            axisLabel.align = alignValue
+            axisLabel.verticalAlign = verticalAlignValue
+            axisLabel.lineHeight = lineHeightValue
+            axisLabel.backgroundColor = backgroundColorValue
+            axisLabel.borderColor = borderColorValue
+            axisLabel.borderWidth = borderWidthValue
+            axisLabel.borderRadius = borderRadiusValue
+            axisLabel.padding = paddingValue
+            axisLabel.shadowColor = shadowColorValue
+            axisLabel.shadowBlur = shadowBlurValue
+            axisLabel.shadowOffsetX = shadowOffsetXValue
+            axisLabel.shadowOffsetY = shadowOffsetYValue
+            axisLabel.width = widthValue
+            axisLabel.height = heightValue
+            axisLabel.textBorderColor = textBorderColorValue
+            axisLabel.textBorderWidth = textBorderWidthValue
+            axisLabel.textShadowColor = textShadowColorValue
+            axisLabel.textShadowBlur = textShadowBlurValue
+            axisLabel.textShadowOffsetX = textShadowOffsetXValue
+            axisLabel.textShadowOffsetY = textShadowOffsetYValue
+            axisLabel.rich = richValue
             JsCache.removeAll()
-            let axisLabelJsonString = axisLabel.jsonString
             
             beforeEach {
                 // 避免重复添加内容到 JsCache 中
@@ -51,10 +102,37 @@ class AxisLabelSpec: QuickSpec {
                     "rotate": rotateValue,
                     "margin": marginValue,
                     "formatter": formatterValue,
-                    "textStyle": textStyleValue
+                    "showMinLabel": showMinLabelValue,
+                    "showMaxLabel": showMaxLabelValue,
+                    "color": colorValue,
+                    "fontStyle": fontStyleValue,
+                    "fontWeight": fontWeightValue,
+                    "fontFamily": fontFamilyValue,
+                    "fontSize": fontSizeValue,
+                    "align": alignValue,
+                    "verticalAlign": verticalAlignValue,
+                    "lineHeight": lineHeightValue,
+                    "backgroundColor": backgroundColorValue,
+                    "borderColor": borderColorValue,
+                    "borderWidth": borderWidthValue,
+                    "borderRadius": borderRadiusValue,
+                    "padding": paddingValue,
+                    "shadowColor": shadowColorValue,
+                    "shadowBlur": shadowBlurValue,
+                    "shadowOffsetX": shadowOffsetXValue,
+                    "shadowOffsetY": shadowOffsetYValue,
+                    "width": widthValue,
+                    "height": heightValue,
+                    "textBorderColor": textBorderColorValue,
+                    "textBorderWidth": textBorderWidthValue,
+                    "textShadowColor": textShadowColorValue,
+                    "textShadowBlur": textShadowBlurValue,
+                    "textShadowOffsetX": textShadowOffsetXValue,
+                    "textShadowOffsetY": textShadowOffsetYValue,
+                    "rich": richValue
                 ]
                 
-                expect(axisLabelJsonString).to(equal(resultDic.jsonString))
+                expect(axisLabel.jsonString).to(equal(resultDic.jsonString))
             }
             
             it("needs to check the Enumable") {
@@ -65,10 +143,37 @@ class AxisLabelSpec: QuickSpec {
                     .rotate(rotateValue),
                     .margin(marginValue),
                     .formatter(formatterValue),
-                    .textStyle(textStyleValue)
+                    .showMinLabel(showMinLabelValue),
+                    .showMaxLabel(showMaxLabelValue),
+                    .color(colorValue),
+                    .fontStyle(fontStyleValue),
+                    .fontWeight(fontWeightValue),
+                    .fontFamily(fontFamilyValue),
+                    .fontSize(fontSizeValue),
+                    .align(alignValue),
+                    .verticalAlign(verticalAlignValue),
+                    .lineHeight(lineHeightValue),
+                    .backgroundColor(backgroundColorValue),
+                    .borderColor(borderColorValue),
+                    .borderWidth(borderWidthValue),
+                    .borderRadius(borderRadiusValue),
+                    .padding(paddingValue),
+                    .shadowColor(shadowColorValue),
+                    .shadowBlur(shadowBlurValue),
+                    .shadowOffsetX(shadowOffsetXValue),
+                    .shadowOffsetY(shadowOffsetYValue),
+                    .width(widthValue),
+                    .height(heightValue),
+                    .textBorderColor(textBorderColorValue),
+                    .textBorderWidth(textBorderWidthValue),
+                    .textShadowColor(textShadowColorValue),
+                    .textShadowBlur(textShadowBlurValue),
+                    .textShadowOffsetX(textShadowOffsetXValue),
+                    .textShadowOffsetY(textShadowOffsetYValue),
+                    .rich(richValue)
                 )
                 
-                expect(axisLabelJsonString).to(equal(axisLabelByEnums.jsonString))
+                expect(axisLabel.jsonString).to(equal(axisLabelByEnums.jsonString))
             }
         }
     }

@@ -212,9 +212,7 @@ public final class BarOptions {
                 .data(dataAxis),
                 .axisLabel(AxisLabel(
                     .inside(true),
-                    .textStyle(TextStyle(
-                        .color(.hexColor("#fff"))
-                        ))
+                    .color(.hexColor("#fff"))
                     )),
                 .axisTick(AxisTick(
                     .show(false)
@@ -232,9 +230,7 @@ public final class BarOptions {
                     .show(false)
                     )),
                 .axisLabel(AxisLabel(
-                    .textStyle(TextStyle(
-                        .color(.hexColor("#999"))
-                        ))
+                    .color(.hexColor("#999"))
                     ))
                 )),
             .dataZoom([InsideDataZoom(
@@ -926,6 +922,325 @@ public final class BarOptions {
         )
     }
     
+    // MARK: Stacked Bar in Polar System
+    /// 地址: http://echarts.baidu.com/demo.html#bar-polar-stack
+    static func barPolarStackOption() -> Option {
+        return Option(
+            .angleAxis(AngleAxis()),
+            .radiusAxis(RadiusAxis(
+                .type(.category),
+                .data(["周一", "周二", "周三", "周四"]),
+                .z(10)
+                )),
+            .polar(Polar()),
+            .series([
+                BarSerie(
+                    .data([1, 2, 3, 4]),
+                    .coordinateSystem(.polar),
+                    .name("A"),
+                    .stack("a")
+                ),
+                BarSerie(
+                    .data([2, 4, 6, 8]),
+                    .coordinateSystem(.polar),
+                    .name("B"),
+                    .stack("a")
+                ),
+                BarSerie(
+                    .data([1, 2, 3, 4]),
+                    .coordinateSystem(.polar),
+                    .name("C"),
+                    .stack("a")
+                )
+                ]),
+            .legend(Legend(
+                .show(true),
+                .data(["A", "B", "C"])
+                ))
+        )
+    }
+    
+    // MARK: Stacked Bar in Polar System
+    /// 地址: http://echarts.baidu.com/demo.html#bar-polar-stack-radial
+    static func barPolarStackRadialOption() -> Option {
+        return Option(
+            .angleAxis(AngleAxis(
+                .type(.category),
+                .data(["周一", "周二", "周三", "周四", "周五", "周六", "周日"]),
+                .z(10)
+                )),
+            .radiusAxis(RadiusAxis()),
+            .polar(Polar()),
+            .series([
+                BarSerie(
+                    .data([1, 2, 3, 4, 3, 5, 1]),
+                    .coordinateSystem(.polar),
+                    .name("A"),
+                    .stack("a")
+                ),
+                BarSerie(
+                    .data([2, 4, 6, 1, 3, 2, 1]),
+                    .coordinateSystem(.polar),
+                    .name("B"),
+                    .stack("a")
+                ),
+                BarSerie(
+                    .data([1, 2, 3, 4, 1, 2, 5]),
+                    .coordinateSystem(.polar),
+                    .name("C"),
+                    .stack("a")
+                )
+                ]),
+            .legend(Legend(
+                .show(true),
+                .data(["A", "B", "C"])
+                ))
+        )
+    }
+    
+    // MARK: 在中国租个房子有多贵
+    /// 地址: http://echarts.baidu.com/demo.html#bar-polar-real-estate
+    static func barPolarRealEstateOption() -> Option {
+        let data: [[Float]] = [
+            [5000, 10000, 6785.71],
+            [4000, 10000, 6825],
+            [3000, 6500, 4463.33],
+            [2500, 5600, 3793.83],
+            [2000, 4000, 3060],
+            [2000, 4000, 3222.33],
+            [2500, 4000, 3133.33],
+            [1800, 4000, 3100],
+            [2000, 3500, 2750],
+            [2000, 3000, 2500],
+            [1800, 3000, 2433.33],
+            [2000, 2700, 2375],
+            [1500, 2800, 2150],
+            [1500, 2300, 2100],
+            [1600, 3500, 2057.14],
+            [1500, 2600, 2037.5],
+            [1500, 2417.54, 1905.85],
+            [1500, 2000, 1775],
+            [1500, 1800, 1650]
+        ]
+        
+        let cities: [Jsonable] = ["北京", "上海", "深圳", "广州", "苏州", "杭州", "南京", "福州", "青岛", "济南", "长春", "大连", "温州", "郑州", "武汉", "成都", "东莞", "沈阳", "烟台"]
+        
+        let barHeight: Float = 50
+        
+        return Option(
+            .title(Title(
+                .text("在中国租个房子有多贵?"),
+                .subtext("市中心一室月租费（数据来源：https://www.numbeo.com）")
+                )),
+            .legend(Legend(
+                .show(true),
+                .data(["价格范围", "均值"])
+                )),
+            .grid(Grid(
+                .top(Position.value(100))
+                )),
+            .angleAxis(AngleAxis(
+                .type(.category),
+                .data(cities)
+                )),
+            .tooltip(Tooltip(
+                .show(true),
+                .formatter(.string("function (params) { var id = params.dataIndex; return cities[id] + '<br>最低：' + data[id][0] + '<br>最高：' + data[id][1] + '<br>平均：' + data[id][2]; }"))
+                )),
+            .radiusAxis(RadiusAxis()),
+            .polar(Polar()),
+            .series([
+                BarSerie(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
+                            .color(Color.transparent)
+                            ))
+                        )),
+                    .data(data.map{ $0[0] }),
+                    .coordinateSystem(.polar),
+                    .stack("最大最小值"),
+                    .silent(true)
+                ),
+                BarSerie(
+                    .data(data.map { $0[1] - $0[0] }),
+                    .coordinateSystem(.polar),
+                    .name("价格范围"),
+                    .stack("最大最小值")
+                ),
+                BarSerie(
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
+                            .color(Color.transparent)
+                            ))
+                        )),
+                    .data(data.map { $0[2] - barHeight }),
+                    .coordinateSystem(.polar),
+                    .stack("均值"),
+                    .silent(true),
+                    .z(10)
+                ),
+                BarSerie(
+                    .data(data.map { _ in barHeight * 2 }),
+                    .coordinateSystem(.polar),
+                    .name("均值"),
+                    .stack("均值"),
+                    .barGap((-100)%),
+                    .z(10)
+                )
+                ]),
+            .legend(Legend(
+                .show(true),
+                .data(["A", "B", "C"])
+                ))
+        )
+    }
+    
+    // MARK: 标签旋转
+    /// 地址: http://echarts.baidu.com/demo.html#bar-label-rotation
+    static func barLabelRotationOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: 富文本标签
+    /// 地址: http://echarts.baidu.com/demo.html#bar-rich-text
+    static func barRichTextOption() -> Option {
+        let weatherIcons: [String: Jsonable] = [
+            "Sunny": "http://echarts.baidu.com/data/asset/img/weather/sunny_128.png",
+            "Cloudy": "http://echarts.baidu.com/data/asset/img/weather/cloudy_128.png",
+            "Showers": "http://echarts.baidu.com/data/asset/img/weather/showers_128.png"
+        ]
+        
+        let seriesLabel = EmphasisLabel(
+            .normal(LabelStyle(
+                .show(true),
+                .textBorderColor(.hexColor("#333")),
+                .textBorderWidth(2)
+                ))
+        )
+        
+        return Option(
+            .title(Title(
+                .text("Wheater Statistics")
+                )),
+            .tooltip(Tooltip(
+                .trigger(.axis),
+                .axisPointer(AxisPointerForTooltip(
+                    .type(.shadow)
+                    ))
+                )),
+            .legend(Legend(
+                .data(["City Alpha", "City Beta", "City Gamma"])
+                )),
+            .grid(Grid(
+                .left(Position.value(100))
+                )),
+            .toolbox(Toolbox(
+                .show(true),
+                .feature(ToolboxFeature(
+                    .saveAsImage(ToolboxFeatureSaveAsImage())
+                    ))
+                )),
+            .xAxis(Axis(
+                .type(.value),
+                .name("Days"),
+                .axisLabel(AxisLabel(
+                    .formatter(.string("{value}"))
+                    ))
+                )),
+            .yAxis(Axis(
+                .type(.category),
+                .inverse(true),
+                .data(["Sunny", "Cloudy", "Showers"]),
+                .axisLabel(AxisLabel(
+                    .formatter(.function("function (value) { return '{' + value + '| }\\n{value|' + value + '}'; }")),
+                    .margin(20),
+                    .rich([
+                        "value": [
+                            "lineHeight": 30,
+                            "align": "center"
+                        ],
+                        "Sunny": [
+                            "height": 40,
+                            "align": "center",
+                            "backgroundColor": (["image": weatherIcons["Sunny"]] as Jsonable)
+                        ],
+                        "Cloudy": [
+                            "height": 40,
+                            "width": 40,
+                            "align": "center",
+                            "backgroundColor": (["image": weatherIcons["Cloudy"]] as Jsonable)
+                        ],
+                        "Showers": [
+                            "height": 40,
+                            "align": "center",
+                            "backgroundColor": (["image": weatherIcons["Showers"]] as Jsonable)
+                        ]
+                        ])
+                    ))
+                )),
+            .series([
+                BarSerie(
+                    .name("City Alpha"),
+                    .data([165, 170, 30]),
+                    .label(seriesLabel),
+                    .markPoint(MarkPoint(
+                        .symbolSize(1),
+                        .symbolOffset([0, 50%]),
+                        .label(EmphasisLabel(
+                            .normal(LabelStyle(
+                                .formatter(.string("{a|{a}\\n}{b|{b} }{c|{c}}")),
+                                .backgroundColor(rgb(242, 242, 242)),
+                                .borderColor("#aaa"),
+                                .borderWidth(1),
+                                .borderRadius(4),
+                                .padding([4, 10]),
+                                .lineHeight(13),
+                                .position(.right),
+//                                .distance(20),
+                                .rich([
+                                    "a": [
+                                        "align": "center",
+                                        "color": "#fff",
+                                        "fontSize": 9,
+                                        "textShadowBlur": 2,
+                                        "textShadowColor": "#000",
+                                        "textShadowOffsetX": 0,
+                                        "textShadowOffsetY": 1,
+                                        "textBorderColor": "#333",
+                                        "textBorderWidth": 2
+                                    ],
+                                    "b": ["color": "#333"],
+                                    "c": [
+                                        "color": "#ff8811",
+                                        "textBorderColor": "#000",
+                                        "textBorderWidth": 1,
+                                        "fontSize": 11
+                                    ]
+                                    ])
+                                ))
+                            )),
+                        .data([
+                            ["type": "max","name": "max days: "],
+                            ["type": "min","name": "min days: "]
+                            ])
+                        ))
+                ),
+                BarSerie(
+                    .name("City Beta"),
+                    .label(seriesLabel),
+                    .data([150, 105, 110])
+                ),
+                BarSerie(
+                    .name("City Gamma"),
+                    .label(seriesLabel),
+                    .data([220, 82, 63])
+                )
+                ])
+        )
+    }
+    
     // MARK: 动态数据
     /// 地址: http://echarts.baidu.com/demo.html#dynamic-data
     static func dynamicDataOption() -> Option {
@@ -1209,6 +1524,14 @@ public final class BarOptions {
     // MARK: 水印 - ECharts 下载统计
     /// 地址: http://echarts.baidu.com/demo.html#watermark
     static func watermarkOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: Histogram
+    /// 地址: http://echarts.baidu.com/demo.html#bar-histogram
+    static func barHistogramOption() -> Option {
         // TODO: 添加实现
         return Option(
         )

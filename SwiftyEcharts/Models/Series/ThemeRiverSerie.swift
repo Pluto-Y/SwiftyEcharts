@@ -61,7 +61,7 @@ public final class ThemeRiverSerie: Serie, Zable {
     /// 单个时间轴的index，默认值为0，因为只有单个轴。
     public var singleAxisIndex: UInt8?
     /// label 描述了主题河流中每个带状河流分支对应的文本标签的样式。
-    public var label: FormattedLabel?
+    public var label: EmphasisLabel?
     /// 主题河流中每个带状河流分支的样式。
     public var itemStyle: ItemStyle?
     /// 主题河流中图例的样式。
@@ -76,7 +76,7 @@ public final class ThemeRiverSerie: Serie, Zable {
 
 extension ThemeRiverSerie: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), coordinateSystem(CoordinateSystem), boundaryGap(BoundaryGap), singleAxisIndex(UInt8), label(FormattedLabel), itemStyle(ItemStyle), legend(Legend), tooltip(Tooltip), data([Jsonable])
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), coordinateSystem(CoordinateSystem), boundaryGap(BoundaryGap), singleAxisIndex(UInt8), label(EmphasisLabel), itemStyle(ItemStyle), legend(Legend), tooltip(Tooltip), data([Jsonable])
     }
     
     public typealias ContentEnum = Enums

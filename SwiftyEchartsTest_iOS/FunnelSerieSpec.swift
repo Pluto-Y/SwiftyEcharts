@@ -95,8 +95,8 @@ class FunnelSerieSpec: QuickSpec {
         
         let dataNameValue = "dataNameValue"
         let dataValueValue: Float = 2
-        let dataLabelValue = FormattedLabel(
-            .normal(FormattedLabelStyle(
+        let dataLabelValue = EmphasisLabel(
+            .normal(LabelStyle(
                 .show(true),
                 .position(Position.point(Point([20, 30])))
                 ))
@@ -151,8 +151,10 @@ class FunnelSerieSpec: QuickSpec {
             let gapValue: Float = 7.22
             let legendHoverLinkValue = false
             let funnelAlignValue = Align.right
-            let labelValue = FormattedLabel(
-                .normal(FormattedLabelStyle(
+            let labelValue = EmphasisLabel(
+                .normal(LabelStyle(
+                    .interval(88),
+                    .fontStyle(FontStyle.normal),
                     .position(.start),
                     .formatter(.string("最大值"))
                     ))

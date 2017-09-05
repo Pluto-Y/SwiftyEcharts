@@ -23,7 +23,7 @@ class PictorialBarSerieSpec: QuickSpec {
         let symbolRepeatDataValue = "dataSymbolRepeatValue"
         let symbolRepeatDirectionDataValue = "vertical"
         let symbolMarginDataValue = "dataSymbolMarginValue"
-        let symbolClipDataValue = "dataSymbolClipValue"
+        let symbolClipDataValue = true
         let symbolBoundingDataDataValue = "dataSymbolBoundingDataValue"
         let symbolPatternSizeDataValue: Float = 20.854
         let zDataValue: Float = 75.273
@@ -36,12 +36,12 @@ class PictorialBarSerieSpec: QuickSpec {
         let animationDurationUpdateDataValue: Time = 8.27464
         let animationEasingUpdateDataValue: EasingFunction = .exponentialOut
         let animationDelayUpdateDataValue: Time = 1000.3820
-        let labelDataValue = FormattedLabel(
-            .normal(FormattedLabelStyle(
+        let labelDataValue = EmphasisLabel(
+            .normal(LabelStyle(
                 .show(false),
                 .position(Position.center),
                 .formatter(.string("12345")),
-                .offset([20, 40])
+                .interval(255)
                 ))
         )
         let itemStyleDataValue = ItemStyle(
@@ -158,13 +158,14 @@ class PictorialBarSerieSpec: QuickSpec {
             let coordinateSystemValue = CoordinateSystem.geo
             let xAxisIndexValue: UInt8 = 37
             let yAxisIndexValue: UInt8 = 88
-            let labelValue = FormattedLabel(
-                .normal(FormattedLabelStyle(
+            let cursorValue = "pointer"
+            let labelValue = EmphasisLabel(
+                .normal(LabelStyle(
                     .show(true),
                     .position(Position.auto),
-                    .offset([100%, 0])
+                    .align(Align.center)
                     )),
-                .emphasis(FormattedLabelStyle(
+                .emphasis(LabelStyle(
                     .show(false)
                     ))
             )
@@ -194,6 +195,18 @@ class PictorialBarSerieSpec: QuickSpec {
             let symbolBoundingDataValue = "boudingDataValue"
             let symbolPatternSizeValue: Float = 84.2
             let hoverAnimationValue = false
+            let dimensionsValue: [Jsonable] = [
+                "null",
+                ["type": "ordinal"],
+                ["name": "good", "type": "number"],
+                "bad"
+            ]
+            let encodeValue: [String: Jsonable] = [
+                "x": [3, 1, 5],
+                "y": 2,
+                "tooltip": [3, 2, 4],
+                "label": 3
+            ]
             let dataValue: [Jsonable] = [
                 false, true, "dataValu", pictorialBarSerieData, 28.58, 5
             ]
@@ -234,6 +247,7 @@ class PictorialBarSerieSpec: QuickSpec {
             pictorialBarSerie.coordinateSystem = coordinateSystemValue
             pictorialBarSerie.xAxisIndex = xAxisIndexValue
             pictorialBarSerie.yAxisIndex = yAxisIndexValue
+            pictorialBarSerie.cursor = cursorValue
             pictorialBarSerie.label = labelValue
             pictorialBarSerie.itemStyle = itemStyleValue
             pictorialBarSerie.barWidth = barWidthValue
@@ -253,6 +267,8 @@ class PictorialBarSerieSpec: QuickSpec {
             pictorialBarSerie.symbolBoundingData = symbolBoundingDataValue
             pictorialBarSerie.symbolPatternSize = symbolPatternSizeValue
             pictorialBarSerie.hoverAnimation = hoverAnimationValue
+            pictorialBarSerie.dimensions = dimensionsValue
+            pictorialBarSerie.encode = encodeValue
             pictorialBarSerie.data = dataValue
             pictorialBarSerie.markPoint = markPointValue
             pictorialBarSerie.markLine = markLineValue
@@ -282,6 +298,7 @@ class PictorialBarSerieSpec: QuickSpec {
                     "coordinateSystem": coordinateSystemValue,
                     "xAxisIndex": xAxisIndexValue,
                     "yAxisIndex": yAxisIndexValue,
+                    "cursor": cursorValue,
                     "label": labelValue,
                     "itemStyle": itemStyleValue,
                     "barWidth": barWidthValue,
@@ -301,6 +318,8 @@ class PictorialBarSerieSpec: QuickSpec {
                     "symbolBoundingData": symbolBoundingDataValue,
                     "symbolPatternSize": symbolPatternSizeValue,
                     "hoverAnimation": hoverAnimationValue,
+                    "dimensions": dimensionsValue,
+                    "encode": encodeValue,
                     "data": dataValue,
                     "markPoint": markPointValue,
                     "markLine": markLineValue,
@@ -329,6 +348,7 @@ class PictorialBarSerieSpec: QuickSpec {
                     .coordinateSystem(coordinateSystemValue),
                     .xAxisIndex(xAxisIndexValue),
                     .yAxisIndex(yAxisIndexValue),
+                    .cursor(cursorValue),
                     .label(labelValue),
                     .itemStyle(itemStyleValue),
                     .barWidth(barWidthValue),
@@ -348,6 +368,8 @@ class PictorialBarSerieSpec: QuickSpec {
                     .symbolBoundingData(symbolBoundingDataValue),
                     .symbolPatternSize(symbolPatternSizeValue),
                     .hoverAnimation(hoverAnimationValue),
+                    .dimensions(dimensionsValue),
+                    .encode(encodeValue),
                     .data(dataValue),
                     .markPoint(markPointValue),
                     .markLine(markLineValue),

@@ -71,28 +71,13 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     }
     
     open func loadEcharts() {
-        if !loadFinsih { // 如果还没页面加载完则等待 0.05 秒后刷新
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { [unowned self] in
-                self.loadEcharts()
-            }
-            return
-        }
-        guard let option = option else {
-            printWarning("The option is nil")
-            return;
-        }
-        JsCache.removeAll() // 清空之前缓存的方法，避免出现重复的情况， 在调用 option.jsonString 会重新生成
-        let optionJson = option.jsonString
-        
-        // 定义Js与Clousure之间的匹配关系
-        // 必须要在option.jsonString调用过一次之后
-        // 并且需要在调用loadEcharts之前，这样才能建立关系
-        for function in JsCache.allJsStrings() {
-            printInfo(function)
-            self.callJsMethod(function)
-        }
-        
-        callJsMethod("loadEcharts('\(preDealWithParams("\(optionJson)"))')")
+//        if !loadFinsih && !self.resizeDivFinish { // 如果还没页面加载完则等待 0.05 秒后刷新
+//            dispatch_after(UInt64(Double(NSEC_PER_SEC) * 0.05), dispatch_get_main_queue(), { [unowned self] in 
+//                self.loadEcharts()
+//            })
+//            return
+//        }
+        loadHTMLString(htmlContents, baseURL: URL(fileURLWithPath: bundlePath))
     }
     
     open func loadEcharts(with option: Option) {
@@ -170,9 +155,9 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
         
     }
     
-    fileprivate func callJsMethod(_ jsString: String) {
+    fileprivate func callJsMethod(_ jsString: String, completionHandler: ((Any?, Error?) -> Swift.Void)? = nil) {
 //        print(jsString)
-        self.evaluateJavaScript(jsString, completionHandler: nil)
+        self.evaluateJavaScript(jsString, completionHandler: completionHandler)
     }
     
     fileprivate func preDealWithParams(_ paramsJson: String) -> String {
@@ -185,7 +170,7 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     
     fileprivate func resizeDiv() {
         let height = frame.size.height
-        let width = self.frame.size.width
+        let width = frame.size.width
         let divCss = "'height:\(height)px;width:\(width)px;'"
         let jsString = "resizeDiv(\(divCss))"
         callJsMethod(jsString)
@@ -194,9 +179,36 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     // MARK: - Delegate
     // MARK: UIWebViewDelegate
     open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.callJsMethod("initEchartView()")
-        resizeDiv()
-        loadFinsih = true
+        webView.evaluateJavaScript("document.readyState") { [weak self] (result, error) in
+            guard let strongSelf = self else { return }
+            guard let result = result as? String, result == "complete" else {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.05, execute: { 
+                    strongSelf.loadEcharts()
+                })
+                return
+            }
+            
+            strongSelf.loadFinsih = true
+            guard let option = strongSelf.option else {
+                printWarning("The option is nil")
+                strongSelf.callJsMethod("initEchartView()")
+                return;
+            }
+            
+            strongSelf.resizeDiv()
+            JsCache.removeAll() // 清空之前缓存的方法，避免出现重复的情况， 在调用 option.jsonString 会重新生成
+            let optionJson = option.jsonString
+            
+            // 定义Js与Clousure之间的匹配关系
+            // 必须要在option.jsonString调用过一次之后
+            // 并且需要在调用loadEcharts之前，这样才能建立关系
+            for function in JsCache.allJsStrings() {
+                printInfo(function)
+                strongSelf.callJsMethod(function)
+            }
+            
+            strongSelf.callJsMethod("loadEcharts('\(strongSelf.preDealWithParams("\(optionJson)"))')")
+        }
     }
     
     open func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {

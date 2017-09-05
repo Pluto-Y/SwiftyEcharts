@@ -120,11 +120,11 @@ public final class FunnelOptions {
                 FunnelSerie(
                     .name("预期"),
                     .maxSize(80%),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .formatter(.string("{b}预期"))
                             )),
-                        .emphasis(FormattedLabelStyle(
+                        .emphasis(LabelStyle(
                             .position(.inside),
                             .formatter(.string("{b}预期: {c}%"))
                             ))
@@ -150,15 +150,13 @@ public final class FunnelOptions {
                 FunnelSerie(
                     .name("实际"),
                     .maxSize(80%),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .position(.inside),
                             .formatter(.string("{c}%")),
-                            .textStyle(TextStyle(
-                                .color(.hexColor("#fff"))
-                                ))
+                            .color(.hexColor("#fff"))
                             )),
-                        .emphasis(FormattedLabelStyle(
+                        .emphasis(LabelStyle(
                             .position(.inside),
                             .formatter(.string("{b}实际: {c}%"))
                             ))
@@ -237,8 +235,8 @@ public final class FunnelOptions {
                 ),
                 FunnelSerie(
                     .name("漏斗图"),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .position(.left)
                             ))
                         )),
@@ -253,8 +251,8 @@ public final class FunnelOptions {
                 FunnelSerie(
                     .name("金字塔"),
                     .sort(.ascending),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .position(.left)
                             ))
                         )),
@@ -303,15 +301,13 @@ public final class FunnelOptions {
                     .maxSize(100%),
                     .sort(.descending),
                     .gap(2),
-                    .label(FormattedLabel(
-                        .normal(FormattedLabelStyle(
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
                             .show(true),
                             .position(.inside)
                             )),
-                        .emphasis(FormattedLabelStyle(
-                            .textStyle(TextStyle(
-                                .fontSize(20)
-                                ))
+                        .emphasis(LabelStyle(
+                            .fontSize(20)
                             ))
                         )),
                     .labelLine(FunnelSerie.LabelLine(

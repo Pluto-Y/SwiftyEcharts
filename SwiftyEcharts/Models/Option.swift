@@ -21,7 +21,7 @@ public final class Option: Textful, Animatable {
         }
     }
     
-    public var title: Title?
+    public var title: OneOrMore<Title>?
     public var legend: Legend?
     public var grid: OneOrMore<Grid>?
     public var xAxis: OneOrMore<Axis>?
@@ -94,7 +94,7 @@ public final class Option: Textful, Animatable {
 
 extension Option: Enumable {
     public enum Enums {
-        case title(Title), legend(Legend), grid(Grid), grids([Grid]), xAxis(Axis), xAxises([Axis]), yAxis(Axis), yAxises([Axis]), polar(Polar), radiusAxis(RadiusAxis), radiusAxises([RadiusAxis]), angleAxis(AngleAxis), angleAxises([AngleAxis]), radar(Radar), radars([Radar]), dataZoom([DataZoom]), visualMap(VisualMap), visualMaps([VisualMap]), tooltip(Tooltip), toolbox(Toolbox), brush(Brush), geo(Geo), parallel(Parallel), parallelAxis([ParallelAxis]), singleAxis(SingleAxis), singleAxises([SingleAxis]), timeline(Timeline), graphic([Graphic]), series([Serie]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), blendMode(BlendMode)
+        case title(Title), titles([Title]), legend(Legend), grid(Grid), grids([Grid]), xAxis(Axis), xAxises([Axis]), yAxis(Axis), yAxises([Axis]), polar(Polar), radiusAxis(RadiusAxis), radiusAxises([RadiusAxis]), angleAxis(AngleAxis), angleAxises([AngleAxis]), radar(Radar), radars([Radar]), dataZoom([DataZoom]), visualMap(VisualMap), visualMaps([VisualMap]), tooltip(Tooltip), toolbox(Toolbox), brush(Brush), geo(Geo), parallel(Parallel), parallelAxis([ParallelAxis]), singleAxis(SingleAxis), singleAxises([SingleAxis]), timeline(Timeline), graphic([Graphic]), series([Serie]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), blendMode(BlendMode)
     }
     
     public typealias ContentEnum = Enums
@@ -104,7 +104,9 @@ extension Option: Enumable {
         for ele in elements {
             switch ele {
             case let .title(title):
-                self.title = title
+                self.title = OneOrMore(one: title)
+            case let .titles(titles):
+                self.title = OneOrMore(more: titles)
             case let .legend(legend):
                 self.legend = legend
             case let .grid(grid):

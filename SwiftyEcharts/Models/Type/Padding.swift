@@ -20,11 +20,11 @@ public enum Padding: Jsonable {
     public var jsonString: String {
         switch self {
         case let .all(val):
-            return "\(val)".jsonString
+            return "\(val)"
         case let .verticalAndHorizontal(vVal, hVal):
-            return "[\(vVal), \(hVal)]".jsonString
+            return "[\(vVal), \(hVal)]"
         case let .trbl(tVal, rVal, bVal, lVal):
-            return "[\(tVal), \(rVal), \(bVal), \(lVal)]".jsonString
+            return "[\(tVal), \(rVal), \(bVal), \(lVal)]"
         case .null:
             return "null"
         }

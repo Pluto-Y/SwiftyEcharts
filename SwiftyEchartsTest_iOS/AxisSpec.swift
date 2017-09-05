@@ -81,9 +81,7 @@ class AxisSpec: QuickSpec {
             )
             let axisLabelValue = AxisLabel(
                 .inside(true),
-                .textStyle(TextStyle(
-                    .color(.hexColor("#fff"))
-                    ))
+                .color(.hexColor("#fff"))
             )
             let axisPointerValue = AxisPointerForAxis(
                 .type(.shadow)

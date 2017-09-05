@@ -51,6 +51,15 @@ class RadarSerieSpec: QuickSpec {
                 .shadowColor(Color.red)
                 ))
         )
+        let tooltipDataValue = Tooltip(
+            .position(Position.point([50%, 50%])),
+            .formatter(.string("tooltipDataFormatterValue")),
+            .backgroundColor(rgba(50, 50, 50, 0.7)),
+            .borderColor(.hexColor("#333")),
+            .borderWidth(0),
+            .padding(5),
+            .extraCssText("transparent")
+        )
         
         let data = RadarSerie.Data()
         data.name = nameDataValue
@@ -63,7 +72,7 @@ class RadarSerieSpec: QuickSpec {
         data.itemStyle = itemStyleDataValue
         data.lineStyle = lineStyleDataValue
         data.areaStyle = areaStyleDataValue
-        
+        data.tooltip = tooltipDataValue
         
         describe("For RadarSerie.Data") { 
             it("needs to check the jsonString") {
@@ -77,7 +86,8 @@ class RadarSerieSpec: QuickSpec {
                     "label": labelDataValue,
                     "itemStyle": itemStyleDataValue,
                     "lineStyle": lineStyleDataValue,
-                    "areaStyle": areaStyleDataValue
+                    "areaStyle": areaStyleDataValue,
+                    "tooltip": tooltipDataValue
                 ]
                 
                 expect(data.jsonString).to(equal(resultDic.jsonString))
@@ -94,7 +104,8 @@ class RadarSerieSpec: QuickSpec {
                     .label(labelDataValue),
                     .itemStyle(itemStyleDataValue),
                     .lineStyle(lineStyleDataValue),
-                    .areaStyle(areaStyleDataValue)
+                    .areaStyle(areaStyleDataValue),
+                    .tooltip(tooltipDataValue)
                 )
                 
                 expect(dataByEnums.jsonString).to(equal(data.jsonString))
@@ -160,6 +171,15 @@ class RadarSerieSpec: QuickSpec {
             let animationDurationUpdateValue: Time = 0.20847
             let animationEasingUpdateValue: EasingFunction = .exponentialInOut
             let animationDelayUpdateValue: Time = 0.0909090909
+            let tooltipValue = Tooltip(
+                .position(Position.point([20, 100])),
+                .formatter(.string("radarTooltipFormatterValue")),
+                .backgroundColor(rgba(255, 0, 128, 0.847)),
+                .borderColor(.hexColor("#ffffff")),
+                .borderWidth(10),
+                .padding([20, 10]),
+                .extraCssText("background-color: red")
+            )
             
             let radarSerie = RadarSerie()
             radarSerie.name = nameValue
@@ -184,6 +204,7 @@ class RadarSerieSpec: QuickSpec {
             radarSerie.animationDurationUpdate = animationDurationUpdateValue
             radarSerie.animationEasingUpdate = animationEasingUpdateValue
             radarSerie.animationDelayUpdate = animationDelayUpdateValue
+            radarSerie.tooltip = tooltipValue
             
             it("needs to check the Enumable") {
                 expect(radarSerie.type.jsonString).to(equal(typeValue.jsonString))
@@ -213,7 +234,8 @@ class RadarSerieSpec: QuickSpec {
                     "animationDelay": animationDelayValue,
                     "animationDurationUpdate": animationDurationUpdateValue,
                     "animationEasingUpdate": animationEasingUpdateValue,
-                    "animationDelayUpdate": animationDelayUpdateValue
+                    "animationDelayUpdate": animationDelayUpdateValue,
+                    "tooltip": tooltipValue
                 ]
                 
                 expect(radarSerie.jsonString).to(equal(resultDic.jsonString))
@@ -242,7 +264,8 @@ class RadarSerieSpec: QuickSpec {
                     .animationDelay(animationDelayValue),
                     .animationDurationUpdate(animationDurationUpdateValue),
                     .animationEasingUpdate(animationEasingUpdateValue),
-                    .animationDelayUpdate(animationDelayUpdateValue)
+                    .animationDelayUpdate(animationDelayUpdateValue),
+                    .tooltip(tooltipValue)
                 )
                 
                 expect(radarSerieByEnums.jsonString).to(equal(radarSerie.jsonString))

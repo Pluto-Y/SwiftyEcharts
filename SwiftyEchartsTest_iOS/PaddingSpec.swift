@@ -21,9 +21,9 @@ class PaddingSpec: QuickSpec {
             let tlbrPadding = Padding.trbl(2.3, 3.14, 6.9, 2.7)
             let nullPadding = Padding.null
             it(" needs to check the jsonString ") {
-                expect(allPadding.jsonString).to(equal("5.0".jsonString))
-                expect(verticalAndHorizontalPadding.jsonString).to(equal("[2.5, 10.2]".jsonString))
-                expect(tlbrPadding.jsonString).to(equal("[2.3, 3.14, 6.9, 2.7]".jsonString))
+                expect(allPadding.jsonString).to(equal("5.0"))
+                expect(verticalAndHorizontalPadding.jsonString).to(equal("[2.5, 10.2]"))
+                expect(tlbrPadding.jsonString).to(equal("[2.3, 3.14, 6.9, 2.7]"))
                 expect(nullPadding.jsonString).to(equal("null"))
             }
             

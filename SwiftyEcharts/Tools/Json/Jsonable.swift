@@ -229,3 +229,9 @@ extension NSDictionary: Jsonable {
         return jsonStr
     }
 }
+
+extension NSNumber: Jsonable {
+    public var jsonString: String {
+        return self.description
+    }
+}

@@ -149,6 +149,8 @@ class SliderDataZoomSpec: QuickSpec {
             let topValue = Position.insideRight
             let rightValue = Position.top
             let bottomValue = Position.top
+            let widthValue: LengthValue = 30
+            let heightValue: LengthValue = 80%
             
             let sliderDataZoom = SliderDataZoom()
             sliderDataZoom.show = showValue
@@ -182,6 +184,8 @@ class SliderDataZoomSpec: QuickSpec {
             sliderDataZoom.top = topValue
             sliderDataZoom.right = rightValue
             sliderDataZoom.bottom = bottomValue
+            sliderDataZoom.width = widthValue
+            sliderDataZoom.height = heightValue
             
             it("needs to check the type value") {
                 expect(sliderDataZoom.type.jsonString).to(equal(typeValue.jsonString))
@@ -220,7 +224,9 @@ class SliderDataZoomSpec: QuickSpec {
                     "left": leftValue,
                     "top": topValue,
                     "right": rightValue,
-                    "bottom": bottomValue
+                    "bottom": bottomValue,
+                    "width": widthValue,
+                    "height": heightValue
                 ]
                 
                 expect(sliderDataZoom.jsonString).to(equal(resultDic.jsonString))
@@ -258,7 +264,9 @@ class SliderDataZoomSpec: QuickSpec {
                     .left(leftValue),
                     .top(topValue),
                     .right(rightValue),
-                    .bottom(bottomValue)
+                    .bottom(bottomValue),
+                    .width(widthValue),
+                    .height(heightValue)
                 )
                 
                 expect(sliderDataZoomByEnums.jsonString).to(equal(sliderDataZoom.jsonString))
@@ -305,7 +313,9 @@ class SliderDataZoomSpec: QuickSpec {
                     .left(leftValue),
                     .top(topValue),
                     .right(rightValue),
-                    .bottom(bottomValue)
+                    .bottom(bottomValue),
+                    .width(widthValue),
+                    .height(heightValue)
                 )
                 
                 expect(sliderDataZoom.jsonString).to(equal(sliderDataZoomByEnums.jsonString))

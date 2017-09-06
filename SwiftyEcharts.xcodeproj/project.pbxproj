@@ -122,6 +122,7 @@
 		6F5E3AB71ED475FD008D4095 /* ScattersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E3AB61ED475FD008D4095 /* ScattersController.swift */; };
 		6F6331491EF6C6B400EC9D24 /* PositionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6331481EF6C6B400EC9D24 /* PositionSpec.swift */; };
 		6F63314B1EF6CBFA00EC9D24 /* FunctionOrOthers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63314A1EF6CBFA00EC9D24 /* FunctionOrOthers.swift */; };
+		6F63A2731F6EDC4500A77546 /* MixZoomOnValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F63A2721F6EDC4500A77546 /* MixZoomOnValue.json */; };
 		6F67FCB91E71CA1B00BE2E4B /* SelectedModeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */; };
 		6F715C9D1F1D0375001BA1A9 /* ImageGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715C9C1F1D0375001BA1A9 /* ImageGraphicSpec.swift */; };
 		6F715C9F1F1D0882001BA1A9 /* InsideDataZoomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715C9E1F1D0882001BA1A9 /* InsideDataZoomSpec.swift */; };
@@ -550,6 +551,7 @@
 		6F5E3AB61ED475FD008D4095 /* ScattersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScattersController.swift; sourceTree = "<group>"; };
 		6F6331481EF6C6B400EC9D24 /* PositionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionSpec.swift; sourceTree = "<group>"; };
 		6F63314A1EF6CBFA00EC9D24 /* FunctionOrOthers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FunctionOrOthers.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6F63A2721F6EDC4500A77546 /* MixZoomOnValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MixZoomOnValue.json; sourceTree = "<group>"; };
 		6F67FCB81E71CA1B00BE2E4B /* SelectedModeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedModeSpec.swift; sourceTree = "<group>"; };
 		6F715C9C1F1D0375001BA1A9 /* ImageGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGraphicSpec.swift; sourceTree = "<group>"; };
 		6F715C9E1F1D0882001BA1A9 /* InsideDataZoomSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideDataZoomSpec.swift; sourceTree = "<group>"; };
@@ -795,6 +797,7 @@
 				6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */,
 				6FB9864E1ECBFC8A00D2EFE1 /* HK.json */,
 				6F4E6AAF1ECDC8CD00E2858B /* USA.json */,
+				6F63A2721F6EDC4500A77546 /* MixZoomOnValue.json */,
 			);
 			path = DemoOptions;
 			sourceTree = "<group>";
@@ -1505,6 +1508,7 @@
 				6FA85F331ED336E300C1DA58 /* heilongjiang.json in Resources */,
 				6F9DF5551E9BC37700577899 /* BeijingAQIDatas.plist in Resources */,
 				6F9B70EA1DE808E600406B55 /* LaunchScreen.storyboard in Resources */,
+				6F63A2731F6EDC4500A77546 /* MixZoomOnValue.json in Resources */,
 				6FA85F311ED336E300C1DA58 /* hainan.json in Resources */,
 				6FA85F291ED336E300C1DA58 /* aomen.json in Resources */,
 				6F9B70E71DE808E600406B55 /* Assets.xcassets in Resources */,

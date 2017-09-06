@@ -1412,9 +1412,82 @@ public final class BarOptions {
     
     // MARK: Budge
     /// 地址: http://echarts.baidu.com/demo.html#mix-zoom-on-value
-    static func mixZoomOnValueOption() -> Option {
-        // TODO: 添加实现
+    static func mixZoomOnValueOption() -> Option { // FIXME: 缺少showLoading和hideLoading
+        guard let jsonUrl = NSBundle.mainBundle().URLForResource("MixZoomOnValue", withExtension:"json"), let jsonData = NSData(contentsOfURL: jsonUrl), let jsonObj = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: []) else {
+            return Option()
+        }
+        
+        let data = jsonObj as! NSDictionary
+        
         return Option(
+            .tooltip(Tooltip(
+                .trigger(.axis),
+                .axisPointer(AxisPointerForTooltip(// 没有label
+                    .type(.shadow)//,
+                    //                    .label(EmphasisLabel())
+                ))
+            )),
+            .toolbox(Toolbox(
+                .show(true),
+                .feature(ToolboxFeature(// 好像没有mark
+                    .dataView(ToolboxFeatureDataView(.show(true), .readOnly(false))),
+                    .magicType(ToolboxFeatureMagicType(.show(true), .type([.line, .bar]))),
+                    .restore(ToolboxFeatureRestore(.show(true))),
+                    .saveAsImage(ToolboxFeatureSaveAsImage(.show(true)))
+                ))
+            )),
+            //            .calculable(true),// FIXME: 没有calculable
+            .legend(Legend(
+                .data(["Growth", "Budget 2011", "Budget 2012"]),
+                .itemGap(5)
+            )),
+            .grid(Grid(
+                .top(Position.value(12%)),
+                .left(.value(1%)),
+                .right(.value(10%)),
+                .containLabel(true)
+            )),
+            .xAxis(Axis(
+                .type(.category),
+                .data(((data["names"] as! NSArray).map { $0 as! String }))
+            )),
+            .yAxis(Axis(
+                .type(.value),
+                .name("Budget (million USD)"),
+                .axisLabel(AxisLabel(
+                    .formatter(.function("function (a) { a = +a; return isFinite(a) ? echarts.format.addCommas(+a / 1000) : ''; }"))
+                ))
+            )),
+            .dataZoom([
+                SliderDataZoom(
+                    .show(true),
+                    .start(94),
+                    .end(100)
+                ),
+                InsideDataZoom(
+                    .start(94),
+                    .end(100)
+                ),
+                SliderDataZoom(
+                    .show(true),
+                    .xAxisIndex(0),
+                    .filterMode(.empty),
+                    .width(30),
+                    .height(80%),
+                    .showDataShadow("false"),
+                    .left(.value(93%))
+                )
+                ]),
+            .series([
+                BarSerie(
+                    .name("Budget 2011"),
+                    .data((data["budget2011List"] as! NSArray).map { return $0 as! Jsonable })
+                ),
+                BarSerie(
+                    .name("Budget 2012"),
+                    .data((data["budget2012List"] as! NSArray).map { return $0 as! Jsonable } )
+                )
+                ])
         )
     }
     

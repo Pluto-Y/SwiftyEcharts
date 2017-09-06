@@ -279,6 +279,10 @@ public final class SliderDataZoom: DataZoom, Displayable, Zable {
     public var right: Position?
     /// dataZoom-slider组件离容器下侧的距离。
     public var bottom: Position?
+    // dataZoom-slider组件的宽度
+    public var width: LengthValue?
+    // dataZoom-slider组件的高度
+    public var height: LengthValue?
 }
 
 extension SliderDataZoom.DataBackground: Enumable {
@@ -358,7 +362,7 @@ extension SliderDataZoom.HandleStyle: Mappable {
 
 extension SliderDataZoom: Enumable {
     public enum Enums {
-        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(LengthValue), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(FilterMode), start(Float), end(Float), startValue(Jsonable), endValue(Jsonable), orient(Orient), zoomLock(Bool), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position)
+        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(LengthValue), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(FilterMode), start(Float), end(Float), startValue(Jsonable), endValue(Jsonable), orient(Orient), zoomLock(Bool), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue)
     }
     
     public typealias ContentEnum = Enums
@@ -437,6 +441,10 @@ extension SliderDataZoom: Enumable {
                 self.right = right
             case let .bottom(bottom):
                 self.bottom = bottom
+            case let .width(width):
+                self.width = width
+            case let .height(height):
+                self.height = height
             }
         }
     }
@@ -476,5 +484,7 @@ extension SliderDataZoom: Mappable {
         map["top"] = top
         map["right"] = right
         map["bottom"] = bottom
+        map["width"] = width
+        map["height"] = height
     }
 }

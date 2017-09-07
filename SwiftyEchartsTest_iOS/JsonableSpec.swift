@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import Foundation
 @testable import SwiftyEcharts
 
 class JsonableSpec: QuickSpec {
@@ -120,6 +121,16 @@ class JsonableSpec: QuickSpec {
                 let nsnull = NSNull()
                 
                 expect(nsnull.jsonString).to(equal("null"))
+            }
+            
+            it("needs to check the NSNumber") {
+                let num1 = NSNumber(booleanLiteral: false)
+                let num2 = NSNumber(floatLiteral: 47.2)
+                let num3 = NSNumber(integerLiteral: Int.max)
+                
+                expect(num1.jsonString).to(equal(num1.description))
+                expect(num2.jsonString).to(equal(num2.description))
+                expect(num3.jsonString).to(equal(num3.description))
             }
             
         }

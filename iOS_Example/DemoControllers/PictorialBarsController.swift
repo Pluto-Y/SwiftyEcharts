@@ -20,7 +20,7 @@ class PictorialBarsController: BaseDemoController {
         
         optionClosures = [PictorialBarOptions.pictorialBarHillOption, PictorialBarOptions.pictorialBarVelocityOption, PictorialBarOptions.pictorialBarVehicleOption, PictorialBarOptions.pictorialBarSpiritOption, PictorialBarOptions.pictorialBarBodyFillOption, PictorialBarOptions.pictorialBarDottedOption, PictorialBarOptions.pictorialBarForestOption]
         
-        self.title = "折线图"
+        self.title = "象形柱图"
         
     }
     

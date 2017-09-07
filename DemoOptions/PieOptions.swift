@@ -46,7 +46,7 @@ public final class PieOptions {
                         ["value":335, "name":"直接访问"],
                         ["value":400, "name":"搜索引擎"]
                         ]),
-                    .roseType(.enable),
+                    .roseType(.radius),
                     .label(EmphasisLabel(
                         .normal(LabelStyle(// PS: 这里直接用属性就可以了
                             .color(.rgba(255, 255, 255, 0.3))

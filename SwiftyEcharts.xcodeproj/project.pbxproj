@@ -132,6 +132,7 @@
 		6F715CA51F20AEA9001BA1A9 /* LineSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715CA41F20AEA9001BA1A9 /* LineSerieSpec.swift */; };
 		6F715CA71F220488001BA1A9 /* LinesSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715CA61F220488001BA1A9 /* LinesSerieSpec.swift */; };
 		6F715CA91F2327ED001BA1A9 /* MapSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715CA81F2327ED001BA1A9 /* MapSerieSpec.swift */; };
+		6F7602371F6375110064A6AF /* Echarts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7602361F6375110064A6AF /* Echarts.swift */; };
 		6F7F98D91F1225D900A31FF1 /* ContinuousVisualMapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98D81F1225D900A31FF1 /* ContinuousVisualMapSpec.swift */; };
 		6F7F98DB1F1226D600A31FF1 /* DataZoomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98DA1F1226D600A31FF1 /* DataZoomSpec.swift */; };
 		6F7F98DD1F12299100A31FF1 /* EffectScatterSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98DC1F12299100A31FF1 /* EffectScatterSerieSpec.swift */; };
@@ -562,6 +563,7 @@
 		6F715CA41F20AEA9001BA1A9 /* LineSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSerieSpec.swift; sourceTree = "<group>"; };
 		6F715CA61F220488001BA1A9 /* LinesSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesSerieSpec.swift; sourceTree = "<group>"; };
 		6F715CA81F2327ED001BA1A9 /* MapSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSerieSpec.swift; sourceTree = "<group>"; };
+		6F7602361F6375110064A6AF /* Echarts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Echarts.swift; sourceTree = "<group>"; };
 		6F7F98D81F1225D900A31FF1 /* ContinuousVisualMapSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinuousVisualMapSpec.swift; sourceTree = "<group>"; };
 		6F7F98DA1F1226D600A31FF1 /* DataZoomSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataZoomSpec.swift; sourceTree = "<group>"; };
 		6F7F98DC1F12299100A31FF1 /* EffectScatterSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectScatterSerieSpec.swift; sourceTree = "<group>"; };
@@ -869,6 +871,7 @@
 				540898A61E53F6E000A89BB0 /* Type */,
 				54FEBE8B1E23480D0021CB13 /* Json */,
 				5435CCBD1E24990B00D753B2 /* Utilities.swift */,
+				6F7602361F6375110064A6AF /* Echarts.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1675,6 +1678,7 @@
 				6FB48CC81DEF3BB100137D13 /* Formatted.swift in Sources */,
 				540898AE1E54294700A89BB0 /* BoundaryGap.swift in Sources */,
 				541C725F1E5168D300B194A3 /* RadarSerie.swift in Sources */,
+				6F7602371F6375110064A6AF /* Echarts.swift in Sources */,
 				6FC40CFC1E4CB20300F6E62F /* Parallel.swift in Sources */,
 				6FB400401E2FC05E0086BF5B /* BarSerie.swift in Sources */,
 				6F4A15171E69CE770059BAD5 /* ParallelSerie.swift in Sources */,

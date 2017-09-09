@@ -133,6 +133,7 @@
 		6F715CA71F220488001BA1A9 /* LinesSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715CA61F220488001BA1A9 /* LinesSerieSpec.swift */; };
 		6F715CA91F2327ED001BA1A9 /* MapSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715CA81F2327ED001BA1A9 /* MapSerieSpec.swift */; };
 		6F7602371F6375110064A6AF /* Echarts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7602361F6375110064A6AF /* Echarts.swift */; };
+		6F7602391F6EFFF60064A6AF /* EchartsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7602381F6EFFF60064A6AF /* EchartsSpec.swift */; };
 		6F7F98D91F1225D900A31FF1 /* ContinuousVisualMapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98D81F1225D900A31FF1 /* ContinuousVisualMapSpec.swift */; };
 		6F7F98DB1F1226D600A31FF1 /* DataZoomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98DA1F1226D600A31FF1 /* DataZoomSpec.swift */; };
 		6F7F98DD1F12299100A31FF1 /* EffectScatterSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98DC1F12299100A31FF1 /* EffectScatterSerieSpec.swift */; };
@@ -564,6 +565,7 @@
 		6F715CA61F220488001BA1A9 /* LinesSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesSerieSpec.swift; sourceTree = "<group>"; };
 		6F715CA81F2327ED001BA1A9 /* MapSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSerieSpec.swift; sourceTree = "<group>"; };
 		6F7602361F6375110064A6AF /* Echarts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Echarts.swift; sourceTree = "<group>"; };
+		6F7602381F6EFFF60064A6AF /* EchartsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchartsSpec.swift; sourceTree = "<group>"; };
 		6F7F98D81F1225D900A31FF1 /* ContinuousVisualMapSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinuousVisualMapSpec.swift; sourceTree = "<group>"; };
 		6F7F98DA1F1226D600A31FF1 /* DataZoomSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataZoomSpec.swift; sourceTree = "<group>"; };
 		6F7F98DC1F12299100A31FF1 /* EffectScatterSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectScatterSerieSpec.swift; sourceTree = "<group>"; };
@@ -1174,6 +1176,7 @@
 				6FE1EE161F51453100DB0F1F /* TooltipSpec.swift */,
 				6FE1EE181F51453200DB0F1F /* TreemapSerieSpec.swift */,
 				6FE1EE1D1F51453200DB0F1F /* AxisPointerSpec.swift */,
+				6F7602381F6EFFF60064A6AF /* EchartsSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1834,6 +1837,7 @@
 				6FA9DB261E59FA6A00CE5277 /* OneOrMoreSepc.swift in Sources */,
 				6F715C9D1F1D0375001BA1A9 /* ImageGraphicSpec.swift in Sources */,
 				6F824E671F2C710000876D04 /* PiecewiseVisualMapSpec.swift in Sources */,
+				6F7602391F6EFFF60064A6AF /* EchartsSpec.swift in Sources */,
 				6F7F98DD1F12299100A31FF1 /* EffectScatterSerieSpec.swift in Sources */,
 				6FB48CBA1DEEA30000137D13 /* FontSpec.swift in Sources */,
 				6F98F1BB1F28DE6E006DC141 /* ParallelAxisSpec.swift in Sources */,

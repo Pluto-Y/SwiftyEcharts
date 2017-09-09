@@ -120,6 +120,14 @@ class BoxplotSerieSpec: QuickSpec {
             let animationDurationValue: Float = 2.0
             let animationEasingValue = EasingFunction.cubicInOut
             let animationDelayValue: Float = 0.5
+            let tooltipValue = Tooltip(
+                .show(false),
+                .showContent(false),
+                .trigger(.none),
+                .backgroundColor("#999"),
+                .padding(50),
+                .extraCssText("backgroundColor: red")
+            )
             
             let boxplotSerie = BoxplotSerie()
             boxplotSerie.coordinateSystem = coordinateSystemValue
@@ -141,6 +149,7 @@ class BoxplotSerieSpec: QuickSpec {
             boxplotSerie.animationDuration = animationDurationValue
             boxplotSerie.animationEasing = animationEasingValue
             boxplotSerie.animationDelay = animationDelayValue
+            boxplotSerie.tooltip = tooltipValue
             
             it("needs to check the type value") {
                 expect(boxplotSerie.type.jsonString).to(equal(SerieType.boxplot.jsonString))
@@ -167,7 +176,8 @@ class BoxplotSerieSpec: QuickSpec {
                     "silent": silentValue,
                     "animationDuration": animationDurationValue,
                     "animationEasing": animationEasingValue,
-                    "animationDelay": animationDelayValue
+                    "animationDelay": animationDelayValue,
+                    "tooltip": tooltipValue
                 ]
 
                 expect(boxplotSerie.jsonString).to(equal(resultDic.jsonString))
@@ -193,7 +203,8 @@ class BoxplotSerieSpec: QuickSpec {
                     .silent(silentValue),
                     .animationDuration(animationDurationValue),
                     .animationEasing(animationEasingValue),
-                    .animationDelay(animationDelayValue)
+                    .animationDelay(animationDelayValue),
+                    .tooltip(tooltipValue)
                 )
                 
                 expect(boxplotSerieByEnums.jsonString).to(equal(boxplotSerie.jsonString))

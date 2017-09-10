@@ -13,6 +13,7 @@ public final class Echarts {
         if let bundlePath = NSBundle.mainBundle().pathForResource("SwiftyEcharts", ofType: "framework", inDirectory: "Frameworks") {
             return NSBundle(path: bundlePath)!
         }
+        // 避免不在Frameworks目录下的情况， 例如在unit test中就不出现在Framework下
         for bundle in NSBundle.allBundles() {
             if let bundlePath = bundle.pathForResource("SwiftyEcharts", ofType: "framework") {
                 return NSBundle(path: bundlePath)!

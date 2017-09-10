@@ -8,15 +8,26 @@
 
 import Quick
 import Nimble
+import JavaScriptCore
 @testable import SwiftyEcharts
 
 class EchartsSpec: QuickSpec {
     override func spec() {
-//        describe("For Echarts") {
-//            it("needs to check the framworkBundle") {
-//                expect(Echarts.frameworkBundle).toNot(beNil())
-//            }
-//        }
+        describe("For Echarts") {
+            it("needs to check the framworkBundle") {
+                expect(Echarts.frameworkBundle).toNot(beNil())
+            }
+            
+            it("needs to check the loadEcharts") {
+                let jsContext = JSContext()
+                Echarts.loadEcharts(jsContext)
+                let echartsValue = jsContext.evaluateScript("echarts")
+                let nullValue = jsContext.evaluateScript("echartsaaaaa")
+                expect(echartsValue.isNull).toNot(beTrue())
+                expect(echartsValue.isObject).to(beTrue())
+                expect(nullValue.isUndefined).to(beTrue())
+            }
+        }
 //        
 //        describe("For Echarts.DataTool") {
 //            it("needs to check the result of prepareBoxplotData") {

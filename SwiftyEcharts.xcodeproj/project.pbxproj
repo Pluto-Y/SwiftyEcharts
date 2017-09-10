@@ -134,6 +134,7 @@
 		6F715CA91F2327ED001BA1A9 /* MapSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F715CA81F2327ED001BA1A9 /* MapSerieSpec.swift */; };
 		6F7602371F6375110064A6AF /* Echarts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7602361F6375110064A6AF /* Echarts.swift */; };
 		6F7602391F6EFFF60064A6AF /* EchartsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7602381F6EFFF60064A6AF /* EchartsSpec.swift */; };
+		6F76023A1F7187470064A6AF /* SwiftyEcharts.framework in Resources */ = {isa = PBXBuildFile; fileRef = 6F13256C1D9312A90006F114 /* SwiftyEcharts.framework */; };
 		6F7F98D91F1225D900A31FF1 /* ContinuousVisualMapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98D81F1225D900A31FF1 /* ContinuousVisualMapSpec.swift */; };
 		6F7F98DB1F1226D600A31FF1 /* DataZoomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98DA1F1226D600A31FF1 /* DataZoomSpec.swift */; };
 		6F7F98DD1F12299100A31FF1 /* EffectScatterSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7F98DC1F12299100A31FF1 /* EffectScatterSerieSpec.swift */; };
@@ -1544,6 +1545,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F76023A1F7187470064A6AF /* SwiftyEcharts.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

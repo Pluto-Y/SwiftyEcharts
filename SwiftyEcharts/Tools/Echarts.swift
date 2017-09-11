@@ -8,7 +8,9 @@
 
 import JavaScriptCore
 
+/// 用于封装一些通用的Echarts提供的工具
 public final class Echarts {
+    /// SwiftyEcharts.framework的位置
     public static let frameworkBundle: NSBundle? = {
         if let bundlePath = NSBundle.mainBundle().pathForResource("SwiftyEcharts", ofType: "framework", inDirectory: "Frameworks") {
             return NSBundle(path: bundlePath)!
@@ -22,6 +24,9 @@ public final class Echarts {
         return nil
     }() 
     
+    /// 加载echart.min.js的内容到JSContext中
+    ///
+    /// - Parameter context: 需要加载到的JSContext
     public static func loadEcharts(context: JSContext) {
         guard let echartScriptPath = frameworkBundle?.pathForResource("echarts.min", ofType: "js", inDirectory: "js"), let echartsScripts = try? String(contentsOfFile: echartScriptPath) else {
             return
@@ -33,8 +38,12 @@ public final class Echarts {
 
 // MARK: DataTool
 extension Echarts {
+    /// 针对DataTool模块的封装
     public class DataTool {
         
+        /// 加载dataTool.js模块到JSContext中
+        ///
+        /// - Parameter context: 需要加载到的JSContext
         public static func loadDataTool(context: JSContext) {
             guard let scriptPath = frameworkBundle?.pathForResource("dataTool", ofType: "js", inDirectory: "js"), let scripts = try? String(contentsOfFile: scriptPath) else {
                 return
@@ -43,6 +52,10 @@ extension Echarts {
             context.evaluateScript(scripts)
         }
         
+        /// 执行echarts.dataTool.prepareBoxplotData的方法，并将返回值获得用于给业务层用
+        ///
+        /// - Parameter datas: 需要执行该方法的数据
+        /// - Returns: 转换后的数据
         public static func prepareBoxplotData(datas: [[Float]]) -> [String: [Jsonable]] {
             guard let context = JSContext(virtualMachine: JSVirtualMachine()) else {
                 return [:]

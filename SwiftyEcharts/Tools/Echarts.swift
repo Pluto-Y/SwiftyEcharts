@@ -54,16 +54,25 @@ extension Echarts {
         
         /// 执行echarts.dataTool.prepareBoxplotData的方法，并将返回值获得用于给业务层用
         ///
-        /// - Parameter datas: 需要执行该方法的数据
+        /// - Parameters:
+        ///   - datas: 需要执行该方法的数据
+        ///   - option: 可以配置的项目，可以配置为选项有'boundIQR'的选项以及'layout'选项
+        ///             其中 `layout` 可以配置为 'horizontal' 或 'vertical' 用于 Boxplot 的布局
+        ///             其中 `boundIQR` 用来配置小于该值的是 outlier 的值，默认是1.5, 意思是: Q1 - 1.5 * (Q3 - Q1), 
+        /// - Notes: 虽然 `boundIQR` 配置的是数值，但是应该以字符串传入
         /// - Returns: 转换后的数据
-        public static func prepareBoxplotData(datas: [[Float]]) -> [String: [Jsonable]] {
+        public static func prepareBoxplotData(datas: [[Float]], _ option: [String: String] = [:]) -> [String: [Jsonable]] {
             guard let context = JSContext(virtualMachine: JSVirtualMachine()) else {
                 return [:]
             }
             
             self.loadDataTool(context)
             
-            let scriptResult = context.evaluateScript("echarts.dataTool.prepareBoxplotData(\(datas))")
+            let scriptResult = context.evaluateScript("echarts.dataTool.prepareBoxplotData(\(datas), \(option.jsonString))")
+            guard !scriptResult.isUndefined && scriptResult.isObject else {
+                return [:]
+            }
+            
             let scriptResultDic = scriptResult?.toDictionary() as! [String: NSArray]
             var result: [String: [Jsonable]] = [:]
             var outliers: [[Jsonable]] = []

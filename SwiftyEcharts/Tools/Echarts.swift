@@ -34,17 +34,21 @@ public final class Echarts {
 // MARK: DataTool
 extension Echarts {
     public class DataTool {
-        public static func prepareBoxplotData(datas: [[Float]]) -> [String: [Jsonable]] {
+        
+        public static func loadDataTool(context: JSContext) {
             guard let scriptPath = frameworkBundle?.pathForResource("dataTool", ofType: "js", inDirectory: "js"), let scripts = try? String(contentsOfFile: scriptPath) else {
-                return [:]
+                return
             }
-            
+            Echarts.loadEcharts(context)
+            context.evaluateScript(scripts)
+        }
+        
+        public static func prepareBoxplotData(datas: [[Float]]) -> [String: [Jsonable]] {
             guard let context = JSContext(virtualMachine: JSVirtualMachine()) else {
                 return [:]
             }
             
-            Echarts.loadEcharts(context)
-            context.evaluateScript(scripts)
+            self.loadDataTool(context)
             
             let scriptResult = context.evaluateScript("echarts.dataTool.prepareBoxplotData(\(datas))")
             let scriptResultDic = scriptResult?.toDictionary() as! [String: NSArray]

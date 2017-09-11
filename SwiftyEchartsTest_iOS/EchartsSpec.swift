@@ -23,13 +23,23 @@ class EchartsSpec: QuickSpec {
                 Echarts.loadEcharts(jsContext)
                 let echartsValue = jsContext.evaluateScript("echarts")
                 let nullValue = jsContext.evaluateScript("echartsaaaaa")
-                expect(echartsValue.isNull).toNot(beTrue())
+                expect(echartsValue.isUndefined).toNot(beTrue())
                 expect(echartsValue.isObject).to(beTrue())
                 expect(nullValue.isUndefined).to(beTrue())
             }
         }
         
         describe("For Echarts.DataTool") {
+            it("needs to check the loadDataTool") {
+                let jsContext = JSContext()
+                Echarts.DataTool.loadDataTool(jsContext)
+                let dataToolValue = jsContext.evaluateScript("echarts.dataTool")
+                let prepareBoxplotDataFuncValue = jsContext.evaluateScript("echarts.dataTool.prepareBoxplotData")
+                expect(dataToolValue.isUndefined).notTo(beTrue())
+                expect(dataToolValue.isObject).to(beTrue())
+                expect(prepareBoxplotDataFuncValue.isUndefined).notTo(beTrue())
+            }
+            
             it("needs to check the result of prepareBoxplotData") {
                 let originDatas: [[Float]] = [
                     [850, 740, 900, 1070, 930, 850, 950, 980, 980, 880, 1000, 980, 930, 650, 760, 810, 1000, 1000, 960, 960],

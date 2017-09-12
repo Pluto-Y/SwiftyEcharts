@@ -170,8 +170,97 @@ public final class BoxplotOptions {
     // MARK: Multiple Categories
     /// 地址: http://echarts.baidu.com/demo.html#boxplot-multi
     static func boxplotMultiOption() -> Option {
-        // TODO: 添加实现
+        var data: [[String: [Jsonable]]] = []
+        for _ in 0...4 {
+            var seriesData: [[Float]] = []
+            for _ in 0..<18 {
+                var cate: [Float] = []
+                for _ in 0..<100 {
+                    cate.append(Float(arc4random()) / Float(UInt32.max) * 200.0)
+                }
+                seriesData.append(cate)
+            }
+            data.append(Echarts.DataTool.prepareBoxplotData(seriesData))
+        }
+        
+        let formatter = Formatter.function("function formatter(param) { return [ 'Experiment ' + param.name + ': ', 'upper: ' + param.data[0], 'Q1: ' + param.data[1], 'median: ' + param.data[2], 'Q3: ' + param.data[3], 'lower: ' + param.data[4] ].join('<br/>') }")
+        
         return Option(
+            .title(Title(
+                .text("Multiple Categories"),
+                .left(.center)
+                )),
+            .legend(Legend(
+                .y(.value(10%)),
+                .data(["category0", "category1", "category2", "category3"])
+                )),
+            .tooltip(Tooltip(
+                .trigger(.item),
+                .axisPointer(AxisPointerForTooltip(
+                    .type(.shadow)
+                    ))
+                )),
+            .grid(Grid(
+                .left(.value(10%)),
+                .top(.value(20%)),
+                .right(.value(10%)),
+                .bottom(.value(15%))
+                )),
+            .xAxis(Axis(
+                .type(.category),
+                .data(data[0]["axisData"]!),
+                .boundaryGap(true),
+                .nameGap(30),
+                .splitArea(SplitArea(
+                    .show(true)
+                    )),
+                .axisLabel(AxisLabel(
+                    .formatter(.string("expr {value}"))
+                    )),
+                .splitLine(SplitLine(
+                    .show(false)
+                    ))
+                )),
+            .yAxis(Axis(
+                .type(.value),
+                .name("Value"),
+                .min(-400),
+                .max(600),
+                .splitArea(SplitArea(
+                    .show(false)
+                    ))
+                )),
+            .dataZoom([
+                InsideDataZoom(
+                    .start(0),
+                    .end(20)
+                ),
+                SliderDataZoom(
+                    .show(true),
+                    .height(20),
+                    .top(.value(90%)),
+                    .xAxisIndex(0),
+                    .start(0),
+                    .end(20)
+                )
+                ]),
+            .series([
+                BoxplotSerie(
+                    .name("category0"),
+                    .data(data[0]["boxData"]!),
+                    .tooltip(Tooltip(.formatter(formatter)))
+                ),
+                BoxplotSerie(
+                    .name("category1"),
+                    .data(data[1]["boxData"]!),
+                    .tooltip(Tooltip(.formatter(formatter)))
+                ),
+                BoxplotSerie(
+                    .name("category2"),
+                    .data(data[2]["boxData"]!),
+                    .tooltip(Tooltip(.formatter(formatter)))
+                )
+                ])
         )
     }
 }

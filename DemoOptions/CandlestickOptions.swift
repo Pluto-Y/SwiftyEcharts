@@ -13,6 +13,21 @@ public final class CandlestickOptions {
     // MARK: Candlestick Brush
     /// 地址: http://echarts.baidu.com/demo.html#candlestick-brush
     static func candlestickBrushOption() -> Option {
+        let splitData: [[Float]] -> [String: [Jsonable]] = { rowData in
+            var categoryData: [Float] = []
+            var values: [[Float]] = []
+            for i in 0..<rowData.count {
+                var d = rowData[i]
+                categoryData.append(d[0])
+                d[0] = Float(i)
+                values.append(d)
+            }
+            return [
+                "categoryData": categoryData,
+                "values": values
+            ]
+        }
+        
         // TODO: 添加实现
         return Option(
         )

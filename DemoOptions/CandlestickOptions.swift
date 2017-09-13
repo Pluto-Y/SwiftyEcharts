@@ -34,4 +34,20 @@ public final class CandlestickOptions {
         )
     }
     
+    // MARK: 触屏上的坐标轴指示器
+    /// 地址: http://echarts.baidu.com/demo.html#candlestick-touch
+    static func candlestickTouchOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
+    // MARK: OHLC Chart
+    /// 地址: http://echarts.baidu.com/demo.html#custom-ohlc
+    static func customOhlcOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
+    
 }

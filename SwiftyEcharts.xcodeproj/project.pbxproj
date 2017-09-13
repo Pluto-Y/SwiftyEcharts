@@ -79,6 +79,7 @@
 		6F0E46241E61AB10008DA184 /* BarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E46231E61AB10008DA184 /* BarsController.swift */; };
 		6F0E46261E61B204008DA184 /* BaseDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E46251E61B204008DA184 /* BaseDemoController.swift */; };
 		6F0E46281E61D6C6008DA184 /* PiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E46271E61D6C6008DA184 /* PiesController.swift */; };
+		6F0F18841F690E5600A8B1E3 /* CandlesticksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0F18831F690E5600A8B1E3 /* CandlesticksController.swift */; };
 		6F1325701D9312A90006F114 /* SwiftyEcharts.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F13256F1D9312A90006F114 /* SwiftyEcharts.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F16492A1EF9150500592CE3 /* FunctionOrOthersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1649291EF9150500592CE3 /* FunctionOrOthersSpec.swift */; };
 		6F1ED0731E23DC0A00A1E154 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEBE921E2354B60021CB13 /* Option.swift */; };
@@ -512,6 +513,7 @@
 		6F0E46231E61AB10008DA184 /* BarsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarsController.swift; sourceTree = "<group>"; };
 		6F0E46251E61B204008DA184 /* BaseDemoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDemoController.swift; sourceTree = "<group>"; };
 		6F0E46271E61D6C6008DA184 /* PiesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiesController.swift; sourceTree = "<group>"; };
+		6F0F18831F690E5600A8B1E3 /* CandlesticksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandlesticksController.swift; sourceTree = "<group>"; };
 		6F13256C1D9312A90006F114 /* SwiftyEcharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyEcharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F13256F1D9312A90006F114 /* SwiftyEcharts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyEcharts.h; sourceTree = "<group>"; };
 		6F1325711D9312A90006F114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -906,6 +908,7 @@
 				6F4BA30C1E92C543006A3AB3 /* PictorialBarsController.swift */,
 				6F5E3AB61ED475FD008D4095 /* ScattersController.swift */,
 				6F63A2741F6EDC4500A77546 /* BoxplotsControllers.swift */,
+				6F0F18831F690E5600A8B1E3 /* CandlesticksController.swift */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -1735,6 +1738,7 @@
 				5427F08F1E2C97BB00CE20E5 /* HeatmapOptions.swift in Sources */,
 				6F0E46281E61D6C6008DA184 /* PiesController.swift in Sources */,
 				6F9B70E01DE808E600406B55 /* AppDelegate.swift in Sources */,
+				6F0F18841F690E5600A8B1E3 /* CandlesticksController.swift in Sources */,
 				5446EA101E767D69009BAE71 /* ThemeRiversController.swift in Sources */,
 				5427F08B1E2C96F900CE20E5 /* CandlestickOptions.swift in Sources */,
 				529DEFEB1E6EE9F400E70938 /* FunnelController.swift in Sources */,

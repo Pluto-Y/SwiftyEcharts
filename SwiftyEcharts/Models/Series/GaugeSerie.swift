@@ -162,6 +162,8 @@ public final class GaugeSerie: Serie, Animatable {
     public var animationDurationUpdate: Time?
     public var animationEasingUpdate: EasingFunction?
     public var animationDelayUpdate: Time?
+    /// 本系列特定的 tooltip 设定。
+    public var tooltip: Tooltip?
     
     public init() { }
 }
@@ -351,7 +353,7 @@ extension GaugeSerieDetail: Mappable {
 
 extension GaugeSerie: Enumable {
     public enum Enums {
-        case name(String), radius(LengthValue), center(Point), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(ItemStyle), title(Title), detail(Detail), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), data([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), radius(LengthValue), center(Point), startAngle(Float), endAngle(Float), clockwise(Bool), min(Float), max(Float), splitNumber(Float), axisLine(AxisLine), splitLine(SplitLine), axisTick(AxisTick), axisLabel(AxisLabel), pointer(Pointer), itemStyle(ItemStyle), title(Title), detail(Detail), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), data([Jsonable]), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), tooltip(Tooltip)
     }
     
     public typealias ContentEnum = Enums
@@ -420,6 +422,8 @@ extension GaugeSerie: Enumable {
                 self.animationEasingUpdate = animationEasingUpdate
             case let .animationDelayUpdate(animationDelayUpdate):
                 self.animationDelayUpdate = animationDelayUpdate
+            case let .tooltip(tooltip):
+                self.tooltip = tooltip
             }
         }
     }
@@ -458,5 +462,6 @@ extension GaugeSerie: Mappable {
         map["animationDurationUpdate"] = animationDurationUpdate
         map["animationEasingUpdate"] = animationEasingUpdate
         map["animationDelayUpdate"] = animationDelayUpdate
+        map["tooltip"] = tooltip
     }
 }

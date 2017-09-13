@@ -295,6 +295,15 @@ class GaugeSerieSpec: QuickSpec {
             let animationDurationUpdateValue: Time = 0.0
             let animationEasingUpdateValue = EasingFunction.quarticInOut
             let animationDelayUpdateValue: Time = 100.0
+            let tooltipValue = Tooltip(
+                .position(.point([50%, 10])),
+                .formatter(.string("{b0}: {c0}<br />{b1}: {c1}")),
+                .backgroundColor(rgba(50, 50, 50, 0.7)),
+                .borderColor("#333"),
+                .borderWidth(0),
+                .padding(5),
+                .extraCssText("box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);")
+            )
             
             let gaugeSerie = GaugeSerie()
             gaugeSerie.name = nameValue
@@ -327,6 +336,7 @@ class GaugeSerieSpec: QuickSpec {
             gaugeSerie.animationDurationUpdate = animationDurationUpdateValue
             gaugeSerie.animationEasingUpdate = animationEasingUpdateValue
             gaugeSerie.animationDelayUpdate = animationDelayUpdateValue
+            gaugeSerie.tooltip = tooltipValue
             
             it("needs to check the type value") {
                 expect(gaugeSerie.type).to(equal(SerieType.gauge))
@@ -364,7 +374,8 @@ class GaugeSerieSpec: QuickSpec {
                     "animationDelay": animationDelayValue,
                     "animationDurationUpdate": animationDurationUpdateValue,
                     "animationEasingUpdate": animationEasingUpdateValue,
-                    "animationDelayUpdate": animationDelayUpdateValue
+                    "animationDelayUpdate": animationDelayUpdateValue,
+                    "tooltip": tooltipValue
                 ]
                 
                 expect(gaugeSerie.jsonString).to(equal(resultDic.jsonString))
@@ -401,7 +412,8 @@ class GaugeSerieSpec: QuickSpec {
                     .animationDelay(animationDelayValue),
                     .animationDurationUpdate(animationDurationUpdateValue),
                     .animationEasingUpdate(animationEasingUpdateValue),
-                    .animationDelayUpdate(animationDelayUpdateValue)
+                    .animationDelayUpdate(animationDelayUpdateValue),
+                    .tooltip(tooltipValue)
                 )
                 
                 expect(gaugeSerieByEnums.jsonString).to(equal(gaugeSerie.jsonString))

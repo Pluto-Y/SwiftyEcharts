@@ -13,6 +13,7 @@
         var myChart;
         var ecConfig;
         
+        var excludeStrs = ['close', 'open']
         // Json string to object
         function preTask(obj) {
             var result;
@@ -33,6 +34,9 @@
                     return result;
                 }
             } else if(typeof(obj) == 'string'){
+                if(excludeStrs.includes(obj)) {
+                    return obj;
+                }
                 try {
                     if(typeof(eval(obj)) == 'function'){
                         return eval(obj);

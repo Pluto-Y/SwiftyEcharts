@@ -13,7 +13,9 @@ import SwiftyEcharts
 class ItemStyleSpec: QuickSpec {
     override func spec() {
         let color = Color.rgb(172, 87, 29)
+        let color0 = Color.hexColor("0CF49B")
         let borderColor = Color.hexColor("#fff")
+        let borderColor0 = color0
         let borderWidth: Float = 78.0
         let borderType = LineType.dashed
         let shadowBlur = Float(0.8)
@@ -26,7 +28,9 @@ class ItemStyleSpec: QuickSpec {
         
         let commonItemStyleContentNormal = CommonItemStyleContent()
         commonItemStyleContentNormal.color = color
+        commonItemStyleContentNormal.color0 = color0
         commonItemStyleContentNormal.borderColor = borderColor
+        commonItemStyleContentNormal.borderColor0 = borderColor0
         commonItemStyleContentNormal.borderWidth = borderWidth
         commonItemStyleContentNormal.borderType = borderType
         commonItemStyleContentNormal.shadowBlur = shadowBlur
@@ -41,7 +45,9 @@ class ItemStyleSpec: QuickSpec {
             it("needs to check Mappable") {
                 let dic: [String: Jsonable] = [
                     "color": color,
+                    "color0": color0,
                     "borderColor": borderColor,
+                    "borderColor0": borderColor0,
                     "borderWidth": borderWidth,
                     "borderType": borderType,
                     "shadowBlur": shadowBlur,
@@ -58,7 +64,9 @@ class ItemStyleSpec: QuickSpec {
             it("needs to check Enumable") {
                 let commonItemStyleContentByEnums = CommonItemStyleContent(
                     .color(color),
+                    .color0(color0),
                     .borderColor(borderColor),
+                    .borderColor0(borderColor0),
                     .borderWidth(borderWidth),
                     .borderType(borderType),
                     .shadowBlur(shadowBlur),

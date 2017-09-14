@@ -71,18 +71,18 @@ public final class Axis: Displayable, Zable {
     /// 坐标轴刻度最小值，在类目轴中无效。
     /// 可以设置成特殊值 'dataMin'，此时取数据在该轴上的最小值作为最小刻度。
     /// 不设置时会自动计算最小值保证坐标轴刻度的均匀分布。
-    public var min: Float?
+    public var min: Jsonable?
     /// 坐标轴刻度最大值，在类目轴中无效。
     /// 可以设置成特殊值 'dataMax'，此时取数据在该轴上的最大值作为最大刻度。
     /// 不设置时会自动计算最大值保证坐标轴刻度的均匀分布。
-    public var max: Float?
+    public var max: Jsonable?
     /// 只在数值轴中（type: 'value'）有效。
     /// 是否是脱离 0 值比例。设置成 true 后坐标刻度不会强制包含零刻度。在双数值轴的散点图中比较有用。
     /// 在设置 min 和 max 之后该配置项无效。
     public var scale: Bool?
     /// 坐标轴的分割段数，需要注意的是这个分割段数只是个预估值，最后实际显示的段数会在这个基础上根据分割后坐标轴刻度显示的易读程度作调整。
     /// - Note: 在类目轴中无效。
-    public var spliteNumber: UInt?
+    public var splitNumber: UInt?
     /// 自动计算的坐标轴最小间隔大小。
     /// 例如可以设置成1保证坐标轴分割刻度显示成整数。
     /// - Note: 只在数值轴中（type: 'value'）有效。
@@ -163,7 +163,7 @@ extension Axis.Data: Mappable {
 
 extension Axis: Enumable {
     public enum Enums {
-        case show(Bool), gridIndex(UInt), position(Position), offset(Float), type(AxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Float), max(Float), scale(Bool), spliteNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), axisPointer(AxisPointerForAxis), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable]), zlevel(Float), z(Float)
+        case show(Bool), gridIndex(UInt), position(Position), offset(Float), type(AxisType), name(String), nameLocation(Position), nameTextStyle(TextStyle), nameGap(Float), nameRotate(Float), inverse(Bool), boundaryGap(BoundaryGap), min(Jsonable), max(Jsonable), scale(Bool), splitNumber(UInt), minInterval(UInt), interval(Int), logBase(Float), silent(Bool), triggerEvent(Bool), axisLine(AxisLine), axisTick(AxisTick), axisLabel(AxisLabel), axisPointer(AxisPointerForAxis), splitLine(SplitLine), splitArea(SplitArea), data([Jsonable]), zlevel(Float), z(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -202,8 +202,8 @@ extension Axis: Enumable {
                 self.max = max
             case let .scale(scale):
                 self.scale = scale
-            case let .spliteNumber(spliteNumber):
-                self.spliteNumber = spliteNumber
+            case let .splitNumber(splitNumber):
+                self.splitNumber = splitNumber
             case let .minInterval(minInterval):
                 self.minInterval = minInterval
             case let .interval(interval):
@@ -254,7 +254,7 @@ extension Axis: Mappable {
         map["min"] = min
         map["max"] = max
         map["scale"] = scale
-        map["spliteNumber"] = spliteNumber
+        map["splitNumber"] = splitNumber
         map["minInterval"] = minInterval
         map["interval"] = interval
         map["logBase"] = logBase

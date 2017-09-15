@@ -49,6 +49,14 @@ class MarkPointSpec: QuickSpec {
             let animationDurationUpdateValue: Time = 66666
             let animationEasingUpdateValue = EasingFunction.quarticOut
             let animationDelayUpdateValue = Time.number(-19274)
+            let tooltipValue = Tooltip(
+                .show(true),
+                .trigger(.none),
+                .triggerOn(.click),
+                .showContent(false),
+                .hideDelay(0.38),
+                .confine(true)
+            )
             
             let markPoint = MarkPoint()
             markPoint.symbol = symbolValue
@@ -67,6 +75,7 @@ class MarkPointSpec: QuickSpec {
             markPoint.animationDurationUpdate = animationDurationUpdateValue
             markPoint.animationEasingUpdate = animationEasingUpdateValue
             markPoint.animationDelayUpdate = animationDelayUpdateValue
+            markPoint.tooltip = tooltipValue
             
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
@@ -85,7 +94,8 @@ class MarkPointSpec: QuickSpec {
                     "animationDelay": animationDelayValue,
                     "animationDurationUpdate": animationDurationUpdateValue,
                     "animationEasingUpdate": animationEasingUpdateValue,
-                    "animationDelayUpdate": animationDelayUpdateValue
+                    "animationDelayUpdate": animationDelayUpdateValue,
+                    "tooltip": tooltipValue
                 ]
                 
                 expect(markPoint.jsonString).to(equal(resultDic.jsonString))
@@ -108,7 +118,8 @@ class MarkPointSpec: QuickSpec {
                     .animationDelay(animationDelayValue),
                     .animationDurationUpdate(animationDurationUpdateValue),
                     .animationEasingUpdate(animationEasingUpdateValue),
-                    .animationDelayUpdate(animationDelayUpdateValue)
+                    .animationDelayUpdate(animationDelayUpdateValue),
+                    .tooltip(tooltipValue)
                 )
                 
                 expect(markPointByEnums.jsonString).to(equal(markPoint.jsonString))

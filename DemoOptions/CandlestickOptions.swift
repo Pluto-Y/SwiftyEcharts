@@ -40,8 +40,8 @@ public final class CandlestickOptions {
             return Option()
         }
         
-        let rowData = jsonObj as! [[String]]        
-
+        let rowData = (jsonObj as! [[String]]).reversed()
+        
         let calculateMA: (Int, [[Float]]) -> [Jsonable] = { (dayCount, data) in
             var result: [Jsonable] = []
             for i in 0..<data.count {

@@ -19,10 +19,17 @@ class EchartsSpec: QuickSpec {
             }
             
             it("needs to check the loadEcharts") {
+<<<<<<< HEAD
                 let jsContext: JSContext! = JSContext()
                 Echarts.loadEcharts(jsContext)
                 let echartsValue = jsContext.evaluateScript("echarts")!
                 let nullValue = jsContext.evaluateScript("echartsaaaaa")!
+=======
+                let jsContext = JSContext()
+                Echarts.loadEcharts(jsContext)
+                let echartsValue = jsContext.evaluateScript("echarts")
+                let nullValue = jsContext.evaluateScript("echartsaaaaa")
+>>>>>>> swift2.3
                 expect(echartsValue.isUndefined).toNot(beTrue())
                 expect(echartsValue.isObject).to(beTrue())
                 expect(nullValue.isUndefined).to(beTrue())
@@ -31,10 +38,17 @@ class EchartsSpec: QuickSpec {
         
         describe("For Echarts.DataTool") {
             it("needs to check the loadDataTool") {
+<<<<<<< HEAD
                 let jsContext: JSContext! = JSContext()
                 Echarts.DataTool.loadDataTool(jsContext)
                 let dataToolValue = jsContext.evaluateScript("echarts.dataTool")!
                 let prepareBoxplotDataFuncValue = jsContext.evaluateScript("echarts.dataTool.prepareBoxplotData")!
+=======
+                let jsContext = JSContext()
+                Echarts.DataTool.loadDataTool(jsContext)
+                let dataToolValue = jsContext.evaluateScript("echarts.dataTool")
+                let prepareBoxplotDataFuncValue = jsContext.evaluateScript("echarts.dataTool.prepareBoxplotData")
+>>>>>>> swift2.3
                 expect(dataToolValue.isUndefined).notTo(beTrue())
                 expect(dataToolValue.isObject).to(beTrue())
                 expect(prepareBoxplotDataFuncValue.isUndefined).notTo(beTrue())
@@ -49,6 +63,7 @@ class EchartsSpec: QuickSpec {
                     [890, 840, 780, 810, 760, 810, 790, 810, 820, 850, 870, 870, 810, 740, 810, 940, 950, 800, 810, 870]
                 ]
                 let result: [String: [Jsonable]] = [
+<<<<<<< HEAD
                     "boxData": [[655.0, 850.0, 940.0, 980.0, 1175.0], [672.5, 800.0, 845.0, 885.0, 1012.5], [780.0, 840.0, 855.0, 880.0, 940.0], [621.25, 767.5, 815.0, 865.0, 1011.25], [713.75, 807.5, 810.0, 870.0, 963.75]],
                     "outliers": [[0.0, 650.0], [2.0, 620.0], [2.0, 720.0], [2.0, 720.0], [2.0, 950.0], [2.0, 970.0]],
                     "axisData": ["0", "1", "2", "3", "4"]
@@ -56,6 +71,13 @@ class EchartsSpec: QuickSpec {
                 
                 print("\(Echarts.DataTool.prepareBoxplotData(originDatas).jsonString)")
                 print("\(result.jsonString)")
+=======
+                    "boxData": [[655, 850, 940, 980, 1175], [672.5, 800, 845, 885, 1012.5], [780, 840, 855, 880, 940], [621.25, 767.5, 815, 865, 1011.25], [713.75, 807.5, 810, 870, 963.75]],
+                    "outliers": [[0, 650], [2, 620], [2, 720], [2, 720], [2, 950], [2, 970]],
+                    "axisData": ["0", "1", "2", "3", "4"]
+                ]
+                
+>>>>>>> swift2.3
                 expect(Echarts.DataTool.prepareBoxplotData(originDatas).jsonString).to(equal(result.jsonString))
                 
                 let emptyDatas: [[Float]] = []
@@ -79,6 +101,7 @@ class EchartsSpec: QuickSpec {
                 ]
                 
                 let dataWithOptionResult: [String: [Jsonable]] = [
+<<<<<<< HEAD
                     "boxData": [[655.0, 850.0, 940.0, 980.0, 1175.0], [672.5, 800.0, 845.0, 885.0, 1012.5], [780.0, 840.0, 855.0, 880.0, 940.0], [621.25, 767.5, 815.0, 865.0, 1011.25], [713.75, 807.5, 810.0, 870.0, 963.75]],
                     "outliers": [[650.0, 0.0], [620.0, 2.0], [720.0, 2.0], [720.0, 2.0], [950.0, 2.0], [970.0, 2.0]],
                     "axisData": ["0", "1", "2", "3", "4"]
@@ -86,6 +109,13 @@ class EchartsSpec: QuickSpec {
                 
                 print("\(Echarts.DataTool.prepareBoxplotData(data2, option).jsonString)")
                 print("\(dataWithOptionResult.jsonString)")
+=======
+                    "boxData": [[655, 850, 940, 980, 1175], [672.5, 800, 845, 885, 1012.5], [780, 840, 855, 880, 940], [621.25, 767.5, 815, 865, 1011.25], [713.75, 807.5, 810, 870, 963.75]],
+                    "outliers": [[650, 0], [620, 2], [720, 2], [720, 2], [950, 2], [970, 2]],
+                    "axisData": ["0", "1", "2", "3", "4"]
+                ]
+                
+>>>>>>> swift2.3
                 expect(Echarts.DataTool.prepareBoxplotData(data2, option).jsonString).to(equal(dataWithOptionResult.jsonString))
             }
         }

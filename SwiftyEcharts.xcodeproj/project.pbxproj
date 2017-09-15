@@ -822,6 +822,7 @@
 				6F4E6AAF1ECDC8CD00E2858B /* USA.json */,
 				6F6F17DF1F5F0FFA0062ABEA /* MixZoomOnValue.json */,
 				6F2A38E81F82AD09008EBEA1 /* CandlestickSh2015.json */,
+				6F63A2721F6EDC4500A77546 /* MixZoomOnValue.json */,
 			);
 			path = DemoOptions;
 			sourceTree = "<group>";
@@ -1528,6 +1529,7 @@
 				6FA85F331ED336E300C1DA58 /* heilongjiang.json in Resources */,
 				6F9DF5551E9BC37700577899 /* BeijingAQIDatas.plist in Resources */,
 				6F9B70EA1DE808E600406B55 /* LaunchScreen.storyboard in Resources */,
+				6F63A2731F6EDC4500A77546 /* MixZoomOnValue.json in Resources */,
 				6FA85F311ED336E300C1DA58 /* hainan.json in Resources */,
 				6FA85F291ED336E300C1DA58 /* aomen.json in Resources */,
 				6F9B70E71DE808E600406B55 /* Assets.xcassets in Resources */,

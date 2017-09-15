@@ -362,7 +362,7 @@ extension SliderDataZoom.HandleStyle: Mappable {
 
 extension SliderDataZoom: Enumable {
     public enum Enums {
-        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(LengthValue), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(FilterMode), start(Float), end(Float), startValue(Jsonable), endValue(Jsonable), orient(Orient), zoomLock(Bool), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue)
+        case show(Bool), backgroundColor(Color), dataBackground(DataBackground), fillerColor(Color), borderColor(Color), handleIcon(String), handleSize(LengthValue), handleStyle(HandleStyle), labelPrecision(Float), labelFormatter(Formatter), showDetail(Bool), showDataShadow(String), realtime(Bool), textStyle(TextStyle), xAxisIndex(UInt8), xAxisIndexes([UInt8]), yAxisIndex(UInt8), yAxisIndexes([UInt8]), radiusAxisIndex(UInt8), radiusAxisIndexes([UInt8]), angleAxisIndex(UInt8), angleAxisIndexes([UInt8]), filterMode(FilterMode), start(Float), end(Float), startValue(Jsonable), endValue(Jsonable), orient(Orient), zoomLock(Bool), zlevel(Float), z(Float), left(Position), x(Position), top(Position), y(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue)
     }
     
     public typealias ContentEnum = Enums
@@ -435,7 +435,11 @@ extension SliderDataZoom: Enumable {
                 self.z = z
             case let .left(left):
                 self.left = left
+            case let .x(left):
+                self.left = left
             case let .top(top):
+                self.top = top
+            case let .y(top):
                 self.top = top
             case let .right(right):
                 self.right = right

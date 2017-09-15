@@ -367,6 +367,8 @@ public final class Brush {
     ///         }
     ///     }
     public var outOfBrush: String? // FIXME: 还需研究
+    /// brush 选框的 z-index。当有和不想管组件有不正确的重叠时，可以进行调整。
+    public var z: Float?
 }
 
 public typealias BrushToolbox = Brush.Toolbox
@@ -406,7 +408,7 @@ extension Brush.Style: Mappable {
 
 extension Brush: Enumable {
     public enum Enums {
-        case toolbox([BrushToolbox]), brushLink(Indexes), seriesIndex(Indexes), geoIndex(Indexes), xAxisIndex(Indexes), yAxisIndex(Indexes), brushType(Type), brushMode(Mode), transformable(Bool), brushStyle(Style), throttleType(ThrottleType), throttleDelay(Float), removeOnClick(Float), inBrush(String), outOfBrush(String)
+        case toolbox([BrushToolbox]), brushLink(Indexes), seriesIndex(Indexes), geoIndex(Indexes), xAxisIndex(Indexes), yAxisIndex(Indexes), brushType(Type), brushMode(Mode), transformable(Bool), brushStyle(Style), throttleType(ThrottleType), throttleDelay(Float), removeOnClick(Float), inBrush(String), outOfBrush(String), z(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -445,6 +447,8 @@ extension Brush: Enumable {
                 self.inBrush = inBrush
             case let .outOfBrush(outOfBrush):
                 self.outOfBrush = outOfBrush
+            case let .z(z):
+                self.z = z
             }
         }
     }
@@ -467,5 +471,6 @@ extension Brush: Mappable {
         map["removeOnClick"] = removeOnClick
         map["inBrush"] = inBrush
         map["outOfBrush"] = outOfBrush
+        map["z"] = z
     }
 }

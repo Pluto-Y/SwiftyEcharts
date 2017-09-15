@@ -147,6 +147,12 @@ internal func obtainJsonString(from value: Any) -> String {
  
 }
 
+extension NSNumber: Jsonable {
+    public var jsonString: String {
+        return self.description
+    }
+}
+
 extension Array: Jsonable {
     public var jsonString: String {
         var jsonStr = "[\n"
@@ -227,11 +233,5 @@ extension NSDictionary: Jsonable {
         
         jsonStr += "\n}"
         return jsonStr
-    }
-}
-
-extension NSNumber: Jsonable {
-    public var jsonString: String {
-        return self.description
     }
 }

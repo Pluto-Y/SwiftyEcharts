@@ -272,6 +272,46 @@ class SliderDataZoomSpec: QuickSpec {
                 expect(sliderDataZoomByEnums.jsonString).to(equal(sliderDataZoom.jsonString))
             }
             
+            it("needs to check the x and y") {
+                let sliderDataZoomByEnums = SliderDataZoom(
+                    .show(showValue),
+                    .backgroundColor(backgroundColorValue),
+                    .dataBackground(dataBackgroundValue),
+                    .fillerColor(fillerColorValue),
+                    .borderColor(borderColorValue),
+                    .handleIcon(handleIconValue),
+                    .handleSize(handleSizeValue),
+                    .handleStyle(handleStyleValue),
+                    .labelPrecision(labelPrecisionValue),
+                    .labelFormatter(labelFormatterValue),
+                    .showDetail(showDetailValue),
+                    .showDataShadow(showDataShadowValue),
+                    .realtime(realtimeValue),
+                    .textStyle(textStyleValue),
+                    .xAxisIndex(xAxisIndexOriginValue),
+                    .yAxisIndexes(yAxisIndexOriginValues),
+                    .radiusAxisIndex(radiusAxisIndexOriginValue),
+                    .angleAxisIndex(angleAxisIndexOriginValue),
+                    .filterMode(filterModeValue),
+                    .start(startValue),
+                    .end(endValue),
+                    .startValue(startValueValue),
+                    .endValue(endValueValue),
+                    .orient(orientValue),
+                    .zoomLock(zoomLockValue),
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .x(leftValue),
+                    .y(topValue),
+                    .right(rightValue),
+                    .bottom(bottomValue),
+                    .width(widthValue),
+                    .height(heightValue)
+                )
+                
+                expect(sliderDataZoomByEnums.jsonString).to(equal(sliderDataZoom.jsonString))
+            }
+            
             it("needs to check the xAxisIndexes, yAxisIndex, radiusAxisIndexes, angleAxisIndexes") {
                 let xAxisIndexOriginValues: [UInt8] = [127, 128, 129]
                 let yAxisIndexOriginValue: UInt8 = 55

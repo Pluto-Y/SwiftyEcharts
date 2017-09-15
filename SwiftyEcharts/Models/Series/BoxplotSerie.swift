@@ -116,6 +116,8 @@ public final class BoxplotSerie: Serie, Zable {
     ///
     /// 也可以看该示例
     public var animationDelay: Float?
+    /// 本系列特定的 tooltip 设定。
+    public var tooltip: Tooltip?
     
     public init() {}
 }
@@ -154,7 +156,7 @@ extension BoxplotSerieData: Mappable {
 
 extension BoxplotSerie: Enumable {
     public enum Enums {
-        case coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(Orient), boxWidth(Range), itemStyle(ItemStyle), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Float)
+        case coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), name(String), legendHoverLink(Bool), hoverAnimation(Bool), layout(Orient), boxWidth(Range), itemStyle(ItemStyle), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), animationDuration(Float), animationEasing(EasingFunction), animationDelay(Float), tooltip(Tooltip)
     }
     
     public typealias ContentEnum = Enums
@@ -201,6 +203,8 @@ extension BoxplotSerie: Enumable {
                 self.animationEasing = animationEasing
             case let .animationDelay(animationDelay):
                 self.animationDelay = animationDelay
+            case let .tooltip(tooltip):
+                self.tooltip = tooltip
             }
         }
     }
@@ -228,5 +232,6 @@ extension BoxplotSerie: Mappable {
         map["animationDuration"] = animationDuration
         map["animationEasing"] = animationEasing
         map["animationDelay"] = animationDelay
+        map["tooltip"] = tooltip
     }
 }

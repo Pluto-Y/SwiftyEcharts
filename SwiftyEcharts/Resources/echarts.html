@@ -7,11 +7,13 @@
     <script src="js/echarts.min.js"></script>
     <script src="js/china.js"></script>
     <script src="js/world.js"></script>
+    <script src="js/dataTool.js"></script>
     <script type="text/javascript">
         var option;
         var myChart;
         var ecConfig;
         
+        var excludeStrs = ['close', 'open']
         // Json string to object
         function preTask(obj) {
             var result;
@@ -32,6 +34,9 @@
                     return result;
                 }
             } else if(typeof(obj) == 'string'){
+                if(excludeStrs.includes(obj)) {
+                    return obj;
+                }
                 try {
                     if(typeof(eval(obj)) == 'function'){
                         return eval(obj);

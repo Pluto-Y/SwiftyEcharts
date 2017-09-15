@@ -62,7 +62,7 @@ class AxisSpec: QuickSpec {
             let minValue: Float = 0.05
             let maxValue: Float = 10000
             let scaleValue = false
-            let spliteNumberValue: UInt = 4
+            let splitNumberValue: UInt = 4
             let minIntervalValue: UInt = 2
             let intervalValue = 3
             let logBaseValue: Float = 2.5
@@ -117,7 +117,7 @@ class AxisSpec: QuickSpec {
             axis.min = minValue
             axis.max = maxValue
             axis.scale = scaleValue
-            axis.spliteNumber = spliteNumberValue
+            axis.splitNumber = splitNumberValue
             axis.minInterval = minIntervalValue
             axis.interval = intervalValue
             axis.logBase = logBaseValue
@@ -150,7 +150,7 @@ class AxisSpec: QuickSpec {
                     "min": minValue,
                     "max": maxValue,
                     "scale": scaleValue,
-                    "spliteNumber": spliteNumberValue,
+                    "splitNumber": splitNumberValue,
                     "minInterval": minIntervalValue,
                     "interval": intervalValue,
                     "logBase": logBaseValue,
@@ -187,7 +187,7 @@ class AxisSpec: QuickSpec {
                     .min(minValue),
                     .max(maxValue),
                     .scale(scaleValue),
-                    .spliteNumber(spliteNumberValue),
+                    .splitNumber(splitNumberValue),
                     .minInterval(minIntervalValue),
                     .interval(intervalValue),
                     .logBase(logBaseValue),

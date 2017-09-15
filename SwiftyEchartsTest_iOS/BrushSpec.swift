@@ -143,6 +143,7 @@ class BrushSpec: QuickSpec {
             let removeOnClickValue: Float = 0.0
             let inBrushValue = "inBrushValue"
             let outBrushValue = "outOfBrushValue"
+            let zValue: Float = 8472.237462378
             
             let brush = Brush()
             brush.toolbox = toolboxValue
@@ -160,6 +161,7 @@ class BrushSpec: QuickSpec {
             brush.removeOnClick = removeOnClickValue
             brush.inBrush = inBrushValue
             brush.outOfBrush = outBrushValue
+            brush.z = zValue
             
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
@@ -177,7 +179,8 @@ class BrushSpec: QuickSpec {
                     "throttleDelay": throttleDelayValue,
                     "removeOnClick": removeOnClickValue,
                     "inBrush": inBrushValue,
-                    "outOfBrush": outBrushValue
+                    "outOfBrush": outBrushValue,
+                    "z": zValue
                 ]
 
                 expect(brush.jsonString).to(equal(resultDic.jsonString))
@@ -199,7 +202,8 @@ class BrushSpec: QuickSpec {
                     .throttleDelay(throttleDelayValue),
                     .removeOnClick(removeOnClickValue),
                     .inBrush(inBrushValue),
-                    .outOfBrush(outBrushValue)
+                    .outOfBrush(outBrushValue),
+                    .z(zValue)
                 )
                 
                 expect(brushByEnums.jsonString).to(equal(brush.jsonString))

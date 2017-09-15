@@ -13,9 +13,9 @@ class PiesController: BaseDemoController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menus = ["Customized Pie", "环形图", "嵌套环形图", "饼图纹理", "某站点用户访问来源", "南丁格尔玫瑰图"]
+        menus = ["Customized Pie", "环形图", "嵌套环形图", "饼图纹理", "某站点用户访问来源", "南丁格尔玫瑰图", "富文本标签", "可滚动的图例(暂无)"]
         
-        optionClosures = [PieOptions.pieCustomOption, PieOptions.pieDoughnutOption, PieOptions.pieNestOption, PieOptions.piePatternOption, PieOptions.pieSimpleOption, PieOptions.pieRoseTypeOption]
+        optionClosures = [PieOptions.pieCustomOption, PieOptions.pieDoughnutOption, PieOptions.pieNestOption, PieOptions.piePatternOption, PieOptions.pieSimpleOption, PieOptions.pieRoseTypeOption, PieOptions.pieRichTextOption, PieOptions.pieLegendOption]
 
         self.title = "饼图"
     }

@@ -64,6 +64,7 @@ public final class MarkPoint: Symbolized, Animatable {
     ///         return idx * 100;
     ///     }
     public var animationDelayUpdate: Time?
+    public var tooltip: Tooltip?
     
     public init() { }
     
@@ -71,7 +72,7 @@ public final class MarkPoint: Symbolized, Animatable {
 
 extension MarkPoint: Enumable {
     public enum Enums {
-        case symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), silent(Bool), label(EmphasisLabel), itemStyle(ItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case symbol(Symbol), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), silent(Bool), label(EmphasisLabel), itemStyle(ItemStyle),  data([Jsonable]), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), tooltip(Tooltip)
     }
     
     public typealias ContentEnum = Enums
@@ -112,6 +113,8 @@ extension MarkPoint: Enumable {
                 self.animationEasingUpdate = animationEasingUpdate
             case let .animationDelayUpdate(animationDelayUpdate):
                 self.animationDelayUpdate = animationDelayUpdate
+            case let .tooltip(tooltip):
+                self.tooltip = tooltip
             }
         }
     }
@@ -135,5 +138,6 @@ extension MarkPoint: Mappable {
         map["animationDurationUpdate"] = animationDurationUpdate
         map["animationEasingUpdate"] = animationEasingUpdate
         map["animationDelayUpdate"] = animationDelayUpdate
+        map["tooltip"] = tooltip
     }
 }

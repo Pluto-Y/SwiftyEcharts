@@ -13,7 +13,9 @@ public protocol ItemStyleContent: Colorful, Borderable, Shadowable, Opacitable {
 public final class CommonItemStyleContent: ItemStyleContent {
     
     public var color: Color?
+    public var color0: Color? // 目前只针对 CandlestickSerie, 阴线 图形的颜色。
     public var borderColor: Color?
+    public var borderColor0: Color? // 目前只针对 CandlestickSerie, 阴线 图形的描边颜色。
     public var borderWidth: Float?
     public var borderType: LineType?
     public var shadowBlur: Float?
@@ -34,7 +36,7 @@ public final class CommonItemStyleContent: ItemStyleContent {
 
 extension CommonItemStyleContent: Enumable {
     public enum Enums {
-        case color(Color), borderColor(Color), borderWidth(Float), borderType(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), barBorderRadius(Float), areaColor(Color)
+        case color(Color), color0(Color), borderColor(Color), borderColor0(Color), borderWidth(Float), borderType(LineType), shadowBlur(Float), shadowColor(Color), shadowOffsetX(Float), shadowOffsetY(Float), opacity(Float), barBorderRadius(Float), areaColor(Color)
     }
     
     public typealias ContentEnum = Enums
@@ -45,8 +47,12 @@ extension CommonItemStyleContent: Enumable {
             switch ele {
             case let .color(color):
                 self.color = color
+            case let .color0(color0):
+                self.color0 = color0
             case let .borderColor(color):
                 self.borderColor = color
+            case let .borderColor0(color0):
+                self.borderColor0 = color0
             case let .borderWidth(width):
                 self.borderWidth = width
             case let .borderType(borderType):
@@ -73,7 +79,9 @@ extension CommonItemStyleContent: Enumable {
 extension CommonItemStyleContent: Mappable {
     public func mapping(_ map: Mapper) {
         map["color"] = color
+        map["color0"] = color0
         map["borderColor"] = borderColor
+        map["borderColor0"] = borderColor0
         map["borderWidth"] = borderWidth
         map["borderType"] = borderType
         map["shadowBlur"] = shadowBlur

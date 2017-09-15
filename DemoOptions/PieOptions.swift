@@ -46,7 +46,7 @@ public final class PieOptions {
                         ["value":335, "name":"直接访问"],
                         ["value":400, "name":"搜索引擎"]
                         ]),
-                    .roseType(.enable),
+                    .roseType(.radius),
                     .label(EmphasisLabel(
                         .normal(LabelStyle(// PS: 这里直接用属性就可以了
                             .color(.rgba(255, 255, 255, 0.3))
@@ -357,6 +357,135 @@ public final class PieOptions {
                         ])
                 )
                 ])
+        )
+    }
+    
+    // MARK: 富文本标签
+    /// 地址: http://echarts.baidu.com/demo.html#pie-rich-text
+    static func pieRichTextOption() -> Option {
+        let weatherIcons: [String: Jsonable] = [
+            "Sunny": "http://echarts.baidu.com/data/asset/img/weather/sunny_128.png",
+            "Cloudy": "http://echarts.baidu.com/data/asset/img/weather/cloudy_128.png",
+            "Showers": "http://echarts.baidu.com/data/asset/img/weather/showers_128.png"
+        ]
+        
+        return Option(
+            .title(Title(
+                .text("天气情况统计"),
+                .subtext("虚构数据"),
+                .left(.center)
+                )),
+            .tooltip(Tooltip(
+                .trigger(.item),
+                .formatter(.string("{a} <br/>{b} : {c} ({d}%)"))
+                )),
+            .legend(Legend(
+                .bottom(.value(10)),
+                .left(.center),
+                .data(["西凉", "益州","兖州","荆州","幽州"])
+                )),
+            .series([
+                PieSerie(
+                    .radius(65%),
+                    .center([30%, 50%]),
+                    .selectedMode(.single),
+                    .data([
+                        PieSerie.Data(
+                            .value(1548),
+                            .name("幽州"),
+                            .label(EmphasisLabel(
+                                .normal(LabelStyle(
+                                    .formatter(.string("{title|{b}}{abg|}<br>  {weatherHead|天气}{valueHead|天数}{rateHead|占比}<br>{hr|}<br>  {Sunny|}{value|202}{rate|55.3%}<br>  {Cloudy|}{value|142}{rate|38.9%}<br>  {Showers|}{value|21}{rate|5.8%}")),
+                                    .backgroundColor("#eee"),
+                                    .borderColor("#777"),
+                                    .borderWidth(1),
+                                    .borderRadius(4),
+                                    .rich([
+                                        "title": [
+                                            "color": "#eee",
+                                            "align": "center"
+                                        ],
+                                        "abg": [
+                                            "backgroundColor": "#333",
+                                            "width": "100%",
+                                            "align": "right",
+                                            "height": 25,
+                                            "borderRadius": [4, 4, 0, 0]
+                                        ],
+                                        "Sunny": [
+                                            "height": 30,
+                                            "align": "left",
+                                            "backgroundColor": (["image": weatherIcons["Sunny"]] as Jsonable)
+                                        ],
+                                        "Cloudy": [
+                                            "height": 30,
+                                            "align": "left",
+                                            "backgroundColor": (["image": weatherIcons["Cloudy"]] as Jsonable)
+                                        ],
+                                        "Showers": [
+                                            "height": 30,
+                                            "align": "left",
+                                            "backgroundColor": (["image": weatherIcons["Showers"]] as Jsonable)
+                                        ],
+                                        "weatherHead": [
+                                            "color": "#333",
+                                            "height": 24,
+                                            "align": "left"
+                                        ],
+                                        "hr": [
+                                            "borderColor": "#777",
+                                            "width": "100%",
+                                            "borderWidth": 0.5,
+                                            "height": 0
+                                        ],
+                                        "value": [
+                                            "width": 20,
+                                            "padding": [0, 20, 0, 30],
+                                            "align": "left"
+                                        ],
+                                        "valueHead": [
+                                            "color": "#333",
+                                            "width": 20,
+                                            "padding": [0, 20, 0, 30],
+                                            "align": "center"
+                                        ],
+                                        "rate": [
+                                            "width": 40,
+                                            "align": "right",
+                                            "padding": [0, 10, 0, 0]
+                                        ],
+                                        "rateHead": [
+                                            "color": "#333",
+                                            "width": 40,
+                                            "align": "center",
+                                            "padding": [0, 10, 0, 0]
+                                        ]
+                                        ])
+                                    ))
+                                ))
+                        ),
+                        PieSerie.Data(.value(535), .name("荆州")),
+                        PieSerie.Data(.value(510), .name("兖州")),
+                        PieSerie.Data(.value(634), .name("益州")),
+                        PieSerie.Data(.value(735), .name("西凉"))
+                        ]),
+                    .itemStyle(ItemStyle(
+                        .emphasis(CommonItemStyleContent(
+                            .shadowBlur(10),
+                            .shadowOffsetX(0),
+                            .shadowColor(rgba(0, 0, 0, 0.5))
+                            ))
+                        ))
+                )
+                ])
+        )
+    }
+    
+    // MARK: 可滚动的图例
+    /// 地址: http://echarts.baidu.com/demo.html#pie-legend
+    static func pieLegendOption() -> Option {
+        // TODO: 添加实现
+        return Option(
         )
     }
 }

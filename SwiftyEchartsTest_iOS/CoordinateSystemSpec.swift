@@ -17,17 +17,20 @@ class CoordinateSystemSpec: QuickSpec {
             let polarString = "polar"
             let geoString = "geo"
             let parallelString = "parallel"
+            let noneString = "none"
             
             let cartesian2dCoordinateSystem = CoordinateSystem.cartesian2d
             let polarCoordinateSystem = CoordinateSystem.polar
             let geoCoordinateSystem = CoordinateSystem.geo
             let parallelCoordinateSystem = CoordinateSystem.parallel
+            let noneCoordinateSystem = CoordinateSystem.none
             
             it("needs to check the jsonString") {
                 expect(cartesian2dCoordinateSystem.jsonString).to(equal(cartesian2dString.jsonString))
                 expect(polarCoordinateSystem.jsonString).to(equal(polarString.jsonString))
                 expect(geoCoordinateSystem.jsonString).to(equal(geoString.jsonString))
                 expect(parallelCoordinateSystem.jsonString).to(equal(parallelString.jsonString))
+                expect(noneCoordinateSystem.jsonString).to(equal(noneString.jsonString))
             }
         }
     }

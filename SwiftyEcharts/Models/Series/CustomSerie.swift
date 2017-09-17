@@ -6,9 +6,7 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-import UIKit
-
-public final class CustomSerie: Serie {
+public final class CustomSerie: Serie, Zable, Animatable {
     
     public var type: SerieType {
         return .custom
@@ -19,31 +17,31 @@ public final class CustomSerie: Serie {
     public var coordinateSystem: CoordinateSystem?
     public var xAxisIndex: UInt?
     public var yAxisIndex: UInt?
-    public var cursor: String?
-    public var draggable: Bool?
-    public var progressive: Bool?
-    public var width: LengthValue?
-    public var height: LengthValue?
-    public var children: [Jsonable]?
-    public var onclick: String?
-    public var onmouseover: String?
-    public var onmouseout: String?
-    public var onmousemove: String?
-    public var onmousewheel: String?
-    public var onmousedown: String?
-    public var onmouseup: String?
-    public var ondrag: String?
-    public var ondragstart: String?
-    public var ondragend: String?
-    public var ondragenter: String?
-    public var ondragleave: String?
-    public var ondragover: String?
-    public var ondrop: String?
+    public var polarIndex: UInt?
+    public var geoIndex: UInt?
+    public var calendarIndex: UInt?
+    public var renderItem: String?
+    public var itemStyle: ItemStyle?
+    public var dimensions: [Jsonable]?
+    public var encode: [String: Jsonable]?
+    public var data: [Jsonable]?
+    public var zlevel: Float?
+    public var z: Float?
+    public var silent: Bool?
+    public var animation: Bool?
+    public var animationThreshold: Float?
+    public var animationDuration: Time?
+    public var animationEasing: EasingFunction?
+    public var animationDelay: Time?
+    public var animationDurationUpdate: Time?
+    public var animationEasingUpdate: EasingFunction?
+    public var animationDelayUpdate: Time?
+    public var tooltip: Tooltip?
 }
 
 extension CustomSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), cursor(String), draggable(Bool), progressive(Bool), width(LengthValue), height(LengthValue), children([Jsonable]), onclick(String), onmouseover(String), onmouseout(String), onmousemove(String), onmousewheel(String), onmousedown(String), onmouseup(String), ondrag(String), ondragstart(String), ondragend(String), ondragenter(String), ondragleave(String), ondragover(String), ondrop(String)
+        case name(String), legendHoverLink(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), geoIndex(UInt), calendarIndex(UInt), renderItem(String), itemStyle(ItemStyle), dimensions([Jsonable]), encode([String: Jsonable]), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), tooltip(Tooltip)
     }
     
     public typealias ContentEnum = Enums
@@ -62,46 +60,46 @@ extension CustomSerie: Enumable {
                 self.xAxisIndex = xAxisIndex
             case let .yAxisIndex(yAxisIndex):
                 self.yAxisIndex = yAxisIndex
-            case let .cursor(cursor):
-                self.cursor = cursor
-            case let .draggable(draggable):
-                self.draggable = draggable
-            case let .progressive(progressive):
-                self.progressive = progressive
-            case let .width(width):
-                self.width = width
-            case let .height(height):
-                self.height = height
-            case let .children(children):
-                self.children = children
-            case let .onclick(onclick):
-                self.onclick = onclick
-            case let .onmouseover(onmouseover):
-                self.onmouseover = onmouseover
-            case let .onmouseout(onmouseout):
-                self.onmouseout = onmouseout
-            case let .onmousemove(onmousemove):
-                self.onmousemove = onmousemove
-            case let .onmousewheel(onmousewheel):
-                self.onmousewheel = onmousewheel
-            case let .onmousedown(onmousedown):
-                self.onmousedown = onmousedown
-            case let .onmouseup(onmouseup):
-                self.onmouseup = onmouseup
-            case let .ondrag(ondrag):
-                self.ondrag = ondrag
-            case let .ondragstart(ondragstart):
-                self.ondragstart = ondragstart
-            case let .ondragend(ondragend):
-                self.ondragend = ondragend
-            case let .ondragenter(ondragenter):
-                self.ondragenter = ondragenter
-            case let .ondragleave(ondragleave):
-                self.ondragleave = ondragleave
-            case let .ondragover(ondragover):
-                self.ondragover = ondragover
-            case let .ondrop(ondrop):
-                self.ondrop = ondrop
+            case let .polarIndex(polarIndex):
+                self.polarIndex = polarIndex
+            case let .geoIndex(geoIndex):
+                self.geoIndex = geoIndex
+            case let .calendarIndex(calendarIndex):
+                self.calendarIndex = calendarIndex
+            case let .renderItem(renderItem):
+                self.renderItem = renderItem
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            case let .dimensions(dimensions):
+                self.dimensions = dimensions
+            case let .encode(encode):
+                self.encode = encode
+            case let .data(data):
+                self.data = data
+            case let .zlevel(zlevel):
+                self.zlevel = zlevel
+            case let .z(z):
+                self.z = z
+            case let .silent(silent):
+                self.silent = silent
+            case let .animation(animation):
+                self.animation = animation
+            case let .animationThreshold(animationThreshold):
+                self.animationThreshold = animationThreshold
+            case let .animationDuration(animationDuration):
+                self.animationDuration = animationDuration
+            case let .animationEasing(animationEasing):
+                self.animationEasing = animationEasing
+            case let .animationDelay(animationDelay):
+                self.animationDelay = animationDelay
+            case let .animationDurationUpdate(animationDurationUpdate):
+                self.animationDurationUpdate = animationDurationUpdate
+            case let .animationEasingUpdate(animationEasingUpdate):
+                self.animationEasingUpdate = animationEasingUpdate
+            case let .animationDelayUpdate(animationDelayUpdate):
+                self.animationDelayUpdate = animationDelayUpdate
+            case let .tooltip(tooltip):
+                self.tooltip = tooltip
             }
         }
     }
@@ -115,25 +113,25 @@ extension CustomSerie: Mappable {
         map["coordinateSystem"] = coordinateSystem
         map["xAxisIndex"] = xAxisIndex
         map["yAxisIndex"] = yAxisIndex
-        map["cursor"] = cursor
-        map["draggable"] = draggable
-        map["progressive"] = progressive
-        map["width"] = width
-        map["height"] = height
-        map["children"] = children
-        map["onclick"] = onclick
-        map["onmouseover"] = onmouseover
-        map["onmouseout"] = onmouseout
-        map["onmousemove"] = onmousemove
-        map["onmousewheel"] = onmousewheel
-        map["onmousedown"] = onmousedown
-        map["onmouseup"] = onmouseup
-        map["ondrag"] = ondrag
-        map["ondragstart"] = ondragstart
-        map["ondragend"] = ondragend
-        map["ondragenter"] = ondragenter
-        map["ondragleave"] = ondragleave
-        map["ondragover"] = ondragover
-        map["ondrop"] = ondrop
+        map["polarIndex"] = polarIndex
+        map["geoIndex"] = geoIndex
+        map["calendarIndex"] = calendarIndex
+        map["renderItem"] = renderItem
+        map["itemStyle"] = itemStyle
+        map["dimensions"] = dimensions
+        map["encode"] = encode
+        map["data"] = data
+        map["zlevel"] = zlevel
+        map["z"] = z
+        map["silent"] = silent
+        map["animation"] = animation
+        map["animationThreshold"] = animationThreshold
+        map["animationDuration"] = animationDuration
+        map["animationEasing"] = animationEasing
+        map["animationDelay"] = animationDelay
+        map["animationDurationUpdate"] = animationDurationUpdate
+        map["animationEasingUpdate"] = animationEasingUpdate
+        map["animationDelayUpdate"] = animationDelayUpdate
+        map["tooltip"] = tooltip
     }
 }

@@ -103,6 +103,13 @@
 /// renderItem.arguments.api 中使用的参数都是 dataIndexInside 而非 dataIndex，因为从 dataIndex 转换成 dataIndexInside 需要时间开销。
 public final class CustomSerie: Serie, Zable, Animatable {
     
+    public final class Data {
+        public var name: String?
+        public var value: Float?
+        public var itemStyle: ItemStyle?
+        public var tooltip: Tooltip?
+    }
+    
     public var type: SerieType {
         return .custom
     }
@@ -270,6 +277,39 @@ public final class CustomSerie: Serie, Zable, Animatable {
     
     /// 本系列特定的 tooltip 设定。
     public var tooltip: Tooltip?
+}
+
+extension CustomSerie.Data: Enumable {
+    public enum Enums {
+        case name(String), value(Float), itemStyle(ItemStyle), tooltip(Tooltip)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
+            case let .value(value):
+                self.value = value
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
+            case let .tooltip(tooltip):
+                self.tooltip = tooltip
+            }
+        }
+    }
+}
+
+extension CustomSerie.Data: Mappable {
+    public func mapping(map: Mapper) {
+        map["name"] = name
+        map["value"] = value
+        map["itemStyle"] = itemStyle
+        map["tooltip"] = tooltip
+    }
 }
 
 extension CustomSerie: Enumable {

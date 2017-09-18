@@ -19,28 +19,35 @@ class CustomSerieSpec: QuickSpec {
             let coordinateSystemValue = CoordinateSystem.none
             let xAxisIndexValue = UInt.max
             let yAxisIndexValue = UInt.min
-            let cursorValue = "pointer"
-            let draggableValue = true
-            let progressiveValue = false
-            let widthValue: LengthValue = 100%
-            let heightValue: LengthValue = 20
-            let childrenValue: [Jsonable] = [
-                "child1", false, Float(2.0), 10, 74.9, [:]
+            let polarIndexValue: UInt = 75
+            let geoIndexValue: UInt = 200
+            let calendarIndexValue: UInt = 0
+            let renderItemValue = "customSerieRenderItemValue"
+            let itemStyleValue = ItemStyle(
+                
+            )
+            let dimensionsValue: [Jsonable] = ["date", "open", "close", "highest", "lowest"]
+            let encodeValue: [String: Jsonable] = [
+                "x": "date",
+                "y": ["open", "close", "highest", "lowest"]
             ]
-            let onclickValue = "onClickValue"
-            let onmouseoverValue = "onMouseOverValue"
-            let onmouseoutValue = "onMouseOutValue"
-            let onmousemoveValue = "onMouseMoveValue"
-            let onmousewheelValue = "onMouseWheelValue"
-            let onmousedownValue = "onMouseDownValue"
-            let onmouseupValue = "onMouseUpValue"
-            let ondragValue = "onDragValue"
-            let ondragstartValue = "onDragStartValue"
-            let ondragendValue = "onDragEndValue"
-            let ondragenterValue = "onDragEnterValue"
-            let ondragleaveValue = "onDragLeaveValue"
-            let ondragoverValue = "onDragOverValue"
-            let ondropValue = "onDropValue"
+            let dataValue: [Jsonable] = [
+                [12, 44, 55, 66, 2],
+                [23, 6, 16, 23, 1]
+            ]
+            let zlevelValue: Float = 8.3477
+            let zValue: Float = 8888888.9999999
+            let silentValue = false
+            let animationValue = true
+            let animationThresholdValue: Float = 84.2732
+            let animationDurationValue: Time = 8
+            let animationEasingValue = EasingFunction.circularOut
+            let animationDelayValue = Time.number(8.237)
+            let animationDurationUpdateValue = Time.number(73.7236)
+            let animationEasingUpdateValue = EasingFunction.circularOut
+            let animationDelayUpdateValue = Time.number(0.000000001)
+            let tooltipValue = Tooltip(
+            )
             
             let customSerie = CustomSerie()
             customSerie.name = nameValue
@@ -48,26 +55,26 @@ class CustomSerieSpec: QuickSpec {
             customSerie.coordinateSystem = coordinateSystemValue
             customSerie.xAxisIndex = xAxisIndexValue
             customSerie.yAxisIndex = yAxisIndexValue
-            customSerie.cursor = cursorValue
-            customSerie.draggable = draggableValue
-            customSerie.progressive = progressiveValue
-            customSerie.width = widthValue
-            customSerie.height = heightValue
-            customSerie.children = childrenValue
-            customSerie.onclick = onclickValue
-            customSerie.onmouseover = onmouseoverValue
-            customSerie.onmouseout = onmouseoutValue
-            customSerie.onmousemove = onmousemoveValue
-            customSerie.onmousewheel = onmousewheelValue
-            customSerie.onmousedown = onmousedownValue
-            customSerie.onmouseup = onmouseupValue
-            customSerie.ondrag = ondragValue
-            customSerie.ondragstart = ondragstartValue
-            customSerie.ondragend = ondragendValue
-            customSerie.ondragenter = ondragenterValue
-            customSerie.ondragleave = ondragleaveValue
-            customSerie.ondragover = ondragoverValue
-            customSerie.ondrop = ondropValue
+            customSerie.polarIndex = polarIndexValue
+            customSerie.geoIndex = geoIndexValue
+            customSerie.calendarIndex = calendarIndexValue
+            customSerie.renderItem = renderItemValue
+            customSerie.itemStyle = itemStyleValue
+            customSerie.dimensions = dimensionsValue
+            customSerie.encode = encodeValue
+            customSerie.data = dataValue
+            customSerie.zlevel = zlevelValue
+            customSerie.z = zValue
+            customSerie.silent = silentValue
+            customSerie.animation = animationValue
+            customSerie.animationThreshold = animationThresholdValue
+            customSerie.animationDuration = animationDurationValue
+            customSerie.animationEasing = animationEasingValue
+            customSerie.animationDelay = animationDelayValue
+            customSerie.animationDurationUpdate = animationDurationUpdateValue
+            customSerie.animationEasingUpdate = animationEasingUpdateValue
+            customSerie.animationDelayUpdate = animationDelayUpdateValue
+            customSerie.tooltip = tooltipValue
             
             it("needs to check the type value") {
                 expect(customSerie.type.jsonString).to(equal(customString.jsonString))
@@ -81,26 +88,26 @@ class CustomSerieSpec: QuickSpec {
                     "coordinateSystem": coordinateSystemValue,
                     "xAxisIndex": xAxisIndexValue,
                     "yAxisIndex": yAxisIndexValue,
-                    "cursor": cursorValue,
-                    "draggable": draggableValue,
-                    "progressive": progressiveValue,
-                    "width": widthValue,
-                    "height": heightValue,
-                    "children": childrenValue,
-                    "onclick": onclickValue,
-                    "onmouseover": onmouseoverValue,
-                    "onmouseout": onmouseoutValue,
-                    "onmousemove": onmousemoveValue,
-                    "onmousewheel": onmousewheelValue,
-                    "onmousedown": onmousedownValue,
-                    "onmouseup": onmouseupValue,
-                    "ondrag": ondragValue,
-                    "ondragstart": ondragstartValue,
-                    "ondragend": ondragendValue,
-                    "ondragenter": ondragenterValue,
-                    "ondragleave": ondragleaveValue,
-                    "ondragover": ondragoverValue,
-                    "ondrop": ondropValue
+                    "polarIndex": polarIndexValue,
+                    "geoIndex": geoIndexValue,
+                    "calendarIndex": calendarIndexValue,
+                    "renderItem": renderItemValue,
+                    "itemStyle": itemStyleValue,
+                    "dimensions": dimensionsValue,
+                    "encode": encodeValue,
+                    "data": dataValue,
+                    "zlevel": zlevelValue,
+                    "z": zValue,
+                    "silent": silentValue,
+                    "animation": animationValue,
+                    "animationThreshold": animationThresholdValue,
+                    "animationDuration": animationDurationValue,
+                    "animationEasing": animationEasingValue,
+                    "animationDelay": animationDelayValue,
+                    "animationDurationUpdate": animationDurationUpdateValue,
+                    "animationEasingUpdate": animationEasingUpdateValue,
+                    "animationDelayUpdate": animationDelayUpdateValue,
+                    "tooltip": tooltipValue
                 ]
                 
                 expect(customSerie.jsonString).to(equal(resultDic.jsonString))
@@ -113,26 +120,26 @@ class CustomSerieSpec: QuickSpec {
                     .coordinateSystem(coordinateSystemValue),
                     .xAxisIndex(xAxisIndexValue),
                     .yAxisIndex(yAxisIndexValue),
-                    .cursor(cursorValue),
-                    .draggable(draggableValue),
-                    .progressive(progressiveValue),
-                    .width(widthValue),
-                    .height(heightValue),
-                    .children(childrenValue),
-                    .onclick(onclickValue),
-                    .onmouseover(onmouseoverValue),
-                    .onmouseout(onmouseoutValue),
-                    .onmousemove(onmousemoveValue),
-                    .onmousewheel(onmousewheelValue),
-                    .onmousedown(onmousedownValue),
-                    .onmouseup(onmouseupValue),
-                    .ondrag(ondragValue),
-                    .ondragstart(ondragstartValue),
-                    .ondragend(ondragendValue),
-                    .ondragenter(ondragenterValue),
-                    .ondragleave(ondragleaveValue),
-                    .ondragover(ondragoverValue),
-                    .ondrop(ondropValue)
+                    .polarIndex(polarIndexValue),
+                    .geoIndex(geoIndexValue),
+                    .calendarIndex(calendarIndexValue),
+                    .renderItem(renderItemValue),
+                    .itemStyle(itemStyleValue),
+                    .dimensions(dimensionsValue),
+                    .encode(encodeValue),
+                    .data(dataValue),
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .silent(silentValue),
+                    .animation(animationValue),
+                    .animationThreshold(animationThresholdValue),
+                    .animationDuration(animationDurationValue),
+                    .animationEasing(animationEasingValue),
+                    .animationDelay(animationDelayValue),
+                    .animationDurationUpdate(animationDurationUpdateValue),
+                    .animationEasingUpdate(animationEasingUpdateValue),
+                    .animationDelayUpdate(animationDelayUpdateValue),
+                    .tooltip(tooltipValue)
                 )
                 
                 expect(customSerieByEnums.jsonString).to(equal(customSerie.jsonString))

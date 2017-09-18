@@ -12,6 +12,54 @@ import Nimble
 
 class CustomSerieSpec: QuickSpec {
     override func spec() {
+        let nameDataValue = "customSerieDataName"
+        let valueDataValue: Float = 28.347
+        let itemStyleDataValue = ItemStyle(
+            .emphasis(CommonItemStyleContent(
+                .color(Color.hexColor("#887722")),
+                .borderWidth(28.0),
+                .opacity(0.99999999999),
+                .areaColor(rgba(200, 50, 100, 0.847))
+                ))
+        )
+        let tooltipDataValue = Tooltip(
+            .hideDelay(74.7),
+            .alwaysShowContent(false),
+            .trigger(.item),
+            .showContent(true),
+            .padding(20)
+        )
+        
+        let customSerieData = CustomSerie.Data()
+        customSerieData.name = nameDataValue
+        customSerieData.value = valueDataValue
+        customSerieData.itemStyle = itemStyleDataValue
+        customSerieData.tooltip = tooltipDataValue
+        
+        describe("For CustomSerie.Data") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "name": nameDataValue,
+                    "value": valueDataValue,
+                    "itemStyle": itemStyleDataValue,
+                    "tooltip": tooltipDataValue
+                ]
+                
+                expect(customSerieData.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let customSerieDataByEnums = CustomSerie.Data(
+                    .name(nameDataValue),
+                    .value(valueDataValue),
+                    .itemStyle(itemStyleDataValue),
+                    .tooltip(tooltipDataValue)
+                )
+                
+                expect(customSerieDataByEnums.jsonString).to(equal(customSerieData.jsonString))
+            }
+        }
+        
         describe("For CustomSerie") {
             let customString = "custom"
             let nameValue = "customNameValue"

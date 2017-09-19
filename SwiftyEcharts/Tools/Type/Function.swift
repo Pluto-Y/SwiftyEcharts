@@ -10,9 +10,18 @@
 /// 保证其的统一性以及将来的拓展性
 public final class Function {
     internal var jsFuncStr: String
+    /// 用来避免多次调用jsonString导致多次加入JsCache中
+    internal var jsonStr: String
     
-    init(_ jsFuncStr: String) {
+    public init(_ jsFuncStr: String) {
         self.jsFuncStr = jsFuncStr
+        if jsFuncStr == "null" {
+            jsonStr = "null"
+            return
+        }
+        jsonStr = "\(EchartsFunctionPrefix)\(JsCache.allJsStrings().count)"
+        JsCache.add("var \(jsonStr) = \(jsFuncStr);")
+        
     }
 }
 
@@ -21,10 +30,10 @@ internal let EchartsFunctionPrefix = "_echartsFunc"
 // MARK: - 用来封装对Jsonable的拓展
 extension Function: Jsonable {
     public var jsonString: String {
-        guard jsFuncStr != "null" else { return "null" }
-        let funcName = "\(EchartsFunctionPrefix)\(JsCache.allJsStrings().count)"
-        JsCache.add("var \(funcName) = \(jsFuncStr);")
-        return funcName.jsonString
+        guard jsFuncStr != "null" else {
+            return "null"
+        }
+        return jsonStr.jsonString
     }
 }
 

@@ -6,7 +6,6 @@
 //  Copyright © 2016 com.pluto-y. All rights reserved.
 //
 
-internal let FormatterFuncPrefix = "formatterFunc"
 /// 内容格式化器：支持字符串模板和回调函数两种形式
 ///
 /// ## string: 字符串模板。
@@ -22,16 +21,14 @@ internal let FormatterFuncPrefix = "formatterFunc"
 /// ## function:回调函数 支持js函数，只需通过字符串来指定声明函数即可
 public enum Formatter: Jsonable {
     case string(String)
-    case function(String)
+    case function(Function)
     
     public var jsonString: String {
         switch self {
         case let .string(formatter):
             return formatter.jsonString
         case let .function(f):
-            let funcName = "\(FormatterFuncPrefix)\(JsCache.allJsStrings().count)"
-            JsCache.add("var \(funcName) = \(f);")
-            return funcName.jsonString
+            return f.jsonString
         }
     }
 }

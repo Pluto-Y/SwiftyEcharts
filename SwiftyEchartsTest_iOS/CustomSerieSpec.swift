@@ -70,7 +70,7 @@ class CustomSerieSpec: QuickSpec {
             let polarIndexValue: UInt = 75
             let geoIndexValue: UInt = 200
             let calendarIndexValue: UInt = 0
-            let renderItemValue = "customSerieRenderItemValue"
+            let renderItemValue: Function = "customSerieRenderItemValue"
             let itemStyleValue = ItemStyle(
                 
             )

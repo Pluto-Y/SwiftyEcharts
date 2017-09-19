@@ -285,7 +285,7 @@ public final class CustomSerie: Serie, Zable, Animatable {
     /// 有时候还需要用到 api.size(...) 函数，表示得到坐标系上一段数值范围对应的长度。
     ///
     /// 返回值中样式的设置可以使用 api.style(...) 函数，他能得到 series.itemStyle.normal 中定义的样式信息，以及视觉映射的样式信息。也可以用这种方式覆盖这些样式信息：api.style({fill: 'green', stroke: 'yellow'})。
-    public var renderItem: String?
+    public var renderItem: Function?
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: ItemStyle?
     /// 使用 dimensions 定义 data 每个维度的信息。例如：
@@ -420,7 +420,7 @@ extension CustomSerie.Data: Mappable {
 
 extension CustomSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLink(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), geoIndex(UInt), calendarIndex(UInt), renderItem(String), itemStyle(ItemStyle), dimensions([Jsonable]), encode([String: Jsonable]), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), tooltip(Tooltip)
+        case name(String), legendHoverLink(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt), yAxisIndex(UInt), polarIndex(UInt), geoIndex(UInt), calendarIndex(UInt), renderItem(Function), itemStyle(ItemStyle), dimensions([Jsonable]), encode([String: Jsonable]), data([Jsonable]), zlevel(Float), z(Float), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), tooltip(Tooltip)
     }
     
     public typealias ContentEnum = Enums

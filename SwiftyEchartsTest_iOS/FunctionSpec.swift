@@ -34,6 +34,7 @@ class FunctionSpec: QuickSpec {
                 let function = Function(functionString)
                 
                 expect(function.jsonString).to(equal("\(EchartsFunctionPrefix)0".jsonString))
+                expect(function.jsonString).to(equal("\(EchartsFunctionPrefix)0".jsonString))
                 expect(JsCache.allJsStrings().count).to(equal(1))
                 expect(JsCache.allJsStrings().first).to(equal("var \(EchartsFunctionPrefix)0 = \(functionString);"))
             }

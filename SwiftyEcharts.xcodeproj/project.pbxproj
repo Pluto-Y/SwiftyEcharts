@@ -244,6 +244,7 @@
 		6FB48CC81DEF3BB100137D13 /* Formatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB48CC71DEF3BB100137D13 /* Formatted.swift */; };
 		6FB9862F1EC60B7500D2EFE1 /* TextSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB9862E1EC60B7500D2EFE1 /* TextSpec.swift */; };
 		6FB9864F1ECBFC8A00D2EFE1 /* HK.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FB9864E1ECBFC8A00D2EFE1 /* HK.json */; };
+		6FBF312A1F73A092005F2A96 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF31291F73A092005F2A96 /* Calendar.swift */; };
 		6FC28C111E9D37D700B79049 /* Percent.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540898A71E53F6F300A89BB0 /* Percent.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC28C121E9D37D700B79049 /* LengthValue.swift in Headers */ = {isa = PBXBuildFile; fileRef = 540898A91E53F71E00A89BB0 /* LengthValue.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC28C131E9D37D700B79049 /* Pair.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FEC7D1A1E549487003A88D7 /* Pair.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -682,6 +683,7 @@
 		6FB48CC71DEF3BB100137D13 /* Formatted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatted.swift; sourceTree = "<group>"; };
 		6FB9862E1EC60B7500D2EFE1 /* TextSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSpec.swift; sourceTree = "<group>"; };
 		6FB9864E1ECBFC8A00D2EFE1 /* HK.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HK.json; sourceTree = "<group>"; };
+		6FBF31291F73A092005F2A96 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		6FC28C901E9D4FE800B79049 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		6FC28C921E9D501700B79049 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		6FC28C941E9D527300B79049 /* Orient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orient.swift; sourceTree = "<group>"; };
@@ -1086,6 +1088,7 @@
 				541C72591E4BF9C300B194A3 /* Brush.swift */,
 				6FC40CF91E4CB1DF00F6E62F /* Geo.swift */,
 				6FC40CFB1E4CB20300F6E62F /* Parallel.swift */,
+				6FBF31291F73A092005F2A96 /* Calendar.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1722,6 +1725,7 @@
 				540898B01E54637100A89BB0 /* JsCache.swift in Sources */,
 				6FD249CA1E4E186D00FBB2F7 /* GroupGraphic.swift in Sources */,
 				6FC28C971E9D535400B79049 /* Symbol.swift in Sources */,
+				6FBF312A1F73A092005F2A96 /* Calendar.swift in Sources */,
 				54FEBE901E23480D0021CB13 /* Mapper.swift in Sources */,
 				6FC40CEC1E48BF7400F6E62F /* AxisLine.swift in Sources */,
 				5446EA0E1E7672E5009BAE71 /* ThemeRiverSerie.swift in Sources */,

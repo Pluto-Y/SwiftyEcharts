@@ -223,7 +223,7 @@ public final class Calendar: Zable {
         /// 文字本身的阴影颜色。
         public var textShadowColor: Color?
         /// 文字本身的阴影长度。
-        public var textShdaowBlur: Float?
+        public var textShadowBlur: Float?
         /// 文字本身的阴影 X 偏移。
         public var textShadowOffsetX: Float?
         /// 文字本身的阴影 Y 偏移。
@@ -367,7 +367,7 @@ public final class Calendar: Zable {
 
 extension Calendar.BaseLabel: Enumable {
     public enum Enums {
-        case show(Bool), firstDay(UInt8), margin(Float), position(Position), nameMap(OneOrMore<String>), color(Color), formatter(Formatter), fontStyle(FontStyle), fontWeight(FontWeight), fontFamily(String), fontSize(UInt), align(Align), verticalAlign(VerticalAlign), lineHeight(Float), backgroundColor(Color), borderColor(Color), borderWidth(Float), borderRadius(Float), padding(Padding), shadowColor(Color), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), width(LengthValue), height(LengthValue), textBorderColor(Color), textBorderWidth(Float), textShadowColor(Color), textShdaowBlur(Float), textShadowOffsetX(Float), textShadowOffsetY(Float), rich([String: Jsonable])
+        case show(Bool), firstDay(UInt8), margin(Float), position(Position), nameMap(String), nameMaps([String]), color(Color), formatter(Formatter), fontStyle(FontStyle), fontWeight(FontWeight), fontFamily(String), fontSize(UInt), align(Align), verticalAlign(VerticalAlign), lineHeight(Float), backgroundColor(Color), borderColor(Color), borderWidth(Float), borderRadius(Float), padding(Padding), shadowColor(Color), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), width(LengthValue), height(LengthValue), textBorderColor(Color), textBorderWidth(Float), textShadowColor(Color), textShadowBlur(Float), textShadowOffsetX(Float), textShadowOffsetY(Float), rich([String: Jsonable])
     }
     
     public typealias ContentEnum = Enums
@@ -385,7 +385,9 @@ extension Calendar.BaseLabel: Enumable {
             case let .position(position):
                 self.position = position
             case let .nameMap(nameMap):
-                self.nameMap = nameMap
+                self.nameMap = OneOrMore(one: nameMap)
+            case let .nameMaps(nameMaps):
+                self.nameMap = OneOrMore(more: nameMaps)
             case let .color(color):
                 self.color = color
             case let .formatter(formatter):
@@ -432,8 +434,8 @@ extension Calendar.BaseLabel: Enumable {
                 self.textBorderWidth = textBorderWidth
             case let .textShadowColor(textShadowColor):
                 self.textShadowColor = textShadowColor
-            case let .textShdaowBlur(textShdaowBlur):
-                self.textShdaowBlur = textShdaowBlur
+            case let .textShadowBlur(textShadowBlur):
+                self.textShadowBlur = textShadowBlur
             case let .textShadowOffsetX(textShadowOffsetX):
                 self.textShadowOffsetX = textShadowOffsetX
             case let .textShadowOffsetY(textShadowOffsetY):
@@ -475,7 +477,7 @@ extension Calendar.BaseLabel: Mappable {
         map["textBorderColor"] = textBorderColor
         map["textBorderWidth"] = textBorderWidth
         map["textShadowColor"] = textShadowColor
-        map["textShdaowBlur"] = textShdaowBlur
+        map["textShadowBlur"] = textShadowBlur
         map["textShadowOffsetX"] = textShadowOffsetX
         map["textShadowOffsetY"] = textShadowOffsetY
         map["rich"] = rich

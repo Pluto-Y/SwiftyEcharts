@@ -25,9 +25,13 @@ public final class AxisTick: Line, Displayable {
     /// 坐标轴刻度是否朝内，默认朝外。
     public var inside: Bool?
     /// 坐标轴刻度的长度。
-    public var length: Float?
+    public var length: LengthValue?
     /// 刻度横线的样式
     public var lineStyle: LineStyle?
+    
+    /// 分隔线之间分割的刻度数。
+    /// ## 目前只用于仪表盘图中
+    public var splitNumber: UInt8?
     
     public init() { }
     
@@ -35,7 +39,7 @@ public final class AxisTick: Line, Displayable {
 
 extension AxisTick: Enumable {
     public enum Enums {
-        case show(Bool), alignWithLabel(Bool), interval(Int), inside(Bool), length(Float), lineStyle(LineStyle)
+        case show(Bool), alignWithLabel(Bool), interval(Int), inside(Bool), length(LengthValue), lineStyle(LineStyle), splitNumber(UInt8)
     }
     
     public typealias ContentEnum = Enums
@@ -56,6 +60,8 @@ extension AxisTick: Enumable {
                 self.length = length
             case let .lineStyle(lineStyle):
                 self.lineStyle = lineStyle
+            case let .splitNumber(splitNumber):
+                self.splitNumber = splitNumber
             }
         }
     }
@@ -69,5 +75,6 @@ extension AxisTick: Mappable {
         map["inside"] = inside
         map["length"] = length
         map["lineStyle"] = lineStyle
+        map["splitNumber"] = splitNumber
     }
 }

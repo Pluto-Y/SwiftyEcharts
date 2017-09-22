@@ -17,6 +17,23 @@
 /// 示例： http://echarts.baidu.com/gallery/editor.html?c=doc-example/map-example
 public final class MapSerie: Serie, Zable, Animatable {
     
+    /// 多个拥有相同地图类型的系列会使用同一个地图展现，如果多个系列都在同一个区域有值，ECharts 会对这些值统计得到一个数据。这个配置项就是用于配置统计的方式，目前有：
+    ///
+    /// - 'sum' 取和。
+    /// - 'average' 取平均值。
+    /// - 'max' 取最大值。
+    /// - 'min' 取最小值。
+    public enum MapValueCalculation: String, Jsonable {
+        case average = "average"
+        case max = "max"
+        case min = "min"
+        case sum = "sum"
+        
+        public var jsonString: String {
+            return self.rawValue.jsonString
+        }
+    }
+    
     /// 滚轮缩放的极限控制，通过min, max最小和最大的缩放值，默认的缩放为1。
     public final class ScaleLimit {
         /// 最小的缩放值
@@ -194,7 +211,7 @@ public final class MapSerie: Serie, Zable, Animatable {
     /// - 'average' 取平均值。
     /// - 'max' 取最大值。
     /// - 'min' 取最小值。
-    public var mapValueCalculation: String?
+    public var mapValueCalculation: MapValueCalculation?
     /// 在图例相应区域显示图例的颜色标识（系列标识的小圆点），存在 legend 组件时生效。
     public var showLegendSymbol: Bool?
     /// 地图系列中的数据内容数组。数组项可以为单个数值，如：
@@ -323,7 +340,7 @@ extension MapSerie.Data: Mappable {
 
 extension MapSerie: Enumable {
     public enum Enums {
-        case name(String), map(String), roam(Roam), center(Point), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SelectedMode), label(EmphasisLabel), itemStyle(ItemStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), layoutCenter(Position), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(String), showLegendSymbol(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), map(String), roam(Roam), center(Point), aspectScale(Float), zoom(Float), scaleLimit(ScaleLimit), nameMap([String: Jsonable]), selectedMode(SelectedMode), label(EmphasisLabel), itemStyle(ItemStyle), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), layoutCenter(Position), layoutSize(LengthValue), geoIndex(UInt8), mapValueCalculation(MapValueCalculation), showLegendSymbol(Bool), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

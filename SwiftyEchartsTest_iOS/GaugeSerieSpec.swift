@@ -12,43 +12,6 @@ import Nimble
 
 class GaugeSerieSpec: QuickSpec {
     override func spec() {
-        let showAxisTickValue = false
-        let splitNumberAxisTickValue: UInt8 = 20
-        let lengthAxisTickValue: LengthValue = 20%
-        let lineStyleAxisTickValue = LineStyle(
-            .width(8)
-        )
-        
-        let axisTick = GaugeSerie.AxisTick()
-        axisTick.show = showAxisTickValue
-        axisTick.splitNumber = splitNumberAxisTickValue
-        axisTick.length = lengthAxisTickValue
-        axisTick.lineStyle = lineStyleAxisTickValue
-        
-        describe("For GaugeSerie.AxisTick") {
-            it("needs to check the jsonString") {
-                let resultDic: [String: Jsonable] = [
-                    "show": showAxisTickValue,
-                    "splitNumber": splitNumberAxisTickValue,
-                    "length": lengthAxisTickValue,
-                    "lineStyle": lineStyleAxisTickValue
-                ]
-
-                expect(axisTick.jsonString).to(equal(resultDic.jsonString))
-            }
-
-            it("needs to check the Enumable") {
-                let axisTickByEnums = GaugeSerie.AxisTick(
-                    .show(showAxisTickValue),
-                    .splitNumber(splitNumberAxisTickValue),
-                    .length(lengthAxisTickValue),
-                    .lineStyle(lineStyleAxisTickValue)
-                )
-                
-                expect(axisTickByEnums.jsonString).to(equal(axisTick.jsonString))
-            }
-        }
-        
         let showAxisLabelValue = true
         let distanceAxisLabelValue: Float = 0.5
         let formatterAxisLabelValue = Formatter.string("{value} ml")
@@ -236,7 +199,14 @@ class GaugeSerieSpec: QuickSpec {
                 .show(false),
                 .interval(2)
             )
-            let axisTickValue = axisTick
+            let axisTickValue = AxisTick(
+                .show(false),
+                .splitNumber(20),
+                .length(20%),
+                .lineStyle(LineStyle(
+                    .width(8)
+                    ))
+            )
             let axisLabelValue = axisLabel
             let pointerValue = pointer
             let itemStyleValue = ItemStyle(

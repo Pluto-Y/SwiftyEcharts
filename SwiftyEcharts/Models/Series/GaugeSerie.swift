@@ -11,20 +11,6 @@
 /// 示例：http://echarts.baidu.com/demo.html#gauge-car
 public final class GaugeSerie: Serie, Animatable {
     
-    /// 刻度样式。
-    public final class AxisTick: Displayable, Line {
-        /// 是否显示刻度。
-        public var show: Bool?
-        /// 分隔线之间分割的刻度数。
-        public var splitNumber: UInt8?
-        /// 刻度线长。支持相对半径的百分比。
-        public var length: LengthValue?
-        /// 刻度线样式。
-        public var lineStyle: LineStyle?
-        
-        public init() { }
-    }
-    
     /// 刻度标签。
     public final class AxisLabel: Displayable, Formatted, Textful, Colorful {
         /// 是否显示标签。
@@ -168,44 +154,10 @@ public final class GaugeSerie: Serie, Animatable {
     public init() { }
 }
 
-public typealias GaugeSerieAxisTick = GaugeSerie.AxisTick
 public typealias GaugeSerieAxisLabel = GaugeSerie.AxisLabel
 public typealias GaugeSeriePointer = GaugeSerie.Pointer
 public typealias GaugeSerieTitle = GaugeSerie.Title
 public typealias GaugeSerieDetail = GaugeSerie.Detail
-
-extension GaugeSerieAxisTick: Enumable {
-    public enum Enums {
-        case show(Bool), splitNumber(UInt8), length(LengthValue), lineStyle(LineStyle)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public convenience init(_ elements: Enums...) {
-        self.init()
-        for ele in elements {
-            switch ele {
-            case let .show(show):
-                self.show = show
-            case let .splitNumber(splitNumber):
-                self.splitNumber = splitNumber
-            case let .length(length):
-                self.length = length
-            case let .lineStyle(lineStyle):
-                self.lineStyle = lineStyle
-            }
-        }
-    }
-}
-
-extension GaugeSerieAxisTick: Mappable {
-    public func mapping(map: Mapper) {
-        map["show"] = show
-        map["splitNumber"] = splitNumber
-        map["length"] = length
-        map["lineStyle"] = lineStyle
-    }
-}
 
 extension GaugeSerieAxisLabel: Enumable {
     public enum Enums {

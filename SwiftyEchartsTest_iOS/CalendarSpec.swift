@@ -209,5 +209,146 @@ class CalendarSpec: QuickSpec {
                 expect(baseLabelByEnums.jsonString).to(equal(baseLabel.jsonString))
             }
         }
+        
+        describe("For Calendar") {
+            let zlevelValue: Float = 2.0
+            let zValue: Float = 0.00002384782
+            let leftValue = Position.right
+            let topValue = Position.bottom
+            let rightValue = Position.left
+            let bottomValue = Position.top
+            let widthValue: LengthValue = 20%
+            let heightValue: LengthValue = 80
+            let rangeValue: Jsonable = 2017
+            let cellSizeValue: Float = 20
+            let orientValue = Orient.horizontal
+            let splitLineValue = SplitLine(
+                .show(false),
+                .lineStyle(LineStyle(
+                    .show(false),
+                    .width(20)
+                    ))
+            )
+            let itemStyleValue = ItemStyle(
+                .normal(CommonItemStyleContent(
+                    .opacity(0.23878),
+                    .shadowOffsetX(283.0),
+                    .borderColor(Color.red),
+                    .borderType(LineType.dotted),
+                    .areaColor(Color.yellow)
+                    ))
+            )
+            let dayLabelValue = baseLabel
+            let monthLabelValue = MonthLabel(
+                .show(true),
+                .position(Position.end),
+                .margin(8.0),
+                .nameMap("cn"),
+                .fontStyle(FontStyle.normal),
+                .fontWeight(FontWeight.bold)
+                )
+            let yearLabelValue = YearLabel(
+                .align(Align.left),
+                .verticalAlign(VerticalAlign.bottom),
+                .lineHeight(74.829),
+                .shadowBlur(20.000),
+                .textShadowBlur(8.00)
+            )
+            let silentValue = true
+            
+            let calendar = Calendar()
+            calendar.zlevel = zlevelValue
+            calendar.z = zValue
+            calendar.left = leftValue
+            calendar.top = topValue
+            calendar.right = rightValue
+            calendar.bottom = bottomValue
+            calendar.width = widthValue
+            calendar.height = heightValue
+            calendar.range = rangeValue
+            calendar.cellSize = OneOrMore(one: cellSizeValue)
+            calendar.orient = orientValue
+            calendar.splitLine = splitLineValue
+            calendar.itemStyle = itemStyleValue
+            calendar.dayLabel = dayLabelValue
+            calendar.monthLabel = monthLabelValue
+            calendar.yearLabel = yearLabelValue
+            calendar.silent = silentValue
+            
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "zlevel": zlevelValue,
+                    "z": zValue,
+                    "left": leftValue,
+                    "top": topValue,
+                    "right": rightValue,
+                    "bottom": bottomValue,
+                    "width": widthValue,
+                    "height": heightValue,
+                    "range": rangeValue,
+                    "cellSize": cellSizeValue,
+                    "orient": orientValue,
+                    "splitLine": splitLineValue,
+                    "itemStyle": itemStyleValue,
+                    "dayLabel": dayLabelValue,
+                    "monthLabel": monthLabelValue,
+                    "yearLabel": yearLabelValue,
+                    "silent": silentValue
+                ]
+                
+                expect(calendar.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let calendarByEnums = Calendar(
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .left(leftValue),
+                    .top(topValue),
+                    .right(rightValue),
+                    .bottom(bottomValue),
+                    .width(widthValue),
+                    .height(heightValue),
+                    .range(rangeValue),
+                    .cellSize(cellSizeValue),
+                    .orient(orientValue),
+                    .splitLine(splitLineValue),
+                    .itemStyle(itemStyleValue),
+                    .dayLabel(dayLabelValue),
+                    .monthLabel(monthLabelValue),
+                    .yearLabel(yearLabelValue),
+                    .silent(silentValue)
+                )
+                
+                expect(calendarByEnums.jsonString).to(equal(calendar.jsonString))
+            }
+            
+            it("needs to check the cellSizes enum case") {
+                let cellSizesValue: [Float] = [20, 40]
+                calendar.cellSize = OneOrMore(more: cellSizesValue)
+                
+                let calendarByEnums = Calendar(
+                    .zlevel(zlevelValue),
+                    .z(zValue),
+                    .left(leftValue),
+                    .top(topValue),
+                    .right(rightValue),
+                    .bottom(bottomValue),
+                    .width(widthValue),
+                    .height(heightValue),
+                    .range(rangeValue),
+                    .cellSizes(cellSizesValue),
+                    .orient(orientValue),
+                    .splitLine(splitLineValue),
+                    .itemStyle(itemStyleValue),
+                    .dayLabel(dayLabelValue),
+                    .monthLabel(monthLabelValue),
+                    .yearLabel(yearLabelValue),
+                    .silent(silentValue)
+                )
+                
+                expect(calendarByEnums.jsonString).to(equal(calendar.jsonString))
+            }
+        }
     }
 }

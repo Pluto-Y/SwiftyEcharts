@@ -76,3 +76,17 @@ extension FunctionOrFloatOrPair: ArrayLiteralConvertible {
         }
     }
 }
+
+public enum FunctionOrString: FunctionOrOthers {
+    case string(String)
+    case function(Function)
+    
+    public var jsonString: String {
+        switch self {
+        case let .string(string):
+            return string.jsonString
+        case let .function(function):
+            return function.jsonString
+        }
+    }
+}

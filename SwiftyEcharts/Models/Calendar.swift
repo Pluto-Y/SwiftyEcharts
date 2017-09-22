@@ -270,10 +270,6 @@ public final class Calendar: Zable {
         public var rich: [String: Jsonable]?
     }
     
-    public typealias DayLabel = BaseLabel
-    public typealias MonthLabel = BaseLabel
-    public typealias YearLabel = BaseLabel
-    
     /// 所有图形的 zlevel 值。
     ///
     /// zlevel用于 Canvas 分层，不同zlevel值的图形会放置在不同的 Canvas 中，Canvas 分层是一种常见的优化手段。我们可以把一些图形变化频繁（例如有动画）的组件设置成一个单独的zlevel。需要注意的是过多的 Canvas 会引起内存开销的增大，在手机端上需要谨慎使用以防崩溃。
@@ -315,7 +311,7 @@ public final class Calendar: Zable {
     /// 日历坐标的整体高度，
     ///
     /// 注意: 默认cellSize 为20，若设置了height的值, 则cellSize中的高度强制转为auto;
-    public var heigth: LengthValue?
+    public var height: LengthValue?
     /// 必填，日历坐标的范围 支持多种格式
     /// 使用示例：
     /// 
@@ -364,6 +360,10 @@ public final class Calendar: Zable {
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
 }
+
+public typealias DayLabel = Calendar.BaseLabel
+public typealias MonthLabel = Calendar.BaseLabel
+public typealias YearLabel = Calendar.BaseLabel
 
 extension Calendar.BaseLabel: Enumable {
     public enum Enums {
@@ -486,7 +486,7 @@ extension Calendar.BaseLabel: Mappable {
 
 extension Calendar: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), heigth(LengthValue), range(Jsonable), cellSize(OneOrMore<Float>), orient(Orient), splitLine(SplitLine), itemStyle(ItemStyle), dayLabel(DayLabel), monthLabel(MonthLabel), yearLabel(YearLabel), silent(Bool)
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), range(Jsonable), cellSize(Float), cellSizes([Float]), orient(Orient), splitLine(SplitLine), itemStyle(ItemStyle), dayLabel(DayLabel), monthLabel(MonthLabel), yearLabel(YearLabel), silent(Bool)
     }
     
     public typealias ContentEnum = Enums
@@ -509,12 +509,14 @@ extension Calendar: Enumable {
                 self.bottom = bottom
             case let .width(width):
                 self.width = width
-            case let .heigth(heigth):
-                self.heigth = heigth
+            case let .height(height):
+                self.height = height
             case let .range(range):
                 self.range = range
             case let .cellSize(cellSize):
-                self.cellSize = cellSize
+                self.cellSize = OneOrMore(one: cellSize)
+            case let .cellSizes(cellSizes):
+                self.cellSize = OneOrMore(more: cellSizes)
             case let .orient(orient):
                 self.orient = orient
             case let .splitLine(splitLine):
@@ -543,7 +545,7 @@ extension Calendar: Mappable {
         map["right"] = right
         map["bottom"] = bottom
         map["width"] = width
-        map["heigth"] = heigth
+        map["height"] = height
         map["range"] = range
         map["cellSize"] = cellSize
         map["orient"] = orient

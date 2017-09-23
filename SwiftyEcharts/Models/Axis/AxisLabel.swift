@@ -156,12 +156,16 @@ public final class AxisLabel: Displayable, Formatted, Shadowable {
     /// 详情参见教程：富文本标签
     public var rich: [String: Jsonable]?
     
+    /// 标签与刻度线的距离。
+    /// ## 目前只用于仪表图
+    public var distance: Float?
+    
     public init() { }
 }
 
 extension AxisLabel: Enumable {
     public enum Enums {
-        case show(Bool), interval(UInt), inside(Bool), rotate(Float), margin(Float), formatter(Formatter), showMinLabel(Bool), showMaxLabel(Bool), color(Color), fontStyle(FontStyle), fontWeight(FontWeight), fontFamily(String), fontSize(UInt8), align(Align), verticalAlign(VerticalAlign), lineHeight(Float), backgroundColor(Color), borderColor(Color), borderWidth(Float), borderRadius(Float), padding(Padding), shadowColor(Color), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), width(LengthValue), height(LengthValue), textBorderColor(Color), textBorderWidth(Float), textShadowColor(Color), textShadowBlur(Float), textShadowOffsetX(Float), textShadowOffsetY(Float), rich([String: Jsonable])
+        case show(Bool), interval(UInt), inside(Bool), rotate(Float), margin(Float), formatter(Formatter), showMinLabel(Bool), showMaxLabel(Bool), color(Color), fontStyle(FontStyle), fontWeight(FontWeight), fontFamily(String), fontSize(UInt8), align(Align), verticalAlign(VerticalAlign), lineHeight(Float), backgroundColor(Color), borderColor(Color), borderWidth(Float), borderRadius(Float), padding(Padding), shadowColor(Color), shadowBlur(Float), shadowOffsetX(Float), shadowOffsetY(Float), width(LengthValue), height(LengthValue), textBorderColor(Color), textBorderWidth(Float), textShadowColor(Color), textShadowBlur(Float), textShadowOffsetX(Float), textShadowOffsetY(Float), rich([String: Jsonable]), distance(Float)
     }
     
     public typealias ContentEnum = Enums
@@ -238,6 +242,8 @@ extension AxisLabel: Enumable {
                 self.textShadowOffsetY = textShadowOffsetY
             case let .rich(rich):
                 self.rich = rich
+            case let .distance(distance):
+                self.distance = distance
             }
         }
     }
@@ -279,5 +285,6 @@ extension AxisLabel: Mappable {
         map["textShadowOffsetX"] = textShadowOffsetX
         map["textShadowOffsetY"] = textShadowOffsetY
         map["rich"] = rich
+        map["distance"] = distance
     }
 }

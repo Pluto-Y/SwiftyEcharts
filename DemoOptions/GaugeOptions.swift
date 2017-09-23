@@ -36,7 +36,7 @@ public final class GaugeOptions {
                     .width(10)
                     ))
                 )),
-            .axisTick(GaugeSerie.AxisTick(
+            .axisTick(AxisTick(
                 .length(15),
                 .lineStyle(LineStyle(
                     .color(Color.auto)
@@ -75,7 +75,7 @@ public final class GaugeOptions {
                     .width(8)
                     ))
                 )),
-            .axisTick(GaugeSerie.AxisTick(
+            .axisTick(AxisTick(
                 .length(12),
                 .lineStyle(LineStyle(
                     .color(Color.auto)
@@ -114,7 +114,7 @@ public final class GaugeOptions {
                     .width(8)
                     ))
                 )),
-            .axisTick(GaugeSerie.AxisTick(
+            .axisTick(AxisTick(
                 .splitNumber(5),
                 .length(10),
                 .lineStyle(LineStyle(

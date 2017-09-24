@@ -11,30 +11,6 @@
 /// 示例：http://echarts.baidu.com/demo.html#gauge-car
 public final class GaugeSerie: Serie, Animatable {
     
-    /// 刻度标签。
-    public final class AxisLabel: Displayable, Formatted, Textful, Colorful {
-        /// 是否显示标签。
-        public var show: Bool?
-        /// 标签与刻度线的距离。
-        public var distance: Float?
-        /// 刻度标签的内容格式器，支持字符串模板和回调函数两种形式。 示例:
-        ///
-        ///     // 使用字符串模板，模板变量为刻度默认标签 {value}
-        ///     formatter: '{value} kg'
-        ///     
-        ///     // 使用函数模板，函数参数分别为刻度数值
-        ///     formatter: function (value) {
-        ///         return value + 'km/h';
-        ///     }
-        public var formatter: Formatter?
-        /// 文字样式
-        public var textStyle: TextStyle?
-        /// 刻度颜色
-        public var color: Color?
-        
-        public init() { }
-    }
-    
     /// 仪表盘指针。
     public final class Pointer: Displayable {
         /// 是否显示指针。
@@ -154,46 +130,9 @@ public final class GaugeSerie: Serie, Animatable {
     public init() { }
 }
 
-public typealias GaugeSerieAxisLabel = GaugeSerie.AxisLabel
 public typealias GaugeSeriePointer = GaugeSerie.Pointer
 public typealias GaugeSerieTitle = GaugeSerie.Title
 public typealias GaugeSerieDetail = GaugeSerie.Detail
-
-extension GaugeSerieAxisLabel: Enumable {
-    public enum Enums {
-        case show(Bool), distance(Float), formatter(Formatter), textStyle(TextStyle), color(Color)
-    }
-    
-    public typealias ContentEnum = Enums
-    
-    public convenience init(_ elements: Enums...) {
-        self.init()
-        for ele in elements {
-            switch ele {
-            case let .show(show):
-                self.show = show
-            case let .distance(distance):
-                self.distance = distance
-            case let .formatter(formatter):
-                self.formatter = formatter
-            case let .textStyle(textStyle):
-                self.textStyle = textStyle
-            case let .color(color):
-                self.color = color
-            }
-        }
-    }
-}
-
-extension GaugeSerieAxisLabel: Mappable {
-    public func mapping(map: Mapper) {
-        map["show"] = show
-        map["distance"] = distance
-        map["formatter"] = formatter
-        map["textStyle"] = textStyle
-        map["color"] = color
-    }
-}
 
 extension GaugeSeriePointer: Enumable {
     public enum Enums {

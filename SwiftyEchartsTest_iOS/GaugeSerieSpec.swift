@@ -12,48 +12,6 @@ import Nimble
 
 class GaugeSerieSpec: QuickSpec {
     override func spec() {
-        let showAxisLabelValue = true
-        let distanceAxisLabelValue: Float = 0.5
-        let formatterAxisLabelValue = Formatter.string("{value} ml")
-        let textStyleAxisLabelValue = TextStyle(
-            .color("#fff"),
-            .fontSize(16)
-        )
-        let colorAxisLabelValue = Color.hexColor("#5a5a5a")
-        
-        let axisLabel = GaugeSerie.AxisLabel()
-        axisLabel.show = showAxisLabelValue
-        axisLabel.distance = distanceAxisLabelValue
-        axisLabel.formatter = formatterAxisLabelValue
-        axisLabel.textStyle = textStyleAxisLabelValue
-        axisLabel.color = colorAxisLabelValue
-        
-        describe("For GaugeSerie.AxisLabel") {
-            it("needs to check the jsonString") {
-                let resutlDic: [String: Jsonable] = [
-                    "show": showAxisLabelValue,
-                    "distance": distanceAxisLabelValue,
-                    "formatter": formatterAxisLabelValue,
-                    "textStyle": textStyleAxisLabelValue,
-                    "color": colorAxisLabelValue
-                ]
-                
-                expect(axisLabel.jsonString).to(equal(resutlDic.jsonString))
-            }
-            
-            it("needs to check the Enumable") {
-                let axisLabelByEnums = GaugeSerie.AxisLabel(
-                    .show(showAxisLabelValue),
-                    .distance(distanceAxisLabelValue),
-                    .formatter(formatterAxisLabelValue),
-                    .textStyle(textStyleAxisLabelValue),
-                    .color(colorAxisLabelValue)
-                )
-                
-                expect(axisLabelByEnums.jsonString).to(equal(axisLabel.jsonString))
-            }
-        }
-        
         let showPointerValue = false
         let lengthPointerValue: LengthValue = 2.52
         let widthPointerValue: Float = 2.55
@@ -207,7 +165,14 @@ class GaugeSerieSpec: QuickSpec {
                     .width(8)
                     ))
             )
-            let axisLabelValue = axisLabel
+            let axisLabelValue = AxisLabel(
+                .show(false),
+                .distance(0.5),
+                .formatter(.string("{value} ml")),
+                .color("#fff"),
+                .fontSize(16),
+                .color("#5a5a5a")
+            )
             let pointerValue = pointer
             let itemStyleValue = ItemStyle(
                 .normal(CommonItemStyleContent(

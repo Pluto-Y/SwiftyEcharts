@@ -134,6 +134,8 @@ class AxisPointerSpec: QuickSpec {
             let valueAxisPointerValue: Float = 0.8576
             let stateAxisPointerValue = false
             let handleAxisPointerValue = handle
+            let linkAxisPointerValue: [String: Jsonable] = ["xAxisIndex": "all"]
+            let triggerOnAxisPointerValue = AxisPointerForAxis.TriggerOn.click
             
             let axisPointer = AxisPointerForAxis()
             axisPointer.show = showAxisPointerValue
@@ -147,6 +149,8 @@ class AxisPointerSpec: QuickSpec {
             axisPointer.value = valueAxisPointerValue
             axisPointer.state = stateAxisPointerValue
             axisPointer.handle = handleAxisPointerValue
+            axisPointer.link = OneOrMore(one: linkAxisPointerValue)
+            axisPointer.triggerOn = triggerOnAxisPointerValue
             
             describe("For AxisPointerForAxis") {
                 it("needs to check the jsonString") {
@@ -161,7 +165,9 @@ class AxisPointerSpec: QuickSpec {
                         "triggerTooltip": triggerAxisPointerForTooltipValue,
                         "value": valueAxisPointerValue,
                         "state": stateAxisPointerValue,
-                        "handle": handleAxisPointerValue
+                        "handle": handleAxisPointerValue,
+                        "link": OneOrMore(one: linkAxisPointerValue),
+                        "triggerOn": triggerOnAxisPointerValue
                     ]
                     
                     expect(axisPointer.jsonString).to(equal(resultDic.jsonString))
@@ -179,7 +185,9 @@ class AxisPointerSpec: QuickSpec {
                         .triggerTooltip(triggerAxisPointerForTooltipValue),
                         .value(valueAxisPointerValue),
                         .state(stateAxisPointerValue),
-                        .handle(handleAxisPointerValue)
+                        .handle(handleAxisPointerValue),
+                        .link(linkAxisPointerValue),
+                        .triggerOn(triggerOnAxisPointerValue)
                     )
                     
                     expect(axisPointerByEnums.jsonString).to(equal(axisPointer.jsonString))

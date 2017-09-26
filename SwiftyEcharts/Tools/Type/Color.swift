@@ -48,7 +48,7 @@ public enum Color: Jsonable {
     case image(String, ImageRepeat)
     case linearGradient(Float, Float, Float, Float, [GradientColorElement], Bool)
     case radialGradient(Float, Float, Float, [GradientColorElement], Bool)
-    case auto, red, blue, green, yellow, transparent
+    case auto, red, blue, green, yellow, transparent, black
     
     /// 用来校验 rgb 或者 rgba 是否符合 Echarts 颜色的限制
     ///
@@ -133,6 +133,8 @@ public enum Color: Jsonable {
             return "green".jsonString
         case .transparent:
             return "transparent".jsonString
+        case .black:
+            return "black".jsonString
         case let .linearGradient(x0, y0, x2, y2, colors, absolute):
             var result = "null"
             if colors.count > 0 {

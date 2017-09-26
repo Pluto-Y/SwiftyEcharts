@@ -506,8 +506,120 @@ public final class CandlestickOptions {
     // MARK: OHLC Chart
     /// 地址: http://echarts.baidu.com/demo.html#custom-ohlc
     static func customOhlcOption() -> Option {
-        // TODO: 添加实现
+        guard let jsonPath = NSBundle.mainBundle().pathForResource("stock-DJI", ofType: "json"), let jsonData = NSData(contentsOfFile: jsonPath), let jsonObj = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: []) else {
+            return Option()
+        }
+        
+        let dataArr: [[AnyObject]] = (jsonObj as! NSArray) as! [[AnyObject]]
+        
+        let splitData: ([[AnyObject]]) -> [String: [Jsonable]] = { rowData in
+            var categoryData: [String] = []
+            var values: [[Float]] = []
+            for i in 0..<rowData.count {
+                var d = rowData[i]
+                categoryData.append(d[0] as! String)
+                d[0] = Float(i)
+                values.append(d.map { Float($0 as? Double ?? $0 as! Int) })
+            }
+            return [
+                "categoryData": categoryData.map { $0 as Jsonable },
+                "values": values.map { $0 }
+            ]
+        }
+        
+        let data = splitData(dataArr)
+        
         return Option(
+            .backgroundColor("#eee"),
+            .animation(false),
+            .legend(Legend(
+                .bottom(10),
+                .left(.center),
+                .data(["Dow-Jones index"])
+                )),
+            .tooltip(Tooltip(
+                .trigger(.axis),
+                .axisPointer(AxisPointerForTooltip(
+                    .type(.cross)
+                    )),
+                .backgroundColor(rgba(245, 245, 245, 0.8)),
+                .borderWidth(1),
+                .borderColor("#ccc"),
+                .padding(10),
+                .textStyle(TextStyle(
+                    .color("#000")
+                    )),
+                .position(.function("function (pos, params, el, elRect, size) { var obj = {top: 10}; obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 30; return obj; }")),
+                .extraCssText("width: 170px")
+                )),
+            .axisPointer(AxisPointerForOption(
+                .link(["xAxisIndex": "all"]),
+                .label(Label(
+                    .backgroundColor("#777")
+                    ))
+                )),
+            .toolbox(Toolbox(
+                .feature(ToolboxFeature(
+                    .dataZoom(ToolboxFeatureDataZoom(
+                        .yAxisIndex(false)
+                        )),
+                    .brush(ToolboxFeatureBrush(
+                        .type([.lineX, .clear])
+                        ))
+                    ))
+                )),
+            .grid(Grid(
+                .left(.value(10%)),
+                .right(.value(8%)),
+                .bottom(150)
+                )),
+            .xAxis(Axis(
+                .type(.category),
+                .data(data["categoryData"]!),
+                .scale(true),
+                .boundaryGap(false),
+                .axisLine(AxisLine(.onZero(false))),
+                .splitLine(SplitLine(.show(false))),
+                .splitNumber(20),
+                .min("dataMin"),
+                .max("dataMax"),
+                .axisPointer(AxisPointerForAxis(
+                    .z(100)
+                    ))
+                )),
+            .yAxis(Axis(
+                .scale(true),
+                .splitArea(SplitArea(
+                    .show(true)
+                    ))
+                )),
+            .dataZoom([
+                InsideDataZoom(
+                    .start(98),
+                    .end(10)
+//                    .minValueSpan(10) // FIXME: 没有minValueSpan
+                ),
+                SliderDataZoom(
+                    .show(true),
+                    .bottom(60),
+                    .start(98),
+                    .end(100)
+//                    .minValueSpan(10) // FIXME: 没有minValueSpan
+                )
+                ]),
+            .series([
+                CustomSerie(
+                    .name("Dow-Jones index"),
+                    .renderItem("function renderItem(params, api) { var xValue = api.value(0); var openPoint = api.coord([xValue, api.value(1)]); var closePoint = api.coord([xValue, api.value(2)]); var lowPoint = api.coord([xValue, api.value(3)]); var highPoint = api.coord([xValue, api.value(4)]); var halfWidth = api.size([1, 0])[0] * 0.35; var style = api.style({ stroke: api.visual('color') }); return { type: 'group', children: [{ type: 'line', shape: { x1: lowPoint[0], y1: lowPoint[1], x2: highPoint[0], y2: highPoint[1] }, style: style }, { type: 'line', shape: { x1: openPoint[0], y1: openPoint[1], x2: openPoint[0] - halfWidth, y2: openPoint[1] }, style: style }, { type: 'line', shape: { x1: closePoint[0], y1: closePoint[1], x2: closePoint[0] + halfWidth, y2: closePoint[1] }, style: style }] }; }"),
+                    .dimensions(["null", "open", "close", "lowest", "highest"]),
+                    .encode([
+                        "x": 0,
+                        "y": [1, 2, 3, 4],
+                        "tooltip": [1, 2, 3, 4]
+                        ]),
+                    .data(data["values"]!)
+                )
+                ])
         )
     }
     

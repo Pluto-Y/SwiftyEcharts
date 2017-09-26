@@ -25,6 +25,7 @@ class AxisTickSpec: QuickSpec {
                 .opacity(0.5),
                 .curveness(12.55)
             )
+            let splitNumberValue: UInt8 = 20
             
             let axisTick = AxisTick()
             axisTick.show = showValue
@@ -33,6 +34,7 @@ class AxisTickSpec: QuickSpec {
             axisTick.inside = insideValue
             axisTick.length = lengthValue
             axisTick.lineStyle = lineStyleValue
+            axisTick.splitNumber = splitNumberValue
             
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
@@ -41,7 +43,8 @@ class AxisTickSpec: QuickSpec {
                     "interval": intervalValue,
                     "inside": insideValue,
                     "length": lengthValue,
-                    "lineStyle": lineStyleValue
+                    "lineStyle": lineStyleValue,
+                    "splitNumber": splitNumberValue
                 ]
                 
                 expect(axisTick.jsonString).to(equal(resultDic.jsonString))
@@ -54,7 +57,8 @@ class AxisTickSpec: QuickSpec {
                     .interval(intervalValue),
                     .inside(insideValue),
                     .length(lengthValue),
-                    .lineStyle(lineStyleValue)
+                    .lineStyle(lineStyleValue),
+                    .splitNumber(splitNumberValue)
                 )
                 
                 expect(axisTickByEnums.jsonString).to(equal(axisTick.jsonString))

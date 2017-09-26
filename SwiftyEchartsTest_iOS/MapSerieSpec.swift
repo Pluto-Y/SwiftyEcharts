@@ -12,6 +12,25 @@ import Nimble
 
 class MapSerieSpec: QuickSpec {
     override func spec() {
+        describe("For MapSerie.MapValueCalculation") {
+            let averageString = "average"
+            let maxString = "max"
+            let minString = "min"
+            let sumString = "sum"
+            
+            let averageMapValueCalulation = MapSerie.MapValueCalculation.average
+            let maxMapValueCalulation = MapSerie.MapValueCalculation.max
+            let minMapValueCalulation = MapSerie.MapValueCalculation.min
+            let sumMapValueCalulation = MapSerie.MapValueCalculation.sum
+            
+            it("needs to check the enum case") {
+                expect(averageMapValueCalulation.jsonString).to(equal(averageString.jsonString))
+                expect(maxMapValueCalulation.jsonString).to(equal(maxString.jsonString))
+                expect(minMapValueCalulation.jsonString).to(equal(minString.jsonString))
+                expect(sumMapValueCalulation.jsonString).to(equal(sumString.jsonString))
+            }
+        }
+        
         let minScaleLimitValue: Float = 8.48242
         let maxScaleLimitValue: Float = 0.28374
         
@@ -119,7 +138,7 @@ class MapSerieSpec: QuickSpec {
             let layoutCenterValue: Position = Position.point([30%, 30%])
             let layoutSizeValue = 20%
             let geoIndexValue: UInt8 = 92
-            let mapValueCalculationValue = "max"
+            let mapValueCalculationValue = MapSerie.MapValueCalculation.max
             let showLegendSymbolValue = false
             let dataValue: [Jsonable] = [
                 [12, 14],

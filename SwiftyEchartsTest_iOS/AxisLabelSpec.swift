@@ -51,6 +51,7 @@ class AxisLabelSpec: QuickSpec {
                 "b": ["backgroundColor": ["image": "xxx/xx.jpg"]],
                 "c": ["fontSize": 18, "fontFamily": "Microsoft YaHei", "borderColor": "#449933", "borderRadius": 4]
             ]
+            let distanceValue: Float = 823.82374823
             
             let axisLabel = AxisLabel()
             axisLabel.show = showValue
@@ -87,7 +88,7 @@ class AxisLabelSpec: QuickSpec {
             axisLabel.textShadowOffsetX = textShadowOffsetXValue
             axisLabel.textShadowOffsetY = textShadowOffsetYValue
             axisLabel.rich = richValue
-            JsCache.removeAll()
+            axisLabel.distance = distanceValue
             
             beforeEach {
                 // 避免重复添加内容到 JsCache 中
@@ -129,7 +130,8 @@ class AxisLabelSpec: QuickSpec {
                     "textShadowBlur": textShadowBlurValue,
                     "textShadowOffsetX": textShadowOffsetXValue,
                     "textShadowOffsetY": textShadowOffsetYValue,
-                    "rich": richValue
+                    "rich": richValue,
+                    "distance": distanceValue
                 ]
                 
                 expect(axisLabel.jsonString).to(equal(resultDic.jsonString))
@@ -170,7 +172,8 @@ class AxisLabelSpec: QuickSpec {
                     .textShadowBlur(textShadowBlurValue),
                     .textShadowOffsetX(textShadowOffsetXValue),
                     .textShadowOffsetY(textShadowOffsetYValue),
-                    .rich(richValue)
+                    .rich(richValue),
+                    .distance(distanceValue)
                 )
                 
                 expect(axisLabel.jsonString).to(equal(axisLabelByEnums.jsonString))

@@ -65,6 +65,16 @@ public enum Position: FunctionOrOthers {
     }
 }
 
+extension Position: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
+    public init(floatLiteral value: Float) {
+        self = .value(value)
+    }
+
+    public init(integerLiteral value: Int) {
+        self = .value(value)
+    }
+}
+
 public enum Location: String, Jsonable {
     case start = "start"
     case middle = "middle"

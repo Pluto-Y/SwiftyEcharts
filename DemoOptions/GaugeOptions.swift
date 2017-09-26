@@ -36,7 +36,7 @@ public final class GaugeOptions {
                     .width(10)
                     ))
                 )),
-            .axisTick(GaugeSerie.AxisTick(
+            .axisTick(AxisTick(
                 .length(15),
                 .lineStyle(LineStyle(
                     .color(Color.auto)
@@ -75,7 +75,7 @@ public final class GaugeOptions {
                     .width(8)
                     ))
                 )),
-            .axisTick(GaugeSerie.AxisTick(
+            .axisTick(AxisTick(
                 .length(12),
                 .lineStyle(LineStyle(
                     .color(Color.auto)
@@ -114,14 +114,14 @@ public final class GaugeOptions {
                     .width(8)
                     ))
                 )),
-            .axisTick(GaugeSerie.AxisTick(
+            .axisTick(AxisTick(
                 .splitNumber(5),
                 .length(10),
                 .lineStyle(LineStyle(
                     .color(Color.auto)
                     ))
                 )),
-            .axisLabel(GaugeSerie.AxisLabel(
+            .axisLabel(AxisLabel(
                 .formatter(.function("function axisLabelFormattter(v){ switch (v + '') { case '0' : return 'E'; case '1' : return 'Gas'; case '2' : return 'F'; }}"))
                 )),
             .splitLine(SplitLine(
@@ -155,7 +155,7 @@ public final class GaugeOptions {
                     .width(8)
                     ))
                 )),
-            .axisLabel(GaugeSerie.AxisLabel(
+            .axisLabel(AxisLabel(
                 .formatter(.function("function axisLabelFomatter2(v){ switch (v + '') { case '0' : return 'H'; case '1' : return 'Water'; case '2' : return 'C'; } }"))
                 )),
             .splitLine(SplitLine(

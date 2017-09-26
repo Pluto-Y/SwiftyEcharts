@@ -8,6 +8,22 @@
 
 public final class AxisPointerForAxis: Displayable {
     
+    /// 提示框触发的条件
+    ///
+    /// - mousemove: 鼠标移动时触发
+    /// - click: 鼠标点击时触发
+    /// - none: 不触发，用户可以通过 action.tooltip.showTip 和 action.tooltip.hideTip 来手动触发和隐藏。
+    /// - Note: 该属性为 ECharts 3.0 中新加。
+    public enum TriggerOn: String, Jsonable {
+        case mousemove = "mousemove"
+        case click = "click"
+        case none = "none"
+        
+        public var jsonString: String {
+            return self.rawValue.jsonString
+        }
+    }
+    
     /// 指示器类型。
     ///
     /// - line: 直线指示器
@@ -89,7 +105,75 @@ public final class AxisPointerForAxis: Displayable {
     public var state: Bool?
     /// 拖拽手柄，适用于触屏的环境。参见: http://echarts.baidu.com/gallery/editor.html?c=line-tooltip-touch&edit=1&reset=1
     public var handle: Handle?
+    
+    /// 不同轴的 axisPointer 可以进行联动，在这里设置。联动表示轴能同步一起活动。轴依据他们的 axisPointer 当前对应的值来联动。
+    ///
+    /// 联动的效果可以看这两个例子：例子A(http://www.echartsjs.com/gallery/view.html?c=candlestick-brush&edit=1&reset=1)，例子B(http://www.echartsjs.com/gallery/view.html?c=scatter-nutrients-matrix&edit=1&reset=1)。
+    ///
+    /// link 是一个数组，其中每一项表示一个 link group，一个 group 中的坐标轴互相联动。例如：
+    ///
+    ///     link: [
+    ///         {
+    ///             // 表示所有 xAxisIndex 为 0、3、4 和 yAxisName 为 'someName' 的坐标轴联动。
+    ///             xAxisIndex: [0, 3, 4],
+    ///             yAxisName: 'someName'
+    ///         },
+    ///         {
+    ///             // 表示左右 xAxisId 为 'aa'、'cc' 以及所有的 angleAxis 联动。
+    ///             xAxisId: ['aa', 'cc'],
+    ///             angleAxis: 'all'
+    ///         },
+    ///         ...
+    ///     ]
+    ///
+    /// 如上所示，每个 link group 中可以用这些方式引用坐标轴：
+    ///
+    ///     {
+    ///         // 以下的 'some' 均表示轴的维度，也就是表示 'x', 'y', 'radius', 'angle', 'single'
+    ///         someAxisIndex: [...], // 可以是一个数组或单值或 'all'
+    ///         someAxisName: [...],  // 可以是一个数组或单值或 'all'
+    ///         someAxisId: [...],    // 可以是一个数组或单值或 'all'
+    ///     }
+    ///
+    /// 如何联动不同类型（axis.type）的轴？
+    ///
+    /// 如果 axis 的类型不同，比如 axisA type 为 'category'，axisB type 为 'time'，可以在每个 link group 中写转换函数（mapper）来进行值的转换，例如：
+    ///
+    ///     link: [{
+    ///         xAxisIndex: [0, 1],
+    ///         yAxisName: ['yy'],
+    ///         mapper: function (sourceVal, sourceAxisInfo, targetAxisInfo) {
+    ///             if (sourceAxisInfo.axisName === 'yy') {
+    ///                 // from timestamp to '2012-02-05'
+    ///                 return echarts.format.formatTime('yyyy-MM-dd', sourceVal);
+    ///             }
+    ///             else if (targetAxisInfo.axisName === 'yy') {
+    ///                 // from '2012-02-05' to date
+    ///                 return echarts.number.parseDate(dates[sourceVal]);
+    ///             }
+    ///             else {
+    ///                 return sourceVal;
+    ///             }
+    ///         }
+    ///     }]
+    ///
+    /// mapper 的输入参数：
+    ///
+    /// {number} sourceVal
+    /// {Object} sourceAxisInfo 里面包含 {axisDim, axisId, axisName, axisIndex} 等信息
+    /// {Object} targetAxisInfo 里面包含 {axisDim, axisId, axisName, axisIndex} 等信息
+    ///
+    /// mapper 的返回值：
+    ///
+    /// {number} 转换结果
+    /// ## 该属性暂时只在Options中生效
+    public var link: OneOrMore<[String: Jsonable]>?
+    /// 提示框触发的条件
+    /// ## 该属性暂时只在Option中生效
+    public var triggerOn: TriggerOn?
 }
+
+public typealias AxisPointerForOption = AxisPointerForAxis
 
 extension AxisPointerForAxis.Handle: Enumable {
     public enum Enums {
@@ -144,7 +228,7 @@ extension AxisPointerForAxis.Handle: Mappable {
 
 extension AxisPointerForAxis: Enumable {
     public enum Enums {
-        case show(Bool), type(Type), snap(Bool), z(Float), label(Label), lineStyle(LineStyle), shadowStyle(ShadowStyle), triggerTooltip(Bool), value(Float), state(Bool), handle(Handle)
+        case show(Bool), type(Type), snap(Bool), z(Float), label(Label), lineStyle(LineStyle), shadowStyle(ShadowStyle), triggerTooltip(Bool), value(Float), state(Bool), handle(Handle), link([String: Jsonable]), links([[String: Jsonable]]), triggerOn(TriggerOn)
     }
     
     public typealias ContentEnum = Enums
@@ -175,6 +259,12 @@ extension AxisPointerForAxis: Enumable {
                 self.state = state
             case let .handle(handle):
                 self.handle = handle
+            case let .link(link):
+                self.link = OneOrMore(one: link)
+            case let .links(links):
+                self.link = OneOrMore(more: links)
+            case let .triggerOn(triggerOn):
+                self.triggerOn = triggerOn
             }
         }
     }
@@ -193,6 +283,8 @@ extension AxisPointerForAxis: Mappable {
         map["value"] = value
         map["state"] = state
         map["handle"] = handle
+        map["link"] = link
+        map["triggerOn"] = triggerOn
     }
 }
 

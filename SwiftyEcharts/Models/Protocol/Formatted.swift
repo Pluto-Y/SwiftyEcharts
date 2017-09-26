@@ -19,19 +19,7 @@
 ///
 ///     '{b0}: {c0}<br />{b1}: {c1}'
 /// ## function:回调函数 支持js函数，只需通过字符串来指定声明函数即可
-public enum Formatter: Jsonable {
-    case string(String)
-    case function(Function)
-    
-    public var jsonString: String {
-        switch self {
-        case let .string(formatter):
-            return formatter.jsonString
-        case let .function(f):
-            return f.jsonString
-        }
-    }
-}
+public typealias Formatter = FunctionOrString
 
 public protocol Formatted {
     var formatter: Formatter? { get set }

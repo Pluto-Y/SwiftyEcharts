@@ -656,7 +656,7 @@ public final class CandlestickOptions {
                             .left(0)
                         ),
                         TextGraphic(
-                            .id("MA5"),
+                            .id("MA10"),
                             .style(TextGraphic.Style(
                                 .fill(colorList[2]),
                                 .font(labelFont)
@@ -700,9 +700,9 @@ public final class CandlestickOptions {
                             .borderColor0("#14b143")
                             )),
                         .emphasis(CommonItemStyleContent(
-                            .color("black"),
+                            .color(.black),
                             .color0("#444"),
-                            .borderColor("black"),
+                            .borderColor(.black),
                             .borderColor0("#444")
                             ))
                         ))

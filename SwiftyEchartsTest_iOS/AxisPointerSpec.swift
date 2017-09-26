@@ -192,6 +192,39 @@ class AxisPointerSpec: QuickSpec {
                     
                     expect(axisPointerByEnums.jsonString).to(equal(axisPointer.jsonString))
                 }
+                
+                it("needs to check the links enum case") {
+                    let links: [[String: Jsonable]] = [
+                        [
+                            "xAxisIndex": [0, 3, 4],
+                            "yAxisName": "someName"
+                        ],
+                        [
+                            "xAxisId": ["aa", "cc"],
+                            "angleAxis": "all"
+                        ]
+                    ]
+                    
+                    axisPointer.link = OneOrMore(more: links)
+                    
+                    let axisPointerByEnums = AxisPointerForAxis(
+                        .show(showAxisPointerValue),
+                        .type(typeAxisPointerValue),
+                        .snap(snapAxisPointerValue),
+                        .z(zAxisPointerValue),
+                        .label(labelAxisPointerValue),
+                        .lineStyle(lineStyleAxisPointerValue),
+                        .shadowStyle(shadowStyleAxisPointerValue),
+                        .triggerTooltip(triggerAxisPointerForTooltipValue),
+                        .value(valueAxisPointerValue),
+                        .state(stateAxisPointerValue),
+                        .handle(handleAxisPointerValue),
+                        .links(links),
+                        .triggerOn(triggerOnAxisPointerValue)
+                    )
+                    
+                    expect(axisPointerByEnums.jsonString).to(equal(axisPointer.jsonString))
+                }
             }
             
         }

@@ -506,20 +506,30 @@ public final class CandlestickOptions {
     // MARK: OHLC Chart
     /// 地址: http://echarts.baidu.com/demo.html#custom-ohlc
     static func customOhlcOption() -> Option {
-        guard let jsonPath = NSBundle.mainBundle().pathForResource("stock-DJI", ofType: "json"), let jsonData = NSData(contentsOfFile: jsonPath), let jsonObj = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: []) else {
+        guard let jsonPath = Bundle.main.url(forResource: "stock-DJI", withExtension: "json"), let jsonData = try? Data(contentsOf: jsonPath), let jsonObj = try? JSONSerialization.jsonObject(with: jsonData, options: []) else {
             return Option()
         }
         
-        let dataArr: [[AnyObject]] = (jsonObj as! NSArray) as! [[AnyObject]]
+        let dataArr: [[Any]] = (jsonObj as! NSArray) as! [[Any]]
         
-        let splitData: ([[AnyObject]]) -> [String: [Jsonable]] = { rowData in
+        let convertor: (Any) -> Float = { d in
+            if d is Float {
+                return d as! Float
+            } else if d is Double {
+                return Float(d as! Double)
+            } else {
+                return Float(d as! Int)
+            }
+        }
+        
+        let splitData: ([[Any]]) -> [String: [Jsonable]] = { rowData in
             var categoryData: [String] = []
             var values: [[Float]] = []
             for i in 0..<rowData.count {
                 var d = rowData[i]
                 categoryData.append(d[0] as! String)
                 d[0] = Float(i)
-                values.append(d.map { Float($0 as? Double ?? $0 as! Int) })
+                values.append(d.map { convertor($0) })
             }
             return [
                 "categoryData": categoryData.map { $0 as Jsonable },

@@ -33,6 +33,7 @@ public final class Option: Textful, Animatable {
     public var dataZoom: [DataZoom]?
     public var visualMap: OneOrMore<VisualMap>?
     public var tooltip: Tooltip?
+    public var axisPointer: AxisPointerForOption?
     public var toolbox: Toolbox?
     public var brush: Brush?
     public var geo: Geo?
@@ -94,7 +95,7 @@ public final class Option: Textful, Animatable {
 
 extension Option: Enumable {
     public enum Enums {
-        case title(Title), titles([Title]), legend(Legend), grid(Grid), grids([Grid]), xAxis(Axis), xAxises([Axis]), yAxis(Axis), yAxises([Axis]), polar(Polar), radiusAxis(RadiusAxis), radiusAxises([RadiusAxis]), angleAxis(AngleAxis), angleAxises([AngleAxis]), radar(Radar), radars([Radar]), dataZoom([DataZoom]), visualMap(VisualMap), visualMaps([VisualMap]), tooltip(Tooltip), toolbox(Toolbox), brush(Brush), geo(Geo), parallel(Parallel), parallelAxis([ParallelAxis]), singleAxis(SingleAxis), singleAxises([SingleAxis]), timeline(Timeline), graphic([Graphic]), series([Serie]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), blendMode(BlendMode)
+        case title(Title), titles([Title]), legend(Legend), grid(Grid), grids([Grid]), xAxis(Axis), xAxises([Axis]), yAxis(Axis), yAxises([Axis]), polar(Polar), radiusAxis(RadiusAxis), radiusAxises([RadiusAxis]), angleAxis(AngleAxis), angleAxises([AngleAxis]), radar(Radar), radars([Radar]), dataZoom([DataZoom]), visualMap(VisualMap), visualMaps([VisualMap]), tooltip(Tooltip), axisPointer(AxisPointerForOption), toolbox(Toolbox), brush(Brush), geo(Geo), parallel(Parallel), parallelAxis([ParallelAxis]), singleAxis(SingleAxis), singleAxises([SingleAxis]), timeline(Timeline), graphic([Graphic]), series([Serie]), color([Color]), backgroundColor(Color), textStyle(TextStyle), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time), blendMode(BlendMode)
     }
     
     public typealias ContentEnum = Enums
@@ -143,6 +144,8 @@ extension Option: Enumable {
                 self.visualMap = OneOrMore(more: visualMaps)
             case let .tooltip(tooltip):
                 self.tooltip = tooltip
+            case let .axisPointer(axisPointer):
+                self.axisPointer = axisPointer
             case let .toolbox(toolbox):
                 self.toolbox = toolbox
             case let .brush(brush):
@@ -206,6 +209,7 @@ extension Option: Mappable {
         map["dataZoom"] = dataZoom
         map["visualMap"] = visualMap
         map["tooltip"] = tooltip
+        map["axisPointer"] = axisPointer
         map["toolbox"] = toolbox
         map["brush"] = brush
         map["geo"] = geo

@@ -69,7 +69,7 @@ extension Echarts {
             self.loadDataTool(context)
             
             let scriptResult = context.evaluateScript("echarts.dataTool.prepareBoxplotData(\(datas), \(option.jsonString))")
-            guard let sr = scriptResult , !sr.isUndefined , sr.isObject else {
+            guard let sr = scriptResult, !sr.isUndefined , sr.isObject else {
                 return [:]
             }
             

@@ -103,6 +103,29 @@
             
             myChart.setOption(newOption, notMerge, lazyUpdate, silent);
         }
+    
+        // Events
+        function echartViewEvent(param) {
+            //alert("echartViewEvent: " + param);
+            var seen = [];
+            var jsonString = JSON.stringify(param, function(key, val) {
+                if (val != null && typeof val == "object") {
+                    if (seen.indexOf(val) >= 0) {
+                        return;
+                    }
+                    seen.push(val);
+                }
+                return val;
+            });
+            eval("window.webkit.messageHandlers." + param.type + ".postMessage(" + jsonString + ")");
+        }
+        function addEchartEventHandler(eventName) {
+            //alert("myChart.on: " + myChart.on);
+            myChart.on(eventName, echartViewEvent);
+        }
+        function removeEchartEventHandler(name) {
+            myChart.off(name, echartViewEvent);
+        }
     </script>
 </head>
 

@@ -20,4 +20,13 @@ class PiesController: BaseDemoController {
         self.title = "饼图"
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+        if indexPath.row == 4 {
+            echartsView.addListener(for: .click, with: { (params) in
+                print("params: \(params)")
+            })
+        }
+    }
+    
 }

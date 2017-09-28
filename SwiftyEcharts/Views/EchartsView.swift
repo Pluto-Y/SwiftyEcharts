@@ -15,6 +15,7 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     fileprivate var htmlContents: String = ""
     fileprivate var bundlePath: String = ""
     fileprivate var loadFinsih = false
+    fileprivate var eventWithHandlers: [EchartsEvent: ([String: Any]) -> Void] = [:]
 
     public convenience init() {
         self.init(frame: CGRect.zero, configuration: WKWebViewConfiguration())
@@ -29,6 +30,10 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initViews()
+    }
+    
+    deinit {
+        self.configuration.userContentController.removeAllUserScripts()
     }
     
     // MAKR: - Public Functions
@@ -107,6 +112,29 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
         
         self.callJsMethod("refreshEcharts('\(preDealWithParams("\(optionJson)"))', \(notMerge), \(lazyUpdate), \(silent))")
     }
+    
+    // MARK: - Event
+    public func addListener(for event: EchartsEvent, with handler: @escaping ([String: Any]) -> Void) {
+        self.configuration.userContentController.removeScriptMessageHandler(forName: event.rawValue)
+        self.configuration.userContentController.add(self, name: event.rawValue)
+        eventWithHandlers[event] = handler
+        self.callJsMethod("addEchartEventHandler('\(event.rawValue)')")
+    }
+    
+    public func removeListener(for event: EchartsEvent) {
+        self.configuration.userContentController.removeScriptMessageHandler(forName: event.rawValue)
+        eventWithHandlers[event] = nil
+        self.callJsMethod("removeEchartEventHandler('\(event.rawValue)')")
+    }
+    
+    public func removeAllListeners() {
+        for (event, _) in eventWithHandlers {
+            self.configuration.userContentController.removeScriptMessageHandler(forName: event.rawValue)
+            self.callJsMethod("removeEchartEventHandler('\(event.rawValue)')")
+        }
+        eventWithHandlers.removeAll()
+    }
+    
     
     // MARK: - Private Functions
     fileprivate func initViews() {
@@ -208,6 +236,14 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
             }
             
             strongSelf.callJsMethod("loadEcharts('\(strongSelf.preDealWithParams("\(optionJson)"))')")
+            let delayTime = DispatchTime.now() + 0.5
+            DispatchQueue.main.asyncAfter(deadline: delayTime) {
+                // 避免过早添加监听事件
+                for (event, _) in strongSelf.eventWithHandlers {
+                    printInfo("-addEchartEventHandler('\(event)')")
+                    strongSelf.callJsMethod("addEchartEventHandler('\(event)')")
+                }
+            }
         }
     }
     
@@ -219,6 +255,8 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     // MARK: WKScriptMessageHandler
     open func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         print("name:\(message.name), body:\(message.body)")
+        guard let event = EchartsEvent(rawValue: message.name), let handler = eventWithHandlers[event] else { return }
+        handler(message.body as! [String: AnyObject])
     }
 
 }

@@ -143,15 +143,16 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
             bundle = frameworkBundle
         }
         
-        let urlPath = bundle.path(forResource: "echarts", ofType: "html")
-        guard let path = urlPath else {
+        if let urlPath = bundle.path(forResource: "echarts", ofType: "html") {
+            bundlePath = urlPath
+        } else if let urlPath = bundle.path(forResource: "echarts", ofType: "html", inDirectory: "SwiftyEcharts.bundle") {
+            bundlePath = urlPath
+        } else {
             printError("ERROR: Can not find the echarts.html, please contact the developer")
             return
         }
         
-        bundlePath = path
-        
-        guard let htmlStr = try? String(contentsOfFile: path) else {
+        guard let htmlStr = try? String(contentsOfFile: bundlePath) else {
             return
         }
         printInfo("Info: the content of the echcart.html: \(htmlStr)")

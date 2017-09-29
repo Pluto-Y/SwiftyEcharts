@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = "SwiftyEcharts"
-  s.version             = "0.0.1"
+  s.version             = "0.0.2"
   s.summary             = "A custom component for the ecomfe's echarts 3."
   s.homepage            = "https://github.com/Pluto-Y/SwiftyEcharts"
   s.license             = { :type => "MIT", :file => 'LICENSE' }

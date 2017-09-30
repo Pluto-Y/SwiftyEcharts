@@ -49,6 +49,57 @@ public enum EchartsActionType: String, Jsonable {
     }
 }
 
-public protocol EchartsAction: Jsonable {
+public protocol EchartsAction: Jsonable, Enumable {
     var type: EchartsActionType { get }
+}
+
+public struct HighlightAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .highlight
+    }
+    
+    public var seriesIndex: OneOrMore<UInt8>?
+    public var seriesName: OneOrMore<String>?
+    public var dataIndex: UInt8?
+    public var name: String?
+    
+    public init() { }
+}
+
+extension HighlightAction: Enumable {
+    public enum Enums {
+        case seriesIndex(UInt8), seriesIndexes([UInt8]), seriesName(String), seriesNames([String]), dataIndex(UInt8), name(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .seriesIndex(seriesIndex):
+                self.seriesIndex = OneOrMore(one: seriesIndex)
+            case let .seriesIndexes(seriesIndexes):
+                self.seriesIndex = OneOrMore(more: seriesIndexes)
+            case let .seriesName(seriesName):
+                self.seriesName = OneOrMore(one: seriesName)
+            case let .seriesNames(seriesNames):
+                self.seriesName = OneOrMore(more: seriesNames)
+            case let .dataIndex(dataIndex):
+                self.dataIndex = dataIndex
+            case let .name(name):
+                self.name = name
+            }
+        }
+    }
+}
+
+extension HighlightAction: Mappable {
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["seriesIndex"] = seriesIndex
+        map["seriesName"] = seriesName
+        map["dataIndex"] = seriesName
+        map["name"] = name
+    }
 }

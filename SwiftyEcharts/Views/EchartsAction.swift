@@ -48,3 +48,7 @@ public enum EchartsActionType: String, Jsonable {
         return self.rawValue.jsonString
     }
 }
+
+public protocol EchartsAction: Jsonable {
+    var type: EchartsActionType { get }
+}

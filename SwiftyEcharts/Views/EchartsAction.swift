@@ -49,18 +49,26 @@ public enum EchartsActionType: String, Jsonable {
     }
 }
 
+/// ECharts 中支持的图表行为，通过 EchartsView.dispatchAction(_:) 触发。
 public protocol EchartsAction: Jsonable, Enumable {
     var type: EchartsActionType { get }
 }
 
+/// 高亮指定的数据图形。
+///
+/// 通过seriesName或者seriesIndex指定系列。如果要再指定某个数据可以再指定dataIndex或者name。
 public struct HighlightAction: EchartsAction {
     public var type: EchartsActionType {
         return .highlight
     }
     
+    /// 系列 index，可以是一个数组指定多个系列
     public var seriesIndex: OneOrMore<UInt8>?
+    /// 系列名称，可以是一个数组指定多个系列
     public var seriesName: OneOrMore<String>?
+    /// 数据的 index
     public var dataIndex: UInt8?
+    /// 数据的 名称
     public var name: String?
     
     public init() { }

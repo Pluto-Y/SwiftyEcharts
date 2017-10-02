@@ -111,7 +111,7 @@ extension HighlightAction: Mappable {
         map["type"] = type
         map["seriesIndex"] = seriesIndex
         map["seriesName"] = seriesName
-        map["dataIndex"] = seriesName
+        map["dataIndex"] = dataIndex
         map["name"] = name
     }
 }
@@ -170,7 +170,7 @@ extension DownplayAction: Mappable {
         map["type"] = type
         map["seriesIndex"] = seriesIndex
         map["seriesName"] = seriesName
-        map["dataIndex"] = seriesName
+        map["dataIndex"] = dataIndex
         map["name"] = name
     }
 }

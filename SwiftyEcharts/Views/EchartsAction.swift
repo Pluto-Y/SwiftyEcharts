@@ -122,7 +122,7 @@ extension HighlightAction: Mappable {
 /// 通过seriesName或者seriesIndex指定系列。如果要指定某个数据可以再指定dataIndex或者name。
 public struct DownplayAction: EchartsAction {
     public var type: EchartsActionType {
-        return .highlight
+        return .downplay
     }
     
     /// 系列 index，可以是一个数组指定多个系列

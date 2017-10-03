@@ -6,6 +6,9 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
+/// 针对那种只有只读属性或者没有属性的类型
+public enum EmptyEnum { }
+
 public protocol Enumable {
     associatedtype ContentEnum
     init(_ elements: Self.ContentEnum...)

@@ -172,34 +172,55 @@ extension Tooltip: Mappable {
 
 // MARK: - Tooltip Action
 extension Tooltip {
+    /// 显示提示框。
+    /// 有下面两种使用方式。
+    ///
+    /// 1 指定在相对容器的位置处显示提示框，如果指定的位置无法显示则无效。
+    ///
+    ///     dispatchAction({
+    ///         type: 'showTip',
+    ///         x: number,
+    ///         y: number,
+    ///         position: Array.<number>|string|Function
+    ///     })
+    ///
+    /// 2 指定数据图形，根据 tooltip 的配置项显示提示框。
+    ///
+    ///     dispatchAction({
+    ///         type: 'showTip',
+    ///         seriesIndex?: number,
+    ///         dataIndex?: number,
+    ///         name?: string,
+    ///         position: Array.<number>|string|Function,
+    ///     })
+    ///
+    /// 参数position同Tooltip.position相同。
     public final class ShowTipAction: EchartsAction {
         public var type: EchartsActionType {
             return .showTip
         }
         
+        /// 屏幕上的 x 坐标
         public var x: Float?
+        /// 屏幕上的 y 坐标
         public var y: Float?
+        /// 本次显示 tooltip 的位置。只在本次 action 中生效。
+        /// 缺省则使用 option 中定义的 tooltip 位置。
         public var position: Position?
+        /// 系列的 index，在 tooltip 的 trigger 为 axis 的时候可选。
         public var seriesIndex: UInt8?
+        /// 数据的 index，如果不指定也可以通过 name 属性根据名称指定数据
         public var dataIndex: UInt8?
+        /// 可选，数据名称，在有 dataIndex 的时候忽略
         public var name: String?
         
         public init() { }
     }
     
+    /// 隐藏提示框。
     public final class HideTipAction: EchartsAction {
         public var type: EchartsActionType {
             return .hideTip
-        }
-        
-        public typealias ContentEnum = EmptyEnum
-        
-        public convenience init(_ elements: EmptyEnum...) {
-            self.init()
-        }
-        
-        public func mapping(map: Mapper) {
-            map["type"] = type
         }
     }
 }
@@ -244,4 +265,14 @@ extension Tooltip.ShowTipAction: Mappable {
     }
 }
 
-
+extension Tooltip.HideTipAction {
+    public typealias ContentEnum = EmptyEnum
+    
+    public convenience init(_ elements: EmptyEnum...) {
+        self.init()
+    }
+    
+    public func mapping(map: Mapper) {
+        map["type"] = type
+    }
+}

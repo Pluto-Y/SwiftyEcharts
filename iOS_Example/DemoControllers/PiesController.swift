@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import SwiftyEcharts
 
 class PiesController: BaseDemoController {
+    
+    private var timer: NSTimer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +26,35 @@ class PiesController: BaseDemoController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         if indexPath.row == 4 {
-            echartsView.addListener(for: .click, with: { (params) in
-                print("params: \(params)")
-            })
+            
+            if let _ = timer {
+                self.timer?.invalidate()
+                self.timer = nil
+            }
+            timer = NSTimer(timeInterval: 1.0, target: self, selector: #selector(self.dispatchAction), userInfo: nil, repeats: true)
+            NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+//            echartsView.addListener(for: .click, with: { (params) in
+//                print("params: \(params)")
+//            })
         }
+    }
+    
+    var currentIndex: Int = -1
+    internal func dispatchAction() {
+        let dataLen = (option.series![0] as! PieSerie).data!.count
+        echartsView.dispatchAction(DownplayAction(
+            .seriesIndex(0),
+            .dataIndex(currentIndex)
+            ))
+        currentIndex = (currentIndex + 1) % dataLen
+        echartsView.dispatchAction(HighlightAction(
+            .seriesIndex(0),
+            .dataIndex(currentIndex)
+            ))
+        echartsView.dispatchAction(Tooltip.ShowTipAction(
+            .seriesIndex(0),
+            .dataIndex(currentIndex)
+            ))
     }
     
 }

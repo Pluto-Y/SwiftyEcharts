@@ -208,9 +208,9 @@ extension Tooltip {
         /// 缺省则使用 option 中定义的 tooltip 位置。
         public var position: Position?
         /// 系列的 index，在 tooltip 的 trigger 为 axis 的时候可选。
-        public var seriesIndex: UInt8?
+        public var seriesIndex: Int?
         /// 数据的 index，如果不指定也可以通过 name 属性根据名称指定数据
-        public var dataIndex: UInt8?
+        public var dataIndex: Int?
         /// 可选，数据名称，在有 dataIndex 的时候忽略
         public var name: String?
         
@@ -227,7 +227,7 @@ extension Tooltip {
 
 extension Tooltip.ShowTipAction: Enumable {
     public enum Enums {
-        case x(Float), y(Float), position(Position), seriesIndex(UInt8), dataIndex(UInt8), name(String)
+        case x(Float), y(Float), position(Position), seriesIndex(Int), dataIndex(Int), name(String)
     }
     
     public typealias ContentEnum = Enums

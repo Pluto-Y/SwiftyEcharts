@@ -67,11 +67,11 @@ public final class HighlightAction: EchartsAction {
     }
     
     /// 系列 index，可以是一个数组指定多个系列
-    public var seriesIndex: OneOrMore<UInt8>?
+    public var seriesIndex: OneOrMore<Int>?
     /// 系列名称，可以是一个数组指定多个系列
     public var seriesName: OneOrMore<String>?
     /// 数据的 index
-    public var dataIndex: UInt8?
+    public var dataIndex: Int?
     /// 数据的 名称
     public var name: String?
     
@@ -80,7 +80,7 @@ public final class HighlightAction: EchartsAction {
 
 extension HighlightAction: Enumable {
     public enum Enums {
-        case seriesIndex(UInt8), seriesIndexes([UInt8]), seriesName(String), seriesNames([String]), dataIndex(UInt8), name(String)
+        case seriesIndex(Int), seriesIndexes([Int]), seriesName(String), seriesNames([String]), dataIndex(Int), name(String)
     }
     
     public typealias ContentEnum = Enums
@@ -126,11 +126,11 @@ public final class DownplayAction: EchartsAction {
     }
     
     /// 系列 index，可以是一个数组指定多个系列
-    public var seriesIndex: OneOrMore<UInt8>?
+    public var seriesIndex: OneOrMore<Int>?
     /// 系列名称，可以是一个数组指定多个系列
     public var seriesName: OneOrMore<String>?
     /// 数据的 index
-    public var dataIndex: UInt8?
+    public var dataIndex: Int?
     /// 数据的 名称
     public var name: String?
     
@@ -139,7 +139,7 @@ public final class DownplayAction: EchartsAction {
 
 extension DownplayAction: Enumable {
     public enum Enums {
-        case seriesIndex(UInt8), seriesIndexes([UInt8]), seriesName(String), seriesNames([String]), dataIndex(UInt8), name(String)
+        case seriesIndex(Int), seriesIndexes([Int]), seriesName(String), seriesNames([String]), dataIndex(Int), name(String)
     }
     
     public typealias ContentEnum = Enums

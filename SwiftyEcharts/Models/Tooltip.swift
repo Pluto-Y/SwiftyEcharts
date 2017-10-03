@@ -265,7 +265,7 @@ extension Tooltip.ShowTipAction: Mappable {
     }
 }
 
-extension Tooltip.HideTipAction {
+extension Tooltip.HideTipAction: Enumable, Mappable {
     public typealias ContentEnum = EmptyEnum
     
     public convenience init(_ elements: EmptyEnum...) {

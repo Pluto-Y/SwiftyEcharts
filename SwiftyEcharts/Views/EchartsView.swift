@@ -259,5 +259,13 @@ public class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScrip
         guard let event = EchartsEvent(rawValue: message.name), let handler = eventWithHandlers[event] else { return }
         handler(message.body as! [String: AnyObject])
     }
+}
 
+
+extension EchartsView {
+    public func dispatchAction<T: EchartsAction>(action: T) {
+        print("dispatchAction(\(action.jsonString))")
+        
+        callJsMethod("dispatchAction(\(action.jsonString))")
+    }
 }

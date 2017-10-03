@@ -61,7 +61,7 @@ public protocol EchartsAction: Jsonable, Enumable {
 /// 高亮指定的数据图形。
 ///
 /// 通过seriesName或者seriesIndex指定系列。如果要再指定某个数据可以再指定dataIndex或者name。
-public struct HighlightAction: EchartsAction {
+public final class HighlightAction: EchartsAction {
     public var type: EchartsActionType {
         return .highlight
     }
@@ -85,7 +85,7 @@ extension HighlightAction: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
         self.init()
         for ele in elements {
             switch ele {
@@ -120,7 +120,7 @@ extension HighlightAction: Mappable {
 /// 取消高亮指定的数据图形。
 ///
 /// 通过seriesName或者seriesIndex指定系列。如果要指定某个数据可以再指定dataIndex或者name。
-public struct DownplayAction: EchartsAction {
+public final class DownplayAction: EchartsAction {
     public var type: EchartsActionType {
         return .downplay
     }
@@ -144,7 +144,7 @@ extension DownplayAction: Enumable {
     
     public typealias ContentEnum = Enums
     
-    public init(_ elements: Enums...) {
+    public convenience init(_ elements: Enums...) {
         self.init()
         for ele in elements {
             switch ele {

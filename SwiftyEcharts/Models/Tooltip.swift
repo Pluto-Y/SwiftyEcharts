@@ -169,3 +169,79 @@ extension Tooltip: Mappable {
         map["axisPointer"] = axisPointer
     }
 }
+
+// MARK: - Tooltip Action
+extension Tooltip {
+    public final class ShowTipAction: EchartsAction {
+        public var type: EchartsActionType {
+            return .showTip
+        }
+        
+        public var x: Float?
+        public var y: Float?
+        public var position: Position?
+        public var seriesIndex: UInt8?
+        public var dataIndex: UInt8?
+        public var name: String?
+        
+        public init() { }
+    }
+    
+    public final class HideTipAction: EchartsAction {
+        public var type: EchartsActionType {
+            return .hideTip
+        }
+        
+        public typealias ContentEnum = EmptyEnum
+        
+        public convenience init(_ elements: EmptyEnum...) {
+            self.init()
+        }
+        
+        public func mapping(map: Mapper) {
+            map["type"] = type
+        }
+    }
+}
+
+extension Tooltip.ShowTipAction: Enumable {
+    public enum Enums {
+        case x(Float), y(Float), position(Position), seriesIndex(UInt8), dataIndex(UInt8), name(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .x(x):
+                self.x = x
+            case let .y(y):
+                self.y = y
+            case let .position(position):
+                self.position = position
+            case let .seriesIndex(seriesIndex):
+                self.seriesIndex = seriesIndex
+            case let .dataIndex(dataIndex):
+                self.dataIndex = dataIndex
+            case let .name(name):
+                self.name = name
+            }
+        }
+    }
+}
+
+extension Tooltip.ShowTipAction: Mappable {
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["x"] = x
+        map["y"] = y
+        map["position"] = position
+        map["seriesIndex"] = seriesIndex
+        map["dataIndex"] = dataIndex
+        map["name"] = name
+    }
+}
+
+

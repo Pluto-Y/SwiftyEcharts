@@ -76,7 +76,7 @@ public final class ScatterOptions {
                     .label(EmphasisLabel(
                         .emphasis(LabelStyle(
                             .show(true),
-                            .formatter(.string("function (param) {return param.data[3];}")),
+                            .formatter(.function("function (param) {return param.data[3];}")),
                             .position(.top)
                             ))
                         )),
@@ -96,7 +96,7 @@ public final class ScatterOptions {
                     .label(EmphasisLabel(
                         .emphasis(LabelStyle(
                             .show(true),
-                            .formatter(.string("function (param) {return param.data[3];}")),
+                            .formatter(.function("function (param) {return param.data[3];}")),
                             .position(.top)
                             ))
                         )),
@@ -979,7 +979,7 @@ public final class ScatterOptions {
                 .backgroundColor("#222"),
                 .borderColor("#777"),
                 .borderWidth(1),
-                .formatter(.function(formatter))
+                .formatter(.function(Function(formatter)))
                 )),
             .xAxis(Axis(
                 .type(.value),
@@ -1487,7 +1487,7 @@ public final class ScatterOptions {
                 )),
             .tooltip(Tooltip(
                 .position(.top),
-                .formatter(.function("function (params) {return params.value[2] + ' commits in ' + \(hours)[params.value[0]] + ' of ' + \(days)[params.value[1]];}"))
+                .formatter(.function(Function("function (params) {return params.value[2] + ' commits in ' + \(hours)[params.value[0]] + ' of ' + \(days)[params.value[1]];}")))
                 )),
             .grid(Grid(
                 .left(.value(2)),

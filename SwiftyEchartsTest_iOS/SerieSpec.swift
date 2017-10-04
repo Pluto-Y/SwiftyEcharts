@@ -33,6 +33,7 @@ class SerieSpec: QuickSpec {
                 let gaugeString = "gauge"
                 let pictorialBarString = "pictorialBar"
                 let themeRiverString = "themeRiver"
+                let customString = "custom"
                 
                 let lineSerieType = SerieType.line
                 let barSerieType = SerieType.bar
@@ -53,6 +54,7 @@ class SerieSpec: QuickSpec {
                 let gaugeSerieType = SerieType.gauge
                 let pictorialBarSerieType = SerieType.pictorialBar
                 let themeRiverSerieType = SerieType.themeRiver
+                let customSerieType = SerieType.custom
                 
                 expect(lineSerieType.jsonString).to(equal(lineString.jsonString))
                 expect(barSerieType.jsonString).to(equal(barString.jsonString))
@@ -73,6 +75,7 @@ class SerieSpec: QuickSpec {
                 expect(gaugeSerieType.jsonString).to(equal(gaugeString.jsonString))
                 expect(pictorialBarSerieType.jsonString).to(equal(pictorialBarString.jsonString))
                 expect(themeRiverSerieType.jsonString).to(equal(themeRiverString.jsonString))
+                expect(customSerieType.jsonString).to(equal(customString.jsonString))
             }
         }
     }

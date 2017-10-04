@@ -6,30 +6,19 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-internal let FunctionPrefix = "echartsFunc"
-
 public protocol FunctionOrOthers: Jsonable {
-}
-
-extension FunctionOrOthers {
-    internal func obtainFunctionJsonString(javascript f: String) -> String {
-        guard f != "null" else { return "null" }
-        let funcName = "\(FunctionPrefix)\(JsCache.allJsStrings().count)"
-        JsCache.add("var \(funcName) = \(f);")
-        return funcName.jsonString
-    }
 }
 
 public enum FunctionOrFloat: FunctionOrOthers {
     case value(Float)
-    case function(String)
+    case function(Function)
     
     public var jsonString: String {
         switch self {
         case let .value(value):
             return value.jsonString
         case let .function(f):
-            return obtainFunctionJsonString(javascript: f)
+            return f.jsonString
         }
     }
 }
@@ -49,14 +38,14 @@ extension FunctionOrFloat: ExpressibleByFloatLiteral, ExpressibleByIntegerLitera
 public enum FunctionOrFloatOrPair: FunctionOrOthers {
     case value(Float)
     case point(Point)
-    case function(String)
+    case function(Function)
     
     public var jsonString: String {
         switch self {
         case let .value(value):
             return value.jsonString
         case let .function(f):
-            return obtainFunctionJsonString(javascript: f)
+            return f.jsonString
         case let .point(point):
             return point.jsonString
         }

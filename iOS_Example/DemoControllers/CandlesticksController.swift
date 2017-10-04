@@ -13,7 +13,7 @@ class CandlesticksController: BaseDemoController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.menus = ["Candlestick Brush(暂缺)", "2015 年上证指数", "上证指数(暂缺)", "触屏上的坐标轴指示器(暂缺)", "OHLC Chart(暂缺)"]
+        self.menus = ["Candlestick Brush(暂缺)", "2015 年上证指数", "上证指数", "触屏上的坐标轴指示器(暂缺)", "OHLC Chart(暂缺)"]
         
         self.optionClosures = [CandlestickOptions.candlestickBrushOption, CandlestickOptions.candlestickSh2015Option, CandlestickOptions.candlestickShOption, CandlestickOptions.candlestickTouchOption, CandlestickOptions.customOhlcOption]
         

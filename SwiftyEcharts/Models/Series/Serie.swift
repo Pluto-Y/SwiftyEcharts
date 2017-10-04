@@ -47,6 +47,7 @@ public enum SerieType: String, Jsonable {
     case gauge = "gauge"
     case pictorialBar = "pictorialBar"
     case themeRiver = "themeRiver"
+    case custom = "custom"
     
     public var jsonString: String {
         return self.rawValue.jsonString

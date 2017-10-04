@@ -11,7 +11,7 @@ public enum Position: FunctionOrOthers {
     case auto, left, center, right, top, middle, bottom, start, end, inside, inner, outside, insideLeft, insideTop, insideRight, insideBottom, insideTopLeft, insideBottomLeft, insideTopRight, insideBottomRight
     case value(LengthValue)
     case point(Point)
-    case function(String)
+    case function(Function)
     
     public var jsonString: String {
         switch self {
@@ -60,7 +60,7 @@ public enum Position: FunctionOrOthers {
         case let .value(val):
             return val.jsonString
         case let .function(f):
-            return obtainFunctionJsonString(javascript: f)
+            return f.jsonString
         }
     }
 }

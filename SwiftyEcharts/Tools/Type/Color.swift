@@ -17,8 +17,19 @@ public protocol Colorful {
 /// - rgba: 以RGBA形式创建的颜色
 /// - rgb: 以RGB形式创建的颜色
 /// - hexColor: 以16进制字符串创建的颜色， 并且只能为以 '#' 开头 3位16进制数或者6位16进制数
+/// - array: 颜色的数组
+/// - image: 以图片形式来展示颜色
+/// - linearGradient: 线性渐变的颜色
+/// - radialGradient: 圆形内外的渐变的颜色
+/// - others: 其他一些颜色常量
 public enum Color: Jsonable {
     
+    /// 图片平铺的方式
+    ///
+    /// - repeatAll: 以x轴和y轴的方式平铺
+    /// - repeatX: 以x轴的方式平铺
+    /// - repeatY: 以x轴的方式平铺
+    /// - noRepeat: 不平铺
     public enum ImageRepeat: String, Jsonable {
         case repeatAll = "repeat"
         case repeatX = "repeat-x"

@@ -13,14 +13,16 @@ import Nimble
 class FormatterSpec: QuickSpec {
     override func spec() {
         describe("For Formatter") {
-            it(" needs to check the jsonString for Formatter ") {
-                let strFormatter: SwiftyEcharts.Formatter = .string("{c}%")
-                let funcFormatter: SwiftyEcharts.Formatter = .function("function (params) {return params[0];}")
-                expect(strFormatter.jsonString).to(equal("{c}%".jsonString))
+            beforeEach {
                 JsCache.removeAll()
-                expect(funcFormatter.jsonString).to(equal("\"\(FormatterFuncPrefix)0\""))
-                expect(JsCache.allJsStrings()[0]).to(equal("var \(FormatterFuncPrefix)0 = function (params) {return params[0];};"))
-                
+            }
+            
+            it(" needs to check the jsonString for Formatter ") {
+                let function: Function = "function (params) {return params[0];}"
+                let strFormatter: SwiftyEcharts.Formatter = .string("{c}%")
+                let funcFormatter: SwiftyEcharts.Formatter = .function(function)
+                expect(strFormatter.jsonString).to(equal("{c}%".jsonString))
+                expect(funcFormatter.jsonString).to(equal(function.jsonString))
             }
         }
     }

@@ -6,7 +6,6 @@
 //  Copyright © 2017 com.pluto-y. All rights reserved.
 //
 
-internal let TimeFuncPrefix = "timeFunc"
 /// 动画的时间类型
 ///
 /// - number: 时长，直接传递
@@ -20,16 +19,14 @@ internal let TimeFuncPrefix = "timeFunc"
 ///     }
 public enum Time: Jsonable {
     case number(Float)
-    case function(String)
+    case function(Function)
     
     public var jsonString: String {
         switch self {
         case let .number(time):
             return time.jsonString
         case let .function(f):
-            let funcName = "\(TimeFuncPrefix)\(JsCache.allJsStrings().count)"
-            JsCache.add("var \(funcName) = \(f);")
-            return funcName.jsonString
+            return f.jsonString
         }
     }
 }
@@ -49,15 +46,15 @@ extension Time: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
 extension Time: ExpressibleByStringLiteral {
     
     public init(stringLiteral value: String) {
-        self = .function(value)
+        self = .function(Function(value))
     }
     
     public init(extendedGraphemeClusterLiteral value: String) {
-        self = .function(value)
+        self = .function(Function(value))
     }
     
     public init(unicodeScalarLiteral value: String) {
-        self = .function(value)
+        self = .function(Function(value))
     }
 
 }

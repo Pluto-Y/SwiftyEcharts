@@ -25,10 +25,16 @@ public final class JsCache {
     }
     
     public static func allJsStrings() -> [String] {
-        return jsCache
+        lock.lock()
+        let result = jsCache
+        lock.unlock()
+        return result
     }
     
     public static func contain(_ jsStr: String) -> Bool {
-        return jsCache.contains(jsStr)
+        lock.lock()
+        let result = jsCache.contains(jsStr) 
+        lock.unlock()
+        return result
     }
 }

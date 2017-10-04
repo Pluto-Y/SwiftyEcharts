@@ -262,3 +262,105 @@ extension Legend: Mappable {
         map["shadowOffsetY"] = shadowOffsetY
     }
 }
+
+// MARK: - Actions
+extension Legend {
+    public final class LegendSelect: EchartsAction {
+        public var type: EchartsActionType {
+            return .legendSelect
+        }
+        
+        public var name: String?
+        
+        public enum Enums {
+            case name(String)
+        }
+        
+        public typealias ContentEnum = Enums
+        
+        public convenience init(_ elements: Enums...) {
+            self.init()
+            for ele in elements {
+                switch ele {
+                case let .name(name):
+                    self.name = name
+                }
+            }
+        }
+    }
+    
+    public final class LegendUnSelect: EchartsAction {
+        public var type: EchartsActionType {
+            return .legendUnSelect
+        }
+        
+        public var name: String?
+        
+        public enum Enums {
+            case name(String)
+        }
+        
+        public typealias ContentEnum = Enums
+        
+        public convenience init(_ elements: Enums...) {
+            self.init()
+            for ele in elements {
+                switch ele {
+                case let .name(name):
+                    self.name = name
+                }
+            }
+        }
+    }
+    
+    public final class LegendToggleSelect: EchartsAction {
+        public var type: EchartsActionType {
+            return .legendToggleSelect
+        }
+        
+        public var name: String?
+        
+        public enum Enums {
+            case name(String)
+        }
+        
+        public typealias ContentEnum = Enums
+        
+        public convenience init(_ elements: Enums...) {
+            self.init()
+            for ele in elements {
+                switch ele {
+                case let .name(name):
+                    self.name = name
+                }
+            }
+        }
+    }
+    
+    public final class LegendScroll: EchartsAction {
+        public var type: EchartsActionType {
+            return .legendScroll
+        }
+        
+        public var scrollDataIndex: Int?
+        public var legendId: String?
+        
+        public enum Enums {
+            case scrollDataIndex(Int), legendId(String)
+        }
+        
+        public typealias ContentEnum = Enums
+        
+        public convenience init(_ elements: Enums...) {
+            self.init()
+            for ele in elements {
+                switch ele {
+                case let .scrollDataIndex(scrollDataIndex):
+                    self.scrollDataIndex = scrollDataIndex
+                case let .legendId(legendId):
+                    self.legendId = legendId
+                }
+            }
+        }
+    }
+}

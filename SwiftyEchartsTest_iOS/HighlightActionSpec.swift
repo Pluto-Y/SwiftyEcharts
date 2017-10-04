@@ -14,14 +14,14 @@ class HighlightActionSpec: QuickSpec {
     override func spec() {
         describe("For HighlightAction") {
             let typeValue = EchartsActionType.highlight
-            let seriesIndexOriginValue: UInt8 = 20
+            let seriesIndexOriginValue: Int = 20
             let seriesIndexValue = OneOrMore(one: seriesIndexOriginValue)
             let seriesNameOriginValue = "higlightActionSeriesName"
             let seriesNameValue = OneOrMore(one: seriesNameOriginValue)
-            let dataIndexValue: UInt8 = UInt8.max
+            let dataIndexValue: Int = Int.max
             let nameValue = "highlightActionName"
             
-            var highlightAction = HighlightAction()
+            let highlightAction = HighlightAction()
             highlightAction.seriesName = seriesNameValue
             highlightAction.seriesIndex = seriesIndexValue
             highlightAction.dataIndex = dataIndexValue
@@ -54,7 +54,7 @@ class HighlightActionSpec: QuickSpec {
             }
             
             it("needs to check the seriesIndexes and seriesNames enum case") {
-                let seriesIndexOriginValues: [UInt8] = [UInt8.min, UInt8.max]
+                let seriesIndexOriginValues: [Int] = [Int.min, Int.max]
                 let seriesNameOriginValues: [String] = ["seriesName1", "seriesName2", "seriesName3"]
                 
                 highlightAction.seriesIndex = OneOrMore(more: seriesIndexOriginValues)

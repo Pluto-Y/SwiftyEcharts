@@ -11,7 +11,7 @@ import Nimble
 @testable import SwiftyEcharts
 
 class EchartsActionTypeSpec: QuickSpec {
-    public override func spec() {
+    internal override func spec() {
         describe("For EchartsActionType") {
             let highlightType = EchartsActionType.highlight
             let downplayType = EchartsActionType.downplay

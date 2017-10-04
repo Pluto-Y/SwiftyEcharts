@@ -205,8 +205,8 @@ class TooltipSpec: QuickSpec {
                 let xValue: Float = 100.0
                 let yValue: Float = -10
                 let positionValue = Position.center
-                let seriesIndexValue: UInt8 = 200
-                let dataIndexValue: UInt8 = 0
+                let seriesIndexValue: Int = 200
+                let dataIndexValue: Int = 0
                 let nameValue = "showTipActionName"
                 
                 let showTipAction = Tooltip.ShowTipAction()

@@ -126,6 +126,12 @@
         function removeEchartEventHandler(name) {
             myChart.off(name, echartViewEvent);
         }
+    
+        // Action
+        function dispatchAction(param) {
+            alert("dispatchAction: " + param);
+            myChart.dispatchAction(param);
+        }
     </script>
 </head>
 

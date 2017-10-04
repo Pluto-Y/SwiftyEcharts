@@ -167,3 +167,110 @@ extension Tooltip: Mappable {
         map["axisPointer"] = axisPointer
     }
 }
+
+// MARK: - Tooltip Action
+extension Tooltip {
+    /// 显示提示框。
+    /// 有下面两种使用方式。
+    ///
+    /// 1 指定在相对容器的位置处显示提示框，如果指定的位置无法显示则无效。
+    ///
+    ///     dispatchAction({
+    ///         type: 'showTip',
+    ///         x: number,
+    ///         y: number,
+    ///         position: Array.<number>|string|Function
+    ///     })
+    ///
+    /// 2 指定数据图形，根据 tooltip 的配置项显示提示框。
+    ///
+    ///     dispatchAction({
+    ///         type: 'showTip',
+    ///         seriesIndex?: number,
+    ///         dataIndex?: number,
+    ///         name?: string,
+    ///         position: Array.<number>|string|Function,
+    ///     })
+    ///
+    /// 参数position同Tooltip.position相同。
+    public final class ShowTipAction: EchartsAction {
+        public var type: EchartsActionType {
+            return .showTip
+        }
+        
+        /// 屏幕上的 x 坐标
+        public var x: Float?
+        /// 屏幕上的 y 坐标
+        public var y: Float?
+        /// 本次显示 tooltip 的位置。只在本次 action 中生效。
+        /// 缺省则使用 option 中定义的 tooltip 位置。
+        public var position: Position?
+        /// 系列的 index，在 tooltip 的 trigger 为 axis 的时候可选。
+        public var seriesIndex: Int?
+        /// 数据的 index，如果不指定也可以通过 name 属性根据名称指定数据
+        public var dataIndex: Int?
+        /// 可选，数据名称，在有 dataIndex 的时候忽略
+        public var name: String?
+        
+        public init() { }
+    }
+    
+    /// 隐藏提示框。
+    public final class HideTipAction: EchartsAction {
+        public var type: EchartsActionType {
+            return .hideTip
+        }
+    }
+}
+
+extension Tooltip.ShowTipAction: Enumable {
+    public enum Enums {
+        case x(Float), y(Float), position(Position), seriesIndex(Int), dataIndex(Int), name(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .x(x):
+                self.x = x
+            case let .y(y):
+                self.y = y
+            case let .position(position):
+                self.position = position
+            case let .seriesIndex(seriesIndex):
+                self.seriesIndex = seriesIndex
+            case let .dataIndex(dataIndex):
+                self.dataIndex = dataIndex
+            case let .name(name):
+                self.name = name
+            }
+        }
+    }
+}
+
+extension Tooltip.ShowTipAction: Mappable {
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["x"] = x
+        map["y"] = y
+        map["position"] = position
+        map["seriesIndex"] = seriesIndex
+        map["dataIndex"] = dataIndex
+        map["name"] = name
+    }
+}
+
+extension Tooltip.HideTipAction: Enumable, Mappable {
+    public typealias ContentEnum = EmptyEnum
+    
+    public convenience init(_ elements: EmptyEnum...) {
+        self.init()
+    }
+    
+    public func mapping(map: Mapper) {
+        map["type"] = type
+    }
+}

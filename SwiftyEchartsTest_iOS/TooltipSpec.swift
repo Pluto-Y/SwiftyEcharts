@@ -198,5 +198,74 @@ class TooltipSpec: QuickSpec {
                 expect(tooltipByEnums.jsonString).to(equal(tooltip.jsonString))
             }
         }
+        
+        context("Test Action of Tooltip") {
+            describe("For ShowTipAction") { 
+                let typeValue = EchartsActionType.showTip
+                let xValue: Float = 100.0
+                let yValue: Float = -10
+                let positionValue = Position.center
+                let seriesIndexValue: Int = 200
+                let dataIndexValue: Int = 0
+                let nameValue = "showTipActionName"
+                
+                let showTipAction = Tooltip.ShowTipAction()
+                showTipAction.x = xValue
+                showTipAction.y = yValue
+                showTipAction.position = positionValue
+                showTipAction.seriesIndex = seriesIndexValue
+                showTipAction.dataIndex = dataIndexValue
+                showTipAction.name = nameValue
+                
+                it("needs to check the type value") {
+                    expect(showTipAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "x": xValue,
+                        "y": yValue,
+                        "position": positionValue,
+                        "seriesIndex": seriesIndexValue,
+                        "dataIndex": dataIndexValue,
+                        "name": nameValue
+                    ]
+                    
+                    expect(showTipAction.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let showTipActionByEnums = Tooltip.ShowTipAction(
+                        .x(xValue),
+                        .y(yValue),
+                        .position(positionValue),
+                        .seriesIndex(seriesIndexValue),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(showTipActionByEnums.jsonString).to(equal(showTipAction.jsonString))
+                }
+            }
+            
+            describe("For HideTipAction", {
+                let typeValue = EchartsActionType.hideTip
+                
+                let hideTipAction = Tooltip.HideTipAction()
+                
+                it("needs to check the jsonString") {
+                    expect(hideTipAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue
+                    ]
+                    
+                    expect(hideTipAction.jsonString).to(equal(resultDic.jsonString))
+                }
+            })
+        }
     }
 }

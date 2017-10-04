@@ -1052,3 +1052,22 @@ extension Toolbox: Mappable {
         map["height"] = height
     }
 }
+
+// MARK: - Actions
+extension Toolbox {
+    public final class RestoreAction: EchartsAction {
+        public var type: EchartsActionType {
+            return .restore
+        }
+        
+        public typealias ContentEnum = EmptyEnum
+        
+        public convenience init(_ elements: EmptyEnum...) {
+            self.init()
+        }
+        
+        public func mapping(map: Mapper) {
+            map["type"] = type
+        }
+    }
+}

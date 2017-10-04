@@ -265,11 +265,13 @@ extension Legend: Mappable {
 
 // MARK: - Actions
 extension Legend {
+    /// 选中图例的Action
     public final class LegendSelect: EchartsAction {
         public var type: EchartsActionType {
             return .legendSelect
         }
         
+        /// 图例名称
         public var name: String?
         
         public enum Enums {
@@ -289,11 +291,13 @@ extension Legend {
         }
     }
     
+    /// 取消选中图例的Action
     public final class LegendUnSelect: EchartsAction {
         public var type: EchartsActionType {
             return .legendUnSelect
         }
         
+        /// 图例名称
         public var name: String?
         
         public enum Enums {
@@ -313,11 +317,13 @@ extension Legend {
         }
     }
     
+    /// 切换图例的选中状态的Action
     public final class LegendToggleSelect: EchartsAction {
         public var type: EchartsActionType {
             return .legendToggleSelect
         }
         
+        /// 图例名称
         public var name: String?
         
         public enum Enums {
@@ -337,6 +343,7 @@ extension Legend {
         }
     }
     
+    /// 控制图例的滚动。当 legend.type 为 'scroll' 时有效。
     public final class LegendScroll: EchartsAction {
         public var type: EchartsActionType {
             return .legendScroll

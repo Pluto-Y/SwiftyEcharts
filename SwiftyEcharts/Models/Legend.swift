@@ -289,6 +289,11 @@ extension Legend {
                 }
             }
         }
+        
+        public func mapping(map: Mapper) {
+            map["type"] = type
+            map["name"] = name
+        }
     }
     
     /// 取消选中图例的Action
@@ -315,6 +320,11 @@ extension Legend {
                 }
             }
         }
+        
+        public func mapping(map: Mapper) {
+            map["type"] = type
+            map["name"] = name
+        }
     }
     
     /// 切换图例的选中状态的Action
@@ -340,6 +350,11 @@ extension Legend {
                     self.name = name
                 }
             }
+        }
+        
+        public func mapping(map: Mapper) {
+            map["type"] = type
+            map["name"] = name
         }
     }
     
@@ -368,6 +383,12 @@ extension Legend {
                     self.legendId = legendId
                 }
             }
+        }
+        
+        public func mapping(map: Mapper) {
+            map["type"] = type
+            map["scrollDataIndex"] = scrollDataIndex
+            map["legendId"] = legendId
         }
     }
 }

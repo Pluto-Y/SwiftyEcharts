@@ -12,6 +12,62 @@ public protocol DataZoom {
     var yAxisIndex: OneOrMore<UInt8>? { get set }
 }
 
+// MARK: - Actions
+/// 数据区域缩放组件相关的行为，必须引入数据区域缩放组件后才能使用。
+public final class DataZoomAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .dataZoom
+    }
+    
+    /// 可选，dataZoom 组件的 index，多个 dataZoom 组件时有用，默认为 0
+    public var dataZoomIndex: Int?
+    /// 开始位置的百分比，0 - 100
+    public var start: Float?
+    /// 结束位置的百分比，0 - 100
+    public var end: Float?
+    /// 开始位置的数值
+    public var startValue: Float?
+    /// 结束位置的数值
+    public var endValue: Float?
+}
+
+extension DataZoomAction: Enumable {
+    public enum Enums {
+        case dataZoomIndex(Int), start(Float), end(Float), startValue(Float), endValue(Float)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .dataZoomIndex(dataZoomIndex):
+                self.dataZoomIndex = dataZoomIndex
+            case let .start(start):
+                self.start = start
+            case let .end(end):
+                self.end = end
+            case let .startValue(startValue):
+                self.startValue = startValue
+            case let .endValue(endValue):
+                self.endValue = endValue
+            }
+        }
+    }
+}
+
+extension DataZoomAction: Mappable {
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["dataZoomIndex"] = dataZoomIndex
+        map["start"] = start
+        map["end"] = end
+        map["startValue"] = startValue
+        map["endValue"] = endValue
+    }
+}
+
 /// dataZoom 的运行原理是通过 数据过滤 来达到 数据窗口缩放 的效果。数据过滤模式的设置不同，效果也不同。
 /// 可选值为：
 /// - filter: 当前数据窗口外的数据，被 过滤掉。即会影响其他轴的数据范围。

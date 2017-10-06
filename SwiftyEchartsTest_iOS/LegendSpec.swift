@@ -218,5 +218,36 @@ class LegendSpec: QuickSpec {
                 expect(legendByEnums.jsonString).to(equal(legend.jsonString))
             }
         }
+        
+        context("For the actions of Legend") {
+            describe("For Legend.LegendSelect") { 
+                let typeValue = EchartsActionType.legendSelect
+                let nameValue = "legendSelectName"
+                
+                let legendSelect = Legend.LegendSelect()
+                legendSelect.name = nameValue
+                
+                it("needs to check the typeValue") {
+                    expect(legendSelect.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "name": nameValue
+                    ]
+                    
+                    expect(legendSelect.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let legendSelectByEnums = Legend.LegendSelect(
+                        .name(nameValue)
+                    )
+                    
+                    expect(legendSelectByEnums.jsonString).to(equal(legendSelect.jsonString))
+                }
+            }
+        }
     }
 }

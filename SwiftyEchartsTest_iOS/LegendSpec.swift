@@ -306,6 +306,39 @@ class LegendSpec: QuickSpec {
                     expect(legendToggleSelectByEnums.jsonString).to(equal(legendToggleSelect.jsonString))
                 }
             }
+            
+            describe("For Legend.LegendScroll") {
+                let typeValue = EchartsActionType.legendScroll
+                let scrollDataIndexValue = 72374832
+                let legendIdValue = "legendScrollViewLegendId"
+                
+                let legendScroll = Legend.LegendScroll()
+                legendScroll.scrollDataIndex = scrollDataIndexValue
+                legendScroll.legendId = legendIdValue
+                
+                it("needs to check the type value") {
+                    expect(legendScroll.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "scrollDataIndex": scrollDataIndexValue,
+                        "legendId": legendIdValue
+                    ]
+                    
+                    expect(legendScroll.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable"){
+                    let legendScrollByEnums = Legend.LegendScroll(
+                        .scrollDataIndex(scrollDataIndexValue),
+                        .legendId(legendIdValue)
+                    )
+                    
+                    expect(legendScrollByEnums.jsonString).to(equal(legendScroll.jsonString))
+                }
+            }
         }
     }
 }

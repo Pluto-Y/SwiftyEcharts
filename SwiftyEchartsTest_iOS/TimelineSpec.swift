@@ -473,6 +473,35 @@ class TimelineSpec: QuickSpec {
                     expect(timelineChangeActionByEnums.jsonString).to(equal(timelineChangeAction.jsonString))
                 }
             }
+            
+            describe("For TimelinePlayChangeAction") {
+                let typeValue = EchartsActionType.timelinePlayChange
+                let playStateValue = false
+                
+                let timelinePlayChangeAction = Timeline.TimelinePlayChangeAction()
+                timelinePlayChangeAction.playState = playStateValue
+                
+                it("needs to check the type value") {
+                    expect(timelinePlayChangeAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "playState": playStateValue
+                    ]
+                    
+                    expect(timelinePlayChangeAction.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let timelinePlayChangeActionByEnums = Timeline.TimelinePlayChangeAction(
+                        .playState(playStateValue)
+                    )
+                    
+                    expect(timelinePlayChangeActionByEnums.jsonString).to(equal(timelinePlayChangeAction.jsonString))
+                }
+            }
         }
     }
 }

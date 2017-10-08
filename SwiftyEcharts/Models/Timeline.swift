@@ -543,3 +543,77 @@ extension Timeline: Mappable {
         
     }
 }
+
+// MARK: - Actions
+/// 时间轴组件相关的行为，必须引入时间轴组件后才能使用。
+extension Timeline {
+    /// 设置当前的时间点。
+    public final class TimelineChangeAction: EchartsAction {
+        public var type: EchartsActionType {
+            return .timelineChange
+        }
+        
+        /// 时间点的 index
+        public var currentIndex: Int?
+    }
+    
+    /// 切换时间轴的播放状态。
+    public final class TimelinePlayChangeAction: EchartsAction {
+        public var type: EchartsActionType {
+            return .timelinePlayChange
+        }
+        
+        /// 播放状态，true 为自动播放
+        public var playState: Bool?
+    }
+}
+
+extension Timeline.TimelineChangeAction: Enumable {
+    public enum Enums {
+        case currentIndex(Int)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .currentIndex(currentIndex):
+                self.currentIndex = currentIndex
+            }
+        }
+    }
+}
+
+extension Timeline.TimelineChangeAction: Mappable {
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["currentIndex"] = currentIndex
+    }
+}
+
+extension Timeline.TimelinePlayChangeAction: Enumable {
+    public enum Enums {
+        case playState(Bool)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .playState(playState):
+                self.playState = playState
+            }
+        }
+    }
+}
+
+extension Timeline.TimelinePlayChangeAction: Mappable {
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["playState"] = playState
+    }
+}

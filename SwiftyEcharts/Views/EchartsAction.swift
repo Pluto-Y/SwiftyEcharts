@@ -53,7 +53,7 @@ public enum EchartsActionType: String, Jsonable {
 
 // MARK: - EchartsAction
 /// ECharts 中支持的图表行为，通过 EchartsView.dispatchAction(_:) 触发。
-public protocol EchartsAction: Jsonable, Enumable {
+public protocol EchartsAction: Mappable, Enumable {
     var type: EchartsActionType { get }
 }
 

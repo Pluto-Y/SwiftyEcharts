@@ -443,5 +443,36 @@ class TimelineSpec: QuickSpec {
                 expect(timelineByEnums.jsonString).to(equal(timeline.jsonString))
             }
         }
+        
+        context("For the action of Timeline") {
+            describe("For TimelineChangeAction") {
+                let typeValue = EchartsActionType.timelineChange
+                let currentIndexValue = 256
+                
+                let timelineChangeAction = Timeline.TimelineChangeAction()
+                timelineChangeAction.currentIndex = currentIndexValue
+                
+                it("needs to check the type value") {
+                    expect(timelineChangeAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "currentIndex": currentIndexValue
+                    ]
+                    
+                    expect(timelineChangeAction.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let timelineChangeActionByEnums = Timeline.TimelineChangeAction(
+                        .currentIndex(currentIndexValue)
+                    )
+                    
+                    expect(timelineChangeActionByEnums.jsonString).to(equal(timelineChangeAction.jsonString))
+                }
+            }
+        }
     }
 }

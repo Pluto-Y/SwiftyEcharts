@@ -58,7 +58,7 @@ extension DataZoomAction: Enumable {
 }
 
 extension DataZoomAction: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["dataZoomIndex"] = dataZoomIndex
         map["start"] = start

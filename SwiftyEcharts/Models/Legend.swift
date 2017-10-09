@@ -290,7 +290,7 @@ extension Legend {
             }
         }
         
-        public func mapping(map: Mapper) {
+        public func mapping(_ map: Mapper) {
             map["type"] = type
             map["name"] = name
         }
@@ -321,7 +321,7 @@ extension Legend {
             }
         }
         
-        public func mapping(map: Mapper) {
+        public func mapping(_ map: Mapper) {
             map["type"] = type
             map["name"] = name
         }
@@ -352,7 +352,7 @@ extension Legend {
             }
         }
         
-        public func mapping(map: Mapper) {
+        public func mapping(_ map: Mapper) {
             map["type"] = type
             map["name"] = name
         }
@@ -385,7 +385,7 @@ extension Legend {
             }
         }
         
-        public func mapping(map: Mapper) {
+        public func mapping(_ map: Mapper) {
             map["type"] = type
             map["scrollDataIndex"] = scrollDataIndex
             map["legendId"] = legendId

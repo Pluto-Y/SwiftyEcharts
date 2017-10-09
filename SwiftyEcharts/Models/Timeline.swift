@@ -587,7 +587,7 @@ extension Timeline.TimelineChangeAction: Enumable {
 }
 
 extension Timeline.TimelineChangeAction: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["currentIndex"] = currentIndex
     }
@@ -612,7 +612,7 @@ extension Timeline.TimelinePlayChangeAction: Enumable {
 }
 
 extension Timeline.TimelinePlayChangeAction: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["playState"] = playState
     }

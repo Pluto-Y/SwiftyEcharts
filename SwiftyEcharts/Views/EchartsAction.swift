@@ -107,7 +107,7 @@ extension HighlightAction: Enumable {
 }
 
 extension HighlightAction: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["seriesIndex"] = seriesIndex
         map["seriesName"] = seriesName
@@ -166,7 +166,7 @@ extension DownplayAction: Enumable {
 }
 
 extension DownplayAction: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["seriesIndex"] = seriesIndex
         map["seriesName"] = seriesName

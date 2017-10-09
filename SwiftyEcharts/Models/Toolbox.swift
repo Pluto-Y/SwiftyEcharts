@@ -1066,7 +1066,7 @@ extension Toolbox {
             self.init()
         }
         
-        public func mapping(map: Mapper) {
+        public func mapping(_ map: Mapper) {
             map["type"] = type
         }
     }

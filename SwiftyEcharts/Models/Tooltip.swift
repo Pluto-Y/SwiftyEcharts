@@ -252,7 +252,7 @@ extension Tooltip.ShowTipAction: Enumable {
 }
 
 extension Tooltip.ShowTipAction: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["x"] = x
         map["y"] = y
@@ -270,7 +270,7 @@ extension Tooltip.HideTipAction: Enumable, Mappable {
         self.init()
     }
     
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
     }
 }

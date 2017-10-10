@@ -139,7 +139,7 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     // MARK: - Private Functions
     fileprivate func initViews() {
         var bundle = Bundle.main
-        if let frameworkPath = Bundle.main.path(forResource: "SwiftyEcharts", ofType: "framework", inDirectory: "Frameworks"), let frameworkBundle = Bundle(path: frameworkPath) {
+        if let frameworkPath = Bundle.main.path(forResource: "SwiftyEcharts", ofType: "framework", inDirectory: "Frameworks"), let frameworkBundle = Bundle(path: frameworkPath + "/SwiftyEcharts.bundle") {
             bundle = frameworkBundle
         }
         

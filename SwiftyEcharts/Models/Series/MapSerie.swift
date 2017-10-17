@@ -467,7 +467,7 @@ extension MapSerie: Mappable {
 
 // MARK: - Actions
 /// 选中指定的地图区域。
-public final class MapSelect: EchartsAction {
+public final class MapSelectAction: EchartsAction {
     public var type: EchartsActionType {
         return .mapSelect
     }
@@ -482,7 +482,7 @@ public final class MapSelect: EchartsAction {
     public var name: String?
 }
 
-extension MapSelect: Enumable {
+extension MapSelectAction: Enumable {
     public enum Enums {
         case seriesIndex(Int), seriesIndexes([Int]), seriesName(String), seriesNames([String]), dataIndex(Int), name(String)
     }
@@ -510,7 +510,7 @@ extension MapSelect: Enumable {
     }
 }
 
-extension MapSelect: Mappable {
+extension MapSelectAction: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["seriesIndex"] = seriesIndex
@@ -521,7 +521,7 @@ extension MapSelect: Mappable {
 }
 
 /// 取消选中指定的地图区域。
-public final class MapUnSelect: EchartsAction {
+public final class MapUnSelectAction: EchartsAction {
     public var type: EchartsActionType {
         return .mapSelect
     }
@@ -536,7 +536,7 @@ public final class MapUnSelect: EchartsAction {
     public var name: String?
 }
 
-extension MapUnSelect: Enumable {
+extension MapUnSelectAction: Enumable {
     public enum Enums {
         case seriesIndex(Int), seriesIndexes([Int]), seriesName(String), seriesNames([String]), dataIndex(Int), name(String)
     }
@@ -564,7 +564,7 @@ extension MapUnSelect: Enumable {
     }
 }
 
-extension MapUnSelect: Mappable {
+extension MapUnSelectAction: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["seriesIndex"] = seriesIndex
@@ -575,7 +575,7 @@ extension MapUnSelect: Mappable {
 }
 
 /// 切换指定的地图区域选中状态。
-public final class MapToggleSelect: EchartsAction {
+public final class MapToggleSelectAction: EchartsAction {
     public var type: EchartsActionType {
         return .mapSelect
     }
@@ -590,7 +590,7 @@ public final class MapToggleSelect: EchartsAction {
     public var name: String?
 }
 
-extension MapToggleSelect: Enumable {
+extension MapToggleSelectAction: Enumable {
     public enum Enums {
         case seriesIndex(Int), seriesIndexes([Int]), seriesName(String), seriesNames([String]), dataIndex(Int), name(String)
     }
@@ -618,7 +618,7 @@ extension MapToggleSelect: Enumable {
     }
 }
 
-extension MapToggleSelect: Mappable {
+extension MapToggleSelectAction: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["seriesIndex"] = seriesIndex

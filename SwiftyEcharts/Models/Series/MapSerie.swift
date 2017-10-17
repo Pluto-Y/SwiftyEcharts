@@ -523,7 +523,7 @@ extension MapSelectAction: Mappable {
 /// 取消选中指定的地图区域。
 public final class MapUnSelectAction: EchartsAction {
     public var type: EchartsActionType {
-        return .mapSelect
+        return .mapUnSelect
     }
     
     /// 可选，系列 index，可以是一个数组指定多个系列
@@ -577,7 +577,7 @@ extension MapUnSelectAction: Mappable {
 /// 切换指定的地图区域选中状态。
 public final class MapToggleSelectAction: EchartsAction {
     public var type: EchartsActionType {
-        return .mapSelect
+        return .mapToggleSelect
     }
     
     /// 可选，系列 index，可以是一个数组指定多个系列

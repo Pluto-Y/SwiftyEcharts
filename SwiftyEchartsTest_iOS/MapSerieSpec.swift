@@ -291,5 +291,66 @@ class MapSerieSpec: QuickSpec {
                 expect(mapSerieByEnums.jsonString).to(equal(mapSerie.jsonString))
             }
         }
+        
+        context("For the actions of MapSerie") {
+            describe("For MapSelectAction") {
+                let typeValue = EchartsActionType.mapSelect
+                let seriesIndexOriginValue: Int = 20
+                let seriesIndexValue = OneOrMore(one: seriesIndexOriginValue)
+                let seriesNameOriginValue = "mapSelectActionSeriesName"
+                let seriesNameValue = OneOrMore(one: seriesNameOriginValue)
+                let dataIndexValue: Int = Int.max
+                let nameValue = "mapSelectActionName"
+                
+                let mapSelectAction = MapSelectAction()
+                mapSelectAction.seriesName = seriesNameValue
+                mapSelectAction.seriesIndex = seriesIndexValue
+                mapSelectAction.dataIndex = dataIndexValue
+                mapSelectAction.name = nameValue
+                
+                it("needs to check the type value") {
+                    expect(mapSelectAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "seriesName": seriesNameValue,
+                        "seriesIndex": seriesIndexValue,
+                        "dataIndex": dataIndexValue,
+                        "name": nameValue
+                    ]
+                    expect(mapSelectAction.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let mapSelectActionByEnums = MapSelectAction(
+                        .seriesName(seriesNameOriginValue),
+                        .seriesIndex(seriesIndexOriginValue),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(mapSelectActionByEnums.jsonString).to(equal(mapSelectAction.jsonString))
+                }
+                
+                it("needs to check the seriesIndexes and seriesNames enum case") {
+                    let seriesIndexOriginValues: [Int] = [Int.min, Int.max]
+                    let seriesNameOriginValues: [String] = ["seriesName1", "seriesName2", "seriesName3"]
+                    
+                    mapSelectAction.seriesIndex = OneOrMore(more: seriesIndexOriginValues)
+                    mapSelectAction.seriesName = OneOrMore(more: seriesNameOriginValues)
+                    
+                    let mapSelectActionByEnums = MapSelectAction(
+                        .seriesNames(seriesNameOriginValues),
+                        .seriesIndexes(seriesIndexOriginValues),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(mapSelectActionByEnums.jsonString).to(equal(mapSelectAction.jsonString))
+                }
+            }
+        }
     }
 }

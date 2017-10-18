@@ -220,11 +220,11 @@ class LegendSpec: QuickSpec {
         }
         
         context("For the actions of Legend") {
-            describe("For Legend.LegendSelect") { 
+            describe("For LegendSelect") { 
                 let typeValue = EchartsActionType.legendSelect
                 let nameValue = "legendSelectName"
                 
-                let legendSelect = Legend.LegendSelect()
+                let legendSelect = LegendSelect()
                 legendSelect.name = nameValue
                 
                 it("needs to check the typeValue") {
@@ -241,7 +241,7 @@ class LegendSpec: QuickSpec {
                 }
                 
                 it("needs to check the Enumable") {
-                    let legendSelectByEnums = Legend.LegendSelect(
+                    let legendSelectByEnums = LegendSelect(
                         .name(nameValue)
                     )
                     
@@ -249,11 +249,11 @@ class LegendSpec: QuickSpec {
                 }
             }
             
-            describe("For Legend.LegendUnSelect") {
+            describe("For LegendUnSelect") {
                 let typeValue = EchartsActionType.legendUnSelect
                 let nameValue = "legendUnSelectName"
                 
-                let legendUnSelect = Legend.LegendUnSelect()
+                let legendUnSelect = LegendUnSelect()
                 legendUnSelect.name = nameValue
                 
                 it("needs to check the typeValue") {
@@ -270,7 +270,7 @@ class LegendSpec: QuickSpec {
                 }
                 
                 it("needs to check the Enumable") {
-                    let legendUnSelectByEnums = Legend.LegendUnSelect(
+                    let legendUnSelectByEnums = LegendUnSelect(
                         .name(nameValue)
                     )
                     
@@ -278,11 +278,11 @@ class LegendSpec: QuickSpec {
                 }
             }
             
-            describe("For Legend.LegendToggleSelect") {
+            describe("For LegendToggleSelect") {
                 let typeValue = EchartsActionType.legendToggleSelect
                 let nameValue = "legendToggleSelectName"
                 
-                let legendToggleSelect = Legend.LegendToggleSelect()
+                let legendToggleSelect = LegendToggleSelect()
                 legendToggleSelect.name = nameValue
                 
                 it("needs to check the typeValue") {
@@ -299,7 +299,7 @@ class LegendSpec: QuickSpec {
                 }
                 
                 it("needs to check the Enumable") {
-                    let legendToggleSelectByEnums = Legend.LegendToggleSelect(
+                    let legendToggleSelectByEnums = LegendToggleSelect(
                         .name(nameValue)
                     )
                     
@@ -307,12 +307,12 @@ class LegendSpec: QuickSpec {
                 }
             }
             
-            describe("For Legend.LegendScroll") {
+            describe("For LegendScroll") {
                 let typeValue = EchartsActionType.legendScroll
                 let scrollDataIndexValue = 72374832
                 let legendIdValue = "legendScrollViewLegendId"
                 
-                let legendScroll = Legend.LegendScroll()
+                let legendScroll = LegendScroll()
                 legendScroll.scrollDataIndex = scrollDataIndexValue
                 legendScroll.legendId = legendIdValue
                 
@@ -331,7 +331,7 @@ class LegendSpec: QuickSpec {
                 }
                 
                 it("needs to check the Enumable"){
-                    let legendScrollByEnums = Legend.LegendScroll(
+                    let legendScrollByEnums = LegendScroll(
                         .scrollDataIndex(scrollDataIndexValue),
                         .legendId(legendIdValue)
                     )

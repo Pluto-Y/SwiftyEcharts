@@ -91,7 +91,7 @@ public final class Legend: Borderable, Displayable, Formatted, Shadowable, Zable
     /// 图例的 tooltip 配置，配置项同 tooltip。默认不显示，可以在 legend 文字很多的时候对文字做裁剪并且开启 tooltip，
     ///
     /// 如下示例：
-    /// 
+    ///
     ///     legend: {
     ///         formatter: function (name) {
     ///             return echarts.format.truncateText(name, 40, '14px Microsoft Yahei', '…');
@@ -264,131 +264,129 @@ extension Legend: Mappable {
 }
 
 // MARK: - Actions
-extension Legend {
-    /// 选中图例的Action
-    public final class LegendSelect: EchartsAction {
-        public var type: EchartsActionType {
-            return .legendSelect
-        }
-        
-        /// 图例名称
-        public var name: String?
-        
-        public enum Enums {
-            case name(String)
-        }
-        
-        public typealias ContentEnum = Enums
-        
-        public convenience init(_ elements: Enums...) {
-            self.init()
-            for ele in elements {
-                switch ele {
-                case let .name(name):
-                    self.name = name
-                }
+/// 选中图例的Action
+public final class LegendSelect: EchartsAction {
+    public var type: EchartsActionType {
+        return .legendSelect
+    }
+    
+    /// 图例名称
+    public var name: String?
+    
+    public enum Enums {
+        case name(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
             }
-        }
-        
-        public func mapping(map: Mapper) {
-            map["type"] = type
-            map["name"] = name
         }
     }
     
-    /// 取消选中图例的Action
-    public final class LegendUnSelect: EchartsAction {
-        public var type: EchartsActionType {
-            return .legendUnSelect
-        }
-        
-        /// 图例名称
-        public var name: String?
-        
-        public enum Enums {
-            case name(String)
-        }
-        
-        public typealias ContentEnum = Enums
-        
-        public convenience init(_ elements: Enums...) {
-            self.init()
-            for ele in elements {
-                switch ele {
-                case let .name(name):
-                    self.name = name
-                }
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["name"] = name
+    }
+}
+
+/// 取消选中图例的Action
+public final class LegendUnSelect: EchartsAction {
+    public var type: EchartsActionType {
+        return .legendUnSelect
+    }
+    
+    /// 图例名称
+    public var name: String?
+    
+    public enum Enums {
+        case name(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
             }
-        }
-        
-        public func mapping(map: Mapper) {
-            map["type"] = type
-            map["name"] = name
         }
     }
     
-    /// 切换图例的选中状态的Action
-    public final class LegendToggleSelect: EchartsAction {
-        public var type: EchartsActionType {
-            return .legendToggleSelect
-        }
-        
-        /// 图例名称
-        public var name: String?
-        
-        public enum Enums {
-            case name(String)
-        }
-        
-        public typealias ContentEnum = Enums
-        
-        public convenience init(_ elements: Enums...) {
-            self.init()
-            for ele in elements {
-                switch ele {
-                case let .name(name):
-                    self.name = name
-                }
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["name"] = name
+    }
+}
+
+/// 切换图例的选中状态的Action
+public final class LegendToggleSelect: EchartsAction {
+    public var type: EchartsActionType {
+        return .legendToggleSelect
+    }
+    
+    /// 图例名称
+    public var name: String?
+    
+    public enum Enums {
+        case name(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .name(name):
+                self.name = name
             }
-        }
-        
-        public func mapping(map: Mapper) {
-            map["type"] = type
-            map["name"] = name
         }
     }
     
-    /// 控制图例的滚动。当 legend.type 为 'scroll' 时有效。
-    public final class LegendScroll: EchartsAction {
-        public var type: EchartsActionType {
-            return .legendScroll
-        }
-        
-        public var scrollDataIndex: Int?
-        public var legendId: String?
-        
-        public enum Enums {
-            case scrollDataIndex(Int), legendId(String)
-        }
-        
-        public typealias ContentEnum = Enums
-        
-        public convenience init(_ elements: Enums...) {
-            self.init()
-            for ele in elements {
-                switch ele {
-                case let .scrollDataIndex(scrollDataIndex):
-                    self.scrollDataIndex = scrollDataIndex
-                case let .legendId(legendId):
-                    self.legendId = legendId
-                }
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["name"] = name
+    }
+}
+
+/// 控制图例的滚动。当 legend.type 为 'scroll' 时有效。
+public final class LegendScroll: EchartsAction {
+    public var type: EchartsActionType {
+        return .legendScroll
+    }
+    
+    public var scrollDataIndex: Int?
+    public var legendId: String?
+    
+    public enum Enums {
+        case scrollDataIndex(Int), legendId(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .scrollDataIndex(scrollDataIndex):
+                self.scrollDataIndex = scrollDataIndex
+            case let .legendId(legendId):
+                self.legendId = legendId
             }
         }
-        
-        public func mapping(map: Mapper) {
-            map["type"] = type
-            map["scrollDataIndex"] = scrollDataIndex
-            map["legendId"] = legendId
-        }
+    }
+    
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["scrollDataIndex"] = scrollDataIndex
+        map["legendId"] = legendId
     }
 }

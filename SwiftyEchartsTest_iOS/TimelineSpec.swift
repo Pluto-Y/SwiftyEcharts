@@ -449,7 +449,7 @@ class TimelineSpec: QuickSpec {
                 let typeValue = EchartsActionType.timelineChange
                 let currentIndexValue = 256
                 
-                let timelineChangeAction = Timeline.TimelineChangeAction()
+                let timelineChangeAction = TimelineChangeAction()
                 timelineChangeAction.currentIndex = currentIndexValue
                 
                 it("needs to check the type value") {
@@ -466,7 +466,7 @@ class TimelineSpec: QuickSpec {
                 }
                 
                 it("needs to check the Enumable") {
-                    let timelineChangeActionByEnums = Timeline.TimelineChangeAction(
+                    let timelineChangeActionByEnums = TimelineChangeAction(
                         .currentIndex(currentIndexValue)
                     )
                     
@@ -478,7 +478,7 @@ class TimelineSpec: QuickSpec {
                 let typeValue = EchartsActionType.timelinePlayChange
                 let playStateValue = false
                 
-                let timelinePlayChangeAction = Timeline.TimelinePlayChangeAction()
+                let timelinePlayChangeAction = TimelinePlayChangeAction()
                 timelinePlayChangeAction.playState = playStateValue
                 
                 it("needs to check the type value") {
@@ -495,7 +495,7 @@ class TimelineSpec: QuickSpec {
                 }
                 
                 it("needs to check the Enumable") {
-                    let timelinePlayChangeActionByEnums = Timeline.TimelinePlayChangeAction(
+                    let timelinePlayChangeActionByEnums = TimelinePlayChangeAction(
                         .playState(playStateValue)
                     )
                     

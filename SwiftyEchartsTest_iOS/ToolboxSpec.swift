@@ -822,10 +822,10 @@ class ToolboxSpec: QuickSpec {
         }
         
         context("For the action of Toolbox") {
-            describe("For Toolbox.RestoreAction") {
+            describe("For ToolboxRestoreAction") {
                 let typeValue = EchartsActionType.restore
                 
-                let restoreAction = Toolbox.RestoreAction()
+                let restoreAction = ToolboxRestoreAction()
                 
                 it("needs to check the typeValue") {
                     expect(restoreAction.type.jsonString).to(equal(typeValue.jsonString))

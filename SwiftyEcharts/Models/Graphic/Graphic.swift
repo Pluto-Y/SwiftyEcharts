@@ -416,7 +416,7 @@ public protocol Graphic: Zable, Mappable {
 
 // MARK: - Action
 /// 将指定的节点以及其所有邻接节点高亮。
-public final class GraphFocusNodeAdjacency: EchartsAction {
+public final class GraphFocusNodeAdjacencyAction: EchartsAction {
     public var type: EchartsActionType {
         return .focusNodeAdjacency
     }
@@ -429,7 +429,7 @@ public final class GraphFocusNodeAdjacency: EchartsAction {
     public var dataIndex: Int?
 }
 
-extension GraphFocusNodeAdjacency: Enumable {
+extension GraphFocusNodeAdjacencyAction: Enumable {
     public enum Enums {
         case seriesId(String), seriesIndex(Int), seriesName(String), dataIndex(Int)
     }
@@ -453,7 +453,7 @@ extension GraphFocusNodeAdjacency: Enumable {
     }
 }
 
-extension GraphFocusNodeAdjacency: Mappable {
+extension GraphFocusNodeAdjacencyAction: Mappable {
     public func mapping(map: Mapper) {
         map["type"] = type
         map["seriesId"] = seriesId

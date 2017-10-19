@@ -418,5 +418,184 @@ class PieSerieSpec: QuickSpec {
                 expect(pieSerieByEnums.jsonString).to(equal(pieSerie.jsonString))
             }
         }
+        
+        context("For the actions of PieSerie") {
+            describe("For PieSelectAction") {
+                let typeValue = EchartsActionType.pieSelect
+                let seriesIndexOriginValue: Int = 20
+                let seriesIndexValue = OneOrMore(one: seriesIndexOriginValue)
+                let seriesNameOriginValue = "pieSelectActionSeriesName"
+                let seriesNameValue = OneOrMore(one: seriesNameOriginValue)
+                let dataIndexValue: Int = Int.max
+                let nameValue = "pieSelectActionName"
+                
+                let pieSelectAction = PieSelectAction()
+                pieSelectAction.seriesName = seriesNameValue
+                pieSelectAction.seriesIndex = seriesIndexValue
+                pieSelectAction.dataIndex = dataIndexValue
+                pieSelectAction.name = nameValue
+                
+                it("needs to check the type value") {
+                    expect(pieSelectAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "seriesName": seriesNameValue,
+                        "seriesIndex": seriesIndexValue,
+                        "dataIndex": dataIndexValue,
+                        "name": nameValue
+                    ]
+                    expect(pieSelectAction.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let pieSelectActionByEnums = PieSelectAction(
+                        .seriesName(seriesNameOriginValue),
+                        .seriesIndex(seriesIndexOriginValue),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(pieSelectActionByEnums.jsonString).to(equal(pieSelectAction.jsonString))
+                }
+                
+                it("needs to check the seriesIndexes and seriesNames enum case") {
+                    let seriesIndexOriginValues: [Int] = [Int.min, Int.max]
+                    let seriesNameOriginValues: [String] = ["seriesName1", "seriesName2", "seriesName3"]
+                    
+                    pieSelectAction.seriesIndex = OneOrMore(more: seriesIndexOriginValues)
+                    pieSelectAction.seriesName = OneOrMore(more: seriesNameOriginValues)
+                    
+                    let pieSelectActionByEnums = PieSelectAction(
+                        .seriesNames(seriesNameOriginValues),
+                        .seriesIndexes(seriesIndexOriginValues),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(pieSelectActionByEnums.jsonString).to(equal(pieSelectAction.jsonString))
+                }
+            }
+            
+            describe("For PieUnSelectAction") {
+                let typeValue = EchartsActionType.pieUnSelect
+                let seriesIndexOriginValue: Int = 874
+                let seriesIndexValue = OneOrMore(one: seriesIndexOriginValue)
+                let seriesNameOriginValue = "pieUnSelectActionSeriesName"
+                let seriesNameValue = OneOrMore(one: seriesNameOriginValue)
+                let dataIndexValue: Int = Int.min
+                let nameValue = "pieUnSelectActionName"
+                
+                let pieUnSelectAction = PieUnSelectAction()
+                pieUnSelectAction.seriesName = seriesNameValue
+                pieUnSelectAction.seriesIndex = seriesIndexValue
+                pieUnSelectAction.dataIndex = dataIndexValue
+                pieUnSelectAction.name = nameValue
+                
+                it("needs to check the type value") {
+                    expect(pieUnSelectAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "seriesName": seriesNameValue,
+                        "seriesIndex": seriesIndexValue,
+                        "dataIndex": dataIndexValue,
+                        "name": nameValue
+                    ]
+                    expect(pieUnSelectAction.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let pieUnSelectActionByEnums = PieUnSelectAction(
+                        .seriesName(seriesNameOriginValue),
+                        .seriesIndex(seriesIndexOriginValue),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(pieUnSelectActionByEnums.jsonString).to(equal(pieUnSelectAction.jsonString))
+                }
+                
+                it("needs to check the seriesIndexes and seriesNames enum case") {
+                    let seriesIndexOriginValues: [Int] = [Int.min, Int.max]
+                    let seriesNameOriginValues: [String] = ["seriesName1", "seriesName2", "seriesName3"]
+                    
+                    pieUnSelectAction.seriesIndex = OneOrMore(more: seriesIndexOriginValues)
+                    pieUnSelectAction.seriesName = OneOrMore(more: seriesNameOriginValues)
+                    
+                    let pieUnSelectActionByEnums = PieUnSelectAction(
+                        .seriesNames(seriesNameOriginValues),
+                        .seriesIndexes(seriesIndexOriginValues),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(pieUnSelectActionByEnums.jsonString).to(equal(pieUnSelectAction.jsonString))
+                }
+            }
+            
+            describe("For PieToggleSelectAction") {
+                let typeValue = EchartsActionType.pieToggleSelect
+                let seriesIndexOriginValue: Int = 2827
+                let seriesIndexValue = OneOrMore(one: seriesIndexOriginValue)
+                let seriesNameOriginValue = "pieToggleSelectActionSeriesName"
+                let seriesNameValue = OneOrMore(one: seriesNameOriginValue)
+                let dataIndexValue: Int = 23489
+                let nameValue = "pieToggleSelectActionName"
+                
+                let pieToggleSelectAction = PieToggleSelectAction()
+                pieToggleSelectAction.seriesName = seriesNameValue
+                pieToggleSelectAction.seriesIndex = seriesIndexValue
+                pieToggleSelectAction.dataIndex = dataIndexValue
+                pieToggleSelectAction.name = nameValue
+                
+                it("needs to check the type value") {
+                    expect(pieToggleSelectAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "seriesName": seriesNameValue,
+                        "seriesIndex": seriesIndexValue,
+                        "dataIndex": dataIndexValue,
+                        "name": nameValue
+                    ]
+                    expect(pieToggleSelectAction.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let pieToggleSelectActionByEnums = PieToggleSelectAction(
+                        .seriesName(seriesNameOriginValue),
+                        .seriesIndex(seriesIndexOriginValue),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(pieToggleSelectActionByEnums.jsonString).to(equal(pieToggleSelectAction.jsonString))
+                }
+                
+                it("needs to check the seriesIndexes and seriesNames enum case") {
+                    let seriesIndexOriginValues: [Int] = [Int.min, Int.max]
+                    let seriesNameOriginValues: [String] = ["seriesName1", "seriesName2", "seriesName3"]
+                    
+                    pieToggleSelectAction.seriesIndex = OneOrMore(more: seriesIndexOriginValues)
+                    pieToggleSelectAction.seriesName = OneOrMore(more: seriesNameOriginValues)
+                    
+                    let pieToggleSelectActionByEnums = PieToggleSelectAction(
+                        .seriesNames(seriesNameOriginValues),
+                        .seriesIndexes(seriesIndexOriginValues),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(pieToggleSelectActionByEnums.jsonString).to(equal(pieToggleSelectAction.jsonString))
+                }
+            }
+        }
     }
 }

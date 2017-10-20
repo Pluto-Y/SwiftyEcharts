@@ -274,3 +274,6 @@ extension Tooltip.HideTipAction: Enumable, Mappable {
         map["type"] = type
     }
 }
+
+typealias TooltipShowTipAction = Tooltip.ShowTipAction
+typealias TooltipHideTipAction = Tooltip.HideTipAction

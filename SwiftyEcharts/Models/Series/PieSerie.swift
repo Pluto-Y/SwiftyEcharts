@@ -399,3 +399,166 @@ extension PieSerie: Mappable {
     }
 }
 
+// MARK: - Actions
+/// 饼图相关的行为，必须引入饼图后才能使用。
+/// 选中指定的饼图扇形。
+public final class PieSelectAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .pieSelect
+    }
+    
+    /// 可选，系列 index，可以是一个数组指定多个系列
+    public var seriesIndex: OneOrMore<Int>?
+    /// 可选，系列名称，可以是一个数组指定多个系列
+    public var seriesName: OneOrMore<String>?
+    /// 数据的 index，如果不指定也可以通过 name 属性根据名称指定数据
+    public var dataIndex: Int?
+    /// 可选，数据名称，在有 dataIndex 的时候忽略
+    public var name: String?
+}
+
+extension PieSelectAction: Enumable {
+    public enum Enums {
+        case seriesIndex(Int), seriesIndexes([Int]), seriesName(String), seriesNames([String]), dataIndex(Int), name(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .seriesIndex(seriesIndex):
+                self.seriesIndex = OneOrMore(one: seriesIndex)
+            case let .seriesIndexes(seriesIndexes):
+                self.seriesIndex = OneOrMore(more: seriesIndexes)
+            case let .seriesName(seriesName):
+                self.seriesName = OneOrMore(one: seriesName)
+            case let .seriesNames(seriesNames):
+                self.seriesName = OneOrMore(more: seriesNames)
+            case let .dataIndex(dataIndex):
+                self.dataIndex = dataIndex
+            case let .name(name):
+                self.name = name
+            }
+        }
+    }
+}
+
+extension PieSelectAction: Mappable {
+    public func mapping(_ map: Mapper) {
+        map["type"] = type
+        map["seriesIndex"] = seriesIndex
+        map["seriesName"] = seriesName
+        map["dataIndex"] = dataIndex
+        map["name"] = name
+    }
+}
+
+/// 取消选中指定的饼图扇形。
+public final class PieUnSelectAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .pieUnSelect
+    }
+    
+    /// 可选，系列 index，可以是一个数组指定多个系列
+    public var seriesIndex: OneOrMore<Int>?
+    /// 可选，系列名称，可以是一个数组指定多个系列
+    public var seriesName: OneOrMore<String>?
+    /// 数据的 index，如果不指定也可以通过 name 属性根据名称指定数据
+    public var dataIndex: Int?
+    /// 可选，数据名称，在有 dataIndex 的时候忽略
+    public var name: String?
+}
+
+extension PieUnSelectAction: Enumable {
+    public enum Enums {
+        case seriesIndex(Int), seriesIndexes([Int]), seriesName(String), seriesNames([String]), dataIndex(Int), name(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .seriesIndex(seriesIndex):
+                self.seriesIndex = OneOrMore(one: seriesIndex)
+            case let .seriesIndexes(seriesIndexes):
+                self.seriesIndex = OneOrMore(more: seriesIndexes)
+            case let .seriesName(seriesName):
+                self.seriesName = OneOrMore(one: seriesName)
+            case let .seriesNames(seriesNames):
+                self.seriesName = OneOrMore(more: seriesNames)
+            case let .dataIndex(dataIndex):
+                self.dataIndex = dataIndex
+            case let .name(name):
+                self.name = name
+            }
+        }
+    }
+}
+
+extension PieUnSelectAction: Mappable {
+    public func mapping(_ map: Mapper) {
+        map["type"] = type
+        map["seriesIndex"] = seriesIndex
+        map["seriesName"] = seriesName
+        map["dataIndex"] = dataIndex
+        map["name"] = name
+    }
+}
+
+/// 切换指定的饼图扇形选中状态。
+public final class PieToggleSelectAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .pieToggleSelect
+    }
+    
+    /// 可选，系列 index，可以是一个数组指定多个系列
+    public var seriesIndex: OneOrMore<Int>?
+    /// 可选，系列名称，可以是一个数组指定多个系列
+    public var seriesName: OneOrMore<String>?
+    /// 数据的 index，如果不指定也可以通过 name 属性根据名称指定数据
+    public var dataIndex: Int?
+    /// 可选，数据名称，在有 dataIndex 的时候忽略
+    public var name: String?
+}
+
+extension PieToggleSelectAction: Enumable {
+    public enum Enums {
+        case seriesIndex(Int), seriesIndexes([Int]), seriesName(String), seriesNames([String]), dataIndex(Int), name(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .seriesIndex(seriesIndex):
+                self.seriesIndex = OneOrMore(one: seriesIndex)
+            case let .seriesIndexes(seriesIndexes):
+                self.seriesIndex = OneOrMore(more: seriesIndexes)
+            case let .seriesName(seriesName):
+                self.seriesName = OneOrMore(one: seriesName)
+            case let .seriesNames(seriesNames):
+                self.seriesName = OneOrMore(more: seriesNames)
+            case let .dataIndex(dataIndex):
+                self.dataIndex = dataIndex
+            case let .name(name):
+                self.name = name
+            }
+        }
+    }
+}
+
+extension PieToggleSelectAction: Mappable {
+    public func mapping(_ map: Mapper) {
+        map["type"] = type
+        map["seriesIndex"] = seriesIndex
+        map["seriesName"] = seriesName
+        map["dataIndex"] = dataIndex
+        map["name"] = name
+    }
+}

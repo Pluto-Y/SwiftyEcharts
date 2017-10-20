@@ -202,5 +202,184 @@ class GeoSpec: QuickSpec {
                 expect(geoByEnums.jsonString).to(equal(geo.jsonString))
             }
         }
+        
+        context("For the actions of GeoSerie") {
+            describe("For GeoSelectAction") {
+                let typeValue = EchartsActionType.geoSelect
+                let seriesIndexOriginValue: Int = 20
+                let seriesIndexValue = OneOrMore(one: seriesIndexOriginValue)
+                let seriesNameOriginValue = "geoSelectActionSeriesName"
+                let seriesNameValue = OneOrMore(one: seriesNameOriginValue)
+                let dataIndexValue: Int = Int.max
+                let nameValue = "geoSelectActionName"
+                
+                let geoSelectAction = GeoSelectAction()
+                geoSelectAction.seriesName = seriesNameValue
+                geoSelectAction.seriesIndex = seriesIndexValue
+                geoSelectAction.dataIndex = dataIndexValue
+                geoSelectAction.name = nameValue
+                
+                it("needs to check the type value") {
+                    expect(geoSelectAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "seriesName": seriesNameValue,
+                        "seriesIndex": seriesIndexValue,
+                        "dataIndex": dataIndexValue,
+                        "name": nameValue
+                    ]
+                    expect(geoSelectAction.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let geoSelectActionByEnums = GeoSelectAction(
+                        .seriesName(seriesNameOriginValue),
+                        .seriesIndex(seriesIndexOriginValue),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(geoSelectActionByEnums.jsonString).to(equal(geoSelectAction.jsonString))
+                }
+                
+                it("needs to check the seriesIndexes and seriesNames enum case") {
+                    let seriesIndexOriginValues: [Int] = [Int.min, Int.max]
+                    let seriesNameOriginValues: [String] = ["seriesName1", "seriesName2", "seriesName3"]
+                    
+                    geoSelectAction.seriesIndex = OneOrMore(more: seriesIndexOriginValues)
+                    geoSelectAction.seriesName = OneOrMore(more: seriesNameOriginValues)
+                    
+                    let geoSelectActionByEnums = GeoSelectAction(
+                        .seriesNames(seriesNameOriginValues),
+                        .seriesIndexes(seriesIndexOriginValues),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(geoSelectActionByEnums.jsonString).to(equal(geoSelectAction.jsonString))
+                }
+            }
+            
+            describe("For GeoUnSelectAction") {
+                let typeValue = EchartsActionType.geoUnSelect
+                let seriesIndexOriginValue: Int = 874
+                let seriesIndexValue = OneOrMore(one: seriesIndexOriginValue)
+                let seriesNameOriginValue = "geoUnSelectActionSeriesName"
+                let seriesNameValue = OneOrMore(one: seriesNameOriginValue)
+                let dataIndexValue: Int = Int.min
+                let nameValue = "geoUnSelectActionName"
+                
+                let geoUnSelectAction = GeoUnSelectAction()
+                geoUnSelectAction.seriesName = seriesNameValue
+                geoUnSelectAction.seriesIndex = seriesIndexValue
+                geoUnSelectAction.dataIndex = dataIndexValue
+                geoUnSelectAction.name = nameValue
+                
+                it("needs to check the type value") {
+                    expect(geoUnSelectAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "seriesName": seriesNameValue,
+                        "seriesIndex": seriesIndexValue,
+                        "dataIndex": dataIndexValue,
+                        "name": nameValue
+                    ]
+                    expect(geoUnSelectAction.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let geoUnSelectActionByEnums = GeoUnSelectAction(
+                        .seriesName(seriesNameOriginValue),
+                        .seriesIndex(seriesIndexOriginValue),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(geoUnSelectActionByEnums.jsonString).to(equal(geoUnSelectAction.jsonString))
+                }
+                
+                it("needs to check the seriesIndexes and seriesNames enum case") {
+                    let seriesIndexOriginValues: [Int] = [Int.min, Int.max]
+                    let seriesNameOriginValues: [String] = ["seriesName1", "seriesName2", "seriesName3"]
+                    
+                    geoUnSelectAction.seriesIndex = OneOrMore(more: seriesIndexOriginValues)
+                    geoUnSelectAction.seriesName = OneOrMore(more: seriesNameOriginValues)
+                    
+                    let geoUnSelectActionByEnums = GeoUnSelectAction(
+                        .seriesNames(seriesNameOriginValues),
+                        .seriesIndexes(seriesIndexOriginValues),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(geoUnSelectActionByEnums.jsonString).to(equal(geoUnSelectAction.jsonString))
+                }
+            }
+            
+            describe("For GeoToggleSelectAction") {
+                let typeValue = EchartsActionType.geoToggleSelect
+                let seriesIndexOriginValue: Int = 2827
+                let seriesIndexValue = OneOrMore(one: seriesIndexOriginValue)
+                let seriesNameOriginValue = "geoToggleSelectActionSeriesName"
+                let seriesNameValue = OneOrMore(one: seriesNameOriginValue)
+                let dataIndexValue: Int = 23489
+                let nameValue = "geoToggleSelectActionName"
+                
+                let geoToggleSelectAction = GeoToggleSelectAction()
+                geoToggleSelectAction.seriesName = seriesNameValue
+                geoToggleSelectAction.seriesIndex = seriesIndexValue
+                geoToggleSelectAction.dataIndex = dataIndexValue
+                geoToggleSelectAction.name = nameValue
+                
+                it("needs to check the type value") {
+                    expect(geoToggleSelectAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "seriesName": seriesNameValue,
+                        "seriesIndex": seriesIndexValue,
+                        "dataIndex": dataIndexValue,
+                        "name": nameValue
+                    ]
+                    expect(geoToggleSelectAction.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let geoToggleSelectActionByEnums = GeoToggleSelectAction(
+                        .seriesName(seriesNameOriginValue),
+                        .seriesIndex(seriesIndexOriginValue),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(geoToggleSelectActionByEnums.jsonString).to(equal(geoToggleSelectAction.jsonString))
+                }
+                
+                it("needs to check the seriesIndexes and seriesNames enum case") {
+                    let seriesIndexOriginValues: [Int] = [Int.min, Int.max]
+                    let seriesNameOriginValues: [String] = ["seriesName1", "seriesName2", "seriesName3"]
+                    
+                    geoToggleSelectAction.seriesIndex = OneOrMore(more: seriesIndexOriginValues)
+                    geoToggleSelectAction.seriesName = OneOrMore(more: seriesNameOriginValues)
+                    
+                    let geoToggleSelectActionByEnums = GeoToggleSelectAction(
+                        .seriesNames(seriesNameOriginValues),
+                        .seriesIndexes(seriesIndexOriginValues),
+                        .dataIndex(dataIndexValue),
+                        .name(nameValue)
+                    )
+                    
+                    expect(geoToggleSelectActionByEnums.jsonString).to(equal(geoToggleSelectAction.jsonString))
+                }
+            }
+        }
     }
 }

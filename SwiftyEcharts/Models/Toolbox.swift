@@ -1054,20 +1054,18 @@ extension Toolbox: Mappable {
 }
 
 // MARK: - Actions
-extension Toolbox {
-    public final class RestoreAction: EchartsAction {
-        public var type: EchartsActionType {
-            return .restore
-        }
-        
-        public typealias ContentEnum = EmptyEnum
-        
-        public convenience init(_ elements: EmptyEnum...) {
-            self.init()
-        }
-        
-        public func mapping(_ map: Mapper) {
-            map["type"] = type
-        }
+public final class ToolboxRestoreAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .restore
+    }
+    
+    public typealias ContentEnum = EmptyEnum
+    
+    public convenience init(_ elements: EmptyEnum...) {
+        self.init()
+    }
+    
+    public func mapping(_ map: Mapper) {
+        map["type"] = type
     }
 }

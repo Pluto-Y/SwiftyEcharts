@@ -412,3 +412,96 @@ public protocol Graphic: Zable, Mappable {
     var progressive: Bool? { get set }
     // TODO: 添加14个方法， 暂时还没添加
 }
+
+
+// MARK: - Action
+/// 将指定的节点以及其所有邻接节点高亮。
+public final class GraphFocusNodeAdjacencyAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .focusNodeAdjacency
+    }
+    
+    /// 使用 seriesId 或 seriesIndex 或 seriesName 来定位 series.
+    public var seriesId: String?
+    public var seriesIndex: Int?
+    public var seriesName: String?
+    /// 使用 dataIndex 来定位节点。
+    public var dataIndex: Int?
+}
+
+extension GraphFocusNodeAdjacencyAction: Enumable {
+    public enum Enums {
+        case seriesId(String), seriesIndex(Int), seriesName(String), dataIndex(Int)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .seriesId(seriesId):
+                self.seriesId = seriesId
+            case let .seriesIndex(seriesIndex):
+                self.seriesIndex = seriesIndex
+            case let .seriesName(seriesName):
+                self.seriesName = seriesName
+            case let .dataIndex(dataIndex):
+                self.dataIndex = dataIndex
+            }
+        }
+    }
+}
+
+extension GraphFocusNodeAdjacencyAction: Mappable {
+    public func mapping(_ map: Mapper) {
+        map["type"] = type
+        map["seriesId"] = seriesId
+        map["seriesIndex"] = seriesIndex
+        map["seriesName"] = seriesName
+        map["dataIndex"] = dataIndex
+    }
+}
+
+/// 取消指定的节点以及其所有邻接节点高亮。
+public final class GraphUnfocusNodeAdjacencyAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .unfocusNodeAdjacency
+    }
+    
+    /// 使用 seriesId 或 seriesIndex 或 seriesName 来定位 series.
+    public var seriesId: String?
+    public var seriesIndex: Int?
+    public var seriesName: String?
+}
+
+extension GraphUnfocusNodeAdjacencyAction: Enumable {
+    public enum Enums {
+        case seriesId(String), seriesIndex(Int), seriesName(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .seriesId(seriesId):
+                self.seriesId = seriesId
+            case let .seriesIndex(seriesIndex):
+                self.seriesIndex = seriesIndex
+            case let .seriesName(seriesName):
+                self.seriesName = seriesName
+            }
+        }
+    }
+}
+
+extension GraphUnfocusNodeAdjacencyAction: Mappable {
+    public func mapping(_ map: Mapper) {
+        map["type"] = type
+        map["seriesId"] = seriesId
+        map["seriesIndex"] = seriesIndex
+        map["seriesName"] = seriesName
+    }
+}

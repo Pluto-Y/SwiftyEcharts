@@ -546,29 +546,27 @@ extension Timeline: Mappable {
 
 // MARK: - Actions
 /// 时间轴组件相关的行为，必须引入时间轴组件后才能使用。
-extension Timeline {
-    /// 设置当前的时间点。
-    public final class TimelineChangeAction: EchartsAction {
-        public var type: EchartsActionType {
-            return .timelineChange
-        }
-        
-        /// 时间点的 index
-        public var currentIndex: Int?
+/// 设置当前的时间点。
+public final class TimelineChangeAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .timelineChange
     }
     
-    /// 切换时间轴的播放状态。
-    public final class TimelinePlayChangeAction: EchartsAction {
-        public var type: EchartsActionType {
-            return .timelinePlayChange
-        }
-        
-        /// 播放状态，true 为自动播放
-        public var playState: Bool?
-    }
+    /// 时间点的 index
+    public var currentIndex: Int?
 }
 
-extension Timeline.TimelineChangeAction: Enumable {
+/// 切换时间轴的播放状态。
+public final class TimelinePlayChangeAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .timelinePlayChange
+    }
+    
+    /// 播放状态，true 为自动播放
+    public var playState: Bool?
+}
+
+extension TimelineChangeAction: Enumable {
     public enum Enums {
         case currentIndex(Int)
     }
@@ -586,14 +584,14 @@ extension Timeline.TimelineChangeAction: Enumable {
     }
 }
 
-extension Timeline.TimelineChangeAction: Mappable {
+extension TimelineChangeAction: Mappable {
     public func mapping(_ map: Mapper) {
         map["type"] = type
         map["currentIndex"] = currentIndex
     }
 }
 
-extension Timeline.TimelinePlayChangeAction: Enumable {
+extension TimelinePlayChangeAction: Enumable {
     public enum Enums {
         case playState(Bool)
     }
@@ -611,7 +609,7 @@ extension Timeline.TimelinePlayChangeAction: Enumable {
     }
 }
 
-extension Timeline.TimelinePlayChangeAction: Mappable {
+extension TimelinePlayChangeAction: Mappable {
     public func mapping(_ map: Mapper) {
         map["type"] = type
         map["playState"] = playState

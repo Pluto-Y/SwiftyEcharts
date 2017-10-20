@@ -89,3 +89,60 @@ extension VisualMapController: Mappable {
         map["outRange"] = outRange
     }
 }
+
+// MARK: - Actions
+/// 视觉映射组件相关的行为，必须引入视觉映射组件后才能使用。
+
+/// 选取映射的数值范围。
+/// 
+/// 示例:
+///
+/// EchartsView.dispatchAction({
+///     type: 'selectDataRange',
+///     // 选取 20 到 40 的值范围
+///     selected: [20, 40],
+///     // 取消选中第二段
+///     selected: { 1: false },
+///     // 取消选中类目 `优`
+///     selected: { '优': false }
+/// });
+public final class VisualMapSelectDataRangeAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .selectDataRange
+    }
+    
+    /// 可选，visualMap 组件的 index，多个 visualMap 组件时有用，默认为 0
+    public var visualMapIndex: Int?
+    /// 连续型 visualMap 和 离散型 visualMap 不一样
+    /// 连续型的是一个表示数值范围的数组。
+    /// 离散型的是一个对象，键值是类目或者分段的索引。值是 `true`, `false`
+    public var selected: Jsonable?
+}
+
+extension VisualMapSelectDataRangeAction: Enumable {
+    public enum Enums {
+        case visualMapIndex(Int), selected(Jsonable)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .visualMapIndex(visualMapIndex):
+                self.visualMapIndex = visualMapIndex
+            case let .selected(selected):
+                self.selected = selected
+            }
+        }
+    }
+}
+
+extension VisualMapSelectDataRangeAction: Mappable {
+    public func mapping(_ map: Mapper) {
+        map["type"] = type
+        map["visualMapIndex"] = visualMapIndex
+        map["selected"] = selected
+    }
+}

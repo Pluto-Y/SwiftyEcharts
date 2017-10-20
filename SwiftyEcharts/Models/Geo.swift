@@ -309,3 +309,166 @@ extension Geo: Mappable {
         map["silent"] = silent
     }
 }
+
+// MARK: - Actions
+/// 选中指定的地图区域。
+public final class GeoSelectAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .geoSelect
+    }
+    
+    /// 可选，系列 index，可以是一个数组指定多个系列
+    public var seriesIndex: OneOrMore<Int>?
+    /// 可选，系列名称，可以是一个数组指定多个系列
+    public var seriesName: OneOrMore<String>?
+    /// 数据的 index，如果不指定也可以通过 name 属性根据名称指定数据
+    public var dataIndex: Int?
+    /// 可选，数据名称，在有 dataIndex 的时候忽略
+    public var name: String?
+}
+
+extension GeoSelectAction: Enumable {
+    public enum Enums {
+        case seriesIndex(Int), seriesIndexes([Int]), seriesName(String), seriesNames([String]), dataIndex(Int), name(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .seriesIndex(seriesIndex):
+                self.seriesIndex = OneOrMore(one: seriesIndex)
+            case let .seriesIndexes(seriesIndexes):
+                self.seriesIndex = OneOrMore(more: seriesIndexes)
+            case let .seriesName(seriesName):
+                self.seriesName = OneOrMore(one: seriesName)
+            case let .seriesNames(seriesNames):
+                self.seriesName = OneOrMore(more: seriesNames)
+            case let .dataIndex(dataIndex):
+                self.dataIndex = dataIndex
+            case let .name(name):
+                self.name = name
+            }
+        }
+    }
+}
+
+extension GeoSelectAction: Mappable {
+    public func mapping(_ map: Mapper) {
+        map["type"] = type
+        map["seriesIndex"] = seriesIndex
+        map["seriesName"] = seriesName
+        map["dataIndex"] = dataIndex
+        map["name"] = name
+    }
+}
+
+/// 取消选中指定的地图区域。
+public final class GeoUnSelectAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .geoUnSelect
+    }
+    
+    /// 可选，系列 index，可以是一个数组指定多个系列
+    public var seriesIndex: OneOrMore<Int>?
+    /// 可选，系列名称，可以是一个数组指定多个系列
+    public var seriesName: OneOrMore<String>?
+    /// 数据的 index，如果不指定也可以通过 name 属性根据名称指定数据
+    public var dataIndex: Int?
+    /// 可选，数据名称，在有 dataIndex 的时候忽略
+    public var name: String?
+}
+
+extension GeoUnSelectAction: Enumable {
+    public enum Enums {
+        case seriesIndex(Int), seriesIndexes([Int]), seriesName(String), seriesNames([String]), dataIndex(Int), name(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .seriesIndex(seriesIndex):
+                self.seriesIndex = OneOrMore(one: seriesIndex)
+            case let .seriesIndexes(seriesIndexes):
+                self.seriesIndex = OneOrMore(more: seriesIndexes)
+            case let .seriesName(seriesName):
+                self.seriesName = OneOrMore(one: seriesName)
+            case let .seriesNames(seriesNames):
+                self.seriesName = OneOrMore(more: seriesNames)
+            case let .dataIndex(dataIndex):
+                self.dataIndex = dataIndex
+            case let .name(name):
+                self.name = name
+            }
+        }
+    }
+}
+
+extension GeoUnSelectAction: Mappable {
+    public func mapping(_ map: Mapper) {
+        map["type"] = type
+        map["seriesIndex"] = seriesIndex
+        map["seriesName"] = seriesName
+        map["dataIndex"] = dataIndex
+        map["name"] = name
+    }
+}
+
+/// 切换指定的地图区域选中状态。
+public final class GeoToggleSelectAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .geoToggleSelect
+    }
+    
+    /// 可选，系列 index，可以是一个数组指定多个系列
+    public var seriesIndex: OneOrMore<Int>?
+    /// 可选，系列名称，可以是一个数组指定多个系列
+    public var seriesName: OneOrMore<String>?
+    /// 数据的 index，如果不指定也可以通过 name 属性根据名称指定数据
+    public var dataIndex: Int?
+    /// 可选，数据名称，在有 dataIndex 的时候忽略
+    public var name: String?
+}
+
+extension GeoToggleSelectAction: Enumable {
+    public enum Enums {
+        case seriesIndex(Int), seriesIndexes([Int]), seriesName(String), seriesNames([String]), dataIndex(Int), name(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .seriesIndex(seriesIndex):
+                self.seriesIndex = OneOrMore(one: seriesIndex)
+            case let .seriesIndexes(seriesIndexes):
+                self.seriesIndex = OneOrMore(more: seriesIndexes)
+            case let .seriesName(seriesName):
+                self.seriesName = OneOrMore(one: seriesName)
+            case let .seriesNames(seriesNames):
+                self.seriesName = OneOrMore(more: seriesNames)
+            case let .dataIndex(dataIndex):
+                self.dataIndex = dataIndex
+            case let .name(name):
+                self.name = name
+            }
+        }
+    }
+}
+
+extension GeoToggleSelectAction: Mappable {
+    public func mapping(_ map: Mapper) {
+        map["type"] = type
+        map["seriesIndex"] = seriesIndex
+        map["seriesName"] = seriesName
+        map["dataIndex"] = dataIndex
+        map["name"] = name
+    }
+}

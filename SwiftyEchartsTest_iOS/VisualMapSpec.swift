@@ -38,5 +38,40 @@ class VisualMapSpec: QuickSpec {
                 expect(visualMapControllerByEnums.jsonString).to(equal(visualMapController.jsonString))
             }
         }
+        
+        context("For the actions of VisualMap") {
+            describe("For VisualMapSelectDataRangeAction") {
+                let typeValue = EchartsActionType.selectDataRange
+                let visualMapIndexValue = 20
+                let selectedValue: Jsonable = [20, 40]
+                
+                let visualMapSelectDataRangeAction = VisualMapSelectDataRangeAction()
+                visualMapSelectDataRangeAction.visualMapIndex = visualMapIndexValue
+                visualMapSelectDataRangeAction.selected = selectedValue
+                
+                it("needs to check the type value") {
+                    expect(visualMapSelectDataRangeAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "visualMapIndex": visualMapIndexValue,
+                        "selected": selectedValue
+                    ]
+                    
+                    expect(visualMapSelectDataRangeAction.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let visualMapSelectDataRangeActionByEnums = VisualMapSelectDataRangeAction(
+                        .visualMapIndex(visualMapIndexValue),
+                        .selected(selectedValue)
+                    )
+                    
+                    expect(visualMapSelectDataRangeActionByEnums.jsonString).to(equal(visualMapSelectDataRangeAction.jsonString))
+                }
+            }
+        }
     }
 }

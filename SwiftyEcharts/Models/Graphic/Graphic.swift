@@ -462,3 +462,46 @@ extension GraphFocusNodeAdjacencyAction: Mappable {
         map["dataIndex"] = dataIndex
     }
 }
+
+/// 取消指定的节点以及其所有邻接节点高亮。
+public final class GraphUnfocusNodeAdjacencyAction: EchartsAction {
+    public var type: EchartsActionType {
+        return .unfocusNodeAdjacency
+    }
+    
+    /// 使用 seriesId 或 seriesIndex 或 seriesName 来定位 series.
+    public var seriesId: String?
+    public var seriesIndex: Int?
+    public var seriesName: String?
+}
+
+extension GraphUnfocusNodeAdjacencyAction: Enumable {
+    public enum Enums {
+        case seriesId(String), seriesIndex(Int), seriesName(String)
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .seriesId(seriesId):
+                self.seriesId = seriesId
+            case let .seriesIndex(seriesIndex):
+                self.seriesIndex = seriesIndex
+            case let .seriesName(seriesName):
+                self.seriesName = seriesName
+            }
+        }
+    }
+}
+
+extension GraphUnfocusNodeAdjacencyAction: Mappable {
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["seriesId"] = seriesId
+        map["seriesIndex"] = seriesIndex
+        map["seriesName"] = seriesName
+    }
+}

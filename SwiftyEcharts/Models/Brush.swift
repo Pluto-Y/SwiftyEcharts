@@ -474,3 +474,111 @@ extension Brush: Mappable {
         map["z"] = z
     }
 }
+
+// MARK: - Actions
+/// 触发此 action 可向 echarts 中添加一个或多个选框，例如：
+///
+///     myChart.dispatchAction({
+///         type: 'brush',
+///         areas: [ // areas 表示选框的集合，可以指定多个选框。
+///             { // 选框一：
+///                 geoIndex: 0, // 指定此选框属于 index 为 0 的 geo 坐标系。
+///                             // 也可以通过 xAxisIndex 或 yAxisIndex 来指定此选框属于直角坐标系。
+///                             // 如果没有指定，则此选框属于『全局选框』。不属于任何坐标系。
+///                             // 属于『坐标系选框』，可以随坐标系一起缩放平移。属于全局的选框不行。
+///                 brushType: 'polygon', // 指定选框的类型。还可以为 'rect', 'lineX', 'lineY'
+///                 range: [ // 如果是『全局选框』，则使用 range 来描述选框的范围。
+///                     ...
+///                 ],
+///                 coordRange: [ // 如果是『坐标系选框』，则使用 coordRange 来指定选框的范围。
+///                     [119.72,34.85],[119.68,34.85],[119.5,34.84],[119.19,34.77]
+///                     // 这个例子中，因为指定了 geoIndex，所以 coordRange 里单位是经纬度。
+///                 ]
+///             },
+///             ... // 选框二、三、四、...
+///         ]
+///     });
+///
+/// 其中，areas 中的 range 和 coordRange 的格式，根据 brushType 不同而不同：
+///
+/// - brushType 为 'rect' range 和 coordRange 的格式为：[[minX, maxX], [minY, maxY]]
+/// - brushType 为 'lineX' 或 'lineY' range 和 coordRange 的格式为：[min, maxX]
+/// - brushType 为 'polygon' range 和 coordRange 的格式为：[[point1X, point1X], [point2X, point2X], ...]
+///
+/// range 和 coordRange 的区别是：
+///
+/// - 当此选框为『全局选框』时，使用 range。
+/// - 当此选框为『坐标系选框』时（即指定了 geoIndex 或 xAxisIndex 或 yAxisIndex 时），使用 coordRange。
+/// - range 的单位为 像素，coordRange 的单位为 坐标系单位，比如 geo 中，coordRange 单位为经纬度，直角坐标系中，coordRange 单位为对应轴的数据的单位。
+public final class BrushAction: EchartsAction {
+    public final class Area {
+        public var geoIndex: Int?
+        public var brushType: Brush.`Type`?
+        public var range: [Jsonable]?
+        public var coordRange: [Jsonable]?
+    }
+    
+    public var type: EchartsActionType {
+        return .brush
+    }
+    
+    public var areas: [Area]?
+}
+
+extension BrushAction.Area: Enumable {
+    public enum Enums {
+        case geoIndex(Int), brushType(Brush.`Type`), range([Jsonable]), coordRange([Jsonable])
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .geoIndex(geoIndex):
+                self.geoIndex = geoIndex
+            case let .brushType(brushType):
+                self.brushType = brushType
+            case let .range(range):
+                self.range = range
+            case let .coordRange(coordRange):
+                self.coordRange = coordRange
+            }
+        }
+    }
+}
+
+extension BrushAction.Area: Mappable {
+    public func mapping(map: Mapper) {
+        map["geoIndex"] = geoIndex
+        map["brushType"] = brushType
+        map["range"] = range
+        map["coordRange"] = coordRange
+    }
+}
+
+extension BrushAction: Enumable {
+    public enum Enums {
+        case areas([Area])
+    }
+    
+    public typealias ContentEnum = Enums
+    
+    public convenience init(_ elements: Enums...) {
+        self.init()
+        for ele in elements {
+            switch ele {
+            case let .areas(areas):
+                self.areas = areas
+            }
+        }
+    }
+}
+
+extension BrushAction: Mappable {
+    public func mapping(map: Mapper) {
+        map["type"] = type
+        map["areas"] = areas
+    }
+}

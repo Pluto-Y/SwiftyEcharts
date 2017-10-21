@@ -209,5 +209,42 @@ class BrushSpec: QuickSpec {
                 expect(brushByEnums.jsonString).to(equal(brush.jsonString))
             }
         }
+        
+        context("For the actions of Brush") {
+            let geoIndexValue = 82347
+            let brushTypeValue: SwiftyEcharts.Brush.`Type` = .lineX
+            let rangeValue: [Jsonable] = [[10, 20], [50, 100]]
+            let coordRangeValue: [Jsonable] = [10, 100]
+            
+            let area = BrushAction.Area()
+            area.geoIndex = geoIndexValue
+            area.brushType = brushTypeValue
+            area.range = rangeValue
+            area.coordRange = coordRangeValue
+            
+            describe("For the BrushAction.Area") {
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "geoIndex": geoIndexValue,
+                        "brushType": brushTypeValue,
+                        "range": rangeValue,
+                        "coordRange": coordRangeValue
+                    ]
+                    
+                    expect(area.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let areaByEnums = BrushAction.Area(
+                        .geoIndex(geoIndexValue),
+                        .brushType(brushTypeValue),
+                        .range(rangeValue),
+                        .coordRange(coordRangeValue)
+                    )
+                    
+                    expect(areaByEnums.jsonString).to(equal(area.jsonString))
+                }
+            }
+        }
     }
 }

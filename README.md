@@ -4,7 +4,7 @@
 
 ____
 ## 简介
-SwiftyEchart 是针对 [Echarts 3](http://echarts.baidu.com/) 进行封装的一个开源库。 主要方便针对不熟悉 `Javascript` 的小伙伴快速使用 `Echarts 3` 的特性，能做出细致的配置。 该项目将适用于 `iOS`, `MacOS`, `tvOS` 以及 `Server`， 并且有可能方便服务器的小伙伴能产生出正确的 `JSON` 交于前端（ `Echarts` ）处理。
+SwiftyEchart 是针对 [ECharts 3](http://echarts.baidu.com/) 进行封装的一个开源库。 主要方便针对不熟悉 `Javascript` 的小伙伴快速使用 `ECharts 3` 的特性，能做出细致的配置。 该项目将适用于 `iOS`, `MacOS`, `tvOS` 以及 `Server`， 并且有可能方便服务器的小伙伴能产生出正确的 `JSON` 交于前端（ `ECharts` ）处理。
 
 目前该项目还在紧急开发中，由于项目有点大，也只有一个人开发，所以可能进度有点慢，希望小伙伴见谅~
 
@@ -37,7 +37,7 @@ ___
 - [x] 支持 `Swift` 语言各版本
 > （ branch - Swift 2.3, master - Swift 3.x）
 - [ ] 支持 `iOS`, `MacOS`, `tvOS`, `Server`
-- [ ] 支持事件处理
+- [x] 支持事件处理
 - [ ] 支持 `Echarts` 更多方法
 - [ ] 支持模块化
 

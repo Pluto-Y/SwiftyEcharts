@@ -245,6 +245,35 @@ class BrushSpec: QuickSpec {
                     expect(areaByEnums.jsonString).to(equal(area.jsonString))
                 }
             }
+            
+            describe("For the BrushAction") {
+                let typeValue = EchartsActionType.brush
+                let areaValue = [area]
+                
+                let brushAction = BrushAction()
+                brushAction.areas = areaValue
+                
+                it("needs to check the type value") {
+                    expect(brushAction.type.jsonString).to(equal(typeValue.jsonString))
+                }
+                
+                it("needs to check the jsonString") {
+                    let resultDic: [String: Jsonable] = [
+                        "type": typeValue,
+                        "areas": areaValue
+                    ]
+                    
+                    expect(brushAction.jsonString).to(equal(resultDic.jsonString))
+                }
+                
+                it("needs to check the Enumable") {
+                    let brushActionByEnums = BrushAction(
+                        .areas(areaValue)
+                    )
+                    
+                    expect(brushActionByEnums.jsonString).to(equal(brushAction.jsonString))
+                }
+            }
         }
     }
 }

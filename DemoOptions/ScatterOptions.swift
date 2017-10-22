@@ -1094,8 +1094,86 @@ public final class ScatterOptions {
     // MARK: 大规模散点图
     /// 地址: http://echarts.baidu.com/demo.html#scatter-large
     static func scatterLargeOption() -> Option {
-        // TODO: 添加实现
+        let sinData: [Jsonable] = {
+            var d: [Jsonable] = []
+            var len = 10000
+            var x: Float = 0
+            while len > 0 {
+                len -= 1
+                x = Float(arc4random_uniform(10000)) / Float(1000)
+                let value: Float = sin(x) - x * (len % 2 == 1 ? 0.1 : -0.1) * (Float(arc4random_uniform(1000)) / Float(1000))
+                d.append([
+                    x,
+                    value
+                    ])
+            }
+            return d
+        }()
+        
+        let cosData: [Jsonable] = {
+            var d: [Jsonable] = []
+            var len = 20000
+            var x: Float = 0
+            while len > 0 {
+                len -= 1
+                x = Float(arc4random_uniform(10000)) / Float(1000)
+                let value: Float = cos(x) - x * (len % 2 == 1 ? 0.1 : -0.1) * (Float(arc4random_uniform(1000)) / Float(1000))
+                d.append([
+                    x,
+                    value
+                    ])
+            }
+            return d
+        }()
         return Option(
+            .title(Title(
+                .text("大规模散点图")
+                )),
+            .tooltip(Tooltip( // 没有 zlevel
+                .trigger(.axis),
+                .showDelay(0),
+                .axisPointer(AxisPointerForTooltip( // show 没有效果
+                    .type(.cross),
+                    .lineStyle(LineStyle(
+                        .type(.dashed),
+                        .width(1)
+                        ))
+                    ))
+                )),
+            .legend(Legend(
+                .data(["sin", "cos"])
+                )),
+            .toolbox(Toolbox(
+                .show(true),
+                .feature(ToolboxFeature(// 没有 mark
+                    .dataZoom(ToolboxFeatureDataZoom(.show(true))),
+                    .dataView(ToolboxFeatureDataView(.show(true), .readOnly(false))),
+                    .restore(ToolboxFeatureRestore(.show(true))),
+                    .saveAsImage(ToolboxFeatureSaveAsImage(.show(true)))
+                    ))
+                )),
+            .xAxis(Axis(
+                .type(.value),
+                .scale(true)
+                )),
+            .yAxis(Axis(
+                .type(.value),
+                .scale(true)
+                )),
+            .series([
+                ScatterSerie(
+                    .name("sin"),
+                    .large(true),
+                    .symbolSize(3),
+                    .data(sinData)
+                ),
+                ScatterSerie(
+                    .name("cos"),
+                    .large(true),
+                    .symbolSize(2),
+                    .data(cosData)
+                )
+                ])
         )
     }
     

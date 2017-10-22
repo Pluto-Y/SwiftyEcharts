@@ -1263,6 +1263,13 @@ public final class LineOptions {
         )
     }
     
+    // MARK: 折线图的渐变
+    /// 地址: http://echarts.baidu.com/demo.html#line-gradient
+    static func lineGradientOption() -> Option {
+        return Option(
+        )
+    }
+    
 }
 
 extension NSDate

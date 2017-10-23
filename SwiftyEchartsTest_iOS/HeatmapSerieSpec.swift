@@ -94,6 +94,21 @@ class HeatmapSerieSpec: QuickSpec {
             let zlevelValue: Float = 28.423
             let zValue: Float = 8.2323
             let silentValue = true
+            let labelValue = EmphasisLabel(
+                .emphasis(LabelStyle(
+                    .show(false),
+                    .padding(5),
+                    .height(20%),
+                    .rich([:]),
+                    .borderColor(rgba(200, 1, 200, 0.5555))
+                    ))
+            )
+            let itemStyleValue = ItemStyle(
+                .normal(CommonItemStyleContent(
+                    .opacity(0.294),
+                    .borderType(LineType.dashed)
+                    ))
+            )
             
             let heatmapSerie = HeatmapSerie()
             heatmapSerie.name = nameValue
@@ -111,6 +126,8 @@ class HeatmapSerieSpec: QuickSpec {
             heatmapSerie.zlevel = zlevelValue
             heatmapSerie.z = zValue
             heatmapSerie.silent = silentValue
+            heatmapSerie.label = labelValue
+            heatmapSerie.itemStyle = itemStyleValue
             
             it("needs to check the type value") {
                 expect(heatmapSerie.type.jsonString).to(equal(SerieType.heatmap.jsonString))
@@ -133,7 +150,9 @@ class HeatmapSerieSpec: QuickSpec {
                     "markArea": markAreaValue,
                     "zlevel": zlevelValue,
                     "z": zValue,
-                    "silent": silentValue
+                    "silent": silentValue,
+                    "label": labelValue,
+                    "itemStyle": itemStyleValue
                 ]
                 
                 expect(heatmapSerie.jsonString).to(equal(resultDic.jsonString))
@@ -155,7 +174,9 @@ class HeatmapSerieSpec: QuickSpec {
                     .markArea(markAreaValue),
                     .zlevel(zlevelValue),
                     .z(zValue),
-                    .silent(silentValue)
+                    .silent(silentValue),
+                    .label(labelValue),
+                    .itemStyle(itemStyleValue)
                 )
                 
                 expect(heatmapSerieByEnums.jsonString).to(equal(heatmapSerie.jsonString))

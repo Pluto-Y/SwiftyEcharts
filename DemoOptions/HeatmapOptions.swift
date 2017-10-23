@@ -42,12 +42,19 @@ public final class HeatmapOptions {
         )
     }
     
-    // MARK: 全国主要城市空气质量
-    /// 地址: http://echarts.baidu.com/demo.html#heatmap-map
-    static func heatmapMapOption() -> Option {
+    // MARK: Calendar Heatmap Vertical
+    /// 地址: http://echarts.baidu.com/demo.html#calendar-vertical
+    static func calendarVerticalOption() -> Option {
         // TODO: 添加实现
         return Option(
         )
     }
-
+    
+    // MARK: Calendar Heatmap Horizontal
+    /// 地址: http://echarts.baidu.com/demo.html#calendar-horizontal
+    static func calendarHorizontalOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
 }

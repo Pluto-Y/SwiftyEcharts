@@ -324,7 +324,7 @@ class CalendarSpec: QuickSpec {
             }
             
             it("needs to check the cellSizes enum case") {
-                let cellSizesValue: [Float] = [20, 40]
+                let cellSizesValue: [Jsonable] = [20, 40]
                 calendar.cellSize = OneOrMore(more: cellSizesValue)
                 
                 let calendarByEnums = Calendar(

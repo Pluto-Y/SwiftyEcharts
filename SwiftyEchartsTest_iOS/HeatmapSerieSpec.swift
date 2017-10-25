@@ -69,6 +69,7 @@ class HeatmapSerieSpec: QuickSpec {
             let xAxisIndexValue: UInt8 = 28
             let yAxisIndexValue: UInt8 = 255
             let geoIndexValue: UInt8 = 0
+            let calendarIndexValue: UInt8 = 84
             let blurSizeValue: Float = 2.423
             let minOpacityValue: Float = 0.99
             let maxOpacityValue: Float = 0.01
@@ -116,6 +117,7 @@ class HeatmapSerieSpec: QuickSpec {
             heatmapSerie.xAxisIndex = xAxisIndexValue
             heatmapSerie.yAxisIndex = yAxisIndexValue
             heatmapSerie.geoIndex = geoIndexValue
+            heatmapSerie.calendarIndex = calendarIndexValue
             heatmapSerie.blurSize = blurSizeValue
             heatmapSerie.minOpacity = minOpacityValue
             heatmapSerie.maxOpacity = maxOpacityValue
@@ -141,6 +143,7 @@ class HeatmapSerieSpec: QuickSpec {
                     "xAxisIndex": xAxisIndexValue,
                     "yAxisIndex": yAxisIndexValue,
                     "geoIndex": geoIndexValue,
+                    "calendarIndex": calendarIndexValue,
                     "blurSize": blurSizeValue,
                     "minOpacity": minOpacityValue,
                     "maxOpacity": maxOpacityValue,
@@ -165,6 +168,7 @@ class HeatmapSerieSpec: QuickSpec {
                     .xAxisIndex(xAxisIndexValue),
                     .yAxisIndex(yAxisIndexValue),
                     .geoIndex(geoIndexValue),
+                    .calendarIndex(calendarIndexValue),
                     .blurSize(blurSizeValue),
                     .minOpacity(minOpacityValue),
                     .maxOpacity(maxOpacityValue),

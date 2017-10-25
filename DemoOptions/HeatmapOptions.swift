@@ -96,6 +96,26 @@ public final class HeatmapOptions {
         )
     }
     
+    static private func getVirtualData(year: Int) -> [Jsonable] {
+        var result: [Jsonable] = []
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dayTime = 24*3600
+        let start = "\(year)-01-01"
+        let end = "\(year+1)-01-01"
+        var date = dateFormatter.dateFromString(start)!
+        let endDay = dateFormatter.dateFromString(end)!
+        while date.compare(endDay) == .OrderedAscending {
+            let data: [Jsonable] = [
+                dateFormatter.stringFromDate(date),
+                arc4random_uniform(1000)
+            ]
+            result.append(data)
+            date = NSDate(timeInterval: Double(dayTime), sinceDate: date)
+        }
+        return result
+    }
+    
     // MARK: Calendar Heatmap Vertical
     /// 地址: http://echarts.baidu.com/demo.html#calendar-vertical
     static func calendarVerticalOption() -> Option {
@@ -107,8 +127,50 @@ public final class HeatmapOptions {
     // MARK: Calendar Heatmap Horizontal
     /// 地址: http://echarts.baidu.com/demo.html#calendar-horizontal
     static func calendarHorizontalOption() -> Option {
-        // TODO: 添加实现
         return Option(
+            .tooltip(Tooltip(.position(.top))),
+            .visualMap(ContinuousVisualMap(
+                .min(0),
+                .max(1000),
+                .calculable(true),
+                .orient(.horizontal),
+                .left(.center),
+                .top(.top)
+                )),
+            .calendars([
+                Calendar(
+                    .range("2017"),
+                    .cellSize(["auto", 8])
+                ),
+                Calendar(
+                    .top(.value(145)),
+                    .range("2016"),
+                    .cellSize(["auto", 8])
+                ),
+                Calendar(
+                    .top(.value(230)),
+                    .range("2015"),
+                    .cellSize(["auto", 8]),
+                    .right(.value(5))
+                )
+                ]),
+            .series([
+                HeatmapSerie(
+                    .coordinateSystem(.calendar),
+                    .calendarIndex(0),
+                    .data(HeatmapOptions.getVirtualData(2017))
+                ),
+                HeatmapSerie(
+                    .coordinateSystem(.calendar),
+                    .calendarIndex(1),
+                    .data(HeatmapOptions.getVirtualData(2016))
+                ),
+                HeatmapSerie(
+                    .coordinateSystem(.calendar),
+                    .calendarIndex(2),
+                    .data(HeatmapOptions.getVirtualData(2015))
+                )
+                ])
         )
     }
 }

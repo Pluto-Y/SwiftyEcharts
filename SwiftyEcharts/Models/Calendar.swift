@@ -344,7 +344,7 @@ public final class Calendar: Zable {
     ///     
     ///     // 设置宽自适应，高为40
     ///     cellSize: ['auto', 40]
-    public var cellSize: OneOrMore<Float>?
+    public var cellSize: OneOrMore<Jsonable>?
     /// 日历坐标的布局朝向。
     public var orient: Orient?
     /// 设置日历坐标分隔线的样式。
@@ -486,7 +486,7 @@ extension Calendar.BaseLabel: Mappable {
 
 extension Calendar: Enumable {
     public enum Enums {
-        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), range(Jsonable), cellSize(Float), cellSizes([Float]), orient(Orient), splitLine(SplitLine), itemStyle(ItemStyle), dayLabel(DayLabel), monthLabel(MonthLabel), yearLabel(YearLabel), silent(Bool)
+        case zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), range(Jsonable), cellSize(Jsonable), cellSizes([Jsonable]), orient(Orient), splitLine(SplitLine), itemStyle(ItemStyle), dayLabel(DayLabel), monthLabel(MonthLabel), yearLabel(YearLabel), silent(Bool)
     }
     
     public typealias ContentEnum = Enums

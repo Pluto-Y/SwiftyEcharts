@@ -47,6 +47,8 @@ public final class HeatmapSerie: Serie, Zable {
     public var yAxisIndex: UInt8?
     /// 使用的地理坐标系的 index，在单个图表实例中存在多个地理坐标系的时候有用。
     public var geoIndex: UInt8?
+    /// 使用的日历坐标系的 index，在单个图表实例中存在多个日历坐标系的时候有用。
+    public var calendarIndex: UInt8?
     /// 每个点模糊的大小，在地理坐标系(coordinateSystem: 'geo')上有效。
     public var blurSize: Float?
     /// 最小的透明度，在地理坐标系(coordinateSystem: 'geo')上有效。
@@ -203,7 +205,7 @@ extension HeatmapSerieData: Mappable {
 
 extension HeatmapSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), blurSize(Float), minOpacity(Float), maxOpacity(Float), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), label(EmphasisLabel), itemStyle(ItemStyle)
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), calendarIndex(UInt8), blurSize(Float), minOpacity(Float), maxOpacity(Float), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), label(EmphasisLabel), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -222,6 +224,8 @@ extension HeatmapSerie: Enumable {
                 self.yAxisIndex = yAxisIndex
             case let .geoIndex(geoIndex):
                 self.geoIndex = geoIndex
+            case let .calendarIndex(calendarIndex):
+                self.calendarIndex = calendarIndex
             case let .blurSize(blurSize):
                 self.blurSize = blurSize
             case let .minOpacity(minOpacity):
@@ -259,6 +263,7 @@ extension HeatmapSerie: Mappable {
         map["xAxisIndex"] = xAxisIndex
         map["yAxisIndex"] = yAxisIndex
         map["geoIndex"] = geoIndex
+        map["calendarIndex"] = calendarIndex
         map["blurSize"] = blurSize
         map["minOpacity"] = minOpacity
         map["maxOpacity"] = maxOpacity

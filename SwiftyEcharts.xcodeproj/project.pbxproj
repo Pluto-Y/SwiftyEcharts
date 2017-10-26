@@ -66,6 +66,7 @@
 		6F04772F1F9E1DD8008F45AB /* HeatmapsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F04772E1F9E1DD8008F45AB /* HeatmapsController.swift */; };
 		6F0477311FA19E74008F45AB /* GraphsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0477301FA19E74008F45AB /* GraphsController.swift */; };
 		6F0477331FA1A103008F45AB /* GraphSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0477321FA1A103008F45AB /* GraphSerie.swift */; };
+		6F0477351FA1B042008F45AB /* GraphSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0477341FA1B042008F45AB /* GraphSerieSpec.swift */; };
 		6F06CF941F90713100BCF48D /* HighlightActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06CF931F90713100BCF48D /* HighlightActionSpec.swift */; };
 		6F06CF961F90713100BCF48D /* DownplayActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06CF951F90713100BCF48D /* DownplayActionSpec.swift */; };
 		6F0AB1BF1F3010B700A71D9A /* PolygonGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */; };
@@ -515,6 +516,7 @@
 		6F04772E1F9E1DD8008F45AB /* HeatmapsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapsController.swift; sourceTree = "<group>"; };
 		6F0477301FA19E74008F45AB /* GraphsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphsController.swift; sourceTree = "<group>"; };
 		6F0477321FA1A103008F45AB /* GraphSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphSerie.swift; sourceTree = "<group>"; };
+		6F0477341FA1B042008F45AB /* GraphSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphSerieSpec.swift; sourceTree = "<group>"; };
 		6F06CF931F90713100BCF48D /* HighlightActionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightActionSpec.swift; sourceTree = "<group>"; };
 		6F06CF951F90713100BCF48D /* DownplayActionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownplayActionSpec.swift; sourceTree = "<group>"; };
 		6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonGraphicSpec.swift; sourceTree = "<group>"; };
@@ -1226,6 +1228,7 @@
 				6FBF312B1F740DFD005F2A96 /* CalendarSpec.swift */,
 				6F50F3F31F8D03ED007D5D30 /* EchartsActionTypeSpec.swift */,
 				6F06CF931F90713100BCF48D /* HighlightActionSpec.swift */,
+				6F0477341FA1B042008F45AB /* GraphSerieSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1911,6 +1914,7 @@
 				6FDDCFFF1F00F8FF00B89982 /* AxisLabelSpec.swift in Sources */,
 				6FDDCFF91F00E74E00B89982 /* VisualMapSpec.swift in Sources */,
 				6F0AB1CF1F36D52400A71D9A /* RectGraphicSpec.swift in Sources */,
+				6F0477351FA1B042008F45AB /* GraphSerieSpec.swift in Sources */,
 				6FE1EE171F51453200DB0F1F /* TooltipSpec.swift in Sources */,
 				6F0AB1D11F36DAC700A71D9A /* RingGraphicSpec.swift in Sources */,
 				6FACFAC11EEAF62B002622CE /* ItemStyleSpec.swift in Sources */,

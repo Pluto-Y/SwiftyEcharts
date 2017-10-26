@@ -119,8 +119,60 @@ public final class HeatmapOptions {
     // MARK: Calendar Heatmap Vertical
     /// 地址: http://echarts.baidu.com/demo.html#calendar-vertical
     static func calendarVerticalOption() -> Option {
-        // TODO: 添加实现
         return Option(
+            .tooltip(Tooltip(
+                .position(.top),
+                .formatter(.function("function (p) {var format = echarts.format.formatTime('yyyy-MM-dd', p.data[0]);return format + ': ' + p.data[1];}"))
+                )),
+            .visualMap(ContinuousVisualMap(
+                .min(0),
+                .max(1000),
+                .calculable(true),
+                .orient(.vertical),
+                .left(.value(670)),
+                .top(.center)
+                )),
+            .calendars([
+                Calendar(
+                    .left(.value(50)),
+                    .range("2015"),
+                    .cellSize([8, "auto"]),
+                    .orient(.vertical)
+                ),
+                Calendar(
+                    .left(.center),
+                    .cellSize([8, "auto"]),
+                    .range("2016"),
+                    .orient(.vertical)
+                ),
+                Calendar(
+                    .right(.value(50)),
+                    .range("2017"),
+                    .cellSize([8, "auto"]),
+                    .bottom(.value(10)),
+                    .orient(.vertical),
+                    .dayLabel(DayLabel(
+                        .margin(5)
+                        ))
+                )
+                ]),
+            .series([
+                HeatmapSerie(
+                    .coordinateSystem(.calendar),
+                    .calendarIndex(0),
+                    .data(HeatmapOptions.getVirtualData(2015))
+                ),
+                HeatmapSerie(
+                    .coordinateSystem(.calendar),
+                    .calendarIndex(1),
+                    .data(HeatmapOptions.getVirtualData(2016))
+                ),
+                HeatmapSerie(
+                    .coordinateSystem(.calendar),
+                    .calendarIndex(2),
+                    .data(HeatmapOptions.getVirtualData(2017))
+                )
+                ])
         )
     }
     

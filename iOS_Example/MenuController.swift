@@ -41,15 +41,17 @@ class MenuController : UITableViewController {
             self.navigationController?.pushViewController(BoxplotsControllers(), animated: true)
         case 8: // 热力图
             self.navigationController?.pushViewController(HeatmapsController(), animated: true)
-        case 9: // 桑基图
+        case 9: // 关系图
+            self.navigationController?.pushViewController(GraphsController(), animated: true)
+        case 10: // 桑基图
             self.navigationController?.pushViewController(SankeysController(), animated: true)
-        case 10: // 漏斗图
+        case 11: // 漏斗图
             self.navigationController?.pushViewController(FunnelController(), animated: true)
-        case 11: // 仪表盘
+        case 12: // 仪表盘
             self.navigationController?.pushViewController(GaugesController(), animated: true)
-        case 12: // 象形柱图
+        case 13: // 象形柱图
             self.navigationController?.pushViewController(PictorialBarsController(), animated: true)
-        case 13: // 主题河流图
+        case 14: // 主题河流图
             self.navigationController?.pushViewController(ThemeRiversController(), animated: true)
         default:
             print("敬请期待...")

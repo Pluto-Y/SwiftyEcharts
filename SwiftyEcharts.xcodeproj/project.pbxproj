@@ -64,6 +64,7 @@
 		6F015ACF1F3EFD2C00A2576F /* TitleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F015ACE1F3EFD2C00A2576F /* TitleSpec.swift */; };
 		6F015AD11F3F7A5E00A2576F /* ToolboxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F015AD01F3F7A5E00A2576F /* ToolboxSpec.swift */; };
 		6F04772F1F9E1DD8008F45AB /* HeatmapsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F04772E1F9E1DD8008F45AB /* HeatmapsController.swift */; };
+		6F0477311FA19E74008F45AB /* GraphsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0477301FA19E74008F45AB /* GraphsController.swift */; };
 		6F06CF941F90713100BCF48D /* HighlightActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06CF931F90713100BCF48D /* HighlightActionSpec.swift */; };
 		6F06CF961F90713100BCF48D /* DownplayActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06CF951F90713100BCF48D /* DownplayActionSpec.swift */; };
 		6F0AB1BF1F3010B700A71D9A /* PolygonGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */; };
@@ -511,6 +512,7 @@
 		6F015ACE1F3EFD2C00A2576F /* TitleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleSpec.swift; sourceTree = "<group>"; };
 		6F015AD01F3F7A5E00A2576F /* ToolboxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolboxSpec.swift; sourceTree = "<group>"; };
 		6F04772E1F9E1DD8008F45AB /* HeatmapsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapsController.swift; sourceTree = "<group>"; };
+		6F0477301FA19E74008F45AB /* GraphsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphsController.swift; sourceTree = "<group>"; };
 		6F06CF931F90713100BCF48D /* HighlightActionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightActionSpec.swift; sourceTree = "<group>"; };
 		6F06CF951F90713100BCF48D /* DownplayActionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownplayActionSpec.swift; sourceTree = "<group>"; };
 		6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonGraphicSpec.swift; sourceTree = "<group>"; };
@@ -939,6 +941,7 @@
 				6F63A2741F6EDC4500A77546 /* BoxplotsControllers.swift */,
 				6F0F18831F690E5600A8B1E3 /* CandlesticksController.swift */,
 				6F04772E1F9E1DD8008F45AB /* HeatmapsController.swift */,
+				6F0477301FA19E74008F45AB /* GraphsController.swift */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -1791,6 +1794,7 @@
 				6FE45D501E6F092500E9083D /* GaugesController.swift in Sources */,
 				5427F0951E2C980700CE20E5 /* ParalledOptions.swift in Sources */,
 				5427F09F1E2C984500CE20E5 /* ThemeRiverOptions.swift in Sources */,
+				6F0477311FA19E74008F45AB /* GraphsController.swift in Sources */,
 				5427F09D1E2C983A00CE20E5 /* PictorialBarOptions.swift in Sources */,
 				6F0E461F1E614A37008DA184 /* LinesController.swift in Sources */,
 				6FEF717C1E65B75800E1ED70 /* RadarsController.swift in Sources */,

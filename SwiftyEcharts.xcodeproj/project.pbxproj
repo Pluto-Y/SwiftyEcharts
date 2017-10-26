@@ -65,6 +65,7 @@
 		6F015AD11F3F7A5E00A2576F /* ToolboxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F015AD01F3F7A5E00A2576F /* ToolboxSpec.swift */; };
 		6F04772F1F9E1DD8008F45AB /* HeatmapsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F04772E1F9E1DD8008F45AB /* HeatmapsController.swift */; };
 		6F0477311FA19E74008F45AB /* GraphsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0477301FA19E74008F45AB /* GraphsController.swift */; };
+		6F0477331FA1A103008F45AB /* GraphSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0477321FA1A103008F45AB /* GraphSerie.swift */; };
 		6F06CF941F90713100BCF48D /* HighlightActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06CF931F90713100BCF48D /* HighlightActionSpec.swift */; };
 		6F06CF961F90713100BCF48D /* DownplayActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06CF951F90713100BCF48D /* DownplayActionSpec.swift */; };
 		6F0AB1BF1F3010B700A71D9A /* PolygonGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */; };
@@ -513,6 +514,7 @@
 		6F015AD01F3F7A5E00A2576F /* ToolboxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolboxSpec.swift; sourceTree = "<group>"; };
 		6F04772E1F9E1DD8008F45AB /* HeatmapsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapsController.swift; sourceTree = "<group>"; };
 		6F0477301FA19E74008F45AB /* GraphsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphsController.swift; sourceTree = "<group>"; };
+		6F0477321FA1A103008F45AB /* GraphSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphSerie.swift; sourceTree = "<group>"; };
 		6F06CF931F90713100BCF48D /* HighlightActionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightActionSpec.swift; sourceTree = "<group>"; };
 		6F06CF951F90713100BCF48D /* DownplayActionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownplayActionSpec.swift; sourceTree = "<group>"; };
 		6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonGraphicSpec.swift; sourceTree = "<group>"; };
@@ -897,6 +899,7 @@
 				54AAE1761E790BE100DCD829 /* SankeySerie.swift */,
 				6FA0B9891E916EF5007D2AA2 /* PictorialBarSerie.swift */,
 				6F12F5681F6CD2420042793D /* CustomSerie.swift */,
+				6F0477321FA1A103008F45AB /* GraphSerie.swift */,
 			);
 			path = Series;
 			sourceTree = "<group>";
@@ -1672,6 +1675,7 @@
 				6FD249E41E50B6E000FBB2F7 /* PolylineGraphic.swift in Sources */,
 				541C72611E516D3900B194A3 /* TreemapSerie.swift in Sources */,
 				6FC40CF61E48C13200F6E62F /* AngleAxis.swift in Sources */,
+				6F0477331FA1A103008F45AB /* GraphSerie.swift in Sources */,
 				6FC40CFE1E4CB22900F6E62F /* ParallelAxis.swift in Sources */,
 				6FC40CEE1E48BFCB00F6E62F /* AxisTick.swift in Sources */,
 				6FD249D01E4F41E600FBB2F7 /* TextGraphic.swift in Sources */,

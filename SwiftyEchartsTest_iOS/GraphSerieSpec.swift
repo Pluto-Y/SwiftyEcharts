@@ -50,5 +50,44 @@ class GraphSerieSpec: QuickSpec {
                 expect(circularByEnums.jsonString).to(equal(circular.jsonString))
             }
         }
+        
+        let initLayoutForceValue = "forceInitLayoutValue"
+        let repulsionForceValue: Float = 9238.2398329
+        let gravityForceValue: Float = 9.82377842
+        let edgeLengthForceValue: SwiftyEcharts.Range = [20.0, 10.0]
+        let layoutAnimationForceValue = true
+        
+        let force = GraphSerie.Force()
+        force.initLayout = initLayoutForceValue
+        force.repulsion = repulsionForceValue
+        force.gravity = gravityForceValue
+        force.edgeLength = edgeLengthForceValue
+        force.layoutAnimation = layoutAnimationForceValue
+        
+        describe("For GraphSerie.Force") { 
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "initLayout": initLayoutForceValue,
+                    "repulsion": repulsionForceValue,
+                    "gravity": gravityForceValue,
+                    "edgeLength": edgeLengthForceValue,
+                    "layoutAnimation": layoutAnimationForceValue
+                ]
+                
+                expect(force.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let forceByEnums = GraphSerie.Force(
+                    .initLayout(initLayoutForceValue),
+                    .repulsion(repulsionForceValue),
+                    .gravity(gravityForceValue),
+                    .edgeLength(edgeLengthForceValue),
+                    .layoutAnimation(layoutAnimationForceValue)
+                )
+                
+                expect(forceByEnums.jsonString).to(equal(force.jsonString))
+            }
+        }
     }
 }

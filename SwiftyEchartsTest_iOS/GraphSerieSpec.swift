@@ -27,5 +27,28 @@ class GraphSerieSpec: QuickSpec {
                 expect(forceLayout.jsonString).to(equal(forceString.jsonString))
             }
         }
+        
+        let rotateLabelCircularValue = false
+        
+        let circular = GraphSerie.Circular()
+        circular.rotateLabel = rotateLabelCircularValue
+        
+        describe("For GraphSerie.Circular") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "rotateLabel": rotateLabelCircularValue
+                ]
+                
+                expect(circular.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let circularByEnums = GraphSerie.Circular(
+                    .rotateLabel(rotateLabelCircularValue)
+                )
+                
+                expect(circularByEnums.jsonString).to(equal(circular.jsonString))
+            }
+        }
     }
 }

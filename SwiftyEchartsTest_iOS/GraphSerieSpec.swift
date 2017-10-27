@@ -279,5 +279,71 @@ class GraphSerieSpec: QuickSpec {
                 expect(dataByEnums.jsonString).to(equal(data.jsonString))
             }
         }
+        
+        let sourceLinkValue = "linkSourceValue"
+        let targetLinkValue = "linkTargetValue"
+        let valueLinkValue: Float = 02.209237
+        let lineStyleLinkValue = LineStyle()
+        let labelLinkValue = EmphasisLabel()
+        let symbolLinkOriginValue = Symbol.rect
+        let symbolLinkValue = OneOrMore(one: symbolLinkOriginValue)
+        let symbolSizeLinkValue: FunctionOrFloatOrPair = [20, 918291.129819]
+        
+        let link = GraphSerie.Link()
+        link.source = sourceLinkValue
+        link.target = targetLinkValue
+        link.value = valueLinkValue
+        link.lineStyle = lineStyleLinkValue
+        link.label = labelLinkValue
+        link.symbol = symbolLinkValue
+        link.symbolSize = symbolSizeLinkValue
+        
+        describe("For GraphSerie.Link") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "source": sourceLinkValue,
+                    "target": targetLinkValue,
+                    "value": valueLinkValue,
+                    "lineStyle": lineStyleLinkValue,
+                    "label": labelLinkValue,
+                    "symbol": symbolLinkValue,
+                    "symbolSize": symbolSizeLinkValue
+                ]
+                
+                expect(link.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let linkByEnums = GraphSerie.Link(
+                    .source(sourceLinkValue),
+                    .target(targetLinkValue),
+                    .value(valueLinkValue),
+                    .lineStyle(lineStyleLinkValue),
+                    .label(labelLinkValue),
+                    .symbol(symbolLinkOriginValue),
+                    .symbolSize(symbolSizeLinkValue)
+                )
+                
+                expect(linkByEnums.jsonString).to(equal(link.jsonString))
+            }
+            
+            it("needs to check the symbols enum case") {
+                let symbolsLinkOriginValue = [Symbol.rect, Symbol.triangle, Symbol.diamond]
+                
+                link.symbol = OneOrMore(more: symbolsLinkOriginValue)
+                
+                let linkByEnums = GraphSerie.Link(
+                    .source(sourceLinkValue),
+                    .target(targetLinkValue),
+                    .value(valueLinkValue),
+                    .lineStyle(lineStyleLinkValue),
+                    .label(labelLinkValue),
+                    .symbols(symbolsLinkOriginValue),
+                    .symbolSize(symbolSizeLinkValue)
+                )
+                
+                expect(linkByEnums.jsonString).to(equal(link.jsonString))
+            }
+        }
     }
 }

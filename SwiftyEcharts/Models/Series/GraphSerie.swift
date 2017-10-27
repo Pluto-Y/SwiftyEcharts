@@ -89,7 +89,8 @@ public final class GraphSerie: Serie, Animatable, Symbolized, Zable {
     public var symbolSize: FunctionOrFloatOrPair?
     public var symbolRotate: Float?
     public var symbolOffset: Point?
-    public var edgeSymbolSize: OneOrMore<Symbol>?
+    public var edgeSymbol: OneOrMore<Symbol>?
+    public var edgeSymbolSize: FunctionOrFloatOrPair?
     public var cursor: String?
     public var itemStyle: ItemStyle?
     public var lineStyle: LineStyle?
@@ -336,7 +337,7 @@ extension GraphSerie.Link: Mappable {
 
 extension GraphSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLinek(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), calendarIndex(UInt8), hoverAnimation(Bool), layout(Layout), circular(Circular), force(Force), roam(Roam), nodeScaleRatio(Float), draggable(Bool), focusNodeAdjacency(Bool), symbol(Symbol), symbols([Symbol]), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), edgeSymbolSize(Symbol), edgeSymbolSizes([Symbol]), cursor(String), itemStyle(ItemStyle), lineStyle(LineStyle), label(EmphasisLabel), edgeLabel(EmphasisLabel), categories([Category]), data([Jsonable]), nodes([Jsonable]), links([Link]), edges([Link]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), legendHoverLinek(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), calendarIndex(UInt8), hoverAnimation(Bool), layout(Layout), circular(Circular), force(Force), roam(Roam), nodeScaleRatio(Float), draggable(Bool), focusNodeAdjacency(Bool), symbol(Symbol), symbols([Symbol]), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), edgeSymbol(Symbol), edgeSymbols([Symbol]), edgeSymbolSize(FunctionOrFloatOrPair), cursor(String), itemStyle(ItemStyle), lineStyle(LineStyle), label(EmphasisLabel), edgeLabel(EmphasisLabel), categories([Category]), data([Jsonable]), nodes([Jsonable]), links([Link]), edges([Link]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -387,10 +388,12 @@ extension GraphSerie: Enumable {
                 self.symbolRotate = symbolRotate
             case let .symbolOffset(symbolOffset):
                 self.symbolOffset = symbolOffset
+            case let .edgeSymbol(edgeSymbol):
+                self.edgeSymbol = OneOrMore(one: edgeSymbol)
+            case let .edgeSymbols(edgeSymbols):
+                self.edgeSymbol = OneOrMore(more: edgeSymbols)
             case let .edgeSymbolSize(edgeSymbolSize):
-                self.edgeSymbolSize = OneOrMore(one: edgeSymbolSize)
-            case let .edgeSymbolSizes(edgeSymbolSizes):
-                self.edgeSymbolSize = OneOrMore(more: edgeSymbolSizes)
+                self.edgeSymbolSize = edgeSymbolSize
             case let .cursor(cursor):
                 self.cursor = cursor
             case let .itemStyle(itemStyle):
@@ -479,6 +482,7 @@ extension GraphSerie: Mappable {
         map["symbolSize"] = symbolSize
         map["symbolRotate"] = symbolRotate
         map["symbolOffset"] = symbolOffset
+        map["edgeSymbol"] = edgeSymbol
         map["edgeSymbolSize"] = edgeSymbolSize
         map["cursor"] = cursor
         map["itemStyle"] = itemStyle

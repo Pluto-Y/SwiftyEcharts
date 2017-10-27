@@ -64,7 +64,7 @@ class GraphSerieSpec: QuickSpec {
         force.edgeLength = edgeLengthForceValue
         force.layoutAnimation = layoutAnimationForceValue
         
-        describe("For GraphSerie.Force") { 
+        describe("For GraphSerie.Force") {
             it("needs to check the jsonString") {
                 let resultDic: [String: Jsonable] = [
                     "initLayout": initLayoutForceValue,
@@ -163,6 +163,120 @@ class GraphSerieSpec: QuickSpec {
                 )
                 
                 expect(categoryByEnums.jsonString).to(equal(category.jsonString))
+            }
+        }
+        
+        let nameDataValue = "dataNameValue"
+        let xDataValue: Float = 9238233.2384729
+        let yDataValue: Float = 0.0900923048203482390840923
+        let fixedDataValue = false
+        let valueOriginValue: Float = 8
+        let valueDataValue = OneOrMore(one: valueOriginValue)
+        let categoryDataValue: Float = 0
+        let symbolDataOriginValue = Symbol.emptyCircle
+        let symbolDataValue = OneOrMore(one: symbolDataOriginValue)
+        let symbolSizeDataValue: FunctionOrFloatOrPair = 84.0238
+        let symbolRotateDataValue: Float = 0.000000238823
+        let symbolOffsetDataValue: SwiftyEcharts.Range = [20.0000, 0.00001299]
+        let itemStyleDataValue = ItemStyle(
+            .normal(CommonItemStyleContent()),
+            .emphasis(CommonItemStyleContent())
+        )
+        let labelDataValue = EmphasisLabel(
+            .normal(LabelStyle(
+                .show(false),
+                .position(.center),
+                .rotate(20),
+                .interval(20)
+                ))
+        )
+        let tooltipDataValue = Tooltip(
+            .showContent(false),
+            .alwaysShowContent(false),
+            .triggerOn(.click),
+            .extraCssText("box-shadow: 0 0 3px rgba(0, 0, 0, 0.3)")
+        )
+        
+        let data = GraphSerie.Data()
+        data.name = nameDataValue
+        data.x = xDataValue
+        data.y = yDataValue
+        data.fixed = fixedDataValue
+        data.value = valueDataValue
+        data.category = categoryDataValue
+        data.symbol = symbolDataValue
+        data.symbolSize = symbolSizeDataValue
+        data.symbolRotate = symbolRotateDataValue
+        data.symbolOffset = symbolOffsetDataValue
+        data.itemStyle = itemStyleDataValue
+        data.label = labelDataValue
+        data.tooltip = tooltipDataValue
+        
+        describe("For GraphSerie.Data") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "name": nameDataValue,
+                    "x": xDataValue,
+                    "y": yDataValue,
+                    "fixed": fixedDataValue,
+                    "value": valueDataValue,
+                    "category": categoryDataValue,
+                    "symbol": symbolDataValue,
+                    "symbolSize": symbolSizeDataValue,
+                    "symbolRotate": symbolRotateDataValue,
+                    "symbolOffset": symbolOffsetDataValue,
+                    "itemStyle": itemStyleDataValue,
+                    "label": labelDataValue,
+                    "tooltip": tooltipDataValue
+                ]
+                
+                expect(data.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let dataByEnums = GraphSerie.Data(
+                    .name(nameDataValue),
+                    .x(xDataValue),
+                    .y(yDataValue),
+                    .fixed(fixedDataValue),
+                    .value(valueOriginValue),
+                    .category(categoryDataValue),
+                    .symbol(symbolDataOriginValue),
+                    .symbolSize(symbolSizeDataValue),
+                    .symbolRotate(symbolRotateDataValue),
+                    .symbolOffset(symbolOffsetDataValue),
+                    .itemStyle(itemStyleDataValue),
+                    .label(labelDataValue),
+                    .tooltip(tooltipDataValue)
+                )
+                
+                expect(dataByEnums.jsonString).to(equal(data.jsonString))
+            }
+            
+            it("needs to check the values, symbols enum cases") {
+                let symbolsDataOriginValue = [Symbol.arrow, Symbol.circle, Symbol.diamond]
+                let valuesDataOriginValue: [Float] = [20.0128,  2932.19281, 7912.129812]
+                
+                data.symbol = OneOrMore(more: symbolsDataOriginValue)
+                data.value = OneOrMore(more: valuesDataOriginValue)
+                
+                let dataByEnums = GraphSerie.Data(
+                    .name(nameDataValue),
+                    .x(xDataValue),
+                    .y(yDataValue),
+                    .fixed(fixedDataValue),
+                    .values(valuesDataOriginValue),
+                    .category(categoryDataValue),
+                    .symbols(symbolsDataOriginValue),
+                    .symbolSize(symbolSizeDataValue),
+                    .symbolRotate(symbolRotateDataValue),
+                    .symbolOffset(symbolOffsetDataValue),
+                    .itemStyle(itemStyleDataValue),
+                    .label(labelDataValue),
+                    .tooltip(tooltipDataValue)
+                )
+                
+                expect(dataByEnums.jsonString).to(equal(data.jsonString))
             }
         }
     }

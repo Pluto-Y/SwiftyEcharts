@@ -550,7 +550,7 @@ extension BrushAction.Area: Enumable {
 }
 
 extension BrushAction.Area: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["geoIndex"] = geoIndex
         map["brushType"] = brushType
         map["range"] = range
@@ -577,7 +577,7 @@ extension BrushAction: Enumable {
 }
 
 extension BrushAction: Mappable {
-    public func mapping(map: Mapper) {
+    public func mapping(_ map: Mapper) {
         map["type"] = type
         map["areas"] = areas
     }

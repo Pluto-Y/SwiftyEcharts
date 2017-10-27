@@ -79,6 +79,7 @@ public final class GraphSerie: Serie, Animatable, Symbolized, Zable {
     public var calendarIndex: UInt8?
     public var hoverAnimation: Bool?
     public var layout: Layout?
+    public var circular: Circular?
     public var force: Force?
     public var roam: Roam?
     public var nodeScaleRatio: Float?
@@ -335,7 +336,7 @@ extension GraphSerie.Link: Mappable {
 
 extension GraphSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLinek(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), calendarIndex(UInt8), hoverAnimation(Bool), layout(Layout), force(Force), roam(Roam), nodeScaleRatio(Float), draggable(Bool), focusNodeAdjacency(Bool), symbol(Symbol), symbols([Symbol]), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), edgeSymbolSize(Symbol), edgeSymbolSizes([Symbol]), cursor(String), itemStyle(ItemStyle), lineStyle(LineStyle), label(EmphasisLabel), edgeLabel(EmphasisLabel), categories([Category]), data([Jsonable]), nodes([Jsonable]), links([Link]), edges([Link]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), legendHoverLinek(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), calendarIndex(UInt8), hoverAnimation(Bool), layout(Layout), circular(Circular), force(Force), roam(Roam), nodeScaleRatio(Float), draggable(Bool), focusNodeAdjacency(Bool), symbol(Symbol), symbols([Symbol]), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), edgeSymbolSize(Symbol), edgeSymbolSizes([Symbol]), cursor(String), itemStyle(ItemStyle), lineStyle(LineStyle), label(EmphasisLabel), edgeLabel(EmphasisLabel), categories([Category]), data([Jsonable]), nodes([Jsonable]), links([Link]), edges([Link]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums
@@ -364,6 +365,8 @@ extension GraphSerie: Enumable {
                 self.hoverAnimation = hoverAnimation
             case let .layout(layout):
                 self.layout = layout
+            case let .circular(circular):
+                self.circular = circular
             case let .force(force):
                 self.force = force
             case let .roam(roam):
@@ -466,6 +469,7 @@ extension GraphSerie: Mappable {
         map["calendarIndex"] = calendarIndex
         map["hoverAnimation"] = hoverAnimation
         map["layout"] = layout
+        map["circular"] = circular
         map["force"] = force
         map["roam"] = roam
         map["nodeScaleRatio"] = nodeScaleRatio

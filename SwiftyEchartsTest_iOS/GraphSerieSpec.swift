@@ -89,5 +89,81 @@ class GraphSerieSpec: QuickSpec {
                 expect(forceByEnums.jsonString).to(equal(force.jsonString))
             }
         }
+        
+        let nameCategoryValue = "categoryNameValue"
+        let symbolOriginValue = Symbol.none
+        let symbolCategoryValue = OneOrMore(one: symbolOriginValue)
+        let symbolSizeCateogryValue: FunctionOrFloatOrPair = [10, 0]
+        let symbolRotateCategoryValue: Float = 8272.23981
+        let symbolOffsetCategoryValue: Point = [20, 0.1283798123]
+        let itemStyleCategoryValue = ItemStyle(
+            .normal(CommonItemStyleContent(
+                .color(rgba(200, 100, 0, 0.0002837)),
+                .shadowBlur(20),
+                .opacity(0.28),
+                .borderWidth(20.5)
+            ))
+        )
+        let labelCategoryValue = EmphasisLabel(
+            .emphasis(LabelStyle()),
+            .normal(LabelStyle())
+        )
+        
+        let category = GraphSerie.Category()
+        category.name = nameCategoryValue
+        category.symbol = symbolCategoryValue
+        category.symbolSize = symbolSizeCateogryValue
+        category.symbolRotate = symbolRotateCategoryValue
+        category.symbolOffset = symbolOffsetCategoryValue
+        category.itemStyle = itemStyleCategoryValue
+        category.label = labelCategoryValue
+        
+        describe("For GraphSerie.Category") {
+            it("needs to check the jsonString") {
+                let resultDic: [String: Jsonable] = [
+                    "name": nameCategoryValue,
+                    "symbol": symbolCategoryValue,
+                    "symbolSize": symbolSizeCateogryValue,
+                    "symbolRotate": symbolRotateCategoryValue,
+                    "symbolOffset": symbolOffsetCategoryValue,
+                    "itemStyle": itemStyleCategoryValue,
+                    "label": labelCategoryValue
+                ]
+                
+                expect(category.jsonString).to(equal(resultDic.jsonString))
+            }
+            
+            it("needs to check the Enumable") {
+                let categoryByEnums = GraphSerie.Category(
+                    .name(nameCategoryValue),
+                    .symbol(symbolOriginValue),
+                    .symbolSize(symbolSizeCateogryValue),
+                    .symbolRotate(symbolRotateCategoryValue),
+                    .symbolOffset(symbolOffsetCategoryValue),
+                    .itemStyle(itemStyleCategoryValue),
+                    .label(labelCategoryValue)
+                )
+                
+                expect(categoryByEnums.jsonString).to(equal(category.jsonString))
+            }
+            
+            it("needs to check the symbols enum case") {
+                let symbolsOriginValue = [Symbol.rect, Symbol.circle]
+                
+                category.symbol = OneOrMore(more: symbolsOriginValue)
+                
+                let categoryByEnums = GraphSerie.Category(
+                    .name(nameCategoryValue),
+                    .symbols(symbolsOriginValue),
+                    .symbolSize(symbolSizeCateogryValue),
+                    .symbolRotate(symbolRotateCategoryValue),
+                    .symbolOffset(symbolOffsetCategoryValue),
+                    .itemStyle(itemStyleCategoryValue),
+                    .label(labelCategoryValue)
+                )
+                
+                expect(categoryByEnums.jsonString).to(equal(category.jsonString))
+            }
+        }
     }
 }

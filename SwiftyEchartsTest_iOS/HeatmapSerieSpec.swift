@@ -69,6 +69,7 @@ class HeatmapSerieSpec: QuickSpec {
             let xAxisIndexValue: UInt8 = 28
             let yAxisIndexValue: UInt8 = 255
             let geoIndexValue: UInt8 = 0
+            let calendarIndexValue: UInt8 = 84
             let blurSizeValue: Float = 2.423
             let minOpacityValue: Float = 0.99
             let maxOpacityValue: Float = 0.01
@@ -94,6 +95,21 @@ class HeatmapSerieSpec: QuickSpec {
             let zlevelValue: Float = 28.423
             let zValue: Float = 8.2323
             let silentValue = true
+            let labelValue = EmphasisLabel(
+                .emphasis(LabelStyle(
+                    .show(false),
+                    .padding(5),
+                    .height(20%),
+                    .rich([:]),
+                    .borderColor(rgba(200, 1, 200, 0.5555))
+                    ))
+            )
+            let itemStyleValue = ItemStyle(
+                .normal(CommonItemStyleContent(
+                    .opacity(0.294),
+                    .borderType(LineType.dashed)
+                    ))
+            )
             
             let heatmapSerie = HeatmapSerie()
             heatmapSerie.name = nameValue
@@ -101,6 +117,7 @@ class HeatmapSerieSpec: QuickSpec {
             heatmapSerie.xAxisIndex = xAxisIndexValue
             heatmapSerie.yAxisIndex = yAxisIndexValue
             heatmapSerie.geoIndex = geoIndexValue
+            heatmapSerie.calendarIndex = calendarIndexValue
             heatmapSerie.blurSize = blurSizeValue
             heatmapSerie.minOpacity = minOpacityValue
             heatmapSerie.maxOpacity = maxOpacityValue
@@ -111,6 +128,8 @@ class HeatmapSerieSpec: QuickSpec {
             heatmapSerie.zlevel = zlevelValue
             heatmapSerie.z = zValue
             heatmapSerie.silent = silentValue
+            heatmapSerie.label = labelValue
+            heatmapSerie.itemStyle = itemStyleValue
             
             it("needs to check the type value") {
                 expect(heatmapSerie.type.jsonString).to(equal(SerieType.heatmap.jsonString))
@@ -124,6 +143,7 @@ class HeatmapSerieSpec: QuickSpec {
                     "xAxisIndex": xAxisIndexValue,
                     "yAxisIndex": yAxisIndexValue,
                     "geoIndex": geoIndexValue,
+                    "calendarIndex": calendarIndexValue,
                     "blurSize": blurSizeValue,
                     "minOpacity": minOpacityValue,
                     "maxOpacity": maxOpacityValue,
@@ -133,7 +153,9 @@ class HeatmapSerieSpec: QuickSpec {
                     "markArea": markAreaValue,
                     "zlevel": zlevelValue,
                     "z": zValue,
-                    "silent": silentValue
+                    "silent": silentValue,
+                    "label": labelValue,
+                    "itemStyle": itemStyleValue
                 ]
                 
                 expect(heatmapSerie.jsonString).to(equal(resultDic.jsonString))
@@ -146,6 +168,7 @@ class HeatmapSerieSpec: QuickSpec {
                     .xAxisIndex(xAxisIndexValue),
                     .yAxisIndex(yAxisIndexValue),
                     .geoIndex(geoIndexValue),
+                    .calendarIndex(calendarIndexValue),
                     .blurSize(blurSizeValue),
                     .minOpacity(minOpacityValue),
                     .maxOpacity(maxOpacityValue),
@@ -155,7 +178,9 @@ class HeatmapSerieSpec: QuickSpec {
                     .markArea(markAreaValue),
                     .zlevel(zlevelValue),
                     .z(zValue),
-                    .silent(silentValue)
+                    .silent(silentValue),
+                    .label(labelValue),
+                    .itemStyle(itemStyleValue)
                 )
                 
                 expect(heatmapSerieByEnums.jsonString).to(equal(heatmapSerie.jsonString))

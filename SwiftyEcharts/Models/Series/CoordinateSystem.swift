@@ -16,6 +16,7 @@ public enum CoordinateSystem: String, Jsonable {
     case polar = "polar"
     case geo = "geo"
     case parallel = "parallel"
+    case calendar = "calendar"
     case none = "none"
     
     public var jsonString: String {

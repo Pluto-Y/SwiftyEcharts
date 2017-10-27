@@ -43,6 +43,19 @@ class BarsController: BaseDemoController {
             dynamicCount = 11
             newOptionForDynamicData = self.option
             timer = Timer(timeInterval: 2.1, target: self, selector: #selector(self.dynamicData), userInfo: nil, repeats: true)
+        } else if menus[indexPath.row] == "特性示例：渐变色 阴影 点击缩放" {
+            
+            self.echartsView.addListener(for: .click, with: { [weak self](params) in
+                let zoomSize: Float = 6
+                if let strongSelf = self {
+                    var dataAxis = ["点", "击", "柱", "子", "或", "者", "两", "指", "在", "触", "屏", "上", "滑", "动", "能", "够", "自", "动", "缩", "放"]
+                    let value = params["dataIndex"] as! Float
+                    strongSelf.echartsView.dispatchAction(DataZoomAction(
+                        .startValue(dataAxis[max(Int(value - zoomSize / 2.0), 0)]),
+                        .endValue(dataAxis[min(Int(value + zoomSize / 2.0), dataAxis.count - 1)])
+                        ))
+                }
+            })
         }
         if timer != nil {
             RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)

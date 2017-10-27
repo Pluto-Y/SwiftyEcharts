@@ -26,14 +26,14 @@ public final class DataZoomAction: EchartsAction {
     /// 结束位置的百分比，0 - 100
     public var end: Float?
     /// 开始位置的数值
-    public var startValue: Float?
+    public var startValue: Jsonable?
     /// 结束位置的数值
-    public var endValue: Float?
+    public var endValue: Jsonable?
 }
 
 extension DataZoomAction: Enumable {
     public enum Enums {
-        case dataZoomIndex(Int), start(Float), end(Float), startValue(Float), endValue(Float)
+        case dataZoomIndex(Int), start(Float), end(Float), startValue(Jsonable), endValue(Jsonable)
     }
     
     public typealias ContentEnum = Enums

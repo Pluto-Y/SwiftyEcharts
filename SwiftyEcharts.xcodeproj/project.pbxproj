@@ -63,6 +63,10 @@
 		6F015ACD1F3DE02700A2576F /* TimelineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F015ACC1F3DE02700A2576F /* TimelineSpec.swift */; };
 		6F015ACF1F3EFD2C00A2576F /* TitleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F015ACE1F3EFD2C00A2576F /* TitleSpec.swift */; };
 		6F015AD11F3F7A5E00A2576F /* ToolboxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F015AD01F3F7A5E00A2576F /* ToolboxSpec.swift */; };
+		6F04772F1F9E1DD8008F45AB /* HeatmapsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F04772E1F9E1DD8008F45AB /* HeatmapsController.swift */; };
+		6F0477311FA19E74008F45AB /* GraphsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0477301FA19E74008F45AB /* GraphsController.swift */; };
+		6F0477331FA1A103008F45AB /* GraphSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0477321FA1A103008F45AB /* GraphSerie.swift */; };
+		6F0477351FA1B042008F45AB /* GraphSerieSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0477341FA1B042008F45AB /* GraphSerieSpec.swift */; };
 		6F06CF941F90713100BCF48D /* HighlightActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06CF931F90713100BCF48D /* HighlightActionSpec.swift */; };
 		6F06CF961F90713100BCF48D /* DownplayActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F06CF951F90713100BCF48D /* DownplayActionSpec.swift */; };
 		6F0AB1BF1F3010B700A71D9A /* PolygonGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */; };
@@ -510,6 +514,10 @@
 		6F015ACC1F3DE02700A2576F /* TimelineSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineSpec.swift; sourceTree = "<group>"; };
 		6F015ACE1F3EFD2C00A2576F /* TitleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleSpec.swift; sourceTree = "<group>"; };
 		6F015AD01F3F7A5E00A2576F /* ToolboxSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolboxSpec.swift; sourceTree = "<group>"; };
+		6F04772E1F9E1DD8008F45AB /* HeatmapsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapsController.swift; sourceTree = "<group>"; };
+		6F0477301FA19E74008F45AB /* GraphsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphsController.swift; sourceTree = "<group>"; };
+		6F0477321FA1A103008F45AB /* GraphSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphSerie.swift; sourceTree = "<group>"; };
+		6F0477341FA1B042008F45AB /* GraphSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphSerieSpec.swift; sourceTree = "<group>"; };
 		6F06CF931F90713100BCF48D /* HighlightActionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightActionSpec.swift; sourceTree = "<group>"; };
 		6F06CF951F90713100BCF48D /* DownplayActionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownplayActionSpec.swift; sourceTree = "<group>"; };
 		6F0AB1BE1F3010B700A71D9A /* PolygonGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonGraphicSpec.swift; sourceTree = "<group>"; };
@@ -917,6 +925,7 @@
 				54AAE1761E790BE100DCD829 /* SankeySerie.swift */,
 				6FA0B9891E916EF5007D2AA2 /* PictorialBarSerie.swift */,
 				6F12F5681F6CD2420042793D /* CustomSerie.swift */,
+				6F0477321FA1A103008F45AB /* GraphSerie.swift */,
 			);
 			path = Series;
 			sourceTree = "<group>";
@@ -960,6 +969,8 @@
 				6F5E3AB61ED475FD008D4095 /* ScattersController.swift */,
 				6F63A2741F6EDC4500A77546 /* BoxplotsControllers.swift */,
 				6F0F18831F690E5600A8B1E3 /* CandlesticksController.swift */,
+				6F04772E1F9E1DD8008F45AB /* HeatmapsController.swift */,
+				6F0477301FA19E74008F45AB /* GraphsController.swift */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -1241,6 +1252,7 @@
 				6FBF312B1F740DFD005F2A96 /* CalendarSpec.swift */,
 				6F50F3F31F8D03ED007D5D30 /* EchartsActionTypeSpec.swift */,
 				6F06CF931F90713100BCF48D /* HighlightActionSpec.swift */,
+				6F0477341FA1B042008F45AB /* GraphSerieSpec.swift */,
 			);
 			path = SwiftyEchartsTest_iOS;
 			sourceTree = "<group>";
@@ -1677,6 +1689,7 @@
 				6FD249E41E50B6E000FBB2F7 /* PolylineGraphic.swift in Sources */,
 				541C72611E516D3900B194A3 /* TreemapSerie.swift in Sources */,
 				6FC40CF61E48C13200F6E62F /* AngleAxis.swift in Sources */,
+				6F0477331FA1A103008F45AB /* GraphSerie.swift in Sources */,
 				6FC40CFE1E4CB22900F6E62F /* ParallelAxis.swift in Sources */,
 				6FC40CEE1E48BFCB00F6E62F /* AxisTick.swift in Sources */,
 				6FD249D01E4F41E600FBB2F7 /* TextGraphic.swift in Sources */,
@@ -1773,6 +1786,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F04772F1F9E1DD8008F45AB /* HeatmapsController.swift in Sources */,
 				5427F0991E2C981F00CE20E5 /* FunnelOptions.swift in Sources */,
 				6F4BA30D1E92C543006A3AB3 /* PictorialBarsController.swift in Sources */,
 				5427F07D1E2C8F4000CE20E5 /* LineOptions.swift in Sources */,
@@ -1797,6 +1811,7 @@
 				6FE45D501E6F092500E9083D /* GaugesController.swift in Sources */,
 				5427F0951E2C980700CE20E5 /* ParalledOptions.swift in Sources */,
 				5427F09F1E2C984500CE20E5 /* ThemeRiverOptions.swift in Sources */,
+				6F0477311FA19E74008F45AB /* GraphsController.swift in Sources */,
 				5427F09D1E2C983A00CE20E5 /* PictorialBarOptions.swift in Sources */,
 				6F0E461F1E614A37008DA184 /* LinesController.swift in Sources */,
 				6FEF717C1E65B75800E1ED70 /* RadarsController.swift in Sources */,
@@ -1909,6 +1924,7 @@
 				6FDDCFFF1F00F8FF00B89982 /* AxisLabelSpec.swift in Sources */,
 				6FDDCFF91F00E74E00B89982 /* VisualMapSpec.swift in Sources */,
 				6F0AB1CF1F36D52400A71D9A /* RectGraphicSpec.swift in Sources */,
+				6F0477351FA1B042008F45AB /* GraphSerieSpec.swift in Sources */,
 				6FE1EE171F51453200DB0F1F /* TooltipSpec.swift in Sources */,
 				6F0AB1D11F36DAC700A71D9A /* RingGraphicSpec.swift in Sources */,
 				6FACFAC11EEAF62B002622CE /* ItemStyleSpec.swift in Sources */,

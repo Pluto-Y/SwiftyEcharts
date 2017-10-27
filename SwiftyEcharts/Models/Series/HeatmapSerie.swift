@@ -47,6 +47,8 @@ public final class HeatmapSerie: Serie, Zable {
     public var yAxisIndex: UInt8?
     /// 使用的地理坐标系的 index，在单个图表实例中存在多个地理坐标系的时候有用。
     public var geoIndex: UInt8?
+    /// 使用的日历坐标系的 index，在单个图表实例中存在多个日历坐标系的时候有用。
+    public var calendarIndex: UInt8?
     /// 每个点模糊的大小，在地理坐标系(coordinateSystem: 'geo')上有效。
     public var blurSize: Float?
     /// 最小的透明度，在地理坐标系(coordinateSystem: 'geo')上有效。
@@ -158,6 +160,10 @@ public final class HeatmapSerie: Serie, Zable {
     public var z: Float?
     /// 图形是否不响应和触发鼠标事件，默认为 false，即响应和触发鼠标事件。
     public var silent: Bool?
+    /// 图表文本标签
+    public var label: EmphasisLabel?
+    /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+    public var itemStyle: ItemStyle?
     
     public init() {}
 }
@@ -199,7 +205,7 @@ extension HeatmapSerieData: Mappable {
 
 extension HeatmapSerie: Enumable {
     public enum Enums {
-        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), blurSize(Float), minOpacity(Float), maxOpacity(Float), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool)
+        case name(String), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), geoIndex(UInt8), calendarIndex(UInt8), blurSize(Float), minOpacity(Float), maxOpacity(Float), data([Jsonable]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), silent(Bool), label(EmphasisLabel), itemStyle(ItemStyle)
     }
     
     public typealias ContentEnum = Enums
@@ -218,6 +224,8 @@ extension HeatmapSerie: Enumable {
                 self.yAxisIndex = yAxisIndex
             case let .geoIndex(geoIndex):
                 self.geoIndex = geoIndex
+            case let .calendarIndex(calendarIndex):
+                self.calendarIndex = calendarIndex
             case let .blurSize(blurSize):
                 self.blurSize = blurSize
             case let .minOpacity(minOpacity):
@@ -238,6 +246,10 @@ extension HeatmapSerie: Enumable {
                 self.z = z
             case let .silent(silent):
                 self.silent = silent
+            case let .label(label):
+                self.label = label
+            case let .itemStyle(itemStyle):
+                self.itemStyle = itemStyle
             }
         }
     }
@@ -251,6 +263,7 @@ extension HeatmapSerie: Mappable {
         map["xAxisIndex"] = xAxisIndex
         map["yAxisIndex"] = yAxisIndex
         map["geoIndex"] = geoIndex
+        map["calendarIndex"] = calendarIndex
         map["blurSize"] = blurSize
         map["minOpacity"] = minOpacity
         map["maxOpacity"] = maxOpacity
@@ -261,5 +274,7 @@ extension HeatmapSerie: Mappable {
         map["zlevel"] = zlevel
         map["z"] = z
         map["silent"] = silent
+        map["label"] = label
+        map["itemStyle"] = itemStyle
     }
 }

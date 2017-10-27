@@ -1,6 +1,8 @@
 # SwiftyEcharts
 [![Build Status](https://travis-ci.org/Pluto-Y/SwiftyEcharts.svg)](https://travis-ci.org/Pluto-Y/SwiftyEcharts)
 [![codecov](https://codecov.io/gh/Pluto-Y/SwiftyEcharts/branch/master/graph/badge.svg)](https://codecov.io/gh/Pluto-Y/SwiftyEcharts)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyEcharts.svg)]
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ____
 ## 简介

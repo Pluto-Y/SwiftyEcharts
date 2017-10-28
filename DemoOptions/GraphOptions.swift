@@ -29,8 +29,62 @@ public final class GraphOptions {
     // MARK: 力引导布局
     /// 地址: http://echarts.baidu.com/demo.html#graph-force2
     static func graphForce2Option() -> Option {
-        // TODO: 添加实现
+        let createNodes: (Int) -> [Jsonable] = { count in
+            var nodes: [Jsonable] = []
+            for i in 0..<count {
+                nodes.append([["id": i]])
+            }
+            return nodes
+        }
+        
+        let createEdges: (Int) -> [[Jsonable]] = { count in
+            var edges: [[Jsonable]] = []
+            if count == 2 {
+                return [[0, 1]]
+            }
+            
+            for i in 0..<count {
+                edges.append([i, (i + 1) % count])
+            }
+            return edges
+        }
+        
+        var datas: [[String: Jsonable]] = []
+        for i in 0..<16 {
+            datas.append([
+                "nodes": createNodes(i+2),
+                "edges": createEdges(i+2)
+                ])
+        }
+        
+        var series: [Serie] = []
+        var idx = 0
+        for item in datas {
+            series.append(GraphSerie(
+                .layout(.force),
+                .animation(false),
+                .data(item["nodes"] as! [Jsonable]),
+                .left(.value(((idx % 4) * 25)%)),
+                .top(.value((Int(idx / 4) * 25)%)),
+                .width(25%),
+                .height(25%),
+                .force(GraphSerie.Force(
+                    .repulsion(60),
+                    .edgeLength(2)
+                    )),
+                .edges((item["edges"] as! [[Jsonable]]).map { e in
+                        return GraphSerie.Link(
+                            .source(e[0]),
+                            .target(e[1])
+                        )
+                    })
+                ))
+            
+            idx += 1
+        }
+        
         return Option(
+            .series(series)
         )
     }
     

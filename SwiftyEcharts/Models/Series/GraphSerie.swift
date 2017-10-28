@@ -58,7 +58,7 @@ public final class GraphSerie: Serie, Animatable, Symbolized, Zable {
         ///
         ///     // 值最大的边长度会趋向于 10，值最小的边长度会趋向于 50
         ///     edgeLength: [10, 50]
-        public var edgeLength: Range?
+        public var edgeLength: OneOrMore<Float>?
         /// 因为力引导布局会在多次迭代后才会稳定，这个参数决定是否显示布局的迭代动画，在浏览器端节点数据较多（>100）的时候不建议关闭，布局过程会造成浏览器假死。
         public var layoutAnimation: Bool?
     }
@@ -425,7 +425,7 @@ extension GraphSerie.Circular: Mappable {
 
 extension GraphSerie.Force: Enumable {
     public enum Enums {
-        case initLayout(String), repulsion(Float), gravity(Float), edgeLength(Range), layoutAnimation(Bool)
+        case initLayout(String), repulsion(Float), gravity(Float), edgeLength(Float), edgeLengths([Float]), layoutAnimation(Bool)
     }
     
     public typealias ContentEnum = Enums
@@ -441,7 +441,9 @@ extension GraphSerie.Force: Enumable {
             case let .gravity(gravity):
                 self.gravity = gravity
             case let .edgeLength(edgeLength):
-                self.edgeLength = edgeLength
+                self.edgeLength = OneOrMore(one: edgeLength)
+            case let .edgeLengths(edgeLengths):
+                self.edgeLength = OneOrMore(more: edgeLengths)
             case let .layoutAnimation(layoutAnimation):
                 self.layoutAnimation = layoutAnimation
             }

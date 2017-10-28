@@ -1,7 +1,7 @@
 # SwiftyEcharts
 [![Build Status](https://travis-ci.org/Pluto-Y/SwiftyEcharts.svg)](https://travis-ci.org/Pluto-Y/SwiftyEcharts)
 [![codecov](https://codecov.io/gh/Pluto-Y/SwiftyEcharts/branch/master/graph/badge.svg)](https://codecov.io/gh/Pluto-Y/SwiftyEcharts)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyEcharts.svg)]
+![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyEcharts.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ____
@@ -48,6 +48,8 @@ ___
 * 手动导入：
     * 将项目下的`SwiftyEcharts`目录拷贝到项目中
     * `Remove References`移除js目录，然后通过`create floder references`的方式添加js目录
+* 通过 `Cocoapods` 进行导入：pod 'SwiftyEcharts'
+* 通过 `Carthage` 进行导入： github "Pluto-Y/SwiftyEcharts"
 
 ⚠️  *** 请确保js目录是蓝色的 *** ⚠️ 
 

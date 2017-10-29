@@ -54,7 +54,8 @@ class GraphSerieSpec: QuickSpec {
         let initLayoutForceValue = "forceInitLayoutValue"
         let repulsionForceValue: Float = 9238.2398329
         let gravityForceValue: Float = 9.82377842
-        let edgeLengthForceValue: SwiftyEcharts.Range = [20.0, 10.0]
+        let edgeLengthsForceOriginValue: [Float] = [20.0, 10.0]
+        let edgeLengthForceValue = OneOrMore(more: edgeLengthsForceOriginValue)
         let layoutAnimationForceValue = true
         
         let force = GraphSerie.Force()
@@ -82,7 +83,24 @@ class GraphSerieSpec: QuickSpec {
                     .initLayout(initLayoutForceValue),
                     .repulsion(repulsionForceValue),
                     .gravity(gravityForceValue),
-                    .edgeLength(edgeLengthForceValue),
+                    .edgeLengths(edgeLengthsForceOriginValue),
+                    .layoutAnimation(layoutAnimationForceValue)
+                )
+                
+                expect(forceByEnums.jsonString).to(equal(force.jsonString))
+            }
+            
+            it("needs to check the edgeLengths enum case") {
+                let edgeLengthForceOriginValue: Float = 92837.239874239847
+                let edgeLengthForceValue = OneOrMore(one: edgeLengthForceOriginValue)
+                
+                force.edgeLength = edgeLengthForceValue
+                
+                let forceByEnums = GraphSerie.Force(
+                    .initLayout(initLayoutForceValue),
+                    .repulsion(repulsionForceValue),
+                    .gravity(gravityForceValue),
+                    .edgeLength(edgeLengthForceOriginValue),
                     .layoutAnimation(layoutAnimationForceValue)
                 )
                 

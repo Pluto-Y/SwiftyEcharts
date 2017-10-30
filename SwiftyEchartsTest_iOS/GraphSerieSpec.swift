@@ -301,7 +301,7 @@ class GraphSerieSpec: QuickSpec {
         let sourceLinkValue = "linkSourceValue"
         let targetLinkValue = "linkTargetValue"
         let valueLinkValue: Float = 02.209237
-        let lineStyleLinkValue = LineStyle()
+        let lineStyleLinkValue = EmphasisLineStyle()
         let labelLinkValue = EmphasisLabel()
         let symbolLinkOriginValue = Symbol.rect
         let symbolLinkValue = OneOrMore(one: symbolLinkOriginValue)

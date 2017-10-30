@@ -224,8 +224,64 @@ public final class GraphOptions {
     // MARK: Graph Webkit Dep
     /// 地址: http://echarts.baidu.com/demo.html#graph-webkit-dep
     static func graphWebkitDepOption() -> Option {
-        // TODO: 添加实现
+        guard let jsonUrl = NSBundle.mainBundle().URLForResource("webkit-dep", withExtension: "json"), let jsonData = NSData(contentsOfURL: jsonUrl), let jsonObj = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: []) else {
+            return Option()
+        }
+        
+        let webkitDep = jsonObj as! NSDictionary
+        
+        var data: [Jsonable] = []
+        (webkitDep["nodes"] as! NSArray).enumerateObjectsUsingBlock { (nodeObj, idx, _) in
+            let nodeDic = NSMutableDictionary(dictionary: (nodeObj as! NSDictionary))
+            nodeDic.setValue(idx, forKey: "id")
+            data.append(nodeDic)
+        }
+        
+        var categories: [GraphSerie.Category] = []
+        (webkitDep["categories"] as! NSArray).enumerateObjectsUsingBlock { (categoryObj, _, _) in
+            let categoryDic = categoryObj as! NSDictionary
+            let category = GraphSerie.Category()
+            if let name = categoryDic["name"] {
+                category.name = (name as! String)
+            }
+            categories.append(category)
+        }
+        
+        var edges: [GraphSerie.Link] = []
+        (webkitDep["links"] as! NSArray).enumerateObjectsUsingBlock { (linkObj, _, _) in
+            let linkDic = linkObj as! NSDictionary
+            let link = GraphSerie.Link()
+            link.target = (linkDic["target"] as! Jsonable)
+            link.source = (linkDic["source"] as! Jsonable)
+            edges.append(link)
+        }
+        
+        
         return Option(
+            .legend(Legend(
+                .data(["HTMLElement", "WebGL", "SVG", "CSS", "Other"])
+                )),
+            .series([
+                GraphSerie(
+                    .layout(.force),
+                    .animation(false),
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
+                            .position(.right),
+                            .formatter(.string("{b}"))
+                            ))
+                        )),
+                    .draggable(true),
+                    .data(data),
+                    .categories(categories),
+                    .force(GraphSerie.Force(
+                        .edgeLength(5),
+                        .repulsion(20),
+                        .gravity(0.2)
+                        )),
+                    .edges(edges)
+                )
+                ])
         )
     }
     

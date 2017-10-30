@@ -115,8 +115,109 @@ public final class GraphOptions {
     // MARK: Graph 简单示例
     /// 地址: http://echarts.baidu.com/demo.html#graph-simple
     static func graphSimpleOption() -> Option {
-        // TODO: 添加实现
         return Option(
+            .title(Title(
+                .text("Graph 简单示例")
+                )),
+            .tooltip(Tooltip()),
+            .animationDurationUpdate(1500),
+            .animationEasingUpdate(.quinticInOut),
+            .series([
+                GraphSerie(
+                    .layout(.none),
+                    .symbolSize(50),
+                    .roam(true),
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
+                            .show(true)
+                            ))
+                        )),
+                    .edgeSymbols([.circle, .arrow]),
+                    .edgeSymbolSize([4, 10]),
+                    .edgeLabel(EmphasisLabel(
+                        .normal(LabelStyle(
+                            .fontSize(20)
+                            ))
+                        )),
+                    .data([
+                        GraphSerie.Data(
+                            .name("节点1"),
+                            .x(300),
+                            .y(300)
+                        ),
+                        GraphSerie.Data(
+                            .name("节点2"),
+                            .x(800),
+                            .y(300)
+                        ),
+                        GraphSerie.Data(
+                            .name("节点3"),
+                            .x(550),
+                            .y(100)
+                        ),
+                        GraphSerie.Data(
+                            .name("节点4"),
+                            .x(550),
+                            .y(500)
+                        ),
+                        ]),
+                    .links([
+                        GraphSerie.Link(
+                            .source(0),
+                            .target(1),
+                            .symbolSize([5, 20]),
+                            .label(EmphasisLabel(
+                                .normal(LabelStyle(
+                                    .show(true)
+                                    ))
+                                )),
+                            .lineStyle(EmphasisLineStyle(
+                                .normal(LineStyle(
+                                    .width(5),
+                                    .curveness(0.2)
+                                    ))
+                                ))
+                        ),
+                        GraphSerie.Link(
+                            .source("节点2"),
+                            .target("节点1"),
+                            .label(EmphasisLabel(
+                                .normal(LabelStyle(
+                                    .show(true)
+                                    ))
+                                )),
+                            .lineStyle(EmphasisLineStyle(
+                                .normal(LineStyle(
+                                    .curveness(0.2)
+                                    ))
+                                ))
+                        ),
+                        GraphSerie.Link(
+                            .source("节点1"),
+                            .target("节点3")
+                        ),
+                        GraphSerie.Link(
+                            .source("节点2"),
+                            .target("节点3")
+                        ),
+                        GraphSerie.Link(
+                            .source("节点2"),
+                            .target("节点4")
+                        ),
+                        GraphSerie.Link(
+                            .source("节点1"),
+                            .target("节点4")
+                        )
+                        ]),
+                    .lineStyle(EmphasisLineStyle(
+                        .normal(LineStyle(
+                            .opacity(0.9),
+                            .width(2),
+                            .curveness(0)
+                            ))
+                        ))
+                )
+                ])
         )
     }
     

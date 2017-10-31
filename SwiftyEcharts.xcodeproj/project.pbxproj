@@ -107,6 +107,8 @@
 		6F201F101F0A587E00087764 /* BezierCurveGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F201F0F1F0A587E00087764 /* BezierCurveGraphicSpec.swift */; };
 		6F201F121F0A665200087764 /* LabelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F201F111F0A665200087764 /* LabelSpec.swift */; };
 		6F2A38E91F82AD09008EBEA1 /* CandlestickSh2015.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F2A38E81F82AD09008EBEA1 /* CandlestickSh2015.json */; };
+		6F22436F1FA8A268000888C5 /* npmdepgraph.min10.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F22436E1FA8A268000888C5 /* npmdepgraph.min10.json */; };
+		6F2904B31FA769C3009B5562 /* webkit-dep.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F2904B21FA769C3009B5562 /* webkit-dep.json */; };
 		6F2F70BC1E96881F009FF1B0 /* echarts.html in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F70B71E96881F009FF1B0 /* echarts.html */; };
 		6F2F70C11E96882F009FF1B0 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F70C01E96882F009FF1B0 /* js */; };
 		6F3FA5771E58919E00A84E1D /* AreaRainfallDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */; };
@@ -559,6 +561,8 @@
 		6F201F0F1F0A587E00087764 /* BezierCurveGraphicSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierCurveGraphicSpec.swift; sourceTree = "<group>"; };
 		6F201F111F0A665200087764 /* LabelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelSpec.swift; sourceTree = "<group>"; };
 		6F2A38E81F82AD09008EBEA1 /* CandlestickSh2015.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CandlestickSh2015.json; sourceTree = "<group>"; };
+		6F22436E1FA8A268000888C5 /* npmdepgraph.min10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = npmdepgraph.min10.json; sourceTree = "<group>"; };
+		6F2904B21FA769C3009B5562 /* webkit-dep.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "webkit-dep.json"; sourceTree = "<group>"; };
 		6F2F70B71E96881F009FF1B0 /* echarts.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = echarts.html; sourceTree = "<group>"; };
 		6F2F70C01E96882F009FF1B0 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		6F480C571F0BC7870088ECF1 /* BoxplotSerieSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxplotSerieSpec.swift; sourceTree = "<group>"; };
@@ -857,6 +861,8 @@
 				6F2A38E81F82AD09008EBEA1 /* CandlestickSh2015.json */,
 				6F63A2721F6EDC4500A77546 /* MixZoomOnValue.json */,
 				6F12F5661F6CCFE70042793D /* stock-DJI.json */,
+				6F2904B21FA769C3009B5562 /* webkit-dep.json */,
+				6F22436E1FA8A268000888C5 /* npmdepgraph.min10.json */,
 			);
 			path = DemoOptions;
 			sourceTree = "<group>";
@@ -1560,6 +1566,7 @@
 				6FA85F2D1ED336E300C1DA58 /* gansu.json in Resources */,
 				6FA85F2B1ED336E300C1DA58 /* chongqing.json in Resources */,
 				6FA85F461ED336E300C1DA58 /* xizang.json in Resources */,
+				6F2904B31FA769C3009B5562 /* webkit-dep.json in Resources */,
 				6FA85F451ED336E300C1DA58 /* xinjiang.json in Resources */,
 				6FA85F411ED336E300C1DA58 /* shanxi1.json in Resources */,
 				6FB9864F1ECBFC8A00D2EFE1 /* HK.json in Resources */,
@@ -1570,6 +1577,7 @@
 				6FA85F301ED336E300C1DA58 /* guizhou.json in Resources */,
 				6F9DF55B1E9BE90C00577899 /* ConfidenceBandData.plist in Resources */,
 				6FA85F421ED336E300C1DA58 /* sichuan.json in Resources */,
+				6F22436F1FA8A268000888C5 /* npmdepgraph.min10.json in Resources */,
 				6FA85F2F1ED336E300C1DA58 /* guangxi.json in Resources */,
 				6FA85F481ED336E300C1DA58 /* zhejiang.json in Resources */,
 				6FA85F3C1ED336E300C1DA58 /* ningxia.json in Resources */,

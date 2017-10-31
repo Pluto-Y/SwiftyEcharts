@@ -96,22 +96,22 @@ public final class HeatmapOptions {
         )
     }
     
-    static private func getVirtualData(year: Int) -> [Jsonable] {
+    static public func getVirtualData(_ year: Int) -> [Jsonable] {
         var result: [Jsonable] = []
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dayTime = 24*3600
         let start = "\(year)-01-01"
         let end = "\(year+1)-01-01"
-        var date = dateFormatter.dateFromString(start)!
-        let endDay = dateFormatter.dateFromString(end)!
-        while date.compare(endDay) == .OrderedAscending {
+        var date = dateFormatter.date(from: start)!
+        let endDay = dateFormatter.date(from: end)!
+        while date.compare(endDay) == .orderedAscending {
             let data: [Jsonable] = [
-                dateFormatter.stringFromDate(date),
+                dateFormatter.string(from: date),
                 arc4random_uniform(1000)
             ]
             result.append(data)
-            date = NSDate(timeInterval: Double(dayTime), sinceDate: date)
+            date = Date(timeInterval: Double(dayTime), since: date)
         }
         return result
     }

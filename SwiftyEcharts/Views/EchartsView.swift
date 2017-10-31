@@ -263,7 +263,7 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
 
 
 extension EchartsView {
-    public func dispatchAction<T: EchartsAction>(action: T) {
+    public func dispatchAction<T: EchartsAction>(_ action: T) {
         print("dispatchAction(\(action.jsonString))")
         
         callJsMethod("dispatchAction(\(action.jsonString))")

@@ -11,7 +11,7 @@ import SwiftyEcharts
 
 class PiesController: BaseDemoController {
     
-    private var timer: NSTimer?
+    private var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +31,8 @@ class PiesController: BaseDemoController {
                 self.timer?.invalidate()
                 self.timer = nil
             }
-            timer = NSTimer(timeInterval: 1.0, target: self, selector: #selector(self.dispatchAction), userInfo: nil, repeats: true)
-            NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+            timer = Timer(timeInterval: 1.0, target: self, selector: #selector(self.dispatchAction), userInfo: nil, repeats: true)
+            RunLoop.current.add(timer!, forMode: .commonModes)
 //            echartsView.addListener(for: .click, with: { (params) in
 //                print("params: \(params)")
 //            })

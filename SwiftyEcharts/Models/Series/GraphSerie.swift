@@ -58,7 +58,7 @@ public final class GraphSerie: Serie, Animatable, Symbolized, Zable {
         ///
         ///     // 值最大的边长度会趋向于 10，值最小的边长度会趋向于 50
         ///     edgeLength: [10, 50]
-        public var edgeLength: Range?
+        public var edgeLength: OneOrMore<Float>?
         /// 因为力引导布局会在多次迭代后才会稳定，这个参数决定是否显示布局的迭代动画，在浏览器端节点数据较多（>100）的时候不建议关闭，布局过程会造成浏览器假死。
         public var layoutAnimation: Bool?
     }
@@ -178,7 +178,7 @@ public final class GraphSerie: Serie, Animatable, Symbolized, Zable {
         /// 边的数值，可以在力引导布局中用于映射到边的长度。
         public var value: Float?
         /// 关系边的线条样式。
-        public var lineStyle: LineStyle?
+        public var lineStyle: EmphasisLineStyle?
         /// 关系边的标签的样式。
         public var label: EmphasisLabel?
         /// 边两端的标记类型，可以是一个数组分别指定两端，也可以是单个统一指定。
@@ -268,7 +268,7 @@ public final class GraphSerie: Serie, Animatable, Symbolized, Zable {
     /// 图形样式，有 normal 和 emphasis 两个状态。normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
     public var itemStyle: ItemStyle?
     /// 关系边的公用线条样式。其中 lineStyle.normal.color 支持设置为'source'或者'target'特殊值，此时边会自动取源节点或目标节点的颜色作为自己的颜色。
-    public var lineStyle: LineStyle?
+    public var lineStyle: EmphasisLineStyle?
     /// 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等，label选项在 ECharts 2.x 中放置于itemStyle.normal下，在 ECharts 3 中为了让整个配置项结构更扁平合理，label 被拿出来跟 itemStyle 平级，并且跟 itemStyle 一样拥有 normal, emphasis 两个状态。
     public var label: EmphasisLabel?
     public var edgeLabel: EmphasisLabel?
@@ -425,7 +425,7 @@ extension GraphSerie.Circular: Mappable {
 
 extension GraphSerie.Force: Enumable {
     public enum Enums {
-        case initLayout(String), repulsion(Float), gravity(Float), edgeLength(Range), layoutAnimation(Bool)
+        case initLayout(String), repulsion(Float), gravity(Float), edgeLength(Float), edgeLengths([Float]), layoutAnimation(Bool)
     }
     
     public typealias ContentEnum = Enums
@@ -441,7 +441,9 @@ extension GraphSerie.Force: Enumable {
             case let .gravity(gravity):
                 self.gravity = gravity
             case let .edgeLength(edgeLength):
-                self.edgeLength = edgeLength
+                self.edgeLength = OneOrMore(one: edgeLength)
+            case let .edgeLengths(edgeLengths):
+                self.edgeLength = OneOrMore(more: edgeLengths)
             case let .layoutAnimation(layoutAnimation):
                 self.layoutAnimation = layoutAnimation
             }
@@ -569,7 +571,7 @@ extension GraphSerie.Data: Mappable {
 
 extension GraphSerie.Link: Enumable {
     public enum Enums {
-        case source(Jsonable), target(Jsonable), value(Float), lineStyle(LineStyle), label(EmphasisLabel), symbol(Symbol), symbols([Symbol]), symbolSize(FunctionOrFloatOrPair)
+        case source(Jsonable), target(Jsonable), value(Float), lineStyle(EmphasisLineStyle), label(EmphasisLabel), symbol(Symbol), symbols([Symbol]), symbolSize(FunctionOrFloatOrPair)
     }
     
     public typealias ContentEnum = Enums
@@ -613,7 +615,7 @@ extension GraphSerie.Link: Mappable {
 
 extension GraphSerie: Enumable {
     public enum Enums {
-        case name(String), legendHoverLinek(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), calendarIndex(UInt8), hoverAnimation(Bool), layout(Layout), circular(Circular), force(Force), roam(Roam), nodeScaleRatio(Float), draggable(Bool), focusNodeAdjacency(Bool), symbol(Symbol), symbols([Symbol]), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), edgeSymbol(Symbol), edgeSymbols([Symbol]), edgeSymbolSize(FunctionOrFloatOrPair), cursor(String), itemStyle(ItemStyle), lineStyle(LineStyle), label(EmphasisLabel), edgeLabel(EmphasisLabel), categories([Category]), data([Jsonable]), nodes([Jsonable]), links([Link]), edges([Link]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
+        case name(String), legendHoverLinek(Bool), coordinateSystem(CoordinateSystem), xAxisIndex(UInt8), yAxisIndex(UInt8), polarIndex(UInt8), geoIndex(UInt8), calendarIndex(UInt8), hoverAnimation(Bool), layout(Layout), circular(Circular), force(Force), roam(Roam), nodeScaleRatio(Float), draggable(Bool), focusNodeAdjacency(Bool), symbol(Symbol), symbols([Symbol]), symbolSize(FunctionOrFloatOrPair), symbolRotate(Float), symbolOffset(Point), edgeSymbol(Symbol), edgeSymbols([Symbol]), edgeSymbolSize(FunctionOrFloatOrPair), cursor(String), itemStyle(ItemStyle), lineStyle(EmphasisLineStyle), label(EmphasisLabel), edgeLabel(EmphasisLabel), categories([Category]), data([Jsonable]), nodes([Jsonable]), links([Link]), edges([Link]), markPoint(MarkPoint), markLine(MarkLine), markArea(MarkArea), zlevel(Float), z(Float), left(Position), top(Position), right(Position), bottom(Position), width(LengthValue), height(LengthValue), silent(Bool), animation(Bool), animationThreshold(Float), animationDuration(Time), animationEasing(EasingFunction), animationDelay(Time), animationDurationUpdate(Time), animationEasingUpdate(EasingFunction), animationDelayUpdate(Time)
     }
     
     public typealias ContentEnum = Enums

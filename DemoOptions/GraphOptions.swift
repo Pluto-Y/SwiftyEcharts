@@ -91,8 +91,54 @@ public final class GraphOptions {
     // MARK: 笛卡尔坐标系上的 Graph
     /// 地址: http://echarts.baidu.com/demo.html#graph-grid
     static func graphGridOption() -> Option {
-        // TODO: 添加实现
+        let axisData = ["周一","周二","周三","很长很长的周四","周五","周六","周日"]
+        var data: [Float] = []
+        for i in 0..<axisData.count {
+            data.append(Float(arc4random_uniform(1000)) * Float(i + 1))
+        }
+        var links: [GraphSerie.Link] = []
+        for i in 0..<axisData.count {
+            links.append(GraphSerie.Link(
+                .source(i),
+                .target(i+1)
+                ))
+        }
+        links.removeLast()
+        
         return Option(
+            .title(Title(
+                .text("笛卡尔坐标系上的 Graph")
+                )),
+            .tooltip(Tooltip()),
+            .xAxis(Axis(
+                .type(.category),
+                .boundaryGap(false),
+                .data(axisData.map { $0 as Jsonable })
+                )),
+            .yAxis(Axis(
+                .type(.value)
+                )),
+            .series([
+                GraphSerie(
+                    .layout(.none),
+                    .coordinateSystem(.cartesian2d),
+                    .symbolSize(40),
+                    .label(EmphasisLabel(
+                        .normal(LabelStyle(
+                            .show(true)
+                            ))
+                        )),
+                    .edgeSymbols([.circle, .arrow]),
+                    .edgeSymbolSize([4, 10]),
+                    .data(data.map { $0 as Jsonable }),
+                    .links(links),
+                    .lineStyle(EmphasisLineStyle(
+                        .normal(LineStyle(
+                            .color(.hexColor("#2f4554"))
+                            ))
+                        ))
+                )
+                ])
         )
     }
     

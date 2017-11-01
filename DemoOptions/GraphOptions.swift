@@ -405,5 +405,13 @@ public final class GraphOptions {
         return Option(
         )
     }
+    
+    // MARK: Calendar Graph
+    /// 地址: http://echarts.baidu.com/demo.html#calendar-graph
+    static func calendarGraphOption() -> Option {
+        // TODO: 添加实现
+        return Option(
+        )
+    }
 
 }

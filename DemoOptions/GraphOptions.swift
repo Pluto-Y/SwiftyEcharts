@@ -107,8 +107,76 @@ public final class GraphOptions {
     // MARK: NPM Dependencies
     /// 地址: http://echarts.baidu.com/demo.html#graph-npm
     static func graphNpmOption() -> Option {
-        // TODO: 添加实现
+        guard let jsonUrl = NSBundle.mainBundle().URLForResource("npmdepgraph.min10", withExtension: "json"), let jsonData = NSData(contentsOfURL: jsonUrl), let jsonObj = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: []) else {
+            return Option()
+        }
+        
+        let json = jsonObj as! NSDictionary
+        
+        var data: [GraphSerie.Data] = []
+        (json["nodes"] as! NSArray).enumerateObjectsUsingBlock({ (nodeDic, _, _) in
+            let d = GraphSerie.Data()
+            if let x = nodeDic["x"] as? Float {
+                d.x = x
+            }
+            if let y = nodeDic["y"] as? Float {
+                d.y = y
+            }
+            if let name = nodeDic["label"] as? String {
+                d.name = name
+            }
+            if let size = nodeDic["size"] as? Float {
+                d.symbolSize = FunctionOrFloatOrPair.value(size/2.0)
+            }
+            if let color = nodeDic["color"] as? String {
+                d.itemStyle = ItemStyle(
+                    .normal(CommonItemStyleContent(
+                        .color(Color.hexColor(color))
+                        ))
+                )
+            }
+            data.append(d)
+        })
+        var edges: [GraphSerie.Link] = []
+        (json["edges"] as! NSArray).enumerateObjectsUsingBlock { (edgeDic, _, _) in
+            let e = GraphSerie.Link()
+            if let source = edgeDic["sourceID"] as? String {
+                e.source = source
+            }
+            if let target = edgeDic["targetID"] as? String {
+                e.target = target
+            }
+            edges.append(e)
+        }
+        
         return Option(
+            .title(Title(
+                .text("NPM Dependencies")
+                )),
+            .animationDurationUpdate(1500),
+            .animationEasingUpdate(.quinticInOut),
+            .series([
+                GraphSerie(
+                    .layout(.none),
+                    .data(data.map { $0 as Jsonable }),
+                    .edges(edges),
+                    .label(EmphasisLabel(
+                        .emphasis(LabelStyle(
+                            .position(.right),
+                            .show(true)
+                            ))
+                        )),
+                    .roam(true),
+                    .focusNodeAdjacency(true),
+                    .lineStyle(EmphasisLineStyle(
+                        .normal(LineStyle(
+                            .width(0.5),
+                            .curveness(0.3),
+                            .opacity(0.7)
+                            ))
+                        ))
+                )
+                ])
         )
     }
     
@@ -255,7 +323,6 @@ public final class GraphOptions {
             link.source = (linkDic["source"] as! Jsonable)
             edges.append(link)
         }
-        
         
         return Option(
             .legend(Legend(

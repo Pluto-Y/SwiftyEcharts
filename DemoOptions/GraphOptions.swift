@@ -409,8 +409,110 @@ public final class GraphOptions {
     // MARK: Calendar Graph
     /// 地址: http://echarts.baidu.com/demo.html#calendar-graph
     static func calendarGraphOption() -> Option {
-        // TODO: 添加实现
+        let graphData: [Jsonable] = [
+            [
+                1485878400000,
+                260
+            ],
+            [
+                1486137600000,
+                200
+            ],
+            [
+                1486569600000,
+                279
+            ],
+            [
+                1486915200000,
+                847
+            ],
+            [
+                1487347200000,
+                241
+            ],
+            [
+                1487779200000 + 3600 * 24 * 1000 * 15,
+                411
+            ],
+            [
+                1488124800000 + 3600 * 24 * 1000 * 23,
+                985
+            ]
+        ]
+        
+        var links: [GraphSerie.Link] = []
+        for i in 0..<graphData.count {
+            links.append(GraphSerie.Link(
+                .source(i),
+                .target(i+1)
+                ))
+        }
+        links.removeLast()
+        
         return Option(
+            .tooltip(Tooltip()),
+            .calendar(Calendar(
+                .top(.middle),
+                .left(.center),
+                .cellSize(40),
+                .yearLabel(YearLabel(
+                    .margin(50),
+                    .fontSize(30)
+                    )),
+                .dayLabel(DayLabel(
+                    .firstDay(1),
+                    .nameMap("cn")
+                    )),
+                .monthLabel(MonthLabel(
+                    .nameMap("cn"),
+                    .margin(15),
+                    .fontSize(20),
+                    .color("#999")
+                    )),
+                .range(["2017-02", "2017-03-31"])
+                )),
+            .visualMap(PiecewiseVisualMap(
+                .min(0),
+                .max(1000),
+                .left(.center),
+                .bottom(20),
+                .inRange([
+                    "color": ["#5291FF", "#C7DBFF"]
+                    ]),
+                .seriesIndex([1]),
+                .orient(.horizontal)
+                )),
+            .series([
+                GraphSerie(
+                    .edgeSymbols([.none, .arrow]),
+                    .coordinateSystem(.calendar),
+                    .links(links),
+                    .symbolSize(15),
+                    .calendarIndex(0),
+                    .itemStyle(ItemStyle(
+                        .normal(CommonItemStyleContent(
+                            .color(.yellow),
+                            .shadowBlur(9),
+                            .shadowOffsetX(1.5),
+                            .shadowOffsetY(3),
+                            .shadowColor(.hexColor("#555"))
+                            ))
+                        )),
+                    .lineStyle(EmphasisLineStyle(
+                        .normal(LineStyle(
+                            .color("#D10E00"),
+                            .width(1),
+                            .opacity(1)
+                            ))
+                        )),
+                    .data(graphData),
+                    .z(20)
+                ),
+                HeatmapSerie(
+                    .coordinateSystem(.calendar),
+                    .data(HeatmapOptions.getVirtualData(2017))
+                )
+                ])
         )
     }
 

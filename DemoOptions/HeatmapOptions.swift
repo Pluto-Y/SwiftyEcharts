@@ -96,7 +96,7 @@ public final class HeatmapOptions {
         )
     }
     
-    static private func getVirtualData(year: Int) -> [Jsonable] {
+    static public func getVirtualData(year: Int) -> [Jsonable] {
         var result: [Jsonable] = []
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

@@ -494,6 +494,69 @@
 		6FC8A4631FAAF7AF003CA579 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FC8A4611FAAF7AF003CA579 /* Main.storyboard */; };
 		6FC8A46A1FAAF7CC003CA579 /* SwiftyEcharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC8A3D91FAAF5DF003CA579 /* SwiftyEcharts.framework */; };
 		6FC8A46B1FAAF7CC003CA579 /* SwiftyEcharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC8A3D91FAAF5DF003CA579 /* SwiftyEcharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FC8A46D1FAAF8E4003CA579 /* anhui.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F071ED336E300C1DA58 /* anhui.json */; };
+		6FC8A46E1FAAF8E4003CA579 /* aomen.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F081ED336E300C1DA58 /* aomen.json */; };
+		6FC8A46F1FAAF8E4003CA579 /* beijing.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F091ED336E300C1DA58 /* beijing.json */; };
+		6FC8A4701FAAF8E4003CA579 /* chongqing.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F0A1ED336E300C1DA58 /* chongqing.json */; };
+		6FC8A4711FAAF8E4003CA579 /* fujian.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F0B1ED336E300C1DA58 /* fujian.json */; };
+		6FC8A4721FAAF8E4003CA579 /* gansu.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F0C1ED336E300C1DA58 /* gansu.json */; };
+		6FC8A4731FAAF8E4003CA579 /* guangdong.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F0D1ED336E300C1DA58 /* guangdong.json */; };
+		6FC8A4741FAAF8E4003CA579 /* guangxi.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F0E1ED336E300C1DA58 /* guangxi.json */; };
+		6FC8A4751FAAF8E4003CA579 /* guizhou.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F0F1ED336E300C1DA58 /* guizhou.json */; };
+		6FC8A4761FAAF8E4003CA579 /* hainan.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F101ED336E300C1DA58 /* hainan.json */; };
+		6FC8A4771FAAF8E4003CA579 /* hebei.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F111ED336E300C1DA58 /* hebei.json */; };
+		6FC8A4781FAAF8E4003CA579 /* heilongjiang.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F121ED336E300C1DA58 /* heilongjiang.json */; };
+		6FC8A4791FAAF8E4003CA579 /* henan.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F131ED336E300C1DA58 /* henan.json */; };
+		6FC8A47A1FAAF8E4003CA579 /* hubei.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F141ED336E300C1DA58 /* hubei.json */; };
+		6FC8A47B1FAAF8E4003CA579 /* hunan.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F151ED336E300C1DA58 /* hunan.json */; };
+		6FC8A47C1FAAF8E4003CA579 /* jiangsu.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F161ED336E300C1DA58 /* jiangsu.json */; };
+		6FC8A47D1FAAF8E4003CA579 /* jiangxi.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F171ED336E300C1DA58 /* jiangxi.json */; };
+		6FC8A47E1FAAF8E4003CA579 /* jilin.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F181ED336E300C1DA58 /* jilin.json */; };
+		6FC8A47F1FAAF8E4003CA579 /* liaoning.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F191ED336E300C1DA58 /* liaoning.json */; };
+		6FC8A4801FAAF8E4003CA579 /* neimenggu.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F1A1ED336E300C1DA58 /* neimenggu.json */; };
+		6FC8A4811FAAF8E4003CA579 /* ningxia.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F1B1ED336E300C1DA58 /* ningxia.json */; };
+		6FC8A4821FAAF8E4003CA579 /* qinghai.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F1C1ED336E300C1DA58 /* qinghai.json */; };
+		6FC8A4831FAAF8E4003CA579 /* shandong.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F1D1ED336E300C1DA58 /* shandong.json */; };
+		6FC8A4841FAAF8E4003CA579 /* shanghai.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F1E1ED336E300C1DA58 /* shanghai.json */; };
+		6FC8A4851FAAF8E4003CA579 /* shanxi.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F1F1ED336E300C1DA58 /* shanxi.json */; };
+		6FC8A4861FAAF8E4003CA579 /* shanxi1.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F201ED336E300C1DA58 /* shanxi1.json */; };
+		6FC8A4871FAAF8E4003CA579 /* sichuan.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F211ED336E300C1DA58 /* sichuan.json */; };
+		6FC8A4881FAAF8E4003CA579 /* tianjin.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F221ED336E300C1DA58 /* tianjin.json */; };
+		6FC8A4891FAAF8E4003CA579 /* xianggang.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F231ED336E300C1DA58 /* xianggang.json */; };
+		6FC8A48A1FAAF8E4003CA579 /* xinjiang.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F241ED336E300C1DA58 /* xinjiang.json */; };
+		6FC8A48B1FAAF8E4003CA579 /* xizang.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F251ED336E300C1DA58 /* xizang.json */; };
+		6FC8A48C1FAAF8E4003CA579 /* yunnan.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F261ED336E300C1DA58 /* yunnan.json */; };
+		6FC8A48D1FAAF8E4003CA579 /* zhejiang.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA85F271ED336E300C1DA58 /* zhejiang.json */; };
+		6FC8A48E1FAAF8E4003CA579 /* LineAirline.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FE8C1D91EB7806B007BE7F3 /* LineAirline.json */; };
+		6FC8A48F1FAAF8E4003CA579 /* LinesBus.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FE8C1DA1EB7806B007BE7F3 /* LinesBus.json */; };
+		6FC8A4901FAAF8E4003CA579 /* ConfidenceBandData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F9DF55A1E9BE90C00577899 /* ConfidenceBandData.plist */; };
+		6FC8A4911FAAF8E4003CA579 /* LineOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F07C1E2C8F4000CE20E5 /* LineOptions.swift */; };
+		6FC8A4921FAAF8E4003CA579 /* BeijingAQIDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F9DF5541E9BC37700577899 /* BeijingAQIDatas.plist */; };
+		6FC8A4931FAAF8E4003CA579 /* ScatterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F07E1E2C94FF00CE20E5 /* ScatterOptions.swift */; };
+		6FC8A4941FAAF8E4003CA579 /* BarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0801E2C953700CE20E5 /* BarOptions.swift */; };
+		6FC8A4951FAAF8E4003CA579 /* MapOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0821E2C95CF00CE20E5 /* MapOptions.swift */; };
+		6FC8A4961FAAF8E4003CA579 /* PieOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0841E2C95D900CE20E5 /* PieOptions.swift */; };
+		6FC8A4971FAAF8E4003CA579 /* RadarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0881E2C96D700CE20E5 /* RadarOptions.swift */; };
+		6FC8A4981FAAF8E4003CA579 /* CandlestickOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F08A1E2C96F900CE20E5 /* CandlestickOptions.swift */; };
+		6FC8A4991FAAF8E4003CA579 /* BoxplotOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F08C1E2C971900CE20E5 /* BoxplotOptions.swift */; };
+		6FC8A49A1FAAF8E4003CA579 /* HeatmapOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F08E1E2C97BB00CE20E5 /* HeatmapOptions.swift */; };
+		6FC8A49B1FAAF8E4003CA579 /* GraphOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0901E2C97C600CE20E5 /* GraphOptions.swift */; };
+		6FC8A49C1FAAF8E4003CA579 /* TreemapOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0921E2C97D100CE20E5 /* TreemapOptions.swift */; };
+		6FC8A49D1FAAF8E4003CA579 /* ParalledOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0941E2C980700CE20E5 /* ParalledOptions.swift */; };
+		6FC8A49E1FAAF8E4003CA579 /* SankeyOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0961E2C981500CE20E5 /* SankeyOptions.swift */; };
+		6FC8A49F1FAAF8E4003CA579 /* FunnelOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F0981E2C981F00CE20E5 /* FunnelOptions.swift */; };
+		6FC8A4A01FAAF8E4003CA579 /* GaugeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09A1E2C982900CE20E5 /* GaugeOptions.swift */; };
+		6FC8A4A11FAAF8E4003CA579 /* PictorialBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09C1E2C983A00CE20E5 /* PictorialBarOptions.swift */; };
+		6FC8A4A21FAAF8E4003CA579 /* ThemeRiverOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427F09E1E2C984500CE20E5 /* ThemeRiverOptions.swift */; };
+		6FC8A4A31FAAF8E4003CA579 /* AreaRainfallDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */; };
+		6FC8A4A41FAAF8E4003CA579 /* ThemeRiverBasicData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54371F0B1E8A3C7C008C3D22 /* ThemeRiverBasicData.plist */; };
+		6FC8A4A51FAAF8E4003CA579 /* HK.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FB9864E1ECBFC8A00D2EFE1 /* HK.json */; };
+		6FC8A4A61FAAF8E4003CA579 /* USA.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F4E6AAF1ECDC8CD00E2858B /* USA.json */; };
+		6FC8A4A71FAAF8E4003CA579 /* MixZoomOnValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F6F17DF1F5F0FFA0062ABEA /* MixZoomOnValue.json */; };
+		6FC8A4A81FAAF8E4003CA579 /* CandlestickSh2015.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F2A38E81F82AD09008EBEA1 /* CandlestickSh2015.json */; };
+		6FC8A4A91FAAF8E4003CA579 /* stock-DJI.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F12F5661F6CCFE70042793D /* stock-DJI.json */; };
+		6FC8A4AA1FAAF8E4003CA579 /* webkit-dep.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F2904B21FA769C3009B5562 /* webkit-dep.json */; };
+		6FC8A4AB1FAAF8E4003CA579 /* npmdepgraph.min10.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F22436E1FA8A268000888C5 /* npmdepgraph.min10.json */; };
 		6FD1B18F1E9EB457009FC0D9 /* Roam.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC28C9E1E9D57E000B79049 /* Roam.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD1B1901E9EB457009FC0D9 /* SelectedMode.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC28C981E9D538000B79049 /* SelectedMode.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD1B1911E9EB457009FC0D9 /* Symbol.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC28C961E9D535400B79049 /* Symbol.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -543,7 +606,6 @@
 		6FEC7D1B1E549487003A88D7 /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1A1E549487003A88D7 /* Pair.swift */; };
 		6FEC7D1D1E54996B003A88D7 /* PairSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1C1E54996B003A88D7 /* PairSpec.swift */; };
 		6FEC7D1F1E55EEE0003A88D7 /* MarkDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC7D1E1E55EEE0003A88D7 /* MarkDataType.swift */; };
-		6FEC7D231E58152F003A88D7 /* AreaRainfallDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FEC7D221E58152F003A88D7 /* AreaRainfallDatas.plist */; };
 		6FEF717C1E65B75800E1ED70 /* RadarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEF717B1E65B75800E1ED70 /* RadarsController.swift */; };
 		6FEF717E1E686EB700E1ED70 /* ColorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEF717D1E686EB700E1ED70 /* ColorSpec.swift */; };
 		EE5A039AB804545888456230 /* Pods_SwiftyEchartsTest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A278632684D3503CB655D2CD /* Pods_SwiftyEchartsTest_iOS.framework */; };
@@ -1779,7 +1841,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FEC7D231E58152F003A88D7 /* AreaRainfallDatas.plist in Resources */,
 				6F2F70C11E96882F009FF1B0 /* js in Resources */,
 				6F2F70BC1E96881F009FF1B0 /* echarts.html in Resources */,
 			);
@@ -1862,8 +1923,54 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FC8A4A31FAAF8E4003CA579 /* AreaRainfallDatas.plist in Resources */,
+				6FC8A48F1FAAF8E4003CA579 /* LinesBus.json in Resources */,
+				6FC8A4841FAAF8E4003CA579 /* shanghai.json in Resources */,
+				6FC8A48B1FAAF8E4003CA579 /* xizang.json in Resources */,
+				6FC8A4A91FAAF8E4003CA579 /* stock-DJI.json in Resources */,
+				6FC8A47B1FAAF8E4003CA579 /* hunan.json in Resources */,
+				6FC8A4721FAAF8E4003CA579 /* gansu.json in Resources */,
+				6FC8A48E1FAAF8E4003CA579 /* LineAirline.json in Resources */,
+				6FC8A4731FAAF8E4003CA579 /* guangdong.json in Resources */,
+				6FC8A4781FAAF8E4003CA579 /* heilongjiang.json in Resources */,
+				6FC8A4761FAAF8E4003CA579 /* hainan.json in Resources */,
+				6FC8A4821FAAF8E4003CA579 /* qinghai.json in Resources */,
+				6FC8A4AA1FAAF8E4003CA579 /* webkit-dep.json in Resources */,
+				6FC8A46D1FAAF8E4003CA579 /* anhui.json in Resources */,
+				6FC8A4771FAAF8E4003CA579 /* hebei.json in Resources */,
+				6FC8A4751FAAF8E4003CA579 /* guizhou.json in Resources */,
+				6FC8A4851FAAF8E4003CA579 /* shanxi.json in Resources */,
+				6FC8A4791FAAF8E4003CA579 /* henan.json in Resources */,
+				6FC8A4A81FAAF8E4003CA579 /* CandlestickSh2015.json in Resources */,
+				6FC8A4901FAAF8E4003CA579 /* ConfidenceBandData.plist in Resources */,
+				6FC8A47F1FAAF8E4003CA579 /* liaoning.json in Resources */,
+				6FC8A48C1FAAF8E4003CA579 /* yunnan.json in Resources */,
+				6FC8A48A1FAAF8E4003CA579 /* xinjiang.json in Resources */,
 				6FC8A4601FAAF7AF003CA579 /* Assets.xcassets in Resources */,
+				6FC8A46E1FAAF8E4003CA579 /* aomen.json in Resources */,
+				6FC8A4921FAAF8E4003CA579 /* BeijingAQIDatas.plist in Resources */,
+				6FC8A4881FAAF8E4003CA579 /* tianjin.json in Resources */,
+				6FC8A4A71FAAF8E4003CA579 /* MixZoomOnValue.json in Resources */,
+				6FC8A4A51FAAF8E4003CA579 /* HK.json in Resources */,
+				6FC8A4741FAAF8E4003CA579 /* guangxi.json in Resources */,
+				6FC8A46F1FAAF8E4003CA579 /* beijing.json in Resources */,
+				6FC8A48D1FAAF8E4003CA579 /* zhejiang.json in Resources */,
+				6FC8A4A41FAAF8E4003CA579 /* ThemeRiverBasicData.plist in Resources */,
+				6FC8A4A61FAAF8E4003CA579 /* USA.json in Resources */,
+				6FC8A47D1FAAF8E4003CA579 /* jiangxi.json in Resources */,
+				6FC8A4801FAAF8E4003CA579 /* neimenggu.json in Resources */,
+				6FC8A4701FAAF8E4003CA579 /* chongqing.json in Resources */,
+				6FC8A4861FAAF8E4003CA579 /* shanxi1.json in Resources */,
+				6FC8A4711FAAF8E4003CA579 /* fujian.json in Resources */,
+				6FC8A4AB1FAAF8E4003CA579 /* npmdepgraph.min10.json in Resources */,
+				6FC8A47E1FAAF8E4003CA579 /* jilin.json in Resources */,
+				6FC8A4811FAAF8E4003CA579 /* ningxia.json in Resources */,
+				6FC8A4831FAAF8E4003CA579 /* shandong.json in Resources */,
 				6FC8A4631FAAF7AF003CA579 /* Main.storyboard in Resources */,
+				6FC8A47A1FAAF8E4003CA579 /* hubei.json in Resources */,
+				6FC8A47C1FAAF8E4003CA579 /* jiangsu.json in Resources */,
+				6FC8A4871FAAF8E4003CA579 /* sichuan.json in Resources */,
+				6FC8A4891FAAF8E4003CA579 /* xianggang.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2318,8 +2425,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FC8A4911FAAF8E4003CA579 /* LineOptions.swift in Sources */,
+				6FC8A4981FAAF8E4003CA579 /* CandlestickOptions.swift in Sources */,
+				6FC8A49F1FAAF8E4003CA579 /* FunnelOptions.swift in Sources */,
+				6FC8A4961FAAF8E4003CA579 /* PieOptions.swift in Sources */,
+				6FC8A4A21FAAF8E4003CA579 /* ThemeRiverOptions.swift in Sources */,
+				6FC8A4A11FAAF8E4003CA579 /* PictorialBarOptions.swift in Sources */,
+				6FC8A4931FAAF8E4003CA579 /* ScatterOptions.swift in Sources */,
+				6FC8A49A1FAAF8E4003CA579 /* HeatmapOptions.swift in Sources */,
+				6FC8A4971FAAF8E4003CA579 /* RadarOptions.swift in Sources */,
+				6FC8A4A01FAAF8E4003CA579 /* GaugeOptions.swift in Sources */,
 				6FC8A45E1FAAF7AF003CA579 /* ViewController.swift in Sources */,
+				6FC8A49E1FAAF8E4003CA579 /* SankeyOptions.swift in Sources */,
+				6FC8A4941FAAF8E4003CA579 /* BarOptions.swift in Sources */,
+				6FC8A4991FAAF8E4003CA579 /* BoxplotOptions.swift in Sources */,
 				6FC8A45C1FAAF7AF003CA579 /* AppDelegate.swift in Sources */,
+				6FC8A4951FAAF8E4003CA579 /* MapOptions.swift in Sources */,
+				6FC8A49D1FAAF8E4003CA579 /* ParalledOptions.swift in Sources */,
+				6FC8A49C1FAAF8E4003CA579 /* TreemapOptions.swift in Sources */,
+				6FC8A49B1FAAF8E4003CA579 /* GraphOptions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

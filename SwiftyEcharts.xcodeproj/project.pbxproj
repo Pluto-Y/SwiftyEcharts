@@ -488,6 +488,12 @@
 		6FC8A4521FAAF66F003CA579 /* EchartsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B9BD81F7C910600B7D802 /* EchartsEvent.swift */; };
 		6FC8A4531FAAF66F003CA579 /* EchartsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50F3F11F8D03ED007D5D30 /* EchartsAction.swift */; };
 		6FC8A4541FAAF674003CA579 /* SwiftyEcharts.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F13256F1D9312A90006F114 /* SwiftyEcharts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC8A45C1FAAF7AF003CA579 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC8A45B1FAAF7AF003CA579 /* AppDelegate.swift */; };
+		6FC8A45E1FAAF7AF003CA579 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC8A45D1FAAF7AF003CA579 /* ViewController.swift */; };
+		6FC8A4601FAAF7AF003CA579 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FC8A45F1FAAF7AF003CA579 /* Assets.xcassets */; };
+		6FC8A4631FAAF7AF003CA579 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FC8A4611FAAF7AF003CA579 /* Main.storyboard */; };
+		6FC8A46A1FAAF7CC003CA579 /* SwiftyEcharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC8A3D91FAAF5DF003CA579 /* SwiftyEcharts.framework */; };
+		6FC8A46B1FAAF7CC003CA579 /* SwiftyEcharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC8A3D91FAAF5DF003CA579 /* SwiftyEcharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FD1B18F1E9EB457009FC0D9 /* Roam.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC28C9E1E9D57E000B79049 /* Roam.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD1B1901E9EB457009FC0D9 /* SelectedMode.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC28C981E9D538000B79049 /* SelectedMode.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD1B1911E9EB457009FC0D9 /* Symbol.swift in Headers */ = {isa = PBXBuildFile; fileRef = 6FC28C961E9D535400B79049 /* Symbol.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -551,6 +557,13 @@
 			remoteGlobalIDString = 6F13256B1D9312A90006F114;
 			remoteInfo = SwiftyEcharts;
 		};
+		6FC8A4681FAAF7C7003CA579 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F1325631D9312A90006F114 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FC8A3D81FAAF5DF003CA579;
+			remoteInfo = "SwiftyEcharts OS X";
+		};
 		6FF760731DE896F200580D27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6F1325631D9312A90006F114 /* Project object */;
@@ -568,6 +581,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6FB48C981DED4A4F00137D13 /* SwiftyEcharts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FC8A46C1FAAF7CC003CA579 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6FC8A46B1FAAF7CC003CA579 /* SwiftyEcharts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -848,6 +872,12 @@
 		6FC40CFB1E4CB20300F6E62F /* Parallel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Parallel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FC40CFD1E4CB22900F6E62F /* ParallelAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ParallelAxis.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FC8A3D91FAAF5DF003CA579 /* SwiftyEcharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyEcharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FC8A4591FAAF7AF003CA579 /* OSX_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSX_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FC8A45B1FAAF7AF003CA579 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6FC8A45D1FAAF7AF003CA579 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6FC8A45F1FAAF7AF003CA579 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6FC8A4621FAAF7AF003CA579 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6FC8A4641FAAF7AF003CA579 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FD249C11E4E121F00FBB2F7 /* GraphicType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicType.swift; sourceTree = "<group>"; };
 		6FD249C31E4E142100FBB2F7 /* Graphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Graphic.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6FD249C91E4E186D00FBB2F7 /* GroupGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GroupGraphic.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -923,6 +953,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FC8A4561FAAF7AF003CA579 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FC8A46A1FAAF7CC003CA579 /* SwiftyEcharts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1111,6 +1149,7 @@
 				6F13256E1D9312A90006F114 /* SwiftyEcharts */,
 				6F9B70DE1DE808E600406B55 /* iOS_Example */,
 				6FB48CAF1DEE9FF300137D13 /* SwiftyEchartsTest_iOS */,
+				6FC8A45A1FAAF7AF003CA579 /* OSX_Example */,
 				6F13256D1D9312A90006F114 /* Products */,
 				1B4C9AA48832F7F37E8881A9 /* Pods */,
 				542A7A37A9B7DDCA8E170BBB /* Frameworks */,
@@ -1124,6 +1163,7 @@
 				6F9B70DD1DE808E600406B55 /* iOS_Example.app */,
 				6FB48CAE1DEE9FF300137D13 /* SwiftyEchartsTest_iOS.xctest */,
 				6FC8A3D91FAAF5DF003CA579 /* SwiftyEcharts.framework */,
+				6FC8A4591FAAF7AF003CA579 /* OSX_Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1422,6 +1462,18 @@
 			path = Axis;
 			sourceTree = "<group>";
 		};
+		6FC8A45A1FAAF7AF003CA579 /* OSX_Example */ = {
+			isa = PBXGroup;
+			children = (
+				6FC8A45B1FAAF7AF003CA579 /* AppDelegate.swift */,
+				6FC8A45D1FAAF7AF003CA579 /* ViewController.swift */,
+				6FC8A45F1FAAF7AF003CA579 /* Assets.xcassets */,
+				6FC8A4611FAAF7AF003CA579 /* Main.storyboard */,
+				6FC8A4641FAAF7AF003CA579 /* Info.plist */,
+			);
+			path = OSX_Example;
+			sourceTree = "<group>";
+		};
 		6FD249C01E4E121300FBB2F7 /* Graphic */ = {
 			isa = PBXGroup;
 			children = (
@@ -1647,13 +1699,32 @@
 			productReference = 6FC8A3D91FAAF5DF003CA579 /* SwiftyEcharts.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		6FC8A4581FAAF7AF003CA579 /* OSX_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FC8A4651FAAF7AF003CA579 /* Build configuration list for PBXNativeTarget "OSX_Example" */;
+			buildPhases = (
+				6FC8A4551FAAF7AF003CA579 /* Sources */,
+				6FC8A4561FAAF7AF003CA579 /* Frameworks */,
+				6FC8A4571FAAF7AF003CA579 /* Resources */,
+				6FC8A46C1FAAF7CC003CA579 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6FC8A4691FAAF7C7003CA579 /* PBXTargetDependency */,
+			);
+			name = OSX_Example;
+			productName = OSX_Example;
+			productReference = 6FC8A4591FAAF7AF003CA579 /* OSX_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		6F1325631D9312A90006F114 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "com.pluto-y";
 				TargetAttributes = {
@@ -1672,6 +1743,10 @@
 						ProvisioningStyle = Automatic;
 					};
 					6FC8A3D81FAAF5DF003CA579 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					6FC8A4581FAAF7AF003CA579 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -1694,6 +1769,7 @@
 				6F13256B1D9312A90006F114 /* SwiftyEcharts */,
 				6FB48CAD1DEE9FF300137D13 /* SwiftyEchartsTest_iOS */,
 				6FC8A3D81FAAF5DF003CA579 /* SwiftyEcharts OS X */,
+				6FC8A4581FAAF7AF003CA579 /* OSX_Example */,
 			);
 		};
 /* End PBXProject section */
@@ -1779,6 +1855,15 @@
 			files = (
 				6FC8A3E11FAAF5F8003CA579 /* js in Resources */,
 				6FC8A3E21FAAF5FC003CA579 /* echarts.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FC8A4571FAAF7AF003CA579 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FC8A4601FAAF7AF003CA579 /* Assets.xcassets in Resources */,
+				6FC8A4631FAAF7AF003CA579 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2229,6 +2314,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6FC8A4551FAAF7AF003CA579 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FC8A45E1FAAF7AF003CA579 /* ViewController.swift in Sources */,
+				6FC8A45C1FAAF7AF003CA579 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2236,6 +2330,11 @@
 			isa = PBXTargetDependency;
 			target = 6F13256B1D9312A90006F114 /* SwiftyEcharts */;
 			targetProxy = 6FB48CB41DEE9FF400137D13 /* PBXContainerItemProxy */;
+		};
+		6FC8A4691FAAF7C7003CA579 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6FC8A3D81FAAF5DF003CA579 /* SwiftyEcharts OS X */;
+			targetProxy = 6FC8A4681FAAF7C7003CA579 /* PBXContainerItemProxy */;
 		};
 		6FF760741DE896F200580D27 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2259,6 +2358,14 @@
 				6F9B70E91DE808E600406B55 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		6FC8A4611FAAF7AF003CA579 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6FC8A4621FAAF7AF003CA579 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2523,6 +2630,44 @@
 			};
 			name = Release;
 		};
+		6FC8A4661FAAF7AF003CA579 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = OSX_Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pluto-y.OSX-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6FC8A4671FAAF7AF003CA579 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = OSX_Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pluto-y.OSX-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2567,6 +2712,14 @@
 			buildConfigurations = (
 				6FC8A3DE1FAAF5DF003CA579 /* Debug */,
 				6FC8A3DF1FAAF5DF003CA579 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6FC8A4651FAAF7AF003CA579 /* Build configuration list for PBXNativeTarget "OSX_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FC8A4661FAAF7AF003CA579 /* Debug */,
+				6FC8A4671FAAF7AF003CA579 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

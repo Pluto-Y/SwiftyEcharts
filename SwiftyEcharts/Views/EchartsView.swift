@@ -5,7 +5,6 @@
 //  Created by Pluto Y on 25/11/2016.
 //  Copyright © 2016 com.pluto-y. All rights reserved.
 //
-import UIKit
 import WebKit
 
 open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
@@ -175,9 +174,11 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
         }
         
         userContentController.add(self, name: "wkechartview")
-        
-        scrollView.isScrollEnabled = false
-        scrollView.bounces = false
+#if os(OSX)
+#elseif os(iOS)
+    scrollView.isScrollEnabled = false
+    scrollView.bounces = false
+#endif
         uiDelegate = self
         navigationDelegate = self
         reset()
@@ -255,7 +256,7 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
     
     // MARK: WKScriptMessageHandler
     open func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        print("name:\(message.name), body:\(message.body)")
+        Swift.print("name:\(message.name), body:\(message.body)")
         guard let event = EchartsEvent(rawValue: message.name), let handler = eventWithHandlers[event] else { return }
         handler(message.body as! [String: AnyObject])
     }
@@ -264,7 +265,7 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
 
 extension EchartsView {
     public func dispatchAction<T: EchartsAction>(_ action: T) {
-        print("dispatchAction(\(action.jsonString))")
+        Swift.print("dispatchAction(\(action.jsonString))")
         
         callJsMethod("dispatchAction(\(action.jsonString))")
     }

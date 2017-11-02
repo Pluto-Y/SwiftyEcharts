@@ -18,7 +18,6 @@ open class EchartsView: WKWebView, WKNavigationDelegate, WKUIDelegate, WKScriptM
 
     public convenience init() {
         self.init(frame: CGRect.zero, configuration: WKWebViewConfiguration())
-        initViews()
     }
     
     public override init(frame: CGRect, configuration: WKWebViewConfiguration) {

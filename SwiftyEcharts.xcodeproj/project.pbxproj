@@ -107,6 +107,8 @@
 		6F201F101F0A587E00087764 /* BezierCurveGraphicSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F201F0F1F0A587E00087764 /* BezierCurveGraphicSpec.swift */; };
 		6F201F121F0A665200087764 /* LabelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F201F111F0A665200087764 /* LabelSpec.swift */; };
 		6F22436F1FA8A268000888C5 /* npmdepgraph.min10.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F22436E1FA8A268000888C5 /* npmdepgraph.min10.json */; };
+		6F24F34D1FBCB1E50073A120 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F70C01E96882F009FF1B0 /* js */; };
+		6F24F34E1FBCB1E50073A120 /* echarts.html in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F70B71E96881F009FF1B0 /* echarts.html */; };
 		6F2904B31FA769C3009B5562 /* webkit-dep.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F2904B21FA769C3009B5562 /* webkit-dep.json */; };
 		6F2A38E91F82AD09008EBEA1 /* CandlestickSh2015.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F2A38E81F82AD09008EBEA1 /* CandlestickSh2015.json */; };
 		6F2F70BC1E96881F009FF1B0 /* echarts.html in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F70B71E96881F009FF1B0 /* echarts.html */; };
@@ -1923,6 +1925,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F24F34D1FBCB1E50073A120 /* js in Resources */,
+				6F24F34E1FBCB1E50073A120 /* echarts.html in Resources */,
 				6FC8A4A31FAAF8E4003CA579 /* AreaRainfallDatas.plist in Resources */,
 				6FC8A48F1FAAF8E4003CA579 /* LinesBus.json in Resources */,
 				6FC8A4841FAAF8E4003CA579 /* shanghai.json in Resources */,
@@ -2720,7 +2724,7 @@
 				INFOPLIST_FILE = SwiftyEcharts/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pluto-y.SwiftyEcharts";
 				PRODUCT_NAME = SwiftyEcharts;
 				SDKROOT = macosx;
@@ -2744,7 +2748,7 @@
 				INFOPLIST_FILE = SwiftyEcharts/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pluto-y.SwiftyEcharts";
 				PRODUCT_NAME = SwiftyEcharts;
 				SDKROOT = macosx;
@@ -2838,6 +2842,7 @@
 				6FC8A3DF1FAAF5DF003CA579 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6FC8A4651FAAF7AF003CA579 /* Build configuration list for PBXNativeTarget "OSX_Example" */ = {
 			isa = XCConfigurationList;
@@ -2846,6 +2851,7 @@
 				6FC8A4671FAAF7AF003CA579 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

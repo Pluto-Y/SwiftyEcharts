@@ -44,6 +44,7 @@ public enum Color: Jsonable {
     case rgba(Int, Int, Int, Float)
     case rgb(Int, Int, Int)
     case hexColor(String)
+    case function(Function)
     case array([Color])
     case image(String, ImageRepeat)
     case linearGradient(Float, Float, Float, Float, [GradientColorElement], Bool)
@@ -100,8 +101,8 @@ public enum Color: Jsonable {
             return false
         }
         
-        var rgbValue: Int = 0
-        return Scanner(string: cString).scanInt(&rgbValue)
+        var rgbValue: UInt64 = 0
+        return Scanner(string: cString).scanHexInt64(&rgbValue)
     }
     
     public var jsonString: String {
@@ -121,6 +122,8 @@ public enum Color: Jsonable {
                 return "null".jsonString
             }
             return "\(hexColor)".jsonString
+        case let .function(function):
+            return function.jsonString
         case .auto:
             return "auto".jsonString
         case .red:
